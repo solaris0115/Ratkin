@@ -12,6 +12,9 @@ Project/*/Source/bin/
 Project/*/Source/obj/
 Project/*/Source/.vs/
 
+# 1.5 폴더 전체 제외 (1.6으로 이전 예정)
+Project/1.5/
+
 # 임시 파일들
 *.tmp
 *.temp
