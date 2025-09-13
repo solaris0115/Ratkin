@@ -1,8 +1,8 @@
 # Cursor 인덱싱에서 제외할 파일들
 
-# 워크플로우 추적 파일들 제외
-workflow/
-WorkFlow/
+# 워크플로우 추적 파일들
+# workflow/
+# WorkFlow/
 
 # Git 관련 파일들
 .git/
