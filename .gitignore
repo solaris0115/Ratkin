@@ -1,0 +1,19 @@
+# Ratkin 프로젝트 .gitignore
+# Project/ 폴더만 트래킹하고 나머지는 무시
+
+# 모든 파일과 폴더를 기본적으로 무시
+/*
+
+# Project/ 폴더만 트래킹
+!/Project/
+!/Project/**
+
+# 워크플로우 추적 파일들도 트래킹
+!/workflow/
+!/workflow/**
+
+# .gitignore 파일 자체도 트래킹
+!.gitignore
+
+# Git 관련 파일들
+!.git/
