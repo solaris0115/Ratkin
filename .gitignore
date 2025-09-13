@@ -16,3 +16,7 @@
 
 # .gitignore 파일 자체도 트래킹
 !.gitignore
+
+# C# 프로젝트 빌드 출력 폴더 제외
+obj/
+bin/
