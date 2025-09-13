@@ -4,16 +4,15 @@
 # 모든 파일과 폴더를 기본적으로 무시
 /*
 
-# Project/ 폴더만 트래킹
+# Project/ 폴더만 트래킹 (모든 하위 폴더와 파일 포함)
 !/Project/
-!/Project/**
+!/Project/**/*
 
-# 워크플로우 추적 파일들도 트래킹
+# 워크플로우 추적 파일들은 기본적으로 무시 (필요시 수동 추가)
 !/workflow/
 !/workflow/**
+!/WorkFlow/
+!/WorkFlow/**
 
 # .gitignore 파일 자체도 트래킹
 !.gitignore
-
-# Git 관련 파일들
-!.git/

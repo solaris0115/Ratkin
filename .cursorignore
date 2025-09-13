@@ -1,1 +1,25 @@
-# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+# Cursor 인덱싱에서 제외할 파일들
+
+# 워크플로우 추적 파일들 제외
+workflow/
+WorkFlow/
+
+# Git 관련 파일들
+.git/
+
+# 빌드 결과물들
+Project/*/Source/bin/
+Project/*/Source/obj/
+Project/*/Source/.vs/
+
+# 임시 파일들
+*.tmp
+*.temp
+*~
+
+# 로그 파일들
+*.log
+
+# IDE 설정 파일들 (필요시 추가)
+.vscode/
+.idea/
