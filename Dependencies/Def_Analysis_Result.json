@@ -1,0 +1,938 @@
+﻿{
+    "resourceMappings":  {
+                             "RK_twin3":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/twin3"
+                                              }
+                                          ],
+                             "RK_LongE":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/LongE"
+                                              }
+                                          ],
+                             "RK_ElectricTailoringBench":  [
+                                                               {
+                                                                   "type":  "texture",
+                                                                   "path":  "Things/Building/Production/RK_SewingMachine"
+                                                               }
+                                                           ],
+                             "PrototypePulse":  [
+                                                    {
+                                                        "type":  "sound",
+                                                        "path":  "PrototypePulse"
+                                                    }
+                                                ],
+                             "RK_BraidedB":  [
+                                                 {
+                                                     "type":  "texture",
+                                                     "path":  "Hair/RK_BraidedB"
+                                                 }
+                                             ],
+                             "RK_OverHeat":  [
+                                                 {
+                                                     "type":  "sound",
+                                                     "path":  "Gunlance/OverHeat"
+                                                 }
+                                             ],
+                             "RK_twin4":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/twin4"
+                                              }
+                                          ],
+                             "FlechetteRifle":  [
+                                                    {
+                                                        "type":  "sound",
+                                                        "path":  "Rifle"
+                                                    }
+                                                ],
+                             "RK_WavelongA":  [
+                                                  {
+                                                      "type":  "texture",
+                                                      "path":  "Hair/RK_WavelongA"
+                                                  }
+                                              ],
+                             "Rifle":  [
+                                           {
+                                               "type":  "sound",
+                                               "path":  "FlechetteRifle"
+                                           }
+                                       ],
+                             "RK_twin5":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/RK_twin5"
+                                              }
+                                          ],
+                             "RK_Braided":  [
+                                                {
+                                                    "type":  "texture",
+                                                    "path":  "Hair/RK_Braided"
+                                                }
+                                            ],
+                             "RK_LongA":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/LongA"
+                                              }
+                                          ],
+                             "RK_Reload":  [
+                                               {
+                                                   "type":  "sound",
+                                                   "path":  "Gunlance/Reload"
+                                               }
+                                           ],
+                             "RK_twinA":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/twinA"
+                                              }
+                                          ],
+                             "RK_Middle2":  [
+                                                {
+                                                    "type":  "texture",
+                                                    "path":  "Hair/RK_middl2"
+                                                }
+                                            ],
+                             "RK_PonyA":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/ponyA"
+                                              }
+                                          ],
+                             "RK_HandTailoringBench":  [
+                                                           {
+                                                               "type":  "texture",
+                                                               "path":  "Things/Building/Production/RK_SewingMachine"
+                                                           }
+                                                       ],
+                             "RK_LongD":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/LongD"
+                                              }
+                                          ],
+                             "RK_Fire":  [
+                                             {
+                                                 "type":  "sound",
+                                                 "path":  "Gunlance/Fire"
+                                             }
+                                         ],
+                             "RK_FueledSmithy":  [
+                                                     {
+                                                         "type":  "texture",
+                                                         "path":  "Things/Building/Production/RK_Anvil2"
+                                                     }
+                                                 ],
+                             "RK_WyvernFire":  [
+                                                   {
+                                                       "type":  "sound",
+                                                       "path":  "Gunlance/WyvernFire"
+                                                   }
+                                               ],
+                             "RK_middl":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/RK_middl"
+                                              }
+                                          ],
+                             "RK_MPony":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/pony"
+                                              }
+                                          ],
+                             "RK_twin2":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/twin2"
+                                              }
+                                          ],
+                             "RK_ElectricSmithy":  [
+                                                       {
+                                                           "type":  "texture",
+                                                           "path":  "Things/Building/Production/RK_Anvil2"
+                                                       }
+                                                   ],
+                             "RK_side_tail":  [
+                                                  {
+                                                      "type":  "texture",
+                                                      "path":  "Hair/RK_side_tail"
+                                                  }
+                                              ],
+                             "RK_twin6":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/twin5"
+                                              }
+                                          ],
+                             "RK_LongB":  [
+                                              {
+                                                  "type":  "texture",
+                                                  "path":  "Hair/LongB"
+                                              }
+                                          ],
+                             "RK_Charge":  [
+                                               {
+                                                   "type":  "sound",
+                                                   "path":  "Gunlance/Charge"
+                                               }
+                                           ],
+                             "RK_sidePonyA":  [
+                                                  {
+                                                      "type":  "texture",
+                                                      "path":  "Hair/side_ponyA"
+                                                  }
+                                              ]
+                         },
+    "dependencies":  {
+                         "HighClassClothing":  [
+                                                   "RatkinTech"
+                                               ],
+                         "MicroOptical":  [
+                                              "RatkinTech"
+                                          ],
+                         "PiercingWeapon":  [
+                                                "RatkinTech"
+                                            ],
+                         "RatkinColonist":  [
+                                                "RK_PlayerFaction"
+                                            ],
+                         "Ballista":  [
+                                          "RatkinTech"
+                                      ],
+                         "PulseTech":  [
+                                           "RatkinTech"
+                                       ],
+                         "MechanicalWeapon":  [
+                                                  "RatkinTech"
+                                              ],
+                         "Bigmouse":  [
+                                          "RatkinTech"
+                                      ],
+                         "Advanced_BallistaBolt":  [
+                                                       "RatkinTech"
+                                                   ],
+                         "FlechetteBullet":  [
+                                                 "RatkinTech"
+                                             ],
+                         "RatkinClothing":  [
+                                                "RatkinTech"
+                                            ]
+                     },
+    "analysisDate":  "2025-09-15 오후 6:09:38",
+    "defTypes":  {
+                     "FactionDef":  [
+                                        {
+                                            "file":  "Project/1.6/Defs/FactionDefs/Factions_Misc.xml",
+                                            "defName":  "Rakinia"
+                                        },
+                                        {
+                                            "file":  "Project/1.6/Defs/FactionDefs/Factions_Misc.xml",
+                                            "defName":  "RatkinCaravan"
+                                        },
+                                        {
+                                            "file":  "Project/1.6/Defs/FactionDefs/Factions_Player.xml",
+                                            "defName":  "RK_PlayerFaction"
+                                        }
+                                    ],
+                     "RecipeDef":  [
+                                       {
+                                           "file":  "Project/1.6/Defs/RecipeDefs/Recipes_Surgery_Installations.xml",
+                                           "defName":  "RK_InstallFakeEar"
+                                       },
+                                       {
+                                           "file":  "Project/1.6/Defs/RecipeDefs/Recipes_Surgery_Installations.xml",
+                                           "defName":  "RK_InstallFakeTail"
+                                       },
+                                       {
+                                           "file":  "Project/1.6/Defs/RecipeDefs/Recipes_Surgery_Installations.xml",
+                                           "defName":  "RK_InstallBionicTail"
+                                       }
+                                   ],
+                     "RulePackDef":  [
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Battles.xml",
+                                             "defName":  "RK_Maneuver_Shell"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Battles.xml",
+                                             "defName":  "RK_Maneuver_Shell_MeleeHit"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Battles.xml",
+                                             "defName":  "RK_Maneuver_Shell_MeleeDeflect"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Battles.xml",
+                                             "defName":  "RK_Maneuver_Shell_MeleeMiss"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Battles.xml",
+                                             "defName":  "RK_Maneuver_Shell_MeleeDodge"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Namers_Factions.xml",
+                                             "defName":  "RatkinKingdomNameUtility"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Namers_Factions.xml",
+                                             "defName":  "NamerPerson_RatkinKingdom"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Namers_Factions.xml",
+                                             "defName":  "NamerFaction_RatkinKingdom"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/RulePack/RulePacks_Namers_Factions.xml",
+                                             "defName":  "NamerSettlement_RatkinKingdom"
+                                         }
+                                     ],
+                     "ResearchTabDef":  [
+                                            {
+                                                "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                "defName":  "RatkinTech"
+                                            }
+                                        ],
+                     "PawnKindDef":  [
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinColonist"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinNoble"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinServant"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinPriest"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinMerchant"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinCombatant"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinVanguard"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinDefender"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinSoldier"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinEliteGuardener"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinKnight"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinEliteDefender"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinKnightCommander"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinEliteSoldier"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinDemonMan"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinPettyThief"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinMurderer"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinVagabond"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinMercenaryLight"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinSubject"
+                                         },
+                                         {
+                                             "file":  "Project/1.6/Defs/PawnKindDef_Ratkin/PawnKinds_Player.xml",
+                                             "defName":  "RatkinMercenary"
+                                         }
+                                     ],
+                     "ScenarioDef":  [
+                                         {
+                                             "file":  "Project/1.6/Defs/Scenario/RK_Scenarios_Default.xml",
+                                             "defName":  "RK_Scenario"
+                                         }
+                                     ],
+                     "TraderKindDef":  [
+                                           {
+                                               "file":  "Project/1.6/Defs/TraderDefs/TraderKinds_Caravan_Ratkin.xml",
+                                               "defName":  "Caravan_Ratkin_BulkGoods"
+                                           },
+                                           {
+                                               "file":  "Project/1.6/Defs/TraderDefs/TraderKinds_Caravan_Ratkin.xml",
+                                               "defName":  "Caravan_Ratkin_DressMerchant"
+                                           },
+                                           {
+                                               "file":  "Project/1.6/Defs/TraderDefs/TraderKinds_Caravan_Ratkin.xml",
+                                               "defName":  "Caravan_Ratkin_CombatSupplier"
+                                           },
+                                           {
+                                               "file":  "Project/1.6/Defs/TraderDefs/TraderKinds_Caravan_Ratkin.xml",
+                                               "defName":  "Caravan_Ratkin_Free_company"
+                                           }
+                                       ],
+                     "SoundDef":  [
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "Rifle"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "PrototypePulse"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "FlechetteRifle"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "RK_Charge"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "RK_Fire"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "RK_OverHeat"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "RK_Reload"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/SoundDefs/SoundDef.xml",
+                                          "defName":  "RK_WyvernFire"
+                                      }
+                                  ],
+                     "ThingDef":  [
+                                      {
+                                          "file":  "Project/1.6/Defs/ThingDefs_Building/Buildings_Production.xml",
+                                          "defName":  "RK_HandTailoringBench"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/ThingDefs_Building/Buildings_Production.xml",
+                                          "defName":  "RK_ElectricTailoringBench"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/ThingDefs_Building/Buildings_Production.xml",
+                                          "defName":  "RK_FueledSmithy"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/ThingDefs_Building/Buildings_Production.xml",
+                                          "defName":  "RK_ElectricSmithy"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/Things_ItemDefs/Items_BodyParts.xml",
+                                          "defName":  "RK_FakeEar"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/Things_ItemDefs/Items_BodyParts.xml",
+                                          "defName":  "RK_FakeTail"
+                                      },
+                                      {
+                                          "file":  "Project/1.6/Defs/Things_ItemDefs/Items_BodyParts.xml",
+                                          "defName":  "RK_BionicTail"
+                                      }
+                                  ],
+                     "StorytellerDef":  [
+                                            {
+                                                "file":  "Project/1.6/Defs/Storytellers/Storytellers.xml",
+                                                "defName":  "RottyMilden"
+                                            }
+                                        ],
+                     "ResearchProjectDef":  [
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "PiercingWeapon"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "MechanicalWeapon"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "Ballista"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "Advanced_BallistaBolt"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "Bigmouse"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "MicroOptical"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "FlechetteBullet"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "PulseTech"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "RatkinClothing"
+                                                },
+                                                {
+                                                    "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                    "defName":  "HighClassClothing"
+                                                }
+                                            ],
+                     "AlienRace.AlienBackstoryDef":  [
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_WildChild"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_LandRat"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Undergrounder"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_CountryKid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_ShepherdBoy"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Orphan"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Student"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_LittleLibrarian"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_GoldenSpoon"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Bastard"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Successor"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_GuardenerStudent"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_ChefStudent"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_RomanyKid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_OfficerChild"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_MerchantKid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Kid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_ServentChild"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_HumanAssistant"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_CityKid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_SlaveKid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_LaboratoryRats"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_PettyTheft"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_CaravanMerchant"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Wanderer"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Farmer"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Miner"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Hunter"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Shepherd"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Civil"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Noble"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_CityMerchant"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Librarian"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Guardener"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Nimble"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Knight"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Brawler"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Tough"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_KnightCommander"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Faith"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Tough"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Wimp"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Teacher"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Blacksmith"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Thief"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Ambassador"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Soldier"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Explorer"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Chef"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_HandMaiden"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Shooter"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Doctor"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_ArmySurgeon"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_ConstructionWorker"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Rich"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Sister"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Faith"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Butcher"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_CityMaid"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Idol"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Murderer"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Psychopath"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Nimble"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Assistant"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Scientist"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Engineer"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Agriculturist"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_RatkinHunter"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Subject"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Vagabond"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Ratkin_Demoman"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Psychopath"
+                                                         },
+                                                         {
+                                                             "file":  "Project/1.6/Defs/BackStoryDefs/BackstoryDef.xml",
+                                                             "defName":  "Pyromaniac"
+                                                         }
+                                                     ],
+                     "ResearchProjectTagDef":  [
+                                                   {
+                                                       "file":  "Project/1.6/Defs/ResearchDefs/ResearchProjects.xml",
+                                                       "defName":  "RatkinStart"
+                                                   }
+                                               ],
+                     "TraitDef":  [
+                                      {
+                                          "file":  "Project/1.6/Defs/TraitDefs/Trait_Singular.xml",
+                                          "defName":  "Faith"
+                                      }
+                                  ],
+                     "HediffDef":  [
+                                       {
+                                           "file":  "Project/1.6/Defs/HediffDefs/Hediffs_Local_AddedParts.xml",
+                                           "defName":  "RK_FakeEar"
+                                       },
+                                       {
+                                           "file":  "Project/1.6/Defs/HediffDefs/Hediffs_Local_AddedParts.xml",
+                                           "defName":  "RK_FakeTail"
+                                       },
+                                       {
+                                           "file":  "Project/1.6/Defs/HediffDefs/Hediffs_Local_AddedParts.xml",
+                                           "defName":  "RK_BionicTail"
+                                       }
+                                   ],
+                     "BodyPartDef":  [
+                                         {
+                                             "file":  "Project/1.6/Defs/BodyAndPartDefs/Bodyparts_Ratkin.xml",
+                                             "defName":  "RK_RatTail"
+                                         }
+                                     ],
+                     "HairDef":  [
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_Braided"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_BraidedB"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_middl"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_side_tail"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_twin5"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_WavelongA"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_LongA"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_LongB"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_LongD"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_LongE"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_PonyA"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_sidePonyA"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_twin2"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_twin3"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_twin4"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_twinA"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_twin6"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_Middle2"
+                                     },
+                                     {
+                                         "file":  "Project/1.6/Defs/HairDefs/Hairs.xml",
+                                         "defName":  "RK_MPony"
+                                     }
+                                 ],
+                     "BodyDef":  [
+                                     {
+                                         "file":  "Project/1.6/Defs/BodyAndPartDefs/Bodies_Ratkin.xml",
+                                         "defName":  "Ratkin"
+                                     }
+                                 ],
+                     "IncidentDef":  [
+                                         {
+                                             "file":  "Project/1.6/Defs/Storytellers/Storytellers.xml",
+                                             "defName":  "RatkinVagabondJoin"
+                                         }
+                                     ]
+                 }
+}

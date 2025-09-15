@@ -18,6 +18,10 @@
 !/WorkflowArchive/
 !/WorkflowArchive/**
 
+# Dependencies 폴더는 Git에서 추적 (의존성 분석 결과)
+!/Dependencies/
+!/Dependencies/**
+
 # .gitignore 파일 자체도 트래킹
 !.gitignore
 

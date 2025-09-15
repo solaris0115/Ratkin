@@ -52,13 +52,11 @@
 - 파일명 변경 시 안전 가이드 제공
 
 ## 관련 파일 목록
-- [Final_Dependency_Map.json](./Final_Dependency_Map.json) - **최종 통합 의존성 맵** (리팩토링 가이드 포함)
-- [Enhanced_Dependency_Map.json](./Enhanced_Dependency_Map.json) - 상세 의존성 분석 결과
-- [Def_Analysis_Result.json](./Def_Analysis_Result.json) - 초기 Def 타입 분석 결과
-- [analyze_defs.ps1](./analyze_defs.ps1) - Def 분석 스크립트
-- [enhanced_dependency_analysis.ps1](./enhanced_dependency_analysis.ps1) - 향상된 의존성 분석 스크립트
-- [create_final_dependency_map.ps1](./create_final_dependency_map.ps1) - 최종 맵 생성 스크립트
-- [analyze_summary.ps1](./analyze_summary.ps1) - 분석 결과 요약 스크립트
+- [Dependencies/Final_Dependency_Map.json](../Dependencies/Final_Dependency_Map.json) - **최종 통합 의존성 맵** (리팩토링 가이드 포함)
+- [Dependencies/Enhanced_Dependency_Map.json](../Dependencies/Enhanced_Dependency_Map.json) - 상세 의존성 분석 결과
+- [Dependencies/Def_Analysis_Result.json](../Dependencies/Def_Analysis_Result.json) - 초기 Def 타입 분석 결과
+- [Dependencies/DefName_List.txt](../Dependencies/DefName_List.txt) - 전체 164개 DefName 리스트
+- [.cursor/rules/def-dependency-mapping.mdc](../.cursor/rules/def-dependency-mapping.mdc) - Cursor Rules 의존성 가이드
 
 ## 참고사항
 - **Critical Defs**: RatkinDefender(26), RatkinSoldier(22), RatkinCombatant(18) 등 - 변경 시 매우 주의
