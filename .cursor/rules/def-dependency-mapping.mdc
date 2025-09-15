@@ -1,0 +1,132 @@
+---
+description: Ratkin 프로젝트 Def 의존성 매핑 및 리팩토링 가이드
+alwaysApply: false
+---
+# Def 의존성 매핑 및 리팩토링 가이드
+
+Ratkin 프로젝트의 모든 Def 간 의존성 관계를 분석한 결과와 안전한 리팩토링을 위한 가이드입니다.
+
+## 의존성 분석 데이터
+
+### 핵심 참조 파일들
+- [Final_Dependency_Map.json](mdc:Dependencies/Final_Dependency_Map.json): **메인 의존성 맵** - DefName 변경 시 필수 참조
+- [Enhanced_Dependency_Map.json](mdc:Dependencies/Enhanced_Dependency_Map.json): 상세 의존성 분석 결과
+- [Def_Analysis_Result.json](mdc:Dependencies/Def_Analysis_Result.json): Def 타입별 분류 및 리소스 매핑
+- [DefName_List.txt](mdc:Dependencies/DefName_List.txt): 전체 164개 DefName 목록
+
+## 프로젝트 규모 및 구조
+
+### 전체 현황
+- **총 164개 Def** 분석 완료
+- **19가지 Def 타입** (ThingDef, PawnKindDef, ResearchDef 등)
+- **145개 Def**가 다른 Def에 의존
+- **31개 Def**가 외부 리소스 파일 참조
+
+### Def 타입별 분포
+1. **BackStoryDefs**: 69개 (가장 많음)
+2. **PawnKindDef_Ratkin**: 21개
+3. **HairDefs**: 19개
+4. **ResearchDefs**: 12개
+5. **RulePack**: 9개
+6. **SoundDefs**: 8개
+7. **기타**: ThingDefs_Building, TraderDefs, RecipeDefs 등
+
+## 중요 의존성 정보
+
+### ⚠️ Critical Defs (변경 시 매우 주의)
+다른 많은 Def들이 참조하는 핵심 Def들:
+- `RatkinDefender` (26번 참조)
+- `RatkinSoldier` (22번 참조)
+- `RatkinCombatant` (18번 참조)
+- `RatkinServant` (18번 참조)
+- `RatkinMerchant` (17번 참조)
+- `RatkinKnight` (16번 참조)
+
+### 🔥 Complex Defs (많은 의존성 보유)
+많은 다른 Def들에 의존하는 복잡한 Def들:
+- `CreepyBreathing` (85개 의존)
+- `Ratkin` (84개 의존)
+- `RatkinKingdomNameUtility` (40개 의존)
+- `NamerSettlement_RatkinKingdom` (26개 의존)
+- `RottyMilden` (18개 의존)
+
+### 📦 리소스 연결 Def들
+외부 파일(텍스처, 사운드)과 연결된 31개 Def:
+- 헤어 스타일: `RK_Braided`, `RK_LongA` 등
+- 사운드: `Rifle`, `PrototypePulse`, `RK_Fire` 등
+- 건물: `RK_HandTailoringBench`, `RK_FueledSmithy` 등
+
+## DefName 리팩토링 워크플로우
+
+### 1. 사전 분석 단계
+```
+1. Final_Dependency_Map.json에서 대상 DefName 검색
+2. crossReferences 섹션에서 참조하는 다른 Def들 확인
+3. dependencies 섹션에서 해당 Def의 의존성 확인
+4. resourceMappings에서 연결된 리소스 파일 확인
+```
+
+### 2. 영향도 평가
+```
+- Critical Def인가? → 매우 신중하게 접근
+- Complex Def인가? → 의존성 체인 전체 검토
+- 리소스 연결되어 있는가? → 외부 파일도 수정 필요
+```
+
+### 3. 변경 순서
+```
+1. XML Def 파일들 수정
+2. 텍스처/사운드 파일 경로 수정 (필요시)
+3. Languages/ 폴더의 번역 키 수정
+4. 테스트 및 검증
+```
+
+### 4. 검증 체크리스트
+```
+□ crossReferences의 모든 참조 Def 업데이트 완료
+□ 리소스 파일 경로 수정 완료
+□ 번역 파일 업데이트 완료
+□ 게임 내 로드 테스트 성공
+□ 관련 기능 동작 테스트 성공
+```
+
+## 사용 예시
+
+### DefName 변경 시
+```json
+// Final_Dependency_Map.json에서 "RK_FakeEar" 검색 예시:
+{
+  "crossReferences": {
+    "RK_FakeEar": ["RK_InstallFakeEar", "Ratkin_Doctor"]
+  },
+  "dependencies": {
+    "RK_FakeEar": {
+      "file": "Project/1.6/Defs/Things_ItemDefs/Items_BodyParts.xml",
+      "directReferences": ["BodyPartProstheticBase"],
+      "resourceReferences": []
+    }
+  }
+}
+```
+
+### 리소스 연결 확인
+```json
+// 텍스처 파일이 연결된 Def 예시:
+{
+  "resourceMappings": {
+    "RK_Braided": [{
+      "type": "texture",
+      "path": "Hair/RK_Braided"
+    }]
+  }
+}
+```
+
+## 주의사항
+
+1. **절대 직접 수정 금지**: Critical Defs는 반드시 의존성 맵 확인 후 수정
+2. **백업 필수**: 대규모 변경 전 Git 커밋 또는 백업 생성
+3. **순차 테스트**: 각 단계별로 테스트하며 진행
+4. **번역 파일 누락 주의**: Languages 폴더의 모든 언어별 번역 키 확인
+
+이 가이드를 통해 안전하고 체계적인 DefName 리팩토링을 수행할 수 있습니다.

@@ -22,6 +22,10 @@
 !/Dependencies/
 !/Dependencies/**
 
+# Cursor Rules 폴더는 Git에서 추적
+!/.cursor/
+!/.cursor/**
+
 # .gitignore 파일 자체도 트래킹
 !.gitignore
 
