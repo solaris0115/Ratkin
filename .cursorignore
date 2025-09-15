@@ -4,6 +4,9 @@
 # workflow/
 # WorkFlow/
 
+# 워크플로우 아카이브 폴더는 Cursor 인덱싱에서 제외
+WorkflowArchive/
+
 # Git 관련 파일들
 .git/
 

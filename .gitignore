@@ -14,6 +14,10 @@
 !/WorkFlow/
 !/WorkFlow/**
 
+# 워크플로우 아카이브 폴더는 Git에서 추적
+!/WorkflowArchive/
+!/WorkflowArchive/**
+
 # .gitignore 파일 자체도 트래킹
 !.gitignore
 
