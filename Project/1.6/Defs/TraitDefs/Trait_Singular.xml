@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<TraitDef>
+	<!-- <TraitDef>
 		<defName>Faith</defName>
 		<commonality>0.001</commonality>
 		<allowOnHostileSpawn>false</allowOnHostileSpawn>
@@ -19,5 +19,5 @@
 			<li>ShootingAccuracy</li>
 			<li>Wimp</li>
 		</conflictingTraits>
-	</TraitDef>
+	</TraitDef> -->
 </Defs>
