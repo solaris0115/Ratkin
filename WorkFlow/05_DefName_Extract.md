@@ -26,15 +26,20 @@
 - 내용: 파이썬 스크립트 실행하여 DefName 리스트 생성
 - 결과: 총 290개의 DefName 추출 완료 (li 태그 포함)
 
-### 3. 코드 수정
+### 3. 코드 수정 (1차)
 - 내용: li 태그(리스트 아이템) 제외하도록 코드 수정
 - 결과: 실제 DefName만 278개로 정정
 
+### 4. 코드 재검사 (2차)
+- 내용: XML 노드 위치 정확 분석 - <Defs> → <DefType> → <defName>
+- 결과: 순수한 DefName만 263개 추출 (Abstract 정의 등 15개 제외)
+
 ## 최종 작업 결과
 - extract_defnames.py 스크립트 생성 완료
-- Project/1.6/Defs/ 폴더에서 총 278개의 실제 DefName 추출 완료
+- Project/1.6/Defs/ 폴더에서 총 263개의 순수한 DefName 추출 완료
 - 형식: defType:defName 으로 출력 완료
-- li 태그(리스트 아이템) 제외하여 정확한 DefName만 추출
+- XML 구조 정확 분석: Root 태그 검증, defName 태그만 추출
+- Abstract 정의, Name 속성 등 제외하여 실제 DefName만 추출
 
 ## 관련 파일 목록
 - [extract_defnames.py](../extract_defnames.py)
