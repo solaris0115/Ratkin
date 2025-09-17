@@ -36,12 +36,17 @@
 - 내용: 같은 기본 이름의 텍스처는 하나만 유지하도록 딕셔너리 기반 중복 제거
 - 결과: 946개 → 351개로 대폭 감소
 
+### 5. 확장자 제거
+- 내용: 파일 경로에서 확장자(.png, .ogg, .wav, .xml) 제거하여 깔끔하게 정리
+- 결과: AI가 알아서 찾을 수 있도록 확장자 없는 경로로 출력
+
 ## 최종 작업 결과
 - extract_resources.py 스크립트 생성 완료
 - Project/Textures와 Project/Sounds 폴더에서 총 351개의 고유 리소스 추출 완료
-- 형식: ResourceType:ResourceName - filePath 으로 출력 완료
+- 형식: ResourceType:ResourceName - filePath (확장자 제거) 으로 출력 완료
 - 텍스처 접미사 제거로 중복 방지 및 기본 이름만 추출
 - 딕셔너리 기반 중복 제거로 동일 리소스명은 하나만 기록
+- 확장자 제거로 AI 친화적인 경로 형식
 - 별도 파일 Resource_List.txt로 정리 완료
 
 ## 관련 파일 목록
