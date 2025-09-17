@@ -33,6 +33,8 @@
 
 ## 관련 파일 목록
 - [extract_defnames.py](../extract_defnames.py)
+- [DefName_List.txt](../DefName_List.txt)
+- [.cursor/rules/file-preservation.mdc](../.cursor/rules/file-preservation.mdc)
 
 ## 참고사항
 - 스크립트는 Defs 폴더의 모든 XML 파일을 재귀적으로 탐색
