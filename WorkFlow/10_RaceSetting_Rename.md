@@ -18,9 +18,9 @@
 
 ## 작업 세부 진행
 1. 워크플로우 파일 생성 [v]
-2. 의존성 매핑 확인 [ ]
-3. DefName 변경 실행 [ ]
-4. 변경사항 커밋 [ ]
+2. 의존성 매핑 확인 [v]
+3. DefName 변경 실행 [v]
+4. 변경사항 커밋 [v]
 
 ## 진행 상황
 ### 1. 워크플로우 파일 생성
@@ -29,10 +29,18 @@
 
 ### 2. 의존성 매핑 확인
 - 내용: RK_Race_Setting이 참조되는 모든 위치 확인
-- 결과: 진행 중
+- 결과: AlienRaceSettings.xml 파일에서만 사용됨 확인, 안전한 리네이밍 가능
+
+### 3. DefName 변경 실행
+- 내용: RK_Race_Setting을 RK_RaceSetting으로 변경
+- 결과: 성공적으로 변경 완료
+
+### 4. 변경사항 커밋
+- 내용: 변경된 파일들을 Git에 커밋
+- 결과: 커밋 완료 (커밋 해시: 662ccaf)
 
 ## 최종 작업 결과/ 중단 사유
-진행 중
+성공적으로 완료 - RK_Race_Setting이 RK_RaceSetting으로 리네이밍됨
 
 ## 관련 파일 목록
 - Project/1.6/Defs/AlienRaceSettings/AlienRaceSettings.xml
