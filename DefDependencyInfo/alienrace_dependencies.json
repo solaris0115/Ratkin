@@ -1,0 +1,53 @@
+{
+  "AlienBackstoryDef": {
+    "dependencies": [
+      "BackstoryDef",
+      "BodyTypeDef",
+      "HediffDef"
+    ],
+    "reverseDependencies": []
+  },
+  "PawnBioDef": {
+    "dependencies": [
+      "BackstoryDef",
+      "HediffDef",
+      "ThingDef"
+    ],
+    "reverseDependencies": []
+  },
+  "RaceSettings": {
+    "dependencies": [
+      "FactionDef",
+      "PawnKindDef"
+    ],
+    "reverseDependencies": []
+  },
+  "ThingDef_AlienRace": {
+    "dependencies": [
+      "AbilityDef",
+      "BodyDef",
+      "BuildableDef",
+      "ChemicalDef",
+      "ConceptDef",
+      "FactionDef",
+      "GeneDef",
+      "MeditationFocusDef",
+      "PawnKindDef",
+      "PawnRelationDef",
+      "RecipeDef",
+      "ResearchProjectDef",
+      "ShaderTypeDef",
+      "StatDef",
+      "ThingCategoryDef",
+      "ThingDef",
+      "ThingDef_AlienRace",
+      "ThoughtDef",
+      "TraitDef",
+      "WorkGiverDef",
+      "XenotypeDef"
+    ],
+    "reverseDependencies": [
+      "ThingDef_AlienRace"
+    ]
+  }
+}
