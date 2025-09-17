@@ -34,12 +34,17 @@
 - 내용: XML 노드 위치 정확 분석 - <Defs> → <DefType> → <defName>
 - 결과: 순수한 DefName만 263개 추출 (Abstract 정의 등 15개 제외)
 
+### 5. 출처 파일 경로 추가 (3차)
+- 내용: 각 DefName의 출처 파일 경로 추가하여 추적 용이성 향상
+- 결과: defType:defName - filePath 형식으로 출력
+
 ## 최종 작업 결과
 - extract_defnames.py 스크립트 생성 완료
 - Project/1.6/Defs/ 폴더에서 총 263개의 순수한 DefName 추출 완료
-- 형식: defType:defName 으로 출력 완료
+- 형식: defType:defName - filePath 으로 출력 완료
 - XML 구조 정확 분석: Root 태그 검증, defName 태그만 추출
 - Abstract 정의, Name 속성 등 제외하여 실제 DefName만 추출
+- 출처 파일 경로 포함으로 추적 및 관리 용이성 향상
 
 ## 관련 파일 목록
 - [extract_defnames.py](../extract_defnames.py)
