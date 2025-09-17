@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<AlienRace.RaceSettings>
-		<defName>RK_Race_Setting</defName>
+		<defName>RK_RaceSetting</defName>
 		<pawnKindSettings>
 			<startingColonists>
 				<li>
