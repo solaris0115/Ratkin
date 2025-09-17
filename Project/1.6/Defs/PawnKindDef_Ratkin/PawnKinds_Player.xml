@@ -31,7 +31,7 @@
 	<!-- 평화 -->
 	<!-- 시민 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
-		<defName>RatkinColonist</defName>
+		<defName>RK_PawnKind_Colonist</defName>
 		<label>ratkin colonist</label>
 		<defaultFactionType>RK_PlayerFaction</defaultFactionType>		
 		<backstoryFiltersOverride>
@@ -56,7 +56,7 @@
 	</PawnKindDef>
 	<!-- 귀족 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
-		<defName>RatkinNoble</defName>
+		<defName>RK_PawnKind_Noble</defName>
 		<label>ratkin noble</label>
 		<combatPower>35</combatPower>
 		<isFighter>false</isFighter>
@@ -102,7 +102,7 @@
 	</PawnKindDef>
 	<!-- 하인 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
-		<defName>RatkinServant</defName>
+		<defName>RK_PawnKind_Servant</defName>
 		<label>ratkin servant</label>
 		<backstoryFiltersOverride>
 			<li>
@@ -122,7 +122,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 사제 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
-		<defName>RatkinPriest</defName>
+		<defName>RK_PawnKind_Priest</defName>
 		<label>ratkin Priest</label>
 		<isFighter>false</isFighter>
 		<combatPower>25</combatPower>
@@ -160,7 +160,7 @@
 
 	<!-- 랫킨 상단 -->	
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinMerchant</defName>
+		<defName>RK_PawnKind_Merchant</defName>
 		<label>ratkin Merchant</label>
 		<combatPower>45</combatPower>
 		<isFighter>true</isFighter>
@@ -190,7 +190,7 @@
 
 	<!-- 전투원 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinCombatant</defName>
+		<defName>RK_PawnKind_Combatant</defName>
 		<label>ratkin combatant</label>
 		<combatPower>60</combatPower>
 		<isFighter>true</isFighter>
@@ -223,7 +223,7 @@
 	</PawnKindDef>	
 	<!-- 랫킨 선붕대, 경갑과 경무장 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinVanguard</defName>
+		<defName>RK_PawnKind_Vanguard</defName>
 		<label>ratkin vanguard</label>
 		<combatPower>70</combatPower>
 		<isFighter>true</isFighter>
@@ -260,7 +260,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 방패병 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinDefender</defName>
+		<defName>RK_PawnKind_Defender</defName>
 		<label>ratkin defender</label>
 		<combatPower>85</combatPower>
 		<isFighter>true</isFighter>
@@ -306,7 +306,7 @@
 	<!-- 전투 병과(고급) -->	
 	<!-- 군인 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinSoldier</defName>
+		<defName>RK_PawnKind_Soldier</defName>
 		<label>ratkin soldier</label>
 		<combatPower>90</combatPower>
 		<isFighter>true</isFighter>
@@ -351,7 +351,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 정예정원사(근접, 원거리) -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinEliteGuardener</defName>
+		<defName>RK_PawnKind_EliteGuardener</defName>
 		<label>ratkin elite guardener</label>
 		<combatPower>90</combatPower>
 		<isFighter>true</isFighter>
@@ -414,7 +414,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 기사(근접 중보병) -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinKnight</defName>
+		<defName>RK_PawnKind_Knight</defName>
 		<label>ratkin knight</label>
 		<combatPower>100</combatPower>
 		<isFighter>true</isFighter>
@@ -459,7 +459,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 정예 방패병(근접 중보병) -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinEliteDefender</defName>
+		<defName>RK_PawnKind_EliteDefender</defName>
 		<label>ratkin elite defender</label>
 		<combatPower>180</combatPower>
 		<isFighter>true</isFighter>
@@ -505,7 +505,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 기사 단장 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinKnightCommander</defName>
+		<defName>RK_PawnKind_KnightCommander</defName>
 		<label>ratkin knight commander</label>
 		<combatPower>200</combatPower>
 		<isFighter>true</isFighter>
@@ -558,7 +558,7 @@
 	<!-- 전투 병과(특수) -->
 	<!-- 특수 부대 찍찍이 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinEliteSoldier</defName>
+		<defName>RK_PawnKind_EliteSoldier</defName>
 		<label>ratkin elite soldier</label>
 		<combatPower>100</combatPower>
 		<isFighter>true</isFighter>
@@ -613,7 +613,7 @@
 	</PawnKindDef>
 	<!-- 찍찍이 데모맨 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinDemonMan</defName>
+		<defName>RK_PawnKind_DemonMan</defName>
 		<label>ratkin demoman</label>
 		<combatPower>120</combatPower>
 		<isFighter>true</isFighter>
@@ -677,7 +677,7 @@
 	<!-- 기타 -->
 	<!-- 곳간털이범 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinPettyThief</defName>
+		<defName>RK_PawnKind_PettyThief</defName>
 		<label>ratkin petty thief</label>
 		<combatPower>10</combatPower>
 		<isFighter>true</isFighter>
@@ -706,7 +706,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 살인마 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinMurderer</defName>
+		<defName>RK_PawnKind_Murderer</defName>
 		<label>ratkin Murderer</label>
 		<combatPower>40</combatPower>
 		<isFighter>true</isFighter>
@@ -744,7 +744,7 @@
 	</PawnKindDef>
 	<!-- 방랑자-->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinVagabond</defName>
+		<defName>RK_PawnKind_Vagabond</defName>
 		<label>Vagabond</label>
 		<combatPower>50</combatPower>
 		<isFighter>true</isFighter>
@@ -802,7 +802,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 용병 판매용-->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinMercenaryLight</defName>
+		<defName>RK_PawnKind_MercenaryLight</defName>
 		<label>ratkin Mercenary</label>
 		<combatPower>35</combatPower>
 		<backstoryFiltersOverride>
@@ -834,7 +834,7 @@
 	</PawnKindDef>
 	<!-- 실험체 -->
 	<PawnKindDef ParentName="RKCombatantBase_B">
-		<defName>RatkinSubject</defName>
+		<defName>RK_PawnKind_Subject</defName>
 		<label>ratkin subject</label>
 		<backstoryFiltersOverride>
 			<li>
@@ -878,7 +878,7 @@
 	</PawnKindDef>
 	<!-- 랫킨 용병 -->
 	<PawnKindDef ParentName="RKCombatantBase">
-		<defName>RatkinMercenary</defName>
+		<defName>RK_PawnKind_Mercenary</defName>
 		<label>ratkin mercenary</label>
 		<backstoryFiltersOverride>
 			<li>
@@ -922,9 +922,4 @@
 			<li>RK_Combatant</li>
 		</apparelTags>
 	</PawnKindDef>
-
-
-
-
-
 </Defs>

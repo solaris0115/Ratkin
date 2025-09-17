@@ -8,7 +8,7 @@
 					<pawnKindEntries>
 						<li>
 							<kindDefs>
-								<li>RatkinColonist</li>
+								<li>RK_PawnKind_Colonist</li>
 							</kindDefs>
 							<chance>50.0</chance>
 						</li>
@@ -18,41 +18,24 @@
 					</factionDefs>
 				</li>
 			</startingColonists>
-			<alienslavekinds>
-				<li>
-					<kindDefs>
-						<li>RatkinMercenary</li>
-						<li>RatkinMercenaryLight</li>
-					</kindDefs>
-					<chance>40.0</chance>
-				</li>
-			</alienslavekinds>
-			<alienrefugeekinds>
-				<li>
-					<kindDefs>
-						<li>RatkinSubject</li>
-					</kindDefs>
-					<chance>50.0</chance>
-				</li>
-			</alienrefugeekinds>
 			<alienwandererkinds>
-				<li>
+				<!-- <li>
 					<pawnKindEntries>
 						<li>
 							<kindDefs>
-								<li>RatkinServant</li>
+								<li>RK_PawnKind_Servant</li>
 							</kindDefs>
 							<chance>40.0</chance>
 						</li>
 						<li>
 							<kindDefs>
-								<li>RatkinNoble</li>
+								<li>RK_PawnKind_Noble</li>
 							</kindDefs>
 							<chance>30.0</chance>
 						</li>
 						<li>
 							<kindDefs>
-								<li>RatkinPriest</li>
+								<li>RK_PawnKind_Priest</li>
 							</kindDefs>
 							<chance>5.0</chance>
 						</li>
@@ -65,13 +48,13 @@
 					<pawnKindEntries>
 						<li>
 							<kindDefs>
-								<li>RatkinServant</li>
+								<li>RK_PawnKind_Servant</li>
 							</kindDefs>
 							<chance>40.0</chance>
 						</li>
 						<li>
 							<kindDefs>
-								<li>RatkinMerchant</li>
+								<li>RK_PawnKind_Merchant</li>
 							</kindDefs>
 							<chance>10.0</chance>
 						</li>
@@ -79,7 +62,7 @@
 					<factionDefs>
 						<li>Rakinia</li> 
 					</factionDefs>
-				</li>
+				</li> -->
 			</alienwandererkinds>
 		</pawnKindSettings>
 	</AlienRace.RaceSettings>
