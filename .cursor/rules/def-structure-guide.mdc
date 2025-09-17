@@ -1,6 +1,5 @@
 ---
-description: Ratkin 프로젝트의 Def 구조 및 네이밍 규칙 가이드
-alwaysApply: false
+alwaysApply: true
 ---
 # Def 구조 및 네이밍 규칙 가이드
 
