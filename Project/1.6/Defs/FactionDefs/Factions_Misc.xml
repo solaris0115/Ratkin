@@ -178,45 +178,4 @@
 			<li>(0.65, 0.60, 0.20)</li>
 		</colorSpectrum>
 	</FactionDef>
-	<!-- <FactionDef ParentName="RatkinLandFactionBase"> -->
-	<!-- <defName>RatkinCaravan</defName> -->
-	<!-- <label>ratkin caravan union</label> -->
-	<!-- <backstoryCategories> -->
-	<!-- <li>RatkinStory</li> -->
-	<!-- </backstoryCategories> -->
-	<!-- <description>랫킨 유랑단입니다. 방방곡곡을 유랑하며 거래를 하기도 하고 용병을 사고 팔기도 합니다.</description> -->
-	<!-- <colorSpectrum> -->
-	<!-- <li>(0.00, 0.30, 0.70)</li> -->
-	<!-- <li>(0.00, 0.40, 1.00)</li> -->
-	<!-- </colorSpectrum> -->
-	<!-- <startingGoodwill> -->
-	<!-- <min>20</min> -->
-	<!-- <max>80</max> -->
-	<!-- </startingGoodwill> -->
-	<!-- <naturalColonyGoodwill> -->
-	<!-- <min>0</min> -->
-	<!-- <max>100</max> -->
-	<!-- </naturalColonyGoodwill> -->
-	<!-- <hidden>true</hidden>		 -->
-	<!-- <pawnGroupMakers> -->
-	<!-- <li> -->
-	<!-- <kindDef>Trader</kindDef> -->
-	<!-- <traders> -->
-	<!-- <RatkinMerchant>1</RatkinMerchant> -->
-	<!-- </traders> -->
-	<!-- <carriers> -->
-	<!-- <Muffalo>6</Muffalo> -->
-	<!-- <Dromedary>5</Dromedary> -->
-	<!-- <Alpaca>2</Alpaca> -->
-	<!-- <Elephant>1</Elephant> -->
-	<!-- </carriers> -->
-	<!-- <guards> -->
-	<!-- <RatkinColonist>3</RatkinColonist> -->
-	<!-- <RatkinNoble>1</RatkinNoble> -->
-	<!-- <RatkinMercenary>10</RatkinMercenary> -->
-	<!-- <RatkinSoldier>15</RatkinSoldier> -->
-	<!-- </guards> -->
-	<!-- </li> -->
-	<!-- </pawnGroupMakers> -->
-	<!-- </FactionDef> -->
 </Defs>
