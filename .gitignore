@@ -1,42 +1,53 @@
 # Ratkin 프로젝트 .gitignore
-# Project/ 폴더만 트래킹하고 나머지는 무시
+# 필요한 파일들만 무시하는 방식
 
-# 모든 파일과 폴더를 기본적으로 무시
-/*
-
-# Project/ 폴더만 트래킹 (모든 하위 폴더와 파일 포함)
-!/Project/
-!/Project/**/*
-
-# 워크플로우 추적 파일들은 기본적으로 무시 (필요시 수동 추가)
-!/workflow/
-!/workflow/**
-!/WorkFlow/
-!/WorkFlow/**
-
-# 워크플로우 아카이브 폴더는 Git에서 추적
-!/WorkflowArchive/
-!/WorkflowArchive/**
-
-# Dependencies 폴더는 Git에서 추적 (의존성 분석 결과)
-!/Dependencies/
-!/Dependencies/**
-
-# Cursor Rules 폴더는 Git에서 추적
-!/.cursor/
-!/.cursor/**
-
-# .gitignore 파일 자체도 트래킹
-!.gitignore
-
-# 루트 디렉토리의 중요한 파일들 트래킹
-!defnames_typed.txt
-!resource_names_typed.txt
-!extract_defnames.py
-!extract_resource_names.py
-!DefDependencyInfo/
-!DefDependencyInfo/**
-
-# C# 프로젝트 빌드 출력 폴더 제외
+# C# 프로젝트 빌드 출력 폴더
 obj/
 bin/
+
+# Visual Studio 관련 파일들
+*.user
+*.suo
+*.cache
+*.pdb
+*.exe
+*.dll
+
+# 임시 파일들
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# 로그 파일들
+*.log
+
+# 백업 파일들
+*.bak
+*.backup
+
+# 압축 파일들
+*.zip
+*.rar
+*.7z
+
+# IDE 설정 파일들 (Cursor 제외)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js 관련 (만약 사용한다면)
+node_modules/
+npm-debug.log*
+
+# Python 관련 (만약 사용한다면)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
