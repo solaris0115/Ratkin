@@ -56,7 +56,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>
+			<researchPrerequisite>RK_Research_MechanicalWeapon</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
@@ -195,7 +195,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>
+			<researchPrerequisite>RK_Research_MechanicalWeapon</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
@@ -320,7 +320,7 @@
 			</li>
 		</comps>
 		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>			
+			<researchPrerequisite>RK_Research_MechanicalWeapon</researchPrerequisite>			
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>
@@ -377,7 +377,7 @@
 			<li>Manufactured</li>
 		</thingCategories>
 		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>			
+			<researchPrerequisite>RK_Research_MechanicalWeapon</researchPrerequisite>			
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>

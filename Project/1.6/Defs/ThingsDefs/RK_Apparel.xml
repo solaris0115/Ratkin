@@ -475,7 +475,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 		<costStuffCount>45</costStuffCount>
 		<stuffCategories>
@@ -565,7 +565,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 작업모  식중독 예방 +5% 동물채집량 +5% -->
@@ -611,7 +611,7 @@
 			</defaultOutfitTags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -673,7 +673,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 공돌이 수술 성공률 +5% 치료품질 +5%-->
@@ -720,7 +720,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -735,7 +735,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<Steel>15</Steel>
@@ -833,7 +833,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -848,7 +848,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<Cloth>25</Cloth>
@@ -945,7 +945,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1013,7 +1013,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1028,7 +1028,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 		</recipeMaker>
 		<costStuffCount>85</costStuffCount>
 		<stuffCategories>
@@ -1091,7 +1091,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<Steel>20</Steel>
@@ -1139,7 +1139,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1247,7 +1247,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1307,7 +1307,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1367,7 +1367,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1418,7 +1418,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 리본 거래가격 개선 +10% -->
@@ -1467,7 +1467,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1527,7 +1527,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1580,7 +1580,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1946,7 +1946,7 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2061,7 +2061,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2127,7 +2127,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2192,7 +2192,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2221,7 +2221,7 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_RatkinClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2278,7 +2278,7 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2350,7 +2350,7 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2631,7 +2631,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 		<costStuffCount>120</costStuffCount>
 		<stuffCategories>
@@ -2726,7 +2726,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<researchPrerequisite>RK_Research_HighClassClothing</researchPrerequisite>
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
