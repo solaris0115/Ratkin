@@ -481,7 +481,7 @@
 		</race>
 		<recipes>
 			<!-- 가짜꼬리/가짜귀/생체공학꼬리 -->
-			<li>RK_InstallFakeEar</li>
+			<li>RK_Recipe_InstallFakeEar</li>
 			<li>RK_InstallFakeTail</li>
 			<li>RK_InstallBionicTail</li>
 		</recipes>

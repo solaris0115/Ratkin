@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <RK_InstallFakeEar.label>安裝假耳朵</RK_InstallFakeEar.label>
-  <RK_InstallFakeEar.description>安裝假耳朵。</RK_InstallFakeEar.description>
-  <RK_InstallFakeEar.jobString>正在安裝假耳朵。</RK_InstallFakeEar.jobString>
+  <RK_Recipe_InstallFakeEar.label>安裝假耳朵</RK_Recipe_InstallFakeEar.label>
+  <RK_Recipe_InstallFakeEar.description>安裝假耳朵。</RK_Recipe_InstallFakeEar.description>
+  <RK_Recipe_InstallFakeEar.jobString>正在安裝假耳朵。</RK_Recipe_InstallFakeEar.jobString>
 
   <RK_InstallFakeTail.label>安裝假尾巴</RK_InstallFakeTail.label>
   <RK_InstallFakeTail.description>安裝假尾巴。</RK_InstallFakeTail.description>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <RK_InstallFakeEar.label>ニセ耳を付ける</RK_InstallFakeEar.label>
-  <RK_InstallFakeEar.description>ニセ耳を付ける。</RK_InstallFakeEar.description>
-  <RK_InstallFakeEar.jobString>ニセ耳を装着中</RK_InstallFakeEar.jobString>
+  <RK_Recipe_InstallFakeEar.label>ニセ耳を付ける</RK_Recipe_InstallFakeEar.label>
+  <RK_Recipe_InstallFakeEar.description>ニセ耳を付ける。</RK_Recipe_InstallFakeEar.description>
+  <RK_Recipe_InstallFakeEar.jobString>ニセ耳を装着中</RK_Recipe_InstallFakeEar.jobString>
 
   <RK_InstallFakeTail.label>ニセ尻尾を付ける</RK_InstallFakeTail.label>
   <RK_InstallFakeTail.description>ニセ尻尾を付ける。</RK_InstallFakeTail.description>

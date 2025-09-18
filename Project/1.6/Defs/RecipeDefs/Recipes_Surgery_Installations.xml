@@ -2,7 +2,7 @@
 <Defs>
 	<!-- TODO: 재조정 필요. 물건 없이, 목발처럼  -->
 	<RecipeDef ParentName="SurgeryFlesh">
-		<defName>RK_InstallFakeEar</defName>
+		<defName>RK_Recipe_InstallFakeEar</defName>
 		<label>install fake ear</label>
 		<description>Install a fake ear.</description>
 		<workerClass>Recipe_InstallArtificialBodyPart</workerClass>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <RK_InstallFakeEar.label>install fake Ratkin ear</RK_InstallFakeEar.label>
-  <RK_InstallFakeEar.description>Install a fake Ratkin ear.</RK_InstallFakeEar.description>
-  <RK_InstallFakeEar.jobString>Installing fake Ratkin ear.</RK_InstallFakeEar.jobString>
+  <RK_Recipe_InstallFakeEar.label>install fake Ratkin ear</RK_Recipe_InstallFakeEar.label>
+  <RK_Recipe_InstallFakeEar.description>Install a fake Ratkin ear.</RK_Recipe_InstallFakeEar.description>
+  <RK_Recipe_InstallFakeEar.jobString>Installing fake Ratkin ear.</RK_Recipe_InstallFakeEar.jobString>
 
   <RK_InstallFakeTail.label>install fake Ratkin tail</RK_InstallFakeTail.label>
   <RK_InstallFakeTail.description>Install a fake Ratkin tail.</RK_InstallFakeTail.description>
