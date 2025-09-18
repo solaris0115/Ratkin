@@ -27,8 +27,8 @@
 
   <!-- Ratkin Merchant -->
 
-  <RatkinMerchant.label>ラットキン商人</RatkinMerchant.label>
-  <RatkinMerchant.labelPlural>ラットキン商人</RatkinMerchant.labelPlural>
+  <RK_SpawnCategory_Merchant.label>ラットキン商人</RK_SpawnCategory_Merchant.label>
+  <RK_SpawnCategory_Merchant.labelPlural>ラットキン商人</RK_SpawnCategory_Merchant.labelPlural>
 
 
   <!-- Combatant -->

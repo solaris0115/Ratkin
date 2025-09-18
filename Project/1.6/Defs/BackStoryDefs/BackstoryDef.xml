@@ -246,7 +246,7 @@
 		<spawnCategories>
 			<li>RK_SpawnCategory_Story</li>
 			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Educated</li>
 			<li>RK_SpawnCategory_Noble</li>
 			<li>RK_SpawnCategory_NonViolence</li>
@@ -389,7 +389,7 @@
 			<li>RK_SpawnCategory_Story</li>
 			<li>RK_SpawnCategory_Murderer</li>
 			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_EliteDefender</li>
 			<li>RK_SpawnCategory_Wanderer</li>
 			<li>RK_SpawnCategory_Vagabond</li>
@@ -449,7 +449,7 @@
 			<li>RK_SpawnCategory_Story</li>
 			<li>RK_SpawnCategory_Servant</li>
 			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Educated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
@@ -479,7 +479,7 @@
 			<li>RK_SpawnCategory_Guardener</li>
 			<li>RK_SpawnCategory_Servant</li>
 			<li>RK_SpawnCategory_Priest</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Defender</li>
 			<li>RK_SpawnCategory_EliteDefender</li>
 			<li>RK_SpawnCategory_Uneducated</li>
@@ -537,7 +537,7 @@
 			<li>RK_SpawnCategory_City</li>
 			<li>RK_SpawnCategory_Subject</li>
 			<li>RK_SpawnCategory_Servant</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Educated</li>
 			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
@@ -560,7 +560,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_SpawnCategory_Story</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Combatant</li>
 			<li>RK_SpawnCategory_City</li>
 			<li>RK_SpawnCategory_Servant</li>
@@ -659,7 +659,7 @@
 			<li>RK_SpawnCategory_Murderer</li>
 			<li>RK_SpawnCategory_City</li>
 			<li>RK_SpawnCategory_Servant</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Defender</li>
 			<li>RK_SpawnCategory_Uneducated</li>
 			<li>RK_SpawnCategory_Thief</li>
@@ -686,7 +686,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_SpawnCategory_Story</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 방랑자 -->
@@ -710,7 +710,7 @@
 			<li>RK_SpawnCategory_Story</li>
 			<li>RK_SpawnCategory_Wanderer</li>
 			<li>RK_SpawnCategory_Soldier</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Mercenary</li>
 			<li>RK_SpawnCategory_EliteDefender</li>
 			<li>RK_SpawnCategory_Defender</li>
@@ -850,7 +850,7 @@
 			<li>RK_SpawnCategory_Story</li>
 			<li>RK_SpawnCategory_Educated</li>
 			<li>RK_SpawnCategory_City</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Noble</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
@@ -871,7 +871,7 @@
 			<li>RK_SpawnCategory_Story</li>
 			<li>RK_SpawnCategory_Kingdom</li>
 			<li>RK_SpawnCategory_City</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 사서 -->
@@ -1143,7 +1143,7 @@
 			<li>RK_SpawnCategory_Wild</li>
 			<li>RK_SpawnCategory_Defender</li>
 			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 			<li>RK_SpawnCategory_Soldier</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
@@ -1315,7 +1315,7 @@
 			<li>RK_SpawnCategory_Kingdom</li>
 			<li>RK_SpawnCategory_Noble</li>
 			<li>RK_SpawnCategory_City</li>
-			<li>RatkinMerchant</li>
+			<li>RK_SpawnCategory_Merchant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 수녀 -->

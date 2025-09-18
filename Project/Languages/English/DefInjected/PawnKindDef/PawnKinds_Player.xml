@@ -43,12 +43,12 @@
 
   <!-- 랫킨 상단 -->
 
-  <RatkinMerchant.label>ratkin merchant</RatkinMerchant.label>
-  <RatkinMerchant.labelPlural>ratkin merchants</RatkinMerchant.labelPlural>
-  <RatkinMerchant.labelMale>male ratkin merchant</RatkinMerchant.labelMale>
-  <RatkinMerchant.labelMalePlural>male ratkin merchants</RatkinMerchant.labelMalePlural>
-  <RatkinMerchant.labelFemale>female ratkin merchant</RatkinMerchant.labelFemale>
-  <RatkinMerchant.labelFemalePlural>female ratkin merchants</RatkinMerchant.labelFemalePlural>
+  <RK_SpawnCategory_Merchant.label>ratkin merchant</RK_SpawnCategory_Merchant.label>
+  <RK_SpawnCategory_Merchant.labelPlural>ratkin merchants</RK_SpawnCategory_Merchant.labelPlural>
+  <RK_SpawnCategory_Merchant.labelMale>male ratkin merchant</RK_SpawnCategory_Merchant.labelMale>
+  <RK_SpawnCategory_Merchant.labelMalePlural>male ratkin merchants</RK_SpawnCategory_Merchant.labelMalePlural>
+  <RK_SpawnCategory_Merchant.labelFemale>female ratkin merchant</RK_SpawnCategory_Merchant.labelFemale>
+  <RK_SpawnCategory_Merchant.labelFemalePlural>female ratkin merchants</RK_SpawnCategory_Merchant.labelFemalePlural>
 
 
   <!-- 전투원 -->

@@ -43,12 +43,12 @@
 
   <!-- 랫킨 상단 -->
 
-  <RatkinMerchant.label>랫킨 상인</RatkinMerchant.label>
-  <RatkinMerchant.labelPlural>랫킨 상인들</RatkinMerchant.labelPlural>
-  <RatkinMerchant.labelMale>남자 랫킨 상인</RatkinMerchant.labelMale>
-  <RatkinMerchant.labelMalePlural>남자 랫킨 상인들</RatkinMerchant.labelMalePlural>
-  <RatkinMerchant.labelFemale>여자 랫킨 상인</RatkinMerchant.labelFemale>
-  <RatkinMerchant.labelFemalePlural>여자 랫킨 상인들</RatkinMerchant.labelFemalePlural>
+  <RK_SpawnCategory_Merchant.label>랫킨 상인</RK_SpawnCategory_Merchant.label>
+  <RK_SpawnCategory_Merchant.labelPlural>랫킨 상인들</RK_SpawnCategory_Merchant.labelPlural>
+  <RK_SpawnCategory_Merchant.labelMale>남자 랫킨 상인</RK_SpawnCategory_Merchant.labelMale>
+  <RK_SpawnCategory_Merchant.labelMalePlural>남자 랫킨 상인들</RK_SpawnCategory_Merchant.labelMalePlural>
+  <RK_SpawnCategory_Merchant.labelFemale>여자 랫킨 상인</RK_SpawnCategory_Merchant.labelFemale>
+  <RK_SpawnCategory_Merchant.labelFemalePlural>여자 랫킨 상인들</RK_SpawnCategory_Merchant.labelFemalePlural>
 
 
   <!-- 전투원 -->

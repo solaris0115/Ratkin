@@ -43,12 +43,12 @@
 
   <!-- 랫킨 상단 -->
 
-  <RatkinMerchant.label>鼠族商人</RatkinMerchant.label>
-  <RatkinMerchant.labelPlural>鼠族商人</RatkinMerchant.labelPlural>
-  <RatkinMerchant.labelMale>男性 鼠族商人</RatkinMerchant.labelMale>
-  <RatkinMerchant.labelMalePlural>男性 鼠族商人</RatkinMerchant.labelMalePlural>
-  <RatkinMerchant.labelFemale>女性 鼠族商人</RatkinMerchant.labelFemale>
-  <RatkinMerchant.labelFemalePlural>女性 鼠族商人</RatkinMerchant.labelFemalePlural>
+  <RK_SpawnCategory_Merchant.label>鼠族商人</RK_SpawnCategory_Merchant.label>
+  <RK_SpawnCategory_Merchant.labelPlural>鼠族商人</RK_SpawnCategory_Merchant.labelPlural>
+  <RK_SpawnCategory_Merchant.labelMale>男性 鼠族商人</RK_SpawnCategory_Merchant.labelMale>
+  <RK_SpawnCategory_Merchant.labelMalePlural>男性 鼠族商人</RK_SpawnCategory_Merchant.labelMalePlural>
+  <RK_SpawnCategory_Merchant.labelFemale>女性 鼠族商人</RK_SpawnCategory_Merchant.labelFemale>
+  <RK_SpawnCategory_Merchant.labelFemalePlural>女性 鼠族商人</RK_SpawnCategory_Merchant.labelFemalePlural>
 
 
   <!-- 전투원 -->
