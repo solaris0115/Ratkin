@@ -128,7 +128,7 @@ PawnKindDef:RatkinKnight
 PawnKindDef:RatkinKnightCommander
 PawnKindDef:RatkinMercenary
 PawnKindDef:RatkinMercenaryLight
-PawnKindDef:RatkinMerchant
+PawnKindDef:RK_SpawnCategory_Merchant
 PawnKindDef:RatkinMurderer
 PawnKindDef:RatkinNoble
 PawnKindDef:RatkinPettyThief
