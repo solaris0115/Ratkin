@@ -37,7 +37,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinStory</li>
+					<li>RK_SpawnCategory_Story</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -64,7 +64,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinNoble</li>
+					<li>RK_SpawnCategory_Noble</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -107,7 +107,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinServant</li>
+					<li>RK_SpawnCategory_Servant</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -131,7 +131,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinPriest</li>
+					<li>RK_SpawnCategory_Priest</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -167,7 +167,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinMerchant</li>
+					<li>RK_SpawnCategory_Merchant</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -197,7 +197,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinCombatant</li>
+					<li>RK_SpawnCategory_Combatant</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -231,7 +231,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinCombatant</li>
+					<li>RK_SpawnCategory_Combatant</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -268,7 +268,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinDefender</li>
+					<li>RK_SpawnCategory_Defender</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -314,7 +314,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinSoldier</li>
+					<li>RK_SpawnCategory_Soldier</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -360,7 +360,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinGuardener</li>
+					<li>RK_SpawnCategory_Guardener</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -423,7 +423,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinKnight</li>
+					<li>RK_SpawnCategory_Knight</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -468,7 +468,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinEliteDefender</li>
+					<li>RK_SpawnCategory_EliteDefender</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -515,7 +515,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinKnightCommander</li>
+					<li>RK_SpawnCategory_KnightCommander</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -571,7 +571,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinSoldier</li>
+					<li>RK_SpawnCategory_Soldier</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -624,7 +624,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinDemoman</li>
+					<li>RK_SpawnCategory_Demoman</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -684,7 +684,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinThief</li>
+					<li>RK_SpawnCategory_Thief</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -714,7 +714,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinMurderer</li>
+					<li>RK_SpawnCategory_Murderer</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -751,7 +751,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinVagabond</li>
+					<li>RK_SpawnCategory_Vagabond</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -808,11 +808,11 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinViolence</li>
-					<li>RatkinMerchant</li>
+					<li>RK_SpawnCategory_Violence</li>
+					<li>RK_SpawnCategory_Merchant</li>
 				</categories>
 				<exclude>
-					<li>RatkinNonViolence</li>
+					<li>RK_SpawnCategory_NonViolence</li>
 				</exclude>
 			</li>
 		</backstoryFiltersOverride>
@@ -839,7 +839,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinSubject</li>
+					<li>RK_SpawnCategory_Subject</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -883,11 +883,11 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinViolence</li>
-					<li>RatkinMerchant</li>
+					<li>RK_SpawnCategory_Violence</li>
+					<li>RK_SpawnCategory_Merchant</li>
 				</categories>
 				<exclude>
-					<li>RatkinNonViolence</li>
+					<li>RK_SpawnCategory_NonViolence</li>
 				</exclude>
 			</li>
 		</backstoryFiltersOverride>

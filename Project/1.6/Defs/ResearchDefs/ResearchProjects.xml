@@ -156,6 +156,6 @@
 	</ResearchProjectDef>
 	
 	<ResearchProjectTagDef>
-		<defName>RatkinStart</defName>
+		<defName>RK_SpawnCategory_Start</defName>
 	</ResearchProjectTagDef>
 </Defs>
