@@ -574,7 +574,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>PiercingWeapon</researchPrerequisite>
+			<researchPrerequisite>RK_Research_PiercingWeapon</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
