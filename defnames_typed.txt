@@ -142,9 +142,9 @@ PawnKindDef:RatkinVanguard
 ## RecipeDef
 RecipeDef:Make_RK_StrawberryBeer
 RecipeDef:Make_RK_StrawberryBeer_Bulk
-RecipeDef:RK_InstallBionicTail
+RecipeDef:RK_Recipe_InstallBionicTail
 RecipeDef:RK_Recipe_InstallFakeEar
-RecipeDef:RK_InstallFakeTail
+RecipeDef:RK_Recipe_InstallFakeTail
 
 ## ResearchProjectDef
 ResearchProjectDef:Advanced_BallistaBolt

@@ -5,13 +5,13 @@
   <RK_Recipe_InstallFakeEar.description>Install a fake Ratkin ear.</RK_Recipe_InstallFakeEar.description>
   <RK_Recipe_InstallFakeEar.jobString>Installing fake Ratkin ear.</RK_Recipe_InstallFakeEar.jobString>
 
-  <RK_InstallFakeTail.label>install fake Ratkin tail</RK_InstallFakeTail.label>
-  <RK_InstallFakeTail.description>Install a fake Ratkin tail.</RK_InstallFakeTail.description>
-  <RK_InstallFakeTail.jobString>Installing fake Ratkin tail.</RK_InstallFakeTail.jobString>
+  <RK_Recipe_InstallFakeTail.label>install fake Ratkin tail</RK_Recipe_InstallFakeTail.label>
+  <RK_Recipe_InstallFakeTail.description>Install a fake Ratkin tail.</RK_Recipe_InstallFakeTail.description>
+  <RK_Recipe_InstallFakeTail.jobString>Installing fake Ratkin tail.</RK_Recipe_InstallFakeTail.jobString>
 
-  <RK_InstallBionicTail.label>install bionic Ratkin tail</RK_InstallBionicTail.label>
-  <RK_InstallBionicTail.description>Install a bionic Ratkin tail.</RK_InstallBionicTail.description>
-  <RK_InstallBionicTail.jobString>Installing bionic Ratkin tail.</RK_InstallBionicTail.jobString>
+  <RK_Recipe_InstallBionicTail.label>install bionic Ratkin tail</RK_Recipe_InstallBionicTail.label>
+  <RK_Recipe_InstallBionicTail.description>Install a bionic Ratkin tail.</RK_Recipe_InstallBionicTail.description>
+  <RK_Recipe_InstallBionicTail.jobString>Installing bionic Ratkin tail.</RK_Recipe_InstallBionicTail.jobString>
 
 
 </LanguageData>

@@ -33,7 +33,7 @@
 	</RecipeDef>
 
 	<RecipeDef ParentName="SurgeryFlesh">
-		<defName>RK_InstallFakeTail</defName>
+		<defName>RK_Recipe_InstallFakeTail</defName>
 		<label>install fake tail</label>
 		<description>Install a fake tail.</description>
 		<workerClass>Recipe_InstallArtificialBodyPart</workerClass>
@@ -65,7 +65,7 @@
 
 	
 	<RecipeDef ParentName="SurgeryFlesh">
-		<defName>RK_InstallBionicTail</defName>
+		<defName>RK_Recipe_InstallBionicTail</defName>
 		<label>install bionic tail</label>
 		<description>Install a bionic tail.</description>
 		<workerClass>Recipe_InstallArtificialBodyPart</workerClass>
