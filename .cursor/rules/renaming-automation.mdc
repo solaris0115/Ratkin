@@ -21,6 +21,25 @@ description: 리네이밍 작업 자동화 규칙 - DefName과 리소스 파일�
 - [Project/Textures/](mdc:Project/Textures/) 디렉토리에서 리소스 파일명 변경  
 - [Project/Sounds/](mdc:Project/Sounds/) 디렉토리에서 사운드 파일명 변경
 
+### 텍스처 접미사 처리 규칙
+리네이밍 시 텍스처 파일의 경우 다음 접미사들을 함께 처리:
+
+**체형 접미사**: `_Big`, `_Fat`, `_Female`, `_Hulk`, `_Male`, `_Thin`
+**방향 접미사**: `_east`, `_north`, `_south`, `_west`
+**방향+마스킹 접미사**: `_eastm`, `_northm`, `_southm`, `_westm`
+
+**조합 패턴 예시**:
+- `RK_ItemName` → `RK_NewItemName`
+- `RK_ItemName_Fat` → `RK_NewItemName_Fat`
+- `RK_ItemName_south` → `RK_NewItemName_south`
+- `RK_ItemName_Female_southm` → `RK_NewItemName_Female_southm`
+- `RK_ItemName_Big_Fat_eastm` → `RK_NewItemName_Big_Fat_eastm`
+
+**처리 원칙**:
+- 기본 텍스처와 모든 변형 텍스처를 동시에 리네이밍
+- 접미사 조합 순서는 유지 (체형 + 방향 + 방향+마스킹)
+- 접미사가 섞여있는 경우도 모두 처리
+
 ## 4. 내부 참조 처리
 - `<defName>` 태그뿐만 아니라 파일 내부의 모든 텍스트 참조 검색
 - 텍스트 교체를 통한 완전한 참조 업데이트

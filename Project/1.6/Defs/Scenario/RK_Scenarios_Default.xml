@@ -8,7 +8,7 @@
 			<summary>It's a story of Ratkins, each with a story.</summary>
 			<playerFaction>
 				<def>PlayerFaction</def>
-				<factionDef>RK_PlayerFaction</factionDef>
+				<factionDef>RK_Faction_PlayerFaction</factionDef>
 			</playerFaction>
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">

@@ -14,7 +14,7 @@
 						</li>
 					</pawnKindEntries>
 					<factionDefs>
-						<li>RK_PlayerFaction</li> 
+						<li>RK_Faction_PlayerFaction</li> 
 					</factionDefs>
 				</li>
 			</startingColonists>

@@ -79,7 +79,7 @@ BodyPartDef:RK_RatTail
 DamageDef:DemoBomb
 
 ## FactionDef
-FactionDef:RK_PlayerFaction
+FactionDef:RK_Faction_PlayerFaction
 FactionDef:Rakinia
 
 ## HairDef

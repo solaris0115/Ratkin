@@ -33,7 +33,7 @@
 	<PawnKindDef ParentName="RKBasePawnKind">
 		<defName>RK_PawnKind_Colonist</defName>
 		<label>ratkin colonist</label>
-		<defaultFactionType>RK_PlayerFaction</defaultFactionType>		
+		<defaultFactionType>RK_Faction_PlayerFaction</defaultFactionType>		
 		<backstoryFiltersOverride>
 			<li>
 				<categories>

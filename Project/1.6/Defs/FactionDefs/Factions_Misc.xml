@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<FactionDef ParentName="FactionBase" Name="RatkinFactionBase" Abstract="True">
+	<FactionDef ParentName="FactionBase" Name="RK_FactionBase" Abstract="True">
 		<pawnSingular>ratkin</pawnSingular>
-		<pawnsPlural>Ratkins</pawnsPlural>
-		<categoryTag>RatkinStory</categoryTag>
+		<pawnsPlural>ratkins</pawnsPlural>
+		<categoryTag>RK_BackStroyCategory_Default</categoryTag>
 		<listOrderPriority>30</listOrderPriority>
 		<settlementGenerationWeight>1</settlementGenerationWeight>
 		<requiredCountAtGameStart>1</requiredCountAtGameStart>
@@ -33,21 +33,6 @@
 			<li>Base_Outlander_Standard</li>
 		</baseTraderKinds>
 		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
-		<disallowedMemes>
-			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Animist</li>
-			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
-			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
-		</disallowedMemes>
-		<structureMemeWeights>
-			<Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">1</Structure_TheistEmbodied>
-			<Structure_TheistAbstract MayRequire="Ludeon.RimWorld.Ideology">2</Structure_TheistAbstract>
-			<Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
-			<Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
-			<Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginChristian>
-			<Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginIslamic>
-			<Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginHindu>
-			<Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginBuddhist>
-		</structureMemeWeights>
 		<maxPawnCostPerTotalPointsCurve>
 			<points>
 				<li>(0,35)</li>
@@ -63,8 +48,8 @@
 				<commonality>100</commonality>
 				<maxTotalPoints>1000</maxTotalPoints>
 				<options>
-					<RatkinCombatant>20</RatkinCombatant>
-					<RatkinSoldier>5</RatkinSoldier>
+					<RK_PawnKind_Combatant>20</RK_PawnKind_Combatant>
+					<RK_PawnKind_Soldier>5</RK_PawnKind_Soldier>
 				</options>
 			</li>
 			<!-- 초반 혼합-->
@@ -73,9 +58,9 @@
 				<commonality>100</commonality>
 				<maxTotalPoints>1000</maxTotalPoints>
 				<options>
-					<RatkinDefender>5</RatkinDefender>
-					<RatkinVanguard>10</RatkinVanguard>
-					<RatkinCombatant>15</RatkinCombatant>
+					<RK_PawnKind_Defender>5</RK_PawnKind_Defender>
+					<RK_PawnKind_Vanguard>10</RK_PawnKind_Vanguard>
+					<RK_PawnKind_Combatant>15</RK_PawnKind_Combatant>
 				</options>
 			</li>
 			<!-- 중후반 군인-->
@@ -83,11 +68,11 @@
 				<kindDef>Combat</kindDef>
 				<commonality>50</commonality>
 				<options>
-					<RatkinSoldier>30</RatkinSoldier>
-					<RatkinEliteSoldier>5</RatkinEliteSoldier>
-					<RatkinDemonMan>5</RatkinDemonMan>
-					<RatkinDefender>15</RatkinDefender>
-					<RatkinEliteGuardener>15</RatkinEliteGuardener>
+					<RK_PawnKind_Soldier>30</RK_PawnKind_Soldier>
+					<RK_PawnKind_EliteSoldier>5</RK_PawnKind_EliteSoldier>
+					<RK_PawnKind_DemonMan>5</RK_PawnKind_DemonMan>
+					<RK_PawnKind_Defender>15</RK_PawnKind_Defender>
+					<RK_PawnKind_EliteGuardener>15</RK_PawnKind_EliteGuardener>
 				</options>
 			</li>
 			<!-- 중후반 디펜더, 가드너,기사-->
@@ -98,9 +83,9 @@
 				</disallowedStrategies>
 				<commonality>30</commonality>
 				<options>
-					<RatkinEliteGuardener>30</RatkinEliteGuardener>
-					<RatkinKnight>30</RatkinKnight>
-					<RatkinEliteDefender>15</RatkinEliteDefender>
+					<RK_PawnKind_EliteGuardener>30</RK_PawnKind_EliteGuardener>
+					<RK_PawnKind_Knight>30</RK_PawnKind_Knight>
+					<RK_PawnKind_EliteDefender>15</RK_PawnKind_EliteDefender>
 				</options>
 			</li>
 			<!-- 중후반 엘리트 디펜더, 기사, 커맨더-->
@@ -111,48 +96,48 @@
 				</disallowedStrategies>
 				<commonality>20</commonality>
 				<options>
-					<RatkinKnight>30</RatkinKnight>
-					<RatkinEliteDefender>20</RatkinEliteDefender>
-					<RatkinKnightCommander>5</RatkinKnightCommander>
+					<RK_PawnKind_Knight>30</RK_PawnKind_Knight>
+					<RK_PawnKind_EliteDefender>20</RK_PawnKind_EliteDefender>
+					<RK_PawnKind_KnightCommander>5</RK_PawnKind_KnightCommander>
 				</options>
 			</li>
 			<li>
 				<kindDef>Peaceful</kindDef>
 				<options>
-					<RatkinNoble>10</RatkinNoble>
-					<RatkinColonist>20</RatkinColonist>
-					<RatkinServant>15</RatkinServant>
-					<RatkinEliteGuardener>10</RatkinEliteGuardener>
-					<RatkinKnight>10</RatkinKnight>
-					<RatkinPriest>10</RatkinPriest>
+					<RK_PawnKind_Noble>10</RK_PawnKind_Noble>
+					<RK_PawnKind_Colonist>20</RK_PawnKind_Colonist>
+					<RK_PawnKind_Servant>15</RK_PawnKind_Servant>
+					<RK_PawnKind_EliteGuardener>10</RK_PawnKind_EliteGuardener>
+					<RK_PawnKind_Knight>10</RK_PawnKind_Knight>
+					<RK_PawnKind_Priest>10</RK_PawnKind_Priest>
 				</options>
 			</li>
 			<li>
 				<kindDef>Trader</kindDef>
 				<traders>
-					<RatkinMerchant>15</RatkinMerchant>
-					<RatkinNoble>8</RatkinNoble>
+					<RK_PawnKind_Merchant>15</RK_PawnKind_Merchant>
+					<RK_PawnKind_Noble>8</RK_PawnKind_Noble>
 				</traders>
 				<carriers>
-					<Ratkin_KingHamster>6</Ratkin_KingHamster>
+					<RK_PawnKind_KingHamster>6</RK_PawnKind_KingHamster>
 				</carriers>
 				<guards>
-					<RatkinCombatant>10</RatkinCombatant>
-					<RatkinMercenaryLight>15</RatkinMercenaryLight>
-					<RatkinSoldier>20</RatkinSoldier>
-					<RatkinEliteGuardener>10</RatkinEliteGuardener>
-					<RatkinDefender>10</RatkinDefender>
+					<RK_PawnKind_Combatant>10</RK_PawnKind_Combatant>
+					<RK_PawnKind_MercenaryLight>15</RK_PawnKind_MercenaryLight>
+					<RK_PawnKind_Soldier>20</RK_PawnKind_Soldier>
+					<RK_PawnKind_EliteGuardener>10</RK_PawnKind_EliteGuardener>
+					<RK_PawnKind_Defender>10</RK_PawnKind_Defender>
 				</guards>
 			</li>
 			<li>
 				<kindDef>Settlement</kindDef>
 				<options>
-					<RatkinNoble>3</RatkinNoble>
-					<RatkinColonist>6</RatkinColonist>
-					<RatkinServant>8</RatkinServant>
-					<RatkinCombatant>5</RatkinCombatant>
-					<RatkinEliteGuardener>8</RatkinEliteGuardener>
-					<RatkinPriest>3</RatkinPriest>
+					<RK_PawnKind_Noble>3</RK_PawnKind_Noble>
+					<RK_PawnKind_Colonist>6</RK_PawnKind_Colonist>
+					<RK_PawnKind_Servant>8</RK_PawnKind_Servant>
+					<RK_PawnKind_Combatant>5</RK_PawnKind_Combatant>
+					<RK_PawnKind_EliteGuardener>8</RK_PawnKind_EliteGuardener>
+					<RK_PawnKind_Priest>3</RK_PawnKind_Priest>
 				</options>
 			</li>
 		</pawnGroupMakers>
@@ -169,7 +154,7 @@
 			<li>RatkiniaTraditionCulture</li>
 		</allowedCultures>
 	</FactionDef>
-	<FactionDef ParentName="RatkinFactionBase">
+	<FactionDef ParentName="RK_FactionBase">
 		<defName>Rakinia</defName>
 		<label>ratkin kingdom</label>
 		<description>랫킨 왕국입니다. 인간들 눈에 띄지 않도록 숨어서 살고 있으며 농경생활을 위주로 생활하는 비 침략적인 종족입니다.</description>
