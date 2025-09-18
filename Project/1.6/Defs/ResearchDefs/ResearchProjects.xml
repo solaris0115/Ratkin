@@ -118,7 +118,7 @@
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
 			<li>ChargedShot</li>
-			<li>FlechetteBullet</li>
+			<li>RK_Research_FlechetteBullet</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>   
 		<researchViewX>2</researchViewX>
