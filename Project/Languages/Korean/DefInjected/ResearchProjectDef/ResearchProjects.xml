@@ -13,8 +13,8 @@
   <Bigmouse.label>대포</Bigmouse.label>
   <Bigmouse.description>커다란 대포를 연구합니다. 육중한 대포알을 날려보내는 무시무시한 방어시설입니다.</Bigmouse.description>
 
-  <Advanced_BallistaBolt.label>발라스타 탄환</Advanced_BallistaBolt.label>
-  <Advanced_BallistaBolt.description>더 다양한 발리스타용 탄환을 연구합니다.</Advanced_BallistaBolt.description>
+  <RK_Research_AdvancedBallistaBolt.label>발라스타 탄환</RK_Research_AdvancedBallistaBolt.label>
+  <RK_Research_AdvancedBallistaBolt.description>더 다양한 발리스타용 탄환을 연구합니다.</RK_Research_AdvancedBallistaBolt.description>
 
   <MicroOptical.label>광학 장비</MicroOptical.label>
   <MicroOptical.description>인간의 광학장비를 모방하여 연구합니다. 시력이 나쁜 랫킨이 쓸 수 있도록 디자인을 다시해야합니다. 연구용 안경이 필요합니다.</MicroOptical.description>
