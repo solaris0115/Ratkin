@@ -147,7 +147,7 @@ RecipeDef:RK_Recipe_InstallFakeEar
 RecipeDef:RK_Recipe_InstallFakeTail
 
 ## ResearchProjectDef
-ResearchProjectDef:RK_Research_Advanced_BallistaBolt
+ResearchProjectDef:RK_Research_AdvancedBallistaBolt
 ResearchProjectDef:RK_Research_Ballista
 ResearchProjectDef:RK_Research_Bigmouse
 ResearchProjectDef:RK_Research_FlechetteBullet

@@ -50,7 +50,7 @@
 	</ResearchProjectDef>	
 	
 	<ResearchProjectDef>
-		<defName>RK_Research_Advanced_BallistaBolt</defName>
+		<defName>RK_Research_AdvancedBallistaBolt</defName>
 		<label>advanced ballista bolt</label>
 		<description>더 다양한 발리스타용 탄환을 연구합니다.</description>
 		<tab>RatkinTech</tab>
