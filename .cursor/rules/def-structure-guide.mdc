@@ -49,7 +49,25 @@ Ratkin 프로젝트에서 Def는 데이터 정의로 게임 내 각종 요소들
 
 - **접두사**: `RK_` 사용
 - **표기법**: 파스칼 표기법 (PascalCase)
-- **예시**: `RK_RecipeSurgery`, `RK_WeaponRifle`, `RK_RaceRatkin`
+- **DefName 구조**: `RK_` + `DefType` + `_` + `SpecificName`
+- **예시**: 
+  - `RK_Recipe_InstallFakeEar` (RecipeDef)
+  - `RK_Research_PiercingWeapon` (ResearchProjectDef)
+  - `RK_Thing_RatkinRifle` (ThingDef)
+  - `RK_Race_Ratkin` (RaceDef)
+
+### DefType별 네이밍 패턴
+
+- **RecipeDef**: `RK_Recipe_Xxx` (예: `RK_Recipe_InstallFakeEar`)
+- **ResearchProjectDef**: `RK_Research_Xxx` (예: `RK_Research_PiercingWeapon`)
+- **ThingDef**: `RK_Thing_Xxx` 또는 `RK_Xxx` (예: `RK_Thing_RatkinRifle`, `RK_RatkinRifle`)
+- **RaceDef**: `RK_Race_Xxx` (예: `RK_Race_Ratkin`)
+- **TraitDef**: `RK_Trait_Xxx` (예: `RK_Trait_RatkinSenses`)
+- **FactionDef**: `RK_Faction_Xxx` (예: `RK_Faction_RatkinTribe`)
+- **AbilityDef**: `RK_Ability_Xxx` (예: `RK_Ability_RatkinLeap`)
+- **BackStoryDef**: `RK_Backstory_Xxx` (예: `RK_Backstory_RatkinChildhood`)
+- **CultureDef**: `RK_Culture_Xxx` (예: `RK_Culture_RatkinSociety`)
+- **HairDef**: `RK_Hair_Xxx` (예: `RK_Hair_RatkinStyle`)
 
 ## 주요 Def 타입들
 
@@ -74,8 +92,16 @@ Ratkin 프로젝트에서 Def는 데이터 정의로 게임 내 각종 요소들
 ## 적용 원칙
 
 - 모든 Def 작업 시 이 정보를 참고하여 일관성 있는 네이밍과 구조 유지
+- **DefName 구조**: `RK_` + `DefType` + `_` + `SpecificName` 형식을 반드시 준수
 - defName, 파일명 모두 RK_ 접두사와 파스칼 표기법을 반드시 준수
 - **DefName 변경 시**: [Dependencies/Final_Dependency_Map.json](mdc:Dependencies/Final_Dependency_Map.json) 반드시 확인
 - 리소스 파일들은 Sounds/와 Textures/ 디렉토리 구조를 활용
 - Def 파일은 Project/1.6/Defs/ 하위의 적절한 카테고리 디렉토리에 배치
 - 레퍼런스용으로 Project/1.5/Defs/와 RimWorldData/의 원본 Defs를 참고하여 작업
+
+### 네이밍 규칙 준수 체크리스트
+
+- [ ] DefName이 `RK_DefType_SpecificName` 형식인가?
+- [ ] DefType이 올바르게 명시되었는가? (Recipe, Research, Thing, Race 등)
+- [ ] SpecificName이 파스칼 표기법을 따르는가?
+- [ ] 전체 프로젝트에서 일관된 네이밍을 사용하는가?
