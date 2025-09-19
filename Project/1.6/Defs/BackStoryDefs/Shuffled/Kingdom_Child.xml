@@ -24,14 +24,14 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinMurderer</li>
-			<li>RatkinWild</li>
-			<li>RatkinThief</li>
-			<li>RatkinSubject</li>
-			<li>RatkinDefender</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinDemoman</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Murderer</li>
+			<li>RK_SpawnCategory_Wild</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 땅쥐 -->
@@ -56,12 +56,12 @@
 			</li>
 		</forcedTraitsChance>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinSubject</li>
-			<li>RatkinWild</li>
-			<li>RatkinThief</li>
-			<li>RatkinMurderer</li>
-			<li>RatkinDemoman</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_Wild</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Murderer</li>
+			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 시골아이 -->
@@ -81,18 +81,18 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinPriest</li>
-			<li>RatkinFarm</li>
-			<li>RatkinThief</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinServant</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinDefender</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinKnight</li>
-			<li>RatkinKnightCommander</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Priest</li>
+			<li>RK_SpawnCategory_Farm</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Knight</li>
+			<li>RK_SpawnCategory_KnightCommander</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 꼬마목동 -->
@@ -114,13 +114,13 @@
 		<workDisables>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinPriest</li>
-			<li>RatkinFarm</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Priest</li>
+			<li>RK_SpawnCategory_Farm</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 고아 -->
@@ -138,20 +138,20 @@
 			<Intellectual>-3</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinMurderer</li>
-			<li>RatkinMercenary</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinSubject</li>
-			<li>RatkinServant</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinThief</li>
-			<li>RatkinPriest</li>
-			<li>RatkinDefender</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Murderer</li>
+			<li>RK_SpawnCategory_Mercenary</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Priest</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 학생 -->
@@ -172,13 +172,13 @@
 			<Intellectual>2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinServant</li>
-			<li>RatkinPriest</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinEducated</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinDemoman</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Priest</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 사서자식 -->
@@ -200,10 +200,10 @@
 			<Intellectual>3</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinNoble</li>
-			<li>RatkinEducated</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_SpawnCategory_Educated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 금수저 -->
@@ -223,12 +223,12 @@
 			<li>Violent</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinEducated</li>
-			<li>RatkinNoble</li>
-			<li>RatkinNonViolence</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_SpawnCategory_NonViolence</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 서자 -->
@@ -247,18 +247,18 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinEducated</li>
-			<li>RatkinVagabond</li>
-			<li>RatkinMercenary</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinDefender</li>
-			<li>RatkinNoble</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Vagabond</li>
+			<li>RK_SpawnCategory_Mercenary</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 후계자 -->
@@ -280,14 +280,14 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinEducated</li>
-			<li>RatkinNoble</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 정원사지망 -->
@@ -303,16 +303,16 @@
 			<Mining>-4</Mining>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinVagabond</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinDefender</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinEducated</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Vagabond</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 쉐프지망생 -->
@@ -332,14 +332,14 @@
 			<Cooking>2</Cooking>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinChef</li>
-			<li>RatkinDefender</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinServant</li>
-			<li>RatkinEducated</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Chef</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Educated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 집시아이 -->
@@ -364,17 +364,17 @@
 			<li>Social</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinMurderer</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinWanderer</li>
-			<li>RatkinVagabond</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinServant</li>
-			<li>RatkinThief</li>
-			<li>RatkinUneducated</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Murderer</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Wanderer</li>
+			<li>RK_SpawnCategory_Vagabond</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Uneducated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 장교의 아이 -->
@@ -396,17 +396,17 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinEducated</li>
-			<li>RatkinMercenary</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinDefender</li>
-			<li>RatkinNoble</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Mercenary</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 상인아이 -->
@@ -426,11 +426,11 @@
 			<Cooking>1</Cooking>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinServant</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinEducated</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_Educated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 일반아이 -->
@@ -455,18 +455,18 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinKingdom</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinServant</li>
-			<li>RatkinPriest</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinDefender</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinKnight</li>
-			<li>RatkinSoldier</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Priest</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_Knight</li>
+			<li>RK_SpawnCategory_Soldier</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 하인자식 -->
@@ -488,16 +488,16 @@
 			<Crafting>1</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinCity</li>
-			<li>RatkinDefender</li>
-			<li>RatkinServant</li>
-			<li>RatkinGuardener</li>
-			<li>RatkinThief</li>
-			<li>RatkinKnight</li>
-			<li>RatkinUneducated</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_City</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Guardener</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Knight</li>
+			<li>RK_SpawnCategory_Uneducated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 인간조수 -->
@@ -519,13 +519,13 @@
 			<Intellectual>1</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinCity</li>
-			<li>RatkinSubject</li>
-			<li>RatkinServant</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinEducated</li>
-			<li>RatkinDemoman</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_City</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 도시쥐자식 -->
@@ -547,14 +547,14 @@
 			<Intellectual>2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinCity</li>
-			<li>RatkinServant</li>
-			<li>RatkinSubject</li>
-			<li>RatkinThief</li>
-			<li>RatkinEducated</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_City</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Educated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 노예 -->
@@ -579,19 +579,19 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinCity</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinDefender</li>
-			<li>RatkinEliteDefender</li>
-			<li>RatkinServant</li>
-			<li>RatkinMercenary</li>
-			<li>RatkinSubject</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinThief</li>
-			<li>RatkinDemoman</li>
-			<li>RatkinKnight</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_City</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Mercenary</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Demoman</li>
+			<li>RK_SpawnCategory_Knight</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 실험실쥐 -->
@@ -614,14 +614,14 @@
 			<li>Social</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinMurderer</li>
-			<li>RatkinSoldier</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinSubject</li>
-			<li>RatkinCity</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinDemoman</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Murderer</li>
+			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Subject</li>
+			<li>RK_SpawnCategory_City</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 좀도둑 -->
@@ -645,17 +645,17 @@
 			<Intellectual>-4</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RatkinStory</li>
-			<li>RatkinCombatant</li>
-			<li>RatkinMercenary</li>
-			<li>RatkinMurderer</li>
-			<li>RatkinCity</li>
-			<li>RatkinServant</li>
-			<li>RatkinMerchant</li>
-			<li>RatkinDefender</li>
-			<li>RatkinUneducated</li>
-			<li>RatkinThief</li>
-			<li>RatkinDemoman</li>
+			<li>RK_SpawnCategory_Story</li>
+			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_SpawnCategory_Mercenary</li>
+			<li>RK_SpawnCategory_Murderer</li>
+			<li>RK_SpawnCategory_City</li>
+			<li>RK_SpawnCategory_Servant</li>
+			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_SpawnCategory_Uneducated</li>
+			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_SpawnCategory_Demoman</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 </Defs>
