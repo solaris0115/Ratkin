@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Ratkin Style Categories -->
+
+  <StyleItemCategoryDef>
+    <defName>RK_StyleItemCategory_Ratkin</defName>
+    <label>ratkin style</label>
+  </StyleItemCategoryDef>
+
+</Defs>
