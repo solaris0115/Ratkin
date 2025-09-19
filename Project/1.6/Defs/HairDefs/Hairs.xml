@@ -5,19 +5,19 @@
 		<label>braided</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_Braided</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
-	<HairDef>
+	<!--<HairDef>
 		<defName>RK_Hair_BraidedB</defName>
 		<label>braided b</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_BraidedB</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -27,7 +27,7 @@
 		<texPath>Hair/RK_Hair_Middle</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -37,7 +37,7 @@
 		<texPath>Hair/RK_Hair_SideTail</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -47,7 +47,7 @@
 		<texPath>Hair/RK_Hair_TwinTailA</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -57,7 +57,7 @@
 		<texPath>Hair/RK_Hair_WaveLongA</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -67,7 +67,7 @@
 		<texPath>Hair/RK_Hair_LongA</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -77,7 +77,7 @@
 		<texPath>Hair/RK_Hair_LongB</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -87,7 +87,7 @@
 		<texPath>Hair/RK_Hair_LongD</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -97,7 +97,7 @@
 		<texPath>Hair/RK_Hair_LongE</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -107,7 +107,7 @@
 		<texPath>Hair/RK_Hair_PonytailA</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -117,7 +117,7 @@
 		<texPath>Hair/RK_Hair_SidePonytailA</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -127,7 +127,7 @@
 		<texPath>Hair/RK_Hair_TwinTailB</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -137,7 +137,7 @@
 		<texPath>Hair/RK_Hair_TwinTailC</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -147,7 +147,7 @@
 		<texPath>Hair/RK_Hair_TwinTailD</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -157,7 +157,7 @@
 		<texPath>Hair/RK_Hair_TwinTailE</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -167,7 +167,7 @@
 		<texPath>Hair/RK_Hair_TwinTailF</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -177,7 +177,7 @@
 		<texPath>Hair/RK_Hair_MiddleB</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
@@ -187,7 +187,7 @@
 		<texPath>Hair/RK_Hair_PonytailB</texPath>
 		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_Style</li>
+			<li>RK_Tag_HairStyle</li>
 		</styleTags>
-	</HairDef>
+	</HairDef>-->
 </Defs>
