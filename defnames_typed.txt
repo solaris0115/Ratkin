@@ -83,25 +83,25 @@ FactionDef:RK_Faction_PlayerFaction
 FactionDef:Rakinia
 
 ## HairDef
-HairDef:RK_Braided
-HairDef:RK_BraidedB
-HairDef:RK_LongA
-HairDef:RK_LongB
-HairDef:RK_LongD
-HairDef:RK_LongE
-HairDef:RK_MPony
-HairDef:RK_Middle2
-HairDef:RK_PonyA
-HairDef:RK_WavelongA
-HairDef:RK_middl
-HairDef:RK_sidePonyA
-HairDef:RK_side_tail
-HairDef:RK_twin2
-HairDef:RK_twin3
-HairDef:RK_twin4
-HairDef:RK_twin5
-HairDef:RK_twin6
-HairDef:RK_twinA
+HairDef:RK_Hair_Braided
+HairDef:RK_Hair_BraidedB
+HairDef:RK_Hair_LongA
+HairDef:RK_Hair_LongB
+HairDef:RK_Hair_LongD
+HairDef:RK_Hair_LongE
+HairDef:RK_Hair_PonytailB
+HairDef:RK_Hair_MiddleB
+HairDef:RK_Hair_PonytailA
+HairDef:RK_Hair_WaveLongA
+HairDef:RK_Hair_Middle
+HairDef:RK_Hair_SidePonytailA
+HairDef:RK_Hair_SideTail
+HairDef:RK_Hair_TwinTailB
+HairDef:RK_Hair_TwinTailC
+HairDef:RK_Hair_TwinTailD
+HairDef:RK_Hair_TwinTailA
+HairDef:RK_Hair_TwinTailF
+HairDef:RK_Hair_TwinTailE
 
 ## HediffDef
 HediffDef:RK_BionicTail
