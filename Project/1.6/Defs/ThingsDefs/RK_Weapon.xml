@@ -556,7 +556,7 @@
 				<defaultProjectile>Bullet_RK_Rifle</defaultProjectile>
 				<warmupTime>1.6</warmupTime>
 				<range>33.9</range>
-				<soundCast>Rifle</soundCast>
+				<soundCast>RK_Sound_Rifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>
@@ -643,7 +643,7 @@
 				<defaultProjectile>Bullet_RK_SniperRifle</defaultProjectile>
 				<warmupTime>1.8</warmupTime>
 				<range>42</range>
-				<soundCast>Rifle</soundCast>
+				<soundCast>RK_Sound_Rifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>
@@ -728,7 +728,7 @@
 				<defaultProjectile>Bullet_RK_FlechetteRifle</defaultProjectile>
 				<warmupTime>1.6</warmupTime>
 				<range>31</range>
-				<soundCast>FlechetteRifle</soundCast>
+				<soundCast>RK_Sound_FlechetteRifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>
@@ -821,7 +821,7 @@
 				<defaultProjectile>Bullet_RK_FlechetteSniperRifle</defaultProjectile>
 				<warmupTime>1.8</warmupTime>
 				<range>39</range>
-				<soundCast>FlechetteRifle</soundCast>
+				<soundCast>RK_Sound_FlechetteRifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>
@@ -917,7 +917,7 @@
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<soundCast>FlechetteRifle</soundCast>
+				<soundCast>RK_Sound_FlechetteRifle</soundCast>
 				<defaultProjectile>Bullet_RK_Buck</defaultProjectile>
 				
 				<warmupTime>0.9</warmupTime>
@@ -930,7 +930,7 @@
 			<!-- <li Class="AdditionalVerb.VerbProperties_Custom"> -->
 				<!-- <verbClass>Verb_Shoot</verbClass> -->
 				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <soundCast>FlechetteRifle</soundCast> -->
+				<!-- <soundCast>RK_Sound_FlechetteRifle</soundCast> -->
 				<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
 
 				<!-- <defaultProjectile>Bullet_RK_Slug</defaultProjectile> -->
@@ -1051,7 +1051,7 @@
 				<range>31</range>
 				<burstShotCount>4</burstShotCount>
 				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-				<soundCast>PrototypePulse</soundCast>
+				<soundCast>RK_Sound_PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 				<!-- <desc>Take 4 burst shot at mid-range target.\nAcc Bonus\nShort Acc: +50%\nMid Acc: +25%</desc> -->
@@ -1070,7 +1070,7 @@
 				<range>42</range>
 				<burstShotCount>2</burstShotCount>
 				<ticksBetweenBurstShots>13</ticksBetweenBurstShots>
-				<soundCast>PrototypePulse</soundCast>
+				<soundCast>RK_Sound_PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 				<!-- <desc>Take 2 burst shot at long-range target.\nAcc Bonus\nMid Acc: +25%\nLong Acc: +50%</desc> -->
@@ -1175,7 +1175,7 @@
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<soundCast>PrototypePulse</soundCast>
+				<soundCast>RK_Sound_PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 
 				<defaultProjectile>Bullet_BFR_AP</defaultProjectile>
@@ -1188,23 +1188,6 @@
 				<label>AP fire</label>
 				<!-- <texPath>UI/Commands/AP</texPath> -->
 			</li>
-			<!-- 후폭풍탄 -->
-			<!-- <li Class="AdditionalVerb.VerbProperties_Custom"> -->
-				<!-- <verbClass>Verb_Shoot</verbClass> -->
-				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <soundCast>PrototypePulse</soundCast> -->
-				<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
-
-				<!-- <defaultProjectile>Bullet_BFR_SC</defaultProjectile> -->
-				<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
-				<!-- <warmupTime>2.5</warmupTime> -->
-				<!-- <burstShotCount>1</burstShotCount> -->
-				<!-- <minRange>3</minRange> -->
-				<!-- <range>44.9</range>	 -->
-				<!-- <desc>적중시 뒤로 파편을 비산시키는 특수탄을 발사합니다.</desc> -->
-				<!-- <label>SC fire</label> -->
-				<!-- <texPath>UI/Commands/SC</texPath> -->
-			<!-- </li> -->
 		</verbs>		
 		<recipeMaker Inherit="false">
 			<!-- <researchPrerequisite>PulseTech</researchPrerequisite> -->

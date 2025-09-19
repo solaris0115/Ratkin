@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<SoundDef>
-		<defName>Rifle</defName>
+		<defName>RK_Sound_Rifle</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -20,7 +20,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>PrototypePulse</defName>
+		<defName>RK_Sound_PrototypePulse</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -39,7 +39,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>FlechetteRifle</defName>
+		<defName>RK_Sound_FlechetteRifle</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -59,7 +59,7 @@
 	</SoundDef>
 	
 	<SoundDef>
-		<defName>RK_Charge</defName>
+		<defName>RK_Sound_Charge</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -78,7 +78,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>RK_Fire</defName>
+		<defName>RK_Sound_Fire</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -97,7 +97,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>RK_OverHeat</defName>
+		<defName>RK_Sound_OverHeat</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -116,7 +116,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>RK_Reload</defName>
+		<defName>RK_Sound_Reload</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
@@ -135,7 +135,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>RK_WyvernFire</defName>
+		<defName>RK_Sound_WyvernFire</defName>
 		<eventNames />
 		<context>MapOnly</context>
 		<maxSimultaneous>1</maxSimultaneous>
