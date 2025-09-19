@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- 특정 조건 충족하면 등장하는 유니크 캐릭터 전용 백스토리.-->
+    <!-- 랫킨 -->
+    <AlienRace.AlienBackstoryDef Name="BaseRatkinSolidAdulthood" ParentName="BaseRatkinAdulthood"
+        Abstract="True">
+        <slot>Adulthood</slot>
+    </AlienRace.AlienBackstoryDef>
+
+    <AlienRace.AlienBackstoryDef Name="BaseRatkinSolidChildhood" ParentName="BaseRatkinChildhood"
+        Abstract="True">
+        <slot>Childhood</slot>
+    </AlienRace.AlienBackstoryDef>
+
+    <!-- 
+    <AlienRace.AlienBackstoryDef ParentName="BaseRatkinSolidAdulthood">
+		<defName>RK_BackStory_JandarcChildhood</defName>
+		<title>Jandarc</title>
+		<titleShort>Jandarc</titleShort>
+		<description>[PAWN_nameDef]은 농부의 딸입니다. [PAWN_pronoun]은 그저 하루하루 평범하게 먹고 살았습니다. 숲에서 길을 잃기
+    전까지는.</description>
+		<slot>Childhood</slot>
+		<skillGains>
+			<Cooking>1</Cooking>
+			<Plants>2</Plants>
+		</skillGains>
+		<workDisables>
+			<li>Intellectual</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RK_SpawnCategory_Myth</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+    <AlienRace.AlienBackstoryDef ParentName="BaseRatkinSolidAdulthood">
+		<defName>RK_BackStory_JandarcAdulthood</defName>
+		<title>Jandarc</title>
+		<titleShort>Jandarc</titleShort>
+		<description>[PAWN_nameDef]은 호수에서 알 수 없는 목소리를 들었습니다. 그날 이후로 [PAWN_pronoun]은 자신이 해야할 일을 뚜렷하게 알게
+    되었습니다.</description>
+		<slot>Adulthood</slot>
+		<skillGains>
+			<Melee>8</Melee>
+		</skillGains>
+		<workDisables>
+			<li>Intellectual</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RK_SpawnCategory_Myth</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef> -->
+
+</Defs>
