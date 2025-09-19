@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<AlienRace.ThingDef_AlienRace Name="RK_PawnBase">
 		<defName>RK_Ratkin</defName>
 		<label>ratkin.label</label>
-		<description>설치류 유전자와 흡사한 인간입니다. 출처는 알 수 없으나 주로 농경사회를 기반으로 한 왕정을 이루고 살고 있습니다. 여성 개체가 남성보다 많으며 외부에서 보았을때 개체의 성별 구분이 힘듭니다.</description>
+		<description>설치류 유전자와 흡사한 인간입니다. 출처는 알 수 없으나 주로 농경사회를 기반으로 한 왕정을 이루고 살고 있습니다. 여성 개체가 남성보다
+			많으며 외부에서 보았을때 개체의 성별 구분이 힘듭니다.</description>
 		<alienRace>
 			<generalSettings>
 				<!-- 기본 설정 -->
@@ -13,22 +14,22 @@
 				<alienPartGenerator>
 					<!-- 전체화질 및 텍스처 드로우 범위 -->
 					<atlasScale>4</atlasScale>
-					
+
 					<!-- 얼굴 및 신체 바리에이션 -->
 					<headTypes>
-						<li>RK_Head1</li>
-						<li>RK_Head2</li>
-						<li>RK_Head3</li>
-						<li>RK_Head4</li>
-						<li>RK_Head5</li>
-						<li>RK_Head6</li>
+						<li>Female_AverageNormal</li>
+						<li>Female_AverageWide</li>
+						<li>Female_AveragePointy</li>
+						<li>Male_AverageNormal</li>
+						<li>Male_AverageWide</li>
+						<li>Male_AveragePointy</li>
 					</headTypes>
 					<bodyTypes>
-						<li>RK_BodyAdult</li>
-						<li MayRequire="Ludeon.RimWorld.Biotech">RK_BodyBaby</li>
-						<li MayRequire="Ludeon.RimWorld.Biotech">RK_BodyChild</li>
+						<li>Thin</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">Baby</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">Child</li>
 					</bodyTypes>
-					
+
 					<!-- 신체 오프셋 -->
 					<headOffset>(0.0, -0.09)</headOffset>
 					<customDrawSize>(0.9, 0.9)</customDrawSize>
@@ -37,14 +38,14 @@
 					<!-- 신체 부착물 -->
 					<bodyAddons>
 						<li>
-							<path>Body/RK_Tail</path>
+							<path>Body/RK_BodyPart_Tail</path>
 							<inFrontOfBody>false</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<defaultOffset>Tail</defaultOffset>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
 							<conditions>
 								<BodyPart>
-									<bodyPart>RK_RatTail</bodyPart>
+									<bodyPart>RK_BodyPart_Tail</bodyPart>
 									<bodyPartLabel>tail</bodyPartLabel>
 									<drawWithoutPart>false</drawWithoutPart>
 								</BodyPart>
@@ -58,23 +59,29 @@
 							<offsets>
 								<south>
 									<bodyTypes>
-										<RK_BodyAdult>(-0.01,-0.2)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.01,-0.2)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(-0.01,-0.2)</RK_BodyChild>
+										<Thin>(-0.01,-0.2)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.01,-0.2)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.01,-0.2)</Child>
 									</bodyTypes>
 								</south>
 								<north>
 									<bodyTypes>
-										<RK_BodyAdult>(-0.01,0.07)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.01,0.07)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(-0.01,0.2)</RK_BodyChild>
+										<Thin>(-0.01,0.07)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.01,0.07)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.01,0.2)</Child>
 									</bodyTypes>
 								</north>
 								<east>
 									<bodyTypes>
-										<RK_BodyAdult>(-0.05,-0.1)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.2,0.05)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(-0.2,0.0)</RK_BodyChild>
+										<Thin>(-0.05,-0.1)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.2,0.05)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.2,0.0)</Child>
 									</bodyTypes>
 								</east>
 							</offsets>
@@ -104,38 +111,50 @@
 							<offsets>
 								<south>
 									<bodyTypes>
-										<RK_BodyAdult>(-0.03,-0.35)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(-0.03,-0.37)</RK_BodyChild>
+										<Thin>(-0.03,-0.35)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.03,-0.37)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<RK_BodyAdult>(-0.03,-0.35)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(-0.03,-0.37)</RK_BodyChild>
+										<Thin>(-0.03,-0.35)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.03,-0.37)</Child>
 									</portraitBodyTypes>
 								</south>
 								<north>
 									<bodyTypes>
-										<RK_BodyAdult>(0.03,-0.23)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.25)</RK_BodyChild>
+										<Thin>(0.03,-0.23)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.04,-0.25)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<RK_BodyAdult>(0.03,-0.23)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(-0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.25)</RK_BodyChild>
+										<Thin>(0.03,-0.23)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(-0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.04,-0.25)</Child>
 									</portraitBodyTypes>
 								</north>
 								<east>
 									<bodyTypes>
-										<RK_BodyAdult>(0.2,-0.25)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.1,-0.35)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.15,-0.35)</RK_BodyChild>
+										<Thin>(0.2,-0.25)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.1,-0.35)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.15,-0.35)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<RK_BodyAdult>(0.2,-0.25)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.1,-0.35)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.15,-0.35)</RK_BodyChild>
+										<Thin>(0.2,-0.25)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.1,-0.35)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.15,-0.35)</Child>
 									</portraitBodyTypes>
 								</east>
 							</offsets>
@@ -165,38 +184,50 @@
 							<offsets>
 								<south>
 									<bodyTypes>
-										<RK_BodyAdult>(0.02,-0.35)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.03,-0.37)</RK_BodyChild>
+										<Thin>(0.02,-0.35)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.03,-0.37)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<RK_BodyAdult>(0.02,-0.35)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.03,-0.37)</RK_BodyChild>
+										<Thin>(0.02,-0.35)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.03,-0.37)</Child>
 									</portraitBodyTypes>
 								</south>
 								<north>
 									<bodyTypes>
-										<RK_BodyAdult>(0.0,-0.23)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.0,-0.25)</RK_BodyChild>
+										<Thin>(0.0,-0.23)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.0,-0.25)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<RK_BodyAdult>(0.0,-0.23)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.42)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.0,-0.25)</RK_BodyChild>
+										<Thin>(0.0,-0.23)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.04,-0.42)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.0,-0.25)</Child>
 									</portraitBodyTypes>
 								</north>
 								<east>
 									<bodyTypes>
-										<RK_BodyAdult>(0.2,-0.25)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.1,-0.35)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.15,-0.35)</RK_BodyChild>
+										<Thin>(0.2,-0.25)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.1,-0.35)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.15,-0.35)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<RK_BodyAdult>(0.2,-0.25)</RK_BodyAdult>
-										<RK_BodyBaby MayRequire="Ludeon.RimWorld.Biotech">(0.1,-0.35)</RK_BodyBaby>
-										<RK_BodyChild MayRequire="Ludeon.RimWorld.Biotech">(0.15,-0.35)</RK_BodyChild>
+										<Thin>(0.2,-0.25)</Thin>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">
+											(0.1,-0.35)</Baby>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">
+											(0.15,-0.35)</Child>
 									</portraitBodyTypes>
 								</east>
 							</offsets>
@@ -204,12 +235,8 @@
 					</bodyAddons>
 				</alienPartGenerator>
 				<disallowedTraits>
-					<li>
-						<defName>AnnoyingVoice</defName>
-					</li>
-					<li>
-						<defName>CreepyBreathing</defName>
-					</li>
+					<li><defName>AnnoyingVoice</defName></li>
+					<li><defName>CreepyBreathing</defName></li>	
 				</disallowedTraits>
 			</generalSettings>
 			<graphicPaths>
@@ -221,9 +248,9 @@
 					<key>HairDef</key>
 					<value>
 						<hasStyle>true</hasStyle>
-						<styleTagsOverride>
-							<li>RK_Style</li>
-						</styleTagsOverride>
+						<styleTags>
+							<li>RK_Tag_HairStyle</li>
+						</styleTags>
 					</value>
 				</li>
 				<li>
@@ -245,81 +272,12 @@
 			<raceRestriction>
 				<onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel>
 				<apparelList>
-					<li>RK_ApronSkirt</li>
-					<li>RK_SummerDress</li>
-					<li>RK_StrawHat</li>
-					<li>RK_Muffler</li>
-					<li>RK_CrossBack</li>
-					<li>RK_Cardigan</li>
-					<li>RK_WoolenHat</li>
-					<li>RK_Backpack</li>
-					<li>RK_WorkerWear</li>
-					<li>RK_Coif</li>
-					<li>RK_ResearchGown</li>
-					<li>RK_ResearchGlasses</li>
-					<li>RK_ExplorerWear</li>
-					<li>RK_ExplorerHat</li>
-					<li>RK_ChefSuit</li>
-					<li>RK_ChefHat</li>
-					<li>RK_GaurdenUniform</li>
-					<li>RK_WinterRobe</li>
-					<li>RK_OutdoorBackpack</li>
-					<li>RK_OrderUniform</li>
-					<li>RK_BulletProofHelmet</li>
-					<li>RK_FlatColorCoat</li>
-					<li>RK_FrillOnepiece</li>
-					<li>RK_HairCorsage</li>
-					<li>RK_RibbonHairBand</li>
-					<li>RK_SistersDerss</li>
-					<li>RK_SistersVeil</li>
-					<li>RK_Sack</li>
-					<li>RK_BattleSuit</li>
-					<li>RK_Mask</li>
-					<li>RK_MaskB</li>
-					<li>RK_HeadBand</li>
-					<li>RK_Plate</li>
-					<li>RK_PlateHelmA</li>
-					<li>RK_PlateHelmB</li>
-					<li>RK_PlateHelmC</li>
-					<li>RK_WoodenShield</li>
-					<li>RK_HeavyShield</li>
-					<li>RK_HeavyShield_Big</li>
-					<li>RK_SantaRobe</li>
-					<li>RK_SantaHat</li>
-					<li>RK_SantaSack</li>
-					<li>RK_WhiteCoat</li>
-					<li>RK_RoyalRobe</li>
-					<li>RK_RoyalCrown</li>
-					<li>RK_RottiHat</li>
 				</apparelList>
 				<whiteApparelList>
 					<li>Apparel_ShieldBelt</li>
 					<li>Apparel_SmokepopBelt</li>
 				</whiteApparelList>
 				<weaponList>
-					<li>RK_Axe</li>
-					<li>RK_Cleaver</li>
-					<li>RK_Hockey</li>
-					<li>RK_Fork</li>
-					<li>RK_LongSword</li>
-					<li>RK_LongSword</li>
-					<li>RK_Crossbow</li>
-					<li>RK_EnhanceCrossBow</li>
-					<li>RK_AutoCrossBow</li>
-					<li>RK_Rifle</li>
-					<li>RK_SniperRifle</li>
-					<li>RK_FlechetteRifle</li>
-					<li>RK_FlechetteSniperRifle</li>
-					<li>RK_Rifle_line</li>
-					<li>RK_Dagger</li>
-					<li>RK_OneHanded</li>
-					<li>RK_LightLance</li>
-					<li>RK_HeavyLance</li>
-					<li>RK_Gunlance_NormalType</li>
-					<li>RK_Gunlance_SpreadType</li>
-					<li>RK_Mace</li>
-					<li>RK_Spear</li>
-					<li>RK_Halberd</li>
 				</weaponList>
 				<blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">
 					<li MayRequire="Ludeon.RimWorld.Biotech">Melanin</li>
@@ -338,8 +296,8 @@
 					<li MayRequire="Ludeon.RimWorld.Biotech">Fur</li>
 				</blackGeneTags>
 				<blackGeneList>
-                    <li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
-                    <li MayRequire="Ludeon.RimWorld.Biotech">Brow_Heavy</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">Brow_Heavy</li>
 				</blackGeneList>
 				<blackXenotypeList>
 					<li MayRequire="Ludeon.RimWorld.Biotech">Dirtmole</li>
@@ -369,31 +327,27 @@
 			<!-- 기본 -->
 			<MarketValue>2000</MarketValue>
 			<Mass>50</Mass>
-			<MoveSpeed>4.85</MoveSpeed>
+			<MoveSpeed>4.9</MoveSpeed>
 			<Flammability>1.0</Flammability>
-			<ComfyTemperatureMax>31</ComfyTemperatureMax>
-			<ComfyTemperatureMin>6</ComfyTemperatureMin>
+			<ComfyTemperatureMin>9</ComfyTemperatureMin>
+			<ComfyTemperatureMax>24</ComfyTemperatureMax>
 			<ImmunityGainSpeed>1.10</ImmunityGainSpeed>
 			<CarryingCapacity>45</CarryingCapacity>
-			<PainShockThreshold>0.7</PainShockThreshold>
+			<PainShockThreshold>0.9</PainShockThreshold>
 			<ToxicEnvironmentResistance>0.9</ToxicEnvironmentResistance>
 			<EatingSpeed>1.1</EatingSpeed>
 			<MeatAmount>35</MeatAmount>
 			<LeatherAmount>30</LeatherAmount>
 			<!-- 전투 -->
 			<MeleeDodgeChance>1.15</MeleeDodgeChance>
-			<AimingDelayFactor>1.18</AimingDelayFactor>
-			<!-- 사회 -->
-			<NegotiationAbility>0.85</NegotiationAbility>
-			<SocialImpact>1.07</SocialImpact>
+			<AimingDelayFactor>1.15</AimingDelayFactor>
 			<!-- 작업 -->
 			<MiningSpeed>1.1</MiningSpeed>
 			<MiningYield>1.05</MiningYield>
 			<PlantWorkSpeed>1.10</PlantWorkSpeed>
-			<HuntingStealth>1.15</HuntingStealth>
+			<HuntingStealth>1.20</HuntingStealth>
 			<!-- 테크 -->
 			<ConstructionSpeed>0.9</ConstructionSpeed>
-			<ResearchSpeed>0.8</ResearchSpeed>
 		</statBases>
 		<tools>
 			<li>
@@ -452,38 +406,129 @@
 			<thinkTreeMain>Humanlike</thinkTreeMain>
 			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
 			<intelligence>Humanlike</intelligence>
-			<bloodDef>Filth_Blood</bloodDef>
-			<renderTree>Humanlike</renderTree>
-			<canBecomeShambler>true</canBecomeShambler>
 			<makesFootprints>true</makesFootprints>
 			<lifeExpectancy>70</lifeExpectancy>
+			<bloodDef>Filth_Blood</bloodDef>
+			<bloodSmearDef>Filth_BloodSmear</bloodSmearDef>
 			<leatherDef>Leather_Light</leatherDef>
 			<nameCategory>HumanStandard</nameCategory>
-			<body>RK_BodyRatkin</body>
+			<body>RK_Body_Ratkin</body>
+			<renderTree>Humanlike</renderTree>
 			<baseBodySize>0.8</baseBodySize>
 			<baseHealthScale>1</baseHealthScale>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>21</gestationPeriodDays>
-			<nameGenerator>RK_NamerPersonRatkinKingdom</nameGenerator>
-			<nameGeneratorFemale>RK_NamerPersonRatkinKingdom</nameGeneratorFemale>
-			<!-- <litterSizeCurve>
+			<gestationPeriodDays>15</gestationPeriodDays>
+			<meatMarketValue>0.8</meatMarketValue>
+			<manhunterOnDamageChance>0.50</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.10</manhunterOnTameFailChance>
+			<soundCallIntervalRange>2000~5000</soundCallIntervalRange>
+			<canBecomeShambler>true</canBecomeShambler>
+			<knowledgeCategory MayRequire="Ludeon.RimWorld.Anomaly">Basic</knowledgeCategory>
+			<anomalyKnowledge>1</anomalyKnowledge>
+			<litterSizeCurve>
 				<points>
-					<li>(1, 0.80)</li>
-					<li>(2, 0.10)</li>
-					<li>(3, 0.04)</l
-					<li>(4, 0.01)</li>
-					<li>(5, 0)</li>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
 				</points>
-			</litterSizeCurve> -->
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>3</minAge>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>9</minAge>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>13</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>18</minAge>
+				</li>
+			</lifeStageAges>
+			<lifeStageWorkSettings MayRequire="Ludeon.RimWorld.Biotech">
+				<Firefighter>7</Firefighter>
+				<Patient>0</Patient>
+				<Doctor>10</Doctor>
+				<PatientBedRest>0</PatientBedRest>
+				<Childcare MayRequire="Ludeon.RimWorld.Biotech">0</Childcare>
+				<BasicWorker>3</BasicWorker>
+				<Warden>10</Warden>
+				<Handling>7</Handling>
+				<Cooking>7</Cooking>
+				<Hunting>7</Hunting>
+				<Construction>10</Construction>
+				<Growing>7</Growing>
+				<Mining>7</Mining>
+				<PlantCutting>7</PlantCutting>
+				<Smithing>13</Smithing>
+				<Tailoring>7</Tailoring>
+				<Art>10</Art>
+				<Crafting>7</Crafting>
+				<Hauling>3</Hauling>
+				<Cleaning>3</Cleaning>
+				<Research>13</Research>
+				<DarkStudy MayRequire="Ludeon.RimWorld.Anomaly">13</DarkStudy>
+			</lifeStageWorkSettings>
+			<soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(0,0)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(0.001,43)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(8,86)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(12.5,118)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(12.51,0)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(13,0)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(13.001,122)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(13.999,130)</li>
+					<li>(14,0)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(14.001,130)</li>
+					<li>(16,100)</li>
+					<li>(50,100)</li>
+					<li>(60,30)</li>
+					<li>(70,18)</li>
+					<li>(80,10)</li>
+					<li>(90,3)</li>
+					<li>(100,0)</li>
+				</points>
+			</ageGenerationCurve>
 			<hediffGiverSets>
 				<li>OrganicStandard</li>
 			</hediffGiverSets>
 		</race>
 		<recipes>
-			<!-- 가짜꼬리/가짜귀/생체공학꼬리 -->
 			<li>RK_Recipe_InstallFakeEar</li>
 			<li>RK_Recipe_InstallFakeTail</li>
 			<li>RK_Recipe_InstallBionicTail</li>
 		</recipes>
+		<ingredient>
+			<mergeCompatibilityTags>
+				<li>HumanMeat</li>
+			</mergeCompatibilityTags>
+		</ingredient>
+		<comps>
+			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_HoldingPlatformTarget">
+				<baseEscapeIntervalMtbDays>120</baseEscapeIntervalMtbDays>
+				<getsColdContainmentBonus>true</getsColdContainmentBonus>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_Studiable">
+				<frequencyTicks>120000</frequencyTicks>
+				<minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+				<requiresImprisonment>true</requiresImprisonment>
+			</li>
+		</comps>
 	</AlienRace.ThingDef_AlienRace>
 </Defs>
