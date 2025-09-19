@@ -2,7 +2,7 @@
 <Defs>
 	<HairDef>
 		<defName>RK_Hair_Braided</defName>
-		<label>Braided</label>
+		<label>braided</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_Braided</texPath>
 		<category>RK_Style</category>
@@ -12,7 +12,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_BraidedB</defName>
-		<label>Braided B</label>
+		<label>braided b</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_BraidedB</texPath>
 		<category>RK_Style</category>
@@ -22,7 +22,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_Middle</defName>
-		<label>Middle</label>
+		<label>middle</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_Middle</texPath>
 		<category>RK_Style</category>
@@ -32,7 +32,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_SideTail</defName>
-		<label>Side Tail</label>
+		<label>side tail</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_SideTail</texPath>
 		<category>RK_Style</category>
@@ -42,7 +42,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_TwinTailA</defName>
-		<label>Twin Tail A</label>
+		<label>twin tail a</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailA</texPath>
 		<category>RK_Style</category>
@@ -52,7 +52,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_WaveLongA</defName>
-		<label>Wave Long A</label>
+		<label>wave long a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_WaveLongA</texPath>
 		<category>RK_Style</category>
@@ -62,7 +62,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_LongA</defName>
-		<label>Long Hair A</label>
+		<label>long hair a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongA</texPath>
 		<category>RK_Style</category>
@@ -72,7 +72,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_LongB</defName>
-		<label>Long Hair B</label>
+		<label>long hair b</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongB</texPath>
 		<category>RK_Style</category>
@@ -82,7 +82,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_LongD</defName>
-		<label>Long Hair D</label>
+		<label>long hair d</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongD</texPath>
 		<category>RK_Style</category>
@@ -92,7 +92,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_LongE</defName>
-		<label>Long Hair E</label>
+		<label>long hair e</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongE</texPath>
 		<category>RK_Style</category>
@@ -102,7 +102,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_PonytailA</defName>
-		<label>Ponytail A</label>
+		<label>ponytail a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_PonytailA</texPath>
 		<category>RK_Style</category>
@@ -112,7 +112,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_SidePonytailA</defName>
-		<label>Side Ponytail A</label>
+		<label>side ponytail a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_SidePonytailA</texPath>
 		<category>RK_Style</category>
@@ -122,7 +122,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_TwinTailB</defName>
-		<label>Twin Tail B</label>
+		<label>twin tail b</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailB</texPath>
 		<category>RK_Style</category>
@@ -132,7 +132,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_TwinTailC</defName>
-		<label>Twin Tail C</label>
+		<label>twin tail c</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailC</texPath>
 		<category>RK_Style</category>
@@ -142,7 +142,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_TwinTailD</defName>
-		<label>Twin Tail D</label>
+		<label>twin tail d</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailD</texPath>
 		<category>RK_Style</category>
@@ -152,7 +152,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_TwinTailE</defName>
-		<label>Twin Tail E</label>
+		<label>twin tail e</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailE</texPath>
 		<category>RK_Style</category>
@@ -162,7 +162,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_TwinTailF</defName>
-		<label>Twin Tail F</label>
+		<label>twin tail f</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailF</texPath>
 		<category>RK_Style</category>
@@ -172,7 +172,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_MiddleB</defName>
-		<label>Middle B</label>
+		<label>middle b</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_MiddleB</texPath>
 		<category>RK_Style</category>
@@ -182,7 +182,7 @@
 	</HairDef>
 	<HairDef>
 		<defName>RK_Hair_PonytailB</defName>
-		<label>Ponytail B</label>
+		<label>ponytail b</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_PonytailB</texPath>
 		<category>RK_Style</category>
