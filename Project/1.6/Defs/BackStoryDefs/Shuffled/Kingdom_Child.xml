@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<AlienRace.AlienBackstoryDef Name="BaseRatkinChildhood" ParentName="BaseRatkinBackStory"
-		Abstract="True">
+	<AlienRace.AlienBackstoryDef Name="BaseRatkinChildhood" ParentName="BaseRatkinBackStory" Abstract="True">
 		<slot>Childhood</slot>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 랫킨 자유 유년기 -->
@@ -316,16 +315,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 쉐프지망생 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_ChefStudent</defName>
 		<title>Ratkin Chef Student</title>
 		<titleShort>Chef Student</titleShort>
 		<description>[PAWN_nameDef]은 먹는것이 좋아 요리를 시작했습니다. [PAWN_pronoun]에게 음식은 삶의 낙이자 즐거움이기에 더 맛있는
 			음식을
 			먹기위해 모험을 나섰습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Melee>2</Melee>
 			<Animals>-2</Animals>
@@ -343,16 +339,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 집시아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_RomanyKid</defName>
 		<title>Ratkin Romany Kid</title>
 		<titleShort>Romany Kid</titleShort>
 		<description>[PAWN_nameDef]은 유랑생활을 하며 이곳 저곳을 정처없이 떠돌아 다녔습니다. [PAWN_pronoun]은 다재다능하지만 정처없는
 			생활은
 			사람과 깊은 인연을 갖기엔 부족해 보입니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Animals>1</Animals>
 			<Cooking>1</Cooking>
@@ -378,15 +371,12 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 장교의 아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_OfficerChild</defName>
 		<title>Ratkin Officer Child</title>
 		<titleShort>Officer Child</titleShort>
 		<description>[PAWN_nameDef]은 장교의 자제로 태어났습니다. 어려서부터 부모에게 배운 사격솜씨와 카리스마는 [PAWN_pronoun]을 장교감으로
 			만들었지만 반대로 그를 거만하게 만들기도 했습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>2</Shooting>
 			<Melee>3</Melee>
@@ -410,15 +400,12 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 상인아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_MerchantKid</defName>
 		<title>Ratkin Merchant Kid</title>
 		<titleShort>Merchant Kid</titleShort>
 		<description>[PAWN_nameDef]은 상단의 아이로 태어났습니다. [PAWN_pronoun]은 부모곁에서 어깨너머로 장사를 배우며 어떻게 해야 돈을 벌
 			수있는지에 대해 잘 알고 있습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>-1</Shooting>
 			<Melee>-2</Melee>
@@ -434,16 +421,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 일반아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_Kid</defName>
 		<title>Ratkin Kid</title>
 		<titleShort>Kid</titleShort>
 		<description>[PAWN_nameDef]은 평범한 아이입니다. 일반적인 가정에서 부모님들이 하는 일을 어깨너머로 이것저것 배웠습니다. 하지만 고등 교육을
 			받을
 			기회가 없어 전문적 지식을 쌓을 수 없었습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>-1</Shooting>
 			<Cooking>2</Cooking>
@@ -470,16 +454,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 하인자식 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_ServentChild</defName>
 		<title>Ratkin Servent Child</title>
 		<titleShort>Servent Child</titleShort>
 		<description>[PAWN_nameDef]은 하인의 자식으로 태어났습니다. 법에 따라 [PAWN_pronoun]도 하인이 될 운명이지만 스스로의 운명을
 			바꾸고자
 			도망쳤습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>-1</Shooting>
 			<Melee>2</Melee>
@@ -501,16 +482,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 인간조수 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_HumanAssistant</defName>
 		<title>Ratkin Human Assistant</title>
 		<titleShort>Human Assistant</titleShort>
 		<description>[PAWN_nameDef]은 인간의 조수로 어려서부터 작은 일들을 도왔습니다. 하지만 주인이 사고로 죽자 [PAWN_pronoun]은 스스로의
 			삶을
 			찾기위해 길을 나섰습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>-2</Shooting>
 			<Melee>-1</Melee>
@@ -529,16 +507,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 도시쥐자식 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_CityKid</defName>
 		<title>Ratkin City Kid</title>
 		<titleShort>City Kid</titleShort>
 		<description>[PAWN_nameDef]은 도시에서 태어났습니다. [PAWN_pronoun]은 도시의 문명에 노출되어 다른 랫킨들과 달리 문물을 쉽게 이해할
 			수
 			있었습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Melee>-1</Melee>
 			<Animals>-3</Animals>
@@ -558,16 +533,13 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 노예 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_SlaveKid</defName>
 		<title>Ratkin Slave Kid</title>
 		<titleShort>Slave Kid</titleShort>
 		<description>[PAWN_nameDef]은 어떻게 왔는지 모르지만 노예낙인이 찍혀있습니다. [PAWN_pronoun]은 온갖 잡일을 하다 견디지 못해 자유를
 			위하여
 			도망쳤습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Melee>3</Melee>
 			<Artistic>-4</Artistic>
@@ -595,15 +567,12 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 실험실쥐 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_LaboratoryRats</defName>
 		<title>Ratkin Specimen</title>
 		<titleShort>Ratkin Specimen</titleShort>
 		<description>[PAWN_nameDef]은 군용 실험체로서 유전자 조작이 가해진체 인간들의 실험실에서 태어났습니다. 자유를 향한 깊은 갈망을 느끼던
 			[PAWN_pronoun]은 탈출을 결심했습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>4</Shooting>
 			<Melee>4</Melee>
@@ -625,15 +594,12 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 좀도둑 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
 		<defName>RK_Backstory_PettyTheft</defName>
 		<title>Ratkin Petty Theft</title>
 		<titleShort>Petty Theft</titleShort>
 		<description>[PAWN_nameDef]에게 도둑질은 잠깐 빌리는 것이였습니다. [PAWN_pronoun]의 잦은 도둑질은 결국 꼬리를 밟히게 되었고 노예로
 			잡혀가던중 습격을 받아 가까스로 탈출할 수 있었습니다.</description>
-		<bodyTypeMale>Thin</bodyTypeMale>
-		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<slot>Childhood</slot>
 		<skillGains>
 			<Shooting>2</Shooting>
 			<Melee>2</Melee>
