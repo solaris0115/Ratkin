@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <!-- 특정 조건 충족하면 등장하는 유니크 캐릭터 전용 백스토리.-->
-    <!-- 랫킨 -->
+    <!-- 고정 백스토리.특정 캐릭터의 배경얘기 고정-->
     <AlienRace.AlienBackstoryDef Name="BaseRatkinSolidAdulthood" ParentName="BaseRatkinAdulthood"
         Abstract="True">
         <slot>Adulthood</slot>
