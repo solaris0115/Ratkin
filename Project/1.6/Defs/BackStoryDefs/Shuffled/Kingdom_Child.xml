@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<AlienRace.AlienBackstoryDef Name="BaseRatkinChildhood" ParentName="BaseRatkinBackStory" Abstract="True">
-		<slot>Childhood</slot>
-	</AlienRace.AlienBackstoryDef>
+
 	<!-- 랫킨 자유 유년기 -->
 	<!-- 들쥐 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_WildChild</defName>
 		<title>Ratkin wild born</title>
 		<titleShort>wild born</titleShort>
@@ -34,7 +32,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 땅쥐 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_LandRat</defName>
 		<title>Ratkin land rat</title>
 		<titleShort>land rat</titleShort>
@@ -64,7 +62,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 시골아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_CountryKid</defName>
 		<title>Ratkin country kid</title>
 		<titleShort>country kid</titleShort>
@@ -95,7 +93,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 꼬마목동 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_ShepherdBoy</defName>
 		<title>Ratkin shepherd boy</title>
 		<titleFemale>Ratkin shepherd girl</titleFemale>
@@ -123,7 +121,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 고아 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_Orphan</defName>
 		<title>Ratkin orphan</title>
 		<titleShort>orphan</titleShort>
@@ -154,7 +152,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 학생 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_Student</defName>
 		<title>Ratkin student</title>
 		<titleShort>student</titleShort>
@@ -181,7 +179,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 사서자식 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_LittleLibrarian</defName>
 		<title>Ratkin little librarian</title>
 		<titleShort>little librarian</titleShort>
@@ -206,7 +204,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 금수저 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_GoldenSpoon</defName>
 		<title>Ratkin golden spoon</title>
 		<titleShort>golden spoon</titleShort>
@@ -231,7 +229,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 서자 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_Bastard</defName>
 		<title>Ratkin bastard</title>
 		<titleShort>bastard</titleShort>
@@ -261,7 +259,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 후계자 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_Successor</defName>
 		<title>Ratkin heir</title>
 		<titleFemale>Ratkin heiress</titleFemale>
@@ -290,7 +288,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 정원사지망 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_GuardenerStudent</defName>
 		<title>Ratkin Guardener Student</title>
 		<titleShort>Guardener Student</titleShort>
@@ -315,7 +313,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 쉐프지망생 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_ChefStudent</defName>
 		<title>Ratkin Chef Student</title>
 		<titleShort>Chef Student</titleShort>
@@ -339,7 +337,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 집시아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_RomanyKid</defName>
 		<title>Ratkin Romany Kid</title>
 		<titleShort>Romany Kid</titleShort>
@@ -371,7 +369,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 장교의 아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_OfficerChild</defName>
 		<title>Ratkin Officer Child</title>
 		<titleShort>Officer Child</titleShort>
@@ -400,7 +398,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 상인아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_MerchantKid</defName>
 		<title>Ratkin Merchant Kid</title>
 		<titleShort>Merchant Kid</titleShort>
@@ -421,7 +419,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 일반아이 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_Kid</defName>
 		<title>Ratkin Kid</title>
 		<titleShort>Kid</titleShort>
@@ -454,7 +452,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 하인자식 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_ServentChild</defName>
 		<title>Ratkin Servent Child</title>
 		<titleShort>Servent Child</titleShort>
@@ -482,7 +480,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 인간조수 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_HumanAssistant</defName>
 		<title>Ratkin Human Assistant</title>
 		<titleShort>Human Assistant</titleShort>
@@ -507,7 +505,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 도시쥐자식 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_CityKid</defName>
 		<title>Ratkin City Kid</title>
 		<titleShort>City Kid</titleShort>
@@ -533,7 +531,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 노예 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_SlaveKid</defName>
 		<title>Ratkin Slave Kid</title>
 		<titleShort>Slave Kid</titleShort>
@@ -567,7 +565,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 실험실쥐 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_LaboratoryRats</defName>
 		<title>Ratkin Specimen</title>
 		<titleShort>Ratkin Specimen</titleShort>
@@ -594,7 +592,7 @@
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 좀도둑 -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinChildhood">
+	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseChild">
 		<defName>RK_Backstory_PettyTheft</defName>
 		<title>Ratkin Petty Theft</title>
 		<titleShort>Petty Theft</titleShort>

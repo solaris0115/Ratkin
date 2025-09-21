@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <AlienRace.AlienBackstoryDef Name="RK_BackStoryAttr_Base" Abstract="True">
-        <bodyTypeMale>Thin</bodyTypeMale>
-        <bodyTypeFemale>Thin</bodyTypeFemale>
-    </AlienRace.AlienBackstoryDef>
-    <AlienRace.AlienBackstoryDef Name="RK_BackStoryAttr_BaseChild" ParentName="RK_BackStory_Base" Abstract="True">
-        <slot>Childhood</slot>
-    </AlienRace.AlienBackstoryDef>
-    <AlienRace.AlienBackstoryDef Name="RK_BackStoryAttr_BaseAdult" ParentName="RK_BackStory_Base" Abstract="True">
-        <slot>Adulthood</slot>
-    </AlienRace.AlienBackstoryDef>
-    <!-- 고정 백스토리.특정 캐릭터의 배경이기 고정 -->
-    <AlienRace.AlienBackstoryDef Name="RK_BackStoryAttr_UniqueAdult" ParentName="RK_BackStoryAttr_BaseAdult" Abstract="True">
-        <slot>Adulthood</slot>
-    </AlienRace.AlienBackstoryDef>
-    <AlienRace.AlienBackstoryDef Name="RK_BackStoryAttr_UniqueChild" ParentName="RK_BackStoryAttr_BaseChild" Abstract="True">
-        <slot>Childhood</slot>
-    </AlienRace.AlienBackstoryDef>
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_Base" Abstract="True">
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_BaseChild" ParentName="RK_Backstory_Base" Abstract="True">
+		<slot>Childhood</slot>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_BaseAdult" ParentName="RK_Backstory_Base" Abstract="True">
+		<slot>Adulthood</slot>
+	</AlienRace.AlienBackstoryDef>
+
+	<!--고정 백스토리.특정 캐릭터의 배경얘기 고정-->
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_UniqueAdult" ParentName="RK_BackstoryAttr_BaseAdult" Abstract="True">
+		<slot>Adulthood</slot>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_UniqueChild" ParentName="RK_BackstoryAttr_BaseChild" Abstract="True">
+		<slot>Childhood</slot>
+	</AlienRace.AlienBackstoryDef>
 </Defs>
