@@ -98,7 +98,6 @@
 			<max>2400</max>
 		</apparelMoney>
 		<apparelTags>
-			<li>RK_ApparelTag_Apparel</li>
 			<li>RK_ApparelTag_Servant</li>
 		</apparelTags>
 	</PawnKindDef>
@@ -118,7 +117,7 @@
 		</backstoryFiltersOverride>
 		<apparelMoney>
 			<min>800</min>
-			<max>3000</max>
+			<max>2000</max>
 		</apparelMoney>
 		<apparelTags>
 			<li>RK_ApparelTag_Priest</li>
