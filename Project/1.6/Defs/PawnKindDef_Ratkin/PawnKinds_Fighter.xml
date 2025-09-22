@@ -22,10 +22,10 @@
 			<max>3500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Rifle</li>
+			<li>RK_WeaponTag_Rifle</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Noble</li>
+			<li>RK_ApparelTag_Noble</li>
 		</apparelTags>
 	</PawnKindDef>	
 
@@ -92,10 +92,10 @@
 			<max>3500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_LightWeapon</li>
+			<li>RK_WeaponTag_LightWeapon</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Gaurdener</li>
+			<li>RK_ApparelTag_Gaurdener</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
 	</PawnKindDef>
@@ -130,10 +130,10 @@
 			<max>3500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Defender</li>
+			<li>RK_WeaponTag_Defender</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_LightArmor</li>
+			<li>RK_ApparelTag_LightArmor</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>				
 		<skills>
@@ -172,11 +172,11 @@
 			<max>2000</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Rifle</li>
+			<li>RK_WeaponTag_Rifle</li>
 		</weaponTags>
 		<apparelTags>
 			<li>RK_ApparelTag_Combatant</li>
-			<li>RK_Soldier</li>
+			<li>RK_ApparelTag_Soldier</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.8</apparelAllowHeadgearChance>
 		<skills>
@@ -221,12 +221,12 @@
 			<max>5000</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Sword</li>
-			<li>RK_Guardener</li>
-			<li>RK_Rifle</li>
+			<li>RK_WeaponTag_Sword</li>
+			<li>RK_WeaponTag_Guardener</li>
+			<li>RK_WeaponTag_Rifle</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Gaurdener</li>
+			<li>RK_ApparelTag_Gaurdener</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>		
 		<inventoryOptions>
@@ -285,10 +285,10 @@
 			<max>3500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Knight</li>
+			<li>RK_WeaponTag_Knight</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Knight</li>
+			<li>RK_ApparelTag_Knight</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>
 		<skills>
@@ -331,10 +331,10 @@
 			<max>3000</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_EliteDefender</li>
+			<li>RK_WeaponTag_EliteDefender</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_HeavyArmor</li>
+			<li>RK_ApparelTag_HeavyArmor</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>		
 		<skills>
@@ -380,10 +380,10 @@
 			<max>4500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_HeavyLance</li>
+			<li>RK_WeaponTag_HeavyLance</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_KnightCommander</li>
+			<li>RK_ApparelTag_KnightCommander</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
 		<apparelColor>(254,254,254)</apparelColor>
@@ -412,7 +412,7 @@
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
-					<li>RatkinSoldier</li>
+					<li>RK_BackstoryCategory_Soldier</li>
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
@@ -429,11 +429,11 @@
 			<max>5000</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_2TierWeapon</li>
-			<li>RK_Shotgun</li>
+			<li>RK_WeaponTag_2TierWeapon</li>
+			<li>RK_WeaponTag_Shotgun</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_EliteSoldier</li>
+			<li>RK_ApparelTag_EliteSoldier</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
 		<modExtensions>
@@ -478,22 +478,22 @@
 			<li>RK_ThingApparel_BattleSuit</li>
 		</apparelRequired>
 		<apparelTags>
-			<li>RK_Demoman</li>
-			<li>RK_Soldier</li>
-			<li>RK_EliteSoldier</li>
+			<li>RK_ApparelTag_Demoman</li>
+			<li>RK_ApparelTag_Soldier</li>
+			<li>RK_ApparelTag_EliteSoldier</li>
 		</apparelTags>
 		<weaponMoney>
 			<min>1500</min>
 			<max>3000</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Demoman</li>
+			<li>RK_ApparelTag_Demoman</li>
 		</weaponTags>
 		<inventoryOptions>
 			<skipChance>0.5</skipChance>
 			<subOptionsChooseOne>
 				<li>
-					<thingDef>RK_MagicWand</thingDef>
+					<thingDef>RK_ThingWeapon_MagicWand</thingDef>
 					<choiceChance>0.6</choiceChance>
 					<countRange>
 						<min>3</min>
@@ -501,7 +501,7 @@
 					</countRange>
 				</li>
 				<li>
-					<thingDef>RK_MagicWand</thingDef>
+					<thingDef>RK_ThingWeapon_MagicWand</thingDef>
 					<choiceChance>0.4</choiceChance>
 					<countRange>
 						<min>5</min>
@@ -540,7 +540,7 @@
 			<max>3500</max>
 		</apparelMoney>
 		<apparelTags>
-			<li>RK_Thief</li>
+			<li>RK_ApparelTag_Thief</li>
 		</apparelTags>
 		<apparelColor>(100,100,100)</apparelColor>
 		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
@@ -576,11 +576,11 @@
 			<max>3500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Murderer</li>
+			<li>RK_WeaponTag_Murderer</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Murderer</li>
-			<li>RK_Worker</li>
+			<li>RK_ApparelTag_Murderer</li>
+			<li>RK_ApparelTag_Worker</li>
 		</apparelTags>
 	</PawnKindDef>
 	<!-- 방랑자-->
@@ -605,11 +605,11 @@
 			<max>5000</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Sword</li>
-			<li>RK_Rifle</li>
+			<li>RK_WeaponTag_Sword</li>
+			<li>RK_WeaponTag_Rifle</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Gaurdener</li>
+			<li>RK_ApparelTag_Gaurdener</li>
 		</apparelTags>
 		<inventoryOptions>
 			<skipChance>0.9</skipChance>
@@ -663,7 +663,7 @@
 			<max>1500</max>
 		</apparelMoney>
 		<apparelTags>
-			<li>RK_Soldier</li>
+			<li>RK_ApparelTag_Soldier</li>
 		</apparelTags>
 		<weaponMoney>
 			<min>1500</min>
@@ -759,7 +759,7 @@
 			<li>RK_WeaponTag_Combatant</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Soldier</li>
+			<li>RK_ApparelTag_Soldier</li>
 			<li>RK_ApparelTag_Combatant</li>
 		</apparelTags>
 	</PawnKindDef>

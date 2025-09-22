@@ -98,8 +98,8 @@
 			<max>2400</max>
 		</apparelMoney>
 		<apparelTags>
-			<li>RK_Apparel</li>
-			<li>RK_Servant</li>
+			<li>RK_ApparelTag_Apparel</li>
+			<li>RK_ApparelTag_Servant</li>
 		</apparelTags>
 	</PawnKindDef>
 
