@@ -18,10 +18,11 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Merchant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
+
 	<!-- 방랑자 -->
 	<AlienRace.AlienBackstoryDef ParentName="RK_BackstoryAttr_BaseAdult">
 		<defName>RK_Backstory_Wanderer</defName>
@@ -37,14 +38,14 @@
 			<li>PlantWork</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Wanderer</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Merchant</li>
-			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Wanderer</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Merchant</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Combatant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 농부 -->
@@ -60,10 +61,10 @@
 			<Intellectual>-4</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Country</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Country</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Defender</li>
 		</spawnCategories>
 		<linkedBackstory>RK_Backstory_CountryKid</linkedBackstory>
 	</AlienRace.AlienBackstoryDef>
@@ -79,9 +80,9 @@
 			<Intellectual>-2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Country</li>
-			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Country</li>
+			<li>RK_BackstoryCategory_Defender</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 사냥꾼 -->
@@ -98,15 +99,15 @@
 			<li>Animals</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RK_SpawnCategory_Guardener</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Wanderer</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
-			<li>RK_SpawnCategory_Combatant</li>
-			<li>RK_SpawnCategory_Wild</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_Guardener</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Wanderer</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Wild</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 목동 -->
@@ -120,10 +121,10 @@
 			<Medicine>2</Medicine>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Wild</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Country</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Wild</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Country</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 시민 -->
@@ -139,9 +140,9 @@
 			<Crafting>2</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 귀족 -->
@@ -159,11 +160,11 @@
 			<li>ManualDumb</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Merchant</li>
-			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Merchant</li>
+			<li>RK_BackstoryCategory_Noble</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 도시상인 -->
@@ -177,10 +178,10 @@
 			<Crafting>4</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Merchant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 사서 -->
@@ -196,9 +197,9 @@
 			<Intellectual>4</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 정원사 -->
@@ -213,15 +214,15 @@
 			<Plants>4</Plants>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_Combatant</li>
-			<li>RK_SpawnCategory_Knight</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Guardener</li>
-			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Knight</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Guardener</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
 		</spawnCategories>
 		<forcedTraitsChance>
 			<li>
@@ -240,11 +241,11 @@
 			<Melee>8</Melee>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Knight</li>
-			<li>RK_SpawnCategory_Guardener</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Knight</li>
+			<li>RK_BackstoryCategory_Guardener</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
 		</spawnCategories>
 		<forcedTraitsChance>
 			<li>
@@ -278,7 +279,7 @@
 			<li>Mining</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_KnightCommander</li>
+			<li>RK_BackstoryCategory_KnightCommander</li>
 		</spawnCategories>
 		<forcedTraitsChance Inherit="False">
 			<!-- <li>
@@ -309,9 +310,9 @@
 			<Intellectual>2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Educated</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Educated</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 대장장이 -->
@@ -326,9 +327,9 @@
 			<Crafting>6</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Defender</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 도둑 -->
@@ -344,15 +345,15 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Uneducated</li>
-			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Wild</li>
-			<li>RK_SpawnCategory_Wanderer</li>
-			<li>RK_SpawnCategory_Thief</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Uneducated</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Wild</li>
+			<li>RK_BackstoryCategory_Wanderer</li>
+			<li>RK_BackstoryCategory_Thief</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 외교관 -->
@@ -370,12 +371,12 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Knight</li>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Guardener</li>
-			<li>RK_SpawnCategory_Noble</li>
+			<li>RK_BackstoryCategory_Knight</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Guardener</li>
+			<li>RK_BackstoryCategory_Noble</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 군인 -->
@@ -390,14 +391,14 @@
 			<Social>-3</Social>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Combatant</li>
-			<li>RK_SpawnCategory_Knight</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
-			<li>RK_SpawnCategory_Guardener</li>
-			<li>RK_SpawnCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Knight</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Guardener</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 탐험가 -->
@@ -417,13 +418,13 @@
 			<li>Crafting</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Wanderer</li>
-			<li>RK_SpawnCategory_Wild</li>
-			<li>RK_SpawnCategory_Defender</li>
-			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RK_SpawnCategory_Merchant</li>
-			<li>RK_SpawnCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Wanderer</li>
+			<li>RK_BackstoryCategory_Wild</li>
+			<li>RK_BackstoryCategory_Defender</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_Merchant</li>
+			<li>RK_BackstoryCategory_Soldier</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 요리사 -->
@@ -440,10 +441,10 @@
 			<Plants>2</Plants>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 시녀 -->
@@ -462,13 +463,13 @@
 			<Crafting>2</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Servant</li>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_EliteDefender</li>
-			<li>RK_SpawnCategory_Combatant</li>
-			<li>RK_SpawnCategory_Guardener</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Servant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_EliteDefender</li>
+			<li>RK_BackstoryCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Guardener</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 사수 -->
@@ -486,11 +487,11 @@
 			<li>Artistic</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Combatant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 의사 -->
@@ -507,11 +508,11 @@
 			<li>Violent</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_NonViolence</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_NonViolence</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 의무관 -->
@@ -527,12 +528,12 @@
 			<Intellectual>2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Knight</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Knight</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 건축가 -->
@@ -548,10 +549,10 @@
 			<Mining>2</Mining>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Defender</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 부자 -->
@@ -569,11 +570,11 @@
 			<li>ManualSkilled</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Noble</li>
-			<li>RK_SpawnCategory_City</li>
-			<li>RK_SpawnCategory_Merchant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Noble</li>
+			<li>RK_BackstoryCategory_City</li>
+			<li>RK_BackstoryCategory_Merchant</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 수녀 -->
@@ -590,11 +591,11 @@
 			<li>Violent</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Noble</li>
-			<li>RK_SpawnCategory_Priest</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_NonViolence</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Noble</li>
+			<li>RK_BackstoryCategory_Priest</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_NonViolence</li>
 		</spawnCategories>
 		<forcedTraitsChance Inherit="False">
 			<li Inherit="False">
@@ -623,9 +624,9 @@
 			<li>Animals</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Kingdom</li>
-			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Kingdom</li>
+			<li>RK_BackstoryCategory_Defender</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 도시메이드 -->
@@ -643,9 +644,9 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Servant</li>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Servant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 		<forcedTraitsChance>
 			<li>
@@ -663,8 +664,8 @@
 			<Social>6</Social>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 		<forcedTraitsChance>
 			<li>
@@ -687,10 +688,10 @@
 			<li>Caring</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Murderer</li>
-			<li>RK_SpawnCategory_Uneducated</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Murderer</li>
+			<li>RK_BackstoryCategory_Uneducated</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 		<forcedTraitsChance>
 			<li>
@@ -714,10 +715,10 @@
 			<Intellectual>4</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Servant</li>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Servant</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 과학자 -->
@@ -733,9 +734,9 @@
 			<Intellectual>8</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 공학자 -->
@@ -750,9 +751,9 @@
 			<Crafting>6</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 농학가 -->
@@ -767,9 +768,9 @@
 			<Intellectual>4</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 랫킨헌터 -->
@@ -785,12 +786,12 @@
 			<Crafting>2</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Combatant</li>
-			<li>RK_SpawnCategory_Mercenary</li>
-			<li>RK_SpawnCategory_Educated</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Combatant</li>
+			<li>RK_BackstoryCategory_Mercenary</li>
+			<li>RK_BackstoryCategory_Educated</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 		<workDisables>
 			<li>ManualDumb</li>
@@ -811,11 +812,11 @@
 			<li>Cooking</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Story</li>
-			<li>RK_SpawnCategory_Uneducated</li>
-			<li>RK_SpawnCategory_Soldier</li>
-			<li>RK_SpawnCategory_Subject</li>
-			<li>RK_SpawnCategory_City</li>
+			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_Uneducated</li>
+			<li>RK_BackstoryCategory_Soldier</li>
+			<li>RK_BackstoryCategory_Subject</li>
+			<li>RK_BackstoryCategory_City</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 방랑자 -->
@@ -833,8 +834,8 @@
 			<li>PlantWork</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Vagabond</li>
-			<li>RK_SpawnCategory_Defender</li>
+			<li>RK_BackstoryCategory_Vagabond</li>
+			<li>RK_BackstoryCategory_Defender</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 	<!-- 데모맨 -->
@@ -851,7 +852,7 @@
 			<li>Caring</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Demoman</li>
+			<li>RK_BackstoryCategory_Demoman</li>
 		</spawnCategories>
 		<forcedTraitsChance>
 			<li>
