@@ -164,7 +164,7 @@
 					<bodyAddons>
 						<li>
 							<drawSize>1</drawSize>
-							<path>Things/Ratkin/Bodies/RK_Texture_Tail</path>
+							<path>Thing/Ratkin/Body/RK_Texture_Tail</path>
 							<inFrontOfBody>false</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<defaultOffset>Tail</defaultOffset>
@@ -208,7 +208,7 @@
 						</li>
 						<li>
 							<drawSize>1</drawSize>
-							<path>Things/Ratkin/Bodies/RK_Texture_EarLeft</path>
+							<path>Thing/Ratkin/Body/RK_Texture_EarLeft</path>
 							<inFrontOfBody>true</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
@@ -269,7 +269,7 @@
 						</li>
 						<li>
 							<drawSize>1</drawSize>
-							<path>Things/Ratkin/Bodies/RK_Texture_EarRight</path>
+							<path>Thing/Ratkin/Body/RK_Texture_EarRight</path>
 							<inFrontOfBody>true</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
@@ -336,8 +336,8 @@
 				</disallowedTraits>
 			</generalSettings>
 			<graphicPaths>
-				<body>Things/Ratkin/Bodies/Naked_Thin</body>
-				<head>Things/Ratkin/Heads/</head>
+				<body>Thing/Ratkin/Body/Naked_Thin</body>
+				<head>Thing/Ratkin/Head/</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>
