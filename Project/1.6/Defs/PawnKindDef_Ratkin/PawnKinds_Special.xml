@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 사제, 리더, 상인 -->
+
+		<!-- 사제 -->
+	<!-- <PawnKindDef ParentName="RK_PawnKindAttr_NoneFighter">
+		<defName>RK_PawnKind_Priest</defName>
+		<label>ratkin priest</label>
+		<factionLeader>true</factionLeader>
+		<minGenerationAge>21</minGenerationAge>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RK_BackstoryCategory_Priest</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelMoney>
+			<min>800</min>
+			<max>2000</max>
+		</apparelMoney>
+		<apparelTags>
+			<li>RK_ApparelTag_Priest</li>
+		</apparelTags>
+		<apparelRequired>
+			<li>RK_ThingApparel_PriestVeil</li>
+		</apparelRequired>
+	</PawnKindDef> -->
+
+	<!-- 상인 -->
+	<!-- <PawnKindDef ParentName="RK_PawnKindAttr_Fighter">
+		<defName>RK_PawnKind_Trader</defName>
+		<label>ratkin trader</label>
+		<trader>true</trader>
+		<apparelTags>
+			<li>RK_ApparelTag_2TierArmor</li>
+			<li>RK_ApparelTag_Noble</li>
+		</apparelTags>
+		<weaponTags>
+			<li>RK_WeaponTag_2TierRangeWeapon</li>
+		</weaponTags>
+	</PawnKindDef> -->
+</Defs>
