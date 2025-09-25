@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FactionDef Abstract="True" Name="RK_FactionAttr_Base">
+		<settlementTexturePath>UI/Icon/RK_TextureIcon_Settlement</settlementTexturePath>
+		<melaninRange>0~0.3</melaninRange>
+		<colorSpectrum>
+			<li>(0, 0.847, 0.737)</li>
+		</colorSpectrum>
+	</FactionDef>
+
+	<FactionDef ParentName="RK_FactionAttr_Base">
+		<defName>RK_PlayerFaction</defName>
+		<label>New Beginning</label>
+		<description>당신의 랫킨 정착지입니다. 각자의 사연과 운명이 이곳에 모이게 했습니다.</description>
+		<isPlayer>true</isPlayer>
+		<basicMemberKind>RK_PawnKind_Colonist</basicMemberKind>
+		<pawnSingular>colonist</pawnSingular>
+		<pawnsPlural>colonists</pawnsPlural>
+		<techLevel>Medieval</techLevel>
+		<!-- TODO: 랫킨 네이밍 필요 -->
+		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
+		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+		<!-- TODO: 랫킨 문화 필요 -->
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<backstoryFilters>
+			<li>RK_BackstoryCategory_All</li>
+		</backstoryFilters>
+		<factionIconPath>UI/Icon/RK_TextureIcon_Faction</factionIconPath>
+	</FactionDef>
+
+
+
+</Defs>
