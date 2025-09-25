@@ -10,12 +10,12 @@
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
 	</HairDef>
-	<!--<HairDef>
+	<HairDef>
 		<defName>RK_Hair_BraidedB</defName>
 		<label>braided b</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_BraidedB</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -25,7 +25,7 @@
 		<label>middle</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_Middle</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -35,7 +35,7 @@
 		<label>side tail</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_SideTail</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -45,7 +45,7 @@
 		<label>twin tail a</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailA</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -55,7 +55,7 @@
 		<label>wave long a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_WaveLongA</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -65,7 +65,7 @@
 		<label>long hair a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongA</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -75,7 +75,7 @@
 		<label>long hair b</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongB</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -85,7 +85,7 @@
 		<label>long hair d</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongD</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -95,7 +95,7 @@
 		<label>long hair e</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_LongE</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -105,7 +105,7 @@
 		<label>ponytail a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_PonytailA</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -115,7 +115,7 @@
 		<label>side ponytail a</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_SidePonytailA</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -125,7 +125,7 @@
 		<label>twin tail b</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailB</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -135,7 +135,7 @@
 		<label>twin tail c</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailC</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -145,7 +145,7 @@
 		<label>twin tail d</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailD</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -155,7 +155,7 @@
 		<label>twin tail e</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailE</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -165,7 +165,7 @@
 		<label>twin tail f</label>
 		<hairGender>Female</hairGender>
 		<texPath>Hair/RK_Hair_TwinTailF</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -175,7 +175,7 @@
 		<label>middle b</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_MiddleB</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
@@ -185,9 +185,9 @@
 		<label>ponytail b</label>
 		<hairGender>Any</hairGender>
 		<texPath>Hair/RK_Hair_PonytailB</texPath>
-		<category>RK_Style</category>
+		<category>RK_StyleItemCategory_Ratkin</category>
 		<styleTags>
 			<li>RK_Tag_HairStyle</li>
 		</styleTags>
-	</HairDef>-->
+	</HairDef>
 </Defs>
