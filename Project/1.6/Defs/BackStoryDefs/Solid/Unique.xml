@@ -16,7 +16,7 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Myth</li>
+			<li>RK_BackstoryCategory_Myth</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef>
 
@@ -34,8 +34,9 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_SpawnCategory_Myth</li>
+			<li>RK_BackstoryCategory_Myth</li>
 		</spawnCategories>
 	</AlienRace.AlienBackstoryDef> -->
 
+	
 </Defs>
