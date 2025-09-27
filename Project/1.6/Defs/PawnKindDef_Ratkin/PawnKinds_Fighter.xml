@@ -79,6 +79,25 @@
 	
 	-->
 
+	<PawnKindDef ParentName="RK_PawnKindAttr_Fighter">
+		<defName>RK_PawnKind_FighterTemp</defName>
+		<label>ratkin fighter temp</label>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RK_BackstoryCategory_Fighter</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelMoney>
+			<min>120</min>
+			<max>500</max>
+		</apparelMoney>
+		<apparelTags>
+			<li>RK_ApparelTag_1TierAll</li>
+		</apparelTags>
+		<apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
+	</PawnKindDef>
 
 	<!-- 상인 (근접/원거리 무관)-->
 	<!-- 

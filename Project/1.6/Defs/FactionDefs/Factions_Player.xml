@@ -28,6 +28,19 @@
 			<li>RK_BackstoryCategory_All</li>
 		</backstoryFilters>
 		<factionIconPath>UI/Icon/RK_TextureIcon_Faction</factionIconPath>
+		<!-- TODO: 랫킨 연구. 대충 중세수준 -->
+		<startingResearchTags>
+			<li>ClassicStart</li>
+		</startingResearchTags>
+		<startingTechprintsResearchTags>
+			<li>ClassicStart</li>
+			<li>ClassicStartTechprints</li>
+		</startingTechprintsResearchTags>
+		<apparelStuffFilter>
+			<thingDefs>
+				<li>Cloth</li>
+			</thingDefs>
+		</apparelStuffFilter>
 	</FactionDef>
 
 

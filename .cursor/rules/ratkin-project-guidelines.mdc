@@ -46,6 +46,25 @@ description: Ratkin 프로젝트 통합 개발 가이드라인
 ### 워크플로우 파일 구조
 워크플로우 파일은 [001_WorkFlowTemplete.md](mdc:001_WorkFlowTemplete.md)를 참고하여 다음 구조로 작성:
 
+## 3. 보고서 작성 규칙
+
+### 보고서 파일 넘버링
+- **워크플로우 보고서**: `./WorkFlow/` 디렉토리 내 파일들
+  - 파일명 형식: `{작업인덱스}_{작업제목}.md`
+  - 인덱스 규칙: 일일 작업 순서대로 01, 02, 03... 순차 증가
+
+- **루트 디렉토리 보고서**: 프로젝트 루트 디렉토리의 분석/참조 보고서들
+  - 파일명 형식: `{보고서번호}_{보고서제목}.md`
+  - 인덱스 규칙: 보고서 생성 순서대로 01, 02, 03... 순차 증가
+  - 기존 보고서들:
+    - `01_FactionDef_Files.md` (기존: FactionDef_Files.md)
+    - `02_FactionDef_PawnGroupMaker_Analysis_Report.md` (기존: FactionDef_PawnGroupMaker_Analysis_Report.md)
+    - `03_PawnKindDef_Reference.md` (기존: PawnKindDef_Reference.md)
+    - `04_ThingDef_Apparel_Analysis_Report.md` (기존: ThingDef_Apparel_Analysis_Report.md)
+
+### 워크플로우 파일 구조
+워크플로우 파일은 [001_WorkFlowTemplete.md](mdc:001_WorkFlowTemplete.md)를 참고하여 다음 구조로 작성:
+
 ```markdown
 # {작업 제목} - {날짜}
 
@@ -87,7 +106,7 @@ description: Ratkin 프로젝트 통합 개발 가이드라인
 ## 참고사항
 - [참고사항]
 ```
-## 3. 작업 절차
+## 4. 작업 절차
 
 ### 작업 시작 전
 1. **워크플로우 파일 생성**: 작업 시작과 동시에 추적 파일 생성

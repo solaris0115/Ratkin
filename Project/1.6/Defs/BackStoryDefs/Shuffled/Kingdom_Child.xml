@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!-- 
+	일반
+		농노 아이		(곡식,콩, 견과류,야생화,중세때 일반 시민명)
+		농부 자재		
+		탄광 어린이		(중세 광부나 광산, 고산지대 이름, 단단한 돌과 같은 암석류)
+		어린 시녀		(부드러운 들꽃, 꽃, 곡식, 견과, 지역명)
+		로마니			(들꽃,야생화, 견과, 지역명)
+		학생			(견과,곡식,재배되는꽃,과일)
+		도시 어린이		(동문)
+		시골 어린이		(농노)
+		고아			(콩,야생화, 쥐의 부위, 행동(잽싼 그런..))
+		꼬마 목동		(들판, 지역, 견과, 콩, 꽃)
+		버려진 아이		(고아)
+		시궁 쥐			(쥐의 부위, 행동(잽싼 그런..))
+		유랑단 어린이		(주로 들꽃, 야생화, 견과, 지역명)
+		대장장이의 자식		네이밍 관련 (아이언,브론즈,실버,골드)
+		정원사 지망생		(정원에서 기르는 꽃, 재배되는 곡식, 견과, 지역명,행동, 부위 등.)
+
+	디스토피아
+		실험실쥐		(번호,학명, )
+		어린 좀도둑
+		인간의 노예
+		전쟁 고아
+		가출 소년
+		암살단원
+
+	귀족
+		영주의 자식
+		살아남은 몰락 왕족
+		몰락 귀족 자재
+		기사 자재
+		귀족 자재
+		후계자
+		서자
+		외교관 자재
+
+		농부,농장,광부,과수원,목동,요리사,군인,집시,장교,하인, 상인, 캐러반, 집시, 사냥꾼, 음유시인, 방랑자, 탐험가, 학생, 대장간, 재봉사, 원예사
+		귀족: 귀족자재,후계자,서자, 몰락왕족, 몰락귀족, 영주, 기사자재
+		버려진 아이들, 도시아이, 시궁쥐, 
+		특수: 정원사지망, 학생, 인간 조수, 실험실쥐, 도둑, 인간노예, 외교관,  
+	 -->
 
 	<!-- 랫킨 자유 유년기 -->
 	<!-- 들쥐 -->
@@ -21,7 +62,7 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Fighter</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Wild</li>
 			<li>RK_BackstoryCategory_Thief</li>
@@ -53,7 +94,7 @@
 			</li>
 		</forcedTraitsChance>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Subject</li>
 			<li>RK_BackstoryCategory_Wild</li>
 			<li>RK_BackstoryCategory_Thief</li>
@@ -78,7 +119,7 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Priest</li>
 			<li>RK_BackstoryCategory_Farm</li>
 			<li>RK_BackstoryCategory_Thief</li>
@@ -111,7 +152,7 @@
 		<workDisables>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Priest</li>
 			<li>RK_BackstoryCategory_Farm</li>
 			<li>RK_BackstoryCategory_EliteDefender</li>
@@ -135,7 +176,7 @@
 			<Intellectual>-3</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Mercenary</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
@@ -169,7 +210,7 @@
 			<Intellectual>2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Servant</li>
 			<li>RK_BackstoryCategory_Priest</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
@@ -197,7 +238,7 @@
 			<Intellectual>3</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Noble</li>
 			<li>RK_BackstoryCategory_Educated</li>
@@ -220,7 +261,7 @@
 			<li>Violent</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Merchant</li>
 			<li>RK_BackstoryCategory_Educated</li>
@@ -244,7 +285,7 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Educated</li>
 			<li>RK_BackstoryCategory_Vagabond</li>
@@ -277,7 +318,7 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Guardener</li>
@@ -300,7 +341,7 @@
 			<Mining>-4</Mining>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Vagabond</li>
 			<li>RK_BackstoryCategory_Guardener</li>
@@ -326,7 +367,7 @@
 			<Cooking>2</Cooking>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Chef</li>
 			<li>RK_BackstoryCategory_Defender</li>
@@ -355,7 +396,7 @@
 			<li>Social</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Merchant</li>
@@ -384,7 +425,7 @@
 			<li>Cleaning</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Educated</li>
 			<li>RK_BackstoryCategory_Mercenary</li>
@@ -411,7 +452,7 @@
 			<Cooking>1</Cooking>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Servant</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Merchant</li>
@@ -437,7 +478,7 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Guardener</li>
@@ -467,7 +508,7 @@
 			<Crafting>1</Crafting>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_City</li>
@@ -495,7 +536,7 @@
 			<Intellectual>1</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_City</li>
 			<li>RK_BackstoryCategory_Subject</li>
 			<li>RK_BackstoryCategory_Servant</li>
@@ -520,7 +561,7 @@
 			<Intellectual>2</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Merchant</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_City</li>
@@ -549,7 +590,7 @@
 			<li>Intellectual</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_City</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Defender</li>
@@ -581,7 +622,7 @@
 			<li>Social</li>
 		</workDisables>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Combatant</li>
@@ -609,7 +650,7 @@
 			<Intellectual>-4</Intellectual>
 		</skillGains>
 		<spawnCategories>
-			<li>RK_BackstoryCategory_Story</li>
+			<li>RK_BackstoryCategory_All</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_Mercenary</li>
 			<li>RK_BackstoryCategory_Murderer</li>
