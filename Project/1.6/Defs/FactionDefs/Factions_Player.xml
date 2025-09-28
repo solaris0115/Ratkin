@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<FactionDef Abstract="True" Name="RK_FactionAttr_Base">
+	<FactionDef Abstract="True" Name="RK_FactionAttr_PlayerBase">
 		<settlementTexturePath>UI/Icon/RK_TextureIcon_Settlement</settlementTexturePath>
 		<melaninRange>0~0.3</melaninRange>
 		<colorSpectrum>
@@ -8,8 +8,8 @@
 		</colorSpectrum>
 	</FactionDef>
 
-	<FactionDef ParentName="RK_FactionAttr_Base">
-		<defName>RK_PlayerFaction</defName>
+	<FactionDef ParentName="RK_FactionAttr_PlayerBase">
+		<defName>RK_Faction_Player</defName>
 		<label>New Beginning</label>
 		<description>당신의 랫킨 정착지입니다. 각자의 사연과 운명이 이곳에 모이게 했습니다.</description>
 		<isPlayer>true</isPlayer>
