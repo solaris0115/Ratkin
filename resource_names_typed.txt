@@ -143,7 +143,7 @@ texture:RK_OneHanded
 texture:RK_OneHanded_B_Full
 texture:RK_OneHanded_B_Sheath
 texture:RK_OrderUniform
-texture:RK_OutdoorBackpack
+texture:RK_EnhancedBackpack
 texture:RK_Plate
 texture:RK_PrototypePulseRifle
 texture:RK_Pulpit

@@ -272,7 +272,7 @@ ThingDef:RK_MaskB
 ThingDef:RK_Muffler
 ThingDef:RK_OneHanded
 ThingDef:RK_OrderUniform
-ThingDef:RK_OutdoorBackpack
+ThingDef:RK_EnhancedBackpack
 ThingDef:RK_Plate
 ThingDef:RK_PlateHelmA
 ThingDef:RK_PlateHelmB

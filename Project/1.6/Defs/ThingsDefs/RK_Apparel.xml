@@ -1070,11 +1070,11 @@
 	<!-- 3티어 -->
 	<!-- 군용가방 +30 내구도 +20 -->
 	<ThingDef ParentName="RK_ThingCategory_ApparelMakeableBase">
-		<defName>RK_OutdoorBackpack</defName>
+		<defName>RK_EnhancedBackpack</defName>
 		<label>ratkin outdoor backpack</label>
 		<description>랫킨용 등짐 가방입니다. 랫킨 신체에 맞도록 고안된 가방으로 더욱 많은 짐을 들 수 있도록 해줍니다.</description>
 		<graphicData>
-			<texPath>Apparel/RK_OutdoorBackpack</texPath>
+			<texPath>Apparel/RK_EnhancedBackpack</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
@@ -1106,7 +1106,7 @@
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_OutdoorBackpack</wornGraphicPath>
+			<wornGraphicPath>Apparel/RK_EnhancedBackpack</wornGraphicPath>
 			<layers>
 				<li>BackPack</li>
 			</layers>
