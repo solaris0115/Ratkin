@@ -2327,12 +2327,12 @@
 
 		<!-- 대형 철제 방패 -->
 	<ThingDef ParentName="RK_ThingCategory_ApparelMakeableBase">
-		<defName>RK_HeavyShield_Big</defName>
+		<defName>RK_TowerShield</defName>
 		<label>ratkin Big heavy Shield</label>
 		<description>금속 대방패.</description>
 		<thingClass>NewRatkin.Shield</thingClass>
 		<graphicData>
-			<texPath>Apparel/RK_HeavyShield_Big</texPath>
+			<texPath>Apparel/RK_TowerShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<!-- <shaderType>CutoutComplex</shaderType> -->
 		</graphicData>
@@ -2388,7 +2388,7 @@
 				<li>Worker</li>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_HeavyShield_Big</wornGraphicPath>
+			<wornGraphicPath>Apparel/RK_TowerShield</wornGraphicPath>
 			<layers>
 				<li>OuterClothing</li>
 			</layers>

@@ -261,7 +261,7 @@ ThingDef:RK_HandTailoringBench
 ThingDef:RK_HeadBand
 ThingDef:RK_HeavyLance
 ThingDef:RK_HeavyShield
-ThingDef:RK_HeavyShield_Big
+ThingDef:RK_TowerShield
 ThingDef:RK_Hockey
 ThingDef:RK_LightLance
 ThingDef:RK_LongSword
