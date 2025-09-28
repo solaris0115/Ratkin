@@ -88,7 +88,7 @@ texture:PreIgnitionA
 texture:PreIgnitionB
 texture:PreIgnitionB - 복사본
 texture:RK_Anvil2
-texture:RK_ApronSkirt
+texture:RK_ColonistWear
 texture:RK_AutoCrossBow
 texture:RK_Axe
 texture:RK_Backpack

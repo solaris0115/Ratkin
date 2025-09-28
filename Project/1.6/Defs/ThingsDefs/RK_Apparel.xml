@@ -65,11 +65,11 @@
 	<!-- 1티어 -->
 	<!-- 기본 옷 재배속도+5% 요리속도 +5% -->
 	<ThingDef ParentName="RK_ThingCategory_ApparelMakeableBase">
-		<defName>RK_ApronSkirt</defName>
+		<defName>RK_ColonistWear</defName>
 		<label>apron skirt</label>
 		<description>앞치마가 달린 간단한 의류입니다.</description>
 		<graphicData>
-			<texPath>Apparel/RK_ApronSkirt</texPath>
+			<texPath>Apparel/RK_ColonistWear</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
@@ -101,7 +101,7 @@
 			<defaultOutfitTags>
 				<li>Worker</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_ApronSkirt</wornGraphicPath>
+			<wornGraphicPath>Apparel/RK_ColonistWear</wornGraphicPath>
 			<layers>
 				<li>OnSkin</li>
 			</layers>

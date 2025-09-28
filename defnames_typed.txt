@@ -222,7 +222,7 @@ ThingDef:Bullet_RK_SniperRifle
 ThingDef:GunlanceAfterIgnition
 ThingDef:GunlanceExplosion
 ThingDef:GunlancePreIgnition
-ThingDef:RK_ApronSkirt
+ThingDef:RK_ColonistWear
 ThingDef:RK_AutoCrossBow
 ThingDef:RK_Axe
 ThingDef:RK_BFR
