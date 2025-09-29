@@ -106,7 +106,7 @@
 		<settlementTexturePath>UI/Icon/RK_TextureIcon_Settlement</settlementTexturePath>
 		<apparelStuffFilter>
 			<stuffCategoriesToAllow>
-				<li>WeaponMetallic</li>
+				<!-- <li>WeaponMetallic</li> -->
 				<li>Fabric</li>
 				<li>Leathery</li>
 				<li>Woody</li>
@@ -122,6 +122,9 @@
 			<li>(0.45, 0.50, 0.30)</li>
 			<li>(0.65, 0.60, 0.20)</li>
 		</colorSpectrum>
+		<layerWhitelist>
+			<li>Surface</li>
+		</layerWhitelist>
 		<!-- 각 팩션마다 고유 병종이나 전략 전술 설정이 필요. 왕국과 제국만 종교 그룹을 갖어야함 -->
 	</FactionDef>
 	<!-- <FactionDef ParentName="RatkinLandFactionBase"> -->
