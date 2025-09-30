@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<XenotypeDef>
+		<defName>Moyo2_Xenotype_Depthborn</defName>
+		<label>depthborn moyo</label>
+		<description>기원을 알 수 없광범위하고 장기간의 유전자 개조를 거쳐 탄생한 종족으로, 심해 생물의 특성을 지니고 있으며 대사에 딥블루를 활용합니다. 지나친 개조로 인해 모요의 일부 특성만 인간에게 적용될 수 있습니다. 딥스본 모요는 등대 내에서 가장 수가 많은 모요 유형입니다. 모든 모요 제노타입은 딥스본 모요에서 분화되거나 개조된 형태입니다.</description>
+		<descriptionShort>일반적인 랫킨.</descriptionShort>
+		<iconPath>UI/Icon/RK_TextureIcon_XenotypeRatkin</iconPath>
+		<inheritable>true</inheritable>
+		<chanceToUseNameMaker>1</chanceToUseNameMaker>
+		<factionlessGenerationWeight>0</factionlessGenerationWeight>
+		<genes>
+			<!--
+				Human vs Ratkin 스탯 비교 분석:
+				
+				=== 기본 스탯 ===
+				MarketValue: Human 1750 → Ratkin 2000 (+250, +14.3%)
+				MoveSpeed: Human 4.6 → Ratkin 4.9 (+0.3, +6.5%)
+				ComfyTemperatureMin: Human 16 → Ratkin 4 (-12, -75%)
+				ComfyTemperatureMax: Human 26 → Ratkin 29 (+3, +11.5%)
+				LeatherAmount: Human 75 → Ratkin 30 (-45, -60%)
+				
+				=== Ratkin 추가 스탯 ===
+				Mass: 50 (Human 기본값)
+				Flammability: 1.0
+				ImmunityGainSpeed: 1.10 (+10%)
+				CarryingCapacity: 45
+				PainShockThreshold: 0.7 (-30%)
+				ToxicEnvironmentResistance: 0.9 (-10%)
+				EatingSpeed: 1.1 (+10%)
+				MeatAmount: 35
+				
+				=== 전투 스탯 ===
+				MeleeDodgeChance: 1.15 (+15%)
+				AimingDelayFactor: 1.15 (+15% 지연, 불리)
+				
+				=== 사회 스탯 ===
+				NegotiationAbility: 0.85 (-15%)
+				
+				=== 작업 스탯 ===
+				MiningSpeed: 1.1 (+10%)
+				MiningYield: 1.05 (+5%)
+				PlantWorkSpeed: 1.10 (+10%)
+				HuntingStealth: 1.15 (+15%)
+				ConstructionSpeed: 0.9 (-10%)
+				ResearchSpeed: 0.8 (-20%)
+				
+				=== 요약 ===
+				장점: 빠른 이동속도, 낮은 온도 내성, 높은 회피율, 채굴/농업 특화
+				단점: 낮은 가죽량, 건설/연구 속도 저하, 조준 지연, 협상 능력 저하
+			-->
+			<!-- 외형 -->
+			<li>랫킨 헤어</li>
+			<li>랫킨 피부</li>
+			<li>랫킨 눈(이거 어케해야하지..)</li>
+			<li>랫킨 귀</li>
+			<li>랫킨 꼬리</li>			
+			<!-- 스텟 -->
+			<li>MinTemp_SmallDecrease</li>
+			<li>MaxTemp_SmallDecrease</li>
+			<li>Moyo2_MoveSpeed_Slug</li>
+			<li>Moyo2_WorkSpeed_Slow</li>
+			<li>PsychicAbility_Enhanced</li>
+			<li>Immunity_Strong</li>
+			<!-- 기타 -->
+			<li>AptitudeStrong_Medicine</li>
+			<li>AptitudeStrong_Intellectual</li>
+		</genes>
+	</XenotypeDef>
+</Defs>
