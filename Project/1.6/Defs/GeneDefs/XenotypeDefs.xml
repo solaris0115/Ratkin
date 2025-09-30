@@ -56,6 +56,17 @@
 				→ Ratkin은 MoveSpeed_Quick(+0.2)보다 더 빠름
 				→ MoveSpeed_VeryQuick(+0.4)보다는 느림
 				→ 대략 +0.3 정도의 이동속도 보너스
+				
+				=== PainShockThreshold 관련 GeneDef 값들 ===
+				Pain_Reduced: painFactor 0.5 (고통 50% 감소)
+				Pain_Extra: Wimp 특성 강제 부여 (PainShockThreshold -0.5)
+				
+				=== Ratkin PainShockThreshold 분석 ===
+				Human 기본값: 1.0 (추정)
+				Ratkin 기본값: 0.7 (-0.3, -30%)
+				→ Ratkin은 Pain_Reduced와 유사한 고통 저항력
+				→ Pain_Extra의 Wimp 특성(-0.5)보다는 강함
+				→ 대략 -0.3 정도의 PainShockThreshold 보너스
 			-->
 			<!-- 외형 -->
 			<li>랫킨 헤어</li>
