@@ -45,9 +45,17 @@
 				ConstructionSpeed: 0.9 (-10%)
 				ResearchSpeed: 0.8 (-20%)
 				
-				=== 요약 ===
-				장점: 빠른 이동속도, 낮은 온도 내성, 높은 회피율, 채굴/농업 특화
-				단점: 낮은 가죽량, 건설/연구 속도 저하, 조준 지연, 협상 능력 저하
+				=== 이동속도 관련 GeneDef 값들 ===
+				MoveSpeed_Slow: -0.2 (Human 4.6 → 4.4, -4.3%)
+				MoveSpeed_Quick: +0.2 (Human 4.6 → 4.8, +4.3%)
+				MoveSpeed_VeryQuick: +0.4 (Human 4.6 → 5.0, +8.7%)
+				
+				=== Ratkin 이동속도 분석 ===
+				Human 기본값: 4.6
+				Ratkin 기본값: 4.9 (+0.3, +6.5%)
+				→ Ratkin은 MoveSpeed_Quick(+0.2)보다 더 빠름
+				→ MoveSpeed_VeryQuick(+0.4)보다는 느림
+				→ 대략 +0.3 정도의 이동속도 보너스
 			-->
 			<!-- 외형 -->
 			<li>랫킨 헤어</li>
