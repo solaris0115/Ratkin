@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<XenotypeDef>
-		<defName>Moyo2_Xenotype_Depthborn</defName>
-		<label>depthborn moyo</label>
+		<defName>RK_XenoType_RatkinDefault</defName>
+		<label>ratkin </label>
 		<description>기원을 알 수 없광범위하고 장기간의 유전자 개조를 거쳐 탄생한 종족으로, 심해 생물의 특성을 지니고 있으며 대사에 딥블루를 활용합니다. 지나친 개조로 인해 모요의 일부 특성만 인간에게 적용될 수 있습니다. 딥스본 모요는 등대 내에서 가장 수가 많은 모요 유형입니다. 모든 모요 제노타입은 딥스본 모요에서 분화되거나 개조된 형태입니다.</description>
 		<descriptionShort>일반적인 랫킨.</descriptionShort>
 		<iconPath>UI/Icon/RK_TextureIcon_XenotypeRatkin</iconPath>
@@ -14,20 +14,15 @@
 				Human vs Ratkin 스탯 비교 분석:
 				
 				=== 기본 스탯 ===
-				MarketValue: Human 1750 → Ratkin 2000 (+250, +14.3%)
-				MoveSpeed: Human 4.6 → Ratkin 4.9 (+0.3, +6.5%)
 				ComfyTemperatureMin: Human 16 → Ratkin 4 (-12, -75%)
 				ComfyTemperatureMax: Human 26 → Ratkin 29 (+3, +11.5%)
-				LeatherAmount: Human 75 → Ratkin 30 (-45, -60%)
 				
 				=== Ratkin 추가 스탯 ===
-				Mass: 50 (Human 기본값)
-				Flammability: 1.0
 				ImmunityGainSpeed: 1.10 (+10%)
 				CarryingCapacity: 45
 				PainShockThreshold: 0.7 (-30%)
 				ToxicEnvironmentResistance: 0.9 (-10%)
-				EatingSpeed: 1.1 (+10%)
+				EatingSpeed: 1.1 (+10%) 이거랑
 				MeatAmount: 35
 				
 				=== 전투 스탯 ===
@@ -42,48 +37,31 @@
 				MiningYield: 1.05 (+5%)
 				PlantWorkSpeed: 1.10 (+10%)
 				HuntingStealth: 1.15 (+15%)
-				ConstructionSpeed: 0.9 (-10%)
+				ConstructionSpeed: 0.9 (-10%) 이거는..?
 				ResearchSpeed: 0.8 (-20%)
-				
-				=== 이동속도 관련 GeneDef 값들 ===
-				MoveSpeed_Slow: -0.2 (Human 4.6 → 4.4, -4.3%)
-				MoveSpeed_Quick: +0.2 (Human 4.6 → 4.8, +4.3%)
-				MoveSpeed_VeryQuick: +0.4 (Human 4.6 → 5.0, +8.7%)
-				
-				=== Ratkin 이동속도 분석 ===
-				Human 기본값: 4.6
-				Ratkin 기본값: 4.9 (+0.3, +6.5%)
-				→ Ratkin은 MoveSpeed_Quick(+0.2)보다 더 빠름
-				→ MoveSpeed_VeryQuick(+0.4)보다는 느림
-				→ 대략 +0.3 정도의 이동속도 보너스
-				
-				=== PainShockThreshold 관련 GeneDef 값들 ===
-				Pain_Reduced: painFactor 0.5 (고통 50% 감소)
-				Pain_Extra: Wimp 특성 강제 부여 (PainShockThreshold -0.5)
-				
-				=== Ratkin PainShockThreshold 분석 ===
-				Human 기본값: 1.0 (추정)
-				Ratkin 기본값: 0.7 (-0.3, -30%)
-				→ Ratkin은 Pain_Reduced와 유사한 고통 저항력
-				→ Pain_Extra의 Wimp 특성(-0.5)보다는 강함
-				→ 대략 -0.3 정도의 PainShockThreshold 보너스
 			-->
-			<!-- 외형 -->
-			<li>랫킨 헤어</li>
-			<li>랫킨 피부</li>
+			<!-- 
+			외형
 			<li>랫킨 눈(이거 어케해야하지..)</li>
-			<li>랫킨 귀</li>
-			<li>랫킨 꼬리</li>			
-			<!-- 스텟 -->
-			<li>MinTemp_SmallDecrease</li>
-			<li>MaxTemp_SmallDecrease</li>
-			<li>Moyo2_MoveSpeed_Slug</li>
-			<li>Moyo2_WorkSpeed_Slow</li>
-			<li>PsychicAbility_Enhanced</li>
-			<li>Immunity_Strong</li>
-			<!-- 기타 -->
-			<li>AptitudeStrong_Medicine</li>
-			<li>AptitudeStrong_Intellectual</li>
+			<li>랫킨 귀</li> (모계 유전)
+			<li>랫킨 얼굴</li>(모계 유전)
+			<li>랫킨 꼬리(여기에 이동속도 0.1)</li>
+			
+			<li>조금 빠름</li>
+			<li>추위 강함</li>
+			<li>고온 약함</li>
+			<li>고통 약함</li>
+			<li>독성 강함</li>
+			<li>약한 근접</li>
+			
+			<li>좋은 재배력(재배속도와 채집량up)</li>
+			<li>좋은 채굴력(채굴속도와 채굴량up)</li>
+			<li>근시(조준속도와 연구 패널티,독서 속도 패널티 등)</li>
+			<li>DarkVision</li>
+			<li>작은 체구(신체 사이즈 0.8, 은신 +0.15, 회피)</li>
+			<li>쥐같은 목소리(협상력-, 소셜임팩트+,)</li>
+			<li>소식가(밥을 적게 먹는다고 해야하나, 식사량이 적다고 해야하나. 패널티인가?)</li>
+			 -->
 		</genes>
 	</XenotypeDef>
 </Defs>
