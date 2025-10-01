@@ -573,8 +573,8 @@
 			<body>RK_Body_Ratkin</body>
 			<baseBodySize>0.8</baseBodySize>
 			<gestationPeriodDays>14</gestationPeriodDays>
-			<!-- <nameGenerator>NamerPerson_RatkinKingdom</nameGenerator>
-			<nameGeneratorFemale>NamerPerson_RatkinKingdom</nameGeneratorFemale> -->
+			<nameGenerator>RK_RulePack_NamerPerson</nameGenerator>
+			<nameGeneratorFemale>RK_RulePack_NamerPerson</nameGeneratorFemale>
 			<ageGenerationCurve>
 				<points>
 					<li MayRequire="Ludeon.RimWorld.Biotech">(0,0)</li>
