@@ -345,7 +345,7 @@
 					<value>
 						<hasStyle>true</hasStyle>
 						<styleTagsOverride>
-							<li>RK_StyleItemCategory_Ratkin</li>
+							<li>RK_StyleTag_HairStyle</li>
 						</styleTagsOverride>
 					</value>
 				</li>
