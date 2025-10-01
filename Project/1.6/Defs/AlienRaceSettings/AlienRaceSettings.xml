@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<!-- <AlienRace.RaceSettings>
-		<defName>RK_RaceSetting</defName>
+	<AlienRace.RaceSettings>
+		<defName>RK_RaceSetting_Ratkin</defName>
 		<pawnKindSettings>
 			<startingColonists>
 				<li>
@@ -14,7 +14,7 @@
 						</li>
 					</pawnKindEntries>
 					<factionDefs>
-						<li>RK_Faction_PlayerFaction</li> 
+						<li>RK_Faction_Player</li> 
 					</factionDefs>
 				</li>
 			</startingColonists>
@@ -23,47 +23,52 @@
 					<pawnKindEntries>
 						<li>
 							<kindDefs>
-								<li>RK_PawnKind_Servant</li>
+								<li>RK_PawnKind_FighterTemp</li>
+								<!-- <li>RK_PawnKind_Servant</li> -->
 							</kindDefs>
 							<chance>40.0</chance>
 						</li>
 						<li>
 							<kindDefs>
-								<li>RK_PawnKind_Noble</li>
+								<li>RK_PawnKind_FighterTemp</li>
+								<!-- <li>RK_PawnKind_Noble</li> -->
 							</kindDefs>
 							<chance>30.0</chance>
 						</li>
 						<li>
 							<kindDefs>
-								<li>RK_PawnKind_Priest</li>
+								<li>RK_PawnKind_FighterTemp</li>
+								<!-- <li>RK_PawnKind_Priest</li> -->
 							</kindDefs>
 							<chance>5.0</chance>
 						</li>
 					</pawnKindEntries>
 					<factionDefs>
-						<li>Rakinia</li> 
+						<li>RK_Faction_Rakinia</li> 
 					</factionDefs>
 				</li>
 				<li>
 					<pawnKindEntries>
 						<li>
 							<kindDefs>
-								<li>RK_PawnKind_Servant</li>
+								<li>RK_PawnKind_FighterTemp</li>
+								<!-- <li>RK_PawnKind_Servant</li> -->
 							</kindDefs>
 							<chance>40.0</chance>
 						</li>
 						<li>
 							<kindDefs>
-								<li>RK_PawnKind_Merchant</li>
+								<li>RK_PawnKind_FighterTemp</li>
+								<!-- <li>RK_PawnKind_Merchant</li> -->
 							</kindDefs>
 							<chance>10.0</chance>
 						</li>
 					</pawnKindEntries>
 					<factionDefs>
-						<li>Rakinia</li> 
+						<li>RK_Faction_Rakinia</li> 
 					</factionDefs>
 				</li> 
 			</alienwandererkinds>
 		</pawnKindSettings>
-	</AlienRace.RaceSettings>-->
+	</AlienRace.RaceSettings>
 </Defs>

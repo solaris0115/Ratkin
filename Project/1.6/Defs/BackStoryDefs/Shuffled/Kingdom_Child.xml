@@ -63,6 +63,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Wild</li>
 			<li>RK_BackstoryCategory_Thief</li>
@@ -95,6 +96,7 @@
 		</forcedTraitsChance>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Subject</li>
 			<li>RK_BackstoryCategory_Wild</li>
 			<li>RK_BackstoryCategory_Thief</li>
@@ -120,6 +122,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Priest</li>
 			<li>RK_BackstoryCategory_Farm</li>
 			<li>RK_BackstoryCategory_Thief</li>
@@ -153,6 +156,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Priest</li>
 			<li>RK_BackstoryCategory_Farm</li>
 			<li>RK_BackstoryCategory_EliteDefender</li>
@@ -177,6 +181,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Mercenary</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
@@ -211,6 +216,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Servant</li>
 			<li>RK_BackstoryCategory_Priest</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
@@ -239,6 +245,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Noble</li>
 			<li>RK_BackstoryCategory_Educated</li>
@@ -262,6 +269,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Merchant</li>
 			<li>RK_BackstoryCategory_Educated</li>
@@ -286,6 +294,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Educated</li>
 			<li>RK_BackstoryCategory_Vagabond</li>
@@ -319,6 +328,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Guardener</li>
@@ -342,6 +352,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Vagabond</li>
 			<li>RK_BackstoryCategory_Guardener</li>
@@ -368,6 +379,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Chef</li>
 			<li>RK_BackstoryCategory_Defender</li>
@@ -397,6 +409,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Merchant</li>
@@ -426,6 +439,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Educated</li>
 			<li>RK_BackstoryCategory_Mercenary</li>
@@ -453,6 +467,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Servant</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Merchant</li>
@@ -479,6 +494,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_Kingdom</li>
 			<li>RK_BackstoryCategory_Guardener</li>
@@ -509,6 +525,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_City</li>
@@ -537,6 +554,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_City</li>
 			<li>RK_BackstoryCategory_Subject</li>
 			<li>RK_BackstoryCategory_Servant</li>
@@ -562,6 +580,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Merchant</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_City</li>
@@ -591,6 +610,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_City</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Defender</li>
@@ -623,6 +643,7 @@
 		</workDisables>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Murderer</li>
 			<li>RK_BackstoryCategory_Soldier</li>
 			<li>RK_BackstoryCategory_Combatant</li>
@@ -651,6 +672,7 @@
 		</skillGains>
 		<spawnCategories>
 			<li>RK_BackstoryCategory_All</li>
+			<li>RK_BackstoryCategory_Fighter</li>
 			<li>RK_BackstoryCategory_Combatant</li>
 			<li>RK_BackstoryCategory_Mercenary</li>
 			<li>RK_BackstoryCategory_Murderer</li>

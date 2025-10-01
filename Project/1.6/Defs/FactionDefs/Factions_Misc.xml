@@ -1,23 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<FactionDef ParentName="FactionBase" Name="RK_FactionAttr_Base" Abstract="True">
+	<FactionDef ParentName="FactionBase" Name="RK_FactionAttr_FactionBase" Abstract="True">
 		<pawnSingular>ratkin</pawnSingular>
 		<pawnsPlural>Ratkins</pawnsPlural>
 		<categoryTag>RatkinStory</categoryTag>
 		<listOrderPriority>30</listOrderPriority>
 		<settlementGenerationWeight>1</settlementGenerationWeight>
-		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<requiredCountAtGameStart>2</requiredCountAtGameStart>
 		<canSiege>true</canSiege>
 		<canStageAttacks>true</canStageAttacks>
 		<leaderTitle>prime executor</leaderTitle>
-		<factionIconPath>UI/Icon/RK_TextureIcon_Faction</factionIconPath>
-		<techLevel>Industrial</techLevel>
+		<factionIconPath>UI/Icon/RK_TextureIcon_DefaultFaction</factionIconPath>
+		<techLevel>Medieval</techLevel>
 		<!--TODO: 랫킨 네이밍 필요-->
-		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
-		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
-		<!-- <factionNameMaker>NamerFaction_RatkinKingdom</factionNameMaker> -->
-		<!-- <settlementNameMaker>NamerSettlement_RatkinKingdom</settlementNameMaker> -->
-		<allowedCultures>	<!--TODO: 랫킨 문화 필요-->
+		<factionNameMaker>RK_RulePack_NamerFaction</factionNameMaker>
+		<settlementNameMaker>RK_RulePack_NamerSettlement</settlementNameMaker>
+		<allowedCultures>			<!--TODO: 랫킨 문화 필요-->
 			<li>Rustican</li>
 		</allowedCultures>
 		<disallowedMemes>
@@ -103,10 +101,9 @@
 				</options>
 			</li>
 		</pawnGroupMakers>
-		<settlementTexturePath>UI/Icon/RK_TextureIcon_Settlement</settlementTexturePath>
+		<settlementTexturePath>UI/Icon/RK_TextureIcon_DefaultFaction</settlementTexturePath>
 		<apparelStuffFilter>
 			<stuffCategoriesToAllow>
-				<!-- <li>WeaponMetallic</li> -->
 				<li>Fabric</li>
 				<li>Leathery</li>
 				<li>Woody</li>
@@ -114,7 +111,7 @@
 		</apparelStuffFilter>
 	</FactionDef>
 
-	<FactionDef ParentName="RK_FactionAttr_Base">
+	<FactionDef ParentName="RK_FactionAttr_FactionBase">
 		<defName>RK_Faction_Rakinia</defName>
 		<label>ratkin kingdom</label>
 		<description>랫킨 왕국입니다. 인간들 눈에 띄지 않도록 숨어서 살고 있으며 농경생활을 위주로 생활하는 비 침략적인 종족입니다.</description>
@@ -125,47 +122,15 @@
 		<layerWhitelist>
 			<li>Surface</li>
 		</layerWhitelist>
+		<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">PainIsVirtue</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+		</disallowedMemes>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation><!-- 없으면 월드맵에서 생성이 앙됨.-->
+		<configurationListOrderPriority>30</configurationListOrderPriority>
 		<!-- 각 팩션마다 고유 병종이나 전략 전술 설정이 필요. 왕국과 제국만 종교 그룹을 갖어야함 -->
 	</FactionDef>
-	<!-- <FactionDef ParentName="RatkinLandFactionBase"> -->
-	<!-- <defName>RatkinCaravan</defName> -->
-	<!-- <label>ratkin caravan union</label> -->
-	<!-- <backstoryCategories> -->
-	<!-- <li>RatkinStory</li> -->
-	<!-- </backstoryCategories> -->
-	<!-- <description>랫킨 유랑단입니다. 방방곡곡을 유랑하며 거래를 하기도 하고 용병을 사고 팔기도 합니다.</description> -->
-	<!-- <colorSpectrum> -->
-	<!-- <li>(0.00, 0.30, 0.70)</li> -->
-	<!-- <li>(0.00, 0.40, 1.00)</li> -->
-	<!-- </colorSpectrum> -->
-	<!-- <startingGoodwill> -->
-	<!-- <min>20</min> -->
-	<!-- <max>80</max> -->
-	<!-- </startingGoodwill> -->
-	<!-- <naturalColonyGoodwill> -->
-	<!-- <min>0</min> -->
-	<!-- <max>100</max> -->
-	<!-- </naturalColonyGoodwill> -->
-	<!-- <hidden>true</hidden>		 -->
-	<!-- <pawnGroupMakers> -->
-	<!-- <li> -->
-	<!-- <kindDef>Trader</kindDef> -->
-	<!-- <traders> -->
-	<!-- <RatkinMerchant>1</RatkinMerchant> -->
-	<!-- </traders> -->
-	<!-- <carriers> -->
-	<!-- <Muffalo>6</Muffalo> -->
-	<!-- <Dromedary>5</Dromedary> -->
-	<!-- <Alpaca>2</Alpaca> -->
-	<!-- <Elephant>1</Elephant> -->
-	<!-- </carriers> -->
-	<!-- <guards> -->
-	<!-- <RatkinColonist>3</RatkinColonist> -->
-	<!-- <RatkinNoble>1</RatkinNoble> -->
-	<!-- <RatkinMercenary>10</RatkinMercenary> -->
-	<!-- <RatkinSoldier>15</RatkinSoldier> -->
-	<!-- </guards> -->
-	<!-- </li> -->
-	<!-- </pawnGroupMakers> -->
-	<!-- </FactionDef> -->
 </Defs>

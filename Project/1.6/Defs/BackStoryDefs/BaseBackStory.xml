@@ -5,11 +5,11 @@
 		<bodyTypeFemale>Thin</bodyTypeFemale>
 	</AlienRace.AlienBackstoryDef>
 
-	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_BaseChild" ParentName="RK_Backstory_Base" Abstract="True">
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_BaseChild" ParentName="RK_BackstoryAttr_Base" Abstract="True">
 		<slot>Childhood</slot>
 	</AlienRace.AlienBackstoryDef>
 
-	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_BaseAdult" ParentName="RK_Backstory_Base" Abstract="True">
+	<AlienRace.AlienBackstoryDef Name="RK_BackstoryAttr_BaseAdult" ParentName="RK_BackstoryAttr_Base" Abstract="True">
 		<slot>Adulthood</slot>
 	</AlienRace.AlienBackstoryDef>
 

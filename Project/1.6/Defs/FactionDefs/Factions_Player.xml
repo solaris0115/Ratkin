@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<FactionDef Abstract="True" Name="RK_FactionAttr_PlayerBase">
-		<settlementTexturePath>UI/Icon/RK_TextureIcon_Settlement</settlementTexturePath>
+	<FactionDef Abstract="True" Name="RK_FactionAttr_PlayerBase" ParentName="FactionBase">
+		<settlementTexturePath>UI/Icon/RK_TextureIcon_DefaultPlayerFaction</settlementTexturePath>
 		<melaninRange>0~0.3</melaninRange>
 		<colorSpectrum>
 			<li>(0, 0.847, 0.737)</li>
@@ -17,15 +17,18 @@
 		<pawnSingular>colonist</pawnSingular>
 		<pawnsPlural>colonists</pawnsPlural>
 		<techLevel>Medieval</techLevel>
-		<!-- TODO: 랫킨 네이밍 필요 -->
-		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
-		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+		<factionNameMaker>RK_RulePack_NamerFaction</factionNameMaker>
+		<settlementNameMaker>RK_RulePack_NamerSettlement</settlementNameMaker>
 		<!-- TODO: 랫킨 문화 필요 -->
 		<allowedCultures>
 			<li>Corunan</li>
 		</allowedCultures>
 		<backstoryFilters>
-			<li>RK_BackstoryCategory_All</li>
+			<li>
+				<categories>
+					<li>RK_BackstoryCategory_All</li>
+				</categories>
+			</li>
 		</backstoryFilters>
 		<factionIconPath>UI/Icon/RK_TextureIcon_Faction</factionIconPath>
 		<!-- TODO: 랫킨 연구. 대충 중세수준 -->
