@@ -97,6 +97,7 @@
 			<li>RK_ApparelTag_1TierAll</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
+		<factionLeader>true</factionLeader>
 	</PawnKindDef>
 
 	<!-- 상인 (근접/원거리 무관)-->
