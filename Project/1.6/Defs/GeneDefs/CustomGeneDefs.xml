@@ -17,8 +17,8 @@
 		<biostatCpx>2</biostatCpx>
 	</GeneDef>
 
-	<GeneDef>
-		<!-- <defName>Moyo2_WorkSpeed_Fast</defName>
+	<!-- <GeneDef>
+		<defName>Moyo2_WorkSpeed_Fast</defName>
 		<label>efficient worker</label>
 		<labelShortAdj>efficient</labelShortAdj>
 		<description>Carriers of this gene work faster than normal.</description>
