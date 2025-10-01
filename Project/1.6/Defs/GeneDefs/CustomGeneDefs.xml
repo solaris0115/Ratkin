@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<GeneDef>
+		<defName>RK_Gene_PoorEyesight</defName>
+		<label>poor eyesight</label>
+		<labelShortAdj>poor eye</labelShortAdj>
+		<description>랫킨은 시력이 구립니다.</description>
+		<iconPath>Texture/Icon/RK_TextureIcon_GenePoorEyesight</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<statOffsets>
+			<ResearchSpeed>-0.2</ResearchSpeed>
+			<ReadingSpeed>-0.2</ReadingSpeed>
+			<AimingDelayFactor>-0.2</AimingDelayFactor>
+		</statOffsets>
+		<biostatMet>2</biostatMet>
+		<biostatCpx>2</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<!-- <defName>Moyo2_WorkSpeed_Fast</defName>
+		<label>efficient worker</label>
+		<labelShortAdj>efficient</labelShortAdj>
+		<description>Carriers of this gene work faster than normal.</description>
+		<iconPath>Icon/FastWorkIcon</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<statOffsets>
+			<WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+		</statOffsets>
+		<biostatMet>-3</biostatMet>
+		<biostatCpx>2</biostatCpx>
+	</GeneDef> -->
+	<!-- <GeneDef>
+		<defName>Moyo2_DeepblueMetabolism</defName>
+		<label>hyper deepblue metabolism</label>
+		<labelShortAdj>deepblue metabolism</labelShortAdj>
+		<description>Carriers of this gene uses all deepblue produced in their body for metabolism purposes.</description>
+		<iconPath>Icon/FastWorkIcon</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<statFactors>
+			<DeepblueStatSpeed>0</DeepblueStatSpeed>
+			<DeepblueStat>0</DeepblueStat>
+		</statFactors>
+		<biostatMet>5</biostatMet>
+		<biostatCpx>7</biostatCpx>
+	</GeneDef> -->
+</Defs>
