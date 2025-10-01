@@ -3,7 +3,7 @@
 	<XenotypeDef>
 		<defName>RK_XenoType_Ratkin</defName>
 		<label>ratkin</label>
-		<description>기원을 알 수 없으나, </description>
+		<description>기원을 알 수 없으나</description>
 		<descriptionShort>일반적인 랫킨.</descriptionShort>
 		<iconPath>UI/Icon/RK_TextureIcon_XenotypeRatkin</iconPath>
 		<inheritable>true</inheritable>
