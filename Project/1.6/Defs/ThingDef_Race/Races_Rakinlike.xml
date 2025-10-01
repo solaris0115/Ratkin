@@ -602,13 +602,4 @@
 			<li>RK_Recipe_InstallFakeTail</li>
 		</recipes>
 	</AlienRace.ThingDef_AlienRace>
-
-	<PawnKindDef ParentName="BasePlayerPawnKind">
-		<defName>RK_PawnKind_Colonist</defName>
-		<label>colonist</label>
-		<race>RK_Race_Ratkin</race>
-		<defaultFactionType>PlayerColony</defaultFactionType>
-		<!-- This is a required field. 13~21 is the default value for Crashlanded player colonists. -->
-		<initialResistanceRange>13~21</initialResistanceRange>
-	</PawnKindDef>
 </Defs>
