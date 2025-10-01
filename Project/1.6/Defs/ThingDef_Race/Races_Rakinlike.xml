@@ -471,10 +471,10 @@
 					<li MayRequire="Ludeon.RimWorld.Biotech">Waster</li>
 					<li MayRequire="Ludeon.RimWorld.Biotech">Yttakin</li>
 					<li MayRequire="Ludeon.RimWorld.Biotech">Highmate</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
 				</blackXenotypeList>
 				<whiteXenotypeList MayRequire="Ludeon.RimWorld.Biotech">
-					<li MayRequire="Ludeon.RimWorld.Biotech">RK_Xenotype_Ratkin</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">RK_XenoType_Ratkin</li>
 				</whiteXenotypeList>
 				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
 			</raceRestriction>
