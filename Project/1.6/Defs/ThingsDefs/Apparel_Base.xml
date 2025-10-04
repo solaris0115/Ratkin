@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- 일반 의류  -->
+    <ThingDef Name="RK_ApparelAttr_ApparelMakeableBase" ParentName="ApparelMakeableBase" Abstract="True">
+        <recipeMaker>
+            <recipeUsers>
+                <li>RK_Building_ElectricTailoringBench</li>
+                <li>RK_Building_HandTailoringBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <tradeTags>
+            <li>RK_TradeTag_Cloth</li>
+        </tradeTags>
+    </ThingDef>
+
+    <ThingDef Name="RK_ApparelAttr_ArmorSmithableBase" ParentName="ArmorSmithableBase" Abstract="True">
+        <smeltable>true</smeltable>
+        <recipeMaker>
+            <recipeUsers>
+                <li>RK_Building_ElectricSmithy</li>
+                <li>RK_Building_FueledSmithy</li>
+            </recipeUsers>
+        </recipeMaker>
+        <tradeTags>
+            <li>RK_TradeTag_Cloth</li>
+        </tradeTags>
+    </ThingDef>
+
+    <!-- 랫킨은 기계 벤치가 없음 -->
+    <ThingDef Name="RK_ApparelAttr_ArmorMachineableBase" ParentName="ArmorMachineableBase" Abstract="True">
+        <recipeMaker>
+            <recipeUsers>
+                <li>RK_Building_ElectricSmithy</li>
+                <li>RK_Building_FueledSmithy</li>
+            </recipeUsers>
+        </recipeMaker>
+        <tradeTags>
+            <li>RK_TradeTag_Cloth</li>
+        </tradeTags>
+    </ThingDef>
+
+
+	<!-- 여기서부터 머리 장비  -->
+	<ThingDef Name="RK_ApparelAttr_HatBase" ParentName="HatBase" Abstract="True">
+		<thingCategories>
+			<li>RK_ThingCategory_Headgear</li>
+		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_Cloth</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Name="RK_ApparelAttr_HatMakeableBase" ParentName="RK_ApparelAttr_ApparelMakeableBase" Abstract="True">
+		<thingCategories>
+			<li>RK_ThingCategory_Headgear</li>
+		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Name="RK_ApparelAttr_ArmorHelmetMakeableBase" ParentName="RK_ApparelAttr_ArmorMachineableBase" Abstract="True">
+		<thingCategories>
+			<li>RK_ThingCategory_Headgear</li>
+		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_Cloth</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Name="RK_ApparelAttr_NobleHatMakeableBase" ParentName="RK_ApparelAttr_MakeableBase" Abstract="True">
+		<thingCategories>
+			<li>RK_ThingCategory_Headgear</li>
+		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_Cloth</li>
+		</tradeTags>
+	</ThingDef>
+</Defs>

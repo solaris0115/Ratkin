@@ -1,57 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="ApparelMakeableBase">
-		<defName>RK_ThingApparel_ColonistWear</defName>
-		<label>Colonist Wear</label>
-		<description>Colonist Wear</description>
-		<recipeMaker>
-			<researchPrerequisite>ComplexClothing</researchPrerequisite>
-			<displayPriority>205</displayPriority>
-		</recipeMaker>
-		<graphicData>
-			<texPath>Thing/Apparel/RK_TextureApparel_ColonistWear</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<costStuffCount>40</costStuffCount>
-		<stuffCategories>
-			<li>Fabric</li>
-			<li>Leathery</li>
-		</stuffCategories>
-		<thingCategories>
-			<li>ApparelMisc</li>
-		</thingCategories>
-		<statBases>
-			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToMake>1600</WorkToMake>
-			<Mass>0.25</Mass>
-			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.22</StuffEffectMultiplierInsulation_Cold>
-			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
-			<EquipDelay>1.5</EquipDelay>
-		</statBases>
-		<apparel>
-			<bodyPartGroups>
-				<li>Torso</li>
-				<li>Shoulders</li>
-			</bodyPartGroups>
-			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_ColonistWear</wornGraphicPath>
-			<layers>
-				<li>OnSkin</li>
-			</layers>
-			<tags>
-				<li>RK_ApparelTag_All</li>
-				<li>RK_ApparelTag_1TierAll</li>
-			</tags>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-				<li>Spacefarer</li>
-			</defaultOutfitTags>
-			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
-		</apparel>
-		<colorGenerator Class="ColorGenerator_StandardApparel" />
-		<tradeTags>
-			<li>BasicClothing</li>
-		</tradeTags>
-	</ThingDef>
+
+    <!-- 일반 중세 의류 -->
+    <!-- 방탄복 -->
+    <!-- 중세 갑옷 -->
+
+    <!-- DLC -->
+    <!-- 진공복 -->
+    <!-- 진공우주복 -->
 </Defs>
