@@ -8,4 +8,889 @@
     
     <!-- 랫킨용 우주복 -->
     <!-- 근위대 급 우주복 -->
+
+	<!-- 여름모자 더위저항 +5 -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_StrawHat</defName>
+		<label>Straw Hat</label>
+		<description>건초로 만든 밀짚모자입니다. 뜨거운 땡볕으로부터 몸을 지켜줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_StrawHat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<Hay>30</Hay>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToMake>1800</WorkToMake>
+			<Mass>0.1</Mass>
+			<ArmorRating_Sharp>0</ArmorRating_Sharp>
+			<Insulation_Cold>2</Insulation_Cold>
+			<Insulation_Heat>6</Insulation_Heat>
+		</statBases>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_StrawHat</wornGraphicPath>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_1Tier</li>
+				<li>RK_Worker</li>
+				<li>RoyalTier2</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
+	<!-- 작업모  식중독 예방 +5% 동물채집량 +5% -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_Coif</defName>
+		<label>coif</label>
+		<description>작업할 때 쓰는 모자입니다. 머리카락이 넘어오지 않도록 방지해줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_Coif</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costStuffCount>30</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<WorkToMake>3500</WorkToMake>
+			<Mass>0.15</Mass>
+			<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<FoodPoisonChance>-0.25</FoodPoisonChance>
+			<AnimalGatherYield>0.05</AnimalGatherYield>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_Coif</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>RK_Servant</li>
+				<li>RK_2Tier</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 탐험모 이동속도+0.1 더위저항 +10 스탤스효과 +3% -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_ExplorerHat</defName>
+		<label>explorer hat</label>
+		<description>탐험 모자입니다. 땡볕을 막아줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_ExplorerHat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costStuffCount>35</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<WorkToMake>4000</WorkToMake>
+			<Mass>0.35</Mass>
+			<StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.25</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>0.1</MoveSpeed>
+			<HuntingStealth>0.03</HuntingStealth>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_ExplorerHat</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Explorer</li>
+				<li>RK_2Tier</li>
+				<li>RK_Combatant</li>
+				<li>RoyalTier2</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 쉐프모자 식중독예방 +12% -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_ChefHat</defName>
+		<label>chef hat</label>
+		<description>쉐프 모자입니다. 음식에 머리카락이나 이물질이 들어가지 않도록 방지해줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_ChefHat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<Cloth>15</Cloth>
+		</costList>
+		<costStuffCount>30</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToMake>4000</WorkToMake>
+			<Mass>0.25</Mass>
+			<StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CookSpeed>0.05</CookSpeed>
+			<FoodPoisonChance>-0.35</FoodPoisonChance>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_ChefHat</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Chef</li>
+				<li>RK_2Tier</li>
+				<li>RoyalTier2</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 방탄모자 조준속도 +10% 사격정확도 +5% 날카로움방어 좋은수준-->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_BulletProofHelmet</defName>
+		<label>Ratkin military helmet</label>
+		<description>랫킨용 방탄 모자입니다. 착용자의 공포감을 조금 덜어주고 조준을 수월하게 해줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_BulletProofHelmet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<DevilstrandCloth>25</DevilstrandCloth>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>220</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>1</Mass>
+			<StuffEffectMultiplierArmor>0.5</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.25</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<AimingDelayFactor>-0.15</AimingDelayFactor>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+				<li>Eyes</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_BulletProofHelmet</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Soldier</li>
+				<li>RK_3Tier</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 코사주 사회적 영향력 10% -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_HairCorsage</defName>
+		<label>hair corsage</label>
+		<description>머리에 쓰는 코사주입니다. 코사주의 우아함은 말 한마디마다 힘을 실어줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_HairCorsage</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<DevilstrandCloth>20</DevilstrandCloth>
+		</costList>
+		<costStuffCount>35</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<WorkToMake>10000</WorkToMake>
+			<Mass>0.1</Mass>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>0.05</SocialImpact>
+			<NegotiationAbility>0.10</NegotiationAbility>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_HairCorsage</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Ambassador</li>
+				<li>RK_Noble</li>
+				<li>RK_3Tier</li>
+				<li>RoyalTier2</li>
+				<li>RoyalTier5</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+		<!-- 귀족 의류 -->
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 리본 거래가격 개선 +10% -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_RibbonHairBand</defName>
+		<label>ribbon hair band</label>
+		<description>머리에 착용하는 작고 이쁜 리본입니다. 리본의 귀여움은 사탕하나를 더 주고 싶도록 만들것입니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_RibbonHairBand</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<DevilstrandCloth>20</DevilstrandCloth>
+		</costList>
+		<costStuffCount>35</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<WorkToMake>10000</WorkToMake>
+			<Mass>0.1</Mass>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>0.05</SocialImpact>
+			<TradePriceImprovement>0.10</TradePriceImprovement>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_RibbonHairBand</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Ambassador</li>
+				<li>RK_3Tier</li>
+				<li>RoyalTier2</li>
+				<li>RoyalTier5</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 수녀모자 치료품질 +10% -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_SistersVeil</defName>
+		<label>Veil</label>
+		<description>수녀들이 머리에 쓰는 베일입니다. 머리를 단정하게 해줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_SistersVeil</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<DevilstrandCloth>20</DevilstrandCloth>
+		</costList>
+		<costStuffCount>35</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+			<li>Fabric</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>0.1</Mass>
+			<StuffEffectMultiplierInsulation_Cold>0.25</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MedicalTendQuality>0.10</MedicalTendQuality>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_SistersVeil</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Priest</li>
+				<li>RK_Noble</li>
+				<li>RK_3Tier</li>
+				<li>RoyalTier2</li>
+				<li>RoyalTier5</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 가스마스크-->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_Mask</defName>
+		<label>Ratkin mask helmet</label>
+		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_Mask</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker Inherit="false">
+		</recipeMaker>
+		<costList>
+			<DevilstrandCloth>35</DevilstrandCloth>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Plasteel>20</Plasteel>
+		</costList>
+		<costStuffCount>45</costStuffCount>
+		<techLevel>Industrial</techLevel>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>240</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>2</Mass>
+			<StuffEffectMultiplierArmor>0.60</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.55</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.45</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.5</ArmorRating_Heat>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<ToxicEnvironmentResistance>0.1</ToxicEnvironmentResistance>
+			<PainShockThreshold>0.05</PainShockThreshold>
+			<Flammability>-0.1</Flammability>
+		</equippedStatOffsets>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+				<li>Eyes</li>
+				<li>Teeth</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_Mask</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_EliteSoldier</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<tradeability>Sellable</tradeability>
+		<tradeTags Inherit="false">
+		</tradeTags>
+	</ThingDef>
+
+	<!-- 역병마스크-->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_MaskB</defName>
+		<label>Ratkin mask helmet</label>
+		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_MaskB</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker Inherit="false">
+		</recipeMaker>
+		<costList>
+			<DevilstrandCloth>35</DevilstrandCloth>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Plasteel>20</Plasteel>
+		</costList>
+		<costStuffCount>45</costStuffCount>
+		<techLevel>Industrial</techLevel>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>240</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>2</Mass>
+			<StuffEffectMultiplierArmor>0.60</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.55</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.45</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.5</ArmorRating_Heat>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<ToxicEnvironmentResistance>0.1</ToxicEnvironmentResistance>
+			<PainShockThreshold>0.05</PainShockThreshold>
+			<Flammability>-0.1</Flammability>
+		</equippedStatOffsets>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+				<li>Eyes</li>
+				<li>Teeth</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_MaskB</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_EliteSoldier</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<tradeability>Sellable</tradeability>
+		<tradeTags Inherit="false">
+		</tradeTags>
+	</ThingDef>
+
+	<!-- 특공 머리띠(삭제예정) -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_HeadBand</defName>
+		<label>Ratkin head band</label>
+		<description>빨간 머리띠입니다. 만약 이 머리띠를 두른 랫킨을 본다면 주의하세요.</description>
+		<techLevel>Industrial</techLevel>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_HeadBand</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker Inherit="false">
+		</recipeMaker>
+		<costList>
+			<DevilstrandCloth>35</DevilstrandCloth>
+		</costList>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<WorkToMake>10000</WorkToMake>
+			<Mass>1</Mass>
+			<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Heat>0.8</ArmorRating_Heat>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<PainShockThreshold>0.1</PainShockThreshold>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_HeadBand</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_NOTag</li>
+			</tags>
+		</apparel>
+		<tradeability>Sellable</tradeability>
+		<tradeTags Inherit="false">
+		</tradeTags>
+	</ThingDef>
+
+	<!-- 판금 투구 높은 날카로움, 둔탁함 방어력, 느려짐-->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_PlateHelmA</defName>
+		<label>Ratkin plate Helm</label>
+		<description>금속으로 만든 투구입니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_PlateHelmet1</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!-- <shaderType>CutoutComplex</shaderType> -->
+		</graphicData>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>3</Mass>
+			<StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.10</MoveSpeed>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_PlateHelmet1</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Melee</li>
+				<li>RK_Knight</li>
+				<li>RK_2Tier</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<disallowedThingDefs>
+					<li>Gold</li>
+					<li>Silver</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+		</recipeMaker>
+		<followStuffColor>true</followStuffColor>
+	</ThingDef>
+
+	<!-- 투구 -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_PlateHelmB</defName>
+		<label>Ratkin plate Helm</label>
+		<description>금속으로 만든 투구입니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_PlateHelmet2</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!-- <shaderType>CutoutComplex</shaderType> -->
+		</graphicData>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>3</Mass>
+			<StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.10</MoveSpeed>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_PlateHelmet2</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Melee</li>
+				<li>RK_Knight</li>
+				<li>RK_2Tier</li>
+				<li>RK_KnightCommander</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<disallowedThingDefs>
+					<li>Gold</li>
+					<li>Silver</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+		</recipeMaker>
+		<followStuffColor>true</followStuffColor>
+	</ThingDef>
+
+	<!-- 투구 -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_PlateHelmC</defName>
+		<label>Ratkin plate Helm</label>
+		<description>금속으로 만든 투구입니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_PlateHelmet3</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!-- <shaderType>CutoutComplex</shaderType> -->
+		</graphicData>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>3</Mass>
+			<StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.10</MoveSpeed>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_PlateHelmet3</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Melee</li>
+				<li>RK_2Tier</li>
+				<li>RK_HeavyArmor</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<disallowedThingDefs>
+					<li>Gold</li>
+					<li>Silver</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+		</recipeMaker>
+		<followStuffColor>true</followStuffColor>
+	</ThingDef>
+
+	<!-- 왕관 -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_RoyalCrown</defName>
+		<label>Ratkin royal crown</label>
+		<description>금속제 왕관입니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_RoyalCrown</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<Steel>25</Steel>
+		</costList>
+		<costStuffCount>75</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<WorkToMake>12000</WorkToMake>
+			<Mass>0.6</Mass>
+			<EquipDelay>0.8</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>0.2</SocialImpact>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_RoyalCrown</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_Noble</li>
+				<li>RK_3Tier</li>
+				<li>Royal</li>
+				<li>RoyalTier5</li>
+				<li>RoyalTier6</li>
+				<li>RoyalTier7</li>
+			</tags>
+		</apparel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<categories>
+					<li>Root</li>
+				</categories>
+				<disallowedThingDefs>
+					<li>Jade</li>
+					<li>Uranium</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- 로티모자 -->
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+		<defName>RK_ThingApparel_RottiHat</defName>
+		<label>Rotti Hat</label>
+		<description>천으로 만든 로티 인형입니다. 안고 다닐 수도 있지만 머리에 얹으면 더 귀엽습니다!</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_RottiHat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<Cloth>20</Cloth>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToMake>1200</WorkToMake>
+			<Mass>0.01</Mass>
+			<ArmorRating_Sharp>0</ArmorRating_Sharp>
+			<Insulation_Cold>2</Insulation_Cold>
+			<Insulation_Heat>2</Insulation_Heat>
+		</statBases>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_RottiHat</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_ETC</li>
+			</tags>
+		</apparel>
+		<equippedStatOffsets>
+			<PsychicSensitivity>-0.2</PsychicSensitivity>
+		</equippedStatOffsets>
+	</ThingDef>
 </Defs>
