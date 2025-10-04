@@ -442,39 +442,39 @@
 				<li>RK_Halberd</li> -->
 				</weaponList>
 				<blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">
-					<li MayRequire="Ludeon.RimWorld.Biotech">BodyType</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Ears</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Nose</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Voice</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Headbone</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Head</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Jaw</li>
+					<li>BodyType</li>
+					<li>Ears</li>
+					<li>Nose</li>
+					<li>Voice</li>
+					<li>Headbone</li>
+					<li>Head</li>
+					<li>Jaw</li>
 				</blackEndoCategories>
 				<blackGeneTags MayRequire="Ludeon.RimWorld.Biotech">
-					<li MayRequire="Ludeon.RimWorld.Biotech">EyeColor</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Tail</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">BeardStyle</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Fur</li>
+					<li>EyeColor</li>
+					<li>Tail</li>
+					<li>BeardStyle</li>
+					<li>Fur</li>
 				</blackGeneTags>
-				<blackGeneList>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Brow_Heavy</li>
+				<blackGeneList MayRequire="Ludeon.RimWorld.Biotech">
+					<li>Furskin</li>
+					<li>Brow_Heavy</li>
 				</blackGeneList>
-				<blackXenotypeList>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Dirtmole</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Genie</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Hussar</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Sanguophage</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Neanderthal</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Pigskin</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Impid</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Waster</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Yttakin</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Highmate</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
+				<blackXenotypeList MayRequire="Ludeon.RimWorld.Biotech">
+					<li>Dirtmole</li>
+					<li>Genie</li>
+					<li>Hussar</li>
+					<li>Sanguophage</li>
+					<li>Neanderthal</li>
+					<li>Pigskin</li>
+					<li>Impid</li>
+					<li>Waster</li>
+					<li>Yttakin</li>
+					<li>Highmate</li>
+					<li>Baseliner</li>
 				</blackXenotypeList>
 				<whiteXenotypeList MayRequire="Ludeon.RimWorld.Biotech">
-					<li MayRequire="Ludeon.RimWorld.Biotech">RK_XenoType_Ratkin</li>
+					<li>RK_XenoType_Ratkin</li>
 				</whiteXenotypeList>
 				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
 			</raceRestriction>
