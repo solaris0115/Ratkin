@@ -190,14 +190,6 @@
 				<li>RoyalTier2</li>
 			</tags>
 		</apparel>
-		<colorGenerator Class="ColorGenerator_Options">
-			<options>
-				<li>
-					<weight>10</weight>
-					<only>(1,1,1,1)</only>
-				</li>
-			</options>
-		</colorGenerator>
 	</ThingDef>
 
 	<!-- 추위저항15 -->
@@ -241,27 +233,6 @@
 				<li>OuterClothing</li>
 			</layers>
 		</apparel>
-		<colorGenerator Class="ColorGenerator_Options">
-			<options>
-				<li>
-					<weight>10</weight>
-					<only>(0.33,0.33,0.33,1)</only>
-				</li>
-				<li>
-					<weight>10</weight>
-					<only>(0.65,0.65,0.65,1)</only>
-				</li>
-				<li>
-					<weight>6</weight>
-					<min>(0.3,0.3,0.3,1)</min>
-					<max>(0.5,0.5,0.5,1)</max>
-				</li>
-				<li>
-					<weight>10</weight>
-					<only>(0.9,0.9,0.9,1)</only>
-				</li>
-			</options>
-		</colorGenerator>
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 	<!-- 가디건 추위저항 +6 -->
@@ -310,27 +281,6 @@
 				<li>Shell</li>
 			</layers>
 		</apparel>
-		<colorGenerator Class="ColorGenerator_Options">
-			<options>
-				<li>
-					<weight>10</weight>
-					<only>(0.33,0.33,0.33,1)</only>
-				</li>
-				<li>
-					<weight>10</weight>
-					<only>(0.65,0.65,0.65,1)</only>
-				</li>
-				<li>
-					<weight>6</weight>
-					<min>(0.3,0.3,0.3,1)</min>
-					<max>(0.5,0.5,0.5,1)</max>
-				</li>
-				<li>
-					<weight>10</weight>
-					<only>(0.9,0.9,0.9,1)</only>
-				</li>
-			</options>
-		</colorGenerator>
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 	<!-- 털모자 추위저항 +5 -->
@@ -373,27 +323,6 @@
 				<li>Overhead</li>
 			</layers>
 		</apparel>
-		<colorGenerator Class="ColorGenerator_Options">
-			<options>
-				<li>
-					<weight>10</weight>
-					<only>(0.33,0.33,0.33,1)</only>
-				</li>
-				<li>
-					<weight>10</weight>
-					<only>(0.65,0.65,0.65,1)</only>
-				</li>
-				<li>
-					<weight>6</weight>
-					<min>(0.3,0.3,0.3,1)</min>
-					<max>(0.5,0.5,0.5,1)</max>
-				</li>
-				<li>
-					<weight>10</weight>
-					<only>(0.9,0.9,0.9,1)</only>
-				</li>
-			</options>
-		</colorGenerator>
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 
@@ -2769,14 +2698,6 @@
 		<equippedStatOffsets>
 			<PsychicSensitivity>-0.2</PsychicSensitivity>
 		</equippedStatOffsets>
-		<colorGenerator Class="ColorGenerator_Options">
-			<options>
-				<li>
-					<weight>10</weight>
-					<only>(1,1,1,1)</only>
-				</li>
-			</options>
-		</colorGenerator>
 	</ThingDef>
 
 
