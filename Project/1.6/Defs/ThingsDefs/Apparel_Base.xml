@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- 일반 의류  -->
+    <!--
+        랫킨 장비는 기본적으로 색상을 고정
+        색상을 따라가야하는 경우 반드시 followStuffColor을 true로 설정
+        
+
+    -->
+    <!-- 일반 의류  -->
     <ThingDef Name="RK_ApparelAttr_ApparelMakeableBase" ParentName="ApparelMakeableBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
         <recipeMaker>
             <recipeUsers>
                 <li>RK_Building_ElectricTailoringBench</li>
@@ -14,6 +21,7 @@
     </ThingDef>
 
     <ThingDef Name="RK_ApparelAttr_ArmorSmithableBase" ParentName="ArmorSmithableBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
         <smeltable>true</smeltable>
         <recipeMaker>
             <recipeUsers>
@@ -28,6 +36,7 @@
 
     <!-- 랫킨은 기계 벤치가 없음 -->
     <ThingDef Name="RK_ApparelAttr_ArmorMachineableBase" ParentName="ArmorMachineableBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
         <recipeMaker>
             <recipeUsers>
                 <li>RK_Building_ElectricSmithy</li>
@@ -40,40 +49,44 @@
     </ThingDef>
 
 
-	<!-- 여기서부터 머리 장비  -->
-	<ThingDef Name="RK_ApparelAttr_HatBase" ParentName="HatBase" Abstract="True">
-		<thingCategories>
-			<li>RK_ThingCategory_Headgear</li>
-		</thingCategories>
-		<tradeTags>
-			<li>RK_TradeTag_Cloth</li>
-		</tradeTags>
-	</ThingDef>
+    <!-- 여기서부터 머리 장비  -->
+    <ThingDef Name="RK_ApparelAttr_HatBase" ParentName="HatBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
+        <thingCategories>
+            <li>RK_ThingCategory_Headgear</li>
+        </thingCategories>
+        <tradeTags>
+            <li>RK_TradeTag_Cloth</li>
+        </tradeTags>
+    </ThingDef>
 
-	<ThingDef Name="RK_ApparelAttr_HatMakeableBase" ParentName="RK_ApparelAttr_ApparelMakeableBase" Abstract="True">
-		<thingCategories>
-			<li>RK_ThingCategory_Headgear</li>
-		</thingCategories>
-		<tradeTags>
-			<li>RK_TradeTag_Armor</li>
-		</tradeTags>
-	</ThingDef>
+    <ThingDef Name="RK_ApparelAttr_HatMakeableBase" ParentName="RK_ApparelAttr_ApparelMakeableBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
+        <thingCategories>
+            <li>RK_ThingCategory_Headgear</li>
+        </thingCategories>
+        <tradeTags>
+            <li>RK_TradeTag_Armor</li>
+        </tradeTags>
+    </ThingDef>
 
-	<ThingDef Name="RK_ApparelAttr_ArmorHelmetMakeableBase" ParentName="RK_ApparelAttr_ArmorMachineableBase" Abstract="True">
-		<thingCategories>
-			<li>RK_ThingCategory_Headgear</li>
-		</thingCategories>
-		<tradeTags>
-			<li>RK_TradeTag_Cloth</li>
-		</tradeTags>
-	</ThingDef>
+    <ThingDef Name="RK_ApparelAttr_ArmorHelmetMakeableBase" ParentName="RK_ApparelAttr_ArmorMachineableBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
+        <thingCategories>
+            <li>RK_ThingCategory_Headgear</li>
+        </thingCategories>
+        <tradeTags>
+            <li>RK_TradeTag_Cloth</li>
+        </tradeTags>
+    </ThingDef>
 
-	<ThingDef Name="RK_ApparelAttr_NobleHatMakeableBase" ParentName="RK_ApparelAttr_MakeableBase" Abstract="True">
-		<thingCategories>
-			<li>RK_ThingCategory_Headgear</li>
-		</thingCategories>
-		<tradeTags>
-			<li>RK_TradeTag_Cloth</li>
-		</tradeTags>
-	</ThingDef>
+    <ThingDef Name="RK_ApparelAttr_NobleHatMakeableBase" ParentName="RK_ApparelAttr_MakeableBase" Abstract="True">
+        <followStuffColor>false</followStuffColor>
+        <thingCategories>
+            <li>RK_ThingCategory_Headgear</li>
+        </thingCategories>
+        <tradeTags>
+            <li>RK_TradeTag_Cloth</li>
+        </tradeTags>
+    </ThingDef>
 </Defs>
