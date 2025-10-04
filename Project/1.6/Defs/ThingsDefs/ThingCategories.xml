@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--랫킨 의류 카테고리. 더 깊게 나누진 않는다. 복잡성때문에.-->
+	<ThingCategoryDef>
+		<defName>RK_ThingCategory_Apparel</defName>
+		<label>ratkin apparel</label>
+		<parent>Apparel</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>RK_ThingCategory_Headgear</defName>
+		<label>ratkin headgear</label>
+		<parent>Headgear</parent>
+	</ThingCategoryDef>
+</Defs>
