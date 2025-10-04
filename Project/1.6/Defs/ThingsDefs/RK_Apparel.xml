@@ -110,7 +110,7 @@
 
 	<!-- 더위저항 +12 -->
 	<!-- 여름드레스 더위저항 +7 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_ThingApparel_ApronSkirt</defName>
 		<label>summer dress</label>
 		<description>여름용 흰 드레스입니다. 통풍이 잘되어 체온을 빠르게 식혀줍니다.</description>
@@ -151,9 +151,9 @@
 			</tags>
 		</apparel>
 	</ThingDef>
-	
+
 	<!-- 여름모자 더위저항 +5 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_StrawHat</defName>
 		<label>Straw Hat</label>
 		<description>건초로 만든 밀짚모자입니다. 뜨거운 땡볕으로부터 몸을 지켜줍니다.</description>
@@ -202,7 +202,7 @@
 
 	<!-- 추위저항15 -->
 	<!-- 머플러 추위저항 +4 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_Muffler</defName>
 		<label>muffler</label>
 		<description>목에 두르는 목도리입니다. 목을 통해 체온이 빠져나가는걸 방지해줍니다. 사막을 횡단할때 쓸 수 있습니다.</description>
@@ -265,7 +265,7 @@
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 	<!-- 가디건 추위저항 +6 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_Cardigan</defName>
 		<label>cardigan</label>
 		<description>옷 겉에 입는 외투입니다. 옷을 한겹 더입어 추위로부터 몸을 지킬 수 있습니다.</description>
@@ -334,7 +334,7 @@
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 	<!-- 털모자 추위저항 +5 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_WoolenHat</defName>
 		<label>woolen hat</label>
 		<description>털 달린 모자입니다.</description>
@@ -397,7 +397,7 @@
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_CrossBack</defName>
 		<label>cross back</label>
 		<description>간단한 봇짐입니다. 짐을 조금 더 나를 수 있게 해줍니다.</description>
@@ -447,7 +447,7 @@
 	<!-- 의류 기본온도저항 추위+5 더위3 -->
 	<!-- 2티어 -->
 	<!-- 가방  운반용량 +20 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_Backpack</defName>
 		<label>backpack</label>
 		<description>등에 맬 수 있는 가방입니다. 짐을 더 많이 나를 수 있게 해줍니다.</description>
@@ -497,7 +497,7 @@
 	</ThingDef>
 
 	<!-- 작업복  재단 속도 +10% 요리속도 +5% 재배속도 5% 언스킬드속도 +5% 동물수집속도 +5%-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_WorkerWear</defName>
 		<label>Ratkin red outfit</label>
 		<description>작업하기 편한 옷입니다. 일상생활에서 일하기 편하도록 디자인되었습니다.</description>
@@ -551,7 +551,7 @@
 		</recipeMaker>
 	</ThingDef>
 	<!-- 작업모  식중독 예방 +5% 동물채집량 +5% -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_Coif</defName>
 		<label>coif</label>
 		<description>작업할 때 쓰는 모자입니다. 머리카락이 넘어오지 않도록 방지해줍니다.</description>
@@ -598,7 +598,7 @@
 	</ThingDef>
 
 	<!-- 연구가운 연구 속도 +10% 수술속도 +5% 치료속도 +5% 약조리속도 +5% 제약속도 +5%-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_ResearchGown</defName>
 		<label>research gown</label>
 		<description>연구할때 입는 가운입니다. 먼지를 날리지 않으며 지적으로 보입니다.</description>
@@ -659,7 +659,7 @@
 		</recipeMaker>
 	</ThingDef>
 	<!-- 공돌이 수술 성공률 +5% 치료품질 +5%-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_ResearchGlasses</defName>
 		<label>ratkin glasses</label>
 		<description>랫킨용 안경입니다. 랫킨들에게 부족한 시력을 높여줍니다. 똑똑해진것 같다는 느낌도 조금 줍니다.</description>
@@ -707,7 +707,7 @@
 	</ThingDef>
 
 	<!-- 탐험복 이동속도 +0.2 더위저항 +10 스탤스효과 +7% 조련확률 +5% 훈련확률 +5% 근접회피 +5%-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_ExplorerWear</defName>
 		<label>explorer wear</label>
 		<description>오지를 탐험할때 입는 옷입니다. 이동에 편리하고 몸에서 나는 소리를 줄여줍니다.</description>
@@ -769,7 +769,7 @@
 		</apparel>
 	</ThingDef>
 	<!-- 탐험모 이동속도+0.1 더위저항 +10 스탤스효과 +3% -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_ExplorerHat</defName>
 		<label>explorer hat</label>
 		<description>탐험 모자입니다. 땡볕을 막아줍니다.</description>
@@ -820,7 +820,7 @@
 	</ThingDef>
 
 	<!-- 쉐프복 요리속도 +15% 해체속도 +5% -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_ChefSuit</defName>
 		<label>chef suit</label>
 		<description>쉐프 복장입니다. 요리하기 편하도록 디자인 되어 조리속도를 상승시켜줍니다.</description>
@@ -878,7 +878,7 @@
 		</apparel>
 	</ThingDef>
 	<!-- 쉐프모자 식중독예방 +12% -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_ChefHat</defName>
 		<label>chef hat</label>
 		<description>쉐프 모자입니다. 음식에 머리카락이나 이물질이 들어가지 않도록 방지해줍니다.</description>
@@ -932,7 +932,7 @@
 	</ThingDef>
 
 	<!-- 정원복 수확속도 +15% 수확량 +5% 근접정확도 +5% 근접회피 +10% 이동속도 +0.1 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_GaurdenUniform</defName>
 		<label>gaurden uniform</label>
 		<description>정원 지킴이들이 입는 정장입니다. 농경이 중요한 랫킨의 사회에서 정원을 지키는것은 중요한 일이며 가장 유능한 인재들만이 정원사가 될 수 있습니다.</description>
@@ -1000,7 +1000,7 @@
 	</ThingDef>
 
 	<!-- 겨울외투 사회적영향력 5% 추위저항 +35 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_WinterRobe</defName>
 		<label>winter robe</label>
 		<description>겨울용 예복입니다. 극지에서 활동할때 입습니다.</description>
@@ -1063,7 +1063,7 @@
 	<!-- 의류 기본온도저항 추위+7 더위+5 -->
 	<!-- 3티어 -->
 	<!-- 군용가방 +30 내구도 +20 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_OutdoorBackpack</defName>
 		<label>ratkin outdoor backpack</label>
 		<description>랫킨용 등짐 가방입니다. 랫킨 신체에 맞도록 고안된 가방으로 더욱 많은 짐을 들 수 있도록 해줍니다.</description>
@@ -1110,8 +1110,9 @@
 			</tags>
 		</apparel>
 	</ThingDef>
+
 	<!-- 제복 사회적영향력 +5% 근접회피찬스 5% 정신임계점 +5% 고통임계점 +10% 날카로움방어 좋은수준-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_OrderUniform</defName>
 		<label>ratkin order uniform</label>
 		<description>랫킨식 제식 전투복입니다. 랫킨식 전투에 유리하도록 디자인된 의류입니다. 착용자에게 약간의 고양감을 주어 강인한 전투원으로 만들어줍니다.</description>
@@ -1179,7 +1180,7 @@
 		</apparel>
 	</ThingDef>
 	<!-- 방탄모자 조준속도 +10% 사격정확도 +5% 날카로움방어 좋은수준-->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_BulletProofHelmet</defName>
 		<label>Ratkin military helmet</label>
 		<description>랫킨용 방탄 모자입니다. 착용자의 공포감을 조금 덜어주고 조준을 수월하게 해줍니다.</description>
@@ -1234,7 +1235,7 @@
 	</ThingDef>
 
 	<!-- 플랫칼라코트 사회적영향력 +10% 협상 +10%  -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_FlatColorCoat</defName>
 		<label>flatcolor coat</label>
 		<description>단아한 단색 원피스입니다. 편하면서 공식적 자리에 입기 좋아보입니다.</description>
@@ -1294,7 +1295,7 @@
 	</ThingDef>
 
 	<!-- 프릴원피스 거래가격개선 +10% 협상 +10%  -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_FrillOnepiece</defName>
 		<label>frill onepiece</label>
 		<description>프릴장식이 있는 귀여운 원피스이빈다. 상류층의 아가씨들에게 인기가 많습니다.</description>
@@ -1349,12 +1350,13 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
+		<!-- 귀족 의류 필요 -->
 			<researchPrerequisite>HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
 	<!-- 코사주 사회적 영향력 10% -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_HairCorsage</defName>
 		<label>hair corsage</label>
 		<description>머리에 쓰는 코사주입니다. 코사주의 우아함은 말 한마디마다 힘을 실어줍니다.</description>
@@ -1400,11 +1402,12 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
+		<!-- 귀족 의류 -->
 			<researchPrerequisite>HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 리본 거래가격 개선 +10% -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_RibbonHairBand</defName>
 		<label>ribbon hair band</label>
 		<description>머리에 착용하는 작고 이쁜 리본입니다. 리본의 귀여움은 사탕하나를 더 주고 싶도록 만들것입니다.</description>
@@ -1454,7 +1457,7 @@
 	</ThingDef>
 
 	<!-- 수녀복 사회적영향력 +10% 치료속도 +10%  -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_SistersDerss</defName>
 		<label>Sisters Dress</label>
 		<description>수녀들이 입는 단아한 원피스입니다. 약간의 옆트임이 있어 움직임이 편합니다. 랫킨의 수녀들은 아픈 사람들을 돌보기도 합니다.</description>
@@ -1514,7 +1517,7 @@
 	</ThingDef>
 
 	<!-- 수녀모자 치료품질 +10% -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_SistersVeil</defName>
 		<label>Veil</label>
 		<description>수녀들이 머리에 쓰는 베일입니다. 머리를 단정하게 해줍니다.</description>
@@ -1569,7 +1572,7 @@
 
 	<!-- 번외 -->
 	<!-- 랫킨 귀 헤어밴드 사회적영향력 +5% -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_EarCostume</defName>
 		<label>ratkin ear costume</label>
 		<description>귀여운 랫킨을 흉내내기 위한 귀 코스튬 입니다. 덩치가 큰 사람이 사용하면 전혀 귀엽지 않습니다.</description>
@@ -1616,7 +1619,7 @@
 
 	<!-- 적대 세력 한정 -->
 	<!-- 도둑질 보따리 +50 내구도 +20 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_Sack</defName>
 		<label>ratkin package</label>
 		<description>등에 편하게 맬 수 있는 등짐가방입니다. 물건을 많이 넣을 수 있기때문에 도둑들이 애용합니다.</description>
@@ -1667,7 +1670,7 @@
 	</ThingDef>
 
 	<!-- 특수 부대 복장-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_BattleSuit</defName>
 		<label>ratkin battlesuit</label>
 		<description>침투에 유리하도록 디자인된 전투복입니다. 극한의 온도상황에서 활동할 수 있도록 설계되어있습니다.</description>
@@ -1741,7 +1744,7 @@
 	</ThingDef>
 
 	<!-- 가스마스크-->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_Mask</defName>
 		<label>Ratkin mask helmet</label>
 		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
@@ -1804,7 +1807,7 @@
 	</ThingDef>
 
 	<!-- 역병마스크-->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_MaskB</defName>
 		<label>Ratkin mask helmet</label>
 		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
@@ -1867,7 +1870,7 @@
 	</ThingDef>
 
 	<!-- 특공 머리띠(삭제예정) -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_HeadBand</defName>
 		<label>Ratkin head band</label>
 		<description>빨간 머리띠입니다. 만약 이 머리띠를 두른 랫킨을 본다면 주의하세요.</description>
@@ -1916,7 +1919,7 @@
 
 
 	<!-- 판금 갑옷 높은 날카로움, 둔탁함 방어력, 느려짐-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_Plate</defName>
 		<label>ratkin plate armor</label>
 		<description>금속으로 만든 방어구입니다. 덧입을 수 있어 방어력을 한층 더 올릴 수 있습니다.</description>
@@ -1992,7 +1995,7 @@
 		<followStuffColor>True</followStuffColor>
 	</ThingDef>
 	<!-- 판금 투구 높은 날카로움, 둔탁함 방어력, 느려짐-->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_PlateHelmA</defName>
 		<label>Ratkin plate Helm</label>
 		<description>금속으로 만든 투구입니다.</description>
@@ -2057,7 +2060,7 @@
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 	<!-- 투구 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_PlateHelmB</defName>
 		<label>Ratkin plate Helm</label>
 		<description>금속으로 만든 투구입니다.</description>
@@ -2123,7 +2126,7 @@
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 	<!-- 투구 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_PlateHelmC</defName>
 		<label>Ratkin plate Helm</label>
 		<description>금속으로 만든 투구입니다.</description>
@@ -2190,7 +2193,7 @@
 
 
 	<!-- 목제 방패 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_WoodenShield</defName>
 		<label>ratkin wooden Shield</label>
 		<description>목재 방패.</description>
@@ -2247,7 +2250,7 @@
 	</ThingDef>
 
 	<!-- 철제 방패 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_HeavyShield</defName>
 		<label>ratkin heavy Shield</label>
 		<description>금속 방패.</description>
@@ -2319,7 +2322,7 @@
 	</ThingDef>
 
 	<!-- 대형 철제 방패 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_HeavyShield_Big</defName>
 		<label>ratkin Big heavy Shield</label>
 		<description>금속 대방패.</description>
@@ -2393,7 +2396,7 @@
 	</ThingDef>
 
 	<!-- 산타외투 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_SantaRobe</defName>
 		<label>santa robe</label>
 		<description>산타들이 입는 로브입니다.</description>
@@ -2448,7 +2451,7 @@
 		</tradeTags>
 	</ThingDef>
 	<!-- 산타 모자 추위저항 +5 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_SantaHat</defName>
 		<label>santa hat</label>
 		<description>털장식이 달린 산타모자입니다.</description>
@@ -2492,7 +2495,7 @@
 		</tradeTags>
 	</ThingDef>
 	<!-- 산타 보따리 +50 내구도 +20 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_SantaSack</defName>
 		<label>santa package</label>
 		<description>선물을 많이 넣을 수 있는 커다란 보따리입니다.</description>
@@ -2543,7 +2546,7 @@
 	</ThingDef>
 
 	<!-- 드랍 외투  -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_WhiteCoat</defName>
 		<label>ratkin white coat</label>
 		<description>순백색의 두꺼운 코트입니다. 질 좋은 원단과 세심하게 마감하였습니다. 고위직을 위한 의복같아 보입니다.</description>
@@ -2602,7 +2605,7 @@
 
 	<!-- DLC -->
 	<!-- 로열 외투-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_RoyalRobe</defName>
 		<label>ratkin royal robe</label>
 		<description>고풍스러운 귀족을 위한 외투입니다. 직물을 여러번 덧대어 튼튼하고 방풍이 잘되도록 만들었습니다.</description>
@@ -2659,7 +2662,7 @@
 	</ThingDef>
 
 	<!-- 왕관 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_RoyalCrown</defName>
 		<label>Ratkin royal crown</label>
 		<description>금속제 왕관입니다.</description>
@@ -2728,7 +2731,7 @@
 	</ThingDef>
 
 	<!-- 로티모자 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
 		<defName>RK_ThingApparel_RottiHat</defName>
 		<label>Rotti Hat</label>
 		<description>천으로 만든 로티 인형입니다. 안고 다닐 수도 있지만 머리에 얹으면 더 귀엽습니다!</description>
