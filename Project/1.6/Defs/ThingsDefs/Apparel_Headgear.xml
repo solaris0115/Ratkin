@@ -832,22 +832,24 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef> <!-- 원본에 없음 -->
+			<researchPrerequisite>RoyalApparel</researchPrerequisite> <!-- HighClassClothing -->
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
+			<displayPriority>230</displayPriority> <!-- 원본에 없음 -->
 			<recipeUsers Inherit="false">
-				<li>RK_FueledSmithy</li>
-				<li>RK_ElectricSmithy</li>
+				<li>ElectricSmithy</li> <!-- RK_ElectricSmithy -->
+				<li>FueledSmithy</li> <!-- RK_FueledSmithy -->
 			</recipeUsers>
 			<defaultIngredientFilter>
 				<categories>
 					<li>Root</li>
 				</categories>
 				<disallowedThingDefs>
-					<li>Jade</li>
+					<li>Jade</li> <!-- 원본에 없음 -->
 					<li>Uranium</li>
+					<li MayRequire="Ludeon.RimWorld.Anomaly">Bioferrite</li> <!-- 원본에 없음 -->
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
 		</recipeMaker>
