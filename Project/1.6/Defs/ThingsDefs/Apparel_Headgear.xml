@@ -804,7 +804,7 @@
 		<statBases>
 			<MaxHitPoints>80</MaxHitPoints>
 			<WorkToMake>12000</WorkToMake>
-			<Mass>0.6</Mass>
+			<Mass>0.9</Mass>
 			<EquipDelay>0.8</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
