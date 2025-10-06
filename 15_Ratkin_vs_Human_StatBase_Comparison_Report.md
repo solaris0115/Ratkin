@@ -18,8 +18,8 @@
 | ComfyTemperatureMin | 16 | 16 | 11 | -5 | Ratkin이 더 추위에 강함 |
 | ComfyTemperatureMax | 26 | 26 | 26 | 0 | 동일 |
 | LeatherAmount | 75 | 75 | 30 | -45 | Ratkin이 가죽을 적게 제공 |
-| Mass | - | 1 (기본값) | 50 | +49 | Ratkin이 훨씬 무거움 |
-| Flammability | - | 0 (기본값) | 1.0 | +1.0 | Ratkin이 더 잘 타는 편 |
+| Mass | - | 60 (BasePawn) | 50 | -10 | Ratkin이 더 가벼움 |
+| Flammability | - | 0.7 (BasePawn) | 1.0 | +0.3 | Ratkin이 더 잘 타는 편 |
 | **생존 스탯** |
 | ImmunityGainSpeed | - | 1 (기본값) | 1.10 | +0.10 | Ratkin이 면역력 증가 |
 | CarryingCapacity | - | 75 (기본값) | 45 | -30 | Ratkin이 운반량 적음 |
@@ -47,11 +47,13 @@
 
 ### 1. Human의 BasePawn 상속 스탯들
 Human은 BasePawn에서 다음 기본값들을 상속받습니다:
-- **MoveSpeed**: 3.0 (기본값) → 4.6 (Human 오버라이드)
-- **ComfyTemperatureMin**: 0 (기본값) → 16 (Human 오버라이드)
-- **ComfyTemperatureMax**: 40 (기본값) → 26 (Human 오버라이드)
-- **LeatherAmount**: 0 (기본값) → 75 (Human 오버라이드)
-- **기타 모든 스탯**: 기본값 사용
+- **Mass**: 60 (BasePawn 기본값)
+- **Flammability**: 0.7 (BasePawn 기본값)
+- **MoveSpeed**: 4.6 (Human 명시적 정의)
+- **ComfyTemperatureMin**: 16 (Human 명시적 정의)
+- **ComfyTemperatureMax**: 26 (Human 명시적 정의)
+- **LeatherAmount**: 75 (Human 명시적 정의)
+- **기타 모든 스탯**: RimWorld 기본값 사용
 
 ### 2. Ratkin의 특화된 스탯들
 Ratkin은 Human과 달리 많은 스탯을 명시적으로 정의하여 특화되었습니다:
@@ -64,7 +66,8 @@ Ratkin은 Human과 달리 많은 스탯을 명시적으로 정의하여 특화�
 - **MoveSpeed**: Ratkin이 0.2 더 빠름 (4.6 → 4.8)
 - **ComfyTemperatureMin**: Ratkin이 5도 더 추위에 강함 (16 → 11)
 - **LeatherAmount**: Ratkin이 45 적음 (75 → 30)
-- **Mass**: Ratkin이 49 더 무거움 (1 → 50)
+- **Mass**: Ratkin이 10 더 가벼움 (60 → 50)
+- **Flammability**: Ratkin이 0.3 더 잘 타는 편 (0.7 → 1.0)
 
 ## Ratkin의 특징적 능력
 
@@ -75,6 +78,7 @@ Ratkin은 Human과 달리 많은 스탯을 명시적으로 정의하여 특화�
 4. **작업 효율**: 채굴, 식물 작업, 사냥 스텔스 향상
 5. **생존력**: 면역력 증가, 독성 환경 저항
 6. **식사**: 먹는 속도 10% 증가
+7. **무게**: 더 가벼운 체중 (60 → 50)
 
 ### 단점
 1. **자원**: 가죽 제공량 60% 감소, 고기 제공량 75% 감소
@@ -83,7 +87,7 @@ Ratkin은 Human과 달리 많은 스탯을 명시적으로 정의하여 특화�
 4. **사격**: 조준 지연 15% 증가
 5. **통증**: 통증 임계값 10% 감소
 6. **운반**: 운반량 40% 감소
-7. **가연성**: 더 잘 타는 편
+7. **가연성**: 더 잘 타는 편 (0.7 → 1.0)
 
 ## 결론
 
