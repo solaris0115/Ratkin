@@ -1042,7 +1042,6 @@
 		</recipeMaker>
 	</ThingDef>
 
-
 	<!-- 수녀복 사회적영향력 +10% 치료속도 +10%  -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_SistersDerss</defName>
@@ -1102,8 +1101,6 @@
 			<researchPrerequisite>HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
-
-
 
 	<!-- 번외 -->
 	<!-- 랫킨 귀 헤어밴드 사회적영향력 +5% -->
@@ -1829,40 +1826,4 @@
 		</apparel>
 	</ThingDef>
 
-
-
-
-
-
-	<StuffCategoryDef>
-		<defName>WeaponMetallic</defName>
-		<label>weapon metallic</label>
-	</StuffCategoryDef>
-
-	<ApparelLayerDef>
-		<defName>InnerCoat</defName>
-		<label>inner coat</label>
-		<drawOrder>225</drawOrder>
-	</ApparelLayerDef>
-	<ApparelLayerDef>
-		<defName>BackPack</defName>
-		<label>backpack</label>
-		<drawOrder>250</drawOrder>
-	</ApparelLayerDef>
-	<ApparelLayerDef>
-		<defName>OuterClothing</defName>
-		<label>outer clothing</label>
-		<drawOrder>275</drawOrder>
-	</ApparelLayerDef>
-
-	<ApparelLayerDef>
-		<defName>OnFace</defName>
-		<label>onface</label>
-		<drawOrder>425</drawOrder>
-	</ApparelLayerDef>
-
-	<StuffCategoryDef>
-		<defName>Straw</defName>
-		<label>straw</label>
-	</StuffCategoryDef>
 </Defs>

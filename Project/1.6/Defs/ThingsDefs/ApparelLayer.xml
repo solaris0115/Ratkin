@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+	OnSkin: 0 (가장 아래)	
+	Middle: 100
+	Shell: 200		파카류, 재킷
+	InnerCoat: 225	
+	BackPack: 250
+	OuterClothing: 275
+	Belt: 300
+	Overhead: 400
+	OnFace: 425
+	EyeCover: 500 (가장 위)
+	-->
+
+	<ApparelLayerDef>
+		<defName>InnerCoat</defName>
+		<label>inner coat</label>
+		<drawOrder>225</drawOrder>
+	</ApparelLayerDef>
+
+	<ApparelLayerDef>
+		<defName>BackPack</defName>
+		<label>backpack</label>
+		<drawOrder>250</drawOrder>
+	</ApparelLayerDef>
+
+	<ApparelLayerDef>
+		<defName>OuterClothing</defName>
+		<label>outer clothing</label>
+		<drawOrder>275</drawOrder>
+	</ApparelLayerDef>
+
+	<ApparelLayerDef>
+		<defName>OnFace</defName>
+		<label>onface</label>
+		<drawOrder>425</drawOrder>
+	</ApparelLayerDef>
+</Defs>
