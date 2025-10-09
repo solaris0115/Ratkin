@@ -491,8 +491,8 @@
 			<Mass>50</Mass>
 			<MoveSpeed>4.8</MoveSpeed>
 			<Flammability>1.0</Flammability>
-			<ComfyTemperatureMax>29</ComfyTemperatureMax>
-			<ComfyTemperatureMin>4</ComfyTemperatureMin>
+			<ComfyTemperatureMax>26</ComfyTemperatureMax>
+			<ComfyTemperatureMin>11</ComfyTemperatureMin>
 			<ImmunityGainSpeed>1.10</ImmunityGainSpeed>
 			<CarryingCapacity>45</CarryingCapacity>
 			<PainShockThreshold>0.7</PainShockThreshold>
