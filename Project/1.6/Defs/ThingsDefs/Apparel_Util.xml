@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+	<!-- 봇짐 운반 용량 +15 -->
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
+		<defName>RK_ThingApparel_CrossBack</defName>
+		<label>cross back</label>
+		<description>간단한 봇짐입니다. 짐을 조금 더 나를 수 있게 해줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_CrossBack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costStuffCount>45</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costList>
+			<Steel>5</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>85</MaxHitPoints>
+			<WorkToMake>3500</WorkToMake>
+			<Mass>0.3</Mass>
+			<EquipDelay>0.8</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CarryingCapacity>15</CarryingCapacity>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_CrossBack</wornGraphicPath>
+			<layers>
+				<li>BackPack</li>
+			</layers>
+			<tags>
+				<li>RK_ThingCategory_RatkinApparel</li>
+				<li>RK_CrossBack</li>
+				<li>RK_1Tier</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
+	<!-- 가방  운반용량 +20 -->
+	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
+		<defName>RK_ThingApparel_Backpack</defName>
+		<label>backpack</label>
+		<description>등에 맬 수 있는 가방입니다. 짐을 더 많이 나를 수 있게 해줍니다.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/RK_TextureApparel_Backpack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+		</recipeMaker>
+		<costStuffCount>45</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToMake>5500</WorkToMake>
+			<Mass>0.3</Mass>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CarryingCapacity>23</CarryingCapacity>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_Backpack</wornGraphicPath>
+			<layers>
+				<li>BackPack</li>
+			</layers>
+			<tags>
+				<li>RK_ThingCategory_RatkinApparel</li>
+				<li>RK_Backpack</li>
+				<li>RK_2Tier</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+</Defs>

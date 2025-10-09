@@ -25,6 +25,7 @@
 	RK_TradeTag_Royal
 	RK_TradeTag_Exotic
 
+	쥐는 추위는 강하지만 더위는 약함.
 	-->
 
 	<!--
@@ -152,7 +153,6 @@
 		</apparel>
 	</ThingDef>
 
-
 	<!-- 추위저항15 -->
 	<!-- 머플러 추위저항 +4 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
@@ -244,147 +244,9 @@
 		</apparel>
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
-	<!-- 털모자 추위저항 +5 -->
-	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_WoolenHat</defName>
-		<label>woolen hat</label>
-		<description>털 달린 모자입니다.</description>
-		<graphicData>
-			<texPath>Thing/Apparel/RK_TextureApparel_WoolenHat</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<costStuffCount>25</costStuffCount>
-		<stuffCategories>
-			<li>Fabric</li>
-			<li>Leathery</li>
-		</stuffCategories>
-		<statBases>
-			<MaxHitPoints>85</MaxHitPoints>
-			<WorkToMake>2500</WorkToMake>
-			<Mass>0.1</Mass>
-			<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
-			<EquipDelay>0.5</EquipDelay>
-		</statBases>
-		<apparel>
-			<bodyPartGroups>
-				<li>UpperHead</li>
-			</bodyPartGroups>
-			<tags>
-				<li>RK_ThingCategory_RatkinApparel</li>
-				<li>RK_1Tier</li>
-				<li>RK_Worker</li>
-				<li>RK_Thief</li>
-			</tags>
-			<defaultOutfitTags>
-				<li>Worker</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_WoolenHat</wornGraphicPath>
-			<layers>
-				<li>Overhead</li>
-			</layers>
-		</apparel>
-		<followStuffColor>true</followStuffColor>
-	</ThingDef>
 
-	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_CrossBack</defName>
-		<label>cross back</label>
-		<description>간단한 봇짐입니다. 짐을 조금 더 나를 수 있게 해줍니다.</description>
-		<graphicData>
-			<texPath>Thing/Apparel/RK_TextureApparel_CrossBack</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
-		<costStuffCount>45</costStuffCount>
-		<stuffCategories>
-			<li>Fabric</li>
-			<li>Leathery</li>
-		</stuffCategories>
-		<costList>
-			<Steel>5</Steel>
-		</costList>
-		<statBases>
-			<MaxHitPoints>85</MaxHitPoints>
-			<WorkToMake>3500</WorkToMake>
-			<Mass>0.3</Mass>
-			<EquipDelay>0.8</EquipDelay>
-		</statBases>
-		<equippedStatOffsets>
-			<CarryingCapacity>15</CarryingCapacity>
-		</equippedStatOffsets>
-		<apparel>
-			<bodyPartGroups>
-				<li>Shoulders</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_CrossBack</wornGraphicPath>
-			<layers>
-				<li>BackPack</li>
-			</layers>
-			<tags>
-				<li>RK_ThingCategory_RatkinApparel</li>
-				<li>RK_CrossBack</li>
-				<li>RK_1Tier</li>
-			</tags>
-		</apparel>
-	</ThingDef>
-
-
+	<!-- 2티어  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 -->
 	<!-- 의류 기본온도저항 추위+5 더위3 -->
-	<!-- 2티어 -->
-	<!-- 가방  운반용량 +20 -->
-	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_Backpack</defName>
-		<label>backpack</label>
-		<description>등에 맬 수 있는 가방입니다. 짐을 더 많이 나를 수 있게 해줍니다.</description>
-		<graphicData>
-			<texPath>Thing/Apparel/RK_TextureApparel_Backpack</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
-		<recipeMaker>
-			<researchPrerequisite>RatkinClothing</researchPrerequisite>
-		</recipeMaker>
-		<costStuffCount>45</costStuffCount>
-		<stuffCategories>
-			<li>Leathery</li>
-		</stuffCategories>
-		<costList>
-			<Steel>10</Steel>
-		</costList>
-		<statBases>
-			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToMake>5500</WorkToMake>
-			<Mass>0.3</Mass>
-			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
-			<EquipDelay>1</EquipDelay>
-		</statBases>
-		<equippedStatOffsets>
-			<CarryingCapacity>23</CarryingCapacity>
-		</equippedStatOffsets>
-		<apparel>
-			<bodyPartGroups>
-				<li>Shoulders</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_Backpack</wornGraphicPath>
-			<layers>
-				<li>BackPack</li>
-			</layers>
-			<tags>
-				<li>RK_ThingCategory_RatkinApparel</li>
-				<li>RK_Backpack</li>
-				<li>RK_2Tier</li>
-			</tags>
-		</apparel>
-	</ThingDef>
 
 	<!-- 작업복  재단 속도 +10% 요리속도 +5% 재배속도 5% 언스킬드속도 +5% 동물수집속도 +5%-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
@@ -800,9 +662,9 @@
 		</apparel>
 	</ThingDef>
 
+	<!-- 3티어 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 -->
 
 	<!-- 의류 기본온도저항 추위+7 더위+5 -->
-	<!-- 3티어 -->
 	<!-- 군용가방 +30 내구도 +20 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
 		<defName>RK_ThingApparel_OutdoorBackpack</defName>

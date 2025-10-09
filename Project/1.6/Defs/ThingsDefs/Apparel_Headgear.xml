@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <!-- 일반 모자 -->
-    <!-- 방탄 모자 -->
-    <!-- 중세 투구 -->
-    <!-- 스페이스 투구  DLC -->
-    
-    <!-- 랫킨용 우주복 -->
-    <!-- 근위대 급 우주복 -->
+	<!-- 일반 모자 -->
+	<!-- 방탄 모자 -->
+	<!-- 중세 투구 -->
+	<!-- 스페이스 투구  DLC -->
+
+	<!-- 랫킨용 우주복 -->
+	<!-- 근위대 급 우주복 -->
 
 	<!-- 여름모자 더위저항 +10-->
 	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
@@ -16,7 +16,6 @@
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_StrawHat</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<Hay>30</Hay>
@@ -24,10 +23,9 @@
 		<statBases>
 			<MaxHitPoints>75</MaxHitPoints>
 			<WorkToMake>1800</WorkToMake>
-			<Mass>0.1</Mass>
 			<ArmorRating_Sharp>0</ArmorRating_Sharp>
-			<Insulation_Cold>2</Insulation_Cold>
-			<Insulation_Heat>6</Insulation_Heat>
+			<Insulation_Cold>0</Insulation_Cold>
+			<Insulation_Heat>15</Insulation_Heat>
 		</statBases>
 		<apparel>
 			<bodyPartGroups>
@@ -65,17 +63,16 @@
 		<statBases>
 			<MaxHitPoints>85</MaxHitPoints>
 			<WorkToMake>2500</WorkToMake>
-			<Mass>0.1</Mass>
 			<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
-			<EquipDelay>0.5</EquipDelay>
+			<StuffEffectMultiplierInsulation_Cold>0.6</StuffEffectMultiplierInsulation_Cold>
 		</statBases>
 		<apparel>
 			<bodyPartGroups>
 				<li>UpperHead</li>
 			</bodyPartGroups>
 			<tags>
-				<li>RK_ThingCategory_RatkinApparel</li>
+				<li>RK_ApparelTag_1Tier</li>
+				<li>RK_ApparelTag_Worker</li>
 				<li>RK_1Tier</li>
 				<li>RK_Worker</li>
 				<li>RK_Thief</li>
@@ -318,8 +315,6 @@
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
 			<WorkToMake>10000</WorkToMake>
-			<Mass>0.1</Mass>
-			<EquipDelay>0.5</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
 			<SocialImpact>0.05</SocialImpact>
@@ -345,7 +340,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-		<!-- 귀족 의류 -->
+			<!-- 귀족 의류 -->
 			<researchPrerequisite>HighClassClothing</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
@@ -370,11 +365,9 @@
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
 			<WorkToMake>10000</WorkToMake>
-			<Mass>0.1</Mass>
-			<EquipDelay>0.5</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
-			<SocialImpact>0.05</SocialImpact>
+			<SocialImpact>0.15</SocialImpact>
 			<TradePriceImprovement>0.10</TradePriceImprovement>
 		</equippedStatOffsets>
 		<apparel>
@@ -421,10 +414,8 @@
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
 			<WorkToMake>15000</WorkToMake>
-			<Mass>0.1</Mass>
 			<StuffEffectMultiplierInsulation_Cold>0.25</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
-			<EquipDelay>0.5</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
 			<MedicalTendQuality>0.10</MedicalTendQuality>
@@ -653,7 +644,7 @@
 		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 
-	
+
 	<!-- 가스마스크 소셜 임펙트 -10, 준 해병대 방탄모, 불에 덜 타도록. -->
 	<!-- DLC 진공 성능 -->
 	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
@@ -774,29 +765,26 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<tags>
-				<li>RK_EliteSoldier</li>
-				<li>RoyalCombatGear</li>
+				<li>RK_ApparelTag_Armor2Tier</li>
 			</tags>
 		</apparel>
-		<tradeability>Sellable</tradeability>
-		<tradeTags Inherit="false">
-		</tradeTags>
 	</ThingDef>
 
 	<!-- 귀족 의류 -->
 	<!-- 왕관 방어구 성능은 거의 없음, Crown급. 외 사회적 영향력 패널티 이상의 이득-->
-	<ThingDef ParentName="RK_ApparelAttr_HatMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ArmorSmithableBase" MayRequire="Ludeon.RimWorld.Royalty">
 		<defName>RK_ThingApparel_RoyalCrown</defName>
-		<label>Ratkin royal crown</label>
-		<description>금속제 왕관입니다.</description>
+		<label>ratkin royal crown</label>
+		<description>A crown of metal with an elaborate design.</description>
+		<thingCategories>
+			<li>HeadgearNoble</li>
+			<li>RK_ThingCategory_Headgear</li>
+		</thingCategories>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_RoyalCrown</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(0.9, 0.9)</drawSize>
 		</graphicData>
-		<costList>
-			<Steel>25</Steel>
-		</costList>
 		<costStuffCount>75</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -809,50 +797,43 @@
 		</statBases>
 		<equippedStatOffsets>
 			<SocialImpact>0.2</SocialImpact>
+			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
 		</equippedStatOffsets>
 		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 			<bodyPartGroups>
 				<li>UpperHead</li>
 			</bodyPartGroups>
+			<parentTagDef>ApparelHead</parentTagDef>
 			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_RoyalCrown</wornGraphicPath>
 			<layers>
 				<li>Overhead</li>
 			</layers>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
 			<tags>
-				<li>RK_Noble</li>
-				<li>RK_3Tier</li>
 				<li>Royal</li>
-				<li>RoyalTier5</li>
 				<li>RoyalTier6</li>
-				<li>RoyalTier7</li>
 			</tags>
+			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+			<canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
 		</apparel>
 		<recipeMaker>
-			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef> <!-- 원본에 없음 -->
-			<researchPrerequisite>RoyalApparel</researchPrerequisite> <!-- HighClassClothing -->
-			<workSkill>Crafting</workSkill>
-			<effectWorking>Smith</effectWorking>
-			<soundWorking>Recipe_Smith</soundWorking>
-			<displayPriority>230</displayPriority> <!-- 원본에 없음 -->
-			<recipeUsers Inherit="false">
-				<li>ElectricSmithy</li> <!-- RK_ElectricSmithy -->
-				<li>FueledSmithy</li> <!-- RK_FueledSmithy -->
-			</recipeUsers>
 			<defaultIngredientFilter>
 				<categories>
 					<li>Root</li>
 				</categories>
 				<disallowedThingDefs>
-					<li>Jade</li> <!-- 원본에 없음 -->
 					<li>Uranium</li>
-					<li MayRequire="Ludeon.RimWorld.Anomaly">Bioferrite</li> <!-- 원본에 없음 -->
+					<li MayRequire="Ludeon.RimWorld.Anomaly">Bioferrite</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<researchPrerequisite>RoyalApparel</researchPrerequisite>
+			<displayPriority>230</displayPriority>
 		</recipeMaker>
+		<tradeTags>
+			<li>Clothing</li>
+			<li>RK_TradeTag_Clothing</li>
+		</tradeTags>
 	</ThingDef>
 
 	<!-- 스페이스 투구 -->
