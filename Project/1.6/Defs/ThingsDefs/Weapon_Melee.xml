@@ -16,7 +16,7 @@
 		<label>cross bow</label>
 		<description>간단한 석궁입니다. 사냥을 할때 쓰입니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Crossbow</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Crossbow</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Bow_Small</soundInteract>
@@ -83,7 +83,7 @@
 		<defName>Bolt_RK_Crossbow</defName>
 		<label>crossbow bolt</label>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Bolt</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<projectile>
@@ -101,7 +101,7 @@
 		<label>enhanced cross bow</label>
 		<description>개량된 석궁입니다. 보다 멀리나가며 관통력도 우수합니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_EnhanceCrossBow</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_EnhanceCrossBow</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Bow_Small</soundInteract>
@@ -170,7 +170,7 @@
 		<defName>Bolt_RK_EnhanceCrossBow</defName>
 		<label>crossbow bolt</label>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Bolt</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<projectile>
@@ -188,7 +188,7 @@
 		<label>autocross bow</label>
 		<description>기계식으로 발사되는 반자동 석궁입니다. 원형 탄창에서 빠른속도로 볼트를 발사할 수 있습니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_AutoCrossBow</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_AutoCrossBow</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Bow_Small</soundInteract>
@@ -257,7 +257,7 @@
 		<defName>Bolt_RK_AutoCrossBow</defName>
 		<label>crossbow bolt</label>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Bolt</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<projectile>
@@ -287,7 +287,7 @@
 		<label>ratkin rifle</label>
 		<description>인간의 라이플을 흉내내 만든 라이플입니다. 석궁보다 사거리가 길고 작은 검을 달아두어 유사시 창처럼 사용할 수 있습니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Rifle</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Rifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
@@ -373,7 +373,7 @@
 		<label>ratkin sniper rifle</label>
 		<description>랫킨식 망원렌즈가 달린 소총입니다. 망원장비덕분에 더 먼곳까지 조준할 수 있지만 가까운 곳을 조준하기 힘듭니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_SniperRifle</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_SniperRifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
@@ -458,7 +458,7 @@
 		<label>flechette rifle</label>
 		<description>플레셰트탄을 사용하는 소총입니다. 랫킨식 플레셰트 탄환을 사용하여 사거리를 조금 희생해 관통력을 높였습니다. 유사시 근접전을 할 수 있도록 작은 검 달아두었습니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Rifle</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Rifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
@@ -540,7 +540,7 @@
 			<speed>65</speed>
 		</projectile>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Bolt</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
@@ -551,7 +551,7 @@
 		<label>flechette sniper rifle</label>
 		<description>플레셰트탄을 사용하는 망원렌즈가 달린 소총입니다. 두꺼운 장갑을 갖춘 적도 확실하게 제압할 수 있습니다. 유사시 근접전을 위해 작은 검을 달아두었습니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_SniperRifle</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_SniperRifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
@@ -633,7 +633,7 @@
 			<speed>75</speed>
 		</projectile>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Bolt</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
@@ -645,7 +645,7 @@
 		<label>ratkin shotgun</label>
 		<description>소드오프 샷건입니다. 랫킨 왕국에서는 샷건이 랫킨을 쏩니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_Shotgun_line</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_Shotgun_line</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
@@ -780,7 +780,7 @@
 		<label>prototype pulse rifle</label>
 		<description>실험용 파동 소총입니다. 실험용 랫킨들을 위해 제작되어 특수망원렌즈가 근거리 원거리 모두 정밀하게 조준해줍니다. 랫킨식 플레셰트탄환에서 아이디어를 얻어 제작한 이 무기는 쇄기모양의 고관통 에너지탄을 빠르게 발사합니다.</description>
 		<graphicData>
-			<texPath>Thing/Weapon/RK_ThingWeapon_PrototypePulseRifle</texPath>
+			<texPath>Thing/Weapon/RK_TextureWeapon_PrototypePulseRifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>

@@ -59,66 +59,16 @@
 	<!-- 의류 기본온도저항 추위+4 더위2 -->
 	<!-- 1티어 -->
 	<!-- 기본 옷 재배속도+5% 요리속도 +5% -->
-	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_ThingApparel_ApronSkirt </defName>
-		<label>apron skirt</label>
-		<description>앞치마가 달린 간단한 의류입니다.</description>
-		<graphicData>
-			<texPath>Thing/Apparel/RK_TextureApparel_ApronSkirt</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
-		<statBases>
-			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToMake>2500</WorkToMake>
-			<Mass>0.2</Mass>
-			<StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.20</StuffEffectMultiplierInsulation_Cold>
-			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
-			<EquipDelay>1.5</EquipDelay>
-		</statBases>
-		<costStuffCount>70</costStuffCount>
-		<stuffCategories>
-			<li>Fabric</li>
-			<li>Leathery</li>
-		</stuffCategories>
-		<equippedStatOffsets>
-			<PlantWorkSpeed>0.05</PlantWorkSpeed>
-			<CookSpeed>0.05</CookSpeed>
-		</equippedStatOffsets>
-		<apparel>
-			<bodyPartGroups>
-				<li>Torso</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
-				<li>Legs</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_ApronSkirt</wornGraphicPath>
-			<layers>
-				<li>OnSkin</li>
-			</layers>
-			<tags>
-				<li>RK_ApparelTag_All</li>
-				<li>RK_ApparelTag_Famer</li>
-				<li>RK_ApparelTag_NonFighter</li>
-				<li>RK_ApparelTag_1Tier</li>
-			</tags>
-		</apparel>
-	</ThingDef>
+
 
 	<!-- 더위저항 +12 -->
 	<!-- 여름드레스 더위저항 +7 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_ThingApparel_ApronSkirt</defName>
+		<defName>RK_Apparel_SummerDress</defName>
 		<label>summer dress</label>
 		<description>여름용 흰 드레스입니다. 통풍이 잘되어 체온을 빠르게 식혀줍니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_SummerDress</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>90</MaxHitPoints>
@@ -156,7 +106,7 @@
 	<!-- 추위저항15 -->
 	<!-- 머플러 추위저항 +4 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_Muffler</defName>
+		<defName>RK_Apparel_Muffler</defName>
 		<label>muffler</label>
 		<description>목에 두르는 목도리입니다. 목을 통해 체온이 빠져나가는걸 방지해줍니다. 사막을 횡단할때 쓸 수 있습니다.</description>
 		<graphicData>
@@ -198,7 +148,7 @@
 	</ThingDef>
 	<!-- 가디건 추위저항 +6 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_Cardigan</defName>
+		<defName>RK_Apparel_Cardigan</defName>
 		<label>cardigan</label>
 		<description>옷 겉에 입는 외투입니다. 옷을 한겹 더입어 추위로부터 몸을 지킬 수 있습니다.</description>
 		<graphicData>
@@ -250,13 +200,11 @@
 
 	<!-- 작업복  재단 속도 +10% 요리속도 +5% 재배속도 5% 언스킬드속도 +5% 동물수집속도 +5%-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_WorkerWear</defName>
+		<defName>RK_Apparel_WorkerWear</defName>
 		<label>Ratkin red outfit</label>
 		<description>작업하기 편한 옷입니다. 일상생활에서 일하기 편하도록 디자인되었습니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_WorkerWear</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
@@ -265,7 +213,7 @@
 			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
 			<StuffEffectMultiplierInsulation_Cold>0.3</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.2</StuffEffectMultiplierInsulation_Heat>
-			<EquipDelay>1.5</EquipDelay>
+			<EquipDelay>1</EquipDelay>
 		</statBases>
 		<costStuffCount>85</costStuffCount>
 		<stuffCategories>
@@ -305,13 +253,11 @@
 
 	<!-- 연구가운 연구 속도 +10% 수술속도 +5% 치료속도 +5% 약조리속도 +5% 제약속도 +5%-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_ResearchGown</defName>
+		<defName>RK_Apparel_ResearchGown</defName>
 		<label>research gown</label>
 		<description>연구할때 입는 가운입니다. 먼지를 날리지 않으며 지적으로 보입니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_ResearchGown</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<Cloth>25</Cloth>
@@ -366,13 +312,11 @@
 	</ThingDef>
 	<!-- 공돌이 수술 성공률 +5% 치료품질 +5%-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_ResearchGlasses</defName>
+		<defName>RK_Apparel_ResearchGlasses</defName>
 		<label>ratkin glasses</label>
 		<description>랫킨용 안경입니다. 랫킨들에게 부족한 시력을 높여줍니다. 똑똑해진것 같다는 느낌도 조금 줍니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_ResearchGlasses</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<Steel>25</Steel>
@@ -414,13 +358,11 @@
 
 	<!-- 탐험복 이동속도 +0.2 더위저항 +10 스탤스효과 +7% 조련확률 +5% 훈련확률 +5% 근접회피 +5%-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_ExplorerWear</defName>
+		<defName>RK_Apparel_ExplorerWear</defName>
 		<label>explorer wear</label>
 		<description>오지를 탐험할때 입는 옷입니다. 이동에 편리하고 몸에서 나는 소리를 줄여줍니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_ExplorerWear</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>RatkinClothing</researchPrerequisite>
@@ -477,13 +419,11 @@
 
 	<!-- 쉐프복 요리속도 +15% 해체속도 +5% -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_ChefSuit</defName>
+		<defName>RK_Apparel_ChefSuit</defName>
 		<label>chef suit</label>
 		<description>쉐프 복장입니다. 요리하기 편하도록 디자인 되어 조리속도를 상승시켜줍니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_ChefSuit</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>RatkinClothing</researchPrerequisite>
@@ -536,13 +476,11 @@
 
 	<!-- 정원복 수확속도 +15% 수확량 +5% 근접정확도 +5% 근접회피 +10% 이동속도 +0.1 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_GaurdenUniform</defName>
+		<defName>RK_Apparel_GaurdenUniform</defName>
 		<label>gaurden uniform</label>
 		<description>정원 지킴이들이 입는 정장입니다. 농경이 중요한 랫킨의 사회에서 정원을 지키는것은 중요한 일이며 가장 유능한 인재들만이 정원사가 될 수 있습니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_GardenWear</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<Steel>35</Steel>
@@ -604,13 +542,11 @@
 
 	<!-- 겨울외투 사회적영향력 5% 추위저항 +35 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_WinterRobe</defName>
+		<defName>RK_Apparel_WinterRobe</defName>
 		<label>winter robe</label>
 		<description>겨울용 예복입니다. 극지에서 활동할때 입습니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_WinterRobe</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>RatkinClothing</researchPrerequisite>
@@ -665,64 +601,13 @@
 	<!-- 3티어 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 -->
 
 	<!-- 의류 기본온도저항 추위+7 더위+5 -->
-	<!-- 군용가방 +30 내구도 +20 -->
-	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_OutdoorBackpack</defName>
-		<label>ratkin outdoor backpack</label>
-		<description>랫킨용 등짐 가방입니다. 랫킨 신체에 맞도록 고안된 가방으로 더욱 많은 짐을 들 수 있도록 해줍니다.</description>
-		<graphicData>
-			<texPath>Thing/Apparel/RK_TextureApparel_OutdoorBackpack</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
-		<recipeMaker>
-			<researchPrerequisite>HighClassClothing</researchPrerequisite>
-		</recipeMaker>
-		<costList>
-			<Steel>20</Steel>
-		</costList>
-		<costStuffCount>60</costStuffCount>
-		<stuffCategories>
-			<li>Leathery</li>
-		</stuffCategories>
-		<techLevel>Medieval</techLevel>
-		<statBases>
-			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToMake>8000</WorkToMake>
-			<StuffEffectMultiplierArmor>0.10</StuffEffectMultiplierArmor>
-			<Mass>0.5</Mass>
-			<EquipDelay>1</EquipDelay>
-		</statBases>
-		<equippedStatOffsets>
-			<CarryingCapacity>35</CarryingCapacity>
-		</equippedStatOffsets>
-		<apparel>
-			<bodyPartGroups>
-				<li>Shoulders</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Thing/Apparel/RK_TextureApparel_OutdoorBackpack</wornGraphicPath>
-			<layers>
-				<li>BackPack</li>
-			</layers>
-			<tags>
-				<li>RK_Backpack</li>
-				<li>RK_3Tier</li>
-			</tags>
-		</apparel>
-	</ThingDef>
-
 	<!-- 제복 사회적영향력 +5% 근접회피찬스 5% 정신임계점 +5% 고통임계점 +10% 날카로움방어 좋은수준-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_OrderUniform</defName>
+		<defName>RK_Apparel_OrderUniform</defName>
 		<label>ratkin order uniform</label>
 		<description>랫킨식 제식 전투복입니다. 랫킨식 전투에 유리하도록 디자인된 의류입니다. 착용자에게 약간의 고양감을 주어 강인한 전투원으로 만들어줍니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_OrderUniform</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>HighClassClothing</researchPrerequisite>
@@ -785,13 +670,11 @@
 
 	<!-- 플랫칼라코트 사회적영향력 +10% 협상 +10%  -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_FlatColorCoat</defName>
+		<defName>RK_Apparel_FlatColorCoat</defName>
 		<label>flatcolor coat</label>
 		<description>단아한 단색 원피스입니다. 편하면서 공식적 자리에 입기 좋아보입니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_FlatColorCoat</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -845,13 +728,11 @@
 
 	<!-- 프릴원피스 거래가격개선 +10% 협상 +10%  -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_FrillOnepiece</defName>
+		<defName>RK_Apparel_FrillOnepiece</defName>
 		<label>frill onepiece</label>
 		<description>프릴장식이 있는 귀여운 원피스이빈다. 상류층의 아가씨들에게 인기가 많습니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_FrillOnepiece</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -906,13 +787,11 @@
 
 	<!-- 수녀복 사회적영향력 +10% 치료속도 +10%  -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_SistersDerss</defName>
+		<defName>RK_Apparel_SistersDerss</defName>
 		<label>Sisters Dress</label>
 		<description>수녀들이 입는 단아한 원피스입니다. 약간의 옆트임이 있어 움직임이 편합니다. 랫킨의 수녀들은 아픈 사람들을 돌보기도 합니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_SistersDerss</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -967,7 +846,7 @@
 	<!-- 번외 -->
 	<!-- 랫킨 귀 헤어밴드 사회적영향력 +5% -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_EarCostume</defName>
+		<defName>RK_Apparel_EarCostume</defName>
 		<label>ratkin ear costume</label>
 		<description>귀여운 랫킨을 흉내내기 위한 귀 코스튬 입니다. 덩치가 큰 사람이 사용하면 전혀 귀엽지 않습니다.</description>
 		<graphicData>
@@ -1014,13 +893,11 @@
 	<!-- 적대 세력 한정 -->
 	<!-- 도둑질 보따리 +50 내구도 +20 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_Sack</defName>
+		<defName>RK_Apparel_Sack</defName>
 		<label>ratkin package</label>
 		<description>등에 편하게 맬 수 있는 등짐가방입니다. 물건을 많이 넣을 수 있기때문에 도둑들이 애용합니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_Sack</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
 		</recipeMaker>
@@ -1065,13 +942,11 @@
 
 	<!-- 특수 부대 복장-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_BattleSuit</defName>
+		<defName>RK_Apparel_BattleSuit</defName>
 		<label>ratkin battlesuit</label>
 		<description>침투에 유리하도록 디자인된 전투복입니다. 극한의 온도상황에서 활동할 수 있도록 설계되어있습니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_BattleSuit</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
 		</recipeMaker>
@@ -1143,7 +1018,7 @@
 
 	<!-- 판금 갑옷 높은 날카로움, 둔탁함 방어력, 느려짐-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_Plate</defName>
+		<defName>RK_Apparel_Plate</defName>
 		<label>ratkin plate armor</label>
 		<description>금속으로 만든 방어구입니다. 덧입을 수 있어 방어력을 한층 더 올릴 수 있습니다.</description>
 		<graphicData>
@@ -1221,14 +1096,12 @@
 
 	<!-- 목제 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_WoodenShield</defName>
+		<defName>RK_Apparel_WoodenShield</defName>
 		<label>ratkin wooden Shield</label>
 		<description>목재 방패.</description>
 		<thingClass>NewRatkin.Shield</thingClass>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_WoodenShield</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
@@ -1278,7 +1151,7 @@
 
 	<!-- 철제 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_HeavyShield</defName>
+		<defName>RK_Apparel_HeavyShield</defName>
 		<label>ratkin heavy Shield</label>
 		<description>금속 방패.</description>
 		<thingClass>NewRatkin.Shield</thingClass>
@@ -1350,7 +1223,7 @@
 
 	<!-- 대형 철제 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_HeavyShield_Big</defName>
+		<defName>RK_Apparel_HeavyShield_Big</defName>
 		<label>ratkin Big heavy Shield</label>
 		<description>금속 대방패.</description>
 		<thingClass>NewRatkin.Shield</thingClass>
@@ -1424,13 +1297,11 @@
 
 	<!-- 산타외투 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_SantaRobe</defName>
+		<defName>RK_Apparel_SantaRobe</defName>
 		<label>santa robe</label>
 		<description>산타들이 입는 로브입니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_SantaRobe</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="False">
 		</recipeMaker>
@@ -1479,7 +1350,7 @@
 	</ThingDef>
 	<!-- 산타 모자 추위저항 +5 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_SantaHat</defName>
+		<defName>RK_Apparel_SantaHat</defName>
 		<label>santa hat</label>
 		<description>털장식이 달린 산타모자입니다.</description>
 		<graphicData>
@@ -1523,13 +1394,11 @@
 	</ThingDef>
 	<!-- 산타 보따리 +50 내구도 +20 -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_SantaSack</defName>
+		<defName>RK_Apparel_SantaSack</defName>
 		<label>santa package</label>
 		<description>선물을 많이 넣을 수 있는 커다란 보따리입니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_SantaSack</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
 		</recipeMaker>
@@ -1574,13 +1443,11 @@
 
 	<!-- 드랍 외투  -->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_WhiteCoat</defName>
+		<defName>RK_Apparel_WhiteCoat</defName>
 		<label>ratkin white coat</label>
 		<description>순백색의 두꺼운 코트입니다. 질 좋은 원단과 세심하게 마감하였습니다. 고위직을 위한 의복같아 보입니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_WhiteCoat</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
 		</recipeMaker>
@@ -1633,13 +1500,11 @@
 	<!-- DLC -->
 	<!-- 로열 외투-->
 	<ThingDef ParentName="RK_ApparelAttr_ApparelMakeableBase">
-		<defName>RK_ThingApparel_RoyalRobe</defName>
+		<defName>RK_Apparel_RoyalRobe</defName>
 		<label>ratkin royal robe</label>
 		<description>고풍스러운 귀족을 위한 외투입니다. 직물을 여러번 덧대어 튼튼하고 방풍이 잘되도록 만들었습니다.</description>
 		<graphicData>
 			<texPath>Thing/Apparel/RK_TextureApparel_RoyalRobe</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>HighClassClothing</researchPrerequisite>

@@ -3,136 +3,124 @@
     <!--
         랫킨 장비는 기본적으로 색상을 고정
         색상을 따라가야하는 경우 반드시 followStuffColor을 true로 설정
-        
-
     -->
+
     <!-- 일반 의류  -->
     <ThingDef Name="RK_ApparelAttr_ApparelMakeableBase" ParentName="ApparelMakeableBase" Abstract="True">
         <recipeMaker>
-            <recipeUsers Inherit="false">
-                <li>RK_Building_ElectricTailoringBench</li>
-                <li>RK_Building_HandTailoringBench</li>
+            <recipeUsers>
+                <li>RK_Building_HandTailor</li>
+                <li>RK_Building_ElectricTailor</li>
             </recipeUsers>
+            <displayPriority>1100</displayPriority>
         </recipeMaker>
-        <tradeTags>
-            <li>RK_TradeTag_Clothing</li>
+        <tradeTags inherit="false">
+            <li>RK_TradeTag_Cloth</li>
         </tradeTags>
         <apparel>
-            <tags>
+            <tags inherit="false">
                 <li>RK_ApparelTag_All</li>
             </tags>
         </apparel>
-        <statBases>
-            <EquipDelay>0.5</EquipDelay>
-        </statBases>
     </ThingDef>
 
     <!-- 갑옷 -->
     <ThingDef Name="RK_ApparelAttr_ArmorSmithableBase" ParentName="ArmorSmithableBase" Abstract="True">
-        <smeltable>true</smeltable>
         <recipeMaker>
-            <recipeUsers Inherit="false">
-                <li>RK_Building_ElectricSmithy</li>
+            <recipeUsers>
                 <li>RK_Building_FueledSmithy</li>
+                <li>RK_Building_ElectricSmithy</li>
             </recipeUsers>
+            <displayPriority>1200</displayPriority>
         </recipeMaker>
-        <tradeTags>
-            <li>RK_TradeTag_Clothing</li>
+        <tradeTags inherit="false">
+            <li>RK_TradeTag_Armor</li>
+            <li>RK_TradeTag_Cloth</li>
         </tradeTags>
         <apparel>
-            <tags>
+            <tags inherit="false">
                 <li>RK_ApparelTag_All</li>
+                <li>RK_ApparelTag_Armor</li>
             </tags>
         </apparel>
-        <statBases>
-            <EquipDelay>1.5</EquipDelay>
-        </statBases>
     </ThingDef>
 
     <!-- 랫킨은 기계 벤치가 없음 -->
     <ThingDef Name="RK_ApparelAttr_ArmorMachineableBase" ParentName="ArmorMachineableBase" Abstract="True">
-        <tradeTags>
+        <recipeMaker>
+            <!-- <recipeUsers>
+                <li>RK_Building_MachiningTable</li>
+            </recipeUsers> -->
+			<displayPriority>1300</displayPriority>
+        </recipeMaker>
+        <tradeTags inherit="false">
             <li>RK_TradeTag_Armor</li>
+            <li>RK_TradeTag_Cloth</li>
         </tradeTags>
         <apparel>
-            <tags>
+            <tags inherit="false">
                 <li>RK_ApparelTag_All</li>
+                <li>RK_ApparelTag_Armor</li>
             </tags>
         </apparel>
-        <statBases>
-            <EquipDelay>1.5</EquipDelay>
-        </statBases>
+    </ThingDef>
+
+    <!-- 제작 가능한 귀족 의상 -->
+    <ThingDef Name="RK_ApparelAttr_NobleMakeableBase" ParentName="ApparelMakeableBase" Abstract="True">
+        <recipeMaker>
+            <displayPriority>1400</displayPriority>
+        </recipeMaker>
+        <tradeTags inherit="false">
+            <li>RK_TradeTag_Royal</li>
+        </tradeTags>
+        <apparel>
+            <tags inherit="false">
+                <li>RK_ApparelTag_All</li>
+                <li>RK_ApparelTag_Royal</li>
+            </tags>
+        </apparel>
     </ThingDef>
 
 
     <!-- 머리 장비 ===================================================  -->
-    <ThingDef Name="RK_ApparelAttr_HatBase" ParentName="HatBase" Abstract="True">
+    <ThingDef Name="RK_ApparelAttr_HatMakeableBase" ParentName="RK_ApparelAttr_ApparelMakeableBase" Abstract="True">
         <countsAsClothingForNudity>false</countsAsClothingForNudity>
         <thingCategories>
-            <li>RK_ThingCategory_Headgear</li>
+            <li>Headgear</li>
         </thingCategories>
-        <tradeTags>
-            <li>RK_TradeTag_Clothing</li>
-        </tradeTags>
         <apparel>
-            <tags>
-                <li>RK_ApparelTag_All</li>
-            </tags>
-        </apparel>
-        <statBases>
-            <EquipDelay>0.5</EquipDelay>
-        </statBases>
-    </ThingDef>
-
-    <ThingDef Name="RK_ApparelAttr_HatMakeableBase" ParentName="RK_ApparelAttr_ArmorSmithableBase" Abstract="True">
-        <countsAsClothingForNudity>false</countsAsClothingForNudity>
-        <thingCategories>
-            <li>RK_ThingCategory_Headgear</li>
-        </thingCategories>
-        <tradeTags>
-            <li>RK_TradeTag_Armor</li>
-        </tradeTags>
-        <apparel>
-            <tags>
-                <li>RK_ApparelTag_All</li>
-            </tags>
-        </apparel>
-        <statBases>
-            <EquipDelay>1</EquipDelay>
-        </statBases>
-    </ThingDef>
-
-    <ThingDef Name="RK_ApparelAttr_HelmetMakeableBase" ParentName="RK_ApparelAttr_ArmorMachineableBase" Abstract="True">
-        <countsAsClothingForNudity>false</countsAsClothingForNudity>
-        <thingCategories>
-            <li>RK_ThingCategory_Headgear</li>
-        </thingCategories>
-        <tradeTags>
-            <li>RK_TradeTag_Clothing</li>
-        </tradeTags>
-        <apparel>
-            <tags>
-                <li>RK_ApparelTag_All</li>
-            </tags>
+            <parentTagDef>ApparelHead</parentTagDef>
         </apparel>
     </ThingDef>
 
-    <ThingDef Name="RK_ApparelAttr_NobleHatMakeableBase" ParentName="NobleHatMakeableBase" Abstract="True">
+    <ThingDef Name="RK_ApparelAttr_ArmorHelmetSmithableBase" ParentName="RK_ApparelAttr_ArmorSmithableBase" Abstract="True">
         <countsAsClothingForNudity>false</countsAsClothingForNudity>
         <thingCategories>
-            <li>RK_ThingCategory_Headgear</li>
+            <li>Headgear</li>
         </thingCategories>
-        <tradeTags>
-            <li>RK_TradeTag_Clothing</li>
-        </tradeTags>
         <apparel>
-            <tags>
-                <li>RK_ApparelTag_All</li>
-            </tags>
+            <parentTagDef>ApparelHead</parentTagDef>
         </apparel>
-        <statBases>
-            <EquipDelay>0.5</EquipDelay>
-        </statBases>
+    </ThingDef>
+
+    <ThingDef Name="RK_ApparelAttr_ArmorHelmetMachineableBase" ParentName="RK_ApparelAttr_ArmorMachineableBase" Abstract="True">
+        <countsAsClothingForNudity>false</countsAsClothingForNudity>
+        <thingCategories>
+            <li>Headgear</li>
+        </thingCategories>
+        <apparel>
+            <parentTagDef>ApparelHead</parentTagDef>
+        </apparel>
+    </ThingDef>
+
+    <ThingDef Name="RK_ApparelAttr_NobleHatMakeableBase" ParentName="RK_ApparelAttr_NobleMakeableBase" Abstract="True">
+        <countsAsClothingForNudity>false</countsAsClothingForNudity>
+        <thingCategories>
+            <li>HeadgearNoble</li>
+        </thingCategories>
+        <apparel>
+            <parentTagDef>ApparelHead</parentTagDef>
+        </apparel>
     </ThingDef>
 
     <!-- 생산이 불가능한 것들은 림월드 기존것들 참고하여 생성
