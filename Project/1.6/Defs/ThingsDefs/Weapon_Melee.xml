@@ -639,9 +639,9 @@
 	</ThingDef>
 	
 	<!-- 2티어 -->
-	<!-- 샷건 	-->
+	<!-- 한손 샷건, 방패랑 같이 들 수 있음 	-->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon">
-		<defName>RK_Weapon_Rifle_line</defName>
+		<defName>RK_Weapon_SawedOffShotgun</defName>
 		<label>ratkin shotgun</label>
 		<description>소드오프 샷건입니다. 랫킨 왕국에서는 샷건이 랫킨을 쏩니다.</description>
 		<graphicData>
@@ -669,17 +669,12 @@
 				<Crafting>5</Crafting>
 			</skillRequirements>
 		</recipeMaker>
-		<!-- <comps> -->
-			<!-- <li> -->
-				<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
-			<!-- </li> -->
-		<!-- </comps> -->
 		<verbs>			
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<soundCast>FlechetteRifle</soundCast>
-				<defaultProjectile>Bullet_RK_Buck</defaultProjectile>
+				<soundCast>Shotgun_Fire</soundCast>
+				<defaultProjectile>RK_Projectile_Buckshot</defaultProjectile>
 				
 				<warmupTime>0.9</warmupTime>
 				<range>13.9</range>					
@@ -688,22 +683,6 @@
 				<burstShotCount>6</burstShotCount>
 				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
 			</li>
-			<!-- <li Class="AdditionalVerb.VerbProperties_Custom"> -->
-				<!-- <verbClass>Verb_Shoot</verbClass> -->
-				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <soundCast>FlechetteRifle</soundCast> -->
-				<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
-
-				<!-- <defaultProjectile>Bullet_RK_Slug</defaultProjectile> -->
-				<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
-				<!-- <warmupTime>1.55</warmupTime> -->
-				<!-- <burstShotCount>1</burstShotCount> -->
-				<!-- <ticksBetweenBurstShots>6</ticksBetweenBurstShots> -->
-				<!-- <range>27.9</range> -->
-				<!-- <desc>슬러그</desc> -->
-				<!-- <label>Slug fire</label> -->
-				<!-- <texPath>UI/Commands/Slug</texPath> -->
-			<!-- </li> -->
 		</verbs>
 		<tools>
 			<li>
@@ -718,24 +697,15 @@
 				<label>barrel</label>
 					<capacities>
 						<li>Blunt</li>
-						<li>Poke</li>
 					</capacities>
 				<power>7</power>
 				<cooldownTime>1.8</cooldownTime>
 			</li>
-			<li>
-				<label>bayonet</label>
-				<capacities>
-					<li>Cut</li>
-					<li>Stab</li>
-				</capacities>
-				<power>17</power>
-				<cooldownTime>2.3</cooldownTime>
-			</li>
 		</tools>
 		<weaponTags Inherit="false">
-			<li>RK_2TierWeapon</li>
-			<li>RK_Shotgun</li>
+			<li>RK_WeaponTag_2Tier</li>
+			<li>RK_WeaponTag_Range</li>
+			<li>RK_WeaponTag_All</li>
 		</weaponTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
@@ -746,12 +716,12 @@
 		<projectile>
 			<damageDef>Bullet</damageDef>
 			<damageAmountBase>5</damageAmountBase>
-			<stoppingPower>2</stoppingPower>
+			<stoppingPower>2.5</stoppingPower>
 			<armorPenetrationBase>0.45</armorPenetrationBase>
 			<speed>75</speed>
 		</projectile>
 		<graphicData>
-			<texPath>Things/Projectile/Bullet_small</texPath>
+			<texPath>Thing/Weapon/Projectile/RK_TextureProjectile_Buckshot</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>	
