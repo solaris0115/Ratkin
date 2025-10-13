@@ -5,37 +5,49 @@
         색상을 따라가야하는 경우 반드시 followStuffColor을 true로 설정
     -->
 
+    <!-- 
+        랫킨 의류
+            생산 불가(드랍 또는 거래, 각각 처리)
+                유물류(성배뚝?)
+            재봉틀 가공
+                일반 의류   [기능성 의복]
+                    모자
+                귀족 의류   [사회 패널티 무마]
+                    귀족 모자
+            단조대 가공
+                갑옷        [중갑+기능성]
+                    헬멧
+            기계 가공
+                방탄 계열   [일반 방탄모 수준]
+                    방탄모
+                파워아머류  [DLC 중갑 수준]
+                    파워아머 투구
+     -->
+
+
+
+
+
+
+
+
     <!-- 일반 의류  -->
     <ThingDef Name="RK_ApparelAttr_ApparelMakeableBase" ParentName="ApparelMakeableBase" Abstract="True">
-        <recipeMaker>
-            <recipeUsers>
-                <li>RK_Building_HandTailor</li>
-                <li>RK_Building_ElectricTailor</li>
-            </recipeUsers>
-            <displayPriority>1100</displayPriority>
-        </recipeMaker>
         <tradeTags inherit="false">
             <li>RK_TradeTag_Cloth</li>
         </tradeTags>
         <apparel>
             <tags inherit="false">
                 <li>RK_ApparelTag_All</li>
+                <li>RK_ApparelTag_Cloth</li>
             </tags>
         </apparel>
     </ThingDef>
 
     <!-- 갑옷 -->
     <ThingDef Name="RK_ApparelAttr_ArmorSmithableBase" ParentName="ArmorSmithableBase" Abstract="True">
-        <recipeMaker>
-            <recipeUsers>
-                <li>RK_Building_FueledSmithy</li>
-                <li>RK_Building_ElectricSmithy</li>
-            </recipeUsers>
-            <displayPriority>1200</displayPriority>
-        </recipeMaker>
         <tradeTags inherit="false">
             <li>RK_TradeTag_Armor</li>
-            <li>RK_TradeTag_Cloth</li>
         </tradeTags>
         <apparel>
             <tags inherit="false">
@@ -47,15 +59,17 @@
 
     <!-- 랫킨은 기계 벤치가 없음 -->
     <ThingDef Name="RK_ApparelAttr_ArmorMachineableBase" ParentName="ArmorMachineableBase" Abstract="True">
-        <recipeMaker>
-            <!-- <recipeUsers>
-                <li>RK_Building_MachiningTable</li>
-            </recipeUsers> -->
-			<displayPriority>1300</displayPriority>
-        </recipeMaker>
+        <apparel>
+            <tags inherit="false">
+                <li>RK_ApparelTag_All</li>
+            </tags>
+        </apparel>
+    </ThingDef>
+
+    <!-- 파워아머 -->
+    <ThingDef Name="RK_ApparelAttr_ApparelArmorPowerBase" ParentName="ApparelArmorPowerBase" Abstract="True">
         <tradeTags inherit="false">
             <li>RK_TradeTag_Armor</li>
-            <li>RK_TradeTag_Cloth</li>
         </tradeTags>
         <apparel>
             <tags inherit="false">
@@ -67,9 +81,6 @@
 
     <!-- 제작 가능한 귀족 의상 -->
     <ThingDef Name="RK_ApparelAttr_NobleMakeableBase" ParentName="ApparelMakeableBase" Abstract="True">
-        <recipeMaker>
-            <displayPriority>1400</displayPriority>
-        </recipeMaker>
         <tradeTags inherit="false">
             <li>RK_TradeTag_Royal</li>
         </tradeTags>
@@ -77,6 +88,8 @@
             <tags inherit="false">
                 <li>RK_ApparelTag_All</li>
                 <li>RK_ApparelTag_Royal</li>
+                <li>RoyalTier2</li>
+                <li>RoyalTier5</li>
             </tags>
         </apparel>
     </ThingDef>
