@@ -14,24 +14,39 @@
 		<factionlessGenerationWeight>0</factionlessGenerationWeight>
 		<genes>
 			<!--
-				Human vs Ratkin 스탯 비교 분석: === 기본 스탯 ===
-				ComfyTemperatureMin: Human 16 → Ratkin 4 (-12, -75%)
-				ComfyTemperatureMax: Human 26 → Ratkin 29 (+3, +11.5%) === Ratkin 추가 스탯 ===
-				ImmunityGainSpeed: 1.10 (+10%)
-				CarryingCapacity: 45
-				PainShockThreshold: 0.7 (-30%)
-				ToxicEnvironmentResistance: 0.9 (-10%)
-				EatingSpeed: 1.1 (+10%) 이거랑
-				MeatAmount: 35 === 전투 스탯 ===
-				MeleeDodgeChance: 1.15 (+15%)
-				AimingDelayFactor: 1.15 (+15% 지연, 불리) === 사회 스탯 ===
-				NegotiationAbility: 0.85 (-15%) === 작업 스탯 ===
-				MiningSpeed: 1.1 (+10%)
-				MiningYield: 1.05 (+5%)
-				PlantWorkSpeed: 1.10 (+10%)
-				HuntingStealth: 1.15 (+15%)
-				ConstructionSpeed: 0.9 (-10%) 이거는..?
-				ResearchSpeed: 0.8 (-20%)
+				랫킨의 스탯값 비교 (Ratkin vs Human)
+				
+				기본 스탯:
+				- MarketValue: 1750 (1750) - 동일
+				- Mass: 50 (60) - 랫킨이 가벼움
+				- MoveSpeed: 4.8 (4.6) - 랫킨이 빠름
+				- Flammability: 1.0 (0.7) - 랫킨이 불에 약함
+				- ComfyTemperatureMin: 11 (16) - 랫킨이 추위에 강함
+				- ComfyTemperatureMax: 26 (26) - 동일
+				- ImmunityGainSpeed: 1.10 (1.0) - 랫킨이 빠름
+				- CarryingCapacity: 45 (75) - 랫킨이 적음
+				- PainShockThreshold: 0.7 (0.8) - 랫킨이 고통에 약함
+				- ToxicEnvironmentResistance: 0.9 (0.0) - 랫킨이 훨씬 강함
+				- EatingSpeed: 1.1 (1.0) - 랫킨이 빠름
+				- MeatAmount: 35 (140) - 랫킨이 적음
+				- LeatherAmount: 30 (75) - 랫킨이 적음
+				
+				전투 스탯:
+				- MeleeDodgeChance: 1.15 (0.0) - 랫킨이 훨씬 높음
+				- AimingDelayFactor: 1.15 (1.0) - 랫킨이 느림 (높을수록 느림)
+				
+				사회 스탯:
+				- NegotiationAbility: 0.85 (1.0) - 랫킨이 낮음
+				
+				작업 스탯:
+				- MiningSpeed: 1.1 (1.0) - 랫킨이 빠름
+				- MiningYield: 1.05 (1.0) - 랫킨이 높음
+				- PlantWorkSpeed: 1.10 (1.0) - 랫킨이 빠름
+				- HuntingStealth: 1.15 (1.0) - 랫킨이 높음
+				
+				테크 스탯:
+				- ConstructionSpeed: 0.9 (1.0) - 랫킨이 느림
+				- ResearchSpeed: 0.8 (1.0) - 랫킨이 느림
 			-->
 			<!-- 
 			외형
