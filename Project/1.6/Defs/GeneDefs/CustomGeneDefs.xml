@@ -1,49 +1,231 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+
+	<!-- ========================================
+	     Ratkin Custom Genes
+	     ======================================== -->
+
+	<!-- 체형/신체 특성 -->
+
 	<GeneDef>
-		<defName>RK_Gene_PoorEyesight</defName>
-		<label>poor eyesight</label>
-		<labelShortAdj>poor eye</labelShortAdj>
-		<description>랫킨은 시력이 구립니다.</description>
-		<iconPath>Texture/Icon/RK_TextureIcon_GenePoorEyesight</iconPath>
+		<defName>RK_Gene_LightWeight</defName>
+		<label>light frame</label>
+		<labelShortAdj>light</labelShortAdj>
+		<description>Carriers of this gene have a lighter, smaller frame than baseline humans.</description>
+		<iconPath>UI/Icons/Genes/Gene_BodyThin</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>0</displayOrderInCategory>
+		<displayOrderInCategory>100</displayOrderInCategory>
 		<statOffsets>
-			<ResearchSpeed>-0.2</ResearchSpeed>
-			<ReadingSpeed>-0.2</ReadingSpeed>
-			<AimingDelayFactor>-0.2</AimingDelayFactor>
+			<Mass>-10</Mass>
 		</statOffsets>
-		<biostatMet>2</biostatMet>
-		<biostatCpx>2</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
-	<!-- <GeneDef>
-		<defName>Moyo2_WorkSpeed_Fast</defName>
-		<label>efficient worker</label>
-		<labelShortAdj>efficient</labelShortAdj>
-		<description>Carriers of this gene work faster than normal.</description>
-		<iconPath>Icon/FastWorkIcon</iconPath>
+	<GeneDef>
+		<defName>RK_Gene_WeakCarrying</defName>
+		<label>weak carrying</label>
+		<labelShortAdj>weak carrier</labelShortAdj>
+		<description>Carriers of this gene have reduced carrying capacity due to their smaller frame.</description>
+		<iconPath>UI/Icons/Genes/Gene_WeakMeleeDamage</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>0</displayOrderInCategory>
+		<displayOrderInCategory>101</displayOrderInCategory>
 		<statOffsets>
-			<WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+			<CarryingCapacity>-30</CarryingCapacity>
+		</statOffsets>
+		<biostatMet>2</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<!-- 환경 적응 -->
+
+	<GeneDef>
+		<defName>RK_Gene_MildColdTolerance</defName>
+		<label>mild cold tolerance</label>
+		<labelShortAdj>cool-adapted</labelShortAdj>
+		<description>Carriers of this gene are slightly more comfortable in cold temperatures.</description>
+		<iconPath>UI/Icons/Genes/Gene_MinTemperatureSmallDecrease</iconPath>
+		<displayCategory>Temperature</displayCategory>
+		<displayOrderInCategory>15</displayOrderInCategory>
+		<statOffsets>
+			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+		</statOffsets>
+		<biostatMet>-1</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_SewerAdapted</defName>
+		<label>sewer-adapted</label>
+		<labelShortAdj>tox-resistant</labelShortAdj>
+		<description>Carriers of this gene have adapted to toxic sewer environments and are highly resistant to environmental toxins.</description>
+		<iconPath>UI/Icons/Genes/Gene_TotalToxicityResistance</iconPath>
+		<displayCategory>ResistanceAndWeakness</displayCategory>
+		<displayOrderInCategory>25</displayOrderInCategory>
+		<statOffsets>
+			<ToxicEnvironmentResistance>0.9</ToxicEnvironmentResistance>
 		</statOffsets>
 		<biostatMet>-3</biostatMet>
-		<biostatCpx>2</biostatCpx>
-	</GeneDef> -->
-	<!-- <GeneDef>
-		<defName>Moyo2_DeepblueMetabolism</defName>
-		<label>hyper deepblue metabolism</label>
-		<labelShortAdj>deepblue metabolism</labelShortAdj>
-		<description>Carriers of this gene uses all deepblue produced in their body for metabolism purposes.</description>
-		<iconPath>Icon/FastWorkIcon</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
+	<!-- 전투 특성 -->
+
+	<GeneDef>
+		<defName>RK_Gene_Nimble</defName>
+		<label>nimble</label>
+		<labelShortAdj>nimble</labelShortAdj>
+		<description>Carriers of this gene are exceptionally agile and skilled at dodging melee attacks.</description>
+		<iconPath>UI/Icons/Genes/Gene_MoveSpeed_Quick</iconPath>
+		<displayCategory>Violence</displayCategory>
+		<displayOrderInCategory>45</displayOrderInCategory>
+		<statOffsets>
+			<MeleeDodgeChance>1.15</MeleeDodgeChance>
+		</statOffsets>
+		<biostatMet>-3</biostatMet>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_PoorAiming</defName>
+		<label>poor aiming</label>
+		<labelShortAdj>poor aim</labelShortAdj>
+		<description>Carriers of this gene have difficulty with precision aiming, resulting in slower aim time.</description>
+		<iconPath>UI/Icons/Genes/Gene_Nearsighted</iconPath>
+		<displayCategory>Violence</displayCategory>
+		<displayOrderInCategory>55</displayOrderInCategory>
 		<statFactors>
-			<DeepblueStatSpeed>0</DeepblueStatSpeed>
-			<DeepblueStat>0</DeepblueStat>
+			<AimingDelayFactor>1.15</AimingDelayFactor>
 		</statFactors>
-		<biostatMet>5</biostatMet>
-		<biostatCpx>7</biostatCpx>
-	</GeneDef> -->
+		<biostatMet>2</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_FragilePain</defName>
+		<label>fragile pain threshold</label>
+		<labelShortAdj>fragile</labelShortAdj>
+		<description>Carriers of this gene have a lower pain shock threshold and go down more easily from injuries.</description>
+		<iconPath>UI/Icons/Genes/Gene_ExtraPain</iconPath>
+		<displayCategory>Pain</displayCategory>
+		<displayOrderInCategory>25</displayOrderInCategory>
+		<statOffsets>
+			<PainShockThreshold>-0.1</PainShockThreshold>
+		</statOffsets>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<!-- 생활/사회 -->
+
+	<GeneDef>
+		<defName>RK_Gene_FastEater</defName>
+		<label>fast eater</label>
+		<labelShortAdj>fast eater</labelShortAdj>
+		<description>Carriers of this gene eat food more quickly than normal.</description>
+		<iconPath>UI/Icons/Genes/Gene_RobustDigestion</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>15</displayOrderInCategory>
+		<statFactors>
+			<EatingSpeed>1.1</EatingSpeed>
+		</statFactors>
+		<biostatMet>-1</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_PoorSocial</defName>
+		<label>poor social</label>
+		<labelShortAdj>antisocial</labelShortAdj>
+		<description>Carriers of this gene are not naturally gifted at social interactions and negotiation.</description>
+		<iconPath>UI/Icons/Genes/Gene_Nearsighted</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>102</displayOrderInCategory>
+		<statFactors>
+			<NegotiationAbility>0.85</NegotiationAbility>
+		</statFactors>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<!-- 작업 능력 -->
+
+	<GeneDef>
+		<defName>RK_Gene_EfficientMiner</defName>
+		<label>efficient miner</label>
+		<labelShortAdj>miner</labelShortAdj>
+		<description>Carriers of this gene have an innate talent for digging and mining, working faster and extracting more resources.</description>
+		<iconPath>UI/Icons/Genes/Gene_StrongMeleeDamage</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>103</displayOrderInCategory>
+		<statFactors>
+			<MiningSpeed>1.1</MiningSpeed>
+			<MiningYield>1.05</MiningYield>
+		</statFactors>
+		<biostatMet>-2</biostatMet>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_GreenThumb</defName>
+		<label>plant affinity</label>
+		<labelShortAdj>green thumb</labelShortAdj>
+		<description>Carriers of this gene work more efficiently with plants.</description>
+		<iconPath>UI/Icons/Genes/Gene_PsychicAbility_Enhanced</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>104</displayOrderInCategory>
+		<statFactors>
+			<PlantWorkSpeed>1.1</PlantWorkSpeed>
+		</statFactors>
+		<biostatMet>-2</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_Stealthy</defName>
+		<label>stealthy</label>
+		<labelShortAdj>stealthy</labelShortAdj>
+		<description>Carriers of this gene are naturally stealthy and excel at hunting without being detected.</description>
+		<iconPath>UI/Icons/Genes/Gene_Darkvision</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>105</displayOrderInCategory>
+		<statFactors>
+			<HuntingStealth>1.15</HuntingStealth>
+		</statFactors>
+		<biostatMet>-2</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<!-- 지적 능력 -->
+
+	<GeneDef>
+		<defName>RK_Gene_ClumsyBuilder</defName>
+		<label>clumsy builder</label>
+		<labelShortAdj>clumsy</labelShortAdj>
+		<description>Carriers of this gene are not naturally gifted at construction work.</description>
+		<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>106</displayOrderInCategory>
+		<statFactors>
+			<ConstructionSpeed>0.9</ConstructionSpeed>
+		</statFactors>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_SlowResearcher</defName>
+		<label>slow researcher</label>
+		<labelShortAdj>slow learner</labelShortAdj>
+		<description>Carriers of this gene learn and research more slowly than baseline humans.</description>
+		<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>107</displayOrderInCategory>
+		<statFactors>
+			<ResearchSpeed>0.8</ResearchSpeed>
+		</statFactors>
+		<biostatMet>2</biostatMet>
+		<biostatCpx>0</biostatCpx>
+	</GeneDef>
+
 </Defs>

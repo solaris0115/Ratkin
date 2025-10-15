@@ -13,65 +13,43 @@
 		<nameMaker>RK_RulePack_NamerPerson</nameMaker> -->
 		<factionlessGenerationWeight>0</factionlessGenerationWeight>
 		<genes>
-			<!--
-				랫킨의 스탯값 비교 (Ratkin vs Human)
-				
-				기본 스탯:
-				- MarketValue: 1750 (1750) - 동일
-				- Mass: 50 (60) - 랫킨이 가벼움
-				- MoveSpeed: 4.8 (4.6) - 랫킨이 빠름
-				- Flammability: 1.0 (0.7) - 랫킨이 불에 약함
-				- ComfyTemperatureMin: 11 (16) - 랫킨이 추위에 강함
-				- ComfyTemperatureMax: 26 (26) - 동일
-				- ImmunityGainSpeed: 1.10 (1.0) - 랫킨이 빠름
-				- CarryingCapacity: 45 (75) - 랫킨이 적음
-				- PainShockThreshold: 0.7 (0.8) - 랫킨이 고통에 약함
-				- ToxicEnvironmentResistance: 0.9 (0.0) - 랫킨이 훨씬 강함
-				- EatingSpeed: 1.1 (1.0) - 랫킨이 빠름
-				- MeatAmount: 35 (140) - 랫킨이 적음
-				- LeatherAmount: 30 (75) - 랫킨이 적음
-				
-				전투 스탯:
-				- MeleeDodgeChance: 1.15 (0.0) - 랫킨이 훨씬 높음
-				- AimingDelayFactor: 1.15 (1.0) - 랫킨이 느림 (높을수록 느림)
-				
-				사회 스탯:
-				- NegotiationAbility: 0.85 (1.0) - 랫킨이 낮음
-				
-				작업 스탯:
-				- MiningSpeed: 1.1 (1.0) - 랫킨이 빠름
-				- MiningYield: 1.05 (1.0) - 랫킨이 높음
-				- PlantWorkSpeed: 1.10 (1.0) - 랫킨이 빠름
-				- HuntingStealth: 1.15 (1.0) - 랫킨이 높음
-				
-				테크 스탯:
-				- ConstructionSpeed: 0.9 (1.0) - 랫킨이 느림
-				- ResearchSpeed: 0.8 (1.0) - 랫킨이 느림
-			-->
-			<!-- 
-			외형
-			<li>랫킨 눈(이거 어케해야하지..)</li>
-			<li>랫킨 귀</li> (모계 유전)
-			<li>랫킨 얼굴</li>(모계 유전)
-			<li>랫킨 꼬리(여기에 이동속도 0.1)</li>
+			<!-- 기존 RimWorld Genes -->
+			<li>MoveSpeed_Quick</li>
+			<li>ImmunityGainSpeed_Strong</li>
 			
-			<li>조금 빠름</li>
-			<li>추위 강함</li>
-			<li>고온 약함</li>
-			<li>고통 약함</li>
-			<li>독성 강함</li>
-			<li>약한 근접</li>
+			<!-- Custom Ratkin Genes -->
 			
-			<li>좋은 재배력(재배속도와 채집량up)</li>
-			<li>좋은 채굴력(채굴속도와 채굴량up)</li>
-			<li>근시(조준속도와 연구 패널티,독서 속도 패널티 등)</li>
-
-			<li>작은 체구(신체 사이즈 0.8, 은신 +0.15, 회피)</li>
-			<li>쥐같은 목소리(협상력-, 소셜임팩트+,)</li>
-			<li>소식가(밥을 적게 먹는다고 해야하나, 식사량이 적다고 해야하나. 패널티인가?)</li>
-			 -->
-			<li>DarkVision</li>
-			<li>RK_Gene_PoorEyesight</li>
+			<!-- 체형/신체 -->
+			<li>RK_Gene_LightWeight</li>
+			<li>RK_Gene_WeakCarrying</li>
+			
+			<!-- 환경 적응 -->
+			<li>RK_Gene_MildColdTolerance</li>
+			<li>RK_Gene_SewerAdapted</li>
+			
+			<!-- 전투 -->
+			<li>RK_Gene_Nimble</li>
+			<li>RK_Gene_PoorAiming</li>
+			<li>RK_Gene_FragilePain</li>
+			
+			<!-- 생활/사회 -->
+			<li>RK_Gene_FastEater</li>
+			<li>RK_Gene_PoorSocial</li>
+			
+			<!-- 작업 능력 -->
+			<li>RK_Gene_EfficientMiner</li>
+			<li>RK_Gene_GreenThumb</li>
+			<li>RK_Gene_Stealthy</li>
+			
+			<!-- 지적 능력 -->
+			<li>RK_Gene_ClumsyBuilder</li>
+			<li>RK_Gene_SlowResearcher</li>
+			
+			<!-- 외형 (추후 추가 예정) -->
+			<!-- 랫킨의 작은 얼굴 -->
+			<!-- 넓은 쥐 귀 -->
+			<!-- 가느다란 쥐 꼬리 -->
+			
 		</genes>
 	</XenotypeDef>
 </Defs>
