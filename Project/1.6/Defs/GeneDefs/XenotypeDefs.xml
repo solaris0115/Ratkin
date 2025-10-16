@@ -16,40 +16,40 @@
 			<!-- 기존 RimWorld Genes -->
 			<li>MoveSpeed_Quick</li>
 			<li>ImmunityGainSpeed_Strong</li>
-			
+
 			<!-- Custom Ratkin Genes -->
-			
-			<!-- 체형/신체 -->
-			<li>RK_Gene_LightWeight</li>
-			<li>RK_Gene_WeakCarrying</li>
-			
-			<!-- 환경 적응 -->
-			<li>RK_Gene_MildColdTolerance</li>
-			<li>RK_Gene_SewerAdapted</li>
-			
+
+		<!-- 체형/신체 -->
+		<li>RK_Gene_SmallBody</li>
+
+		<!-- 환경 적응 -->
+		<!-- <li>RK_Gene_MildColdTolerance</li> -->
+		<li>MinTemp_SmallDecrease</li>
+		<li>RK_Gene_ToxicEnvironmentResistance_Mild</li>
+
 			<!-- 전투 -->
 			<li>RK_Gene_Nimble</li>
 			<li>RK_Gene_PoorAiming</li>
 			<li>RK_Gene_FragilePain</li>
-			
+
 			<!-- 생활/사회 -->
 			<li>RK_Gene_FastEater</li>
 			<li>RK_Gene_PoorSocial</li>
-			
+
 			<!-- 작업 능력 -->
 			<li>RK_Gene_EfficientMiner</li>
 			<li>RK_Gene_GreenThumb</li>
 			<li>RK_Gene_Stealthy</li>
-			
+
 			<!-- 지적 능력 -->
 			<li>RK_Gene_ClumsyBuilder</li>
 			<li>RK_Gene_SlowResearcher</li>
-			
+
 			<!-- 외형 (추후 추가 예정) -->
 			<!-- 랫킨의 작은 얼굴 -->
 			<!-- 넓은 쥐 귀 -->
 			<!-- 가느다란 쥐 꼬리 -->
-			
+
 		</genes>
 	</XenotypeDef>
 </Defs>

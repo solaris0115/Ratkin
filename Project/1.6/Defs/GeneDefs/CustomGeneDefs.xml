@@ -5,40 +5,26 @@
 	     Ratkin Custom Genes
 	     ======================================== -->
 
-	<!-- 체형/신체 특성 -->
-
+	<!-- TODO: 가벼운 체형, 회피율을 같이 준다. 무게가 가볍도록. -->
 	<GeneDef>
-		<defName>RK_Gene_LightWeight</defName>
-		<label>light frame</label>
-		<labelShortAdj>light</labelShortAdj>
-		<description>Carriers of this gene have a lighter, smaller frame than baseline humans.</description>
+		<defName>RK_Gene_SmallBody</defName>
+		<label>small build</label>
+		<labelShortAdj>small</labelShortAdj>
+		<description>Carriers of this gene have a small, compact build with reduced body mass. This smaller frame makes them lighter and more agile, but limits their carrying capacity.</description>
 		<iconPath>UI/Icons/Genes/Gene_BodyThin</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<statOffsets>
 			<Mass>-10</Mass>
+			<CarryingCapacity>-15</CarryingCapacity>
+			<MeleeDodgeChance>0.15</MeleeDodgeChance>
 		</statOffsets>
 		<biostatMet>1</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
-	<GeneDef>
-		<defName>RK_Gene_WeakCarrying</defName>
-		<label>weak carrying</label>
-		<labelShortAdj>weak carrier</labelShortAdj>
-		<description>Carriers of this gene have reduced carrying capacity due to their smaller frame.</description>
-		<iconPath>UI/Icons/Genes/Gene_WeakMeleeDamage</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>101</displayOrderInCategory>
-		<statOffsets>
-			<CarryingCapacity>-30</CarryingCapacity>
-		</statOffsets>
-		<biostatMet>2</biostatMet>
-		<biostatCpx>0</biostatCpx>
-	</GeneDef>
-
 	<!-- 환경 적응 -->
-
+	<!-- TODO: 기존 추위 견딜 수 있는걸로,  -->
 	<GeneDef>
 		<defName>RK_Gene_MildColdTolerance</defName>
 		<label>mild cold tolerance</label>
@@ -54,24 +40,28 @@
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
+	<!-- TODO: 독성 레지스턴스 웨이스터나 이타킨등 기존거 재활용 이용-->
 	<GeneDef>
-		<defName>RK_Gene_SewerAdapted</defName>
-		<label>sewer-adapted</label>
-		<labelShortAdj>tox-resistant</labelShortAdj>
-		<description>Carriers of this gene have adapted to toxic sewer environments and are highly resistant to environmental toxins.</description>
-		<iconPath>UI/Icons/Genes/Gene_TotalToxicityResistance</iconPath>
+		<defName>RK_Gene_ToxicEnvironmentResistance_Mild</defName>
+		<label>mild antitoxic lungs</label>
+		<labelShortAdj>tox-adapted</labelShortAdj>
+		<description>Carriers of this gene have adapted to toxic sewer environments and are slightly resistant to environmental toxins. They get less toxic buildup from tox gas, polluted terrain, and toxic fallout.</description>
+		<iconPath>UI/Icons/Genes/Gene_PartialPollutionResistance</iconPath>
 		<displayCategory>ResistanceAndWeakness</displayCategory>
-		<displayOrderInCategory>25</displayOrderInCategory>
+		<displayOrderInCategory>15</displayOrderInCategory>
 		<statOffsets>
-			<ToxicEnvironmentResistance>0.9</ToxicEnvironmentResistance>
+			<ToxicEnvironmentResistance>0.35</ToxicEnvironmentResistance>
 		</statOffsets>
-		<biostatMet>-3</biostatMet>
-		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<biostatCpx>0</biostatCpx>
+		<exclusionTags>
+			<li>ToxicEnvironmentResistance</li>
+		</exclusionTags>
 	</GeneDef>
 
 	<!-- 전투 특성 -->
-
-	<GeneDef>
+	<!-- TODO: 재빠름은 있지만 없어서 추가. 그리고 어중간한 회피율이라 가벼운 몸과 추가 -->
+	<!-- <GeneDef>
 		<defName>RK_Gene_Nimble</defName>
 		<label>nimble</label>
 		<labelShortAdj>nimble</labelShortAdj>
@@ -80,12 +70,13 @@
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>45</displayOrderInCategory>
 		<statOffsets>
-			<MeleeDodgeChance>1.15</MeleeDodgeChance>
+			<MeleeDodgeChance>0.15</MeleeDodgeChance>
 		</statOffsets>
-		<biostatMet>-3</biostatMet>
+		<biostatMet>-2</biostatMet>
 		<biostatCpx>1</biostatCpx>
-	</GeneDef>
+	</GeneDef> -->
 
+	<!-- 근시 특성 -->
 	<GeneDef>
 		<defName>RK_Gene_PoorAiming</defName>
 		<label>poor aiming</label>
@@ -101,6 +92,7 @@
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
+	<!-- 연약함으로 재활용 가능한지 체크 필요 -->
 	<GeneDef>
 		<defName>RK_Gene_FragilePain</defName>
 		<label>fragile pain threshold</label>
@@ -117,7 +109,6 @@
 	</GeneDef>
 
 	<!-- 생활/사회 -->
-
 	<GeneDef>
 		<defName>RK_Gene_FastEater</defName>
 		<label>fast eater</label>
