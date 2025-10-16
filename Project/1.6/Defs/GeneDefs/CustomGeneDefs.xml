@@ -8,24 +8,25 @@
 	<!-- TODO: 가벼운 체형, 회피율을 같이 준다. 무게가 가볍도록. -->
 	<GeneDef>
 		<defName>RK_Gene_SmallBody</defName>
-		<label>small build</label>
-		<labelShortAdj>small</labelShortAdj>
-		<description>Carriers of this gene have a small, compact build with reduced body mass. This smaller frame makes them lighter and more agile, but limits their carrying capacity.</description>
+		<label>small body</label>
+		<labelShortAdj>small-bodied</labelShortAdj>
+		<description>Small, compact body that dodges better but hits weaker and carries less.</description>
 		<iconPath>UI/Icons/Genes/Gene_BodyThin</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<statOffsets>
-			<Mass>-10</Mass>
-			<CarryingCapacity>-15</CarryingCapacity>
-			<MeleeDodgeChance>0.15</MeleeDodgeChance>
+			<HuntingStealth>1.15</HuntingStealth>
 		</statOffsets>
-		<biostatMet>1</biostatMet>
+		<statFactors>
+			<MeleeDamageFactor>0.9</MeleeDamageFactor>
+		</statFactors>
+		<biostatMet>0</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
 	<!-- 환경 적응 -->
 	<!-- TODO: 기존 추위 견딜 수 있는걸로,  -->
-	<GeneDef>
+	<!-- <GeneDef>
 		<defName>RK_Gene_MildColdTolerance</defName>
 		<label>mild cold tolerance</label>
 		<labelShortAdj>cool-adapted</labelShortAdj>
@@ -38,7 +39,7 @@
 		</statOffsets>
 		<biostatMet>-1</biostatMet>
 		<biostatCpx>0</biostatCpx>
-	</GeneDef>
+	</GeneDef> -->
 
 	<!-- TODO: 독성 레지스턴스 웨이스터나 이타킨등 기존거 재활용 이용-->
 	<GeneDef>
@@ -61,38 +62,40 @@
 
 	<!-- 전투 특성 -->
 	<!-- TODO: 재빠름은 있지만 없어서 추가. 그리고 어중간한 회피율이라 가벼운 몸과 추가 -->
-	<!-- <GeneDef>
+	<GeneDef>
 		<defName>RK_Gene_Nimble</defName>
 		<label>nimble</label>
 		<labelShortAdj>nimble</labelShortAdj>
-		<description>Carriers of this gene are exceptionally agile and skilled at dodging melee attacks.</description>
+		<description>Carriers of this gene have heightened sensory receptor sensitivity, allowing them to better detect nearby threats and evade close-range attacks more effectively.</description>
 		<iconPath>UI/Icons/Genes/Gene_MoveSpeed_Quick</iconPath>
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>45</displayOrderInCategory>
 		<statOffsets>
-			<MeleeDodgeChance>0.15</MeleeDodgeChance>
+			<MeleeDodgeChance>0.25</MeleeDodgeChance>
 		</statOffsets>
-		<biostatMet>-2</biostatMet>
+		<biostatMet>-1</biostatMet>
 		<biostatCpx>1</biostatCpx>
-	</GeneDef> -->
+	</GeneDef>
 
 	<!-- 근시 특성 -->
 	<GeneDef>
-		<defName>RK_Gene_PoorAiming</defName>
-		<label>poor aiming</label>
-		<labelShortAdj>poor aim</labelShortAdj>
-		<description>Carriers of this gene have difficulty with precision aiming, resulting in slower aim time.</description>
+		<defName>RK_Gene_PoorEyesight</defName>
+		<label>poor eyesight</label>
+		<labelShortAdj>poor eyesight</labelShortAdj>
+		<description>Carriers of this gene have difficulty with precision aiming, resulting in slower aim time and research speed.</description>
 		<iconPath>UI/Icons/Genes/Gene_Nearsighted</iconPath>
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>55</displayOrderInCategory>
 		<statFactors>
 			<AimingDelayFactor>1.15</AimingDelayFactor>
+			<ResearchSpeed>0.8</ResearchSpeed>
+
 		</statFactors>
 		<biostatMet>2</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
-	<!-- 연약함으로 재활용 가능한지 체크 필요 -->
+	<!-- 약함 특성 -->
 	<GeneDef>
 		<defName>RK_Gene_FragilePain</defName>
 		<label>fragile pain threshold</label>
@@ -103,39 +106,27 @@
 		<displayOrderInCategory>25</displayOrderInCategory>
 		<statOffsets>
 			<PainShockThreshold>-0.1</PainShockThreshold>
+			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
-		<biostatMet>1</biostatMet>
+		<biostatMet>2</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
-	<!-- 생활/사회 -->
+	<!-- 귀여운 외모 -->
 	<GeneDef>
-		<defName>RK_Gene_FastEater</defName>
-		<label>fast eater</label>
-		<labelShortAdj>fast eater</labelShortAdj>
-		<description>Carriers of this gene eat food more quickly than normal.</description>
-		<iconPath>UI/Icons/Genes/Gene_RobustDigestion</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>15</displayOrderInCategory>
-		<statFactors>
-			<EatingSpeed>1.1</EatingSpeed>
-		</statFactors>
-		<biostatMet>-1</biostatMet>
-		<biostatCpx>0</biostatCpx>
-	</GeneDef>
-
-	<GeneDef>
-		<defName>RK_Gene_PoorSocial</defName>
-		<label>poor social</label>
-		<labelShortAdj>antisocial</labelShortAdj>
-		<description>Carriers of this gene are not naturally gifted at social interactions and negotiation.</description>
-		<iconPath>UI/Icons/Genes/Gene_Nearsighted</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
+		<defName>RK_Gene_Adorable</defName>
+		<label>adorable</label>
+		<labelShortAdj>adorable</labelShortAdj>
+		<description>Carriers of this gene have an irresistibly cute appearance. People find them endearing and enjoy their company, but tend to underestimate them in serious negotiations and business deals.</description>
+		<iconPath>UI/Icons/Genes/Gene_Beautiful</iconPath>
+		<displayCategory>Social</displayCategory>
 		<displayOrderInCategory>102</displayOrderInCategory>
 		<statFactors>
-			<NegotiationAbility>0.85</NegotiationAbility>
+			<NegotiationAbility>0.80</NegotiationAbility>
+			<TradePriceImprovement>0.90</TradePriceImprovement>
+			<SocialImpact>1.20</SocialImpact>
 		</statFactors>
-		<biostatMet>1</biostatMet>
+		<biostatMet>0</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
@@ -150,10 +141,10 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>103</displayOrderInCategory>
 		<statFactors>
-			<MiningSpeed>1.1</MiningSpeed>
-			<MiningYield>1.05</MiningYield>
+			<MiningSpeed>1.10</MiningSpeed>
+			<MiningYield>1.10</MiningYield>
 		</statFactors>
-		<biostatMet>-2</biostatMet>
+		<biostatMet>-1</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -167,28 +158,13 @@
 		<displayOrderInCategory>104</displayOrderInCategory>
 		<statFactors>
 			<PlantWorkSpeed>1.1</PlantWorkSpeed>
+			<PlantYield>1.1</PlantYield>
 		</statFactors>
-		<biostatMet>-2</biostatMet>
-		<biostatCpx>0</biostatCpx>
-	</GeneDef>
-
-	<GeneDef>
-		<defName>RK_Gene_Stealthy</defName>
-		<label>stealthy</label>
-		<labelShortAdj>stealthy</labelShortAdj>
-		<description>Carriers of this gene are naturally stealthy and excel at hunting without being detected.</description>
-		<iconPath>UI/Icons/Genes/Gene_Darkvision</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>105</displayOrderInCategory>
-		<statFactors>
-			<HuntingStealth>1.15</HuntingStealth>
-		</statFactors>
-		<biostatMet>-2</biostatMet>
+		<biostatMet>-1</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
 	<!-- 지적 능력 -->
-
 	<GeneDef>
 		<defName>RK_Gene_ClumsyBuilder</defName>
 		<label>clumsy builder</label>
@@ -203,20 +179,4 @@
 		<biostatMet>1</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
-
-	<GeneDef>
-		<defName>RK_Gene_SlowResearcher</defName>
-		<label>slow researcher</label>
-		<labelShortAdj>slow learner</labelShortAdj>
-		<description>Carriers of this gene learn and research more slowly than baseline humans.</description>
-		<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>107</displayOrderInCategory>
-		<statFactors>
-			<ResearchSpeed>0.8</ResearchSpeed>
-		</statFactors>
-		<biostatMet>2</biostatMet>
-		<biostatCpx>0</biostatCpx>
-	</GeneDef>
-
 </Defs>
