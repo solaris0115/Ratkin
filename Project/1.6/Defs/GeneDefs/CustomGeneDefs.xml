@@ -71,9 +71,12 @@
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>45</displayOrderInCategory>
 		<statOffsets>
-			<MeleeDodgeChance>0.25</MeleeDodgeChance>
+			<MeleeCooldownFactor>-0.1</MeleeCooldownFactor>
 		</statOffsets>
-		<biostatMet>-1</biostatMet>
+		<statFactors>
+			<MeleeDodgeChance>0.85</MeleeDodgeChance>
+		</statFactors>
+		<biostatMet>-2</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -88,11 +91,10 @@
 		<displayOrderInCategory>55</displayOrderInCategory>
 		<statFactors>
 			<AimingDelayFactor>1.15</AimingDelayFactor>
-			<ResearchSpeed>0.8</ResearchSpeed>
-
+			<ShootingAccuracyPawn>0.9</ShootingAccuracyPawn>
 		</statFactors>
 		<biostatMet>2</biostatMet>
-		<biostatCpx>0</biostatCpx>
+		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
 	<!-- 약함 특성 -->
@@ -109,7 +111,7 @@
 			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
 		<biostatMet>2</biostatMet>
-		<biostatCpx>0</biostatCpx>
+		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
 	<!-- 귀여운 외모 -->
@@ -127,7 +129,7 @@
 			<SocialImpact>1.20</SocialImpact>
 		</statFactors>
 		<biostatMet>0</biostatMet>
-		<biostatCpx>0</biostatCpx>
+		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
 	<!-- 작업 능력 -->
@@ -141,7 +143,7 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>103</displayOrderInCategory>
 		<statFactors>
-			<MiningSpeed>1.10</MiningSpeed>
+			<MiningSpeed>0.9</MiningSpeed>
 			<MiningYield>1.10</MiningYield>
 		</statFactors>
 		<biostatMet>-1</biostatMet>
@@ -157,7 +159,7 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>104</displayOrderInCategory>
 		<statFactors>
-			<PlantWorkSpeed>1.1</PlantWorkSpeed>
+			<PlantWorkSpeed>0.9</PlantWorkSpeed>
 			<PlantYield>1.1</PlantYield>
 		</statFactors>
 		<biostatMet>-1</biostatMet>
@@ -179,4 +181,153 @@
 		<biostatMet>1</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
+
+	<!-- ========================================
+	     Ratkin Appearance Genes
+	     ======================================== -->
+
+	<!-- 큰 귀 -->
+	<GeneDef>
+		<defName>RK_Gene_LargeEars</defName>
+		<label>large round ears</label>
+		<labelShortAdj>big-eared</labelShortAdj>
+		<description>Carriers of this gene have distinctively large, round ears that give them enhanced hearing and an unmistakably ratkin appearance.</description>
+		<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
+		<iconColor>(0.75, 0.75, 0.75)</iconColor>
+		<displayCategory>Cosmetic</displayCategory>
+		<displayOrderInCategory>70</displayOrderInCategory>
+		<randomChosen>true</randomChosen>
+		<biostatCpx>0</biostatCpx>
+		<exclusionTags>
+			<li>Ears</li>
+		</exclusionTags>
+		<renderNodeProperties>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<texPath>Things/Pawn/Humanlike/HeadAttachments/RatkinEars/RatkinEars</texPath>
+				<colorType>Skin</colorType>
+				<parentTagDef>Head</parentTagDef>
+				<useSkinShader>true</useSkinShader>
+				<useRottenColor>true</useRottenColor>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<drawData>
+					<defaultData>
+						<layer>70</layer>
+					</defaultData>
+				</drawData>
+			</li>
+		</renderNodeProperties>
+		<symbolPack>
+			<prefixSymbols>
+				<li><symbol>rat</symbol></li>
+				<li><symbol>squeak</symbol></li>
+				<li><symbol>whisk</symbol></li>
+			</prefixSymbols>
+			<suffixSymbols>
+				<li><symbol>rat</symbol></li>
+				<li><symbol>ear</symbol></li>
+				<li><symbol>squeak</symbol></li>
+			</suffixSymbols>
+		</symbolPack>
+	</GeneDef>
+
+	<!-- 얇은 꼬리 -->
+	<GeneDef>
+		<defName>RK_Gene_ThinTail</defName>
+		<label>thin tail</label>
+		<labelShortAdj>thin-tailed</labelShortAdj>
+		<description>Carriers of this gene have a long, thin, hairless tail that helps with balance and is a signature feature of ratkin anatomy.</description>
+		<iconPath>UI/Icons/Genes/Gene_TailSmooth</iconPath>
+		<iconColor>(0.75, 0.75, 0.75)</iconColor>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>1000</displayOrderInCategory>
+		<randomChosen>true</randomChosen>
+		<biostatCpx>0</biostatCpx>
+		<exclusionTags>
+			<li>Tail</li>
+		</exclusionTags>
+		<renderNodeProperties>
+			<li>
+				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+				<texPath>Things/Pawn/Humanlike/BodyAttachments/RatkinTail/RatkinTail</texPath>
+				<colorType>Skin</colorType>
+				<overrideMeshSize>(1, 1)</overrideMeshSize>
+				<parentTagDef>Body</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<drawData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<defaultData>
+						<layer>-2</layer>
+					</defaultData>
+					<dataNorth>
+						<offset>(0, 0, -0.15)</offset>
+						<layer>90</layer>
+					</dataNorth>
+					<dataSouth>
+						<offset>(-0, 0, -0.15)</offset>
+					</dataSouth>
+					<dataEast>
+						<offset>(-0.5, 0, -0.15)</offset>
+					</dataEast>
+					<dataWest>
+						<offset>(0.5, 0, -0.15)</offset>
+					</dataWest>
+				</drawData>
+			</li>
+		</renderNodeProperties>
+		<symbolPack>
+			<prefixSymbols>
+				<li><symbol>tail</symbol></li>
+				<li><symbol>rat</symbol></li>
+			</prefixSymbols>
+			<suffixSymbols>
+				<li><symbol>tail</symbol></li>
+				<li><symbol>rat</symbol></li>
+			</suffixSymbols>
+		</symbolPack>
+	</GeneDef>
+
+	<!-- 귀여운 얼굴 -->
+	<GeneDef>
+		<defName>RK_Gene_CuteFace</defName>
+		<label>cute face</label>
+		<labelShortAdj>cute-faced</labelShortAdj>
+		<description>Carriers of this gene have an adorable facial structure with rounded features, button nose, and expressive eyes that make them appear endearing and approachable.</description>
+		<iconPath>UI/Icons/Genes/Gene_Beautiful</iconPath>
+		<displayCategory>Cosmetic</displayCategory>
+		<displayOrderInCategory>50</displayOrderInCategory>
+		<selectionWeight>5.0</selectionWeight>
+		<exclusionTags>
+			<li>FaceType</li>
+		</exclusionTags>
+		<forcedHeadTypes>
+			<li>RK_HeadType_Head1</li>
+			<li>RK_HeadType_Head2</li>
+			<li>RK_HeadType_Head3</li>
+			<li>RK_HeadType_Head4</li>
+			<li>RK_HeadType_Head5</li>
+			<li>RK_HeadType_Head6</li>
+			<li>RK_HeadType_Head7</li>
+			<li>RK_HeadType_Head8</li>
+		</forcedHeadTypes>
+		<statOffsets>
+			<!-- <PawnBeauty>1</PawnBeauty> -->
+		</statOffsets>
+		<biostatMet>0</biostatMet>
+		<biostatCpx>0</biostatCpx>
+		<symbolPack>
+			<prefixSymbols>
+				<li><symbol>cute</symbol></li>
+				<li><symbol>sweet</symbol></li>
+				<li><symbol>charm</symbol></li>
+			</prefixSymbols>
+			<suffixSymbols>
+				<li><symbol>charm</symbol></li>
+				<li><symbol>cute</symbol></li>
+			</suffixSymbols>
+		</symbolPack>
+	</GeneDef>
+
+	
 </Defs>
