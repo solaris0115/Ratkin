@@ -16,8 +16,8 @@
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<statOffsets>
 			<HuntingStealth>1.15</HuntingStealth>			
-			<MeatAmount>-105</MeatAmount>
-			<LeatherAmount>-45</LeatherAmount>
+			<MeatAmount>-50</MeatAmount>
+			<LeatherAmount>-30</LeatherAmount>
 		</statOffsets>
 		<statFactors>
 			<MeleeDamageFactor>0.9</MeleeDamageFactor>
@@ -103,7 +103,7 @@
 		<label>efficient miner</label>
 		<labelShortAdj>miner</labelShortAdj>
 		<description>Carriers of this gene have an innate talent for digging and mining, working faster and extracting more resources.</description>
-		<iconPath>UI/Icons/Genes/Gene_StrongMeleeDamage</iconPath>
+		<iconPath>UI/Icons/Genes/Skills/Mining/Strong</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>103</displayOrderInCategory>
 		<statFactors>
@@ -119,7 +119,7 @@
 		<label>plant affinity</label>
 		<labelShortAdj>green thumb</labelShortAdj>
 		<description>Carriers of this gene work more efficiently with plants.</description>
-		<iconPath>UI/Icons/Genes/Gene_PsychicAbility_Enhanced</iconPath>
+		<iconPath>UI/Icons/Genes/Skills/Plants/Strong</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>104</displayOrderInCategory>
 		<statFactors>
@@ -136,7 +136,7 @@
 		<label>clumsy builder</label>
 		<labelShortAdj>clumsy</labelShortAdj>
 		<description>Carriers of this gene are not naturally gifted at construction work.</description>
-		<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+		<iconPath>UI/Icons/Genes/Skills/Construction/Poor</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>106</displayOrderInCategory>
 		<statFactors>
@@ -151,7 +151,7 @@
 		<label>slow learner</label>
 		<labelShortAdj>slow learner</labelShortAdj>
 		<description>Carriers of this gene learn and research more slowly than others.</description>
-		<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+		<iconPath>UI/Icons/Genes/Skills/Intellectual/Poor</iconPath>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>107</displayOrderInCategory>
 		<statFactors>
