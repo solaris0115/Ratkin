@@ -1,193 +1,193 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<HairDef>
-		<defName>RK_Hair_Braided</defName>
-		<label>braided</label>
+		<defName>RK_Braided</defName>
+		<label>Braided</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_Braided</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_Braided</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_BraidedB</defName>
-		<label>braided b</label>
+		<defName>RK_BraidedB</defName>
+		<label>BraidedB</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_BraidedB</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_BraidedB</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_Middle</defName>
-		<label>middle</label>
+		<defName>RK_middl</defName>
+		<label>middl</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_Middle</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_middl</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_SideTail</defName>
+		<defName>RK_side_tail</defName>
 		<label>side tail</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_SideTail</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_side_tail</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_TwinTailA</defName>
-		<label>twin tail a</label>
+		<defName>RK_twin5</defName>
+		<label>twin tail</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_TwinTailA</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_twin5</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_WaveLongA</defName>
-		<label>wave long a</label>
+		<defName>RK_WavelongA</defName>
+		<label>WavelongA</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_WaveLongA</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_WavelongA</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_LongA</defName>
-		<label>long hair a</label>
+		<defName>RK_LongA</defName>
+		<label>long hairA</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_LongA</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/LongA</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_LongB</defName>
-		<label>long hair b</label>
+		<defName>RK_LongB</defName>
+		<label>long hairB</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_LongB</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/LongB</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_LongD</defName>
-		<label>long hair d</label>
+		<defName>RK_LongD</defName>
+		<label>long hairD</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_LongD</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/LongD</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_LongE</defName>
-		<label>long hair e</label>
+		<defName>RK_LongE</defName>
+		<label>long hairE</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_LongE</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/LongE</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_PonytailA</defName>
-		<label>ponytail a</label>
+		<defName>RK_PonyA</defName>
+		<label>ponytailA</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_PonytailA</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/ponyA</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_SidePonytailA</defName>
-		<label>side ponytail a</label>
+		<defName>RK_sidePonyA</defName>
+		<label>side ponytailA</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_SidePonytailA</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/side_ponyA</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_TwinTailB</defName>
-		<label>twin tail b</label>
+		<defName>RK_twin2</defName>
+		<label>twin tail2</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_TwinTailB</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/twin2</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_TwinTailC</defName>
-		<label>twin tail c</label>
+		<defName>RK_twin3</defName>
+		<label>twin tail3</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_TwinTailC</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/twin3</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_TwinTailD</defName>
-		<label>twin tail d</label>
+		<defName>RK_twin4</defName>
+		<label>twin tail4</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_TwinTailD</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/twin4</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_TwinTailE</defName>
-		<label>twin tail e</label>
+		<defName>RK_twinA</defName>
+		<label>twin tailA</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_TwinTailE</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/twinA</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_TwinTailF</defName>
-		<label>twin tail f</label>
+		<defName>RK_twin6</defName>
+		<label>twin tail</label>
 		<hairGender>Female</hairGender>
-		<texPath>Hair/RK_TextureHair_TwinTailF</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/twin5</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_MiddleB</defName>
-		<label>middle b</label>
+		<defName>RK_Middle2</defName>
+		<label>middle2</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_MiddleB</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/RK_middl2</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 	<HairDef>
-		<defName>RK_Hair_PonytailB</defName>
-		<label>ponytail b</label>
+		<defName>RK_MPony</defName>
+		<label>ponytail</label>
 		<hairGender>Any</hairGender>
-		<texPath>Hair/RK_TextureHair_PonytailB</texPath>
-		<category>RK_StyleItemCategory_Ratkin</category>
+		<texPath>Hair/pony</texPath>
+		<category>RK_Style</category>
 		<styleTags>
-			<li>RK_StyleTag_HairStyle</li>
+			<li>RK_Style</li>
 		</styleTags>
 	</HairDef>
 </Defs>

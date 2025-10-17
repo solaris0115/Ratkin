@@ -355,8 +355,17 @@
 				</growthAges>
 			</generalSettings>
 			<graphicPaths>
-				<body>Things/Ratkin/Bodies</body>
-				<head>Things/Ratkin/Heads</head>
+				<body>
+					<path>Things/Ratkin/Bodies/Naked_Thin</path>
+					<ageGraphics>
+					  <HumanlikeAdult>Things/Ratkin/Bodies/Naked_Thin</HumanlikeAdult>
+					  <HumanlikeTeenager>Things/Ratkin/Bodies/Naked_Thin</HumanlikeTeenager>
+					  <HumanlikePreTeenager MayRequire="Ludeon.RimWorld.Biotech">Things/Ratkin/Bodies/Naked_Thin</HumanlikePreTeenager>
+					  <HumanlikeChild>Things/Ratkin/Bodies/Naked_Child</HumanlikeChild>
+					  <HumanlikeBaby>Things/Ratkin/Bodies/Naked_Baby</HumanlikeBaby>
+					</ageGraphics>
+				</body>
+				<head>Things/Ratkin/Heads/</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>
@@ -612,6 +621,61 @@
 			<gestationPeriodDays>21</gestationPeriodDays>
 			<nameGenerator>NamerPerson_RatkinKingdom</nameGenerator>
 			<nameGeneratorFemale>NamerPerson_RatkinKingdom</nameGeneratorFemale>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 0.30)</li>
+					<li>(2, 0.40)</li>
+					<li>(3, 0.10)</li>
+					<li>(4, 0.20)</li>
+					<li>(5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>4</minAge>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>8</minAge>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>12</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>16</minAge>
+				</li>
+			</lifeStageAges>
+			<lifeStageWorkSettings MayRequire="Ludeon.RimWorld.Biotech">
+				<Firefighter>7</Firefighter>
+				<Patient>0</Patient>
+				<Doctor>10</Doctor>
+				<PatientBedRest>0</PatientBedRest>
+				<Childcare MayRequire="Ludeon.RimWorld.Biotech">0</Childcare>
+				<BasicWorker>7</BasicWorker>
+				<Warden>10</Warden>
+				<Handling>7</Handling>
+				<Cooking>7</Cooking>
+				<Hunting>7</Hunting>
+				<Construction>10</Construction>
+				<Growing>7</Growing>
+				<Mining>7</Mining>
+				<PlantCutting>7</PlantCutting>
+				<Smithing>13</Smithing>
+				<Tailoring>7</Tailoring>
+				<Art>10</Art>
+				<Crafting>7</Crafting>
+				<Hauling>3</Hauling>
+				<Cleaning>3</Cleaning>
+				<Research>13</Research>
+			</lifeStageWorkSettings>
 			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
 			<soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
 			<soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
@@ -644,9 +708,14 @@
 			</hediffGiverSets>
 		</race>
 		<recipes>
-			<li>RK_Recipe_InstallBionicTail</li>
-			<li>RK_Recipe_InstallFakeEar</li>
-			<li>RK_Recipe_InstallFakeTail</li>
+			<li>RK_InstallBionicTail</li>
+			<li>RK_InstallFakeEar</li>
+			<li>RK_InstallFakeTail</li>
+			<li>ExciseCarcinoma</li>
+			<li>AdministerMechSerumHealer</li>
+			<li>RemoveBodyPart</li>
+			<li>Euthanize</li>
+			<li>Anesthetize</li>
 		</recipes>
 	</AlienRace.ThingDef_AlienRace>
 	<!-- 랫킨 실험체 -->
