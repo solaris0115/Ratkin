@@ -15,7 +15,9 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<statOffsets>
-			<HuntingStealth>1.15</HuntingStealth>
+			<HuntingStealth>1.15</HuntingStealth>			
+			<MeatAmount>-105</MeatAmount>
+			<LeatherAmount>-45</LeatherAmount>
 		</statOffsets>
 		<statFactors>
 			<MeleeDamageFactor>0.9</MeleeDamageFactor>
@@ -23,23 +25,6 @@
 		<biostatMet>0</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
-
-	<!-- 환경 적응 -->
-	<!-- TODO: 기존 추위 견딜 수 있는걸로,  -->
-	<!-- <GeneDef>
-		<defName>RK_Gene_MildColdTolerance</defName>
-		<label>mild cold tolerance</label>
-		<labelShortAdj>cool-adapted</labelShortAdj>
-		<description>Carriers of this gene are slightly more comfortable in cold temperatures.</description>
-		<iconPath>UI/Icons/Genes/Gene_MinTemperatureSmallDecrease</iconPath>
-		<displayCategory>Temperature</displayCategory>
-		<displayOrderInCategory>15</displayOrderInCategory>
-		<statOffsets>
-			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
-		</statOffsets>
-		<biostatMet>-1</biostatMet>
-		<biostatCpx>0</biostatCpx>
-	</GeneDef> -->
 
 	<!-- TODO: 독성 레지스턴스 웨이스터나 이타킨등 기존거 재활용 이용-->
 	<GeneDef>
@@ -70,13 +55,10 @@
 		<iconPath>UI/Icons/Genes/Gene_MoveSpeed_Quick</iconPath>
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>45</displayOrderInCategory>
-		<statOffsets>
-			<MeleeCooldownFactor>-0.1</MeleeCooldownFactor>
-		</statOffsets>
 		<statFactors>
-			<MeleeDodgeChance>0.85</MeleeDodgeChance>
+			<MeleeDodgeChance>1.25</MeleeDodgeChance>
 		</statFactors>
-		<biostatMet>-2</biostatMet>
+		<biostatMet>-1</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -93,7 +75,7 @@
 			<AimingDelayFactor>1.15</AimingDelayFactor>
 			<ShootingAccuracyPawn>0.9</ShootingAccuracyPawn>
 		</statFactors>
-		<biostatMet>2</biostatMet>
+		<biostatMet>3</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -107,28 +89,10 @@
 		<displayCategory>Pain</displayCategory>
 		<displayOrderInCategory>25</displayOrderInCategory>
 		<statOffsets>
-			<PainShockThreshold>-0.1</PainShockThreshold>
+			<PainShockThreshold>-0.3</PainShockThreshold>
 			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
 		<biostatMet>2</biostatMet>
-		<biostatCpx>1</biostatCpx>
-	</GeneDef>
-
-	<!-- 귀여운 외모 -->
-	<GeneDef>
-		<defName>RK_Gene_Adorable</defName>
-		<label>adorable</label>
-		<labelShortAdj>adorable</labelShortAdj>
-		<description>Carriers of this gene have an irresistibly cute appearance. People find them endearing and enjoy their company, but tend to underestimate them in serious negotiations and business deals.</description>
-		<iconPath>UI/Icons/Genes/Gene_Beautiful</iconPath>
-		<displayCategory>Social</displayCategory>
-		<displayOrderInCategory>102</displayOrderInCategory>
-		<statFactors>
-			<NegotiationAbility>0.80</NegotiationAbility>
-			<TradePriceImprovement>0.90</TradePriceImprovement>
-			<SocialImpact>1.20</SocialImpact>
-		</statFactors>
-		<biostatMet>0</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -146,7 +110,7 @@
 			<MiningSpeed>0.9</MiningSpeed>
 			<MiningYield>1.10</MiningYield>
 		</statFactors>
-		<biostatMet>-1</biostatMet>
+		<biostatMet>0</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -160,10 +124,10 @@
 		<displayOrderInCategory>104</displayOrderInCategory>
 		<statFactors>
 			<PlantWorkSpeed>0.9</PlantWorkSpeed>
-			<PlantYield>1.1</PlantYield>
+			<PlantHarvestYield>1.1</PlantHarvestYield>
 		</statFactors>
-		<biostatMet>-1</biostatMet>
-		<biostatCpx>0</biostatCpx>
+		<biostatMet>0</biostatMet>
+		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
 	<!-- 지적 능력 -->
@@ -179,7 +143,23 @@
 			<ConstructionSpeed>0.9</ConstructionSpeed>
 		</statFactors>
 		<biostatMet>1</biostatMet>
-		<biostatCpx>0</biostatCpx>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_SlowResearcher</defName>
+		<label>slow learner</label>
+		<labelShortAdj>slow learner</labelShortAdj>
+		<description>Carriers of this gene learn and research more slowly than others.</description>
+		<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+		<displayCategory>Miscellaneous</displayCategory>
+		<displayOrderInCategory>107</displayOrderInCategory>
+		<statFactors>
+			<GlobalLearningFactor>0.9</GlobalLearningFactor>
+			<ResearchSpeed>0.9</ResearchSpeed>
+		</statFactors>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
 	<!-- ========================================
@@ -196,8 +176,9 @@
 		<iconColor>(0.75, 0.75, 0.75)</iconColor>
 		<displayCategory>Cosmetic</displayCategory>
 		<displayOrderInCategory>70</displayOrderInCategory>
-		<randomChosen>true</randomChosen>
+		<randomChosen>false</randomChosen>
 		<biostatCpx>0</biostatCpx>
+		<endogeneCategory>Ears</endogeneCategory>
 		<exclusionTags>
 			<li>Ears</li>
 		</exclusionTags>
@@ -205,7 +186,7 @@
 			<li>
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-				<texPath>Things/Pawn/Humanlike/HeadAttachments/RatkinEars/RatkinEars</texPath>
+				<texPath>Thing/Ratkin/Body/RK_Gene_LargeEars</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
 				<useSkinShader>true</useSkinShader>
@@ -220,14 +201,26 @@
 		</renderNodeProperties>
 		<symbolPack>
 			<prefixSymbols>
-				<li><symbol>rat</symbol></li>
-				<li><symbol>squeak</symbol></li>
-				<li><symbol>whisk</symbol></li>
+				<li>
+					<symbol>rat</symbol>
+				</li>
+				<li>
+					<symbol>squeak</symbol>
+				</li>
+				<li>
+					<symbol>whisk</symbol>
+				</li>
 			</prefixSymbols>
 			<suffixSymbols>
-				<li><symbol>rat</symbol></li>
-				<li><symbol>ear</symbol></li>
-				<li><symbol>squeak</symbol></li>
+				<li>
+					<symbol>rat</symbol>
+				</li>
+				<li>
+					<symbol>ear</symbol>
+				</li>
+				<li>
+					<symbol>squeak</symbol>
+				</li>
 			</suffixSymbols>
 		</symbolPack>
 	</GeneDef>
@@ -250,7 +243,7 @@
 		<renderNodeProperties>
 			<li>
 				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
-				<texPath>Things/Pawn/Humanlike/BodyAttachments/RatkinTail/RatkinTail</texPath>
+				<texPath>Thing/Ratkin/Body/RK_Gene_ThinTail</texPath>
 				<colorType>Skin</colorType>
 				<overrideMeshSize>(1, 1)</overrideMeshSize>
 				<parentTagDef>Body</parentTagDef>
@@ -278,12 +271,20 @@
 		</renderNodeProperties>
 		<symbolPack>
 			<prefixSymbols>
-				<li><symbol>tail</symbol></li>
-				<li><symbol>rat</symbol></li>
+				<li>
+					<symbol>tail</symbol>
+				</li>
+				<li>
+					<symbol>rat</symbol>
+				</li>
 			</prefixSymbols>
 			<suffixSymbols>
-				<li><symbol>tail</symbol></li>
-				<li><symbol>rat</symbol></li>
+				<li>
+					<symbol>tail</symbol>
+				</li>
+				<li>
+					<symbol>rat</symbol>
+				</li>
 			</suffixSymbols>
 		</symbolPack>
 	</GeneDef>
@@ -311,23 +312,34 @@
 			<li>RK_HeadType_Head7</li>
 			<li>RK_HeadType_Head8</li>
 		</forcedHeadTypes>
-		<statOffsets>
-			<!-- <PawnBeauty>1</PawnBeauty> -->
-		</statOffsets>
+		<statFactors>
+			<NegotiationAbility>0.80</NegotiationAbility>
+			<TradePriceImprovement>0.90</TradePriceImprovement>
+			<SocialImpact>1.20</SocialImpact>
+		</statFactors>
 		<biostatMet>0</biostatMet>
-		<biostatCpx>0</biostatCpx>
+		<biostatCpx>1</biostatCpx>
 		<symbolPack>
 			<prefixSymbols>
-				<li><symbol>cute</symbol></li>
-				<li><symbol>sweet</symbol></li>
-				<li><symbol>charm</symbol></li>
+				<li>
+					<symbol>cute</symbol>
+				</li>
+				<li>
+					<symbol>sweet</symbol>
+				</li>
+				<li>
+					<symbol>charm</symbol>
+				</li>
 			</prefixSymbols>
 			<suffixSymbols>
-				<li><symbol>charm</symbol></li>
-				<li><symbol>cute</symbol></li>
+				<li>
+					<symbol>charm</symbol>
+				</li>
+				<li>
+					<symbol>cute</symbol>
+				</li>
 			</suffixSymbols>
 		</symbolPack>
 	</GeneDef>
 
-	
 </Defs>
