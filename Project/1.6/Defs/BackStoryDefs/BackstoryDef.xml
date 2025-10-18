@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<AlienRace.AlienBackstoryDef Name="BaseRatkinBackStory" Abstract="True">
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
 		<disallowedTraitsChance>
 			<li>
 				<defName Degree="-1">Beauty</defName>
