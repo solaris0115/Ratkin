@@ -24,7 +24,7 @@
 						<li MayRequire="Ludeon.RimWorld.Biotech">Baby</li>
 						<li MayRequire="Ludeon.RimWorld.Biotech">Child</li>
 					</bodyTypes>
-					<headOffset>(0.0, -0.05)</headOffset>
+					<headOffset>(0.0, -0.09)</headOffset>
 					<!-- 색상관련 -->
 					<colorChannels>
 						<li>
