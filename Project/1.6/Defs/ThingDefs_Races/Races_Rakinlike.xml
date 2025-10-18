@@ -165,7 +165,7 @@
 					<customPortraitDrawSize>(.9, .9)</customPortraitDrawSize>
 					<!-- 신체 부착물 -->
 					<bodyAddons>
-						<li>
+						<!-- <li>
 							<drawSize>1</drawSize>
 							<path>Things/Ratkin/Body/RK_Texture_Tail</path>
 							<inFrontOfBody>false</inFrontOfBody>
@@ -330,7 +330,7 @@
 									</portraitBodyTypes>
 								</east>
 							</offsets>
-						</li>
+						</li> -->
 					</bodyAddons>
 				</alienPartGenerator>
 				<disallowedTraits>
