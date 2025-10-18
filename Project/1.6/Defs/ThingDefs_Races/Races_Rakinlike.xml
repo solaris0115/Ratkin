@@ -339,7 +339,7 @@
 				</disallowedTraits>
 			</generalSettings>
 			<graphicPaths>
-				<body>Things/Ratkin/Body/Naked_Thin</body>
+				<body>Things/Ratkin/Body/</body>
 				<head>Things/Ratkin/Head/</head>
 			</graphicPaths>
 			<styleSettings>
