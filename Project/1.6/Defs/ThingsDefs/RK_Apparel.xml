@@ -1584,54 +1584,6 @@
 		</recipeMaker>
 	</ThingDef>
 
-
-	<!-- 번외 -->
-	<!-- 랫킨 귀 헤어밴드 사회적영향력 +5% -->
-	<ThingDef Class="NewRatkin.CustomThingDef" ParentName="RK_ApparelMakeableBase">
-		<defName>RK_EarCostume</defName>
-		<label>ratkin ear costume</label>
-		<description>귀여운 랫킨을 흉내내기 위한 귀 코스튬 입니다. 덩치가 큰 사람이 사용하면 전혀 귀엽지 않습니다.</description>
-		<graphicData>
-			<texPath>Apparel/RK_EarCostume</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<costList>
-			<Cloth>100</Cloth>
-		</costList>
-		<techLevel>Industrial</techLevel>
-		<statBases>
-			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToMake>15000</WorkToMake>
-			<Mass>7</Mass>
-			<Flammability>0.4</Flammability>
-			<ArmorRating_Sharp>0.10</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.14</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.10</ArmorRating_Heat>
-			<Insulation_Cold>5</Insulation_Cold>
-			<Insulation_Heat>5</Insulation_Heat>
-			<EquipDelay>3</EquipDelay>
-		</statBases>
-		<equippedStatOffsets>
-			<SocialImpact>0.05</SocialImpact>
-		</equippedStatOffsets>
-		<apparel>
-			<bodyPartGroups>
-				<li>UpperHead</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_EarCostume</wornGraphicPath>
-			<layers>
-				<li>Overhead</li>
-			</layers>
-			<tags>
-				<li>NonRatkin</li>
-			</tags>
-		</apparel>
-	</ThingDef>
-
-
 	<!-- 적대 세력 한정 -->
 	<!-- 도둑질 보따리 +50 내구도 +20 -->
 	<ThingDef Class="NewRatkin.CustomThingDef" ParentName="RK_ApparelMakeableBase">
@@ -2745,58 +2697,6 @@
 			</defaultIngredientFilter>		
 		</recipeMaker>
 	</ThingDef>	
-
-	<!-- 로티모자 -->
-	<ThingDef Class="NewRatkin.CustomThingDef" ParentName="RK_HatMakeableBase">
-		<defName>RK_RottiHat</defName>
-		<label>Rotti Hat</label>
-		<description>천으로 만든 로티 인형입니다. 안고 다닐 수도 있지만 머리에 얹으면 더 귀엽습니다!</description>
-		<graphicData>
-			<texPath>Apparel/RK_RottiHat</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
-		<costList>
-			<Cloth>20</Cloth>
-		</costList>
-		<statBases>
-			<MaxHitPoints>75</MaxHitPoints>
-			<WorkToMake>1200</WorkToMake>
-			<Mass>0.01</Mass>
-			<ArmorRating_Sharp>0</ArmorRating_Sharp>
-			<Insulation_Cold>2</Insulation_Cold>
-			<Insulation_Heat>2</Insulation_Heat>
-		</statBases>
-		<apparel>
-			<bodyPartGroups>
-				<li>UpperHead</li>
-			</bodyPartGroups>
-			<wornGraphicPath>Apparel/RK_RottiHat</wornGraphicPath>
-			<layers>
-				<li>Overhead</li>
-			</layers>
-			<defaultOutfitTags>
-				<li>Worker</li>
-			</defaultOutfitTags>
-			<tags>
-				<li>RK_ETC</li>
-			</tags>
-		</apparel>
-		<equippedStatOffsets>
-			<PsychicSensitivity>-0.2</PsychicSensitivity>
-		</equippedStatOffsets>
-		<colorGenerator Class="ColorGenerator_Options">
-			<options>
-				<li>
-					<weight>10</weight>
-					<only>(1,1,1,1)</only>
-				</li>
-			</options>
-		</colorGenerator>
-	</ThingDef>
-
-
-
 
 	<StuffCategoryDef>
 		<defName>WeaponMetallic</defName>
