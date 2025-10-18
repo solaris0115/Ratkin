@@ -194,26 +194,9 @@
 				<useRottenColor>true</useRottenColor>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
 				<drawData>
-					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
 					<defaultData>
 						<layer>70</layer>
 					</defaultData>
-					<dataNorth>
-						<offset>(0.015, 0, -0.23)</offset>
-						<layer>-10</layer>
-					</dataNorth>
-					<dataSouth>
-						<offset>(0, 0, -0.35)</offset>
-						<layer>70</layer>
-					</dataSouth>
-					<dataEast>
-						<offset>(0.2, 0, -0.25)</offset>
-						<layer>70</layer>
-					</dataEast>
-					<dataWest>
-						<offset>(-0.2, 0, -0.25)</offset>
-						<layer>70</layer>
-					</dataWest>
 				</drawData>
 			</li>
 		</renderNodeProperties>
@@ -272,20 +255,17 @@
 						<layer>-2</layer>
 					</defaultData>
 					<dataNorth>
-						<offset>(-0.01, 0, 0.07)</offset>
+						<offset>(0, 0, -0.15)</offset>
 						<layer>90</layer>
 					</dataNorth>
 					<dataSouth>
-						<offset>(-0.01, 0, -0.2)</offset>
-						<layer>-2</layer>
+						<offset>(0, 0, -0.15)</offset>
 					</dataSouth>
 					<dataEast>
-						<offset>(-0.05, 0, -0.1)</offset>
-						<layer>-2</layer>
+						<offset>(-0.5, 0, -0.15)</offset>
 					</dataEast>
 					<dataWest>
-						<offset>(0.05, 0, -0.1)</offset>
-						<layer>-2</layer>
+						<offset>(0.5, 0, -0.15)</offset>
 					</dataWest>
 				</drawData>
 			</li>
