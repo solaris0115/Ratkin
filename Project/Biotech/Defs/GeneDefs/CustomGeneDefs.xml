@@ -196,11 +196,10 @@
 				<drawData>
 					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
 					<defaultData>
-						<layer>70</layer>
+						<layer>105</layer>
 					</defaultData>
 					<dataNorth>
 						<offset>(0, 0,0)</offset>
-						<layer>70</layer>
 					</dataNorth>
 					<dataSouth>
 						<offset>(0, 0,0)</offset>
