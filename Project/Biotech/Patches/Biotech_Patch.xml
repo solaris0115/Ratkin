@@ -5,7 +5,7 @@
 	<!-- bodyAddons도 xenoType에서 정의하므로 ThingDef_AlienRace의 bodyAddons 제거 -->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
-			<li>Ludeon.RimWorld.Biotech</li>
+			<li>Biotech</li>
 		</mods>
 		<match Class="PatchOperationSequence">
 			<operations>
