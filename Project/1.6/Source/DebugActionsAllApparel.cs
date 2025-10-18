@@ -34,7 +34,7 @@ namespace DebugTools
                 return;
             }
 
-            // 3. Get Ratkin PawnKindDef
+            // 3. Get Ratkin PawnKindDef and XenotypeDef
             PawnKindDef ratkinKind = DefDatabase<PawnKindDef>.GetNamedSilentFail("RatkinColonist");
             if (ratkinKind == null)
             {
@@ -42,20 +42,25 @@ namespace DebugTools
                 return;
             }
 
+            XenotypeDef ratkinXenotype = DefDatabase<XenotypeDef>.GetNamedSilentFail("RK_XenoType_Ratkin");
+
             // 4. Spawn pawns with apparel
             Map map = Find.CurrentMap;
             IntVec3 startPos = new IntVec3(30, 0, map.Size.z - 30); // Top-right offset by 30,30
             int gridX = 0;
             int gridZ = 0;
             int spawnedCount = 0;
+            
+            // Calculate grid size for square layout
+            int gridSize = (int)System.Math.Ceiling(System.Math.Sqrt(allApparels.Count));
 
             foreach (ThingDef apparelDef in allApparels)
             {
-                // Calculate spawn position (5 cell spacing)
+                // Calculate spawn position (2 cell spacing)
                 IntVec3 spawnPos = new IntVec3(
-                    startPos.x + (gridX * 5),
+                    startPos.x + (gridX * 2),
                     0,
-                    startPos.z - (gridZ * 5)
+                    startPos.z - (gridZ * 2)
                 );
 
                 // Find valid spawn position
@@ -73,6 +78,12 @@ namespace DebugTools
                     allowAddictions: false,
                     relationWithExtraPawnChanceFactor: 0f
                 );
+
+                // Set Ratkin xenotype if available
+                if (ratkinXenotype != null && ModsConfig.BiotechActive)
+                {
+                    request.ForcedXenotype = ratkinXenotype;
+                }
 
                 Pawn pawn = PawnGenerator.GeneratePawn(request);
 
@@ -102,9 +113,9 @@ namespace DebugTools
 
                 spawnedCount++;
 
-                // Update grid position
+                // Update grid position (square layout)
                 gridX++;
-                if (gridX >= 10) // 10 pawns per row
+                if (gridX >= gridSize)
                 {
                     gridX = 0;
                     gridZ++;
@@ -136,8 +147,8 @@ namespace DebugTools
             }
 
             // Remove all plants
-            List<Plant> plants = map.listerThings.ThingsInGroup(ThingRequestGroup.Plant).ToList();
-            foreach (Plant plant in plants)
+            var plants = map.listerThings.ThingsInGroup(ThingRequestGroup.Plant).ToList();
+            foreach (Thing plant in plants)
             {
                 plant.Destroy();
             }

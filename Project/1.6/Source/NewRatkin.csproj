@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoTests\AutoTests.cs" />
+    <Compile Include="DebugActionsAllApparel.cs" />
     <Compile Include="Gunlance\CompGunlanceFuel.cs" />
     <Compile Include="Gunlance\CompProperties_GunlanceFuel.cs" />
     <Compile Include="Gunlance\CompUseEffect.cs" />
