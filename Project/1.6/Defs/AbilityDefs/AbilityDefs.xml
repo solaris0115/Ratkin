@@ -32,21 +32,18 @@
 		<defName>RK_Ability_MeleeMoraleBooster</defName>
 		<label>morale booster</label>
 		<description>Boost the morale of everyone nearby.</description>
-		<iconPath>UI/Abilities/MoraleBooster</iconPath>
-		<warmupMoteSocialSymbol>UI/Abilities/RK_TextureIcon_Banner1</warmupMoteSocialSymbol>
+		<iconPath>UI/Abilities/RK_TextureIcon_Banner</iconPath>
+		<warmupMoteSocialSymbol>UI/Abilities/MarksmanCommand</warmupMoteSocialSymbol>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<groupDef>RK_AbilityGroup_MoraleBoost</groupDef>		<!--overrides MultiRole-->
 		<comps>
 			<li Class="CompProperties_AbilityGiveHediff">
 				<compClass>CompAbilityEffect_GiveHediff</compClass>
-				<hediffDef>RK_Hediff_MeleeMoraleBooster</hediffDef>
+				<hediffDef>RK_Hediff_MoraleBooster</hediffDef>
 				<onlyBrain>True</onlyBrain>
 				<onlyApplyToSelf>True</onlyApplyToSelf>
 				<replaceExisting>true</replaceExisting>
 			</li>
 		</comps>
-		<statBases>
-			<Ability_WarmupTime>3</Ability_WarmupTime>
-		</statBases>
 	</AbilityDef>
 </Defs>
