@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="RK_ApparelMakeableBase">
-		<defName>RK_Apparel_MoraleBoosterBelt</defName>
-		<label>morale booster belt</label>
-		<description>A high-tech belt that can boost the morale of nearby allies through advanced psychological enhancement technology.</description>
+	<ThingDef ParentName="ApparelMakeableBase">
+		<defName>RK_Apparel_Banner</defName>
+		<label>war banner</label>
+		<description>주변 아군을 브루스 배너로 만듭니다.</description>
 		<graphicData>
-			<texPath>Thing/Apparel/MoraleBoosterBelt</texPath>
+			<texPath>Things/Apparel/Util/RK_TextureApparel_Banner</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
@@ -31,7 +31,7 @@
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Thing/Apparel/RK_Apparel_MoraleBoosterBelt</wornGraphicPath>
+			<wornGraphicPath>Things/Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath>
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
@@ -41,10 +41,10 @@
 				<li>RK_ApparelTag_Support</li>
 				<li>RK_ApparelTag_Buffer</li>
 			</tags>
+			<abilities>
+				<li>RK_Ability_MeleeMoraleBooster</li>
+			</abilities>
 		</apparel>
-		<abilities>
-			<li>RK_Ability_MeleeMoraleBooster</li>
-		</abilities>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<!-- TODO: 사기 진작 아이템 연구 필요 -->
