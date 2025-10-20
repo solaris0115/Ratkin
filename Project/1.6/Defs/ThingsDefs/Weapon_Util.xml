@@ -38,7 +38,7 @@
 		<costList>
 			<WoodLog>40</WoodLog>
 		</costList>
-		<costStuffCount>50</costStuffCount>		
+		<costStuffCount>50</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
@@ -93,7 +93,7 @@
 		<costList>
 			<WoodLog>25</WoodLog>
 		</costList>
-		<costStuffCount>50</costStuffCount>		
+		<costStuffCount>50</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
@@ -147,7 +147,7 @@
 		<costList>
 			<WoodLog>40</WoodLog>
 		</costList>
-		<costStuffCount>50</costStuffCount>		
+		<costStuffCount>50</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
@@ -201,7 +201,7 @@
 		<costList>
 			<WoodLog>40</WoodLog>
 		</costList>
-		<costStuffCount>50</costStuffCount>		
+		<costStuffCount>50</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
@@ -239,10 +239,10 @@
 			</skillRequirements>
 		</recipeMaker>
 	</ThingDef>
-	
+
 	<ThingDef Abstract="True" Name="RK_NeolithicRangeWeapon" ParentName="BaseWeaponNeolithic">
-		<recipeMaker>			
-			<recipeUsers Inherit="false" >
+		<recipeMaker>
+			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
@@ -876,7 +876,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
-	
+
 	<!-- 2티어 -->
 	<!-- 샷건 	-->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon">
@@ -909,56 +909,56 @@
 			</skillRequirements>
 		</recipeMaker>
 		<!-- <comps> -->
-			<!-- <li> -->
-				<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
-			<!-- </li> -->
+		<!-- <li> -->
+		<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
+		<!-- </li> -->
 		<!-- </comps> -->
-		<verbs>			
+		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<soundCast>FlechetteRifle</soundCast>
 				<defaultProjectile>Bullet_RK_Buck</defaultProjectile>
-				
+
 				<warmupTime>0.9</warmupTime>
-				<range>13.9</range>					
+				<range>13.9</range>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>4</muzzleFlashScale>
 				<burstShotCount>6</burstShotCount>
 				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
 			</li>
 			<!-- <li Class="AdditionalVerb.VerbProperties_Custom"> -->
-				<!-- <verbClass>Verb_Shoot</verbClass> -->
-				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <soundCast>FlechetteRifle</soundCast> -->
-				<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
+			<!-- <verbClass>Verb_Shoot</verbClass> -->
+			<!-- <hasStandardCommand>true</hasStandardCommand> -->
+			<!-- <soundCast>FlechetteRifle</soundCast> -->
+			<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
 
-				<!-- <defaultProjectile>Bullet_RK_Slug</defaultProjectile> -->
-				<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
-				<!-- <warmupTime>1.55</warmupTime> -->
-				<!-- <burstShotCount>1</burstShotCount> -->
-				<!-- <ticksBetweenBurstShots>6</ticksBetweenBurstShots> -->
-				<!-- <range>27.9</range> -->
-				<!-- <desc>슬러그</desc> -->
-				<!-- <label>Slug fire</label> -->
-				<!-- <texPath>UI/Commands/Slug</texPath> -->
+			<!-- <defaultProjectile>Bullet_RK_Slug</defaultProjectile> -->
+			<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
+			<!-- <warmupTime>1.55</warmupTime> -->
+			<!-- <burstShotCount>1</burstShotCount> -->
+			<!-- <ticksBetweenBurstShots>6</ticksBetweenBurstShots> -->
+			<!-- <range>27.9</range> -->
+			<!-- <desc>슬러그</desc> -->
+			<!-- <label>Slug fire</label> -->
+			<!-- <texPath>UI/Commands/Slug</texPath> -->
 			<!-- </li> -->
 		</verbs>
 		<tools>
 			<li>
 				<label>stock</label>
-					<capacities>
-						<li>Blunt</li>
-					</capacities>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
 				<power>7</power>
 				<cooldownTime>1.8</cooldownTime>
 			</li>
 			<li>
 				<label>barrel</label>
-					<capacities>
-						<li>Blunt</li>
-						<li>Poke</li>
-					</capacities>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
 				<power>7</power>
 				<cooldownTime>1.8</cooldownTime>
 			</li>
@@ -978,7 +978,7 @@
 		</weaponTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
-	
+
 	<ThingDef ParentName="BaseBullet">
 		<defName>Bullet_RK_Buck</defName>
 		<label>Buck bullet</label>
@@ -993,8 +993,8 @@
 			<texPath>Things/Projectile/Bullet_small</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
-	</ThingDef>	
-	
+	</ThingDef>
+
 	<ThingDef ParentName="BaseBullet">
 		<defName>Bullet_RK_Slug</defName>
 		<label>Slug bullet</label>
@@ -1010,9 +1010,9 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
-	
-	
-		<!-- 3티어 -->
+
+
+	<!-- 3티어 -->
 	<!-- 랫킨용 실험용총 2연발 -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon">
 		<defName>RK_PrototypePulseRifle</defName>
@@ -1036,11 +1036,11 @@
 			<Plasteel>80</Plasteel>
 			<ComponentIndustrial>7</ComponentIndustrial>
 			<ComponentSpacer>1</ComponentSpacer>
-		</costList>		
+		</costList>
 		<!-- <comps> -->
-			<!-- <li> -->
-				<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
-			<!-- </li> -->
+		<!-- <li> -->
+		<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
+		<!-- </li> -->
 		<!-- </comps> -->
 		<verbs>
 			<li>
@@ -1061,7 +1061,7 @@
 				<!-- <accuracyShort>0.50</accuracyShort> -->
 				<!-- <accuracyMedium>0.25</accuracyMedium> -->
 				<!-- <accuracyLong>0</accuracyLong> -->
-			</li>	
+			</li>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
@@ -1077,7 +1077,7 @@
 				<label>Precisely Fire</label>
 				<!-- <texPath>UI/Commands/Snipe</texPath> -->
 			</li>
-		</verbs>		
+		</verbs>
 		<recipeMaker Inherit="false">
 			<!-- <researchPrerequisite>PulseTech</researchPrerequisite> -->
 			<!-- <skillRequirements> -->
@@ -1163,12 +1163,12 @@
 			<Plasteel>120</Plasteel>
 			<ComponentIndustrial>8</ComponentIndustrial>
 			<ComponentSpacer>2</ComponentSpacer>
-		</costList>		
+		</costList>
 		<equippedAngleOffset>45</equippedAngleOffset>
 		<!-- <comps> -->
-			<!-- <li> -->
-				<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
-			<!-- </li> -->
+		<!-- <li> -->
+		<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
+		<!-- </li> -->
 		<!-- </comps> -->
 		<verbs>
 			<!-- 관통탄 -->
@@ -1183,29 +1183,29 @@
 				<warmupTime>2.5</warmupTime>
 				<burstShotCount>1</burstShotCount>
 				<minRange>3</minRange>
-				<range>44.9</range>	
+				<range>44.9</range>
 				<!-- <desc>관통성이 높은 정밀 탄환을 발사합니다.</desc> -->
 				<label>AP fire</label>
 				<!-- <texPath>UI/Commands/AP</texPath> -->
 			</li>
 			<!-- 후폭풍탄 -->
 			<!-- <li Class="AdditionalVerb.VerbProperties_Custom"> -->
-				<!-- <verbClass>Verb_Shoot</verbClass> -->
-				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <soundCast>PrototypePulse</soundCast> -->
-				<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
+			<!-- <verbClass>Verb_Shoot</verbClass> -->
+			<!-- <hasStandardCommand>true</hasStandardCommand> -->
+			<!-- <soundCast>PrototypePulse</soundCast> -->
+			<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
 
-				<!-- <defaultProjectile>Bullet_BFR_SC</defaultProjectile> -->
-				<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
-				<!-- <warmupTime>2.5</warmupTime> -->
-				<!-- <burstShotCount>1</burstShotCount> -->
-				<!-- <minRange>3</minRange> -->
-				<!-- <range>44.9</range>	 -->
-				<!-- <desc>적중시 뒤로 파편을 비산시키는 특수탄을 발사합니다.</desc> -->
-				<!-- <label>SC fire</label> -->
-				<!-- <texPath>UI/Commands/SC</texPath> -->
+			<!-- <defaultProjectile>Bullet_BFR_SC</defaultProjectile> -->
+			<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
+			<!-- <warmupTime>2.5</warmupTime> -->
+			<!-- <burstShotCount>1</burstShotCount> -->
+			<!-- <minRange>3</minRange> -->
+			<!-- <range>44.9</range>	 -->
+			<!-- <desc>적중시 뒤로 파편을 비산시키는 특수탄을 발사합니다.</desc> -->
+			<!-- <label>SC fire</label> -->
+			<!-- <texPath>UI/Commands/SC</texPath> -->
 			<!-- </li> -->
-		</verbs>		
+		</verbs>
 		<recipeMaker Inherit="false">
 			<!-- <researchPrerequisite>PulseTech</researchPrerequisite> -->
 			<!-- <skillRequirements> -->

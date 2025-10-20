@@ -2289,7 +2289,8 @@
 		<followStuffColor>True</followStuffColor>
 	</ThingDef>
 
-		<!-- 대형 철제 방패 -->
+
+	<!-- 대형 철제 방패 -->
 	<ThingDef Class="NewRatkin.CustomThingDef" ParentName="RK_ApparelMakeableBase">
 		<defName>RK_HeavyShield_Big</defName>
 		<label>ratkin Big heavy Shield</label>
@@ -2728,4 +2729,6 @@
 		<defName>Straw</defName>
 		<label>straw</label>
 	</StuffCategoryDef>
+
+	
 </Defs>
