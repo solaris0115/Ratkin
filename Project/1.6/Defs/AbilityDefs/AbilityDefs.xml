@@ -22,24 +22,31 @@
 		</comps>
 	</AbilityDef>
 
-	<!-- 랫킨 기수용 스킬 -->
+	<!-- 증강용 기능에 대해서는 중복 불가. 밸런싱 목적 -->
+	<AbilityGroupDef>
+		<defName>RK_AbilityGroup_MoraleBoost</defName>
+		<cooldownTicks>60000</cooldownTicks>
+	</AbilityGroupDef>
+
 	<AbilityDef ParentName="RoleAuraBuffBase">
-		<defName>RK_Ability_WarBanner</defName>
-		<label>war banner</label>
-		<description>전쟁 배너를 높게 들어 아군들의 사기를 올립니다. 사기가 오른 아군들은 전투에 보다 효과적으로 집중할 수 있습니다.</description>
-		<!-- TODO: 전쟁 배너용 아이콘으로 변경 -->
-		<iconPath>UI/Abilities/MarksmanCommand</iconPath>
-		<warmupMoteSocialSymbol>UI/Abilities/MarksmanCommand</warmupMoteSocialSymbol>
+		<defName>RK_Ability_MeleeMoraleBooster</defName>
+		<label>morale booster</label>
+		<description>Boost the morale of everyone nearby.</description>
+		<iconPath>UI/Abilities/MoraleBooster</iconPath>
+		<warmupMoteSocialSymbol>UI/Abilities/RK_TextureIcon_Banner1</warmupMoteSocialSymbol>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<groupDef>RK_AbilityGroup_MoraleBoost</groupDef>		<!--overrides MultiRole-->
 		<comps>
 			<li Class="CompProperties_AbilityGiveHediff">
 				<compClass>CompAbilityEffect_GiveHediff</compClass>
-				<!-- TODO: 전쟁 배너용 고통한계 및 근접 적중, 회피율 올려줌 -->
-				<hediffDef>MarksmanCommand</hediffDef>
+				<hediffDef>RK_Hediff_MeleeMoraleBooster</hediffDef>
 				<onlyBrain>True</onlyBrain>
 				<onlyApplyToSelf>True</onlyApplyToSelf>
 				<replaceExisting>true</replaceExisting>
 			</li>
 		</comps>
+		<statBases>
+			<Ability_WarmupTime>3</Ability_WarmupTime>
+		</statBases>
 	</AbilityDef>
 </Defs>

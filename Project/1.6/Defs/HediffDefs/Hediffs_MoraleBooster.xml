@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 사기 진작 버프 헤딥 -->
+  <HediffDef ParentName="CombatRoleAuraBuffHediffBase">
+    <defName>RK_Hediff_MeleeMoraleBooster</defName>
+    <label>morale booster</label>
+    <description>Someone is using the morale booster ability nearby, boosting this person's combat effectiveness.</description>
+    <debugLabelExtra>other</debugLabelExtra>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeDodgeChance>0.15</MeleeDodgeChance>
+          <MoveSpeed>0.10</MoveSpeed>
+          <PainShockThreshold>0.15</PainShockThreshold>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 사기 진작 시전자 헤딥 -->
+  <HediffDef ParentName="RoleStatBuff">
+    <defName>RK_Hediff_MeleeMoraleBooster</defName>
+    <label>morale booster</label>
+    <description>This person is using a special ability to boost the morale of everyone nearby. Everyone within an effect radius gains combat bonuses.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>True</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="HediffCompProperties_GiveHediffsInRange">
+        <range>19.5</range>
+        <mote>Mote_CombatCommand</mote>
+        <hideMoteWhenNotDrafted>true</hideMoteWhenNotDrafted>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetColonists>true</onlyTargetColonists>
+        </targetingParameters>
+        <hediff>MoraleBoosterBuff</hediff>
+      </li>
+    </comps>
+    <isBad>false</isBad>
+  </HediffDef>
+</Defs>

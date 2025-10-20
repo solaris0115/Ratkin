@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_Apparel_MoraleBoosterBelt</defName>
+		<label>morale booster belt</label>
+		<description>A high-tech belt that can boost the morale of nearby allies through advanced psychological enhancement technology.</description>
+		<graphicData>
+			<texPath>Thing/Apparel/MoraleBoosterBelt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costList>
+			<WoodLog>100</WoodLog>
+		</costList>
+		<costStuffCount>120</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<techLevel>Medieval</techLevel>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>25000</WorkToMake>
+			<Mass>2</Mass>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MeleeDodgeChance>-0.15</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<apparel>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Thing/Apparel/RK_Apparel_MoraleBoosterBelt</wornGraphicPath>
+			<layers>
+				<li>OuterClothing</li>
+			</layers>
+			<tags>
+				<li>RK_ApparelTag_All</li>
+				<li>RK_ApparelTag_Banner</li>
+				<li>RK_ApparelTag_Support</li>
+				<li>RK_ApparelTag_Buffer</li>
+			</tags>
+		</apparel>
+		<abilities>
+			<li>RK_Ability_MeleeMoraleBooster</li>
+		</abilities>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+			<!-- TODO: 사기 진작 아이템 연구 필요 -->
+			<!-- <researchPrerequisite>RK_Research_MoraleBooster</researchPrerequisite> -->
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>
+	</ThingDef>
+</Defs>
