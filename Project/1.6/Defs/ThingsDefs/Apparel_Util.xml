@@ -5,7 +5,7 @@
 		<label>war banner</label>
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
 		<graphicData>
-			<texPath>Things/Apparel/Util/RK_TextureApparel_Banner</texPath>
+			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
@@ -31,7 +31,7 @@
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Things/Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath>
+			<wornGraphicPath>Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath>
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
