@@ -27,6 +27,13 @@
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.15</MeleeDodgeChance>
 		</equippedStatOffsets>
+		<comps>
+			<li Class="NewRatkin.CompProperties_BannerDrawer">
+				<!-- 배너 조건부 드로잉 Comp -->
+				<graphicPath>Apparel/Util/RK_TextureApparel_BannerArm</graphicPath>
+				<drawSize>(1.0, 1.0)</drawSize>
+			</li>
+		</comps>
 		<apparel>
 			<defaultOutfitTags>
 				<li>Soldier</li>
