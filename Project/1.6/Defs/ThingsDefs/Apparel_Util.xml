@@ -35,6 +35,11 @@
 			</li>
 		</comps>
 		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+			</bodyPartGroups>
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
