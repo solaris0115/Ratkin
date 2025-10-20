@@ -2,7 +2,7 @@
 <Defs>
   <!-- 사기 진작 버프 헤딥 -->
   <HediffDef ParentName="CombatRoleAuraBuffHediffBase">
-    <defName>RK_Hediff_MeleeMoraleBooster</defName>
+    <defName>RK_Hediff_MoraleBoosterBuff</defName>
     <label>morale booster</label>
     <description>Someone is using the morale booster ability nearby, boosting this person's combat effectiveness.</description>
     <debugLabelExtra>other</debugLabelExtra>
@@ -19,7 +19,7 @@
 
   <!-- 사기 진작 시전자 헤딥 -->
   <HediffDef ParentName="RoleStatBuff">
-    <defName>RK_Hediff_MeleeMoraleBooster</defName>
+    <defName>RK_Hediff_MoraleBooster</defName>
     <label>morale booster</label>
     <description>This person is using a special ability to boost the morale of everyone nearby. Everyone within an effect radius gains combat bonuses.</description>
     <hediffClass>HediffWithComps</hediffClass>
@@ -38,7 +38,7 @@
           <canTargetMechs>false</canTargetMechs>
           <onlyTargetColonists>true</onlyTargetColonists>
         </targetingParameters>
-        <hediff>MoraleBoosterBuff</hediff>
+        <hediff>RK_Hediff_MoraleBoosterBuff</hediff>
       </li>
     </comps>
     <isBad>false</isBad>
