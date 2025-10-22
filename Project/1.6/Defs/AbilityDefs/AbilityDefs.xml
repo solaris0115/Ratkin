@@ -33,7 +33,7 @@
 		<label>morale booster</label>
 		<description>Boost the morale of everyone nearby.</description>
 		<iconPath>UI/Abilities/RK_TextureIcon_Banner</iconPath>
-		<warmupMoteSocialSymbol>UI/Abilities/MarksmanCommand</warmupMoteSocialSymbol>
+		<warmupMoteSocialSymbol>UI/Icons/Colonistbar/Attacking</warmupMoteSocialSymbol>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<groupDef>RK_AbilityGroup_MoraleBoost</groupDef>		<!--overrides MultiRole-->
 		<comps>
