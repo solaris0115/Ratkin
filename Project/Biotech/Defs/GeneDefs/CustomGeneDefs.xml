@@ -90,7 +90,7 @@
 		<displayCategory>Pain</displayCategory>
 		<displayOrderInCategory>25</displayOrderInCategory>
 		<statOffsets>
-			<PainShockThreshold>-0.3</PainShockThreshold>
+			<PainShockThreshold>-0.1</PainShockThreshold>
 			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
 		<biostatMet>2</biostatMet>
