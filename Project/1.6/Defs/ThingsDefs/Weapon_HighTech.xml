@@ -15,6 +15,9 @@
 			<li>RK_EliteDefender</li>
 			<li>RK_Gunlance</li>
 			<li>AV</li>
+			<li>RK_WeaponTag_TwoHanded</li>
+			<li>RK_WeaponTag_TwoHandedMelee</li>
+			<li>RK_WeaponTag_TwoHandedMeleeAttack</li>
 		</weaponTags>
 		<costStuffCount>100</costStuffCount>
 		<stuffCategories>
