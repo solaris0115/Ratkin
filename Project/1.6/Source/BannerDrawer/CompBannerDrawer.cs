@@ -6,44 +6,82 @@ using RimWorld;
 namespace NewRatkin
 {
     /// <summary>
+    /// 방향별 드로잉 데이터 (그래픽 경로 + 오프셋 + 각도)
+    /// </summary>
+    public class BannerDrawData
+    {
+        public string graphicPath;
+        
+        public Vector3 offsetNorth = Vector3.zero;
+        public Vector3 offsetEast = Vector3.zero;
+        public Vector3 offsetSouth = Vector3.zero;
+        public Vector3 offsetWest = Vector3.zero;
+
+        public float angleNorth = 0f;
+        public float angleEast = 0f;
+        public float angleSouth = 0f;
+        public float angleWest = 0f;
+    }
+
+    /// <summary>
     /// 배너 Apparel의 조건부 드로잉을 담당하는 Component
     /// RimWorld CompShield 패턴을 따름
     /// </summary>
     public class CompProperties_BannerDrawer : CompProperties
     {
         /// <summary>
-        /// 배너 텍스처 경로 (방향별 텍스처용 Graphic_Multi)
-        /// 예: "Apparel/Util/RK_TextureApparel_BannerArm"
-        /// </summary>
-        public string graphicPath;
-
-        /// <summary>
         /// 드로잉 크기 (기본값: 1.0)
         /// </summary>
         public Vector2 drawSize = new Vector2(1f, 1f);
 
+        /// <summary>
+        /// 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치)
+        /// </summary>
+        public BannerDrawData draftedDrawData;
+
+        /// <summary>
+        /// 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치)
+        /// </summary>
+        public BannerDrawData backDrawData;
+
         public CompProperties_BannerDrawer()
         {
             this.compClass = typeof(CompBannerDrawer);
+
+            // 기본값 설정 (이전 하드코딩 값)
+            draftedDrawData = new BannerDrawData
+            {
+                graphicPath = "Apparel/Util/RK_TextureApparel_BannerArm",
+                offsetNorth = new Vector3(-0.25f, 0.15f, -0.08f),
+                offsetSouth = new Vector3(0.25f, 0.15f, -0.08f),
+                offsetEast = new Vector3(0.22f, 0.12f, -0.12f),
+                offsetWest = new Vector3(-0.22f, 0.12f, -0.12f),
+                angleNorth = 0f,
+                angleEast = 0f,
+                angleSouth = 0f,
+                angleWest = 0f
+            };
+
+            backDrawData = new BannerDrawData
+            {
+                graphicPath = "Apparel/Util/RK_TextureApparel_BannerUnarm",
+                offsetNorth = new Vector3(0f, -0.18f, -0.08f),
+                offsetSouth = new Vector3(0f, -0.12f, -0.12f),
+                offsetEast = new Vector3(-0.12f, -0.15f, -0.08f),
+                offsetWest = new Vector3(0.12f, -0.15f, -0.08f),
+                angleNorth = 0f,
+                angleEast = 0f,
+                angleSouth = 0f,
+                angleWest = 0f
+            };
         }
     }
 
     [StaticConstructorOnStartup]
     public class CompBannerDrawer : ThingComp
     {
-        private Graphic bannerGraphic;
-
-        // 위치 오프셋 정의 (소집 시 - 팔/어깨)
-        private static readonly Vector3 draftedOffsetNorth = new Vector3(-0.25f, 0.15f, -0.08f);
-        private static readonly Vector3 draftedOffsetSouth = new Vector3(0.25f, 0.15f, -0.08f);
-        private static readonly Vector3 draftedOffsetEast = new Vector3(0.22f, 0.12f, -0.12f);
-        private static readonly Vector3 draftedOffsetWest = new Vector3(-0.22f, 0.12f, -0.12f);
-
-        // 위치 오프셋 정의 (평상시 - 등)
-        private static readonly Vector3 backOffsetNorth = new Vector3(0f, -0.18f, -0.08f);
-        private static readonly Vector3 backOffsetSouth = new Vector3(0f, -0.12f, -0.12f);
-        private static readonly Vector3 backOffsetEast = new Vector3(-0.12f, -0.15f, -0.08f);
-        private static readonly Vector3 backOffsetWest = new Vector3(0.12f, -0.15f, -0.08f);
+        private Graphic bannerGraphicDrafted;  // 소집 시 그래픽
+        private Graphic bannerGraphicBack;     // 비소집 시 그래픽
 
         /// <summary>
         /// CompProperties 캐스팅
@@ -96,21 +134,11 @@ namespace NewRatkin
         /// </summary>
         private void LoadGraphic()
         {
-            if (bannerGraphic != null) return;
+            if (bannerGraphicDrafted != null && bannerGraphicBack != null) return;
 
             LongEventHandler.ExecuteWhenFinished(() =>
             {
                 if (parent == null) return;
-
-                // CompProperties에서 graphicPath 가져오기
-                string graphicPath = Props.graphicPath;
-                
-                // graphicPath가 설정되지 않은 경우 기본값 사용
-                if (graphicPath.NullOrEmpty())
-                {
-                    Log.Warning($"[CompBannerDrawer] {parent.def.defName}: graphicPath가 설정되지 않았습니다. 기본 경로 사용.");
-                    graphicPath = "Apparel/Util/RK_TextureApparel_BannerArm";
-                }
 
                 // drawSize 가져오기 (Props 또는 parent.def.graphicData에서)
                 Vector2 drawSize = Props.drawSize;
@@ -122,9 +150,29 @@ namespace NewRatkin
                 {
                     drawSize = new Vector2(1f, 1f);
                 }
-                
-                bannerGraphic = GraphicDatabase.Get<Graphic_Multi>(
-                    graphicPath,
+
+                // 소집 시 그래픽 로딩
+                string graphicPathDrafted = Props.draftedDrawData?.graphicPath;
+                if (graphicPathDrafted.NullOrEmpty())
+                {
+                    Log.Warning($"[CompBannerDrawer] {parent.def.defName}: draftedDrawData.graphicPath가 설정되지 않았습니다. 기본 경로 사용.");
+                    graphicPathDrafted = "Apparel/Util/RK_TextureApparel_BannerArm";
+                }
+                bannerGraphicDrafted = GraphicDatabase.Get<Graphic_Multi>(
+                    graphicPathDrafted,
+                    ShaderDatabase.Cutout,
+                    drawSize,
+                    parent.DrawColor);
+
+                // 비소집 시 그래픽 로딩
+                string graphicPathBack = Props.backDrawData?.graphicPath;
+                if (graphicPathBack.NullOrEmpty())
+                {
+                    Log.Warning($"[CompBannerDrawer] {parent.def.defName}: backDrawData.graphicPath가 설정되지 않았습니다. 기본 경로 사용.");
+                    graphicPathBack = "Apparel/Util/RK_TextureApparel_BannerUnarm";
+                }
+                bannerGraphicBack = GraphicDatabase.Get<Graphic_Multi>(
+                    graphicPathBack,
                     ShaderDatabase.Cutout,
                     drawSize,
                     parent.DrawColor);
@@ -140,7 +188,7 @@ namespace NewRatkin
             base.CompDrawWornExtras();
 
             // 유효성 검증
-            if (bannerGraphic == null || Wearer == null || !Wearer.Spawned)
+            if (Wearer == null || !Wearer.Spawned)
             {
                 return;
             }
@@ -148,23 +196,26 @@ namespace NewRatkin
             Pawn pawn = Wearer;
             Vector3 rootLoc = pawn.DrawPos;
 
-            // 소집 상태에 따라 다른 위치에 그리기
+            // 소집 상태에 따라 다른 위치와 그래픽으로 그리기
             if (ShouldShowOnArm)
             {
-                // 소집 시 - 팔/어깨에 표시
+                // 소집 시 - 팔/어깨에 표시 (Arm 그래픽)
+                if (bannerGraphicDrafted == null) return;
+                
+                BannerDrawData drawData = Props.draftedDrawData;
                 switch (pawn.Rotation.AsInt)
                 {
                     case 0: // North
-                        DrawBanner(bannerGraphic.MatNorth, rootLoc + draftedOffsetNorth, 0);
+                        DrawBanner(bannerGraphicDrafted.MatNorth, rootLoc + drawData.offsetNorth, drawData.angleNorth);
                         break;
                     case 1: // East
-                        DrawBanner(bannerGraphic.MatEast, rootLoc + draftedOffsetEast, 0);
+                        DrawBanner(bannerGraphicDrafted.MatEast, rootLoc + drawData.offsetEast, drawData.angleEast);
                         break;
                     case 2: // South
-                        DrawBanner(bannerGraphic.MatSouth, rootLoc + draftedOffsetSouth, 0);
+                        DrawBanner(bannerGraphicDrafted.MatSouth, rootLoc + drawData.offsetSouth, drawData.angleSouth);
                         break;
                     case 3: // West
-                        DrawBanner(bannerGraphic.MatWest, rootLoc + draftedOffsetWest, 0);
+                        DrawBanner(bannerGraphicDrafted.MatWest, rootLoc + drawData.offsetWest, drawData.angleWest);
                         break;
                     default:
                         break;
@@ -172,22 +223,25 @@ namespace NewRatkin
             }
             else
             {
-                // 평상시 - 등에 표시
+                // 평상시 - 등에 표시 (Unarm 그래픽)
+                if (bannerGraphicBack == null) return;
+                
                 if (!pawn.Dead && pawn.GetPosture() == PawnPosture.Standing)
                 {
+                    BannerDrawData drawData = Props.backDrawData;
                     switch (pawn.Rotation.AsInt)
                     {
                         case 0: // North
-                            DrawBanner(bannerGraphic.MatNorth, rootLoc + backOffsetNorth, 0);
+                            DrawBanner(bannerGraphicBack.MatNorth, rootLoc + drawData.offsetNorth, drawData.angleNorth);
                             break;
                         case 1: // East
-                            DrawBanner(bannerGraphic.MatEast, rootLoc + backOffsetEast, 0);
+                            DrawBanner(bannerGraphicBack.MatEast, rootLoc + drawData.offsetEast, drawData.angleEast);
                             break;
                         case 2: // South
-                            DrawBanner(bannerGraphic.MatSouth, rootLoc + backOffsetSouth, 0);
+                            DrawBanner(bannerGraphicBack.MatSouth, rootLoc + drawData.offsetSouth, drawData.angleSouth);
                             break;
                         case 3: // West
-                            DrawBanner(bannerGraphic.MatWest, rootLoc + backOffsetWest, 0);
+                            DrawBanner(bannerGraphicBack.MatWest, rootLoc + drawData.offsetWest, drawData.angleWest);
                             break;
                         default:
                             break;
