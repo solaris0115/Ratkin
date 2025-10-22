@@ -30,8 +30,33 @@
 		<comps>
 			<li Class="NewRatkin.CompProperties_BannerDrawer">
 				<!-- 배너 조건부 드로잉 Comp -->
-				<graphicPath>Apparel/Util/RK_TextureApparel_BannerArm</graphicPath>
 				<drawSize>(1.0, 1.0)</drawSize>
+				
+				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
+				<draftedDrawData>
+					<graphicPath>Apparel/Util/RK_TextureApparel_BannerArm</graphicPath>
+					<offsetNorth>(-0.25, 0.15, -0.08)</offsetNorth>
+					<offsetSouth>(0.25, 0.15, -0.08)</offsetSouth>
+					<offsetEast>(0.22, 0.12, -0.12)</offsetEast>
+					<offsetWest>(-0.22, 0.12, -0.12)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
+				</draftedDrawData>
+				
+				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
+				<backDrawData>
+					<graphicPath>Apparel/Util/RK_TextureApparel_BannerUnarm</graphicPath>
+					<offsetNorth>(-0.25, -0.18, -0.08)</offsetNorth>
+					<offsetSouth>0.25, 0.15, -0.08)</offsetSouth>
+					<offsetEast>(0.22, 0.12, -0.12)</offsetEast>
+					<offsetWest>(-0.22, 0.12, -0.12)</offsetWest>
+					<angleNorth>-15</angleNorth>
+					<angleSouth>15</angleSouth>
+					<angleEast>45</angleEast>
+					<angleWest>-45</angleWest>
+				</backDrawData>
 			</li>
 		</comps>
 		<apparel>
