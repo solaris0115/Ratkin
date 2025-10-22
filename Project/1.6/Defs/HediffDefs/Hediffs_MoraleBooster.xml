@@ -29,7 +29,7 @@
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
       <li Class="HediffCompProperties_GiveHediffsInRange">
-        <range>19.5</range>
+        <range>9.9</range>
         <mote>Mote_CombatCommand</mote>
         <hideMoteWhenNotDrafted>true</hideMoteWhenNotDrafted>
         <targetingParameters>
