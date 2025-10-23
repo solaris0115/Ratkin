@@ -179,6 +179,7 @@
 									<groups>
 										<li>UpperHead</li>
 										<li>FullHead</li>
+										<li>RK_Ears</li>
 									</groups>
 								</li>
 								<li>
@@ -188,6 +189,7 @@
 									<groups>
 										<li>UpperHead</li>
 										<li>FullHead</li>
+										<li>RK_Ears</li>
 									</groups>
 								</li>
 								<li>
@@ -451,6 +453,7 @@
 					<height>Bottom</height>
 					<groups>
 						<li>Torso</li>
+						<li>RK_Tail</li>
 					</groups>
 				</li>
 				<li>

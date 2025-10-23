@@ -13,10 +13,7 @@
 					<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/statBases</xpath>
 				</li>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Things/Ratkin/Body/RK_Texture_EarLeft"]</xpath>
-				</li>
-				<li Class="PatchOperationRemove">
-					<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Things/Ratkin/Body/RK_Texture_EarRight"]</xpath>
+					<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/generalSettings/alienPartGenerator/bodyAddons</xpath>
 				</li>
 			</operations>
 		</match>

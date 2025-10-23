@@ -16,7 +16,7 @@
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<bodyType>Thin</bodyType>
 		<statOffsets>
-			<HuntingStealth>1.15</HuntingStealth>			
+			<HuntingStealth>1.15</HuntingStealth>
 			<MeatAmount>-50</MeatAmount>
 			<LeatherAmount>-30</LeatherAmount>
 		</statOffsets>
@@ -190,6 +190,7 @@
 				<texPath>Things/Ratkin/Body/RK_Texture_Ear</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
+				<linkedBodyPartsGroup>RK_Ears</linkedBodyPartsGroup>
 				<useSkinShader>true</useSkinShader>
 				<useRottenColor>true</useRottenColor>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
@@ -261,6 +262,7 @@
 				<colorType>Skin</colorType>
 				<overrideMeshSize>(1, 1)</overrideMeshSize>
 				<parentTagDef>Body</parentTagDef>
+				<linkedBodyPartsGroup>RK_Tail</linkedBodyPartsGroup>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
 				<drawData>
 					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
