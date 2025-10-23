@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingCategoryDef>
-		<defName>RK_Apparel</defName>
-		<label>ratkin apparel</label>
-		<parent>Apparel</parent>
-	</ThingCategoryDef>
-
-	<ThingCategoryDef>
-		<defName>RK_Headgear</defName>
-		<label>ratkin headgear</label>
-		<parent>Headgear</parent>
-	</ThingCategoryDef>
-
 	<ThingDef Class="NewRatkin.CustomThingDef" Name="RK_ApparelBase" Abstract="True">	
 		<followStuffColor>false</followStuffColor>
 		<thingClass>Apparel</thingClass>
@@ -46,6 +34,7 @@
 			<li>RK_Apparel</li>
 		</tradeTags>
 	</ThingDef>
+	
 	<ThingDef Class="NewRatkin.CustomThingDef" Name="RK_ApparelMakeableBase" ParentName="RK_ApparelBase" Abstract="True">
 		<recipeMaker>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -2697,38 +2686,4 @@
 			</defaultIngredientFilter>		
 		</recipeMaker>
 	</ThingDef>	
-
-	<StuffCategoryDef>
-		<defName>WeaponMetallic</defName>
-		<label>weapon metallic</label>
-	</StuffCategoryDef>
-
-	<ApparelLayerDef>
-		<defName>InnerCoat</defName>
-		<label>inner coat</label>
-		<drawOrder>225</drawOrder>
-	</ApparelLayerDef>		
-	<ApparelLayerDef>
-		<defName>BackPack</defName>
-		<label>backpack</label>
-		<drawOrder>250</drawOrder>
-	</ApparelLayerDef>
-	<ApparelLayerDef>
-		<defName>OuterClothing</defName>
-		<label>outer clothing</label>
-		<drawOrder>275</drawOrder>
-	</ApparelLayerDef>
-
-	<ApparelLayerDef>
-		<defName>OnFace</defName>
-		<label>onface</label>
-		<drawOrder>425</drawOrder>
-	</ApparelLayerDef>
-
-	<StuffCategoryDef>
-		<defName>Straw</defName>
-		<label>straw</label>
-	</StuffCategoryDef>
-
-	
 </Defs>

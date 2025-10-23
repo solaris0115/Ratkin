@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingCategoryDef>
+		<defName>RK_Apparel</defName>
+		<label>ratkin apparel</label>
+		<parent>Apparel</parent>
+	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>RK_Headgear</defName>
+		<label>ratkin headgear</label>
+		<parent>Headgear</parent>
+	</ThingCategoryDef>	
+</Defs>
