@@ -248,7 +248,9 @@
 			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
-		<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
+		<apparel>
+			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
+		</apparel>
 		<equippedStatOffsets>
 			<CarryingCapacity>15</CarryingCapacity>
 		</equippedStatOffsets>
@@ -271,7 +273,9 @@
 			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
-		<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</wornGraphicPath>
+		<apparel>
+			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</wornGraphicPath>
+		</apparel>
 		<recipeMaker>
 			<displayPriority>120</displayPriority>
 		</recipeMaker>
