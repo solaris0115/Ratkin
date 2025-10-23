@@ -49,7 +49,7 @@
 				<backDrawData>
 					<graphicPath>Apparel/Util/RK_TextureApparel_BannerUnarm</graphicPath>
 					<offsetNorth>(-0.25, -0.18, -0.08)</offsetNorth>
-					<offsetSouth>0.25, 0.15, -0.08)</offsetSouth>
+					<offsetSouth>(0.25, 0.15, -0.08)</offsetSouth>
 					<offsetEast>(0.22, 0.12, -0.12)</offsetEast>
 					<offsetWest>(-0.22, 0.12, -0.12)</offsetWest>
 					<angleNorth>-15</angleNorth>
