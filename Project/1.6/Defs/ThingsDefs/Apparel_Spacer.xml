@@ -244,19 +244,18 @@
 		<defName>RK_Apparel_SpaceArmor</defName>
 		<label>cataphract armor</label>
 		<description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
-		<tradeTags>
-			<li>RK_Apparel</li>
-			<li>RK_Apparel_Rare</li>
-		</tradeTags>
+		<equippedStatOffsets>
+			<CarryingCapacity>15</CarryingCapacity>
+		</equippedStatOffsets>
 		<recipeMaker>
 			<displayPriority>125</displayPriority>
 		</recipeMaker>
 		<thingCategories>
 			<li>RK_Apparel</li>
 		</thingCategories>
-		<equippedStatOffsets>
-			<CarryingCapacity>15</CarryingCapacity>
-		</equippedStatOffsets>
+		<tradeTags>
+			<li>RK_Apparel_Rare</li>
+		</tradeTags>
 	</ThingDef>
 
 	<ThingDef ParentName="ApparelArmorHelmetCataphractBase">
@@ -269,6 +268,9 @@
 		<thingCategories>
 			<li>RK_Apparel</li>
 		</thingCategories>
+		<tradeTags>
+			<li>RK_Apparel_Rare</li>
+		</tradeTags>
 	</ThingDef>
 
 

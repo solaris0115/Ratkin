@@ -932,7 +932,7 @@
 
     <!-- BFR 3000 -->
     <ThingDef ParentName="RK_IndustrialRangeWeapon">
-        <defName>RK_BFR</defName>
+        <defName>RK_Weapon_BFR</defName>
         <label>BFR 3000</label>
         <description>Big Force Rifle 3000.</description>
         <graphicData>
