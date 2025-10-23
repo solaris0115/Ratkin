@@ -9,7 +9,7 @@
 		<generateAllowChance>0</generateAllowChance>
 		<techLevel>Spacer</techLevel>
 		<graphicData>
-			<texPath>Apparel/RK_VacsuitHelmet</texPath>
+			<texPath>Apparel/Vacsuit/RK_Apparel_VacsuitHelmet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<statBases>
@@ -43,7 +43,7 @@
 			<bodyPartGroups>
 				<li>FullHead</li>
 			</bodyPartGroups>
-			<wornGraphicPath>Things/Pawn/Humanlike/Apparel/VacsuitHelmet/VacsuitHelmet</wornGraphicPath>
+			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_VacsuitHelmet</wornGraphicPath>
 			<layers>
 				<li>Overhead</li>
 			</layers>
@@ -89,7 +89,7 @@
 		<generateAllowChance>0</generateAllowChance>
 		<techLevel>Spacer</techLevel>
 		<graphicData>
-			<texPath>Things/Pawn/Humanlike/Apparel/Vacsuit/Vacsuit</texPath>
+			<texPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>0.9</drawSize>
 		</graphicData>
@@ -125,7 +125,7 @@
 				<li>Arms</li>
 				<li>Legs</li>
 			</bodyPartGroups>
-			<wornGraphicPath>Apparel/RK_Vacsuit</wornGraphicPath>
+			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</wornGraphicPath>
 			<layers>
 				<li>Middle</li>
 				<li>Shell</li>
@@ -167,7 +167,7 @@
 		<generateAllowChance>0</generateAllowChance>
 		<techLevel>Spacer</techLevel>
 		<graphicData>
-			<texPath>Apparel/RK_KidVacsuit</texPath>
+			<texPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>0.7</drawSize>
 		</graphicData>
@@ -204,7 +204,7 @@
 				<li>Arms</li>
 				<li>Legs</li>
 			</bodyPartGroups>
-			<wornGraphicPath>Apparel/RK_KidVacsuit</wornGraphicPath>
+			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</wornGraphicPath>
 			<layers>
 				<li>Middle</li>
 				<li>Shell</li>
@@ -244,6 +244,10 @@
 		<defName>RK_Apparel_SpaceArmor</defName>
 		<label>cataphract armor</label>
 		<description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
+		<graphicData>
+			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<equippedStatOffsets>
 			<CarryingCapacity>15</CarryingCapacity>
 		</equippedStatOffsets>
@@ -262,6 +266,10 @@
 		<defName>RK_Apparel_SpaceArmorHelmet</defName>
 		<label>cataphract helmet</label>
 		<description>A heavily-armored high-tech helmet, with a solid plasteel-weave shell and indirect visual system for non-frontal view angles. It protects against all but the most powerful or luckily-aimed shots.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
+		<graphicData>
+			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
 		<recipeMaker>
 			<displayPriority>120</displayPriority>
 		</recipeMaker>
