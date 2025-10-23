@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<ThingDef ParentName="ArmorHelmetMakeableBase">
+	<ThingDef ParentName="ArmorHelmetMakeableBase" MayRequire="Ludeon.RimWorld.Odyssey">
 		<defName>RK_Apparel_VacsuitHelmet</defName>
 		<label>vacsuit helmet</label>
 		<description>A helmet that efficiently recycles the user's oxygen, allowing them to breathe in the vacuum of space for hours at a time. The process isn't perfectly efficient, so the user must periodically return to a pressurized environment.</description>
@@ -48,14 +48,9 @@
 				<li>Overhead</li>
 			</layers>
 			<tags>
-				<li>SpacerMilitary</li>
-				<li>Vacsuit</li>
+				<li>RK_4Tier</li>
+				<li>RK_ApparelTag_SpaceWear</li>
 			</tags>
-			<forceEyesVisibleForRotations>
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-			</forceEyesVisibleForRotations>
 			<defaultOutfitTags>
 				<li>Spacefarer</li>
 			</defaultOutfitTags>
@@ -82,7 +77,7 @@
 	</ThingDef>
 
 
-	<ThingDef ParentName="ApparelMakeableBase">
+	<ThingDef ParentName="ApparelMakeableBase" MayRequire="Ludeon.RimWorld.Odyssey">
 		<defName>RK_Apparel_Vacsuit</defName>
 		<label>vacsuit</label>
 		<description>A protective suit that keeps the user safe in the vacuum of space. The suit restricts the wearer's movement, considerably reducing their movement speed.</description>
@@ -113,8 +108,7 @@
 		<thingCategories>
 			<li>RK_Apparel</li>
 		</thingCategories>
-		<tradeTags>
-			<li>RK_Apparel_Rare</li>
+		<tradeTags inherit="false">
 		</tradeTags>
 		<smeltable>true</smeltable>
 		<apparel>
@@ -131,7 +125,9 @@
 				<li>Shell</li>
 			</layers>
 			<tags>
-				<li>Vacsuit</li>
+				<li>RK_4Tier</li>
+				<li>RK_ApparelTag_SpaceWear</li>
+				<li>RK_ApparelTag_HideTail</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Spacefarer</li>
@@ -160,7 +156,7 @@
 	</ThingDef>
 
 
-	<ThingDef ParentName="ApparelBase" MayRequire="Ludeon.RimWorld.Biotech">
+	<ThingDef ParentName="ApparelBase" MayRequire="Ludeon.RimWorld.Odyssey">
 		<defName>RK_Apparel_VacsuitChildren</defName>
 		<label>kid vacsuit</label>
 		<description>A protective suit designed for children. It keeps the user safe in the vacuum of space.</description>
@@ -212,7 +208,8 @@
 			</layers>
 			<tags>
 				<li>RK_4Tier</li>
-				<li>RK_Vacsuit</li>
+				<li>RK_ApparelTag_SpaceWear</li>
+				<li>RK_ApparelTag_HideTail</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Spacefarer</li>
@@ -226,7 +223,7 @@
 			<Steel>45</Steel>
 			<Plasteel>10</Plasteel>
 		</costList>
-		<recipeMaker>
+		<recipeMaker MayRequire="Ludeon.RimWorld.Biotech">
 			<researchPrerequisite>OrbitalTech</researchPrerequisite>
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
 			<displayPriority>235</displayPriority>
@@ -245,11 +242,14 @@
 		<label>cataphract armor</label>
 		<description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
 		<graphicData>
-			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor_Thin</texPath>
+			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<apparel>
-			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor_Thin</wornGraphicPath>
+			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
+			<tags>
+				<li>RK_ApparelTag_HideTail</li>
+			</tags>
 		</apparel>
 		<equippedStatOffsets>
 			<CarryingCapacity>15</CarryingCapacity>

@@ -184,6 +184,12 @@
 									<drawnInBed>false</drawnInBed>
 								</Posture>
 								<RotStage>Fresh,Rotting</RotStage>
+								<Apparel>
+									<!-- 또는 특정 태그 가진 의류 입을 때 숨김 -->
+									<hiddenUnderApparelTag>
+										<li>RK_ApparelTag_HideTail</li>
+									</hiddenUnderApparelTag>
+								</Apparel>
 							</conditions>
 							<offsets>
 								<south>
