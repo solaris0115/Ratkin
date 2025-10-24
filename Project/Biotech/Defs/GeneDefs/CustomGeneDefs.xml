@@ -184,13 +184,44 @@
 			<li>Ears</li>
 		</exclusionTags>
 		<renderNodeProperties>
+			<!-- 좌측 귀 -->
 			<li>
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
-				<texPath>Things/Ratkin/Body/RK_Texture_Ear</texPath>
+				<texPath>Things/Ratkin/Body/RK_Texture_EarLeft</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
-				<linkedBodyPartsGroup>RK_Ears</linkedBodyPartsGroup>
+				<linkedBodyPartsGroup>RK_LeftEar</linkedBodyPartsGroup>
+				<useSkinShader>true</useSkinShader>
+				<useRottenColor>true</useRottenColor>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<drawData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<defaultData>
+						<layer>105</layer>
+					</defaultData>
+					<dataNorth>
+						<offset>(0, 0,0)</offset>
+					</dataNorth>
+					<dataSouth>
+						<offset>(0, 0,0)</offset>
+					</dataSouth>
+					<dataEast>
+						<offset>(-0.15, 0,0.25)</offset>
+					</dataEast>
+					<dataWest>
+						<offset>(0.15, 0,0.25)</offset>
+					</dataWest>
+				</drawData>
+			</li>
+			<!-- 우측 귀 -->
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<texPath>Things/Ratkin/Body/RK_Texture_EarRight</texPath>
+				<colorType>Skin</colorType>
+				<parentTagDef>Head</parentTagDef>
+				<linkedBodyPartsGroup>RK_RightEar</linkedBodyPartsGroup>
 				<useSkinShader>true</useSkinShader>
 				<useRottenColor>true</useRottenColor>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>

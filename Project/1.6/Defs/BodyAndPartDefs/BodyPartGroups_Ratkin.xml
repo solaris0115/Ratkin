@@ -5,11 +5,18 @@
 	     귀와 꼬리 렌더링 제어를 위한 전용 그룹
 	     ======================================== -->
 
-	<!-- 귀 전용 그룹 -->
+	<!-- 좌측 귀 전용 그룹 -->
 	<BodyPartGroupDef>
-		<defName>RK_Ears</defName>
-		<label>ears</label>
-		<listOrder>195</listOrder>
+		<defName>RK_LeftEar</defName>
+		<label>left ear</label>
+		<listOrder>196</listOrder>
+	</BodyPartGroupDef>
+
+	<!-- 우측 귀 전용 그룹 -->
+	<BodyPartGroupDef>
+		<defName>RK_RightEar</defName>
+		<label>right ear</label>
+		<listOrder>197</listOrder>
 	</BodyPartGroupDef>
 
 	<!-- 꼬리 전용 그룹 -->
