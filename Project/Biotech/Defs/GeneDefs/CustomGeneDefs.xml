@@ -183,8 +183,7 @@
 		<exclusionTags>
 			<li>Ears</li>
 		</exclusionTags>
-		<renderNodeProperties>
-			<!-- 좌측 귀 -->
+		<!-- <renderNodeProperties>
 			<li>
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
@@ -214,7 +213,6 @@
 					</dataWest>
 				</drawData>
 			</li>
-			<!-- 우측 귀 -->
 			<li>
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
@@ -244,7 +242,7 @@
 					</dataWest>
 				</drawData>
 			</li>
-		</renderNodeProperties>
+		</renderNodeProperties> -->
 		<symbolPack>
 			<prefixSymbols>
 				<li>
@@ -286,7 +284,7 @@
 		<exclusionTags>
 			<li>Tail</li>
 		</exclusionTags>
-		<renderNodeProperties>
+		<!-- <renderNodeProperties>
 			<li>
 				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_Tail</texPath>
@@ -315,7 +313,7 @@
 					</dataWest>
 				</drawData>
 			</li>
-		</renderNodeProperties>
+		</renderNodeProperties> -->
 		<symbolPack>
 			<prefixSymbols>
 				<li>
