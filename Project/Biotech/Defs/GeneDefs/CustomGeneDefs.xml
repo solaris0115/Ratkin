@@ -5,7 +5,7 @@
 	     Ratkin Custom Genes
 	     ======================================== -->
 
-	<!-- TODO: 가벼운 체형, 회피율을 같이 준다. 무게가 가볍도록. -->
+	<!-- TODO: 가벼운 체형, -->
 	<GeneDef>
 		<defName>RK_Gene_SmallBody</defName>
 		<label>small body</label>
@@ -58,6 +58,7 @@
 		<displayOrderInCategory>45</displayOrderInCategory>
 		<statFactors>
 			<MeleeDodgeChance>1.25</MeleeDodgeChance>
+			<MeleeCooldownFactor>0.9</MeleeCooldownFactor>
 		</statFactors>
 		<biostatMet>-1</biostatMet>
 		<biostatCpx>1</biostatCpx>
@@ -141,7 +142,7 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>106</displayOrderInCategory>
 		<statFactors>
-			<ConstructionSpeed>0.9</ConstructionSpeed>
+			<ConstructionSpeed>0.8</ConstructionSpeed>
 		</statFactors>
 		<biostatMet>1</biostatMet>
 		<biostatCpx>1</biostatCpx>
