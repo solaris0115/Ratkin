@@ -264,7 +264,7 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.5</MoveSpeed>
-			<CarryingCapacity>15</CarryingCapacity>
+			<CarryingCapacity>30</CarryingCapacity>
 			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.3</VacuumResistance>
 		</equippedStatOffsets>
@@ -275,6 +275,11 @@
 		</costList>
 		<apparel>
 			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
+			<layers Inherit="False">
+				<li>Middle</li>
+				<li>Shell</li>
+				<li>BackPack</li>
+			</layers>
 			<tags>
 				<li>RK_ApparelTag_HideTail</li>
 			</tags>
