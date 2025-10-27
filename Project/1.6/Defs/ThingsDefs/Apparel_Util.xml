@@ -2,6 +2,12 @@
 <Defs>
 	<!-- 배너류 상위 객체 -->
 	<ThingDef Name="RK_ApparelAttr_Banner" Abstract="True" ParentName="RK_ApparelMakeableBase">
+		<graphicData>
+			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath><!--배너 기본 그래픽-->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+		</graphicData>
 		<costList>
 			<WoodLog>100</WoodLog>
 		</costList>
@@ -19,15 +25,15 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.15</MeleeDodgeChance>
+			<MoveSpeed>-0.1</MoveSpeed>
 		</equippedStatOffsets>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<!-- 배너 조건부 드로잉 Comp -->
 				<drawSize>(1.0, 1.0)</drawSize>
-				
 				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
 				<draftedDrawData>
-					<graphicPath>Apparel/Util/RK_TextureApparel_BannerArm</graphicPath>
+					<graphicPath>Apparel/Util/RK_TextureApparel_BannerArm</graphicPath><!--배너 기본 그래픽-->
 					<offsetNorth>(-0.25, -0.18, -0.08)</offsetNorth>
 					<offsetSouth>(0.25, 0.15, -0.08)</offsetSouth>
 					<offsetEast>(0.25, -0.12, -0.12)</offsetEast>
@@ -40,7 +46,7 @@
 				
 				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
 				<backDrawData>
-					<graphicPath>Apparel/Util/RK_TextureApparel_BannerUnarm</graphicPath>
+					<graphicPath>Apparel/Util/RK_TextureApparel_BannerUnarm</graphicPath><!--배너 기본 그래픽-->
 					<offsetNorth>(-0.25, -0.18, -0.08)</offsetNorth>
 					<offsetSouth>(0.25, 0.15, -0.08)</offsetSouth>
 					<offsetEast>(0.25, -0.12, -0.12)</offsetEast>
@@ -62,7 +68,7 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<layers>
-				<li>OuterClothing</li>
+				<li>BackPack</li>
 			</layers>
 			<tags>
 				<li>RK_ApparelTag_All</li>
@@ -70,6 +76,7 @@
 				<li>RK_ApparelTag_Support</li>
 				<li>RK_ApparelTag_Buffer</li>
 			</tags>
+			<wornGraphicPath>Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath><!--배너 기본 그래픽-->
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
@@ -77,6 +84,8 @@
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
+			<!-- TODO: 사기 진작 아이템 연구 필요 -->
+			<!-- <researchPrerequisite>RK_Research_MoraleBooster</researchPrerequisite> -->
 		</recipeMaker>
 	</ThingDef>
 
@@ -84,22 +93,11 @@
 		<defName>RK_Apparel_Banner</defName>
 		<label>war banner</label>
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
-		<graphicData>
-			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
-		</graphicData>
 		<apparel>
-			<wornGraphicPath>Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath>
 			<abilities>
 				<li>RK_Ability_MeleeMoraleBooster</li>
 			</abilities>
 		</apparel>
-		<recipeMaker>
-			<!-- TODO: 사기 진작 아이템 연구 필요 -->
-			<!-- <researchPrerequisite>RK_Research_MoraleBooster</researchPrerequisite> -->
-		</recipeMaker>
 	</ThingDef>
 
 	<!-- TODO: 가방류 상위 객체로 뽑기 -->
@@ -285,6 +283,37 @@
 		</statBases>
 		<equippedStatOffsets>
 		</equippedStatOffsets>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ExtraDrawer">
+				<!-- 방패 조건부 드로잉 Comp -->
+				<drawSize>(1.0, 1.0)</drawSize>
+				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
+				<draftedDrawData>
+					<graphicPath>Apparel/RK_WoodenShield</graphicPath>
+					<offsetNorth>(-0.2, -0.2, -0.09)</offsetNorth>
+					<offsetSouth>(0.2, 0.2, -0.15)</offsetSouth>
+					<offsetEast>(0.2, -0.2, -0.2)</offsetEast>
+					<offsetWest>(-0.2, 0.2, -0.15)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
+				</draftedDrawData>
+				
+				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
+				<backDrawData>
+					<graphicPath>Apparel/RK_WoodenShield</graphicPath>
+					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
+					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
+					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
+					<offsetWest>(0.15, -2.0, -0.07)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>15</angleEast>
+					<angleWest>-15</angleWest>
+				</backDrawData>
+			</li>
+		</comps>
 		<apparel>
 			<bodyPartGroups>
 				<li>Torso</li>
@@ -353,6 +382,37 @@
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
 			<MoveSpeed>-0.1</MoveSpeed>
 		</equippedStatOffsets>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ExtraDrawer">
+				<!-- 방패 조건부 드로잉 Comp -->
+				<drawSize>(1.0, 1.0)</drawSize>
+				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
+				<draftedDrawData>
+					<graphicPath>Apparel/RK_HeavyShield</graphicPath>
+					<offsetNorth>(-0.2, -0.2, -0.09)</offsetNorth>
+					<offsetSouth>(0.2, 0.2, -0.15)</offsetSouth>
+					<offsetEast>(0.2, -0.2, -0.2)</offsetEast>
+					<offsetWest>(-0.2, 0.2, -0.15)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
+				</draftedDrawData>
+				
+				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
+				<backDrawData>
+					<graphicPath>Apparel/RK_HeavyShield</graphicPath>
+					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
+					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
+					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
+					<offsetWest>(0.15, -2.0, -0.07)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>15</angleEast>
+					<angleWest>-15</angleWest>
+				</backDrawData>
+			</li>
+		</comps>
 		<apparel>
 			<bodyPartGroups>
 				<li>Torso</li>
@@ -426,6 +486,37 @@
 			<MeleeHitChance>-0.2</MeleeHitChance>
 			<MoveSpeed>-0.8</MoveSpeed>
 		</equippedStatOffsets>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ExtraDrawer">
+				<!-- 방패 조건부 드로잉 Comp -->
+				<drawSize>(1.0, 1.0)</drawSize>
+				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
+				<draftedDrawData>
+					<graphicPath>Apparel/RK_HeavyShield_Big</graphicPath>
+					<offsetNorth>(-0.2, -0.2, -0.09)</offsetNorth>
+					<offsetSouth>(0.2, 0.2, -0.15)</offsetSouth>
+					<offsetEast>(0.2, -0.2, -0.2)</offsetEast>
+					<offsetWest>(-0.2, 0.2, -0.15)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
+				</draftedDrawData>
+				
+				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
+				<backDrawData>
+					<graphicPath>Apparel/RK_HeavyShield_Big</graphicPath>
+					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
+					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
+					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
+					<offsetWest>(0.15, -2.0, -0.07)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>15</angleEast>
+					<angleWest>-15</angleWest>
+				</backDrawData>
+			</li>
+		</comps>
 		<apparel>
 			<bodyPartGroups>
 				<li>Torso</li>
