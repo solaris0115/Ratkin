@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="ApparelMakeableBase">
+	<!-- TODO: 배너류 상위 객체로 뽑기-->
+
+	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_Apparel_Banner</defName>
 		<label>war banner</label>
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
@@ -8,6 +10,7 @@
 			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
+			<ignoreThingDrawColor>true</ignoreThingDrawColor>
 		</graphicData>
 		<costList>
 			<WoodLog>100</WoodLog>
@@ -28,7 +31,7 @@
 			<MeleeDodgeChance>-0.15</MeleeDodgeChance>
 		</equippedStatOffsets>
 		<comps>
-			<li Class="NewRatkin.CompProperties_BannerDrawer">
+			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<!-- 배너 조건부 드로잉 Comp -->
 				<drawSize>(1.0, 1.0)</drawSize>
 				
@@ -92,4 +95,351 @@
 			</recipeUsers>
 		</recipeMaker>
 	</ThingDef>
+
+	<!-- TODO: 가방류 상위 객체로 뽑기 -->
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_CrossBack</defName>
+		<label>cross back</label>
+		<description>간단한 봇짐입니다. 짐을 조금 더 나를 수 있게 해줍니다.</description>
+		<graphicData>
+			<texPath>Apparel/RK_CrossBack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<costStuffCount>45</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costList>
+			<Steel>5</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>85</MaxHitPoints>
+			<WorkToMake>3500</WorkToMake>
+			<Mass>0.3</Mass>
+			<EquipDelay>0.8</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CarryingCapacity>15</CarryingCapacity>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_CrossBack</wornGraphicPath>
+			<layers>
+				<li>BackPack</li>
+			</layers>
+			<tags>
+				<li>RK_Apparel</li>
+				<li>RK_CrossBack</li>
+				<li>RK_1Tier</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
+	<!-- 2티어 -->
+	<!-- 가방  운반용량 +20 -->
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_Backpack</defName>
+		<label>backpack</label>
+		<description>등에 맬 수 있는 가방입니다. 짐을 더 많이 나를 수 있게 해줍니다.</description>
+		<graphicData>
+			<texPath>Apparel/RK_Backpack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+		</recipeMaker>
+		<costStuffCount>45</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToMake>5500</WorkToMake>
+			<Mass>0.3</Mass>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CarryingCapacity>23</CarryingCapacity>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_Backpack</wornGraphicPath>
+			<layers>
+				<li>BackPack</li>
+			</layers>
+			<tags>
+				<li>RK_Apparel</li>
+				<li>RK_Backpack</li>
+				<li>RK_2Tier</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
+	<!-- 3티어 -->
+	<!-- 군용가방 +30 내구도 +20 -->
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_OutdoorBackpack</defName>
+		<label>ratkin outdoor backpack</label>
+		<description>랫킨용 등짐 가방입니다. 랫킨 신체에 맞도록 고안된 가방으로 더욱 많은 짐을 들 수 있도록 해줍니다.</description>
+		<graphicData>
+			<texPath>Apparel/RK_OutdoorBackpack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+		</recipeMaker>
+		<costList>
+			<Steel>20</Steel>
+		</costList>
+		<costStuffCount>60</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+		<techLevel>Medieval</techLevel>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>8000</WorkToMake>
+			<Mass>0.5</Mass>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<CarryingCapacity>35</CarryingCapacity>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_OutdoorBackpack</wornGraphicPath>
+			<layers>
+				<li>BackPack</li>
+			</layers>
+			<tags>
+				<li>RK_Backpack</li>
+				<li>RK_3Tier</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+	
+	<!-- TODO: 방패류 상위 객체로 뽑기 -->
+	<!-- 목제 방패 -->
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_WoodenShield</defName>
+		<label>ratkin wooden Shield</label>
+		<description>목재 방패.</description>
+		<thingClass>NewRatkin.Shield</thingClass>
+		<graphicData>
+			<texPath>Apparel/RK_WoodenShield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>RatkinClothing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<Steel>25</Steel>
+			<WoodLog>120</WoodLog>
+		</costList>
+		<techLevel>Medieval</techLevel>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<WorkToMake>12500</WorkToMake>
+			<Mass>3</Mass>
+			<ArmorRating_Sharp>0.57</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.57</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.2</ArmorRating_Heat>
+			<Flammability>0.8</Flammability>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_WoodenShield</wornGraphicPath>
+			<layers>
+				<li>OuterClothing</li>
+			</layers>
+			<tags>
+				<li>RK_LightArmor</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
+	<!-- 철제 방패 -->
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_HeavyShield</defName>
+		<label>ratkin heavy Shield</label>
+		<description>금속 방패.</description>
+		<thingClass>NewRatkin.Shield</thingClass>
+		<graphicData>
+			<texPath>Apparel/RK_HeavyShield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<disallowedThingDefs>
+					<li>Gold</li>
+					<li>Silver</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+		</recipeMaker>
+		<costList>
+			<Steel>60</Steel>
+		</costList>
+		<costStuffCount>120</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<techLevel>Medieval</techLevel>
+		<statBases>
+			<MaxHitPoints>240</MaxHitPoints>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>7</Mass>
+			<StuffEffectMultiplierArmor>0.8</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+			<Flammability>0.3</Flammability>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
+			<MoveSpeed>-0.1</MoveSpeed>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Neck</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Legs</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_HeavyShield</wornGraphicPath>
+			<layers>
+				<li>OuterClothing</li>
+			</layers>
+			<tags>
+				<li>RK_HeavyArmor</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
+
+	<!-- 대형 철제 방패 -->
+	<ThingDef ParentName="RK_ApparelMakeableBase">
+		<defName>RK_HeavyShield_Big</defName>
+		<label>ratkin Big heavy Shield</label>
+		<description>금속 대방패.</description>
+		<thingClass>NewRatkin.Shield</thingClass>
+		<graphicData>
+			<texPath>Apparel/RK_HeavyShield_Big</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!-- <shaderType>CutoutComplex</shaderType> -->
+		</graphicData>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisite>HighClassClothing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<disallowedThingDefs>
+					<li>Gold</li>
+					<li>Silver</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+		</recipeMaker>
+		<costList>
+			<Steel>70</Steel>
+		</costList>
+		<costStuffCount>165</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<techLevel>Medieval</techLevel>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>10</Mass>
+			<StuffEffectMultiplierArmor>0.85</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
+			<MeleeHitChance>-0.2</MeleeHitChance>
+			<MoveSpeed>-0.8</MoveSpeed>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Neck</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Legs</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_HeavyShield_Big</wornGraphicPath>
+			<layers>
+				<li>OuterClothing</li>
+			</layers>
+			<tags>
+				<li>RK_HeavyArmor</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+
 </Defs>
