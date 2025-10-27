@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Verse;
-using Verse.AI;
-using Verse.Sound;
 using RimWorld;
 using System.Text;
 
@@ -12,127 +9,7 @@ namespace NewRatkin
     [StaticConstructorOnStartup]
     public class Shield : Apparel
     {
-        private readonly string path = "Apparel/";
-        private Graphic shieldGraphic;
-        private static Graphic heavyShieldGraphic = GraphicDatabase.Get<Graphic_Multi>("Apparel/RK_HeavyShield", ShaderDatabase.CutoutComplex, new Vector2(1, 1), new Color(1, 1, 1, 1));
-        private static Graphic woodenShieldGraphic = GraphicDatabase.Get<Graphic_Multi>("Apparel/RK_WoodenShield", ShaderDatabase.Cutout, new Vector2(1, 1), new Color(1,1,1,1));
-
-        static readonly Vector3 drawDraftedLocNorth = new Vector3(-0.2f, -0.2f, -0.09f);
-        static readonly Vector3 drawDraftedLocSouth = new Vector3(0.2f, 0.2f, -0.15f);
-        static readonly Vector3 drawDraftedLocEast = new Vector3(0.2f, -0.2f, -0.2f);
-        static readonly Vector3 drawDraftedLocWest = new Vector3(-0.2f, 0.2f, -0.15f);
-
-        static readonly Vector3 drawBackLocNorth = new Vector3(0f, 0.2f, -0.2f);
-        static readonly Vector3 drawBackLocSouth = new Vector3(0f, -0.2f, -0.09f);
-        static readonly Vector3 drawBackLocEast = new Vector3(-0.15f, 0.05f, -0.07f);
-        static readonly Vector3 draWBackLocWest = new Vector3(0.15f, -2f, -0.07f);
-
-
         private const float BLOCK_RATE_FACTOR_BY_SKILL = 0.02f;
-
-        private bool ShouldShieldUp
-        {
-            get
-            {
-                Pawn wearer = Wearer;
-                return wearer.Spawned && 
-                    (wearer.InAggroMentalState || wearer.Drafted || wearer.Drafted || (wearer.CurJob != null && wearer.CurJob.def.alwaysShowWeapon) || (wearer.mindState.duty != null && wearer.mindState.duty.def.alwaysShowWeapon));
-            }
-        }
-        public override void PostMake()
-        {
-            base.PostMake();
-            if (shieldGraphic != null) { return; }
-
-            Action finishAction = () =>
-            {
-                //나무 방패의 경우 소재 안따라가도록 세팅.
-                Color shieldColor = Color.white;
-                if (def.defName != "RK_WoodenShield") { shieldColor = Stuff.stuffProps.color; }
-
-                shieldGraphic = GraphicDatabase.Get<Graphic_Multi>(path + def.defName, ShaderDatabase.Cutout, def.graphicData.drawSize, shieldColor);
-            };
-            LongEventHandler.ExecuteWhenFinished(finishAction);
-
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            if(Scribe.mode == LoadSaveMode.PostLoadInit)
-            {
-                LongEventHandler.ExecuteWhenFinished(delegate
-                {
-                    if (shieldGraphic == null)
-                    {
-                        if(def.defName == "RK_WoodenShield")
-                        {
-                            shieldGraphic = GraphicDatabase.Get<Graphic_Multi>(path + def.defName, ShaderDatabase.Cutout, def.graphicData.drawSize, Color.white);
-                        }
-                        else
-                        {
-                            shieldGraphic = GraphicDatabase.Get<Graphic_Multi>(path + def.defName, ShaderDatabase.Cutout, def.graphicData.drawSize, Stuff.stuffProps.color);
-                        }
-                    }
-                });
-            }
-        }
-
-
-        public override void DrawWornExtras()
-        {
-            Pawn pawn = Wearer;
-            Vector3 rootLoc = pawn.DrawPos;
-            if (ShouldShieldUp)
-            {
-                switch(pawn.Rotation.AsInt)
-                {
-                    case 0:
-                        DrawShield(shieldGraphic.MatNorth, rootLoc +drawDraftedLocNorth, 0);
-                        break;
-                    case 1:
-                        DrawShield(shieldGraphic.MatEast, rootLoc + drawDraftedLocEast, 0);
-                        break;
-                    case 2:
-                        DrawShield(shieldGraphic.MatSouth, rootLoc +drawDraftedLocSouth, 0);
-                        break;
-                    case 3:
-                        DrawShield(shieldGraphic.MatWest, rootLoc + drawDraftedLocWest, 0);
-                        break;
-                    default:
-                        break;
-                }                
-            }
-            else
-            {
-                if (!pawn.Dead && pawn.GetPosture()==PawnPosture.Standing)
-                {
-                    switch (pawn.Rotation.AsInt)
-                    {
-                        case 0:
-                            DrawShield(shieldGraphic.MatSouth, rootLoc + drawBackLocNorth, 0);
-                            break;
-                        case 1:
-                            DrawShield(shieldGraphic.MatWest, rootLoc + drawBackLocEast, 15);
-                            break;
-                        case 2:
-                            DrawShield(shieldGraphic.MatNorth, rootLoc + drawBackLocSouth, 0);
-                            break;
-                        case 3:
-                            DrawShield(shieldGraphic.MatEast, rootLoc + draWBackLocWest, -15);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-        }
-
-        public void DrawShield(Material mat, Vector3 drawLoc,float angle)
-        {
-            Mesh mesh = MeshPool.plane10;
-            Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(angle, Vector3.up), mat, 0);
-        }
 
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
         {
