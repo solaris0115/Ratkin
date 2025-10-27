@@ -438,12 +438,12 @@
 
 	<!-- 대형 철제 방패 -->
 	<ThingDef ParentName="RK_ApparelMakeableBase">
-		<defName>RK_HeavyShield_Big</defName>
+		<defName>RK_TowerShield</defName>
 		<label>ratkin Big heavy Shield</label>
 		<description>금속 대방패.</description>
 		<thingClass>NewRatkin.Shield</thingClass>
 		<graphicData>
-			<texPath>Apparel/RK_HeavyShield_Big</texPath>
+			<texPath>Apparel/RK_TowerShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<!-- <shaderType>CutoutComplex</shaderType> -->
 		</graphicData>
@@ -492,7 +492,7 @@
 				<drawSize>(1.0, 1.0)</drawSize>
 				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
 				<draftedDrawData>
-					<graphicPath>Apparel/RK_HeavyShield_Big</graphicPath>
+					<graphicPath>Apparel/RK_TowerShield</graphicPath>
 					<offsetNorth>(-0.2, -0.2, -0.09)</offsetNorth>
 					<offsetSouth>(0.2, 0.2, -0.15)</offsetSouth>
 					<offsetEast>(0.2, -0.2, -0.2)</offsetEast>
@@ -505,7 +505,7 @@
 				
 				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
 				<backDrawData>
-					<graphicPath>Apparel/RK_HeavyShield_Big</graphicPath>
+					<graphicPath>Apparel/RK_TowerShield</graphicPath>
 					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
 					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
 					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
@@ -529,7 +529,7 @@
 				<li>Worker</li>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_HeavyShield_Big</wornGraphicPath>
+			<wornGraphicPath>Apparel/RK_TowerShield</wornGraphicPath>
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
