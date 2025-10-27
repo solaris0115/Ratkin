@@ -179,9 +179,9 @@
   <Make_RK_HeavyShield.description>RK ヘビーシールドを作る。</Make_RK_HeavyShield.description>
   <Make_RK_HeavyShield.jobString>RK ヘビーシールドを作成中</Make_RK_HeavyShield.jobString>
 
-  <Make_RK_HeavyShield_Big.label>RK 大型ヘビーシールドを作る</Make_RK_HeavyShield_Big.label>
-  <Make_RK_HeavyShield_Big.description>RK 大型ヘビーシールドを作る。</Make_RK_HeavyShield_Big.description>
-  <Make_RK_HeavyShield_Big.jobString>RK 大型ヘビーシールドを作成中</Make_RK_HeavyShield_Big.jobString>
+  <Make_RK_TowerShield.label>RK 大型ヘビーシールドを作る</Make_RK_TowerShield.label>
+  <Make_RK_TowerShield.description>RK 大型ヘビーシールドを作る。</Make_RK_TowerShield.description>
+  <Make_RK_TowerShield.jobString>RK 大型ヘビーシールドを作成中</Make_RK_TowerShield.jobString>
 
 
   <!-- Recipe Users: RK_ElectricTailoringBench, RK_HandTailoringBench -->

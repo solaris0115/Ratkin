@@ -529,7 +529,7 @@
 				<li>Worker</li>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_TowerShield</wornGraphicPath>
+			<!-- <wornGraphicPath>Apparel/RK_TowerShield</wornGraphicPath> -->
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
