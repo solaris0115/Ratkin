@@ -51,78 +51,95 @@ namespace DebugTools
             int gridZ = 0;
             int spawnedCount = 0;
             
-            // Calculate grid size for square layout
-            int gridSize = (int)System.Math.Ceiling(System.Math.Sqrt(allApparels.Count));
+            // Calculate grid size for square layout (each apparel spawns twice, so double the count)
+            int gridSize = (int)System.Math.Ceiling(System.Math.Sqrt(allApparels.Count * 2));
+
+            List<Pawn> spawnedPawns = new List<Pawn>();
 
             foreach (ThingDef apparelDef in allApparels)
             {
-                // Calculate spawn position (2 cell spacing)
-                IntVec3 spawnPos = new IntVec3(
-                    startPos.x + (gridX * 2),
-                    0,
-                    startPos.z - (gridZ * 2)
-                );
-
-                // Find valid spawn position
-                if (!spawnPos.InBounds(map) || !spawnPos.Standable(map))
+                // Spawn twice: once for age 15, once for age 20
+                int[] ages = { 15, 20 };
+                
+                foreach (int age in ages)
                 {
-                    spawnPos = CellFinder.RandomSpawnCellForPawnNear(spawnPos, map);
-                }
+                    // Calculate spawn position (1 cell spacing)
+                    IntVec3 spawnPos = new IntVec3(
+                        startPos.x + gridX,
+                        0,
+                        startPos.z - gridZ
+                    );
 
-                // Generate Ratkin pawn
-                PawnGenerationRequest request = new PawnGenerationRequest(
-                    kind: ratkinKind,
-                    faction: Faction.OfPlayer,
-                    forceGenerateNewPawn: true,
-                    allowFood: false,
-                    allowAddictions: false,
-                    relationWithExtraPawnChanceFactor: 0f
-                );
-
-                // Set Ratkin xenotype if available
-                if (ratkinXenotype != null && ModsConfig.BiotechActive)
-                {
-                    request.ForcedXenotype = ratkinXenotype;
-                }
-
-                Pawn pawn = PawnGenerator.GeneratePawn(request);
-
-                // Spawn pawn
-                GenSpawn.Spawn(pawn, spawnPos, map);
-
-                // Make colonist
-                if (pawn.Faction != Faction.OfPlayer)
-                {
-                    pawn.SetFaction(Faction.OfPlayer);
-                }
-
-                // Strip all existing apparel after spawn
-                if (pawn.apparel != null)
-                {
-                    List<Apparel> wornApparel = pawn.apparel.WornApparel.ToList();
-                    foreach (Apparel app in wornApparel)
+                    // Find valid spawn position
+                    if (!spawnPos.InBounds(map) || !spawnPos.Standable(map))
                     {
-                        pawn.apparel.Remove(app);
-                        app.Destroy();
+                        spawnPos = CellFinder.RandomSpawnCellForPawnNear(spawnPos, map);
                     }
-                }
 
-                // Wear only the target apparel
-                Apparel apparel = (Apparel)ThingMaker.MakeThing(apparelDef, GenStuff.DefaultStuffFor(apparelDef));
-                pawn.apparel.Wear(apparel, false);
+                    // Generate Ratkin pawn
+                    PawnGenerationRequest request = new PawnGenerationRequest(
+                        kind: ratkinKind,
+                        faction: Faction.OfPlayer,
+                        forceGenerateNewPawn: true,
+                        allowFood: false,
+                        allowAddictions: false,
+                        relationWithExtraPawnChanceFactor: 0f,
+                        fixedBiologicalAge: age,
+                        fixedChronologicalAge: age
+                    );
 
-                spawnedCount++;
+                    // Set Ratkin xenotype if available
+                    if (ratkinXenotype != null && ModsConfig.BiotechActive)
+                    {
+                        request.ForcedXenotype = ratkinXenotype;
+                    }
 
-                // Update grid position (square layout)
-                gridX++;
-                if (gridX >= gridSize)
-                {
-                    gridX = 0;
-                    gridZ++;
+                    Pawn pawn = PawnGenerator.GeneratePawn(request);
+
+                    // Spawn pawn
+                    GenSpawn.Spawn(pawn, spawnPos, map);
+
+                    // Make colonist
+                    if (pawn.Faction != Faction.OfPlayer)
+                    {
+                        pawn.SetFaction(Faction.OfPlayer);
+                    }
+
+                    // Strip all existing apparel after spawn
+                    if (pawn.apparel != null)
+                    {
+                        List<Apparel> wornApparel = pawn.apparel.WornApparel.ToList();
+                        foreach (Apparel app in wornApparel)
+                        {
+                            pawn.apparel.Remove(app);
+                            app.Destroy();
+                        }
+                    }
+
+                    // Wear only the target apparel
+                    Apparel apparel = (Apparel)ThingMaker.MakeThing(apparelDef, GenStuff.DefaultStuffFor(apparelDef));
+                    pawn.apparel.Wear(apparel, false);
+
+                    spawnedPawns.Add(pawn);
+                    spawnedCount++;
+
+                    // Update grid position (square layout)
+                    gridX++;
+                    if (gridX >= gridSize)
+                    {
+                        gridX = 0;
+                        gridZ++;
+                    }
                 }
             }
 
-            Messages.Message($"Spawned {spawnedCount} Ratkin colonists with {allApparels.Count} different RK_ apparels.", MessageTypeDefOf.TaskCompletion);
+            // Draft all spawned pawns
+            foreach (Pawn pawn in spawnedPawns)
+            {
+                pawn.drafter.Drafted = true;
+            }
+
+            Messages.Message($"Spawned {spawnedCount} Ratkin colonists (age 15 & 20) with {allApparels.Count} different RK_ apparels.", MessageTypeDefOf.TaskCompletion);
         }
 
         private static void ClearMapExceptTerrain()
