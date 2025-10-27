@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- TODO: 배너류 상위 객체로 뽑기-->
-
-	<ThingDef ParentName="RK_ApparelMakeableBase">
-		<defName>RK_Apparel_Banner</defName>
-		<label>war banner</label>
-		<description>주변 아군을 브루스 배너로 만듭니다.</description>
-		<graphicData>
-			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
-		</graphicData>
+	<!-- 배너류 상위 객체 -->
+	<ThingDef Name="RK_ApparelAttr_Banner" Abstract="True" ParentName="RK_ApparelMakeableBase">
 		<costList>
 			<WoodLog>100</WoodLog>
 		</costList>
@@ -71,7 +61,6 @@
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath>
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
@@ -81,18 +70,35 @@
 				<li>RK_ApparelTag_Support</li>
 				<li>RK_ApparelTag_Buffer</li>
 			</tags>
+		</apparel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="RK_ApparelAttr_Banner">
+		<defName>RK_Apparel_Banner</defName>
+		<label>war banner</label>
+		<description>주변 아군을 브루스 배너로 만듭니다.</description>
+		<graphicData>
+			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+		</graphicData>
+		<apparel>
+			<wornGraphicPath>Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath>
 			<abilities>
 				<li>RK_Ability_MeleeMoraleBooster</li>
 			</abilities>
 		</apparel>
 		<recipeMaker>
-			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<!-- TODO: 사기 진작 아이템 연구 필요 -->
 			<!-- <researchPrerequisite>RK_Research_MoraleBooster</researchPrerequisite> -->
-			<recipeUsers Inherit="false">
-				<li>RK_FueledSmithy</li>
-				<li>RK_ElectricSmithy</li>
-			</recipeUsers>
 		</recipeMaker>
 	</ThingDef>
 
