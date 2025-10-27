@@ -136,7 +136,10 @@ namespace DebugTools
             // Draft all spawned pawns
             foreach (Pawn pawn in spawnedPawns)
             {
-                pawn.drafter.Drafted = true;
+                if (pawn.drafter != null)
+                {
+                    pawn.drafter.Drafted = true;
+                }
             }
 
             Messages.Message($"Spawned {spawnedCount} Ratkin colonists (age 15 & 20) with {allApparels.Count} different RK_ apparels.", MessageTypeDefOf.TaskCompletion);
