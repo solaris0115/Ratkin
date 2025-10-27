@@ -126,6 +126,7 @@
 			<layers>
 				<li>Middle</li>
 				<li>Shell</li>
+				<li>BackPack</li>
 			</layers>
 			<tags>
 				<li>RK_4Tier</li>
@@ -275,9 +276,7 @@
 		</costList>
 		<apparel>
 			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
-			<layers Inherit="False">
-				<li>Middle</li>
-				<li>Shell</li>
+			<layers>
 				<li>BackPack</li>
 			</layers>
 			<tags>
