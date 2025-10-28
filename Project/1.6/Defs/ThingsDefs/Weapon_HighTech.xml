@@ -35,7 +35,7 @@
 			<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
 		</statBases>
 		<equippedStatOffsets>
-			<MeleeHitChance>-4</MeleeHitChance>	
+			<MeleeHitChance>-4</MeleeHitChance>
 			<MoveSpeed>-0.25</MoveSpeed>
 		</equippedStatOffsets>
 		<equippedAngleOffset>45</equippedAngleOffset>
@@ -47,6 +47,7 @@
 				</capacities>
 				<power>16</power>
 				<cooldownTime>3</cooldownTime>
+				<chanceFactor>3.0</chanceFactor>
 			</li>
 			<li>
 				<label>edge</label>
@@ -56,6 +57,7 @@
 				</capacities>
 				<power>27</power>
 				<cooldownTime>3.4</cooldownTime>
+				<chanceFactor>3.0</chanceFactor>
 			</li>
 		</tools>
 		<recipeMaker>
@@ -83,42 +85,8 @@
 					<position>(-0.45,-0.3,-0.05)</position>
 					<angle>-10</angle>
 				</westOffset>
-			</li>			
-			<li Class="NewRatkin.CompProperties_GunlanceFuel">
-				<compClass>NewRatkin.CompGunlanceFuel</compClass>
-				<fuelLabel>Shots until barrel change</fuelLabel>
-				<fuelGizmoLabel>wyvern ammo</fuelGizmoLabel>
-				<fuelFilter>
-					<thingDefs>
-						<li>RK_WyvernAmmo_NormalType</li>
-					</thingDefs>
-				</fuelFilter>
-				<fuelCapacity>3</fuelCapacity>
-				<initialFuelPercent>0</initialFuelPercent>
-				<autoRefuelPercent>0.75</autoRefuelPercent>
-				<showFuelGizmo>true</showFuelGizmo>
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-				<outOfFuelMessage>Ammo out: Needs Wyvern ammo(normal)</outOfFuelMessage>
-				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
 			</li>
 		</comps>
-		<!-- <verbs> -->
-			<!-- <li Class="NewRatkin.VerbProperties_Gunlance"> -->
-				<!-- <verbClass>NewRatkin.Verb_WyvernFire</verbClass> -->
-				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <warmupTime>0.5</warmupTime> -->
-				<!-- <range>5</range> -->
-				<!-- <onlyManualCast>True</onlyManualCast> -->
-				<!-- <muzzleFlashScale>15</muzzleFlashScale> -->
-				<!-- <consumeFuelPerShot>1</consumeFuelPerShot> -->
-				<!-- <burstShotCount>2</burstShotCount> -->
-				<!-- <ticksBetweenBurstShots>130</ticksBetweenBurstShots> -->
-				<!-- <damageDef>Bomb</damageDef> -->
-				<!-- <damageAmount>25</damageAmount> -->
-				<!-- <stopBurstWithoutLos>false</stopBurstWithoutLos> -->
-				<!-- <angle>50</angle> -->
-			<!-- </li> -->
-		<!-- </verbs> -->
 	</ThingDef>
 
 	<ToolCapacityDef>
@@ -133,7 +101,7 @@
 			<damageDef>Bomb</damageDef>
 			<damageAmount>15</damageAmount>
 			<range>1</range>
-			<angle>50</angle>	
+			<angle>50</angle>
 		</verb>
 		<logEntryDef>MeleeAttack</logEntryDef>
 		<combatLogRulesHit>RK_Maneuver_Shell_MeleeHit</combatLogRulesHit>
@@ -174,7 +142,7 @@
 			<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
 		</statBases>
 		<equippedStatOffsets>
-			<MeleeHitChance>-4</MeleeHitChance>	
+			<MeleeHitChance>-4</MeleeHitChance>
 			<MoveSpeed>-0.25</MoveSpeed>
 		</equippedStatOffsets>
 		<equippedAngleOffset>45</equippedAngleOffset>
@@ -186,6 +154,7 @@
 				</capacities>
 				<power>16</power>
 				<cooldownTime>3</cooldownTime>
+				<chanceFactor>3.0</chanceFactor>
 			</li>
 			<li>
 				<label>edge</label>
@@ -195,6 +164,7 @@
 				</capacities>
 				<power>27</power>
 				<cooldownTime>3.4</cooldownTime>
+				<chanceFactor>3.0</chanceFactor>
 			</li>
 		</tools>
 		<recipeMaker>
@@ -225,42 +195,8 @@
 					<position>(-0.45,-0.3,-0.05)</position>
 					<angle>-10</angle>
 				</westOffset>
-			</li>			
-			<li Class="NewRatkin.CompProperties_GunlanceFuel">
-				<compClass>NewRatkin.CompGunlanceFuel</compClass>
-				<fuelLabel>Shots until barrel change</fuelLabel>
-				<fuelGizmoLabel>wyvern ammo</fuelGizmoLabel>
-				<fuelFilter>
-					<thingDefs>
-						<li>RK_WyvernAmmo_SpreadType</li>
-					</thingDefs>
-				</fuelFilter>
-				<fuelCapacity>3</fuelCapacity>
-				<initialFuelPercent>0</initialFuelPercent>
-				<autoRefuelPercent>0.75</autoRefuelPercent>
-				<showFuelGizmo>true</showFuelGizmo>
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-				<outOfFuelMessage>Ammo out: Needs Wyvern ammo(spread)</outOfFuelMessage>
-				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
 			</li>
 		</comps>
-		<!-- <verbs> -->
-			<!-- <li Class="NewRatkin.VerbProperties_Gunlance"> -->
-				<!-- <verbClass>NewRatkin.Verb_WyvernFire</verbClass> -->
-				<!-- <hasStandardCommand>true</hasStandardCommand> -->
-				<!-- <warmupTime>0.5</warmupTime> -->
-				<!-- <range>5</range> -->
-				<!-- <onlyManualCast>True</onlyManualCast> -->
-				<!-- <muzzleFlashScale>15</muzzleFlashScale> -->
-				<!-- <consumeFuelPerShot>1</consumeFuelPerShot> -->
-				<!-- <burstShotCount>2</burstShotCount> -->
-				<!-- <ticksBetweenBurstShots>130</ticksBetweenBurstShots> -->
-				<!-- <damageDef>Flame</damageDef> -->
-				<!-- <damageAmount>20</damageAmount> -->
-				<!-- <stopBurstWithoutLos>false</stopBurstWithoutLos> -->
-				<!-- <angle>70</angle> -->
-			<!-- </li> -->
-		<!-- </verbs> -->
 	</ThingDef>
 
 	<ToolCapacityDef>
@@ -275,7 +211,7 @@
 			<damageDef>Flame</damageDef>
 			<damageAmount>15</damageAmount>
 			<range>2</range>
-			<angle>70</angle>	
+			<angle>70</angle>
 		</verb>
 		<logEntryDef>MeleeAttack</logEntryDef>
 		<combatLogRulesHit>RK_Maneuver_Shell_MeleeHit</combatLogRulesHit>
@@ -289,7 +225,7 @@
 		<label>explosion</label>
 		<thingClass>NewRatkin.GunlanceExplosion</thingClass>
 		<tickerType>Normal</tickerType>
-	</ThingDef>	
+	</ThingDef>
 
 	<ThingDef ParentName="MakeableShellBase">
 		<defName>RK_WyvernAmmo_NormalType</defName>
@@ -298,7 +234,7 @@
 		<graphicData>
 			<texPath>Things/Item/Resource/WyvernAmmo_Normal</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
-		</graphicData>	
+		</graphicData>
 		<costList>
 			<Steel>25</Steel>
 			<Chemfuel>30</Chemfuel>
@@ -323,7 +259,7 @@
 			</li>
 		</comps>
 		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>			
+			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>
@@ -345,6 +281,7 @@
 			<li>MortarShell</li>
 		</tradeTags>
 	</ThingDef>
+
 	<ThingDef ParentName="MakeableShellBase">
 		<defName>RK_WyvernAmmo_SpreadType</defName>
 		<label>wyvern ammo(spread)</label>
@@ -352,7 +289,7 @@
 		<graphicData>
 			<texPath>Things/Item/Resource/WyvernAmmo_Spread</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
-		</graphicData>	
+		</graphicData>
 		<costList>
 			<Steel>25</Steel>
 			<Chemfuel>75</Chemfuel>
@@ -380,7 +317,7 @@
 			<li>Manufactured</li>
 		</thingCategories>
 		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>			
+			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>
@@ -409,7 +346,7 @@
 		<graphicData>
 			<texPath>Things/Special/GunlancePreIgnition</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData> 
+		</graphicData>
 		<altitudeLayer>PawnState</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
 	</ThingDef>
@@ -423,7 +360,7 @@
 		<graphicData>
 			<texPath>Things/Special/WyvernFire</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData> 
+		</graphicData>
 		<altitudeLayer>Gas</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
 	</ThingDef>
