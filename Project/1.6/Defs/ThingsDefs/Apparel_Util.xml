@@ -6,7 +6,6 @@
 			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath><!--배너 기본 그래픽-->
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
 		</graphicData>
 		<costList>
 			<WoodLog>100</WoodLog>
@@ -76,7 +75,6 @@
 				<li>RK_ApparelTag_Support</li>
 				<li>RK_ApparelTag_Buffer</li>
 			</tags>
-			<wornGraphicPath>Apparel/Util/RK_TextureApparel_Banner</wornGraphicPath><!--배너 기본 그래픽-->
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
@@ -324,7 +322,6 @@
 				<li>Worker</li>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<!-- <wornGraphicPath>Apparel/RK_WoodenShield</wornGraphicPath> -->
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
@@ -343,6 +340,7 @@
 		<graphicData>
 			<texPath>Apparel/Util/RK_HeavyShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
@@ -425,7 +423,6 @@
 				<li>Worker</li>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<!-- <wornGraphicPath>Apparel/RK_HeavyShield</wornGraphicPath> -->
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
@@ -445,7 +442,7 @@
 		<graphicData>
 			<texPath>Apparel/Util/RK_TowerShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<!-- <shaderType>CutoutComplex</shaderType> -->
+			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
@@ -529,7 +526,6 @@
 				<li>Worker</li>
 				<li>Soldier</li>
 			</defaultOutfitTags>
-			<!-- <wornGraphicPath>Apparel/RK_TowerShield</wornGraphicPath> -->
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
