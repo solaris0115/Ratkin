@@ -122,6 +122,9 @@
     <Compile Include="ShieldOfRatkinia\StockGen_Mercenary.cs" />
     <Compile Include="ShieldOfRatkinia\ShieldPatch.cs" />
     <Compile Include="ShieldOfRatkinia\WoodenShield.cs" />
+    <Compile Include="Test\CompMeleeExplosive.cs" />
+    <Compile Include="Test\CompProperties_MeleeExplosive.cs" />
+    <Compile Include="Test\Verb_MeleeExplosiveAttack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
