@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Add Hardtack recipes to Electric Stove -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName = "ElectricStove"]/recipes</xpath>
+		<value>
+			<li>RK_Recipe_Hardtack</li>
+			<li>RK_Recipe_HardtackBulk</li>
+		</value>
+	</Operation>
+	
+	<!-- Add Hardtack recipes to Fueled Stove -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName = "FueledStove"]/recipes</xpath>
+		<value>
+			<li>RK_Recipe_Hardtack</li>
+			<li>RK_Recipe_HardtackBulk</li>
+		</value>
+	</Operation>
+</Patch>
+
