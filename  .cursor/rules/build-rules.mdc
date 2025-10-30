@@ -1,0 +1,24 @@
+---
+alwaysApply: false
+description: Ratkin 프로젝트 간단 빌드 규칙 (폴더/PowerShell 중심)
+---
+
+# Ratkin 간단 빌드 규칙
+
+## 빌드 폴더
+- 소스: `Project/1.6/Source`
+- 출력 DLL: `Project/1.6/Assemblies/NewRatkin.dll`
+
+## PowerShell로 빌드
+```powershell
+# 프로젝트 소스 폴더로 이동
+cd Project/1.6/Source
+
+# Visual Studio 2022 Community MSBuild 사용 예시
+& "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
+```
+
+## 메모
+- PowerShell 권장. (Windows CMD 사용 시 경로 따옴표 처리 주의)
+- 빌드 성공 메시지: `Build succeeded.`
+- 빌드 산출물은 자동으로 `Assemblies/` 폴더에 복사됨.

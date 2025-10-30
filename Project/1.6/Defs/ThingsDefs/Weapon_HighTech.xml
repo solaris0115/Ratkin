@@ -39,19 +39,26 @@
 				<label>point</label>
 				<capacities>
 					<li>GunlanceShell_Normal</li>
+					<li>Stab</li>
 				</capacities>
 				<power>16</power>
 				<cooldownTime>3</cooldownTime>
-				<chanceFactor>3.0</chanceFactor>
 			</li>
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>GunlanceShell_Normal</li>
+					<li>Cut</li>
 				</capacities>
 				<power>27</power>
 				<cooldownTime>3.4</cooldownTime>
-				<chanceFactor>3.0</chanceFactor>
+			</li>
+			<li>
+				<label>gun fire</label>
+				<capacities>
+					<li>GunlanceShell_Normal</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>3.4</cooldownTime>
 			</li>
 		</tools>
 		<recipeMaker>
@@ -80,6 +87,15 @@
 					<angle>-10</angle>
 				</westOffset>
 			</li>
+			<li Class="CompProperties_EquippableAbilityReloadable">
+				<abilityDef>HellcatBurner</abilityDef>
+				<maxCharges>2</maxCharges>
+				<soundReload>Standard_Reload</soundReload>
+				<chargeNoun>wyvern charge</chargeNoun>
+				<ammoDef>RK_WyvernAmmo_NormalType</ammoDef>
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<baseReloadTicks>60</baseReloadTicks>
+			</li>
 		</comps>
 	</ThingDef>
 
@@ -96,11 +112,11 @@
 	<ManeuverDef>
 		<defName>RK_GunlanceExplosion_Normal</defName>
 		<requiredCapacity>GunlanceShell_Normal</requiredCapacity>
+		<!-- TODO: 근접 공격시 예전처럼 직접 포격으로 변경 -->
 		<verb Class="NewRatkin.VerbProperties_MeleeExplosion">
 			<verbClass>NewRatkin.Verb_MeleeAttackExplosion</verbClass>
-			<meleeDamageDef>Stab</meleeDamageDef>
 			<!-- 폭발 설정 (기존 파라미터와 동일) -->
-			<explosionRadius>1</explosionRadius>
+			<explosionRadius>2</explosionRadius>
 			<explosionAngle>50</explosionAngle>
 			<explosionDamageDef>Bomb</explosionDamageDef>
 			<explosionDamageAmount>15</explosionDamageAmount>
@@ -112,19 +128,6 @@
 		<combatLogRulesMiss>RK_Maneuver_Shell_MeleeMiss</combatLogRulesMiss>
 		<combatLogRulesDodge>RK_Maneuver_Shell_MeleeDodge</combatLogRulesDodge>
 	</ManeuverDef>
-
-	<!-- 
-		구버전 GunlanceExplosion - 더 이상 사용 안함
-		새 Verb_MeleeAttackExplosion이 GenExplosion.DoExplosion 사용
-	-->
-	<!--
-	<ThingDef ParentName="EtherealThingBase">
-		<defName>GunlanceExplosion</defName>
-		<label>explosion</label>
-		<thingClass>NewRatkin.GunlanceExplosion</thingClass>
-		<tickerType>Normal</tickerType>
-	</ThingDef>
-	-->
 
 	<ThingDef ParentName="MakeableShellBase">
 		<defName>RK_WyvernAmmo_NormalType</defName>

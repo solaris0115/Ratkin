@@ -73,16 +73,14 @@
     <Compile Include="AutoTests\AutoTests.cs" />
     <Compile Include="ExtraWornDrawer\CompExtraDrawer.cs" />
     <Compile Include="DebugActionsAllApparel.cs" />
-    <Compile Include="Gunlance\CompGunlanceFuel.cs" />
-    <Compile Include="Gunlance\CompProperties_GunlanceFuel.cs" />
     <Compile Include="Gunlance\CompUseEffect.cs" />
-    <Compile Include="Gunlance\Gizmo_GunlanceStatus.cs" />
     <Compile Include="Gunlance\GunlanceDefOf.cs" />
     <Compile Include="Gunlance\GunlanceExplosion.cs" />
     <Compile Include="Gunlance\AttachableThing_GunlanceIgnition.cs" />
     <Compile Include="Gunlance\VerbProperties_Gunlance.cs" />
+    <Compile Include="Gunlance\VerbProperties_MeleeExplosion.cs" />
     <Compile Include="Gunlance\Verb_GunlanceFiring.cs" />
-    <Compile Include="Gunlance\Verb_WyvernFire.cs" />
+    <Compile Include="Gunlance\Verb_MeleeAttackExplosion.cs" />
     <Compile Include="HamsterWheel\DefOf.cs" />
     <Compile Include="HamsterWheel\Job.cs" />
     <Compile Include="HamsterWheel\JobGiver.cs" />
@@ -122,9 +120,6 @@
     <Compile Include="ShieldOfRatkinia\StockGen_Mercenary.cs" />
     <Compile Include="ShieldOfRatkinia\ShieldPatch.cs" />
     <Compile Include="ShieldOfRatkinia\WoodenShield.cs" />
-    <Compile Include="Test\CompMeleeExplosive.cs" />
-    <Compile Include="Test\CompProperties_MeleeExplosive.cs" />
-    <Compile Include="Test\Verb_MeleeExplosiveAttack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
