@@ -7,20 +7,20 @@ using Verse;
 namespace NewRatkin
 {
 	[StaticConstructorOnStartup]
-	public class Verb_GunlanceFiring : Verb_MeleeAttack
+    public class Verb_GunlanceFiring : Verb_MeleeAttack
 	{
-		public VerbProperties_Gunlance verbProperties;
+		public VerbProperties_Gunlance verbProperties; 
 
 		protected override bool TryCastShot()
 		{
 			Pawn casterPawn = CasterPawn;
-			if (!casterPawn.Spawned || casterPawn.stances.FullBodyBusy)
+			if (!casterPawn.Spawned|| casterPawn.stances.FullBodyBusy)
 			{
 				return false;
 			}
 
 			Thing targetThing = currentTarget.Thing;
-			if (targetThing == null)
+			if(targetThing==null)
 			{
 				return true;
 			}
@@ -41,38 +41,33 @@ namespace NewRatkin
 				targetPawn.mindState.lastMeleeThreatHarmTick = Find.TickManager.TicksGame;
 			}
 			if (!IsTargetImmobile(currentTarget) && casterPawn.skills != null)
-			{
-				;
+			{;
 				casterPawn.skills.Learn(SkillDefOf.Melee, 100f * verbProps.AdjustedFullCycleTime(this, casterPawn), false);
 				casterPawn.skills.Learn(SkillDefOf.Shooting, 100f * verbProps.AdjustedFullCycleTime(this, casterPawn), false);
 			}
 			verbProperties = verbProps as VerbProperties_Gunlance;
-
-			// Calculate target direction angle
-			IntVec3 casterPos = casterPawn.Position;
-			IntVec3 targetPos = targetThing.Position;
-			float angleToTarget = (casterPos - targetPos).AngleFlat;
-			float halfAngle = verbProperties.angle / 2f;
-			FloatRange affectedAngle = new FloatRange(
-				angleToTarget - halfAngle,
-				angleToTarget + halfAngle
-			);
-
-			// Use standard explosion
-			GenExplosion.DoExplosion(
-				center: casterPos,
-				map: casterPawn.Map,
-				radius: verbProperties.range,
-				damType: verbProperties.damageDef ?? DamageDefOf.Bomb,
-				instigator: casterPawn,
-				damAmount: verbProperties.damageAmount,
-				armorPenetration: 1f,
-				weapon: CasterPawn.equipment.Primary.def,
-				affectedAngle: affectedAngle,
-				chanceToStartFire: 0f,
-				damageFalloff: false,
-				screenShakeFactor: 0f
-			);
+			GunlanceExplosion explosion = GenSpawn.Spawn(GunlanceDefOf.GunlanceExplosion, caster.Position, caster.Map, 0) as GunlanceExplosion;
+			explosion.radius = verbProperties.range;
+			explosion.damType = verbProperties.damageDef ?? DamageDefOf.Bomb;
+			explosion.instigator = CasterPawn;
+			explosion.damAmount = verbProperties.damageAmount;
+			explosion.armorPenetration = 1f;
+			explosion.weapon = CasterPawn.equipment.Primary.def;
+			explosion.projectile = null;
+			explosion.intendedTarget = null;
+			explosion.preExplosionSpawnThingDef = null;
+			explosion.preExplosionSpawnChance = 0f;
+			explosion.preExplosionSpawnThingCount = 0;
+			explosion.postExplosionSpawnThingDef = null;
+			explosion.postExplosionSpawnChance = 0f;
+			explosion.postExplosionSpawnThingCount = 0;
+			explosion.applyDamageToExplosionCellsNeighbors = false;
+			explosion.chanceToStartFire = 0f;
+			explosion.damageFalloff = false;
+			explosion.needLOSToCell1 = null;
+			explosion.needLOSToCell2 = null;
+			explosion.PreStartExplosion(TeleUtils.circularSectorCellsStartedTarget(casterPawn.Position, casterPawn.Map,targetThing.Position, verbProperties.range, verbProperties.angle, true).ToList());
+			explosion.StartExplosion(null, null);
 			CreateCombatLog((ManeuverDef maneuver) => maneuver.combatLogRulesHit, true);
 
 
@@ -100,7 +95,7 @@ namespace NewRatkin
 		{
 			Thing thing = target.Thing;
 			Pawn pawn = thing as Pawn;
-			return pawn == null || pawn.Downed || pawn.GetPosture() > PawnPosture.Standing;
+			return pawn==null || pawn.Downed || pawn.GetPosture() > PawnPosture.Standing;
 		}
 
 		private IEnumerable<DamageInfo> DamageInfosToApply(LocalTargetInfo target)

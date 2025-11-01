@@ -7,7 +7,7 @@ namespace NewRatkin
     [DefOf]
     public static class GunlanceDefOf
     {
-        // public static ThingDef GunlanceExplosion;
+        public static ThingDef GunlanceExplosion;
         public static ThingDef GunlancePreIgnition;
         public static ThingDef GunlanceAfterIgnition;
     }

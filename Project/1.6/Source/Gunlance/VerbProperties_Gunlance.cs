@@ -8,10 +8,6 @@ namespace NewRatkin
 
         public int damageAmount;
 
-        public float range;
-
-        public float consumeFuelPerShot;
-
         public float angle;
     }
 }

@@ -22,10 +22,10 @@ namespace NewRatkin
 			{
 				return true;
 			}
-			if ((verbProps as VerbProperties_Gunlance)?.consumeFuelPerShot > 0f)
+			if (verbProps.consumeFuelPerShot > 0f)
 			{
-				CompRefuelable compGunlance = EquipmentSource.TryGetComp<CompRefuelable>();
-				if (compGunlance != null && compGunlance.Fuel < (verbProps as VerbProperties_Gunlance).consumeFuelPerShot)
+				CompGunlanceFuel compGunlance = EquipmentSource.TryGetComp<CompGunlanceFuel>();
+				if ((compGunlance != null && compGunlance.Fuel < verbProps.consumeFuelPerShot))
 				{
 					return false;
 				}
@@ -44,12 +44,12 @@ namespace NewRatkin
 			if (burstShotsLeft>1)
 			{
 				RatkinSoundDefOf.RK_Charge.PlayOneShot(new TargetInfo(caster.Position, caster.Map, false));
-				if ((verbProps as VerbProperties_Gunlance)?.consumeFuelPerShot > 0f)
+				if (verbProps.consumeFuelPerShot > 0f)
 				{
-					CompRefuelable compGunlance = EquipmentSource.TryGetComp<CompRefuelable>();
+					CompRefuelable compGunlance = EquipmentSource.TryGetComp<CompGunlanceFuel>();
 					if (compGunlance != null)
 					{
-						compGunlance.ConsumeFuel((verbProps as VerbProperties_Gunlance).consumeFuelPerShot);
+						compGunlance.ConsumeFuel(verbProps.consumeFuelPerShot);
 					}
 				}
 				AttachableThing_GunlanceIgnition ignition = ThingMaker.MakeThing(GunlanceDefOf.GunlancePreIgnition, null) as AttachableThing_GunlanceIgnition;
