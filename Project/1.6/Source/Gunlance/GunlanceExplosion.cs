@@ -96,9 +96,9 @@ namespace NewRatkin
 			}
 		}
 
-		public override void Tick()
-		{
-			int ticksGame = Find.TickManager.TicksGame;
+	protected override void Tick()
+	{
+		int ticksGame = Find.TickManager.TicksGame;
 			int num = this.cellsToAffect.Count - 1;
 			while (num >= 0 && ticksGame >= this.GetCellAffectTick(this.cellsToAffect[num]))
 			{
