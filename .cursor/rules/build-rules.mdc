@@ -47,11 +47,26 @@ cd Project/1.6/Source
 
 ## 빌드 전 체크리스트
 
-### 1. 프로젝트 파일 정리
+### 1. 프로젝트 파일 관리 (필수)
 
-프로젝트 파일([NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj))에서 삭제된 파일 제거:
+**모든 C# 파일 작업 시 반드시 [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj) 업데이트:**
+
+- **새 C# 파일 생성 시**: `<Compile Include="..." />` 항목 추가 필수
+- **C# 파일 삭제 시**: `<Compile Include="..." />` 항목 제거 필수
+- **파일 경로 변경 시**: `<Compile Include="..." />` 경로 수정 필수
 - 삭제된 파일이 `<Compile Include="..."/>` 에 남아있으면 빌드 오류 발생
-- 파일을 삭제할 때는 반드시 프로젝트 파일에서도 제거
+
+**프로젝트 파일 구조**:
+```xml
+<ItemGroup>
+  <Compile Include="[폴더명]\[파일명].cs" />
+  ...
+</ItemGroup>
+```
+
+**예시**:
+- 새 파일: `Gunlance/CompNewFeature.cs` 생성 시 → `<Compile Include="Gunlance\CompNewFeature.cs" />` 추가
+- 파일 삭제: `Verb_WyvernFire.cs` 삭제 시 → `<Compile Include="Gunlance\Verb_WyvernFire.cs" />` 제거
 
 ### 2. 의존성 확인
 
