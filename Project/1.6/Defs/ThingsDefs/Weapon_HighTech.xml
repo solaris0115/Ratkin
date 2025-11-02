@@ -165,60 +165,6 @@
 			<li>MortarShell</li>
 		</tradeTags>
 	</ThingDef>
-	<ThingDef ParentName="MakeableShellBase">
-		<defName>RK_WyvernAmmo_SpreadType</defName>
-		<label>wyvern ammo(spread)</label>
-		<description>A shell filled with high explosives. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
-		<graphicData>
-			<texPath>Things/Item/Resource/WyvernAmmo_Spread</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
-		</graphicData>	
-		<costList>
-			<Steel>25</Steel>
-			<Chemfuel>75</Chemfuel>
-		</costList>
-		<tradeability>Sellable</tradeability>
-		<comps>
-			<li Class="CompProperties_Usable">
-				<useJob>UseItem</useJob>
-				<useLabel>Reload wyvern shell(spread)</useLabel>
-				<useDuration>600</useDuration>
-			</li>
-			<li Class="NewRatkin.CompProperties_GunlanceReload">
-				<compClass>NewRatkin.CompUseEffect_ReloadGunlance</compClass>
-				<gunLanceDef>RK_Gunlance_SpreadType</gunLanceDef>
-			</li>
-			<li Class="CompProperties_Explosive">
-				<explosiveRadius>2.9</explosiveRadius>
-				<explosiveDamageType>Flame</explosiveDamageType>
-				<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
-				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
-				<wickTicks>30~60</wickTicks>
-			</li>
-		</comps>
-		<thingCategories Inherit="false">
-			<li>Manufactured</li>
-		</thingCategories>
-		<recipeMaker>
-			<researchPrerequisite>MechanicalWeapon</researchPrerequisite>			
-			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-			<effectWorking>Cook</effectWorking>
-			<soundWorking>Recipe_Machining</soundWorking>
-			<workAmount>1000</workAmount>
-			<targetCountAdjustment>5</targetCountAdjustment>
-			<workSkill>Crafting</workSkill>
-			<recipeUsers Inherit="false">
-				<li>RK_FueledSmithy</li>
-				<li>RK_ElectricSmithy</li>
-			</recipeUsers>
-			<skillRequirements>
-				<Crafting>8</Crafting>
-			</skillRequirements>
-		</recipeMaker>
-		<tradeTags>
-			<li>MortarShell</li>
-		</tradeTags>
-	</ThingDef>
 
 	<ThingDef>
 		<defName>GunlancePreIgnition</defName>
