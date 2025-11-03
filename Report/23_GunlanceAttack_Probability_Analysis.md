@@ -18,6 +18,13 @@
 | point | Stab | 16 | 3.0 | 1.0 (기본값) |
 | edge | GunlanceShell_Normal | 16 | 1.0 | 1.0 (기본값) |
 
+### Longsword tools (참고용)
+| Tool | Capacity | Power | Cooldown | chanceFactor |
+|------|----------|-------|----------|--------------|
+| point | Stab | 23 | 2.1 | 1.0 (기본값) |
+| edge | Cut | 23 | 2.1 | 1.0 (기본값) |
+| handle | Blunt | 12 | 1.8 | 1.0 (기본값) |
+
 ### ManeuverDef
 - **Stab**: meleeDamageBaseAmount = 1, meleeArmorPenetrationBase = -1
 - **GunlanceShell_Normal**: damageAmount = 15, damageDef = Bomb
@@ -147,6 +154,55 @@ Mid 분류에는 teeth, point, left fist, right fist가 포함됨.
 ### 추가 고려사항
 - **Bite의 commonalityVsEdificeFactor = 0.01**: 건물 타겟 시 Bite 확률이 100배 감소
 - **건물 타겟 전용**: 다른 공격들도 영향받을 수 있으나, GunlanceShell_Normal의 dominance는 유지됨
+
+## 추가 분석: Longsword + Gunlance 조합
+
+### Longsword + Gunlance 공격 확률 계산
+
+Longsword를 주무기로 장착하고 건랜스를 보조무기로 장착한 경우 (또는 반대):
+
+#### Longsword tools 계산
+1. **point (Stab)**:
+   - DPS = 23 × 1 × 1 / 2.1 = **10.95**
+2. **edge (Cut)**:
+   - DPS = 23 × 1 × 1 / 2.1 = **10.95**
+3. **handle (Blunt)**:
+   - DPS = 12 × 1 × 1 / 1.8 = **6.67**
+
+#### 건랜스 tools (기존)
+1. **point (Stab)**: DPS = **5.33**
+2. **edge (GunlanceShell_Normal)**: DPS = **16.0**
+
+#### 전체 DPS 비교
+| Tool | DPS | Category |
+|------|-----|----------|
+| edge (GunlanceShell) | 16.0 | Best |
+| point (Longsword Stab) | 10.95 | Mid |
+| edge (Longsword Cut) | 10.95 | Mid |
+| teeth (Bite) | 7.14 | Mid |
+| handle (Blunt) | 6.67 | Mid |
+| point (Gunlance Stab) | 5.33 | Mid |
+| left/right fist | 3.33 | Mid |
+
+### 확률 분포
+**highestWeight = 16.0**
+
+- **Best (edge - GunlanceShell)**: 1개 → weight = **0.75** → **75%**
+- **Mid (나머지 8개)**: 각 weight = (1/8) × 0.25 = **0.03125** → **3.125% 각각**
+
+| Attack | Probability |
+|--------|-------------|
+| **GunlanceShell_Normal** | **75%** |
+| Longsword Stab/Cut | 각 3.125% |
+| teeth (Bite) | 3.125% |
+| Blunt (handle) | 3.125% |
+| Gunlance Stab | 3.125% |
+| Scratch (fist) | 각 3.125% |
+
+### 결론
+**Longsword와 무관하게 GunlanceShell이 여전히 75% 확률을 유지**
+
+Longsword의 높은 DPS (10.95)도 GunlanceShell (16.0)보다 낮아 Best 카테고리를 형성하지 못함.
 
 ## 참고: 소스코드 위치
 - **Verb 선택 로직**: `RimworldSource/Verse/VerbUtility.cs` (InitialVerbWeight, FinalSelectionWeight)
