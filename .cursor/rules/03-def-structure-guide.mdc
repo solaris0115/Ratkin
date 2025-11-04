@@ -1,6 +1,6 @@
 ---
-alwaysApply: true
 description: Def 구조 및 프로젝트 정보 가이드
+alwaysApply: false
 ---
 # Def 구조 가이드
 

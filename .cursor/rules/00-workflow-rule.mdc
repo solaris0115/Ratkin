@@ -1,5 +1,5 @@
 ---
-alwaysApply: false
+alwaysApply: true
 ---
 0순위 에이전트 식별자 최우선
 1순위 항상 워크플로 규칙에 맞춰서 작업 수행
