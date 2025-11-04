@@ -1,0 +1,44 @@
+---
+description: 리네이밍 일괄 요청시 적용 규칙
+alwaysApply: false
+---
+# Def 네이밍 규칙
+
+## 기본 규칙
+
+- **접두사**: `RK_` 사용
+- **표기법**: 파스칼 표기법 (PascalCase)
+- **DefName 구조**: `RK_` + `DefType` + `_` + `SpecificName`
+
+## DefType별 네이밍 패턴
+
+- **RecipeDef**: `RK_Recipe_Xxx` (예: `RK_Recipe_InstallFakeEar`)
+- **ResearchProjectDef**: `RK_Research_Xxx` (예: `RK_Research_PiercingWeapon`)
+- **ThingDef**: `RK_Thing_Xxx` 또는 `RK_Xxx` (예: `RK_Thing_RatkinRifle`, `RK_RatkinRifle`)
+- **RaceDef**: `RK_Race_Xxx` (예: `RK_Race_Ratkin`)
+- **TraitDef**: `RK_Trait_Xxx` (예: `RK_Trait_RatkinSenses`)
+- **FactionDef**: `RK_Faction_Xxx` (예: `RK_Faction_RatkinTribe`)
+- **AbilityDef**: `RK_Ability_Xxx` (예: `RK_Ability_RatkinLeap`)
+- **BackStoryDef**: `RK_Backstory_Xxx` (예: `RK_Backstory_RatkinChildhood`)
+- **CultureDef**: `RK_Culture_Xxx` (예: `RK_Culture_RatkinSociety`)
+- **HairDef**: `RK_Hair_Xxx` (예: `RK_Hair_RatkinStyle`)
+
+## 예시
+
+- `RK_Recipe_InstallFakeEar` (RecipeDef)
+- `RK_Research_PiercingWeapon` (ResearchProjectDef)
+- `RK_Thing_RatkinRifle` (ThingDef)
+- `RK_Race_Ratkin` (RaceDef)
+
+## 적용 원칙
+
+- **DefName 구조**: `RK_` + `DefType` + `_` + `SpecificName` 형식을 반드시 준수
+- defName, 파일명 모두 RK_ 접두사와 파스칼 표기법을 반드시 준수
+- DefType은 뒤에 Def는 제거하고 앞의 타입명칭만 ex)ResearchDef => Research
+
+## 네이밍 규칙 준수 체크리스트
+
+- [ ] DefName이 `RK_DefType_SpecificName` 형식인가?
+- [ ] DefType이 올바르게 명시되었는가? (Recipe, Research, Thing, Race 등)
+- [ ] SpecificName이 파스칼 표기법을 따르는가?
+- [ ] 전체 프로젝트에서 일관된 네이밍을 사용하는가?

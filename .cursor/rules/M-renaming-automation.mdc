@@ -1,5 +1,4 @@
 ---
-description: 리네이밍 작업 자동화 규칙 - DefName과 리소스 파일들의 일관된 리네이밍 처리
 alwaysApply: false
 ---
 # 리네이밍 작업 자동화 규칙

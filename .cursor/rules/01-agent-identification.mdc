@@ -1,0 +1,14 @@
+---
+alwaysApply: true
+description: 에이전트 신원 식별 규칙
+---
+
+# 에이전트 신원 식별 규칙
+
+모든 응답의 **첫 줄**에 AI 모델명을 표시합니다.
+
+**형식**: `**AI Model:** [모델명]`
+
+**예시**: 
+- `**AI Model:** Claude 4.5 Sonnet`
+- `**AI Model:** GPT-4`
