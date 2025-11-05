@@ -93,7 +93,6 @@
 		<verb Class="NewRatkin.VerbProperties_Gunlance">
 			<verbClass>NewRatkin.Verb_GunlanceFiring</verbClass>
 			<damageDef>Bomb</damageDef>
-			<damageAmount>15</damageAmount>
 			<range>1</range>
 			<angle>50</angle>	
 		</verb>
@@ -103,13 +102,6 @@
 		<combatLogRulesMiss>RK_Maneuver_Shell_MeleeMiss</combatLogRulesMiss>
 		<combatLogRulesDodge>RK_Maneuver_Shell_MeleeDodge</combatLogRulesDodge>
 	</ManeuverDef>
-
-	<ThingDef ParentName="EtherealThingBase">
-		<defName>GunlanceExplosion</defName>
-		<label>explosion</label>
-		<thingClass>NewRatkin.GunlanceExplosion</thingClass>
-		<tickerType>Normal</tickerType>
-	</ThingDef>	
 
 	<ThingDef ParentName="MakeableShellBase">
 		<defName>RK_WyvernAmmo_NormalType</defName>
@@ -129,10 +121,6 @@
 				<useJob>UseItem</useJob>
 				<useLabel>Reload wyvern shell(normal)</useLabel>
 				<useDuration>600</useDuration>
-			</li>
-			<li Class="NewRatkin.CompProperties_GunlanceReload">
-				<compClass>NewRatkin.CompUseEffect_ReloadGunlance</compClass>
-				<gunLanceDef>RK_Gunlance_NormalType</gunLanceDef>
 			</li>
 			<li Class="CompProperties_Explosive">
 				<explosiveRadius>2.9</explosiveRadius>
