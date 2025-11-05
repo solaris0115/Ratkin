@@ -7,95 +7,105 @@ using Verse;
 namespace NewRatkin
 {
 	[StaticConstructorOnStartup]
-    public class Verb_GunlanceFiring : Verb_MeleeAttack
+	public class Verb_GunlanceFiring : Verb_MeleeAttack
 	{
-		public VerbProperties_Gunlance verbProperties; 
+		public VerbProperties_Gunlance verbProperties;
 
 		protected override bool TryCastShot()
 		{
-			Pawn casterPawn = CasterPawn;
-			if (!casterPawn.Spawned|| casterPawn.stances.FullBodyBusy)
+			// 시전자(공격자) 상태 확인 - 스폰되어 있고 전신이 바쁘지 않은지 체크
+			Pawn casterPawn = this.CasterPawn;
+			if (!casterPawn.Spawned || casterPawn.stances.FullBodyBusy)
 			{
+				Log.Message($"[Verb_GunlanceFiring] TryCastShot: return false - CasterPawn not spawned or full body busy. CasterPawn: {casterPawn}, Spawned: {casterPawn?.Spawned}, FullBodyBusy: {casterPawn?.stances?.FullBodyBusy}");
 				return false;
 			}
 
-			Thing targetThing = currentTarget.Thing;
-			if(targetThing==null)
+			// 타겟 확인 및 근접 사거리 내에 있는지 검증
+			Thing targetThing = this.currentTarget.Thing;
+			if (!this.CanHitTarget(targetThing))
+				Log.Warning($"{casterPawn} meleed {targetThing} from out of melee position.");
+
+			// 공격자가 타겟을 바라보도록 회전
+			casterPawn.rotationTracker.Face(targetThing.DrawPos);
+
+			// 타겟이 움직일 수 있고, 시전자에게 스킬 시스템이 있으며, 타겟이 콜로니 메크가 아닌 경우 근접 전투 스킬 경험치 획득
+			if (!this.IsTargetImmobile(this.currentTarget) &&
+				casterPawn.skills != null &&
+				(this.currentTarget.Pawn == null || !this.currentTarget.Pawn.IsColonyMech))
 			{
-				return true;
+				casterPawn.skills.Learn(SkillDefOf.Melee, 200f * this.verbProps.AdjustedFullCycleTime(this, casterPawn), false, false);
 			}
-			if (!CanHitTarget(targetThing))
-			{
-				Log.Warning(string.Concat(new object[]
-				{
-					casterPawn,
-					" meleed ",
-					targetThing,
-					" from out of melee position."
-				}));
-			}
+
+			// 타겟이 생물(Pawn)인 경우, 적대 관계 설정 및 근접 위협으로 인식
 			Pawn targetPawn = targetThing as Pawn;
-			if (targetPawn != null && !targetPawn.Dead && (casterPawn.MentalStateDef != MentalStateDefOf.SocialFighting || targetPawn.MentalStateDef != MentalStateDefOf.SocialFighting))
+			if (targetPawn != null &&
+			!targetPawn.Dead &&
+			(casterPawn.MentalStateDef != MentalStateDefOf.SocialFighting || targetPawn.MentalStateDef != MentalStateDefOf.SocialFighting) &&
+			(casterPawn.story == null || !casterPawn.story.traits.DisableHostilityFrom(targetPawn)))
 			{
 				targetPawn.mindState.meleeThreat = casterPawn;
 				targetPawn.mindState.lastMeleeThreatHarmTick = Find.TickManager.TicksGame;
 			}
-			if (!IsTargetImmobile(currentTarget) && casterPawn.skills != null)
-			{;
-				casterPawn.skills.Learn(SkillDefOf.Melee, 100f * verbProps.AdjustedFullCycleTime(this, casterPawn), false);
-				casterPawn.skills.Learn(SkillDefOf.Shooting, 100f * verbProps.AdjustedFullCycleTime(this, casterPawn), false);
-			}
+			
+			// 건랜스 포격은 적중 여부와 관계없이 그쪽으로 발사만 시도함. 적중 판단은 나중에 폭발에서 별도 처리
 			verbProperties = verbProps as VerbProperties_Gunlance;
-			GunlanceExplosion explosion = GenSpawn.Spawn(GunlanceDefOf.GunlanceExplosion, caster.Position, caster.Map, 0) as GunlanceExplosion;
-			explosion.radius = verbProperties.range;
-			explosion.damType = verbProperties.damageDef ?? DamageDefOf.Bomb;
-			explosion.instigator = CasterPawn;
-			explosion.damAmount = verbProperties.damageAmount;
-			explosion.armorPenetration = 1f;
-			explosion.weapon = CasterPawn.equipment.Primary.def;
-			explosion.projectile = null;
-			explosion.intendedTarget = null;
-			explosion.preExplosionSpawnThingDef = null;
-			explosion.preExplosionSpawnChance = 0f;
-			explosion.preExplosionSpawnThingCount = 0;
-			explosion.postExplosionSpawnThingDef = null;
-			explosion.postExplosionSpawnChance = 0f;
-			explosion.postExplosionSpawnThingCount = 0;
-			explosion.applyDamageToExplosionCellsNeighbors = false;
-			explosion.chanceToStartFire = 0f;
-			explosion.damageFalloff = false;
-			explosion.needLOSToCell1 = null;
-			explosion.needLOSToCell2 = null;
-			explosion.PreStartExplosion(TeleUtils.circularSectorCellsStartedTarget(casterPawn.Position, casterPawn.Map,targetThing.Position, verbProperties.range, verbProperties.angle, true).ToList());
-			explosion.StartExplosion(null, null);
+			CreateGunlanceExplosion(targetThing);
 			CreateCombatLog((ManeuverDef maneuver) => maneuver.combatLogRulesHit, true);
 
-
+			// 포격음은 따로없음. 폭발 사운드로 대체됨
+			// 공격 애니메이션 알림
 			if (casterPawn.Spawned)
 			{
 				casterPawn.Drawer.Notify_MeleeAttackOn(targetThing);
-			}
-			if (targetPawn != null && !targetPawn.Dead && targetPawn.Spawned)
-			{
-				targetPawn.stances.stagger.StaggerFor(95);
-			}
-			if (casterPawn.Spawned)
-			{
 				casterPawn.rotationTracker.FaceCell(targetThing.Position);
 			}
-			if (casterPawn.caller != null)
-			{
-				casterPawn.caller.Notify_DidMeleeAttack();
-			}
+
+			// 호출자(이벤트 리스너)에게 근접 공격 완료 알림
+			if (casterPawn.caller != null) casterPawn.caller.Notify_DidMeleeAttack();
+			
+			Log.Message($"[Verb_GunlanceFiring] TryCastShot: return true - Gunlance firing completed successfully. CasterPawn: {casterPawn}, Target: {targetThing}");
 			return true;
 		}
 
+
+		private void CreateGunlanceExplosion(Thing targetThing)
+		{
+			if (verbProperties == null) return;
+
+			List<IntVec3> explosionCells = TeleUtils.circularSectorCellsStartedTarget(
+				CasterPawn.Position,
+				CasterPawn.Map,
+				targetThing.Position,
+				verbProperties.range,
+				verbProperties.angle,
+				true).ToList();
+
+			// 근접 무기 데미지 및 방어구 관통력 계산 (Tool의 power 기반, 품질 영향 포함)
+			float calculatedDamage = this.verbProps.AdjustedMeleeDamageAmount(this, this.CasterPawn);
+			float calculatedArmorPen = this.verbProps.AdjustedArmorPenetration(this, this.CasterPawn);
+
+			int finalDamage = GenMath.RoundRandom(calculatedDamage);
+
+			Thing weapon = CasterPawn.equipment.Primary;
+			GenExplosion.DoExplosion(
+				center: CasterPawn.Position,
+				map: CasterPawn.Map,
+				radius: verbProperties.range,
+				damType: verbProperties.damageDef ?? DamageDefOf.Bomb,
+				instigator: CasterPawn,
+				damAmount: finalDamage,
+				armorPenetration: calculatedArmorPen,
+				weapon: weapon?.def,
+				screenShakeFactor: 0f,
+				overrideCells: explosionCells);
+		}
 
 		private bool IsTargetImmobile(LocalTargetInfo target)
 		{
 			Thing thing = target.Thing;
 			Pawn pawn = thing as Pawn;
-			return pawn==null || pawn.Downed || pawn.GetPosture() > PawnPosture.Standing;
+			return pawn == null || pawn.Downed || pawn.GetPosture() > PawnPosture.Standing;
 		}
 
 		private IEnumerable<DamageInfo> DamageInfosToApply(LocalTargetInfo target)

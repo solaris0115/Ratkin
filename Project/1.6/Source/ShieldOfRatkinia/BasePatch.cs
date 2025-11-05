@@ -7,14 +7,14 @@ using Verse;
 
 namespace NewRatkin
 {
-    [StaticConstructorOnStartup]
-    public static class ColorPatch
-    {
-        static ColorPatch()
-        {
-            Harmony harmonyInstance = new Harmony("com.NewRatkin.rimworld.mod");
-            harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-        }
-    }
+    // [StaticConstructorOnStartup]
+    // public static class ColorPatch
+    // {
+    //     static ColorPatch()
+    //     {
+    //         Harmony harmonyInstance = new Harmony("com.NewRatkin.rimworld.mod");
+    //         harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+    //     }
+    // }
 
 }

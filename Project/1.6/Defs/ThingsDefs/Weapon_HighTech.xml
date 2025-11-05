@@ -42,7 +42,7 @@
 				<capacities>
 					<li>Stab</li>
 				</capacities>
-				<power>16</power>
+				<power>20</power>
 				<cooldownTime>3</cooldownTime>
 			</li>
 			<li>
@@ -50,8 +50,8 @@
 				<capacities>
 					<li>GunlanceShell_Normal</li>
 				</capacities>
-				<power>16</power>
-				<cooldownTime>3.4</cooldownTime>
+				<power>25</power>
+				<cooldownTime>3</cooldownTime>
 			</li>
 		</tools>
 		<recipeMaker>
