@@ -33,9 +33,13 @@
 		<label>morale booster</label>
 		<description>Boost the morale of everyone nearby.</description>
 		<iconPath>UI/Abilities/RK_TextureIcon_Banner</iconPath>
-		<warmupMoteSocialSymbol>UI/Icons/Colonistbar/Attacking</warmupMoteSocialSymbol>
+		<warmupMoteSocialSymbol>UI/Icons/RK_TextureIcon_Horn</warmupMoteSocialSymbol>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<groupDef>RK_AbilityGroup_MoraleBoost</groupDef>		<!--overrides MultiRole-->
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>3</warmupTime>
+		</verbProperties>
 		<comps>
 			<li Class="CompProperties_AbilityGiveHediff">
 				<compClass>CompAbilityEffect_GiveHediff</compClass>
@@ -45,5 +49,32 @@
 				<replaceExisting>true</replaceExisting>
 			</li>
 		</comps>
+		<warmupStartSound>RK_Sound_MoraleBoost</warmupStartSound>
+		<sendMessageOnCooldownComplete>false</sendMessageOnCooldownComplete>
 	</AbilityDef>
+
+	<SoundDef>
+		<defName>RK_Sound_MoraleBoost</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>2</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Warhorn</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>
+					<min>70</min>
+					<max>80</max>
+				</volumeRange>
+				<distRange>
+					<min>0</min>
+					<max>100</max>
+				</distRange>
+				<muteWhenPaused>True</muteWhenPaused>
+			</li>
+		</subSounds>
+	</SoundDef>
 </Defs>
