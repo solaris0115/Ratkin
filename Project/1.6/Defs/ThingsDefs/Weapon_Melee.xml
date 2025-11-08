@@ -14,8 +14,8 @@
 			<li>RK_MeleeWeapon_Short</li>
 			<li>RK_LightWeapon</li>
 			<li>RK_Defender</li>
-			<li>RK_WeaponTag_OneHanded</li>
-			<li>RK_WeaponTag_OneHandedMelee</li>
+			<li>RK_WeaponTag_OneHand</li>
+			<li>RK_WeaponTag_OneHandMelee</li>
 		</weaponTags>
 		<statBases>
 			<WorkToMake>2500</WorkToMake>
@@ -130,9 +130,9 @@
 			<li>RK_LightWeapon</li>
 			<li>RK_Defender</li>
 			<li>RK_EliteDefender</li>
-			<li>RK_WeaponTag_OneHanded</li>
-			<li>RK_WeaponTag_OneHandedMelee</li>
-			<li>RK_WeaponTag_OneHandedMeleeAttack</li>
+			<li>RK_WeaponTag_OneHand</li>
+			<li>RK_WeaponTag_OneHandMelee</li>
+			<li>RK_WeaponTag_OneHandMeleeAttack</li>
 		</weaponTags>
 		<statBases>
 			<WorkToMake>12000</WorkToMake>
@@ -242,9 +242,9 @@
 			<li>RK_Knight</li>
 			<li>RK_Defender</li>
 			<li>RK_EliteDefender</li>
-			<li>RK_WeaponTag_OneHanded</li>
-			<li>RK_WeaponTag_OneHandedMelee</li>
-			<li>RK_WeaponTag_OneHandedMeleeAttack</li>
+			<li>RK_WeaponTag_OneHand</li>
+			<li>RK_WeaponTag_OneHandMelee</li>
+			<li>RK_WeaponTag_OneHandMeleeAttack</li>
 		</weaponTags>
 		<statBases>
 			<WorkToMake>12000</WorkToMake>
@@ -345,9 +345,9 @@
 			<li>RK_MeleeWeapon_Lance</li>
 			<li>RK_Knight</li>
 			<li>RK_Defender</li>
-			<li>RK_WeaponTag_TwoHanded</li>
-			<li>RK_WeaponTag_TwoHandedMelee</li>
-			<li>RK_WeaponTag_TwoHandedMeleeAttack</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 		</weaponTags>
 		<costList>
 			<WoodLog>100</WoodLog>
@@ -430,9 +430,9 @@
 			<li>RK_Sword</li>
 			<li>RK_Knight</li>
 			<!-- <li>RK_Vanguard</li> -->
-			<li>RK_WeaponTag_TwoHanded</li>
-			<li>RK_WeaponTag_TwoHandedMelee</li>
-			<li>RK_WeaponTag_TwoHandedMeleeAttack</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 		</weaponTags>
 		<statBases>
 			<WorkToMake>24000</WorkToMake>
@@ -544,9 +544,9 @@
 			<li>RK_Knight</li>
 			<li>RK_HeavyLance</li>
 			<li>RK_EliteDefender</li>
-			<li>RK_WeaponTag_TwoHanded</li>
-			<li>RK_WeaponTag_TwoHandedMelee</li>
-			<li>RK_WeaponTag_TwoHandedMeleeAttack</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 		</weaponTags>
 		<costStuffCount>150</costStuffCount>
 		<stuffCategories>
@@ -636,9 +636,9 @@
 			<li>RK_LightWeapon</li>
 			<li>RK_EliteDefender</li>
 			<li>RK_Guardener</li>
-			<li>RK_WeaponTag_OneHanded</li>
-			<li>RK_WeaponTag_OneHandedMelee</li>
-			<li>RK_WeaponTag_OneHandedMeleeAttack</li>
+			<li>RK_WeaponTag_OneHand</li>
+			<li>RK_WeaponTag_OneHandMelee</li>
+			<li>RK_WeaponTag_OneHandMeleeAttack</li>
 		</weaponTags>
 		<statBases>
 			<WorkToMake>18000</WorkToMake>
@@ -752,9 +752,9 @@
 			<li>RK_MeleeWeapon_Lance</li>
 			<li>RK_Knight</li>
 			<li>RK_Defender</li>
-			<li>RK_WeaponTag_TwoHanded</li>
-			<li>RK_WeaponTag_TwoHandedMelee</li>
-			<li>RK_WeaponTag_TwoHandedMeleeAttack</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 		</weaponTags>
 		<costList>
 			<WoodLog>60</WoodLog>
@@ -831,9 +831,9 @@
 			<li>RK_Defender</li>
 			<li>RK_HeavyLance</li>
 			<li>RK_EliteDefender</li>
-			<li>RK_WeaponTag_TwoHanded</li>
-			<li>RK_WeaponTag_TwoHandedMelee</li>
-			<li>RK_WeaponTag_TwoHandedMeleeAttack</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 		</weaponTags>
 		<costList>
 			<WoodLog>80</WoodLog>
