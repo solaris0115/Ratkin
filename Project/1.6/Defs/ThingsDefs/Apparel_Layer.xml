@@ -13,6 +13,12 @@
 	</ApparelLayerDef>
 
 	<ApparelLayerDef>
+		<defName>OffHand</defName>
+		<label>off hand</label>
+		<drawOrder>255</drawOrder>
+	</ApparelLayerDef>
+
+	<ApparelLayerDef>
 		<defName>OuterClothing</defName>
 		<label>outer clothing</label>
 		<drawOrder>275</drawOrder>

@@ -67,7 +67,7 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<layers>
-				<li>BackPack</li>
+				<li>OffHand</li>
 			</layers>
 			<tags>
 				<li>RK_ApparelTag_All</li>
@@ -323,7 +323,7 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<layers>
-				<li>OuterClothing</li>
+				<li>OffHand</li>
 			</layers>
 			<tags>
 				<li>RK_LightArmor</li>
@@ -424,7 +424,7 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<layers>
-				<li>OuterClothing</li>
+				<li>OffHand</li>
 			</layers>
 			<tags>
 				<li>RK_HeavyArmor</li>
@@ -527,7 +527,7 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<layers>
-				<li>OuterClothing</li>
+				<li>OffHand</li>
 			</layers>
 			<tags>
 				<li>RK_HeavyArmor</li>
