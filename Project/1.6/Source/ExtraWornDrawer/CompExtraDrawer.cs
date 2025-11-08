@@ -151,6 +151,24 @@ namespace NewRatkin
                     drawSize = new Vector2(1f, 1f);
                 }
 
+                // Shader 선택: 부모 Apparel의 useWornGraphicMask 설정 확인
+                // RimWorld의 ApparelGraphicRecordGetter 로직과 동일
+                Shader shader = ShaderDatabase.Cutout;
+                Apparel apparel = Apparel;
+                if (apparel != null)
+                {
+                    ThingStyleDef styleDef = apparel.StyleDef;
+                    if (styleDef != null && styleDef.graphicData != null && styleDef.graphicData.shaderType != null)
+                    {
+                        shader = styleDef.graphicData.shaderType.Shader;
+                    }
+                    else if ((styleDef == null && apparel.def.apparel.useWornGraphicMask) || 
+                             (styleDef != null && styleDef.UseWornGraphicMask))
+                    {
+                        shader = ShaderDatabase.CutoutComplex;
+                    }
+                }
+
                 // 소집 시 그래픽 로딩
                 string graphicPathDrafted = Props.draftedDrawData?.graphicPath;
                 if (graphicPathDrafted.NullOrEmpty())
@@ -160,7 +178,7 @@ namespace NewRatkin
                 }
                 extraGraphicDrafted = GraphicDatabase.Get<Graphic_Multi>(
                     graphicPathDrafted,
-                    ShaderDatabase.Cutout,
+                    shader,
                     drawSize,
                     parent.DrawColor);
 
@@ -173,7 +191,7 @@ namespace NewRatkin
                 }
                 extraGraphicBack = GraphicDatabase.Get<Graphic_Multi>(
                     graphicPathBack,
-                    ShaderDatabase.Cutout,
+                    shader,
                     drawSize,
                     parent.DrawColor);
             });
