@@ -39,7 +39,7 @@ namespace NewRatkin
                     " meleed ",
                     thing,
                     " from out of melee position."
-                }), false);
+                }));
             }
             casterPawn.rotationTracker.Face(thing.DrawPos);
             if (!IsTargetImmobile(currentTarget) && casterPawn.skills != null)
@@ -98,7 +98,7 @@ namespace NewRatkin
             }
             if (pawn != null && !pawn.Dead && pawn.Spawned)
             {
-                pawn.stances.StaggerFor(95);
+                pawn.stances.stagger.StaggerFor(95);
             }
             if (casterPawn.Spawned)
             {
@@ -201,7 +201,7 @@ namespace NewRatkin
             {
                 return base.CasterPawn.def.race.soundMeleeHitBuilding;
             }
-            return SoundDefOf.Pawn_Melee_Punch_HitBuilding;
+            return SoundDefOf.Pawn_Melee_Punch_HitBuilding_Generic;
         }
         private bool IsTargetImmobile(LocalTargetInfo target)
         {
