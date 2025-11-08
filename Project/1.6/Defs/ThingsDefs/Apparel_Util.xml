@@ -312,6 +312,15 @@
 					<angleWest>-15</angleWest>
 				</backDrawData>
 			</li>
+			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+				<!-- 방패와 무기 동시 착용 제한 Comp -->
+				<!-- allowedWeaponTags: 허용할 무기 태그 리스트 (화이트리스트) -->
+				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
+				<allowedWeaponTags>
+					<li>RK_WeaponTag_OneHand</li>
+				</allowedWeaponTags>
+				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+			</li>
 		</comps>
 		<apparel>
 			<bodyPartGroups>
@@ -410,6 +419,15 @@
 					<angleEast>15</angleEast>
 					<angleWest>-15</angleWest>
 				</backDrawData>
+			</li>
+			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+				<!-- 방패와 무기 동시 착용 제한 Comp -->
+				<!-- allowedWeaponTags: 허용할 무기 태그 리스트 (화이트리스트) -->
+				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
+				<allowedWeaponTags>
+					<li>RK_WeaponTag_OneHand</li>
+				</allowedWeaponTags>
+				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 		</comps>
 		<apparel>
@@ -513,6 +531,14 @@
 					<angleEast>15</angleEast>
 					<angleWest>-15</angleWest>
 				</backDrawData>
+			</li>
+			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+				<!-- 방패와 무기 동시 착용 제한 Comp -->
+				<!-- allowedWeaponTags: 허용할 무기 태그 리스트 (화이트리스트) -->
+				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
+				<allowedWeaponTags>
+					<li>RK_WeaponTag_OneHandMelee</li>
+				</allowedWeaponTags>
 			</li>
 		</comps>
 		<apparel>

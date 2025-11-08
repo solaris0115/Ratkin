@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <!-- 기도회 -->
   <MessagePrayerServiceStart>{PAWN_labelShort}(이)가 기도회를 열었습니다.</MessagePrayerServiceStart>
   <MessagePrayerServiceAborted>기도회가 어떤 이유로 취소되었습니다.</MessagePrayerServiceAborted>
   <MessagePrayerServiceEnded>기도회가 끝났습니다.</MessagePrayerServiceEnded>
+  
+  <!-- 방패-무기 호환성 -->
+  <RK_ApparelWeaponIncompatible_Dropped>{0}을(를) 착용하여 {1}을(를) 내려놓았습니다. 사유: {2}</RK_ApparelWeaponIncompatible_Dropped>
+  <RK_ApparelWeaponIncompatible_Dropped_Default>{0}을(를) 착용하여 {1}을(를) 내려놓았습니다.</RK_ApparelWeaponIncompatible_Dropped_Default>
+  <RK_ShieldWeaponIncompatible>방패와 동시 착용할 수 없습니다</RK_ShieldWeaponIncompatible>
 </LanguageData>
