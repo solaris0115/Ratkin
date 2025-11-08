@@ -798,6 +798,95 @@
 
 
     <!-- 3티어 -->
+
+    <ThingDef ParentName="RK_IndustrialRangeWeapon">
+        <defName>RK_Weapon_Bolter</defName>
+        <label>ratkin bolter</label>
+        <description>실험용 파동 소총입니다. 실험용 랫킨들을 위해 제작되어 특수망원렌즈가 근거리 원거리 모두 정밀하게 조준해줍니다. 랫킨식 플레셰트탄환에서 아이디어를 얻어 제작한 이 무기는 쇄기모양의 고관통 에너지탄을 빠르게 발사합니다.</description>
+        <graphicData>
+            <texPath>Weapon/RK_TextureWeapon_Bolter</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_Rifle</soundInteract>
+        <statBases>
+            <WorkToMake>40000</WorkToMake>
+            <Mass>1.4</Mass>
+            <AccuracyTouch>0.80</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.55</AccuracyMedium>
+            <AccuracyLong>0.40</AccuracyLong>
+            <RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+        </statBases>
+        <costList>
+            <Plasteel>60</Plasteel>
+            <ComponentIndustrial>5</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
+        </costList>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>RK_Bullet_Bolter</defaultProjectile>
+                <warmupTime>0.3</warmupTime>
+                <range>25.9</range>
+                <soundCast>PrototypePulse</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+                <label>bolter fire</label>
+            </li>
+        </verbs>
+        <recipeMaker Inherit="false">
+        </recipeMaker>
+        <weaponClasses>
+            <li>RangedLight</li>
+        </weaponClasses>
+        <weaponTags Inherit="false">
+            <li>RK_4TierWeapon</li>
+            <li>RK_WeaponTag_OneHand</li>
+            <li>RK_WeaponTag_OneHandRange</li>
+            <li>RK_WeaponTag_OneHandRangeAttack</li>
+        </weaponTags>
+        <tradeTags Inherit="false">
+            <!-- <li>ExoticMisc</li> -->
+        </tradeTags>
+        <tools>
+            <li>
+                <label>grip</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <tradeability>None</tradeability>
+    </ThingDef>
+
+    <ThingDef ParentName="RK_BaseBullet">
+        <defName>RK_Bullet_Bolter</defName>
+        <label>bolter bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/ChargeLanceShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>5</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>85</speed>
+            <armorPenetrationBase>0.45</armorPenetrationBase>
+        </projectile>
+    </ThingDef>
+
     <!-- 랫킨용 실험용총 2연발 -->
     <ThingDef ParentName="RK_IndustrialRangeWeapon">
         <defName>RK_PrototypePulseRifle</defName>
