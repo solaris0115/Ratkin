@@ -33,14 +33,14 @@
 				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
 				<draftedDrawData>
 					<graphicPath>Apparel/Util/RK_TextureApparel_BannerArm</graphicPath><!--배너 기본 그래픽-->
-					<offsetNorth>(-0.25, -0.18, -0.08)</offsetNorth>
-					<offsetSouth>(0.25, 0.15, -0.08)</offsetSouth>
-					<offsetEast>(0.25, -0.12, -0.12)</offsetEast>
-					<offsetWest>(-0.25, 0.12, -0.12)</offsetWest>
-					<angleNorth>-15</angleNorth>
-					<angleSouth>15</angleSouth>
-					<angleEast>15</angleEast>
-					<angleWest>-15</angleWest>
+					<offsetNorth>(-0.20, -0.18, -0.08)</offsetNorth>
+					<offsetSouth>(0.30, 0.15, -0.08)</offsetSouth>
+					<offsetEast>(0.35, -0.12, -0.12)</offsetEast>
+					<offsetWest>(-0.15, 0.12, -0.12)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
 				</draftedDrawData>
 				
 				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
@@ -301,7 +301,7 @@
 				
 				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
 				<backDrawData>
-					<graphicPath>Apparel/Util/RK_WoodenShield</graphicPath>
+					<graphicPath>Apparel/Util/RK_WoodenShieldUnarm</graphicPath>
 					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
 					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
 					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
@@ -400,7 +400,7 @@
 				
 				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
 				<backDrawData>
-					<graphicPath>Apparel/Util/RK_HeavyShield</graphicPath>
+					<graphicPath>Apparel/Util/RK_HeavyShieldUnarm</graphicPath>
 					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
 					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
 					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
@@ -503,7 +503,7 @@
 				
 				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
 				<backDrawData>
-					<graphicPath>Apparel/Util/RK_TowerShield</graphicPath>
+					<graphicPath>Apparel/Util/RK_TowerShieldUnarm</graphicPath>
 					<offsetNorth>(0, 0.2, -0.2)</offsetNorth>
 					<offsetSouth>(0, -0.2, -0.09)</offsetSouth>
 					<offsetEast>(-0.15, 0.05, -0.07)</offsetEast>
