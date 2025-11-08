@@ -45,6 +45,7 @@
 				<li>FullHead</li>
 			</bodyPartGroups>
 			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_VacsuitHelmet</wornGraphicPath>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
 				<li>Overhead</li>
 			</layers>
@@ -123,6 +124,7 @@
 				<li>Legs</li>
 			</bodyPartGroups>
 			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</wornGraphicPath>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
 				<li>Middle</li>
 				<li>Shell</li>
@@ -206,6 +208,7 @@
 				<li>Legs</li>
 			</bodyPartGroups>
 			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</wornGraphicPath>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
 				<li>Middle</li>
 				<li>Shell</li>
@@ -248,8 +251,7 @@
 		<description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
 		<graphicData>
 			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>75000</WorkToMake>
@@ -276,6 +278,7 @@
 		</costList>
 		<apparel>
 			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
 				<li>BackPack</li>
 			</layers>
@@ -300,8 +303,7 @@
 		<description>A heavily-armored high-tech helmet, with a solid plasteel-weave shell and indirect visual system for non-frontal view angles. It protects against all but the most powerful or luckily-aimed shots.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
 		<graphicData>
 			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>26250</WorkToMake>
@@ -325,6 +327,7 @@
 		</costList>
 		<apparel>
 			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</wornGraphicPath>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<tags>
 				<li>RK_ApparelTag_HideEar</li>
 			</tags>

@@ -75,6 +75,7 @@
 				<li>RK_ApparelTag_Support</li>
 				<li>RK_ApparelTag_Buffer</li>
 			</tags>
+			<useWornGraphicMask>true</useWornGraphicMask>
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>

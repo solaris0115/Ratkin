@@ -34,6 +34,9 @@
 		<tradeTags>
 			<li>RK_Apparel</li>
 		</tradeTags>
+		<apparel>
+			<useWornGraphicMask>true</useWornGraphicMask>
+		</apparel>
 	</ThingDef>
 
 	<ThingDef Name="RK_ApparelMakeableBase" ParentName="RK_ApparelBase" Abstract="True">
@@ -51,7 +54,9 @@
 		<thingCategories>
 			<li>RK_Apparel</li>
 		</thingCategories>
+		<colorGenerator Class="ColorGenerator_StandardApparel" />
 	</ThingDef>
+	
 	<ThingDef Name="RK_HatMakeableBase" ParentName="RK_ApparelMakeableBase" Abstract="True">
 		<thingCategories>
 			<li>RK_Headgear</li>
