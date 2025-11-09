@@ -14,7 +14,10 @@
 		<weaponTags Inherit="false">
 			<li>RK_EliteDefender</li>
 			<li>RK_Gunlance</li>
-			<li>AV</li>
+			<li>RK_WeaponTag_Lance</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 		</weaponTags>
 		<costStuffCount>100</costStuffCount>
 		<stuffCategories>
