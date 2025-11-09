@@ -851,7 +851,7 @@
 		<equippedStatOffsets>
 			<MeleeHitChance>-2</MeleeHitChance>	
 		</equippedStatOffsets>
-		<equippedAngleOffset>45</equippedAngleOffset>
+		<equippedAngleOffset>30</equippedAngleOffset>
 		<tools>
 			<li>
 				<label>point</label>
@@ -881,20 +881,20 @@
 			<li Class="SYS.CompProperties_WeaponExtention">
 				<littleDown>True</littleDown>
 				<northOffset>
-					<position>(0.2,0,0.25)</position>
+					<position>(0.25,0,0.05)</position>
 					<angle>-45</angle>
 				</northOffset>
 				<southOffset>
-					<position>(-0.25,0.3,0.2)</position>
+					<position>(-0.25,0.3,0)</position>
 					<angle>45</angle>
 				</southOffset>
 				<eastOffset>
-					<position>(0.15,0.3,0.2)</position>
-					<angle>-45</angle>
+					<position>(0.15,0.3,0)</position>
+					<angle>-30</angle>
 				</eastOffset>
 				<westOffset>
-					<position>(-0.15,-0.3,0.2)</position>
-					<angle>45</angle>
+					<position>(-0.15,-0.3,0)</position>
+					<angle>30</angle>
 				</westOffset>
 			</li>
 		</comps>
