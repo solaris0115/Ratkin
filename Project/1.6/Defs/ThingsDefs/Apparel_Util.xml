@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- 배너류 상위 객체 -->
+	<!-- ====================== 배너류 ========================== -->
 	<ThingDef Name="RK_ApparelAttr_Banner" Abstract="True" ParentName="RK_ApparelMakeableBase">
 		<graphicData>
 			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>			<!--배너 기본 그래픽-->
@@ -104,7 +104,9 @@
 		</apparel>
 	</ThingDef>
 
-	<!-- TODO: 가방류 상위 객체로 뽑기 -->
+
+
+	<!-- ====================== 가방류 ========================== -->
 	<ThingDef ParentName="RK_ApparelMakeableBase" Name="RK_ApparelAttr_BackpackBase" Abstract="True">
 		<stuffCategories>
 			<li>Fabric</li>
@@ -236,20 +238,19 @@
 	</ThingDef>
 
 
-	<!-- 여기에 방패 공통 클래스 -->
 
-	<!-- TODO: 방패류 상위 객체로 뽑기 -->
-	<!-- 목제 방패 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
-		<defName>RK_WoodenShield</defName>
-		<label>ratkin wooden Shield</label>
-		<description>목재 방패.</description>
+	<!-- ====================== 방패류 ========================== -->
+	<ThingDef ParentName="RK_ApparelMakeableBase" Name="RK_ApparelAttr_ShieldBase" Abstract="True">
 		<thingClass>NewRatkin.Shield</thingClass>
-		<graphicData>
-			<texPath>Apparel/Util/RK_WoodenShield</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<apparel>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<layers>
+				<li>OffHand</li>
+			</layers>
+		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
 			<researchPrerequisite>RatkinClothing</researchPrerequisite>
@@ -258,11 +259,22 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 		</recipeMaker>
+	</ThingDef>
+
+	<!-- 목제 방패 -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
+		<defName>RK_WoodenShield</defName>
+		<label>ratkin wooden Shield</label>
+		<description>목재 방패.</description>
+		<graphicData>
+			<texPath>Apparel/Util/RK_WoodenShield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
 		<costList>
 			<Steel>25</Steel>
 			<WoodLog>120</WoodLog>
 		</costList>
-		<techLevel>Medieval</techLevel>
 		<statBases>
 			<MaxHitPoints>120</MaxHitPoints>
 			<WorkToMake>12500</WorkToMake>
@@ -311,6 +323,7 @@
 				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
 				<allowedWeaponTags>
 					<li>RK_WeaponTag_OneHand</li>
+					<li>RK_WeaponTag_Lance</li>
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
@@ -321,13 +334,6 @@
 				<li>Shoulders</li>
 				<li>Arms</li>
 			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<layers>
-				<li>OffHand</li>
-			</layers>
 			<tags>
 				<li>RK_LightArmor</li>
 			</tags>
@@ -335,11 +341,10 @@
 	</ThingDef>
 
 	<!-- 철제 방패 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
 		<defName>RK_HeavyShield</defName>
 		<label>ratkin heavy Shield</label>
 		<description>금속 방패.</description>
-		<thingClass>NewRatkin.Shield</thingClass>
 		<graphicData>
 			<texPath>Apparel/Util/RK_HeavyShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -366,7 +371,6 @@
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
-		<techLevel>Medieval</techLevel>
 		<statBases>
 			<MaxHitPoints>240</MaxHitPoints>
 			<WorkToMake>35000</WorkToMake>
@@ -419,7 +423,9 @@
 				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
 				<allowedWeaponTags>
 					<li>RK_WeaponTag_OneHand</li>
+					<li>RK_WeaponTag_Lance</li>
 				</allowedWeaponTags>
+				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 		</comps>
 		<apparel>
@@ -430,26 +436,17 @@
 				<li>Arms</li>
 				<li>Legs</li>
 			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<layers>
-				<li>OffHand</li>
-			</layers>
 			<tags>
 				<li>RK_HeavyArmor</li>
 			</tags>
 		</apparel>
 	</ThingDef>
 
-
 	<!-- 대형 철제 방패 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
 		<defName>RK_TowerShield</defName>
 		<label>ratkin Tower Shield</label>
 		<description>금속 대방패.</description>
-		<thingClass>NewRatkin.Shield</thingClass>
 		<graphicData>
 			<texPath>Apparel/Util/RK_TowerShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -476,7 +473,6 @@
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
-		<techLevel>Medieval</techLevel>
 		<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<WorkToMake>40000</WorkToMake>
@@ -529,8 +525,9 @@
 				<!-- allowedWeaponTags: 허용할 무기 태그 리스트 (화이트리스트) -->
 				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
 				<allowedWeaponTags>
-					<li>RK_WeaponTag_OneHandMelee</li>
+					<li>RK_WeaponTag_OneHand</li>
 				</allowedWeaponTags>
+				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 		</comps>
 		<apparel>
@@ -541,13 +538,6 @@
 				<li>Arms</li>
 				<li>Legs</li>
 			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<layers>
-				<li>OffHand</li>
-			</layers>
 			<tags>
 				<li>RK_HeavyArmor</li>
 			</tags>
