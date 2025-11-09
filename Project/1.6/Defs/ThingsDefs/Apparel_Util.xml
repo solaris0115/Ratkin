@@ -56,6 +56,11 @@
 					<angleWest>-15</angleWest>
 				</backDrawData>
 			</li>
+			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+				<allowedWeaponTags>
+					<li>RK_WeaponTag_OneHand</li>
+				</allowedWeaponTags>
+			</li>
 		</comps>
 		<apparel>
 			<bodyPartGroups>
