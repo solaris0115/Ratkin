@@ -427,7 +427,6 @@
 				<allowedWeaponTags>
 					<li>RK_WeaponTag_OneHand</li>
 				</allowedWeaponTags>
-				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 		</comps>
 		<apparel>
