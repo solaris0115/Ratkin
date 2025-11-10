@@ -280,6 +280,8 @@
 			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</wornGraphicPath>
 			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
+				<li>Middle</li>
+				<li>Shell</li>
 				<li>BackPack</li>
 			</layers>
 			<tags>
