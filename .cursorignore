@@ -1,5 +1,8 @@
 # Cursor 인덱싱에서 제외할 파일들
 
+# RimWorld 세이브 파일은 항상 포함
+!*.rws
+
 # 워크플로우 추적 파일들
 # workflow/
 # WorkFlow/
