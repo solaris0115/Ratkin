@@ -26,7 +26,7 @@ alwaysApply: false
 
 - **구버전 Defs**: [Project/1.5/Defs/](mdc:Project/1.5/Defs/)
 - **신규버전 Defs**: [Project/1.6/Defs/](mdc:Project/1.6/Defs/)
-- **원본 Defs**: [RimWorldData/](mdc:RimWorldData/) - 림월드 오리지널 + DLC Defs
+- **원본 Defs**: [RimworldData/](mdc:RimworldData/) - 림월드 오리지널 + DLC Defs
   - Core/: 기본 게임 Defs
   - Royalty/: 로열티 DLC Defs
   - Ideology/: 이데올로기 DLC Defs
