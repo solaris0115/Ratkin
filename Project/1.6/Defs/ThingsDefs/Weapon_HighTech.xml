@@ -180,8 +180,147 @@
 		<graphicData>
 			<texPath>Things/Special/WyvernFire</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData> 
+		</graphicData>
 		<altitudeLayer>Gas</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
 	</ThingDef>
+
+	<!-- Wyvern Fire Ability -->
+	<AbilityDef>
+		<defName>RK_WyvernFire_Ability</defName>
+		<label>wyvern fire</label>
+		<description>Unleash a devastating cone of explosive force.</description>
+		<iconPath>UI/Abilities/Burner</iconPath>
+		<cooldownTicksRange>120000</cooldownTicksRange>
+		<aiCanUse>true</aiCanUse>
+		<warmupStartSound>FireSpew_Warmup</warmupStartSound>
+		<showOnCharacterCard>false</showOnCharacterCard>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<requireLineOfSight>true</requireLineOfSight>
+			<range>9.9</range>
+			<warmupTime>0.5</warmupTime>
+			<soundCast>FireSpew_Resolve</soundCast>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="NewRatkin.CompProperties_AbilityWyvernFire">
+				<range>9.9</range>
+				<lineWidthEnd>3</lineWidthEnd>
+				<damageDef>Bomb</damageDef>
+				<damAmount>20</damAmount>
+				<armorPenetration>0.5</armorPenetration>
+				<canHitFilledCells>true</canHitFilledCells>
+			</li>
+			<li Class="CompProperties_AbilityBurner">
+				<numStreams>15</numStreams>
+				<range>11</range>
+				<coneSizeDegrees>7.2</coneSizeDegrees>
+				<moteDef>Mote_IncineratorBurst</moteDef>
+				<barrelOffsetDistance>6</barrelOffsetDistance>
+				<sizeReductionDistanceThreshold>8</sizeReductionDistanceThreshold>
+				<lifespanNoise>40</lifespanNoise>
+				<rangeNoise>.4</rangeNoise>
+				<effecterDef>BurnerUsed</effecterDef>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<SoundDef>
+		<defName>RK_Sound_Warmup</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/Charge</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>0.9152174</min>
+					<max>1.042391</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_GunlanceNormalFire</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/Fire</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>0.9152174</min>
+					<max>1.042391</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_Empty</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/OverHeat</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>0.9152174</min>
+					<max>1.042391</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_WyvernFire</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/WyvernFire</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>0.9152174</min>
+					<max>1.042391</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_Reload</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/Reload</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>0.9152174</min>
+					<max>1.042391</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
 </Defs>
