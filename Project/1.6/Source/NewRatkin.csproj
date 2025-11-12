@@ -78,6 +78,7 @@
     <Compile Include="Priest\*.cs" />
     <Compile Include="RatkinGuerrilla\*.cs" />
     <Compile Include="ShieldOfRatkinia\*.cs" />
+    <Compile Include="WyvernFire\*.cs" />
     <Compile Include="Properties\*.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
