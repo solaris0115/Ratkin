@@ -178,45 +178,52 @@
 			<li>(0.65, 0.60, 0.20)</li>
 		</colorSpectrum>
 	</FactionDef>
-	<!-- <FactionDef ParentName="RatkinLandFactionBase"> -->
-	<!-- <defName>RatkinCaravan</defName> -->
-	<!-- <label>ratkin caravan union</label> -->
-	<!-- <backstoryCategories> -->
-	<!-- <li>RatkinStory</li> -->
-	<!-- </backstoryCategories> -->
-	<!-- <description>랫킨 유랑단입니다. 방방곡곡을 유랑하며 거래를 하기도 하고 용병을 사고 팔기도 합니다.</description> -->
-	<!-- <colorSpectrum> -->
-	<!-- <li>(0.00, 0.30, 0.70)</li> -->
-	<!-- <li>(0.00, 0.40, 1.00)</li> -->
-	<!-- </colorSpectrum> -->
-	<!-- <startingGoodwill> -->
-	<!-- <min>20</min> -->
-	<!-- <max>80</max> -->
-	<!-- </startingGoodwill> -->
-	<!-- <naturalColonyGoodwill> -->
-	<!-- <min>0</min> -->
-	<!-- <max>100</max> -->
-	<!-- </naturalColonyGoodwill> -->
-	<!-- <hidden>true</hidden>		 -->
-	<!-- <pawnGroupMakers> -->
-	<!-- <li> -->
-	<!-- <kindDef>Trader</kindDef> -->
-	<!-- <traders> -->
-	<!-- <RatkinMerchant>1</RatkinMerchant> -->
-	<!-- </traders> -->
-	<!-- <carriers> -->
-	<!-- <Muffalo>6</Muffalo> -->
-	<!-- <Dromedary>5</Dromedary> -->
-	<!-- <Alpaca>2</Alpaca> -->
-	<!-- <Elephant>1</Elephant> -->
-	<!-- </carriers> -->
-	<!-- <guards> -->
-	<!-- <RatkinColonist>3</RatkinColonist> -->
-	<!-- <RatkinNoble>1</RatkinNoble> -->
-	<!-- <RatkinMercenary>10</RatkinMercenary> -->
-	<!-- <RatkinSoldier>15</RatkinSoldier> -->
-	<!-- </guards> -->
-	<!-- </li> -->
-	<!-- </pawnGroupMakers> -->
-	<!-- </FactionDef> -->
+
+
+	<FactionDef ParentName="FactionBase">
+		<defName>RK_Faction_Pilgrims</defName>
+		<label>pilgrims</label>
+		<pawnSingular>pilgrim</pawnSingular>
+		<pawnsPlural>pilgrims</pawnsPlural>
+		<categoryTag>Pilgrims</categoryTag>
+		<canSiege>false</canSiege>
+		<canStageAttacks>false</canStageAttacks>
+		<hidden>true</hidden>
+		<description>A group of pilgrims seeking to venerate an ancient relic.</description>
+		<factionIconPath>World/WorldObjects/Expanding/SettlementTemporary</factionIconPath>
+		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
+		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+		<colorSpectrum>
+			<li>(0.93, 0.39, 0.32)</li>
+			<li>(0.35, 0.90, 0.57)</li>
+			<li>(0.25, 0.66, 0.94)</li>
+			<li>(0.98, 0.75, 0.37)</li>
+			<li>(0.97, 0.62, 0.52)</li>
+		</colorSpectrum>
+		<generateNewLeaderFromMapMembersOnly>true</generateNewLeaderFromMapMembersOnly>
+		<leaderTitle>leader</leaderTitle>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<mustStartOneEnemy>false</mustStartOneEnemy>
+		<techLevel>Neolithic</techLevel>
+		<basicMemberKind>RK_PawnKind_Pilgrim</basicMemberKind>
+		<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+		</disallowedMemes>
+		<xenotypeSet>
+			<xenotypeChances>
+				<Ratkin>1</Ratkin>
+			</xenotypeChances>
+		</xenotypeSet>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>RK_Backstory_Pilgrim</li>
+				</categories>
+				<commonality>1</commonality>
+			</li>
+		</backstoryFilters>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+	</FactionDef>
+
 </Defs>
