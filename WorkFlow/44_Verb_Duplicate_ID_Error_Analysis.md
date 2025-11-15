@@ -66,3 +66,8 @@ Id already used by NewRatkin.Verb_GunlanceFiring NewRatkin.Verb_GunlanceFiring(n
 - 이 오류는 세이브 로드 시에만 발생
 - 새 게임 시작 시 문제 없음 가능성
 
+
+
+
+
+
