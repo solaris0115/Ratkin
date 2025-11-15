@@ -84,9 +84,9 @@
 				</westOffset>
 			</li>
 			<li Class="CompProperties_EquippableAbilityReloadable">
-				<abilityDef>HellcatBurner</abilityDef>
+				<abilityDef>RK_WyvernFire_Ability</abilityDef>
 				<maxCharges>2</maxCharges>
-				<soundReload>Standard_Reload</soundReload>
+				<soundReload>RK_Sound_Reload</soundReload>
 				<chargeNoun>wyvern charge</chargeNoun>
 				<ammoDef>RK_Ammo_WyvernFire</ammoDef>
 				<ammoCountPerCharge>1</ammoCountPerCharge>
@@ -213,25 +213,25 @@
 		<iconPath>UI/Abilities/Burner</iconPath>
 		<cooldownTicksRange>120000</cooldownTicksRange>
 		<aiCanUse>true</aiCanUse>
-		<warmupStartSound>FireSpew_Warmup</warmupStartSound>
+		<warmupStartSound>RK_Sound_Warmup</warmupStartSound>
 		<showOnCharacterCard>false</showOnCharacterCard>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
 			<requireLineOfSight>true</requireLineOfSight>
-			<range>9.9</range>
-			<warmupTime>0.5</warmupTime>
-			<soundCast>FireSpew_Resolve</soundCast>
+			<range>5</range>
+			<warmupTime>2</warmupTime>
+			<soundCast>RK_Sound_WyvernFire</soundCast>
 			<targetParams>
 				<canTargetLocations>true</canTargetLocations>
 			</targetParams>
 		</verbProperties>
 		<comps>
 			<li Class="NewRatkin.CompProperties_AbilityWyvernFire">
-				<range>9.9</range>
-				<lineWidthEnd>3</lineWidthEnd>
+				<range>5</range>
+				<lineWidthEnd>5</lineWidthEnd>
 				<damageDef>Bomb</damageDef>
-				<damAmount>20</damAmount>
-				<armorPenetration>0.5</armorPenetration>
+				<damAmount>35</damAmount>
+				<armorPenetration>0.7</armorPenetration>
 				<canHitFilledCells>true</canHitFilledCells>
 			</li>
 			<li Class="CompProperties_AbilityBurner">
@@ -243,104 +243,59 @@
 				<sizeReductionDistanceThreshold>8</sizeReductionDistanceThreshold>
 				<lifespanNoise>40</lifespanNoise>
 				<rangeNoise>.4</rangeNoise>
-				<effecterDef>BurnerUsed</effecterDef>
+				<effecterDef>RK_Effecter_BurnerUsed</effecterDef>
 			</li>
 		</comps>
 	</AbilityDef>
 
-	<SoundDef>
-		<defName>RK_Sound_Warmup</defName>
-		<eventNames />
-		<context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
-		<subSounds>
+	<EffecterDef>
+		<defName>RK_Effecter_BurnerUsed</defName>
+		<children>
 			<li>
-				<grains>
-					<li Class="AudioGrain_Clip">
-						<clipPath>Gunlance/Charge</clipPath>
-					</li>
-				</grains>
-				<pitchRange>
-					<min>0.9152174</min>
-					<max>1.042391</max>
-				</pitchRange>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Fleck_BurnerUsedSmoke</fleckDef>
+				<initialDelayTicks>5</initialDelayTicks>
+				<scale>.1~1</scale>
+				<burstCount>7~10</burstCount>
+				<spawnLocType>OnSource</spawnLocType>
+				<absoluteAngle>True</absoluteAngle>
+				<positionRadius>2.5</positionRadius>
+				<positionRadiusMin>0</positionRadiusMin>
+				<angle>0</angle>
+				<speed>0~.6</speed>
+				<rotation>0~360</rotation>
+				<fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
 			</li>
-		</subSounds>
-	</SoundDef>
-	<SoundDef>
-		<defName>RK_Sound_GunlanceNormalFire</defName>
-		<eventNames />
-		<context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
-		<subSounds>
 			<li>
-				<grains>
-					<li Class="AudioGrain_Clip">
-						<clipPath>Gunlance/Fire</clipPath>
-					</li>
-				</grains>
-				<pitchRange>
-					<min>0.9152174</min>
-					<max>1.042391</max>
-				</pitchRange>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Fleck_BurnerUsedEmber</fleckDef>
+				<initialDelayTicks>7</initialDelayTicks>
+				<scale>.1~.5</scale>
+				<burstCount>1~4</burstCount>
+				<spawnLocType>OnSource</spawnLocType>
+				<absoluteAngle>True</absoluteAngle>
+				<positionRadius>3</positionRadius>
+				<positionRadiusMin>0</positionRadiusMin>
+				<angle>0</angle>
+				<speed>.1~.9</speed>
+				<rotation>0~360</rotation>
+				<fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
 			</li>
-		</subSounds>
-	</SoundDef>
-	<SoundDef>
-		<defName>RK_Sound_Empty</defName>
-		<eventNames />
-		<context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
-		<subSounds>
 			<li>
-				<grains>
-					<li Class="AudioGrain_Clip">
-						<clipPath>Gunlance/OverHeat</clipPath>
-					</li>
-				</grains>
-				<pitchRange>
-					<min>0.9152174</min>
-					<max>1.042391</max>
-				</pitchRange>
+				<subEffecterClass>SubEffecter_SprayerTriggeredDelayed</subEffecterClass>
+				<fleckDef>Fleck_BurnerUsedEmberBlack</fleckDef>
+				<initialDelayTicks>7</initialDelayTicks>
+				<scale>.1~.3</scale>
+				<burstCount>1</burstCount>
+				<spawnLocType>OnSource</spawnLocType>
+				<absoluteAngle>True</absoluteAngle>
+				<positionRadius>3</positionRadius>
+				<positionRadiusMin>0</positionRadiusMin>
+				<angle>0</angle>
+				<speed>.3~1.5</speed>
+				<rotation>0~360</rotation>
+				<fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
 			</li>
-		</subSounds>
-	</SoundDef>
-	<SoundDef>
-		<defName>RK_Sound_WyvernFire</defName>
-		<eventNames />
-		<context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
-		<subSounds>
-			<li>
-				<grains>
-					<li Class="AudioGrain_Clip">
-						<clipPath>Gunlance/WyvernFire</clipPath>
-					</li>
-				</grains>
-				<pitchRange>
-					<min>0.9152174</min>
-					<max>1.042391</max>
-				</pitchRange>
-			</li>
-		</subSounds>
-	</SoundDef>
-	<SoundDef>
-		<defName>RK_Sound_Reload</defName>
-		<eventNames />
-		<context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
-		<subSounds>
-			<li>
-				<grains>
-					<li Class="AudioGrain_Clip">
-						<clipPath>Gunlance/Reload</clipPath>
-					</li>
-				</grains>
-				<pitchRange>
-					<min>0.9152174</min>
-					<max>1.042391</max>
-				</pitchRange>
-			</li>
-		</subSounds>
-	</SoundDef>
+		</children>
+	</EffecterDef>
 </Defs>

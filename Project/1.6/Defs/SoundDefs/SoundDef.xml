@@ -57,5 +57,112 @@
 			</li>
 		</subSounds>
 	</SoundDef>
-	
+
+
+	<!-- 건랜스 사운드 정의 (HellcatBurner 및 코어 사운드 참고) -->
+	<SoundDef>
+		<defName>RK_Sound_Warmup</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>3</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/Charge</clipPath>
+					</li>
+				</grains>
+				<volumeRange>50~60</volumeRange>
+				<pitchRange>
+					<min>0.9</min>
+					<max>1.1</max>
+				</pitchRange>
+				<muteWhenPaused>True</muteWhenPaused>
+				<tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_GunlanceNormalFire</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>3</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/Fire</clipPath>
+					</li>
+				</grains>
+				<volumeRange>55~65</volumeRange>
+				<pitchRange>
+					<min>0.9</min>
+					<max>1.1</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_Empty</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>2</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/OverHeat</clipPath>
+					</li>
+				</grains>
+				<volumeRange>40~50</volumeRange>
+				<pitchRange>
+					<min>0.85</min>
+					<max>1.0</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_WyvernFire</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>2</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/WyvernFire</clipPath>
+					</li>
+				</grains>
+				<volumeRange>70~80</volumeRange>
+				<pitchRange>
+					<min>0.8</min>
+					<max>1.0</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>RK_Sound_Reload</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Gunlance/Reload</clipPath>
+					</li>
+				</grains>
+				<volumeRange>35~45</volumeRange>
+				<pitchRange>
+					<min>0.9</min>
+					<max>1.1</max>
+				</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
 </Defs>
