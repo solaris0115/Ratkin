@@ -32,7 +32,7 @@
 						</li>
 					</pawnKindEntries>
 					<factionDefs>
-						<li>Rakinia</li> 
+						<li>RK_Faction_Kingdom</li> 
 					</factionDefs>
 				</li>
 			</alienwandererkinds>

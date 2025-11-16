@@ -10,7 +10,7 @@ namespace NewRatkin
         {
             Map map = (Map)parms.target;
             IntVec3 intVec;
-            return base.CanFireNowSub(parms) && Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia).HostileTo(Faction.OfPlayer) && (RatkinTunnelUtility.TotalSpawnedTunnelCount(map) < 2) && RatkinTunnelCellFinder.FindFoodStockpile(out intVec, map);
+            return base.CanFireNowSub(parms) && Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom).HostileTo(Faction.OfPlayer) && (RatkinTunnelUtility.TotalSpawnedTunnelCount(map) < 2) && RatkinTunnelCellFinder.FindFoodStockpile(out intVec, map);
         }
         protected override bool TryExecuteWorker(IncidentParms parms)
         {

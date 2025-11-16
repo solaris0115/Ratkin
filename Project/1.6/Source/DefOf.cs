@@ -74,7 +74,7 @@ namespace NewRatkin
     [DefOf]
     public static class RatkinFactionDefOf
     {
-        public static FactionDef Rakinia;
+        public static FactionDef RK_Faction_Kingdom;
     }
     [DefOf]
     public static class RatkinMoteDefOf

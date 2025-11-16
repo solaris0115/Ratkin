@@ -99,7 +99,7 @@ namespace NewRatkin
             base.SpawnSetup(map, respawningAfterLoad);
             if (Faction == null)
             {
-                SetFaction(Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia), null);
+                SetFaction(Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom), null);
             }
         }
 
