@@ -213,7 +213,7 @@
 		</disallowedMemes>
 		<xenotypeSet>
 			<xenotypeChances>
-				<Ratkin>1</Ratkin>
+				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
 			</xenotypeChances>
 		</xenotypeSet>
 		<backstoryFilters>
