@@ -187,7 +187,7 @@ namespace NewRatkin
                 Find.LetterStack.ReceiveLetter("EMPExplode".Translate(), "EMPExplodeDesc".Translate(), LetterDefOf.ThreatBig);
                 StorytellerComp storytellerComp = Find.Storyteller.storytellerComps.First((StorytellerComp x) => x is StorytellerComp_OnOffCycle || x is StorytellerComp_RandomMain);
                 IncidentParms parms = storytellerComp.GenerateParms(IncidentCategoryDefOf.ThreatBig, Find.CurrentMap);
-                parms.faction = Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom);
+                parms.faction = Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia);
                 parms.points *= 0.4f;
                 parms.raidStrategy = DefDatabase<RaidStrategyDef>.GetNamed("ImmediateAttackSappers");
                 parms.raidArrivalMode = PawnsArrivalModeDefOf.EdgeWalkIn;

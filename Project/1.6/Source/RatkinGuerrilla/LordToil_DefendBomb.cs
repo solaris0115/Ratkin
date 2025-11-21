@@ -128,7 +128,7 @@ namespace NewRatkin
             data.baseRadius = Mathf.Clamp(data.baseRadius, 14f, 25f);
 
             Thing bomb = ThingMaker.MakeThing(RatkinBuildingDefOf.RK_EmpBomb);           
-            Faction ratkiniaFaction = Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom);
+            Faction ratkiniaFaction = Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia);
             data.EmpBomb = bomb;
             bomb.SetFaction(ratkiniaFaction);
             if (bomb.TryGetComp<Comp_Emp>()!=null)
@@ -140,7 +140,7 @@ namespace NewRatkin
             IntVec3 intVec3 = CellFinder.RandomClosewalkCellNear(Data.defendCenter, Map, 1);
             GenSpawn.Spawn(minified, intVec3, Map);
             IntVec3 bluePrintPosition = CellFinder.RandomClosewalkCellNear(intVec3, Map, 5);
-            Blueprint b =  GenConstruct.PlaceBlueprintForInstall(minified, bluePrintPosition, Map,Rot4.North, Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom));
+            Blueprint b =  GenConstruct.PlaceBlueprintForInstall(minified, bluePrintPosition, Map,Rot4.North, Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia));
             data.blueprint= b;
             data.desiredBuilderFraction = BuilderCountFraction.RandomInRange;
         }

@@ -75,7 +75,7 @@ namespace NewRatkin
                     if (spawnTunnel)
                     {
                         Building_ThiefTunnel tunnel = (Building_ThiefTunnel)GenSpawn.Spawn(ThingMaker.MakeThing(RatkinBuildingDefOf.RK_ThiefTunnel, null), position, map, WipeMode.Vanish);
-                        tunnel.SetFaction(Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom), null);
+                        tunnel.SetFaction(Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia), null);
                     }
                 }
             }
@@ -184,7 +184,7 @@ namespace NewRatkin
                     if (spawnTunnel)
                     {
                         Building_GuerrillaTunnel tunnel = (Building_GuerrillaTunnel)GenSpawn.Spawn(ThingMaker.MakeThing(RatkinBuildingDefOf.RK_GuerrillaTunnel, null), position, map, WipeMode.Vanish);
-                        tunnel.SetFaction(Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Kingdom), null);
+                        tunnel.SetFaction(Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia), null);
                         tunnel.eventPoint = eventPoint;
                         tunnel.SpawnInitialPawns();
                     }

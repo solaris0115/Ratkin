@@ -8,7 +8,7 @@
 		<race>Ratkin</race>
 		<minGenerationAge>13</minGenerationAge>
 		<maxGenerationAge>35</maxGenerationAge>
-		<defaultFactionType>RK_Faction_Kingdom</defaultFactionType>
+		<defaultFactionType>Rakinia</defaultFactionType>
 		<invNutrition>2</invNutrition>
 		<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
 		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
