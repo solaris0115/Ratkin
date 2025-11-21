@@ -345,7 +345,7 @@
 			<li>RK_MeleeWeapon_Lance</li>
 			<li>RK_Knight</li>
 			<li>RK_Defender</li>
-			<li>RK_WeaponTag_Lance</li>
+			<li>RK_WeaponTag_ShieldCompatible</li>
 			<li>RK_WeaponTag_TwoHand</li>
 			<li>RK_WeaponTag_TwoHandMelee</li>
 			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
@@ -545,7 +545,7 @@
 			<li>RK_Knight</li>
 			<li>RK_HeavyLance</li>
 			<li>RK_EliteDefender</li>
-			<li>RK_WeaponTag_Lance</li>
+			<li>RK_WeaponTag_ShieldCompatible</li>
 			<li>RK_WeaponTag_TwoHand</li>
 			<li>RK_WeaponTag_TwoHandMelee</li>
 			<li>RK_WeaponTag_TwoHandMeleeAttack</li>

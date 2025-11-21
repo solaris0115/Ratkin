@@ -323,7 +323,7 @@
 				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
 				<allowedWeaponTags>
 					<li>RK_WeaponTag_OneHand</li>
-					<li>RK_WeaponTag_Lance</li>
+					<li>RK_WeaponTag_ShieldCompatible</li>
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
@@ -423,7 +423,7 @@
 				<!-- RK_WeaponTag_OneHand 태그를 가진 무기만 허용하고 나머지는 차단 -->
 				<allowedWeaponTags>
 					<li>RK_WeaponTag_OneHand</li>
-					<li>RK_WeaponTag_Lance</li>
+					<li>RK_WeaponTag_ShieldCompatible</li>
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
