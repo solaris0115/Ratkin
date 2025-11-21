@@ -49,19 +49,24 @@
 		<apparelRequired>
 			<li>RK_SistersVeil</li>
 			<li>RK_SistersDerss</li>
-		</apparelRequired>		
+		</apparelRequired>
 	</PawnKindDef>
 
-
 	<!-- 귀족 계통 -->
-	<!-- 귀족의류는 고급이지만 너덜너덜. 실제 귀족들이 속죄 목적으로 순례길 도는경우가 많아 허름하게 무장도 최소한. -->
+	<!-- 귀족의류는 고급이지만 너덜너덜. 실제 귀족들이 속죄 목적으로 순례길 도는경우가 많아 허름하게 -->
 	<PawnKindDef ParentName="RK_PawnKindAttr_PilgrimBase">
 		<defName>RK_PawnKind_NoblePilgrim</defName>
 		<label>pilgrim</label>
-		<defaultFactionDef>RK_Faction_Kingdom</defaultFactionDef>
+		<defaultFactionDef>Rakinia</defaultFactionDef>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RK_Backstory_Noble</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
 		<apparelTags inherit="false">
 			<li>RK_ApparelTag_Noble</li>
 		</apparelTags>
-		<weaponMoney>100~500</weaponMoney>
 	</PawnKindDef>
 </Defs>
