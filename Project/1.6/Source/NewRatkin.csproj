@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="*.cs" />
     <Compile Include="AutoTests\*.cs" />
+    <Compile Include="ChainSword\*.cs" />
     <Compile Include="ExtraWornDrawer\*.cs" />
     <Compile Include="Gunlance\*.cs" />
     <Compile Include="HamsterWheel\*.cs" />
