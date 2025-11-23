@@ -241,6 +241,9 @@
 
 	<!-- ====================== 방패류 ========================== -->
 	<ThingDef ParentName="RK_ApparelMakeableBase" Name="RK_ApparelAttr_ShieldBase" Abstract="True">
+		<graphicData>
+			<ignoreThingDrawColor>false</ignoreThingDrawColor>
+		</graphicData>
 		<thingClass>NewRatkin.Shield</thingClass>
 		<techLevel>Medieval</techLevel>
 		<apparel>
@@ -348,7 +351,6 @@
 		<graphicData>
 			<texPath>Apparel/Util/RK_HeavyShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
