@@ -169,6 +169,14 @@ namespace NewRatkin
                     }
                 }
 
+                // 염색 색상 가져오기 (CompColorable의 Color 속성 사용)
+                Color drawColor = parent.DrawColor;
+                CompColorable compColorable = parent.GetComp<CompColorable>();
+                if (compColorable != null)
+                {
+                    drawColor = compColorable.Color;
+                }
+
                 // 소집 시 그래픽 로딩
                 string graphicPathDrafted = Props.draftedDrawData?.graphicPath;
                 if (graphicPathDrafted.NullOrEmpty())
@@ -180,7 +188,7 @@ namespace NewRatkin
                     graphicPathDrafted,
                     shader,
                     drawSize,
-                    parent.DrawColor);
+                    drawColor);
 
                 // 비소집 시 그래픽 로딩
                 string graphicPathBack = Props.backDrawData?.graphicPath;
@@ -193,7 +201,7 @@ namespace NewRatkin
                     graphicPathBack,
                     shader,
                     drawSize,
-                    parent.DrawColor);
+                    drawColor);
             });
         }
 
@@ -270,14 +278,27 @@ namespace NewRatkin
 
         /// <summary>
         /// 추가 그래픽을 실제로 그리는 메서드 (WoodenShield.DrawShield 패턴)
+        /// 염색 색상을 실시간으로 반영하기 위해 MaterialPropertyBlock 사용
         /// </summary>
         /// <param name="mat">Material</param>
         /// <param name="drawLoc">그릴 위치</param>
         /// <param name="angle">회전 각도</param>
         private void DrawExtra(Material mat, Vector3 drawLoc, float angle)
         {
+            // 염색 색상을 실시간으로 가져오기
+            Color drawColor = parent.DrawColor;
+            CompColorable compColorable = parent.GetComp<CompColorable>();
+            if (compColorable != null)
+            {
+                drawColor = compColorable.Color;
+            }
+
+            // MaterialPropertyBlock을 사용하여 색상 적용
+            MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
+            matPropertyBlock.SetColor(ShaderPropertyIDs.Color, drawColor);
+
             Mesh mesh = MeshPool.plane10;
-            Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(angle, Vector3.up), mat, 0);
+            Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(angle, Vector3.up), mat, 0, null, 0, matPropertyBlock);
         }
 
         /// <summary>
