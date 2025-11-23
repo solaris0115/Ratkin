@@ -226,3 +226,5 @@ RimWorld에서 사용되는 EffecterDef의 주요 종류들을 카테고리별�
 
 
 
+
+
