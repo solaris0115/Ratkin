@@ -303,24 +303,12 @@
 		<techLevel>Ultra</techLevel>
 		<statBases>
 			<MarketValue>2000</MarketValue>
-			<Mass>2</Mass>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>5</Mass>
 		</statBases>
-		<comps>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
-			<li Class="CompProperties_Art">
-				<nameMaker>NamerArtWeaponMelee</nameMaker>
-				<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-				<minQualityForArtistic>Excellent</minQualityForArtistic>
-			</li>
-			<li Class="CompProperties_Biocodable"/>
-		</comps>
 		<smeltable>true</smeltable>
 		<burnableByRecipe>true</burnableByRecipe>
-		<thingCategories>
-			<li>WeaponsMelee</li>
-		</thingCategories>
+		<equippedAngleOffset>-15</equippedAngleOffset>
 		<weaponTags>
 			<li>UltratechMelee</li>
 			<li>RK_WeaponTag_Weapon</li>
@@ -330,20 +318,41 @@
 			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 			<li>RK_WeaponTag_ShieldCompatible</li>
 		</weaponTags>
-		<tradeTags>
-			<li>WeaponMelee</li>
-		</tradeTags>
 		<weaponClasses>
 			<li>Melee</li>
 			<li>Ultratech</li>
 		</weaponClasses>
+		<tradeTags>
+			<li>WeaponMelee</li>
+		</tradeTags>
 		<thingSetMakerTags>
 			<li>RewardStandardMidFreq</li>
 		</thingSetMakerTags>
+		<comps>
+			<li Class="SYS.CompProperties_WeaponExtention">
+				<northOffset>
+					<position>(0.20,-1,-0.3)</position>
+					<angle>70</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.22,1,-0.3)</position>
+					<angle>-60</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(-0.15,0.3,-0.25)</position>
+					<angle>195</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(0.15,-0.3,-0.25)</position>
+					<angle>-195</angle>
+				</westOffset>
+			</li>
+			<li Class="CompProperties_Biocodable"/>
+		</comps>
 	</ThingDef>
 
 	<!-- 체인소드 -->
-	<ThingDef ParentName="RK_MeleeWeapon">
+	<ThingDef ParentName="RK_WeaponAttr_UltratechBase">
 		<defName>RK_Weapon_ProtoChainSword</defName>
 		<label>chain sword</label>
 		<description>체인소드는 체인을 사용하여 공격하는 무기입니다. 반갈죽</description>
@@ -352,65 +361,43 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<color>(1,1,1,1)</color>
 		</graphicData>
-		<weaponTags>
-		</weaponTags>
-		<statBases>
-			<WorkToMake>18000</WorkToMake>
-			<Mass>5</Mass>
-		</statBases>
-		<equippedAngleOffset>-15</equippedAngleOffset>
 		<costList>
-			<WoodLog>25</WoodLog>
+			<ComponentSpacer>5</ComponentSpacer>
+			<Plasteel>50</Plasteel>
+			<Steel>150</Steel>
 		</costList>
 		<tools>
 			<li>
 				<label>point</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
 				<power>20</power>
+				<armorPenetration>0.7</armorPenetration>
 				<cooldownTime>3</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 			</li>
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
 				<power>20</power>
+				<armorPenetration>0.7</armorPenetration>
 				<cooldownTime>3</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 			</li>
 		</tools>
+		<!-- TODO: 레시피 추가 필요 -->
 		<recipeMaker>
 			<researchPrerequisite>Smithing</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
 		</recipeMaker>
-		<comps>
-			<li Class="SYS.CompProperties_WeaponExtention">
-				<northOffset>
-					<position>(0.20,-1,-0.3)</position>
-					<angle>70</angle>
-				</northOffset>
-				<southOffset>
-					<position>(-0.22,1,-0.3)</position>
-					<angle>-60</angle>
-				</southOffset>
-				<eastOffset>
-					<position>(-0.15,0.3,-0.25)</position>
-					<angle>195</angle>
-				</eastOffset>
-				<westOffset>
-					<position>(0.15,-0.3,-0.25)</position>
-					<angle>-195</angle>
-				</westOffset>
-			</li>
-		</comps>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_MeleeWeapon">
+	<ThingDef ParentName="RK_WeaponAttr_UltratechBase">
 		<defName>RK_Weapon_ProtoFlameChainSword</defName>
 		<label>flame chain sword</label>
 		<description>체인소드는 체인을 사용하여 공격하는 무기입니다. 반갈죽</description>
@@ -419,39 +406,46 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<color>(1,1,1,1)</color>
 		</graphicData>
-		<techLevel>Medieval</techLevel>
-		<weaponTags Inherit="false">
-			<li>RK_WeaponTag_TwoHand</li>
-			<li>RK_WeaponTag_TwoHandMelee</li>
-			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
-			<li>RK_WeaponTag_ShieldCompatible</li>
-		</weaponTags>
-		<statBases>
-			<WorkToMake>18000</WorkToMake>
-			<Mass>3.2</Mass>
-		</statBases>
-		<equippedAngleOffset>-65</equippedAngleOffset>
 		<costList>
-			<WoodLog>25</WoodLog>
+			<ComponentSpacer>6</ComponentSpacer>
+			<Plasteel>50</Plasteel>
+			<Steel>150</Steel>
+			<Uranium>50</Uranium>
 		</costList>
 		<tools>
 			<li>
 				<label>point</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
 				<power>20</power>
-				<cooldownTime>2.8</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<cooldownTime>3</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
+				<extraMeleeDamages>
+					<li>
+						<def>Burn</def>
+						<amount>5</amount>
+						<chance>0.5</chance>
+					</li>
+				</extraMeleeDamages>
 			</li>
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
 				<power>20</power>
-				<cooldownTime>2.8</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
+				<cooldownTime>3</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
+				<extraMeleeDamages>
+					<li>
+						<def>Burn</def>
+						<amount>5</amount>
+						<chance>0.5</chance>
+					</li>
+				</extraMeleeDamages>
 			</li>
 		</tools>
 		<recipeMaker>
@@ -460,29 +454,9 @@
 				<Crafting>10</Crafting>
 			</skillRequirements>
 		</recipeMaker>
-		<comps>
-			<li Class="SYS.CompProperties_WeaponExtention">
-				<northOffset>
-					<position>(0.20,-1,-0.3)</position>
-					<angle>70</angle>
-				</northOffset>
-				<southOffset>
-					<position>(-0.22,1,-0.3)</position>
-					<angle>-60</angle>
-				</southOffset>
-				<eastOffset>
-					<position>(-0.15,0.3,-0.25)</position>
-					<angle>195</angle>
-				</eastOffset>
-				<westOffset>
-					<position>(0.15,-0.3,-0.25)</position>
-					<angle>-195</angle>
-				</westOffset>
-			</li>
-		</comps>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_MeleeWeapon">
+	<ThingDef ParentName="RK_WeaponAttr_UltratechBase">
 		<defName>RK_Weapon_FlameChainSword</defName>
 		<label>chain sword</label>
 		<description>체인소드는 체인을 사용하여 공격하는 무기입니다. 반갈죽</description>
@@ -491,20 +465,17 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<color>(1,1,1,1)</color>
 		</graphicData>
-		<techLevel>Medieval</techLevel>
-		<statBases>
-			<WorkToMake>18000</WorkToMake>
-			<Mass>3.2</Mass>
-		</statBases>
-		<equippedAngleOffset>-65</equippedAngleOffset>
+		<smeltable>false</smeltable>
+		<relicChance>3</relicChance>
 		<tools>
 			<li>
 				<label>point</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
-				<power>20</power>
-				<cooldownTime>2.8</cooldownTime>
+				<power>25</power>
+				<armorPenetration>0.7</armorPenetration>
+				<cooldownTime>2.6</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 				<extraMeleeDamages>
 					<li>
@@ -517,10 +488,11 @@
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
-				<power>20</power>
-				<cooldownTime>2.8</cooldownTime>
+				<power>25</power>
+				<cooldownTime>2.6</cooldownTime>
+				<armorPenetration>0.7</armorPenetration>
 				<chanceFactor>5.0</chanceFactor>
 				<extraMeleeDamages>
 					<li>
@@ -531,29 +503,13 @@
 				</extraMeleeDamages>
 			</li>
 		</tools>
-		<comps>
-			<li Class="SYS.CompProperties_WeaponExtention">
-				<northOffset>
-					<position>(0.20,-1,-0.3)</position>
-					<angle>70</angle>
-				</northOffset>
-				<southOffset>
-					<position>(-0.22,1,-0.3)</position>
-					<angle>-60</angle>
-				</southOffset>
-				<eastOffset>
-					<position>(-0.15,0.3,-0.25)</position>
-					<angle>195</angle>
-				</eastOffset>
-				<westOffset>
-					<position>(0.15,-0.3,-0.25)</position>
-					<angle>-195</angle>
-				</westOffset>
-			</li>
-		</comps>
+		<weaponTags>
+			<li>RK_WeaponTag_Reward</li>
+			<li>RK_WeaponTag_Exotic</li>
+		</weaponTags>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_MeleeWeapon">
+	<ThingDef ParentName="RK_WeaponAttr_UltratechBase">
 		<defName>RK_Weapon_EMPChainSword</defName>
 		<label>chain sword</label>
 		<description>체인소드는 체인을 사용하여 공격하는 무기입니다. 반갈죽</description>
@@ -562,84 +518,56 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<color>(1,1,1,1)</color>
 		</graphicData>
-		<techLevel>Medieval</techLevel>
-		<weaponTags Inherit="false">
-			<li>RK_WeaponTag_TwoHand</li>
-			<li>RK_WeaponTag_TwoHandMelee</li>
-			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
-			<li>RK_WeaponTag_ShieldCompatible</li>
-		</weaponTags>
-		<statBases>
-			<WorkToMake>18000</WorkToMake>
-			<Mass>3.2</Mass>
-		</statBases>
-		<equippedAngleOffset>-65</equippedAngleOffset>
-		<costList>
-			<WoodLog>25</WoodLog>
-		</costList>
+		<smeltable>false</smeltable>
+		<relicChance>3</relicChance>
 		<tools>
 			<li>
 				<label>point</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
-				<power>20</power>
-				<cooldownTime>2.8</cooldownTime>
+				<power>25</power>
+				<armorPenetration>0.8</armorPenetration>
+				<cooldownTime>2.6</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
+				<extraMeleeDamages>
+					<li>
+						<def>EMP</def>
+						<amount>9</amount>
+					</li>
+				</extraMeleeDamages>
 			</li>
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>RK_Tool_ChainSword</li>
+					<li>RK_ToolCapacity_ChainSword</li>
 				</capacities>
-				<power>20</power>
-				<cooldownTime>2.8</cooldownTime>
+				<power>25</power>
+				<cooldownTime>2.6</cooldownTime>
+				<armorPenetration>0.8</armorPenetration>
 				<chanceFactor>5.0</chanceFactor>
 				<extraMeleeDamages>
 					<li>
-						<def>Flame</def>
-						<amount>10</amount>
-						<chance>0.5</chance>
+						<def>EMP</def>
+						<amount>9</amount>
 					</li>
 				</extraMeleeDamages>
 			</li>
 		</tools>
-		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
-			<skillRequirements>
-				<Crafting>10</Crafting>
-			</skillRequirements>
-		</recipeMaker>
-		<comps>
-			<li Class="SYS.CompProperties_WeaponExtention">
-				<northOffset>
-					<position>(0.20,-1,-0.3)</position>
-					<angle>70</angle>
-				</northOffset>
-				<southOffset>
-					<position>(-0.22,1,-0.3)</position>
-					<angle>-60</angle>
-				</southOffset>
-				<eastOffset>
-					<position>(-0.15,0.3,-0.25)</position>
-					<angle>195</angle>
-				</eastOffset>
-				<westOffset>
-					<position>(0.15,-0.3,-0.25)</position>
-					<angle>-195</angle>
-				</westOffset>
-			</li>
-		</comps>
+		<weaponTags>
+			<li>RK_WeaponTag_Reward</li>
+			<li>RK_WeaponTag_Exotic</li>
+		</weaponTags>
 	</ThingDef>
 
 	<!-- 신규 데미지 유형 -->
 	<ToolCapacityDef>
-		<defName>RK_Tool_ChainSword</defName>
+		<defName>RK_ToolCapacity_ChainSword</defName>
 	</ToolCapacityDef>
 
 	<ManeuverDef>
 		<defName>RK_Maneuver_ChainSword</defName>
-		<requiredCapacity>RK_Tool_ChainSword</requiredCapacity>
+		<requiredCapacity>RK_ToolCapacity_ChainSword</requiredCapacity>
 		<verb>
 			<verbClass>Verb_MeleeAttackDamage</verbClass>
 			<meleeDamageDef>RK_Damage_Torn</meleeDamageDef>
