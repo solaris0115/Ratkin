@@ -10,5 +10,5 @@ description: 에이전트 신원 식별 규칙
 **형식**: `**AI Model:** [모델명]`
 
 **예시**: 
-- `**AI Model:** Claude 4.5 Sonnet`
-- `**AI Model:** GPT-4`
+- `**AI Model:** Composer 1`
+- `**AI Model:** GPT-4.1`
