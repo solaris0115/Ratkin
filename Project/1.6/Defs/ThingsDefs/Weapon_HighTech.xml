@@ -299,18 +299,9 @@
 		</children>
 	</EffecterDef>
 
-	<ThingDef ParentName="RK_MeleeWeapon" Name="RK_WeaponAttr_UltratechBase" Abstract="True">
-		<techLevel>Ultra</techLevel>
-		<statBases>
-			<MarketValue>2000</MarketValue>
-			<WorkToMake>18000</WorkToMake>
-			<Mass>5</Mass>
-		</statBases>
-		<smeltable>true</smeltable>
-		<burnableByRecipe>true</burnableByRecipe>
+	<ThingDef ParentName="MeleeWeaponUltratech" Name="RK_WeaponAttr_UltratechBase" Abstract="True">
 		<equippedAngleOffset>-15</equippedAngleOffset>
-		<weaponTags>
-			<li>UltratechMelee</li>
+		<weaponTags Inherit="false">
 			<li>RK_WeaponTag_Weapon</li>
 			<li>RK_WeaponTag_Melee</li>
 			<li>RK_WeaponTag_TwoHand</li>
@@ -323,8 +314,14 @@
 			<li>Ultratech</li>
 		</weaponClasses>
 		<tradeTags>
-			<li>WeaponMelee</li>
+			<li>RK_TradeTag_Weapon</li>
+			<li>RK_TradeTag_MeleeWeapon</li>
+			<li>RK_TradeTag_UltraTech</li>
+			<!-- <li>RK_TradeTag_Exotic</li> -->
 		</tradeTags>
+		<thingCategories>
+			<li>RK_ThingCategory_Melee</li>
+		</thingCategories>
 		<thingSetMakerTags>
 			<li>RewardStandardMidFreq</li>
 		</thingSetMakerTags>
@@ -347,7 +344,6 @@
 					<angle>-195</angle>
 				</westOffset>
 			</li>
-			<li Class="CompProperties_Biocodable"/>
 		</comps>
 	</ThingDef>
 
@@ -390,10 +386,15 @@
 		</tools>
 		<!-- TODO: 레시피 추가 필요 -->
 		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<researchPrerequisite>Smithing</researchPrerequisite>
-			<skillRequirements>
-				<Crafting>10</Crafting>
-			</skillRequirements>
 		</recipeMaker>
 	</ThingDef>
 
@@ -448,11 +449,17 @@
 				</extraMeleeDamages>
 			</li>
 		</tools>
+		<!-- TODO: 레시피 추가 필요 -->
 		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<researchPrerequisite>Smithing</researchPrerequisite>
-			<skillRequirements>
-				<Crafting>10</Crafting>
-			</skillRequirements>
 		</recipeMaker>
 	</ThingDef>
 
@@ -640,7 +647,7 @@
 				<labelSolidTendedWell>set</labelSolidTendedWell>
 			</li>
 			<li Class="HediffCompProperties_Infecter">
-				<infectionChance>0.2</infectionChance>
+				<infectionChance>0.3</infectionChance>
 			</li>
 			<li Class="HediffCompProperties_GetsPermanent">
 				<permanentLabel>torn scar</permanentLabel>
@@ -649,7 +656,7 @@
 		<injuryProps>
 			<painPerSeverity>0.01875</painPerSeverity>
 			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
-			<bleedRate>0.06</bleedRate>
+			<bleedRate>0.08</bleedRate>
 			<canMerge>false</canMerge>
 			<destroyedLabel>Torn off</destroyedLabel>
 			<destroyedOutLabel>Torn out</destroyedOutLabel>
@@ -661,7 +668,7 @@
 		<defName>RK_Sound_ChainSaw</defName>
 		<eventNames />
 		<context>MapOnly</context>
-		<maxSimultaneous>1</maxSimultaneous>
+		<maxSimultaneous>2</maxSimultaneous>
 		<subSounds>
 			<li>
 				<grains>
