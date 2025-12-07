@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- RangedCooldownFactor에 RatHolic Gun Spooling StatPart 추가 -->
+  <Operation Class="PatchOperationSequence">
+    <success>Always</success>
+    <operations>
+      <!-- parts가 없으면 생성 -->
+      <li Class="PatchOperationTest">
+        <success>Invert</success>
+        <xpath>*/StatDef[defName = "RangedCooldownFactor"]/parts</xpath>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>*/StatDef[defName = "RangedCooldownFactor"]</xpath>
+        <value>
+          <parts>
+          </parts>
+        </value>
+      </li>
+      <!-- parts에 StatPart 추가 -->
+      <li Class="PatchOperationAdd">
+        <xpath>*/StatDef[defName = "RangedCooldownFactor"]/parts</xpath>
+        <value>
+          <li Class="NewRatkin.StatPart_RatHolicGunSpooling">
+            <!-- Spooling 효과를 위한 HediffDef -->
+            <hediffDef>RK_Hediff_RatHolicGunSpooling</hediffDef>
+            <!-- 중첩당 감소할 cooldown 시간 (초 단위) -->
+            <reductionPerStack>0.3</reductionPerStack>
+            <!-- 최대 중첩 수 -->
+            <maxStacks>5</maxStacks>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>
