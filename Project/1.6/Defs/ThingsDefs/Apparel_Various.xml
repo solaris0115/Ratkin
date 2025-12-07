@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<ThingDef Name="RK_ApparelAttr_Makeable" parentName="ApparelMakeableBase" Abstract="True">
+		<graphicData>
+			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ElectricTailoringBench</li>
+				<li>HandTailoringBench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<tradeTags>
+			<li>RK_Apparel</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Name="RK_ApparelAttr_Smithable" parentName="ArmorSmithableBase" Abstract="True">
+		<graphicData>
+			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<recipeMaker>
+			<recipeUsers>
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef Name="RK_ApparelAttr_Machineable" parentName="ArmorMachineableBase" Abstract="True">
+		<graphicData>
+			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<recipeMaker>
+			<!-- <recipeUsers> -->
+			<!-- <li>ElectricTailoringBench</li> -->
+			<!-- <li>HandTailoringBench</li> -->
+			<!-- </recipeUsers> -->
+		</recipeMaker>
+	</ThingDef>
+
+	
+
+
+
 	<ThingDef Name="RK_ApparelBase" Abstract="True">
 		<thingClass>Apparel</thingClass>
 		<category>Item</category>
