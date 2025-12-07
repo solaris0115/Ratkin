@@ -180,7 +180,6 @@
 		</colorSpectrum>
 	</FactionDef>
 
-
 	<FactionDef ParentName="FactionBase">
 		<defName>RK_Faction_Pilgrims</defName>
 		<label>pilgrims</label>
@@ -227,4 +226,69 @@
 		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
 	</FactionDef>
 
+	<!-- 히든 팩션1: 랫킨 캐러반 -->
+	<!-- 상인 전용 팩션. hidden=true이므로 공격받아도 우호도 변화 없음 (적대로 변하지 않음) -->
+	<FactionDef ParentName="FactionBase">
+		<defName>RK_Faction_Caravan</defName>
+		<label>ratkin caravan</label>
+		<pawnSingular>ratkin trader</pawnSingular>
+		<pawnsPlural>ratkin traders</pawnsPlural>
+		<categoryTag>RatkinCaravan</categoryTag>
+		<hidden>true</hidden>
+		<canSiege>false</canSiege>
+		<canStageAttacks>false</canStageAttacks>
+		<description>A traveling ratkin merchant caravan trading exotic goods.</description>
+		<factionIconPath>Icon/RK_icon</factionIconPath>
+		<factionNameMaker>NamerFaction_RatkinKingdom</factionNameMaker>
+		<settlementNameMaker>NamerSettlement_RatkinKingdom</settlementNameMaker>
+		<colorSpectrum>
+			<li>(0.65, 0.50, 0.35)</li>
+			<li>(0.75, 0.60, 0.25)</li>
+		</colorSpectrum>
+		<generateNewLeaderFromMapMembersOnly>true</generateNewLeaderFromMapMembersOnly>
+		<leaderTitle>caravan master</leaderTitle>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<mustStartOneEnemy>false</mustStartOneEnemy>
+		<techLevel>Industrial</techLevel>
+		<!-- hidden=true 설정으로 HasGoodwill=false가 되어 공격받아도 우호도 변화 없음 -->
+		<caravanTraderKinds>
+			<li>RK_TraderKind_Caravan</li>
+		</caravanTraderKinds>
+		<xenotypeSet>
+			<xenotypeChances>
+				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
+			</xenotypeChances>
+		</xenotypeSet>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Offworld</li>
+				</categories>
+				<commonality>1</commonality>
+			</li>
+		</backstoryFilters>
+		<pawnGroupMakers>
+			<!-- 전투 그룹 없음 - 상인 그룹만 존재 -->
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<RatkinMerchant>15</RatkinMerchant>
+					<RatkinNoble>8</RatkinNoble>
+				</traders>
+				<carriers>
+					<Ratkin_KingHamster>6</Ratkin_KingHamster>
+				</carriers>
+				<guards>
+					<RatkinMercenaryLight>15</RatkinMercenaryLight>
+					<RatkinSoldier>20</RatkinSoldier>
+					<RatkinEliteGuardener>10</RatkinEliteGuardener>
+					<RatkinDefender>10</RatkinDefender>
+				</guards>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<allowedCultures>
+			<li>RK_Culture_Kingdom</li>
+		</allowedCultures>
+	</FactionDef>
 </Defs>

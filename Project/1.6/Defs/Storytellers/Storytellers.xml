@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
+	<!-- 랫킨 스토리텔러 -->
+	<!-- 병해충과 벌레. -->
+
 	<StorytellerDef ParentName="BaseStoryteller">
 		<defName>RottyMilden</defName>
 		<label>Rotty Milden</label>
@@ -140,6 +144,13 @@
 				<allowedTargetTags>
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
+			</li>
+			<!-- 랫킨용 필그림 이벤트 -->
+			<li Class="StorytellerCompProperties_OnOffCycle" MayRequire="Ludeon.RimWorld.Ideology">
+				<incident MayRequire="Ludeon.RimWorld.Ideology">GiveQuest_ReliquaryPilgrims_Ratkin</incident>
+				<onDays>40</onDays>
+				<offDays>0</offDays>
+				<minSpacingDays>20</minSpacingDays>
 			</li>
 		</comps>
 	</StorytellerDef>

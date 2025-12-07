@@ -69,12 +69,18 @@ namespace NewRatkin
         //괴도 찍찍이 확장팩
         public static PawnKindDef RatkinDemonMan;
         public static PawnKindDef RatkinEliteSoldier;
+
+        // 필그림
+        public static PawnKindDef RK_PawnKind_Pilgrim;
+        public static PawnKindDef RK_PawnKind_Priest;
+        public static PawnKindDef RK_PawnKind_NoblePilgrim;
     }
 
     [DefOf]
     public static class RatkinFactionDefOf
     {
         public static FactionDef Rakinia;
+        public static FactionDef RK_Faction_Pilgrims;
     }
     [DefOf]
     public static class RatkinMoteDefOf
@@ -86,6 +92,7 @@ namespace NewRatkin
     public static class RatkinIncidentDefOf
     {
         public static IncidentDef RatkinFollowUpTroops;
+        public static IncidentDef GiveQuest_ReliquaryPilgrims_Ratkin;
     }
     [DefOf]
     public static class RatkinRaceDefOf

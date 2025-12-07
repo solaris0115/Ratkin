@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!-- 순례자 계열 -->
-	<!-- 소박한 의상과 비무장 상태, 귀족 출신인 경우 의상을 가능하면 허름한걸로
-	기본 팩션은 수도원 소속이라 따로 복수하거나 그런게 없지만 일부 귀족은 소속 팩션과 적대됨.  -->
+	<!-- 히든 순례자 소속 -->
 
 	<!-- Pilgrim -->
 	<PawnKindDef Name="RK_PawnKindAttr_PilgrimBase" ParentName="RKBasePawnKind">
@@ -54,10 +53,37 @@
 
 	<!-- 귀족 계통 -->
 	<!-- 귀족의류는 고급이지만 너덜너덜. 실제 귀족들이 속죄 목적으로 순례길 도는경우가 많아 허름하게 -->
+	<!-- WellEquippedTraveler 급이지만 의상은 허름해야됨. -->
 	<PawnKindDef ParentName="RK_PawnKindAttr_PilgrimBase">
 		<defName>RK_PawnKind_NoblePilgrim</defName>
 		<label>pilgrim</label>
 		<defaultFactionDef>Rakinia</defaultFactionDef>
+		<combatPower>70</combatPower>
+		<gearHealthRange>0.1~0.3</gearHealthRange>
+		<itemQuality>Awful</itemQuality>
+		<apparelMoney>80~250</apparelMoney>
+		<apparelAllowHeadgearChance>0.2</apparelAllowHeadgearChance>
+		<weaponMoney>0~0</weaponMoney>
+		<techHediffsMoney>500~1000</techHediffsMoney>
+		<techHediffsTags>
+			<li>Advanced</li>
+		</techHediffsTags>
+		<techHediffsChance>0.15</techHediffsChance>
+		<inventoryOptions>
+			<skipChance>0.9</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>Silver</thingDef>
+					<countRange>50~100</countRange>
+				</li>
+				<li>
+					<thingDef>MedicineIndustrial</thingDef>
+					<countRange>3</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<initialWillRange>3~5</initialWillRange>
+		<initialResistanceRange>30~40</initialResistanceRange>
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
