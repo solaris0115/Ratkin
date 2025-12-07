@@ -15,7 +15,7 @@
 			</points>
 		</raidLootValueFromPointsCurve>
 		<allowedCultures>
-			<li>RatkiniaTraditionCulture</li>
+			<li>RK_Culture_Kingdom</li>
 		</allowedCultures>
 		<disallowedMemes>
 			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
@@ -55,7 +55,4 @@
 			</thingDefs>
 		</apparelStuffFilter>
 	</FactionDef>
-
-
-
 </Defs>
