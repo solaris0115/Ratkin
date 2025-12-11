@@ -151,6 +151,7 @@
 				<onDays>40</onDays>
 				<offDays>0</offDays>
 				<minSpacingDays>20</minSpacingDays>
+				<numIncidentsRange>1</numIncidentsRange>
 			</li>
 		</comps>
 	</StorytellerDef>
