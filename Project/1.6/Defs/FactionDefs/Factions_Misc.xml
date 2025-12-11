@@ -19,16 +19,11 @@
 		<backstoryCategories>
 			<li>Offworld</li>
 		</backstoryCategories>
+		<!-- TraderKinds -->
 		<caravanTraderKinds>
-			<!-- 원자재류 -->
-			<!--  의상과 방어구-->
-			<!-- 무기상 -->
-			<li>RK_TraderKind_KingdomBulkGoods</li>
-			<li>RK_TraderKind_KingdomDressMerchant</li>
-			<li>RK_TraderKind_KingdomCombatSupplier</li>
-			<li>RK_TraderKind_KingdomExotic</li>
-			<!-- TODO: 별도 팩션 (캐러반과  으로 뽑을거임) -->
-			<!-- <li>Caravan_Ratkin_Free_company</li> -->
+			<li>RK_TraderKind_KingdomBulkGoods</li>			<!-- 원자재상 -->
+			<li>RK_TraderKind_KingdomCombatSupplier</li>			<!-- 무기상 -->
+			<li>RK_TraderKind_KingdomExotic</li>			<!-- 단순 희귀템 말고 무작위 유물과 일부 진귀한 아이템들로만 구성-->
 		</caravanTraderKinds>
 		<visitorTraderKinds>
 			<li>Visitor_Outlander_Standard</li>
@@ -48,9 +43,6 @@
 			<Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
 			<Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
 			<Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginChristian>
-			<Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginIslamic>
-			<Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginHindu>
-			<Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginBuddhist>
 		</structureMemeWeights>
 		<maxPawnCostPerTotalPointsCurve>
 			<points>
@@ -256,8 +248,17 @@
 		<techLevel>Industrial</techLevel>
 		<!-- hidden=true 설정으로 HasGoodwill=false가 되어 공격받아도 우호도 변화 없음 -->
 		<caravanTraderKinds>
-			<li>RK_TraderKind_Caravan</li>
+			<li>Caravan_Outlander_BulkGoods</li>
 		</caravanTraderKinds>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,35)</li>
+				<li>(70, 50)</li>
+				<li>(700, 100)</li>
+				<li>(1300, 150)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
 		<xenotypeSet>
 			<xenotypeChances>
 				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
