@@ -70,19 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="*.cs" />
-    <Compile Include="AutoTests\*.cs" />
-    <Compile Include="ChainSword\*.cs" />
-    <Compile Include="ExtraWornDrawer\*.cs" />
-    <Compile Include="Gunlance\*.cs" />
-    <Compile Include="HamsterWheel\*.cs" />
-    <Compile Include="Pilgrim\*.cs" />
-    <Compile Include="Priest\*.cs" />
-    <Compile Include="RatkinGuerrilla\*.cs" />
-    <Compile Include="ShieldOfRatkinia\*.cs" />
-    <Compile Include="WyvernFire\*.cs" />
-    <Compile Include="Properties\*.cs" />
-    <Compile Include="RatHolicGun\*.cs" />
+    <Compile Include="**\*.cs" Exclude="bin\**\*.cs;obj\**\*.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
