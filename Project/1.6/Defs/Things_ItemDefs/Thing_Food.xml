@@ -22,6 +22,8 @@
             <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
             <ingestEffect>EatVegetarian</ingestEffect>
             <ingestSound>Meal_Eat</ingestSound>
+            <chairSearchRadius>0</chairSearchRadius>
+            <tableDesired>false</tableDesired>
         </ingestible>
         <allowedArchonexusCount>40</allowedArchonexusCount>
         <comps>
