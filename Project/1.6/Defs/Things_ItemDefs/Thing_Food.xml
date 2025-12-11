@@ -18,12 +18,13 @@
         <stackLimit>75</stackLimit>
         <ingestible>
             <preferability>MealSimple</preferability>
-            <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+            <optimalityOffsetHumanlikes>5</optimalityOffsetHumanlikes>
             <optimalityOffsetFeedingAnimals>-100</optimalityOffsetFeedingAnimals>
             <ingestEffect>EatVegetarian</ingestEffect>
             <ingestSound>Meal_Eat</ingestSound>
             <chairSearchRadius>0</chairSearchRadius>
             <tableDesired>false</tableDesired>
+            <canAutoSelectAsFoodForCaravan>true</canAutoSelectAsFoodForCaravan>
         </ingestible>
         <allowedArchonexusCount>40</allowedArchonexusCount>
         <comps>
