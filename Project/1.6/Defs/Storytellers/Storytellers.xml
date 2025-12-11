@@ -18,27 +18,29 @@
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
 				<minDaysPassed>1</minDaysPassed>
-				<mtbDays>1.00</mtbDays>
-				<maxThreatBigIntervalDays>15</maxThreatBigIntervalDays>
+				<spaceMtbDayFactor>2</spaceMtbDayFactor>
+				<spaceMinSpacingDays>2</spaceMinSpacingDays>
+				<mtbDays>1.35</mtbDays>
+				<maxThreatBigIntervalDays>13</maxThreatBigIntervalDays>
 				<minIncChancePopulationIntentFactor>0.2</minIncChancePopulationIntentFactor>
-				<randomPointsFactorRange>0.5~2</randomPointsFactorRange>
+				<randomPointsFactorRange>0.5~1.5</randomPointsFactorRange>
 				<skipThreatBigIfRaidBeacon>true</skipThreatBigIfRaidBeacon>
 				<categoryWeights>
-					<Misc>5</Misc>
-					<ThreatBig>0.8</ThreatBig>
-					<OrbitalVisitor>1.3</OrbitalVisitor>
-					<FactionArrival>1.5</FactionArrival>
-					<ThreatSmall>1.2</ThreatSmall>
-					<ShipChunkDrop>0.5</ShipChunkDrop>
+					<Misc>3.5</Misc>
+					<ThreatBig>1.4</ThreatBig>
+					<OrbitalVisitor>1.1</OrbitalVisitor>
+					<FactionArrival>2.4</FactionArrival>
+					<ThreatSmall>0.6</ThreatSmall>
+					<ShipChunkDrop>0.22</ShipChunkDrop>
 				</categoryWeights>
 			</li>
 			<li Class="StorytellerCompProperties_Disease">
 				<category>DiseaseHuman</category>
-				<minDaysPassed>4</minDaysPassed>
+				<minDaysPassed>0</minDaysPassed>
 			</li>
 			<li Class="StorytellerCompProperties_Disease">
 				<category>DiseaseAnimal</category>
-				<minDaysPassed>4</minDaysPassed>
+				<minDaysPassed>0</minDaysPassed>
 			</li>
 			<!-- Home special threats -->
 			<li Class="StorytellerCompProperties_ThreatsGenerator">
@@ -51,6 +53,7 @@
 					<offDays>0.5</offDays>
 					<minSpacingDays>0.04</minSpacingDays>
 					<numIncidentsRange>1~2</numIncidentsRange>
+					<minThreatPoints>500</minThreatPoints>
 				</parms>
 			</li>
 			<!-- Ally/neutral interaction -->
@@ -95,8 +98,8 @@
 				<numIncidentsRange>1</numIncidentsRange>
 				<acceptFractionByDaysPassedCurve>
 					<points>
-						<li>(5, 0)</li>
-						<li>(30, 1)</li>
+						<li>(8, 0)</li>
+						<li>(15, 1)</li>
 					</points>
 				</acceptFractionByDaysPassedCurve>
 				<minSpacingDays>0.2</minSpacingDays>
@@ -114,8 +117,8 @@
 				<numIncidentsRange>1~3</numIncidentsRange>
 				<acceptFractionByDaysPassedCurve>
 					<points>
-						<li>(5, 0)</li>
-						<li>(11, 1)</li>
+						<li>(8, 0)</li>
+						<li>(15, 1)</li>
 					</points>
 				</acceptFractionByDaysPassedCurve>
 				<minSpacingDays>0.2</minSpacingDays>
@@ -134,24 +137,8 @@
 			</li>
 			<!-- Triggered -->
 			<li Class="StorytellerCompProperties_Triggered">
-				<incident>RatkinVagabondJoin</incident>
+				<incident>StrangerInBlackJoin</incident>
 				<delayTicks>180</delayTicks>
-			</li>
-			<li Class="StorytellerCompProperties_FactionInteraction">
-				<incident>TraderCaravanArrival</incident>
-				<minDaysPassed>3</minDaysPassed>
-				<baseIncidentsPerYear>7</baseIncidentsPerYear>
-				<allowedTargetTags>
-					<li>Map_PlayerHome</li>
-				</allowedTargetTags>
-			</li>
-			<!-- 랫킨용 필그림 이벤트 -->
-			<li Class="StorytellerCompProperties_OnOffCycle" MayRequire="Ludeon.RimWorld.Ideology">
-				<incident MayRequire="Ludeon.RimWorld.Ideology">GiveQuest_ReliquaryPilgrims_Ratkin</incident>
-				<onDays>40</onDays>
-				<offDays>0</offDays>
-				<minSpacingDays>20</minSpacingDays>
-				<numIncidentsRange>1</numIncidentsRange>
 			</li>
 		</comps>
 	</StorytellerDef>
