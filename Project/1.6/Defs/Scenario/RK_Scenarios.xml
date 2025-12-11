@@ -14,6 +14,7 @@
 			</playerFaction>
 			<parts>
 				<!-- 시작 인원에 관한 설정 -->
+				<!-- 기존보다 빠른 게임 진행을 위해 인구수 기존 +1 -->
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
 					<def>ConfigPage_ConfigureStartingPawns</def>
 					<pawnCount>5</pawnCount>
