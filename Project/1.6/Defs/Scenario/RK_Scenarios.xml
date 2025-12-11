@@ -1,24 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!-- 랫킨 기본 시나리오. 고향을 떠나온 랫킨들이 만나 새 터전을 지어나가는 이야기 -->
+	<!-- 기본 물자는 마을 건설에 필요한것들이나 혹은 아주 간단한 냉병기 그리고 식량 조금 -->
 	<ScenarioDef ParentName="ScenarioBase">
-		<defName>RK_Scenario</defName>
-		<label>ratkin colony</label>
-		<description>각자의 사연을 갖고 새로운 삶을 위해 나온 네 랫킨의 이야기입니다. 서로 다른 꿈을 꾸고 있지만 지금은 잠시 접어두기로 하였습니다.</description>
+		<defName>RK_Scenario_Settler</defName>
+		<label>ratkin settler</label>
+		<description>다섯 랫킨은 새 삶을 위해 고향을 떠나 만나게 되었습니다. 과거는 잠시 뒤로 묻어두고 이곳에서 새 이야기를 써내려가려 합니다. 약간의 자재와 몇 가지 도구로 시작합니다.</description>
 		<scenario>
-			<summary>It's a story of Ratkins, each with a story.</summary>
+			<summary>고향을 떠나 새로운 삶을 시작하려는 랫킨들의 이야기입니다.</summary>
 			<playerFaction>
 				<def>PlayerFaction</def>
 				<factionDef>RK_PlayerFaction</factionDef>
 			</playerFaction>
 			<parts>
+				<!-- 시작 인원에 관한 설정 -->
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
 					<def>ConfigPage_ConfigureStartingPawns</def>
-					<pawnCount>4</pawnCount>
+					<pawnCount>5</pawnCount>
+					<!-- 추가 합류 가능한 인원 없음. -->
+					<pawnChoiceCount>5</pawnChoiceCount>
 				</li>
 				<li Class="ScenPart_PlayerPawnsArriveMethod">
 					<def>PlayerPawnsArriveMethod</def>
 					<method>Standing</method>
 				</li>
+				<!-- 돈과 식량 -->
 				<li Class="ScenPart_StartingThing_Defined">
 					<def>StartingThing_Defined</def>
 					<thingDef>Silver</thingDef>
@@ -26,51 +32,71 @@
 				</li>
 				<li Class="ScenPart_StartingThing_Defined">
 					<def>StartingThing_Defined</def>
-					<thingDef>MealSurvivalPack</thingDef>
-					<count>30</count>
+					<thingDef>RK_Food_Hardtack</thingDef>
+					<count>60</count>
 				</li>
+
+				<!-- 무기 및 도구 제공 -->
+				<!-- 쟁기, 도끼, 한손검2정, 석궁 한정-->
 				<li Class="ScenPart_StartingThing_Defined">
 					<def>StartingThing_Defined</def>
-					<thingDef>RK_Crossbow</thingDef>
-				</li>
-				<li Class="ScenPart_StartingThing_Defined">
-					<def>StartingThing_Defined</def>
-					<thingDef>RK_Rifle</thingDef>
-				</li>
-				<li Class="ScenPart_StartingThing_Defined">
-					<def>StartingThing_Defined</def>
-					<thingDef>MedicineIndustrial</thingDef>
-					<count>10</count>
-				</li>
-				<li Class="ScenPart_StartingThing_Defined">
-					<def>StartingThing_Defined</def>
-					<thingDef>ComponentIndustrial</thingDef>
-					<count>30</count>
-				</li>
-				<li Class="ScenPart_ScatterThingsNearPlayerStart">
-					<def>ScatterThingsNearPlayerStart</def>
-					<thingDef>Steel</thingDef>
-					<count>400</count>
+					<thingDef>RK_Hockey</thingDef>
+					<stuff>Steel</stuff>
 				</li>
 				<li Class="ScenPart_StartingThing_Defined">
 					<def>StartingThing_Defined</def>
 					<thingDef>RK_Axe</thingDef>
 					<stuff>Steel</stuff>
 				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RK_OneHanded</thingDef>
+					<stuff>Steel</stuff>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RK_Crossbow</thingDef>
+				</li>
+				<!-- 가보같은 -->
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RK_OneHanded</thingDef>
+					<stuff>Steel</stuff>
+					<quality>Good</quality>
+				</li>
+				<!-- 약품 -->
+				<!-- 허브만 -->
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineHerbal</thingDef>
+					<count>35</count>
+				</li>
+				<!-- 기계 부품 부족하게-->
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>ComponentIndustrial</thingDef>
+					<count>20</count>
+				</li>
 				<li Class="ScenPart_ScatterThingsNearPlayerStart">
 					<def>ScatterThingsNearPlayerStart</def>
 					<thingDef>WoodLog</thingDef>
-					<count>300</count>
+					<count>500</count>
 				</li>
 				<li Class="ScenPart_ScatterThingsAnywhere">
 					<def>ScatterThingsAnywhere</def>
 					<thingDef>ShipChunk</thingDef>
-					<count>5</count>
+					<count>2</count>
 				</li>
 				<li Class="ScenPart_ScatterThingsAnywhere">
 					<def>ScatterThingsAnywhere</def>
 					<thingDef>Steel</thingDef>
-					<count>720</count>
+					<count>250</count>
+				</li>
+				<!-- Game start dialog - 랫킨 기본 시나리오 대사 -->
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>고향을 떠나 새로운 삶을 위해 떠나온 랫킨들이 한곳에서 만났습니다. 쉽지 않겠지만 이제 새 터전을 일궈 나가야할 시간입니다. 부지런하게 해나간다면 좋은 마을이 될 수 있을 것입니다.</text>
+					<closeSound>GameStartSting</closeSound>
 				</li>
 			</parts>
 		</scenario>
