@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+답변은 항상 한글
+현재 에이전트가 무엇인지 반드시 선표기 (GPT, Sonet, Gemini..)
+
+!+[명령어] 라고 말한다면 다음의 룰을 따름
+
+!워크플로: [01-workflow.mdc](01-workflow.mdc) 참고하여 워크플로 문서 생성 후 진행
+!분석: [03-def-structure-guide.mdc](03-def-structure-guide.mdc)를 참고하여 분석 진행 후 보고서 생성
+!빌드: [02-csharp-manage-rule.mdc](02-csharp-manage-rule.mdc)를 참고
+!구현: [03-def-structure-guide.mdc](03-def-structure-guide.mdc)과 Report 폴더에서 관련 내용을 확인 후 진행
