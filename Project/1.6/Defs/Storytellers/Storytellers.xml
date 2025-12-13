@@ -189,32 +189,9 @@
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
 			</li>
-			<!-- WandererJoin - 60일 후 반드시 1번 발생 (RatkinPriest 합류) -->
-			<li Class="StorytellerCompProperties_SingleOnceFixed">
-				<fireAfterDaysPassed>60</fireAfterDaysPassed>
-				<incident>RK_WandererJoin_Priest</incident>
-				<allowedTargetTags>
-					<li>Map_PlayerHome</li>
-				</allowedTargetTags>
-			</li>
 		</comps>
 	</StorytellerDef>
 
-	<!-- RatkinPriest 합류 이벤트 (WandererJoin 대체) - QuestScript 기반 -->
-	<IncidentDef>
-		<defName>RK_WandererJoin_Priest</defName>
-		<label>wanderer join</label>
-		<category>Special</category>
-		<targetTags>
-			<li>Map_PlayerHome</li>
-		</targetTags>
-		<workerClass>IncidentWorker_GiveQuest</workerClass>
-		<questScriptDef>RK_WandererJoins_Priest</questScriptDef>
-		<baseChance>0</baseChance>
-		<pawnKind>RatkinPriest</pawnKind>
-		<populationEffect>IncreaseEasy</populationEffect>
-	</IncidentDef>
-	
 	<IncidentDef>
 		<defName>RK_Incident_VagabondJoin</defName>
 		<label>vagabond join</label>
