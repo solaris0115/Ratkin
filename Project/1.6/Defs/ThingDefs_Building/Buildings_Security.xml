@@ -172,8 +172,6 @@
 	</ThingDef>
 
 
-
-
 	<!--================ 발리스타 탄 기본 ================-->
 	<ThingCategoryDef>
 		<defName>BallistaBolt</defName>
@@ -295,7 +293,7 @@
 		<costList>
 			<Steel>40</Steel>
 			<WoodLog>20</WoodLog>
-		</costList>		
+		</costList>
 		<recipeMaker>
 			<researchPrerequisite>Advanced_BallistaBolt</researchPrerequisite>
 		</recipeMaker>
@@ -377,7 +375,7 @@
 		</projectile>
 	</ThingDef>
 
-<!-- 대포 받침 -->
+	<!-- 대포 받침 -->
 	<ThingDef Name="RK_BaseArtilleryBuilding_Cannon" ParentName="BuildingBase" Abstract="True">
 		<thingClass>Building_TurretGun</thingClass>
 		<drawerType>MapMeshAndRealTime</drawerType>
@@ -504,7 +502,7 @@
 			</defaultStorageSettings>
 		</building>
 	</ThingDef>
-<!--================ 찍찍포 ================-->
+	<!--================ 찍찍포 ================-->
 	<ThingDef ParentName="RK_BaseArtilleryBuilding_Cannon">
 		<defName>RK_Cannon_Strait_Body</defName>
 		<label>Ratkin Cannon</label>
@@ -516,7 +514,7 @@
 				<li>Ratkin_Artillery</li>
 			</buildingTags>
 		</building>
-		<uiIconPath>Things/Building/Security/Cannon_Turret_Icon</uiIconPath>
+		<uiIconPath>Things/Building/Security/RK_Texture_CannonIcon</uiIconPath>
 		<uiIconScale>1</uiIconScale>
 	</ThingDef>
 
@@ -525,7 +523,7 @@
 		<label>Cannon</label>
 		<description>다듬어진 돌덩어리를 원거리로 발사할수 있는 대포입니다. 적을 원거리에서 제압하기 위하여 개발되었으나 언덕 너머를 사격할수는 없습니다. 별명은 찍찍포입니다.</description>
 		<graphicData>
-			<texPath>Things/Building/Security/Cannon_Turret</texPath>
+			<texPath>Things/Building/Security/RK_Texture_CannonDirectMode</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<weaponTags>
@@ -547,7 +545,7 @@
 			</li>
 		</verbs>
 	</ThingDef>
-	
+
 	<!--================ 빅 마우스 ================-->
 	<ThingCategoryDef>
 		<defName>RK_CannonBullet</defName>
@@ -555,7 +553,7 @@
 		<parent>Manufactured</parent>
 		<iconPath>UI/Icons/Big_mouse</iconPath>
 	</ThingCategoryDef>
-	
+
 	<ThingDef Name="RKCannonBase" ParentName="ResourceBase" Abstract="True">
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Standard_Drop</soundDrop>
@@ -595,7 +593,7 @@
 			</skillRequirements>
 		</recipeMaker>
 	</ThingDef>
-	
+
 	<ThingDef ParentName="RK_MakeableRKCannonBase">
 		<defName>Big_mouse</defName>
 		<label>Ratkin Cannon Shell</label>
@@ -667,7 +665,7 @@
 		<buildingDamageFactor>4</buildingDamageFactor>
 		<plantDamageFactor>4</plantDamageFactor>
 		<explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
-		<explosionCellMote>Mote_ShockWave</explosionCellMote>		
+		<explosionCellMote>Mote_ShockWave</explosionCellMote>
 		<explosionColorCenter>(0.8, 0.8, 0.8,0.3)</explosionColorCenter>
 		<explosionColorEdge>(1, 1, 1, 0.1)</explosionColorEdge>
 		<soundExplosion>Shockwave</soundExplosion>
@@ -693,7 +691,7 @@
 		<buildingDamageFactor>4</buildingDamageFactor>
 		<plantDamageFactor>4</plantDamageFactor>
 		<explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
-		<explosionCellMote>Mote_ShockWave</explosionCellMote>		
+		<explosionCellMote>Mote_ShockWave</explosionCellMote>
 		<explosionColorCenter>(0.8, 0.8, 0.8,0.3)</explosionColorCenter>
 		<explosionColorEdge>(1, 1, 1, 0.1)</explosionColorEdge>
 		<soundExplosion>Shockwave</soundExplosion>
@@ -716,61 +714,61 @@
 
 	<!-- 사운드 정의 -->
 	<SoundDef>
-		<defName>BallistaShot</defName>  
+		<defName>BallistaShot</defName>
 		<context>MapOnly</context>
-		<eventNames />  
-		<maxSimultaneous>1</maxSimultaneous>  
+		<eventNames />
+		<maxSimultaneous>1</maxSimultaneous>
 		<subSounds>
 			<li>
 				<grains>
 					<li Class="AudioGrain_Clip">
 						<clipPath>Things/BallistaShot</clipPath>
 					</li>
-				</grains>      
+				</grains>
 				<pitchRange>
-					<min>1.4</min>        
+					<min>1.4</min>
 					<max>1.6</max>
 				</pitchRange>
 			</li>
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>Flying</defName>  
+		<defName>Flying</defName>
 		<context>MapOnly</context>
-		<eventNames />  
-		<maxSimultaneous>1</maxSimultaneous>  
+		<eventNames />
+		<maxSimultaneous>1</maxSimultaneous>
 		<subSounds>
 			<li>
 				<grains>
 					<li Class="AudioGrain_Clip">
 						<clipPath>Things/Flying</clipPath>
 					</li>
-				</grains>      
+				</grains>
 				<volumeRange>
-					<min>28.82353</min>        
+					<min>28.82353</min>
 					<max>37.05883</max>
 				</volumeRange>
 			</li>
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>Shockwave</defName>  
+		<defName>Shockwave</defName>
 		<context>MapOnly</context>
-		<eventNames />  
-		<maxSimultaneous>1</maxSimultaneous>  
+		<eventNames />
+		<maxSimultaneous>1</maxSimultaneous>
 		<subSounds>
 			<li>
 				<grains>
 					<li Class="AudioGrain_Clip">
 						<clipPath>Things/Shockwave</clipPath>
 					</li>
-				</grains>      
+				</grains>
 				<volumeRange>
-					<min>64.70588</min>        
+					<min>64.70588</min>
 					<max>67.05882</max>
-				</volumeRange>      
+				</volumeRange>
 				<pitchRange>
-					<min>0.8516304</min>        
+					<min>0.8516304</min>
 					<max>1.254348</max>
 				</pitchRange>
 			</li>
@@ -778,46 +776,46 @@
 	</SoundDef>
 
 	<SoundDef>
-		<defName>Ballista_Impact</defName>  
+		<defName>Ballista_Impact</defName>
 		<context>MapOnly</context>
-		<eventNames />  
-		<maxSimultaneous>1</maxSimultaneous>  
+		<eventNames />
+		<maxSimultaneous>1</maxSimultaneous>
 		<subSounds>
 			<li>
 				<grains>
 					<li Class="AudioGrain_Clip">
 						<clipPath>Things/Impact</clipPath>
 					</li>
-				</grains>      
+				</grains>
 				<volumeRange>
-					<min>64.70588</min>        
+					<min>64.70588</min>
 					<max>67.05882</max>
-				</volumeRange>      
+				</volumeRange>
 				<pitchRange>
-					<min>0.8516304</min>        
+					<min>0.8516304</min>
 					<max>1.254348</max>
 				</pitchRange>
 			</li>
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>RKCannonShot</defName>  
+		<defName>RKCannonShot</defName>
 		<context>MapOnly</context>
-		<eventNames />  
-		<maxSimultaneous>1</maxSimultaneous>  
+		<eventNames />
+		<maxSimultaneous>1</maxSimultaneous>
 		<subSounds>
 			<li>
 				<grains>
 					<li Class="AudioGrain_Clip">
 						<clipPath>Things/Shockwave</clipPath>
 					</li>
-				</grains>   
+				</grains>
 				<volumeRange>
-					<min>40</min>        
+					<min>40</min>
 					<max>50</max>
-				</volumeRange> 				
+				</volumeRange>
 				<pitchRange>
-					<min>1.4</min>        
+					<min>1.4</min>
 					<max>1.6</max>
 				</pitchRange>
 			</li>
