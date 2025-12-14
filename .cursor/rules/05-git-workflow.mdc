@@ -1,8 +1,9 @@
 ---
-alwaysApply: true
 description: Git 워크플로우 및 커밋 규칙
+alwaysApply: false
 ---
 # Git 워크플로우 및 커밋 규칙
+## git 커밋 요청시에만 처리
 
 ## AI 커밋 태그
 
