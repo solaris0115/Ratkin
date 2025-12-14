@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Defs> 
+<Defs>
 
 
 	<PawnKindDef Name="RKBasePawnKind" Abstract="True">
@@ -15,14 +15,19 @@
 		<apparelColor>(255,255,255)</apparelColor>
 		<initialResistanceRange>0~10</initialResistanceRange>
 		<initialWillRange>5~10</initialWillRange>
-	</PawnKindDef>	
-	
+		<xenotypeSet>
+			<xenotypeChances>
+				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
+			</xenotypeChances>
+		</xenotypeSet>
+	</PawnKindDef>
+
 	<!-- 평화 -->
 	<!-- 시민 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
 		<defName>RatkinColonist</defName>
 		<label>ratkin colonist</label>
-		<defaultFactionType>RK_PlayerFaction</defaultFactionType>		
+		<defaultFactionType>RK_PlayerFaction</defaultFactionType>
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
@@ -133,17 +138,17 @@
 		</apparelTags>
 		<apparelRequired>
 			<li>RK_SistersVeil</li>
-		</apparelRequired>		
+		</apparelRequired>
 	</PawnKindDef>
 
 
 
 	<!-- 전투 병과 -->
 	<PawnKindDef Name="RKCombatantBase" ParentName="RKBasePawnKind" Abstract="true">
-		<isFighter>true</isFighter>	
-	</PawnKindDef>	
-	
-	<!-- 랫킨 상단 -->	
+		<isFighter>true</isFighter>
+	</PawnKindDef>
+
+	<!-- 랫킨 상단 -->
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RatkinMerchant</defName>
 		<label>ratkin Merchant</label>
@@ -171,7 +176,7 @@
 			<li>RK_Noble</li>
 		</apparelTags>
 		<trader>true</trader>
-	</PawnKindDef>	
+	</PawnKindDef>
 
 	<!-- 전투원 -->
 	<PawnKindDef ParentName="RKCombatantBase">
@@ -205,7 +210,7 @@
 			<li>RK_Combatant</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
-	</PawnKindDef>	
+	</PawnKindDef>
 	<!-- 랫킨 선붕대, 경갑과 경무장 -->
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RatkinVanguard</defName>
@@ -279,16 +284,16 @@
 		<apparelTags>
 			<li>RK_LightArmor</li>
 		</apparelTags>
-		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>				
+		<apparelAllowHeadgearChance>100</apparelAllowHeadgearChance>
 		<skills>
 			<li>
 				<skill>Melee</skill>
 				<range>8~12</range>
 			</li>
-		</skills>	
-	</PawnKindDef>	
+		</skills>
+	</PawnKindDef>
 
-	<!-- 전투 병과(고급) -->	
+	<!-- 전투 병과(고급) -->
 	<!-- 군인 -->
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RatkinSoldier</defName>
@@ -372,7 +377,7 @@
 		<apparelTags>
 			<li>RK_Gaurdener</li>
 		</apparelTags>
-		<apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>		
+		<apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
 		<inventoryOptions>
 			<subOptionsChooseOne>
 				<li>
@@ -384,12 +389,12 @@
 					</countRange>
 				</li>
 			</subOptionsChooseOne>
-		</inventoryOptions>				
+		</inventoryOptions>
 		<skills>
 			<li>
 				<skill>Shooting</skill>
 				<range>6~12</range>
-			</li>	
+			</li>
 			<li>
 				<skill>Melee</skill>
 				<range>6~12</range>
@@ -440,7 +445,7 @@
 				<skill>Melee</skill>
 				<range>8~13</range>
 			</li>
-		</skills>		
+		</skills>
 	</PawnKindDef>
 	<!-- 랫킨 정예 방패병(근접 중보병) -->
 	<PawnKindDef ParentName="RKCombatantBase">
@@ -480,7 +485,7 @@
 		<apparelTags>
 			<li>RK_HeavyArmor</li>
 		</apparelTags>
-		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>		
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
 		<skills>
 			<li>
 				<skill>Melee</skill>
@@ -582,7 +587,7 @@
 				<skill>Melee</skill>
 				<range>8~13</range>
 			</li>
-		</skills>		
+		</skills>
 	</PawnKindDef>
 
 	<!-- 전투 병과(특수) -->

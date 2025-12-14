@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<FactionDef ParentName="FactionBase" Name="RatkinFactionBase" Abstract="True">
 		<pawnSingular>ratkin</pawnSingular>
@@ -164,6 +164,11 @@
 		<allowedCultures>
 			<li>RK_Culture_Kingdom</li>
 		</allowedCultures>
+		<xenotypeSet>
+			<xenotypeChances>
+				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
+			</xenotypeChances>
+		</xenotypeSet>
 	</FactionDef>
 
 	<FactionDef ParentName="RatkinFactionBase">

@@ -200,7 +200,7 @@
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
-		<workerClass>Newratkin.IncidentWorker_WandererJoin</workerClass>
+		<workerClass>NewRatkin.IncidentWorker_WandererJoin</workerClass>
 		<letterLabel>Vagabond</letterLabel>
 		<letterText>위기의 순간, 두 방랑자가 나타났습니다. 그들이 운명을 바꿀 수 있을까요?</letterText>
 		<baseChance>0</baseChance>
@@ -214,10 +214,13 @@
 					<li>
 						<pawnKind>RatkinVagabond</pawnKind>
 						<count>1</count>
+						<!-- mustBeCapableOfViolence 미지정 시 IncidentDef의 기본값(true) 사용 -->
 					</li>
 					<li>
 						<pawnKind>RatkinPriest</pawnKind>
 						<count>1</count>
+						<!-- 비전투 종교인도 포함 가능하도록 폭력 요구사항 해제 -->
+						<mustBeCapableOfViolence>false</mustBeCapableOfViolence>
 					</li>
 				</pawnKindCounts>
 			</li>
