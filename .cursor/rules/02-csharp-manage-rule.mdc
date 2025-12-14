@@ -1,8 +1,6 @@
 ---
-description: C# 관리 및 빌드 규칙
-alwaysApply: false
+alwaysApply: true
 ---
-
 ## 빌드 명령어
 
 **프로젝트 파일**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
