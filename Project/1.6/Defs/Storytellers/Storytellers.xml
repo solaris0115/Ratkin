@@ -5,7 +5,7 @@
 	<!-- 병해충과 벌레. -->
 
 	<StorytellerDef ParentName="BaseStoryteller">
-		<defName>RottyMilden</defName>
+		<defName>RK_Storyteller_RottyMilden</defName>
 		<label>Rotty Milden</label>
 		<description>로티 마일던은 시골과 같은 느긋한 이야기를 들려주는 스토리 텔러입니다.
 		새 마을이 생기며 점차 사람들이 방문하고 커져가는 마을을 경험할 수 있습니다.
@@ -228,13 +228,32 @@
 	<IncidentDef>
 		<defName>RK_Incident_PriestJoin</defName>
 		<label>priest join</label>
-		<category>Misc</category>
+		<category>Special</category>
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
 		<workerClass>IncidentWorker_GiveQuest</workerClass>
 		<questScriptDef>RK_QuestScript_PriestJoin</questScriptDef>
-		<baseChance>0</baseChance>
-		<requireColonistsPresent>True</requireColonistsPresent>
+		<baseChance>0.4</baseChance>
+		<pawnKind>Villager</pawnKind>
+		<populationEffect>IncreaseEasy</populationEffect>
 	</IncidentDef>
+
+	<QuestScriptDef>
+		<defName>RK_QuestScript_PriestJoin</defName>
+		<autoAccept>true</autoAccept>
+		<defaultHidden>true</defaultHidden>
+		<isRootSpecial>true</isRootSpecial>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Priest joins</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription-></li>
+			</rulesStrings>
+		</questDescriptionRules>
+		<root Class="QuestNode_Root_WandererJoin_WalkIn" />
+	</QuestScriptDef>
 </Defs>

@@ -47,7 +47,63 @@ namespace NewRatkin
 			Find.FactionManager.Add(tempFaction);
 			
 			// 사제 Pawn 생성
-			Pawn priest = quest.GeneratePawn(priestKind, tempFaction, true, null, 0f, true, null, 0f, 0f, false, true, DevelopmentalStage.Adult, false);
+			Pawn priest = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+				priestKind,
+				tempFaction,
+				PawnGenerationContext.NonPlayer,
+				null,
+				true,
+				false,
+				false,
+				true,
+				false, // pawnMustBeCapableOfViolence = false (사제는 폭력 불가능 가능)
+				20f,
+				false,
+				true,
+				false,
+				true,
+				true,
+				false,
+				false,
+				false,
+				false,
+				0f,
+				0f,
+				null,
+				1f,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				false,
+				false,
+				false,
+				false,
+				null,
+				null,
+				null,
+				null,
+				null,
+				0f,
+				DevelopmentalStage.Adult,
+				null,
+				null,
+				null,
+				false,
+				false,
+				false,
+				-1,
+				0,
+				false
+			));
 			
 			quest.SetFactionHidden(tempFaction, false, null);
 			
@@ -71,19 +127,11 @@ namespace NewRatkin
 			// 선택지 처리 시그널
 			string acceptSignal = QuestGen.GenerateNewSignal("PriestAccepted", true);
 			string rejectSignal = QuestGen.GenerateNewSignal("PriestRejected", true);
+			string postponeSignal = QuestGen.GenerateNewSignal("PriestPostponed", true);
 			
-			// 선택지 생성
-			QuestPart_Choice questPart_Choice = quest.RewardChoice(null, null);
-			
-			// 수락 선택지
-			QuestPart_Choice.Choice acceptChoice = new QuestPart_Choice.Choice();
-			questPart_Choice.choices.Add(acceptChoice);
-			
-			// 거절 선택지
-			QuestPart_Choice.Choice rejectChoice = new QuestPart_Choice.Choice();
-			questPart_Choice.choices.Add(rejectChoice);
-			
-			questPart_Choice.inSignalChoiceUsed = QuestGen.slate.Get<string>("inSignal", null, false);
+			// 선택지 생성 (보상 선택이 아닌 플레이어 선택을 위한 구조)
+			// QuestPart_Choice는 보상 선택용이므로, 여기서는 시그널 기반으로 처리
+			// 실제 선택은 Interaction을 통해 처리되거나 다른 QuestPart를 사용해야 함
 			
 			// 수락 시: 사제를 플레이어 세력에 추가
 			quest.Signal(acceptSignal, delegate
@@ -103,12 +151,11 @@ namespace NewRatkin
 				quest.Message("[priestRejectedMessage]", MessageTypeDefOf.NeutralEvent, false, null, null, null);
 			});
 			
-			// QuestPart_Choice가 선택되었을 때 처리
-			// 각 Choice의 인덱스를 확인하여 시그널 발생
-			// QuestPart_Choice의 Notify_ChoiceMade 이벤트를 사용할 수 없으므로
-			// 대신 QuestPart_Choice의 choices 리스트를 확인하여 처리
-			// 실제 구현은 QuestPart_Choice가 선택되었을 때 자동으로 처리되도록 함
-			// 여기서는 기본 구조만 설정하고, 실제 시그널 처리는 QuestPart_Choice 내부에서 처리됨
+			// 미루기 시: 사제는 맵에 남아있음
+			quest.Signal(postponeSignal, delegate
+			{
+				quest.Message("[priestPostponedMessage]", MessageTypeDefOf.NeutralEvent, false, null, new List<Pawn> { priest }, null);
+			});
 			
 			// 퀘스트 종료
 			quest.End(QuestEndOutcome.Success, 0, null, acceptSignal, QuestPart.SignalListenMode.OngoingOnly, false, false);

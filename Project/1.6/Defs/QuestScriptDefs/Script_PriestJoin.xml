@@ -1,47 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <!-- 랫킨 사제 합류 퀘스트 -->
-  <QuestScriptDef>
-    <defName>RK_QuestScript_PriestJoin</defName>
-    <isRootSpecial>true</isRootSpecial>
-    <autoAccept>false</autoAccept>
-    <hideInvolvedFactionsInfo>true</hideInvolvedFactionsInfo>
-    <sendAvailableLetter>true</sendAvailableLetter>
-    <affectedByPoints>false</affectedByPoints>
-    <questDescriptionAndNameRules>
-      <rulesStrings>
-        <!-- Labels -->
-        <li>priestLabel->[pawns0_nameDef]</li>
-        
-        <!-- Pieces -->
-        <li>hasHave->has</li>
-      </rulesStrings>
-    </questDescriptionAndNameRules>
-    <questNameRules>
-      <rulesStrings>
-        <!-- Quest name -->
-        <li>questName->[priestLabel] seeks refuge</li>
-      </rulesStrings>
-    </questNameRules>
-    <questDescriptionRules>
-      <rulesStrings>
-        <!-- Quest description -->
-        <li>questDescription->Having heard news of a newly established settlement, [priestLabel] [hasHave] come to your village.\n\n[pawns0_pronoun] hopes to conduct missionary work here.\n\nWill you accept [pawns0_pronoun] into your colony?</li>
-      </rulesStrings>
-    </questDescriptionRules>
-    <questContentRules>
-      <rulesStrings>
-        <!-- Letters -->
-        <li>priestArrivedLetterLabel->[priestLabel] seeks refuge</li>
-        <li>priestArrivedLetterText->Having heard news of a newly established settlement, [priestLabel] [hasHave] come to your village.\n\n[pawns0_pronoun] hopes to conduct missionary work here.\n\nWill you accept [pawns0_pronoun] into your colony?</li>
-        
-        <!-- Messages -->
-        <li>priestAcceptedMessage->[priestLabel] has joined your colony.</li>
-        <li>priestRejectedMessage->[priestLabel] has left disappointed.</li>
-      </rulesStrings>
-    </questContentRules>
-    <root Class="NewRatkin.QuestNode_Root_PriestJoin" />
-  </QuestScriptDef>
 
 </Defs>
