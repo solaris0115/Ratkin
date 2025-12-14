@@ -20,7 +20,7 @@
 				<minDaysPassed>15.0</minDaysPassed>
 				<onDays>6.0</onDays>
 				<offDays>10.0</offDays>
-				<minSpacingDays>4.0</minSpacingDays>
+				<minSpacingDays>2.5</minSpacingDays>
 				<numIncidentsRange>1~2</numIncidentsRange>
 				<forceRaidEnemyBeforeDaysPassed>20</forceRaidEnemyBeforeDaysPassed>
 				<disallowedTargetTags>
@@ -35,7 +35,7 @@
 					<allowedThreats>Raids</allowedThreats>
 					<onDays>2.0</onDays>
 					<offDays>0.5</offDays>
-					<minSpacingDays>2</minSpacingDays>
+					<minSpacingDays>0.6</minSpacingDays>
 					<numIncidentsRange>2~3</numIncidentsRange>
 					<minThreatPoints>500</minThreatPoints>
 				</parms>
@@ -82,7 +82,7 @@
 				<incident>TraderCaravanArrival</incident>
 				<minDaysPassed>12</minDaysPassed>
 				<baseIncidentsPerYear>6</baseIncidentsPerYear>
-				<minSpacingDays>6</minSpacingDays>
+				<minSpacingDays>4</minSpacingDays>
 				<allowedTargetTags>
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
@@ -91,7 +91,7 @@
 				<incident>VisitorGroup</incident>
 				<minDaysPassed>5</minDaysPassed>
 				<baseIncidentsPerYear>5</baseIncidentsPerYear>
-				<minSpacingDays>5</minSpacingDays>
+				<minSpacingDays>4</minSpacingDays>
 				<allowedTargetTags>
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
@@ -181,14 +181,7 @@
 				<incident>RK_Incident_VagabondJoin</incident>
 				<delayTicks>300</delayTicks>
 			</li>
-			<li Class="StorytellerCompProperties_FactionInteraction">
-				<incident>TraderCaravanArrival</incident>
-				<minDaysPassed>3</minDaysPassed>
-				<baseIncidentsPerYear>7</baseIncidentsPerYear>
-				<allowedTargetTags>
-					<li>Map_PlayerHome</li>
-				</allowedTargetTags>
-			</li>
+			<!-- 랫킨 수녀 합류 -->
 		</comps>
 	</StorytellerDef>
 
