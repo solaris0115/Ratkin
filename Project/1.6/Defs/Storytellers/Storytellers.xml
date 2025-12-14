@@ -178,7 +178,7 @@
 				<mtbDays>15</mtbDays>
 			</li>
 			<li Class="StorytellerCompProperties_Triggered">
-				<incident>RatkinVagabondJoin</incident>
+				<incident>RK_Incident_VagabondJoin</incident>
 				<delayTicks>300</delayTicks>
 			</li>
 			<li Class="StorytellerCompProperties_FactionInteraction">
