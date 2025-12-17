@@ -285,6 +285,97 @@
 		<!-- </recipeUsers> -->
 		<!-- </recipeMaker> -->
 	</ThingDef>
+
+	<!-- 대형 쇠뇌 -->
+	<ThingDef ParentName="RK_NeolithicRangeWeapon">
+		<defName>RK_Weapon_Arbalest</defName>
+		<label>large cross bow</label>
+		<description>대형석궁입니다. 큰 힘에는 큰 파괴력이 따릅니다.</description>
+		<graphicData>
+			<texPath>Weapon/RK_Texture_Arbalest</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Bow_Small</soundInteract>
+		<costList>
+			<WoodLog>50</WoodLog>
+			<Steel>30</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Smithing</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<statBases>
+			<WorkToMake>2400</WorkToMake>
+			<Mass>0.8</Mass>
+			<AccuracyTouch>0.70</AccuracyTouch>
+			<AccuracyShort>0.75</AccuracyShort>
+			<AccuracyMedium>0.70</AccuracyMedium>
+			<AccuracyLong>0.65</AccuracyLong>
+			<RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedStatOffsets>
+			<HuntingStealth>0.15</HuntingStealth>
+		</equippedStatOffsets>
+		<weaponTags Inherit="false">
+			<li>RK_WeaponTag_All</li>
+			<li>RK_WeaponTag_2Tier</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandRange</li>
+			<li>RK_WeaponTag_TwoHandRangeAttack</li>
+		</weaponTags>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>RK_Projectile_Arbalest</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>35</range>
+				<soundCast>Bow_Large</soundCast>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>limb</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2.2</cooldownTime>
+			</li>
+			<li>
+				<label>arrow</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+		<equippedAngleOffset>45</equippedAngleOffset>
+	</ThingDef>
+
+	<ThingDef ParentName="RK_BaseBullet">
+		<defName>RK_Projectile_Arbalest</defName>
+		<label>large crossbow bolt</label>
+		<graphicData>
+			<texPath>Weapon/RK_Bolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Arrow</damageDef>
+			<damageAmountBase>25</damageAmountBase>
+			<stoppingPower>2</stoppingPower>
+			<armorPenetrationBase>0.5</armorPenetrationBase>
+			<speed>80</speed>
+		</projectile>
+	</ThingDef>
+
 	<!-- 라이플 -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon">
 		<defName>RK_Rifle</defName>
