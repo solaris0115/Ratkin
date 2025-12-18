@@ -1325,7 +1325,7 @@
 		<!-- UI에서 숨김 - 유저에게 드러나지 않음 -->
 		<stages>
 			<li>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 			</li>
 		</stages>
 		<comps>
@@ -1356,7 +1356,7 @@
 			<li>
 				<minSeverity>0.2</minSeverity>
 				<!-- UI에서 숨김 - 유저에게 드러나지 않음 -->
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<RK_Stat_RangeCoolDownMultiplier>0.5</RK_Stat_RangeCoolDownMultiplier>
 				</statFactors>
@@ -1364,7 +1364,7 @@
 			<!-- Stage 2: 2스택 (Severity 0.4) - RK_Stat_RangeCoolDownMultiplier: 0.4× (선형: 0.5→0.1) -->
 			<li>
 				<minSeverity>0.4</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<RK_Stat_RangeCoolDownMultiplier>0.4</RK_Stat_RangeCoolDownMultiplier>
 				</statFactors>
@@ -1372,7 +1372,7 @@
 			<!-- Stage 3: 3스택 (Severity 0.6) - RK_Stat_RangeCoolDownMultiplier: 0.3× (선형: 0.5→0.1) -->
 			<li>
 				<minSeverity>0.6</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<RK_Stat_RangeCoolDownMultiplier>0.3</RK_Stat_RangeCoolDownMultiplier>
 				</statFactors>
@@ -1380,7 +1380,7 @@
 			<!-- Stage 4: 4스택 (Severity 0.8) - RK_Stat_RangeCoolDownMultiplier: 0.2× (선형: 0.5→0.1) -->
 			<li>
 				<minSeverity>0.8</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<RK_Stat_RangeCoolDownMultiplier>0.2</RK_Stat_RangeCoolDownMultiplier>
 				</statFactors>
@@ -1388,7 +1388,7 @@
 			<!-- Stage 5: 5스택 (Severity 1.0) - RK_Stat_RangeCoolDownMultiplier: 0.1× (선형: 0.5→0.1) -->
 			<li>
 				<minSeverity>1.0</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<RK_Stat_RangeCoolDownMultiplier>0.1</RK_Stat_RangeCoolDownMultiplier>
 				</statFactors>
@@ -1410,7 +1410,7 @@
 			<li>
 				<minSeverity>0.2</minSeverity>
 				<!-- UI에서 숨김 - 유저에게 드러나지 않음 -->
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<AimingDelayFactor>0.5</AimingDelayFactor>
 					<ShootingAccuracyPawn>1.06</ShootingAccuracyPawn>
@@ -1419,7 +1419,7 @@
 			<!-- Stage 2: 2스택 (Severity 0.4) - AimingDelayFactor: 0.4× (선형: 0.5→0.1), 명중률: +12% -->
 			<li>
 				<minSeverity>0.4</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<AimingDelayFactor>0.4</AimingDelayFactor>
 					<ShootingAccuracyPawn>1.12</ShootingAccuracyPawn>
@@ -1428,7 +1428,7 @@
 			<!-- Stage 3: 3스택 (Severity 0.6) - AimingDelayFactor: 0.3× (선형: 0.3→0.05), 명중률: +18% -->
 			<li>
 				<minSeverity>0.6</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<AimingDelayFactor>0.3</AimingDelayFactor>
 					<ShootingAccuracyPawn>1.18</ShootingAccuracyPawn>
@@ -1437,7 +1437,7 @@
 			<!-- Stage 4: 4스택 (Severity 0.8) - AimingDelayFactor: 0.175× (선형: 0.3→0.05), 명중률: +24% -->
 			<li>
 				<minSeverity>0.8</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<AimingDelayFactor>0.175</AimingDelayFactor>
 					<ShootingAccuracyPawn>1.24</ShootingAccuracyPawn>
@@ -1446,7 +1446,7 @@
 			<!-- Stage 5: 5스택 (Severity 1.0) - AimingDelayFactor: 0.05× (선형: 0.3→0.05), 명중률: +30% -->
 			<li>
 				<minSeverity>1.0</minSeverity>
-				<becomeVisible>true</becomeVisible>
+				<becomeVisible>false</becomeVisible>
 				<statFactors>
 					<AimingDelayFactor>0.05</AimingDelayFactor>
 					<ShootingAccuracyPawn>1.30</ShootingAccuracyPawn>
