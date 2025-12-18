@@ -1236,7 +1236,7 @@
 			<AccuracyShort>0.25</AccuracyShort>
 			<AccuracyMedium>0.25</AccuracyMedium>
 			<AccuracyLong>0.18</AccuracyLong>
-			<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
 		</statBases>
 		<costList>
 			<Steel>160</Steel>
@@ -1266,7 +1266,7 @@
 				<verbClass>NewRatkin.Verb_RatHolicGun</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>RK_Bullet_RatHolicGun</defaultProjectile>
-				<warmupTime>0.5</warmupTime>
+				<warmupTime>1</warmupTime>
 				<range>30.9</range>
 				<burstShotCount>1</burstShotCount>
 				<!-- <ticksBetweenBurstShots>10</ticksBetweenBurstShots> -->
@@ -1322,51 +1322,56 @@
 			<li Class="NewRatkin.HediffCompProperties_RatHolicGunSpooling" />
 		</comps>
 		<stages>
-			<!-- Stage 1: 1스택 (Severity 0.2) - RK_Stat_RangeCoolDown: -0.2, AimingDelayFactor: -0.18 -->
+			<!-- Stage 1: 1스택 (Severity 0.2) - RK_Stat_RangeCoolDownMultiplier: 0.5× (선형: 0.5→0.1), AimingDelayFactor: 0.5× (선형: 0.5→0.1), 명중률: +6% -->
 			<li>
 				<minSeverity>0.2</minSeverity>
 				<!-- UI에서 숨김 - 유저에게 드러나지 않음 -->
 				<becomeVisible>false</becomeVisible>
-				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.5</RK_Stat_RangeCoolDown>
-					<AimingDelayFactor>-0.18</AimingDelayFactor>
-				</statOffsets>
+				<statFactors>
+					<RK_Stat_RangeCoolDownMultiplier>0.5</RK_Stat_RangeCoolDownMultiplier>
+					<AimingDelayFactor>0.5</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.06</ShootingAccuracyPawn>
+				</statFactors>
 			</li>
-			<!-- Stage 2: 2스택 (Severity 0.4) - RK_Stat_RangeCoolDown: -0.4, AimingDelayFactor: -0.36 -->
+			<!-- Stage 2: 2스택 (Severity 0.4) - RK_Stat_RangeCoolDownMultiplier: 0.4× (선형: 0.5→0.1), AimingDelayFactor: 0.4× (선형: 0.5→0.1), 명중률: +12% -->
 			<li>
 				<minSeverity>0.4</minSeverity>
 				<becomeVisible>false</becomeVisible>
-				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.65</RK_Stat_RangeCoolDown>
-					<AimingDelayFactor>-0.36</AimingDelayFactor>
-				</statOffsets>
+				<statFactors>
+					<RK_Stat_RangeCoolDownMultiplier>0.4</RK_Stat_RangeCoolDownMultiplier>
+					<AimingDelayFactor>0.4</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.12</ShootingAccuracyPawn>
+				</statFactors>
 			</li>
-			<!-- Stage 3: 3스택 (Severity 0.6) - RK_Stat_RangeCoolDown: -0.6, AimingDelayFactor: -0.54 -->
+			<!-- Stage 3: 3스택 (Severity 0.6) - RK_Stat_RangeCoolDownMultiplier: 0.3× (선형: 0.5→0.1), AimingDelayFactor: 0.3× (선형: 0.5→0.1), 명중률: +18% -->
 			<li>
 				<minSeverity>0.6</minSeverity>
 				<becomeVisible>false</becomeVisible>
-				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.8</RK_Stat_RangeCoolDown>
-					<AimingDelayFactor>-0.54</AimingDelayFactor>
-				</statOffsets>
+				<statFactors>
+					<RK_Stat_RangeCoolDownMultiplier>0.3</RK_Stat_RangeCoolDownMultiplier>
+					<AimingDelayFactor>0.3</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.18</ShootingAccuracyPawn>
+				</statFactors>
 			</li>
-			<!-- Stage 4: 4스택 (Severity 0.8) - RK_Stat_RangeCoolDown: -0.8, AimingDelayFactor: -0.72 -->
+			<!-- Stage 4: 4스택 (Severity 0.8) - RK_Stat_RangeCoolDownMultiplier: 0.2× (선형: 0.5→0.1), AimingDelayFactor: 0.2× (선형: 0.5→0.1), 명중률: +24% -->
 			<li>
 				<minSeverity>0.8</minSeverity>
 				<becomeVisible>false</becomeVisible>
-				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.9</RK_Stat_RangeCoolDown>
-					<AimingDelayFactor>-0.72</AimingDelayFactor>
-				</statOffsets>
+				<statFactors>
+					<RK_Stat_RangeCoolDownMultiplier>0.2</RK_Stat_RangeCoolDownMultiplier>
+					<AimingDelayFactor>0.2</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.24</ShootingAccuracyPawn>
+				</statFactors>
 			</li>
-			<!-- Stage 5: 5스택 (Severity 1.0) - RK_Stat_RangeCoolDown: -1.0, AimingDelayFactor: -0.9 -->
+			<!-- Stage 5: 5스택 (Severity 1.0) - RK_Stat_RangeCoolDownMultiplier: 0.1× (선형: 0.5→0.1), AimingDelayFactor: 0.1× (선형: 0.5→0.1), 명중률: +30% -->
 			<li>
 				<minSeverity>1.0</minSeverity>
 				<becomeVisible>false</becomeVisible>
-				<statOffsets>
-					<RK_Stat_RangeCoolDown>-1.0</RK_Stat_RangeCoolDown>
-					<AimingDelayFactor>-0.9</AimingDelayFactor>
-				</statOffsets>
+				<statFactors>
+					<RK_Stat_RangeCoolDownMultiplier>0.1</RK_Stat_RangeCoolDownMultiplier>
+					<AimingDelayFactor>0.1</AimingDelayFactor>
+					<ShootingAccuracyPawn>1.30</ShootingAccuracyPawn>
+				</statFactors>
 			</li>
 		</stages>
 	</HediffDef>

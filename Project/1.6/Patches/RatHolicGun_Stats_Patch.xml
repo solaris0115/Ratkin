@@ -24,6 +24,9 @@
           <li Class="NewRatkin.StatPart_RatHolicGunSpooling_Cooldown">
             <!-- Hediff의 RK_Stat_RangeCoolDown offset을 읽어서 RangedWeapon_Cooldown에서 직접 감소 -->
           </li>
+          <li Class="NewRatkin.StatPart_RatHolicGunSpooling_Cooldown_Multiplier">
+            <!-- Hediff의 RK_Stat_RangeCoolDownMultiplier statFactors를 읽어서 RangedWeapon_Cooldown에 배율 적용 -->
+          </li>
         </value>
       </li>
     </operations>
