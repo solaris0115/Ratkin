@@ -1220,6 +1220,8 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>2</drawSize>
 		</graphicData>
+		<uiIconPath>UI/Icons/RK_TextureWeapon_RatholicGun</uiIconPath>
+		<uiIconScale>1</uiIconScale>
 		<soundInteract>Interact_Rifle</soundInteract>
 		<thingSetMakerTags>
 			<li>RewardStandardQualitySuper</li>
@@ -1234,7 +1236,7 @@
 			<AccuracyShort>0.25</AccuracyShort>
 			<AccuracyMedium>0.25</AccuracyMedium>
 			<AccuracyLong>0.18</AccuracyLong>
-			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+			<RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
 		</statBases>
 		<costList>
 			<Steel>160</Steel>
@@ -1264,10 +1266,10 @@
 				<verbClass>NewRatkin.Verb_RatHolicGun</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>RK_Bullet_RatHolicGun</defaultProjectile>
-				<warmupTime>1.5</warmupTime>
+				<warmupTime>0.5</warmupTime>
 				<range>30.9</range>
-				<burstShotCount>20</burstShotCount>
-				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<burstShotCount>1</burstShotCount>
+				<!-- <ticksBetweenBurstShots>10</ticksBetweenBurstShots> -->
 				<soundCast>Shot_Minigun</soundCast>
 				<soundCastTail>GunTail_Medium</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
@@ -1280,7 +1282,7 @@
 					<li>Blunt</li>
 				</capacities>
 				<power>11.7</power>
-				<cooldownTime>2.6</cooldownTime>
+				<cooldownTime>1.1</cooldownTime>
 			</li>
 		</tools>
 		<comps>
@@ -1300,7 +1302,8 @@
 		</graphicData>
 		<projectile>
 			<damageDef>Bullet</damageDef>
-			<damageAmountBase>10</damageAmountBase>
+			<damageAmountBase>7</damageAmountBase>
+			<armorPenetrationBase>0.30</armorPenetrationBase>
 			<speed>70</speed>
 		</projectile>
 	</ThingDef>
@@ -1319,50 +1322,50 @@
 			<li Class="NewRatkin.HediffCompProperties_RatHolicGunSpooling" />
 		</comps>
 		<stages>
-			<!-- Stage 1: 1스택 (Severity 0.2) -->
+			<!-- Stage 1: 1스택 (Severity 0.2) - RK_Stat_RangeCoolDown: -0.2, AimingDelayFactor: -0.18 -->
 			<li>
 				<minSeverity>0.2</minSeverity>
 				<!-- UI에서 숨김 - 유저에게 드러나지 않음 -->
 				<becomeVisible>false</becomeVisible>
 				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.2</RK_Stat_RangeCoolDown>
-					<RangedWeapon_WarmupMultiplier>-0.1</RangedWeapon_WarmupMultiplier>
+					<RK_Stat_RangeCoolDown>-0.5</RK_Stat_RangeCoolDown>
+					<AimingDelayFactor>-0.18</AimingDelayFactor>
 				</statOffsets>
 			</li>
-			<!-- Stage 2: 2스택 (Severity 0.4) -->
+			<!-- Stage 2: 2스택 (Severity 0.4) - RK_Stat_RangeCoolDown: -0.4, AimingDelayFactor: -0.36 -->
 			<li>
 				<minSeverity>0.4</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.4</RK_Stat_RangeCoolDown>
-					<RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
+					<RK_Stat_RangeCoolDown>-0.65</RK_Stat_RangeCoolDown>
+					<AimingDelayFactor>-0.36</AimingDelayFactor>
 				</statOffsets>
 			</li>
-			<!-- Stage 3: 3스택 (Severity 0.6) -->
+			<!-- Stage 3: 3스택 (Severity 0.6) - RK_Stat_RangeCoolDown: -0.6, AimingDelayFactor: -0.54 -->
 			<li>
 				<minSeverity>0.6</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.6</RK_Stat_RangeCoolDown>
-					<RangedWeapon_WarmupMultiplier>-0.3</RangedWeapon_WarmupMultiplier>
+					<RK_Stat_RangeCoolDown>-0.8</RK_Stat_RangeCoolDown>
+					<AimingDelayFactor>-0.54</AimingDelayFactor>
 				</statOffsets>
 			</li>
-			<!-- Stage 4: 4스택 (Severity 0.8) -->
+			<!-- Stage 4: 4스택 (Severity 0.8) - RK_Stat_RangeCoolDown: -0.8, AimingDelayFactor: -0.72 -->
 			<li>
 				<minSeverity>0.8</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statOffsets>
-					<RK_Stat_RangeCoolDown>-0.8</RK_Stat_RangeCoolDown>
-					<RangedWeapon_WarmupMultiplier>-0.4</RangedWeapon_WarmupMultiplier>
+					<RK_Stat_RangeCoolDown>-0.9</RK_Stat_RangeCoolDown>
+					<AimingDelayFactor>-0.72</AimingDelayFactor>
 				</statOffsets>
 			</li>
-			<!-- Stage 5: 5스택 (Severity 1.0) -->
+			<!-- Stage 5: 5스택 (Severity 1.0) - RK_Stat_RangeCoolDown: -1.0, AimingDelayFactor: -0.9 -->
 			<li>
 				<minSeverity>1.0</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statOffsets>
 					<RK_Stat_RangeCoolDown>-1.0</RK_Stat_RangeCoolDown>
-					<RangedWeapon_WarmupMultiplier>-0.5</RangedWeapon_WarmupMultiplier>
+					<AimingDelayFactor>-0.9</AimingDelayFactor>
 				</statOffsets>
 			</li>
 		</stages>

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- RangedCooldownFactor에 RatHolic Gun Spooling StatPart 추가 -->
+  <!-- RangedWeapon_Cooldown에 RatHolic Gun Spooling StatPart 추가 -->
+  <!-- 기존 RangedCooldownFactor StatPart는 제거: RangedWeapon_Cooldown에 직접 적용하는 방식으로 변경 -->
   <Operation Class="PatchOperationSequence">
     <success>Always</success>
     <operations>
       <!-- parts가 없으면 생성 -->
       <li Class="PatchOperationTest">
         <success>Invert</success>
-        <xpath>*/StatDef[defName = "RangedCooldownFactor"]/parts</xpath>
+        <xpath>*/StatDef[defName = "RangedWeapon_Cooldown"]/parts</xpath>
       </li>
       <li Class="PatchOperationAdd">
-        <xpath>*/StatDef[defName = "RangedCooldownFactor"]</xpath>
+        <xpath>*/StatDef[defName = "RangedWeapon_Cooldown"]</xpath>
         <value>
           <parts>
           </parts>
@@ -18,10 +19,10 @@
       </li>
       <!-- parts에 StatPart 추가 -->
       <li Class="PatchOperationAdd">
-        <xpath>*/StatDef[defName = "RangedCooldownFactor"]/parts</xpath>
+        <xpath>*/StatDef[defName = "RangedWeapon_Cooldown"]/parts</xpath>
         <value>
-          <li Class="NewRatkin.StatPart_RatHolicGunSpooling">
-            <!-- RK_Stat_RangeCoolDown 스탯 값을 자동으로 가져와서 사용 -->
+          <li Class="NewRatkin.StatPart_RatHolicGunSpooling_Cooldown">
+            <!-- Hediff의 RK_Stat_RangeCoolDown offset을 읽어서 RangedWeapon_Cooldown에서 직접 감소 -->
           </li>
         </value>
       </li>

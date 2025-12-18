@@ -6,19 +6,19 @@ using Verse;
 namespace NewRatkin
 {
     /// <summary>
-    /// RatHolic Gun Spooling 효과를 위한 StatPart
-    /// RK_Stat_RangeCoolDown 스탯 값을 가져와서 쿨다운에서 직접 감소
+    /// RatHolic Gun Spooling 효과를 위한 StatPart - RangedWeapon_Cooldown에 직접 적용
+    /// Hediff의 RK_Stat_RangeCoolDown offset을 읽어서 RangedWeapon_Cooldown에서 직접 감소
     /// </summary>
-    public class StatPart_RatHolicGunSpooling : StatPart
+    public class StatPart_RatHolicGunSpooling_Cooldown : StatPart
     {
         /// <summary>
         /// RK_Stat_RangeCoolDown 스탯 정의
         /// </summary>
         private static StatDef RK_Stat_RangeCoolDown;
 
-        static StatPart_RatHolicGunSpooling()
+        static StatPart_RatHolicGunSpooling_Cooldown()
         {
-            // 스탯 정의를 한 번만 로드
+            // 스탯 정의를 한 번만 로드 시도 (Def 로드 전일 수 있으므로 실패해도 괜찮음)
             RK_Stat_RangeCoolDown = DefDatabase<StatDef>.GetNamedSilentFail("RK_Stat_RangeCoolDown");
         }
 
@@ -80,7 +80,7 @@ namespace NewRatkin
                 if (hediff.def.defName == "RK_Hediff_RatHolicGunSpooling")
                 {
                     HediffStage curStage = hediff.CurStage;
-                    if (curStage != null && curStage.statOffsets != null)
+                    if (curStage != null && curStage.statOffsets != null && RK_Stat_RangeCoolDown != null)
                     {
                         cooldownReduction += curStage.statOffsets.GetStatOffsetFromList(RK_Stat_RangeCoolDown);
                     }
@@ -92,10 +92,14 @@ namespace NewRatkin
 
         public override void TransformValue(StatRequest req, ref float val)
         {
-            // RK_Stat_RangeCoolDown 스탯이 없으면 무시
+            // RK_Stat_RangeCoolDown 스탯 확인 (static 생성자에서 로드 실패 시 한 번 더 시도)
             if (RK_Stat_RangeCoolDown == null)
             {
-                return;
+                RK_Stat_RangeCoolDown = DefDatabase<StatDef>.GetNamedSilentFail("RK_Stat_RangeCoolDown");
+                if (RK_Stat_RangeCoolDown == null)
+                {
+                    return;
+                }
             }
 
             // Thing이 없으면 무시
@@ -104,14 +108,32 @@ namespace NewRatkin
                 return;
             }
 
-            // Pawn 찾기 (무기에서도 찾을 수 있음)
-            Pawn pawn = GetPawnFromThing(req.Thing);
+            // Pawn 찾기
+            // 먼저 req.Pawn 확인 (StatRequest.For(Thing, Pawn)으로 생성된 경우)
+            Pawn pawn = req.Pawn;
+            
+            // req.Pawn이 없으면 Thing에서 Pawn 찾기
+            if (pawn == null)
+            {
+                // Thing 자체가 Pawn인지 확인
+                if (req.Thing is Pawn pawnThing)
+                {
+                    pawn = pawnThing;
+                }
+                else
+                {
+                    // 무기인 경우 소유자(Pawn) 찾기
+                    pawn = GetPawnFromThing(req.Thing);
+                }
+            }
+
+            // Pawn을 찾지 못했으면 무시
             if (pawn == null)
             {
                 return;
             }
 
-            // Hediff에서 직접 statOffset 가져오기
+            // Hediff에서 직접 statOffset 가져오기 (음수 값: -0.2, -0.4 등)
             float cooldownReduction = GetCooldownReductionFromHediff(pawn);
             
             // 값이 0이면 무시
@@ -120,70 +142,62 @@ namespace NewRatkin
                 return;
             }
 
-            // 무기 쿨다운 가져오기
-            ThingWithComps weapon = pawn.equipment?.Primary;
-            if (weapon == null)
-            {
-                return;
-            }
-
-            float weaponCooldown = weapon.GetStatValue(StatDefOf.RangedWeapon_Cooldown, true);
-            if (weaponCooldown <= 0f)
-            {
-                return;
-            }
-
-            // factor 감소량 계산: (감소할 시간) / (무기 cooldown)
-            // 예: 무기 cooldown 1.5초, 감소량 1.0초 → factor 감소량 = 1.0 / 1.5 = 0.667
-            float reductionAmount = cooldownReduction / weaponCooldown;
-
-            // factor에서 감소 (최소값 0.01로 제한)
-            val = System.Math.Max(0.01f, val - reductionAmount);
+            // RangedWeapon_Cooldown에서 직접 감소
+            // cooldownReduction은 이미 음수이므로 더하면 감소됨 (예: 1.5 + (-0.2) = 1.3)
+            // 최소값 0.01로 제한
+            val = System.Math.Max(0.01f, val + cooldownReduction);
         }
 
         public override string ExplanationPart(StatRequest req)
         {
-            // RK_Stat_RangeCoolDown 스탯이 없으면 설명 없음
+            // RK_Stat_RangeCoolDown 스탯 확인
             if (RK_Stat_RangeCoolDown == null)
             {
                 return null;
             }
 
+            // 구간 2: Thing이 없으면 설명 없음
             if (!req.HasThing)
             {
                 return null;
             }
 
-            // Pawn 찾기 (무기에서도 찾을 수 있음)
-            Pawn pawn = GetPawnFromThing(req.Thing);
+            // 구간 3: Pawn 찾기
+            // 먼저 req.Pawn 확인 (StatRequest.For(Thing, Pawn)으로 생성된 경우)
+            Pawn pawn = req.Pawn;
+            
+            // req.Pawn이 없으면 Thing에서 Pawn 찾기
+            if (pawn == null)
+            {
+                // Thing 자체가 Pawn인지 확인
+                if (req.Thing is Pawn pawnThing)
+                {
+                    pawn = pawnThing;
+                }
+                else
+                {
+                    // 무기인 경우 소유자(Pawn) 찾기
+                    pawn = GetPawnFromThing(req.Thing);
+                }
+            }
+
+            // 구간 4: Pawn을 찾지 못했으면 설명 없음
             if (pawn == null)
             {
                 return null;
             }
 
-            // Hediff에서 직접 statOffset 가져오기
+            // 구간 5: Hediff에서 직접 statOffset 가져오기
             float cooldownReduction = GetCooldownReductionFromHediff(pawn);
             
+            // 구간 6: 값이 0이면 설명 없음
             if (cooldownReduction == 0f)
             {
                 return null;
             }
 
-            ThingWithComps weapon = pawn.equipment?.Primary;
-            if (weapon == null)
-            {
-                return null;
-            }
-
-            float weaponCooldown = weapon.GetStatValue(StatDefOf.RangedWeapon_Cooldown, true);
-            if (weaponCooldown <= 0f)
-            {
-                return null;
-            }
-
-            float reductionPercent = (cooldownReduction / weaponCooldown) * 100f;
-
-            return $"RatHolic Gun Spooling: -{cooldownReduction:F2}s cooldown ({reductionPercent:F1}% faster)";
+            // 구간 7: 설명 반환
+            return $"RatHolic Gun Spooling: -{cooldownReduction:F2}s cooldown";
         }
     }
 }
