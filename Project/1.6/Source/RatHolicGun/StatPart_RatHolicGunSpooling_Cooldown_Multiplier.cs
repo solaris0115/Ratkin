@@ -11,16 +11,6 @@ namespace NewRatkin
     /// </summary>
     public class StatPart_RatHolicGunSpooling_Cooldown_Multiplier : StatPart
     {
-        /// <summary>
-        /// RK_Stat_RangeCoolDownMultiplier 스탯 정의
-        /// </summary>
-        private static StatDef RK_Stat_RangeCoolDownMultiplier;
-
-        static StatPart_RatHolicGunSpooling_Cooldown_Multiplier()
-        {
-            // 스탯 정의를 한 번만 로드 시도 (Def 로드 전일 수 있으므로 실패해도 괜찮음)
-            RK_Stat_RangeCoolDownMultiplier = DefDatabase<StatDef>.GetNamedSilentFail("RK_Stat_RangeCoolDownMultiplier");
-        }
 
         /// <summary>
         /// 무기에서 Pawn 찾기
@@ -78,14 +68,14 @@ namespace NewRatkin
             for (int i = 0; i < hediffs.Count; i++)
             {
                 Hediff hediff = hediffs[i];
-                if (hediff.def.defName == "RK_Hediff_RatHolicGunSpooling")
+                if (hediff.def == RatkinHediffDefOf.RK_Hediff_RatHolicGunSpooling)
                 {
                     HediffStage curStage = hediff.CurStage;
-                    if (curStage != null && RK_Stat_RangeCoolDownMultiplier != null)
+                    if (curStage != null && RatkinStatDefOf.RK_Stat_RangeCoolDownMultiplier != null)
                     {
                         // HediffStatsUtility.GetStatFactorForSeverity를 사용하여 statFactors 가져오기
                         float factor = HediffStatsUtility.GetStatFactorForSeverity(
-                            RK_Stat_RangeCoolDownMultiplier, 
+                            RatkinStatDefOf.RK_Stat_RangeCoolDownMultiplier, 
                             curStage, 
                             pawn, 
                             hediff.Severity
@@ -105,14 +95,10 @@ namespace NewRatkin
 
         public override void TransformValue(StatRequest req, ref float val)
         {
-            // RK_Stat_RangeCoolDownMultiplier 스탯 확인 (static 생성자에서 로드 실패 시 한 번 더 시도)
-            if (RK_Stat_RangeCoolDownMultiplier == null)
+            // RK_Stat_RangeCoolDownMultiplier 스탯 확인
+            if (RatkinStatDefOf.RK_Stat_RangeCoolDownMultiplier == null)
             {
-                RK_Stat_RangeCoolDownMultiplier = DefDatabase<StatDef>.GetNamedSilentFail("RK_Stat_RangeCoolDownMultiplier");
-                if (RK_Stat_RangeCoolDownMultiplier == null)
-                {
-                    return;
-                }
+                return;
             }
 
             // Thing이 없으면 무시
@@ -164,7 +150,7 @@ namespace NewRatkin
         public override string ExplanationPart(StatRequest req)
         {
             // RK_Stat_RangeCoolDownMultiplier 스탯 확인
-            if (RK_Stat_RangeCoolDownMultiplier == null)
+            if (RatkinStatDefOf.RK_Stat_RangeCoolDownMultiplier == null)
             {
                 return null;
             }

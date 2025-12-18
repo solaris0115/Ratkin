@@ -11,16 +11,6 @@ namespace NewRatkin
     /// </summary>
     public class StatPart_RatHolicGunSpooling_Cooldown : StatPart
     {
-        /// <summary>
-        /// RK_Stat_RangeCoolDown 스탯 정의
-        /// </summary>
-        private static StatDef RK_Stat_RangeCoolDown;
-
-        static StatPart_RatHolicGunSpooling_Cooldown()
-        {
-            // 스탯 정의를 한 번만 로드 시도 (Def 로드 전일 수 있으므로 실패해도 괜찮음)
-            RK_Stat_RangeCoolDown = DefDatabase<StatDef>.GetNamedSilentFail("RK_Stat_RangeCoolDown");
-        }
 
         /// <summary>
         /// 무기에서 Pawn 찾기
@@ -77,12 +67,12 @@ namespace NewRatkin
             for (int i = 0; i < hediffs.Count; i++)
             {
                 Hediff hediff = hediffs[i];
-                if (hediff.def.defName == "RK_Hediff_RatHolicGunSpooling")
+                if (hediff.def == RatkinHediffDefOf.RK_Hediff_RatHolicGunSpooling)
                 {
                     HediffStage curStage = hediff.CurStage;
-                    if (curStage != null && curStage.statOffsets != null && RK_Stat_RangeCoolDown != null)
+                    if (curStage != null && curStage.statOffsets != null && RatkinStatDefOf.RK_Stat_RangeCoolDown != null)
                     {
-                        cooldownReduction += curStage.statOffsets.GetStatOffsetFromList(RK_Stat_RangeCoolDown);
+                        cooldownReduction += curStage.statOffsets.GetStatOffsetFromList(RatkinStatDefOf.RK_Stat_RangeCoolDown);
                     }
                 }
             }
@@ -92,14 +82,10 @@ namespace NewRatkin
 
         public override void TransformValue(StatRequest req, ref float val)
         {
-            // RK_Stat_RangeCoolDown 스탯 확인 (static 생성자에서 로드 실패 시 한 번 더 시도)
-            if (RK_Stat_RangeCoolDown == null)
+            // RK_Stat_RangeCoolDown 스탯 확인
+            if (RatkinStatDefOf.RK_Stat_RangeCoolDown == null)
             {
-                RK_Stat_RangeCoolDown = DefDatabase<StatDef>.GetNamedSilentFail("RK_Stat_RangeCoolDown");
-                if (RK_Stat_RangeCoolDown == null)
-                {
-                    return;
-                }
+                return;
             }
 
             // Thing이 없으면 무시
@@ -151,7 +137,7 @@ namespace NewRatkin
         public override string ExplanationPart(StatRequest req)
         {
             // RK_Stat_RangeCoolDown 스탯 확인
-            if (RK_Stat_RangeCoolDown == null)
+            if (RatkinStatDefOf.RK_Stat_RangeCoolDown == null)
             {
                 return null;
             }

@@ -41,6 +41,7 @@ namespace NewRatkin
     public static class RatkinWeaponDefOf
     {
         public static ThingDef RK_MagicWand;
+        public static ThingDef RK_Weapon_RatHolicGun;
     }
 
     [DefOf]
@@ -137,5 +138,18 @@ namespace NewRatkin
     public static class RatkinBackstoryDefOf
     {
         public static BackstoryDef Ratkin_Sister;
+    }
+
+    [DefOf]
+    public static class RatkinHediffDefOf
+    {
+        public static HediffDef RK_Hediff_RatHolicGunSpooling;
+    }
+
+    [DefOf]
+    public static class RatkinStatDefOf
+    {
+        public static StatDef RK_Stat_RangeCoolDown;
+        public static StatDef RK_Stat_RangeCoolDownMultiplier;
     }
 }
