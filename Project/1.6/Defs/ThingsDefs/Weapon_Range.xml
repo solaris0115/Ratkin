@@ -1234,7 +1234,7 @@
 			<AccuracyShort>0.25</AccuracyShort>
 			<AccuracyMedium>0.25</AccuracyMedium>
 			<AccuracyLong>0.18</AccuracyLong>
-			<RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+			<RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
 		</statBases>
 		<costList>
 			<Steel>160</Steel>
@@ -1243,7 +1243,7 @@
 		<recipeMaker>
 			<researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
 			<skillRequirements>
-				<Crafting>7</Crafting>
+				<Crafting>8</Crafting>
 			</skillRequirements>
 			<displayPriority>450</displayPriority>
 		</recipeMaker>
@@ -1264,9 +1264,9 @@
 				<verbClass>NewRatkin.Verb_RatHolicGun</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>RK_Bullet_RatHolicGun</defaultProjectile>
-				<warmupTime>0.3</warmupTime>
+				<warmupTime>1.5</warmupTime>
 				<range>30.9</range>
-				<burstShotCount>3</burstShotCount>
+				<burstShotCount>20</burstShotCount>
 				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
 				<soundCast>Shot_Minigun</soundCast>
 				<soundCastTail>GunTail_Medium</soundCastTail>
@@ -1286,9 +1286,10 @@
 		<comps>
 			<li Class="NewRatkin.CompProperties_RatHolicGun">
 				<hediffDef>RK_Hediff_RatHolicGunSpooling</hediffDef>
-				<maxStacks>5</maxStacks>
+				<maxStacks>6</maxStacks>
 			</li>
 		</comps>
+		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
 		<defName>RK_Bullet_RatHolicGun</defName>
@@ -1303,4 +1304,67 @@
 			<speed>70</speed>
 		</projectile>
 	</ThingDef>
+
+	<!-- RatHolic Gun 발사 속도 증가 버프 -->
+	<HediffDef>
+		<defName>RK_Hediff_RatHolicGunSpooling</defName>
+		<label>spooling up</label>
+		<description>The weapon is spooling up, reducing reload time with each shot fired.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<!-- 최대 Severity 1.2 = 6중첩 (코드에서 Severity로 중첩 처리: 0.2=1스택, 0.4=2스택, ..., 1.2=6스택) -->
+		<maxSeverity>1</maxSeverity>
+		<comps>
+			<!-- 커스텀 Comp: 발사 중이 아닐 때 1초만에 Severity가 0이 되도록 빠르게 감소 -->
+			<li Class="NewRatkin.HediffCompProperties_RatHolicGunSpooling" />
+		</comps>
+		<stages>
+			<!-- Stage 1: 1스택 (Severity 0.2) -->
+			<li>
+				<minSeverity>0.2</minSeverity>
+				<!-- UI에서 숨김 - 유저에게 드러나지 않음 -->
+				<becomeVisible>false</becomeVisible>
+				<statOffsets>
+					<RK_Stat_RangeCoolDown>-0.2</RK_Stat_RangeCoolDown>
+					<RangedWeapon_WarmupMultiplier>-0.1</RangedWeapon_WarmupMultiplier>
+				</statOffsets>
+			</li>
+			<!-- Stage 2: 2스택 (Severity 0.4) -->
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<becomeVisible>false</becomeVisible>
+				<statOffsets>
+					<RK_Stat_RangeCoolDown>-0.4</RK_Stat_RangeCoolDown>
+					<RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
+				</statOffsets>
+			</li>
+			<!-- Stage 3: 3스택 (Severity 0.6) -->
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<becomeVisible>false</becomeVisible>
+				<statOffsets>
+					<RK_Stat_RangeCoolDown>-0.6</RK_Stat_RangeCoolDown>
+					<RangedWeapon_WarmupMultiplier>-0.3</RangedWeapon_WarmupMultiplier>
+				</statOffsets>
+			</li>
+			<!-- Stage 4: 4스택 (Severity 0.8) -->
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<becomeVisible>false</becomeVisible>
+				<statOffsets>
+					<RK_Stat_RangeCoolDown>-0.8</RK_Stat_RangeCoolDown>
+					<RangedWeapon_WarmupMultiplier>-0.4</RangedWeapon_WarmupMultiplier>
+				</statOffsets>
+			</li>
+			<!-- Stage 5: 5스택 (Severity 1.0) -->
+			<li>
+				<minSeverity>1.0</minSeverity>
+				<becomeVisible>false</becomeVisible>
+				<statOffsets>
+					<RK_Stat_RangeCoolDown>-1.0</RK_Stat_RangeCoolDown>
+					<RangedWeapon_WarmupMultiplier>-0.5</RangedWeapon_WarmupMultiplier>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
 </Defs>
