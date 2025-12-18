@@ -21,12 +21,7 @@
         <xpath>*/StatDef[defName = "RangedCooldownFactor"]/parts</xpath>
         <value>
           <li Class="NewRatkin.StatPart_RatHolicGunSpooling">
-            <!-- Spooling 효과를 위한 HediffDef -->
-            <hediffDef>RK_Hediff_RatHolicGunSpooling</hediffDef>
-            <!-- 중첩당 감소할 cooldown 시간 (초 단위) -->
-            <reductionPerStack>0.3</reductionPerStack>
-            <!-- 최대 중첩 수 -->
-            <maxStacks>5</maxStacks>
+            <!-- RK_Stat_RangeCoolDown 스탯 값을 자동으로 가져와서 사용 -->
           </li>
         </value>
       </li>
