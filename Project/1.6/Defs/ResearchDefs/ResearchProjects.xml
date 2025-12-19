@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+	<!-- 랫킨 연구 탭 -->
 	<ResearchTabDef>
-		<defName>RatkinTech</defName>
+		<defName>RK_ResearchTab_Default</defName>
 		<label>ratkin tech</label>
 	</ResearchTabDef>
+
+	<!-- 랫킨용 아노말리 탭 -->
+	<!-- TODO: 기본 아노말리에 포함 시키거나 또는 따로 탭을 만든다?.. 너무 탭 많지 않나. -->
+	<!-- Ratnormaly는 따로 파일을 분리해서 복잡치 않도록 정리 -->
 	
+	<!-- 연구 목록 -->
+
+	<!-- 랫킨 단조 -->
+	<!-- 랫킨식 기계 공학 -->
+	<!-- 랫킨식 정밀 가공 -->
+	
+	<!-- 왕국 - 전통 주조(3) -->
+	<!-- 왕국 - 정밀 가공(2) -->
+	<!-- 제국 - 자기장 주조 -->
+
+
 	<ResearchProjectDef>
 		<defName>PiercingWeapon</defName>
 		<label>piercing weapon</label>
 		<description>무기의 관통력을 높이는 연구를 합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>600</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
@@ -24,7 +39,7 @@
 		<defName>MechanicalWeapon</defName>
 		<label>mechanical weapon</label>
 		<description>기계적인 무기를 연구합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>2400</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
@@ -39,7 +54,7 @@
 		<defName>Ballista</defName>
 		<label>ballista</label>
 		<description>커다란 노포를 연구합니다. 체구가 작은 랫킨도 다루기 쉽습니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>600</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
@@ -54,7 +69,7 @@
 		<defName>Advanced_BallistaBolt</defName>
 		<label>advanced ballista bolt</label>
 		<description>더 다양한 발리스타용 탄환을 연구합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>600</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
@@ -69,7 +84,7 @@
 		<defName>Bigmouse</defName>
 		<label>Cannon</label>
 		<description>커다란 대포를 연구합니다. 육중한 대포알을 날려보내는 무시무시한 방어시설입니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>1200</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
@@ -83,7 +98,7 @@
 		<defName>MicroOptical</defName>
 		<label>micro optical</label>
 		<description>인간의 광학장비를 모방하여 연구합니다. 시력이 나쁜 랫킨이 쓸 수 있도록 디자인을 다시해야합니다. 연구용 안경이 필요합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>780</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -98,7 +113,7 @@
 		<defName>FlechetteBullet</defName>
 		<label>flechette bullet</label>
 		<description>랫킨 고유의 화살촉을 총알에 적용시킵니다. 랫킨식 플레셰트 탄환은 조금 무겁지만 두꺼운 장갑을 관통할 수 있도록 디자인되었습니다. 연구용 안경이 필요합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>1560</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -114,7 +129,7 @@
 		<defName>PulseTech</defName>
 		<label>pulse tech</label>
 		<description>무기와 장비에 펄스 기술을 적용하는 방법을 연구합니다. 연구용 안경이 필요합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>3380</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -130,7 +145,7 @@
 		<defName>RatkinClothing</defName>
 		<label>Ratkin clothing</label>
 		<description>랫킨이 입기 편리한 의류들을 고안해냅니다. 조금 더 다양한 의류를 생산할 수 있습니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>400</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
@@ -144,7 +159,7 @@
 		<defName>HighClassClothing</defName>
 		<label>high class clothing</label>
 		<description>랫킨 사회의 고위직이 입는 의류들을 연구합니다. 더 고풍스럽고 질좋은 의류들을 생산할 수 있습니다. 연구용 안경이 필요합니다.</description>
-		<tab>RatkinTech</tab>
+		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>400</baseCost>
 		<techLevel>Medieval</techLevel>
 		<prerequisites>
