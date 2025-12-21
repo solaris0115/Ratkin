@@ -49,10 +49,10 @@
 		<factionNameMaker>NamerFaction_RatkinKingdom</factionNameMaker>
 		<settlementNameMaker>NamerSettlement_RatkinKingdom</settlementNameMaker>
 		<startingResearchTags>
-			<li>RatkinStart</li>
+			<li>RK_ResearchTag_Default</li>
 		</startingResearchTags>
 		<startingTechprintsResearchTags>
-			<li>RatkinStart</li>
+			<li>RK_ResearchTag_Default</li>
 		</startingTechprintsResearchTags>
 		<apparelStuffFilter>
 			<thingDefs>

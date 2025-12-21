@@ -72,7 +72,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -129,7 +129,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -185,7 +185,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -241,7 +241,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>

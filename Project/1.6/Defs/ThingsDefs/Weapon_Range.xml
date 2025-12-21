@@ -24,7 +24,7 @@
 			<Steel>20</Steel>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -113,7 +113,7 @@
 			<ComponentIndustrial>1</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -203,7 +203,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>Machining</researchPrerequisite>
+			<!-- <researchPrerequisite>Machining</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -292,7 +292,7 @@
 		<label>large cross bow</label>
 		<description>대형석궁입니다. 큰 힘에는 큰 파괴력이 따릅니다.</description>
 		<graphicData>
-			<texPath>Weapon/RK_Texture_Arbalest</texPath>
+			<texPath>Weapon/RK_Texture_WeaponArbalest</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Bow_Small</soundInteract>
@@ -302,7 +302,7 @@
 			<ComponentIndustrial>1</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -364,7 +364,7 @@
 		<graphicData>
 			<texPath>Weapon/RK_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>1.5</drawSize>
+			<drawSize>2</drawSize>
 		</graphicData>
 		<projectile>
 			<flyOverhead>false</flyOverhead>
@@ -489,7 +489,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>MicroOptical</researchPrerequisite>
+			<!-- <researchPrerequisite>MicroOptical</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>7</Crafting>
 			</skillRequirements>
@@ -576,7 +576,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>FlechetteBullet</researchPrerequisite>
+			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -671,7 +671,7 @@
 			<ComponentIndustrial>7</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>FlechetteBullet</researchPrerequisite>
+			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
@@ -767,7 +767,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>FlechetteBullet</researchPrerequisite>
+			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -879,7 +879,7 @@
 		<label>ratkin bolter</label>
 		<description>실험용 파동 소총입니다. 실험용 랫킨들을 위해 제작되어 특수망원렌즈가 근거리 원거리 모두 정밀하게 조준해줍니다. 랫킨식 플레셰트탄환에서 아이디어를 얻어 제작한 이 무기는 쇄기모양의 고관통 에너지탄을 빠르게 발사합니다.</description>
 		<graphicData>
-			<texPath>Weapon/RK_TextureWeapon_Bolter</texPath>
+			<texPath>Weapon/RK_Texture_WeaponBolter</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
@@ -1216,11 +1216,11 @@
 		<label>RatHolic Gun</label>
 		<description>A multi-barrel machine gun. It's unwieldy, but once it starts firing it fires very fast. Where most self-loading guns are powered by the energy from the gunpowder, the minigun uses an electric motor to rapidly cycle cartridges through the weapon.</description>
 		<graphicData>
-			<texPath>Weapon/RK_TextureWeapon_RatholicGun</texPath>
+			<texPath>Weapon/RK_Texture_WeaponRatholicGun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>2</drawSize>
 		</graphicData>
-		<uiIconPath>UI/Icons/RK_TextureWeapon_RatholicGun</uiIconPath>
+		<uiIconPath>UI/Icons/RK_Texture_IconRatholicGun</uiIconPath>
 		<uiIconScale>1</uiIconScale>
 		<soundInteract>Interact_Rifle</soundInteract>
 		<thingSetMakerTags>
@@ -1243,7 +1243,7 @@
 			<ComponentIndustrial>20</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
+			<!-- <researchPrerequisite>MultibarrelWeapons</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>

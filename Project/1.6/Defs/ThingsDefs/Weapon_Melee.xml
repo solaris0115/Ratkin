@@ -60,7 +60,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -173,7 +173,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -233,7 +233,7 @@
 		<label>ratkin Mace</label>
 		<description>한손에 들 수 있는 철퇴입니다. 완벽한 무게 밸런스를 이루고 있습니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</description>
 		<graphicData>
-			<texPath>Weapon/RK_Mace</texPath>
+			<texPath>Weapon/RK_Texture_WeaponMace</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<techLevel>Medieval</techLevel>
@@ -277,7 +277,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -289,7 +289,7 @@
 					<graphicClass>Graphic_Single</graphicClass>
 				</sheathOnlyGraphicData>
 				<fullGraphicData>
-					<texPath>Weapon/RK_Mace</texPath>
+					<texPath>Weapon/RK_Texture_WeaponMace</texPath>
 					<graphicClass>Graphic_Multi</graphicClass>
 				</fullGraphicData>
 				<drawPosition>Back</drawPosition>
@@ -389,7 +389,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -476,7 +476,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>LongBlades</researchPrerequisite>
+			<!-- <researchPrerequisite>LongBlades</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>7</Crafting>
 				<Artistic>3</Artistic>
@@ -593,7 +593,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>PiercingWeapon</researchPrerequisite>
+			<!-- <researchPrerequisite>PiercingWeapon</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
@@ -685,7 +685,7 @@
 			<PlantHarvestYield>0.1</PlantHarvestYield>
 		</equippedStatOffsets>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>7</Crafting>
 				<Artistic>5</Artistic>
@@ -746,7 +746,7 @@
 		<label>Spear</label>
 		<description>간단하게 만든 창입니다. 길이가 짧아서 인간이 보기에는 단창처럼 보입니다.</description>
 		<graphicData>
-			<texPath>Weapon/RK_Spear</texPath>
+			<texPath>Weapon/RK_Texture_WeaponSpear</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<techLevel>Medieval</techLevel>
@@ -791,7 +791,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -872,7 +872,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>Smithing</researchPrerequisite>
+			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>

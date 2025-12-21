@@ -9,167 +9,256 @@
 	<!-- 랫킨용 아노말리 탭 -->
 	<!-- TODO: 기본 아노말리에 포함 시키거나 또는 따로 탭을 만든다?.. 너무 탭 많지 않나. -->
 	<!-- Ratnormaly는 따로 파일을 분리해서 복잡치 않도록 정리 -->
-	
-	<!-- 연구 목록 -->
+	<!-- 연구 항목은 Draw.io 파일 참고 -->
 
-	<!-- 랫킨 단조 -->
-	<!-- 랫킨식 기계 공학 -->
-	<!-- 랫킨식 정밀 가공 -->
-	
-	<!-- 왕국 - 전통 주조(3) -->
-	<!-- 왕국 - 정밀 가공(2) -->
-	<!-- 제국 - 자기장 주조 -->
-
-
-	<ResearchProjectDef>
-		<defName>PiercingWeapon</defName>
-		<label>piercing weapon</label>
-		<description>무기의 관통력을 높이는 연구를 합니다.</description>
+	<ResearchProjectDef Name="RK_ResearchAttr_Sample" Abstract="True">
+		<defName>RK_Research_Sample</defName>
+		<label>sample research</label>
+		<description>연구 설명입니다.</description>
 		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>600</baseCost>
 		<techLevel>Medieval</techLevel>
+		<researchViewX>0</researchViewX>
+		<researchViewY>1</researchViewY>
+		<!-- 선행 연구 -->
 		<prerequisites>
-			<li>LongBlades</li>
+			<li>RK_Research_Smithing</li>
+			<li>RK_Research_Metallurgy</li>
 		</prerequisites>
+		<hiddenPrerequisites>
+			<li>RK_Research_Carpentry</li>
+		</hiddenPrerequisites>
+		<tags>
+			<li>RK_ResearchTag_Default</li>
+		</tags>
+		<!-- 필요 연구 시설, 연구 장치-->
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<!-- 테크 프린트 -->
+		<techprintCount>1</techprintCount>
+		<techprintCommonality>1.0</techprintCommonality>
+		<techprintMarketValue>1000</techprintMarketValue>
+		<heldByFactionCategoryTags>
+			<li>Empire</li>
+		</heldByFactionCategoryTags>
+		<!-- Biotech 메카나이터 여부와 분석물건 -->
+		<requiresMechanitor>false</requiresMechanitor>
+		<requiredAnalyzed>
+			<li>MechanoidRemains</li>
+		</requiredAnalyzed>
+		<!-- Anormaly 연구 카테고리 -->
+		<knowledgeCategory>RK_KnowledgeCategory</knowledgeCategory>
+		<knowledgeCost>100</knowledgeCost>
+		<!-- 오디세이 중력엔진 검사 여부 -->
+		<!-- <requireGravEngineInspected>false</requireGravEngineInspected> -->
+	</ResearchProjectDef>
+
+
+	<ResearchProjectDef Name="RK_ResearchAttr_Base" Abstract="True">
+		<tab>RK_ResearchTab_Default</tab>
+		<baseCost>600</baseCost>
+		<techLevel>Medieval</techLevel>
+	</ResearchProjectDef>
+
+	<!-- 기본 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_Carpentry</defName>
+		<label>목공</label>
+		<description>나무를 가공하여 다양한 도구와 구조물을 만드는 기술입니다.</description>
+		<baseCost>600</baseCost>
 		<researchViewX>0</researchViewX>
 		<researchViewY>0</researchViewY>
-	</ResearchProjectDef>	
-	
-	<ResearchProjectDef>
-		<defName>MechanicalWeapon</defName>
-		<label>mechanical weapon</label>
-		<description>기계적인 무기를 연구합니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>2400</baseCost>
-		<techLevel>Medieval</techLevel>
-		<prerequisites>
-			<li>Machining</li>
-			<li>PiercingWeapon</li>
-		</prerequisites>
-		<researchViewX>1</researchViewX>
-		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
-	
-	<ResearchProjectDef>
-		<defName>Ballista</defName>
-		<label>ballista</label>
-		<description>커다란 노포를 연구합니다. 체구가 작은 랫킨도 다루기 쉽습니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_Farming</defName>
+		<label>농업</label>
+		<description>작물을 재배하고 수확하는 기본적인 농업 기술입니다.</description>
 		<baseCost>600</baseCost>
-		<techLevel>Medieval</techLevel>
-		<prerequisites>
-			<li>Greatbow</li>
-			<li>Stonecutting</li>
-		</prerequisites>
 		<researchViewX>0</researchViewX>
-		<researchViewY>2</researchViewY>
-	</ResearchProjectDef>	
-	
-	<ResearchProjectDef>
-		<defName>Advanced_BallistaBolt</defName>
-		<label>advanced ballista bolt</label>
-		<description>더 다양한 발리스타용 탄환을 연구합니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_Smithing</defName>
+		<label>랫킨식 단조</label>
+		<description>금속을 가열하고 두드려서 도구와 무기를 만드는 기술입니다.</description>
 		<baseCost>600</baseCost>
-		<techLevel>Medieval</techLevel>
-		<prerequisites>
-			<li>Ballista</li>
-			<li>PiercingWeapon</li>
-		</prerequisites> 
-		<researchViewX>1</researchViewX>
-		<researchViewY>2</researchViewY>
-	</ResearchProjectDef>	
-	
-	<ResearchProjectDef>
-		<defName>Bigmouse</defName>
-		<label>Cannon</label>
-		<description>커다란 대포를 연구합니다. 육중한 대포알을 날려보내는 무시무시한 방어시설입니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>1200</baseCost>
-		<techLevel>Medieval</techLevel>
-		<prerequisites>
-			<li>Ballista</li>
-		</prerequisites>
-		<researchViewX>2</researchViewX>
-		<researchViewY>2</researchViewY>
-	</ResearchProjectDef>
-		
-	<ResearchProjectDef>
-		<defName>MicroOptical</defName>
-		<label>micro optical</label>
-		<description>인간의 광학장비를 모방하여 연구합니다. 시력이 나쁜 랫킨이 쓸 수 있도록 디자인을 다시해야합니다. 연구용 안경이 필요합니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>780</baseCost>
-		<techLevel>Industrial</techLevel>
-		<prerequisites>
-			<li>MicroelectronicsBasics</li>
-		</prerequisites>
-		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>   
 		<researchViewX>0</researchViewX>
-		<researchViewY>1</researchViewY>
+		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
-	
-	<ResearchProjectDef>
-		<defName>FlechetteBullet</defName>
-		<label>flechette bullet</label>
-		<description>랫킨 고유의 화살촉을 총알에 적용시킵니다. 랫킨식 플레셰트 탄환은 조금 무겁지만 두꺼운 장갑을 관통할 수 있도록 디자인되었습니다. 연구용 안경이 필요합니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>1560</baseCost>
-		<techLevel>Industrial</techLevel>
-		<prerequisites>
-			<li>MicroOptical</li>
-			<li>PiercingWeapon</li>
-		</prerequisites>
-		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>   
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_BasicClothing</defName>
+		<label>랫킨 의류</label>
+		<description>랫킨에게 적합한 기본적인 의류를 제작하는 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>0</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- X=1: 고급 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_FoodPreservation</defName>
+		<label>식품 보존</label>
+		<description>식품을 오래 보관할 수 있는 저장 기술입니다.</description>
+		<baseCost>600</baseCost>
 		<researchViewX>1</researchViewX>
 		<researchViewY>1</researchViewY>
 	</ResearchProjectDef>
-	
-<!-- 	<ResearchProjectDef>
-		<defName>PulseTech</defName>
-		<label>pulse tech</label>
-		<description>무기와 장비에 펄스 기술을 적용하는 방법을 연구합니다. 연구용 안경이 필요합니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>3380</baseCost>
-		<techLevel>Spacer</techLevel>
-		<prerequisites>
-			<li>ChargedShot</li>
-			<li>FlechetteBullet</li>
-		</prerequisites>
-		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>   
-		<researchViewX>2</researchViewX>
-		<researchViewY>1</researchViewY>
-	</ResearchProjectDef> -->
-	
-	<ResearchProjectDef>
-		<defName>RatkinClothing</defName>
-		<label>Ratkin clothing</label>
-		<description>랫킨이 입기 편리한 의류들을 고안해냅니다. 조금 더 다양한 의류를 생산할 수 있습니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>400</baseCost>
-		<techLevel>Medieval</techLevel>
-		<prerequisites>
-			<li>ComplexClothing</li>
-		</prerequisites>
-		<researchViewX>0</researchViewX>
-		<researchViewY>3</researchViewY>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_AdvancedSmithing</defName>
+		<label>랫킨식 야금술</label>
+		<description>랫킨 고유의 고급 금속 제련 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>1</researchViewX>
+		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
-	
-	<ResearchProjectDef>
-		<defName>HighClassClothing</defName>
-		<label>high class clothing</label>
-		<description>랫킨 사회의 고위직이 입는 의류들을 연구합니다. 더 고풍스럽고 질좋은 의류들을 생산할 수 있습니다. 연구용 안경이 필요합니다.</description>
-		<tab>RK_ResearchTab_Default</tab>
-		<baseCost>400</baseCost>
-		<techLevel>Medieval</techLevel>
-		<prerequisites>
-			<li>RatkinClothing</li>
-		</prerequisites>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_AdvancedClothing</defName>
+		<label>고급 의류</label>
+		<description>더 나은 품질과 내구성을 가진 고급 의류 제작 기술입니다.</description>
+		<baseCost>600</baseCost>
 		<researchViewX>1</researchViewX>
 		<researchViewY>3</researchViewY>
 	</ResearchProjectDef>
-	
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_FunctionalClothing</defName>
+		<label>기능성 의류</label>
+		<description>특수한 기능을 가진 실용적인 의류 제작 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>1</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_AdvancedWeaving</defName>
+		<label>고급 직조</label>
+		<description>복잡한 패턴과 고품질 직물을 만드는 고급 직조 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>1</researchViewX>
+		<researchViewY>5</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- X=2: 중급 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_DefenseFacilities</defName>
+		<label>방어 설비</label>
+		<description>기지를 보호하기 위한 방어 시설 건설 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>2</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_MagneticSharpAlloy</defName>
+		<label>자기 첨예 합금</label>
+		<description>자기력을 가진 예리한 합금 제조 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>2</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_NobleClothing</defName>
+		<label>귀족 의류</label>
+		<description>귀족 계급을 위한 화려하고 고급스러운 의류 제작 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>2</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- X=3: 중급 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_RatkinEngineering</defName>
+		<label>랫킨 공학</label>
+		<description>랫킨 고유의 공학 기술과 기계 설계 방법입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- X=4: 고급 기술 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_PrecisionMachining</defName>
+		<label>정밀 가공</label>
+		<description>미세한 부품을 정확하게 가공하는 고정밀 제조 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>4</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_CompoundMixture</defName>
+		<label>혼합 화합물</label>
+		<description>여러 물질을 조합하여 새로운 화합물을 만드는 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>4</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_OpticalEquipment</defName>
+		<label>광학 장비</label>
+		<description>렌즈와 광학 시스템을 활용한 정밀 장비 제작 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>4</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_ServoAssist</defName>
+		<label>서보보조</label>
+		<description>인간의 힘을 증폭시키는 서보 모터 보조 시스템 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>4</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- X=5: 최고급 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_SpaceDynamics</defName>
+		<label>우주 역학</label>
+		<description>우주 공간에서의 물체 운동과 추진 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>5</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_MagneticWeaving</defName>
+		<label>자기 직조</label>
+		<description>자기력을 활용한 고급 직물 제작 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>5</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_KingdomAdvanced</defName>
+		<label>왕국 고등 연구</label>
+		<description>왕국에서만 전수되는 고급 기술과 지식입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>5</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- X=6: 최종 연구 -->
+	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
+		<defName>RK_Research_EmpireClassified</defName>
+		<label>제국 기밀</label>
+		<description>제국에서 극비리에 보관하던 최고급 기술입니다.</description>
+		<baseCost>600</baseCost>
+		<researchViewX>6</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
 	<ResearchProjectTagDef>
-		<defName>RatkinStart</defName>
+		<defName>RK_ResearchTag_Default</defName>
 	</ResearchProjectTagDef>
 </Defs>

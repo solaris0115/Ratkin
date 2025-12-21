@@ -66,7 +66,7 @@
 			<Steel>40</Steel>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>OrbitalTech</researchPrerequisite>
+			<!-- <researchPrerequisite>OrbitalTech</researchPrerequisite> -->
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
 			<displayPriority>237</displayPriority>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -148,7 +148,7 @@
 			<Plasteel>20</Plasteel>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>OrbitalTech</researchPrerequisite>
+			<!-- <researchPrerequisite>OrbitalTech</researchPrerequisite> -->
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
 			<displayPriority>235</displayPriority>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -232,7 +232,7 @@
 			<Plasteel>10</Plasteel>
 		</costList>
 		<recipeMaker MayRequire="Ludeon.RimWorld.Biotech">
-			<researchPrerequisite>OrbitalTech</researchPrerequisite>
+			<!-- <researchPrerequisite>OrbitalTech</researchPrerequisite> -->
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
 			<displayPriority>235</displayPriority>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
