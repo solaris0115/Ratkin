@@ -189,3 +189,5 @@ public static void DrawEquipmentAiming(Thing eq, Vector3 drawLoc, float aimAngle
 - 조준 시 오프셋 계산: `RimworldSource/Verse/PawnRenderUtility.cs:254-268`
 - drawSize 사용: `RimworldSource/Verse/PawnRenderUtility.cs:111`
 
+
+
