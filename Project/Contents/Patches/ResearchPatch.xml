@@ -26,7 +26,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ResearchProjectDef[defName="ComplexFurniture"]/tags</xpath>
 				<value>
-					<li>RatkinStart</li>
+					<li>RK_ResearchTag_Default</li>
 				</value>
 			</li>
 
@@ -36,7 +36,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ResearchProjectDef[defName="PassiveCooler"]/tags</xpath>
 				<value>
-					<li>RatkinStart</li>
+					<li>RK_ResearchTag_Default</li>
 				</value>
 			</li>
 			<li Class="PatchOperationTest">
@@ -45,7 +45,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ResearchProjectDef[defName="Stonecutting"]/tags</xpath>
 				<value>
-					<li>RatkinStart</li>
+					<li>RK_ResearchTag_Default</li>
 				</value>
 			</li>			
 			<li Class="PatchOperationTest">
@@ -54,7 +54,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ResearchProjectDef[defName="Smithing"]/tags</xpath>
 				<value>
-					<li>RatkinStart</li>
+					<li>RK_ResearchTag_Default</li>
 				</value>
 			</li>			
 			<li Class="PatchOperationTest">
@@ -63,7 +63,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ResearchProjectDef[defName="Pemmican"]/tags</xpath>
 				<value>
-					<li>RatkinStart</li>
+					<li>RK_ResearchTag_Default</li>
 				</value>
 			</li>
 			<li Class="PatchOperationTest">
@@ -72,7 +72,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ResearchProjectDef[defName="ComplexClothing"]/tags</xpath>
 				<value>
-					<li>RatkinStart</li>
+					<li>RK_ResearchTag_Default</li>
 				</value>
 			</li>
 		</operations>

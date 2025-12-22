@@ -191,3 +191,4 @@ public static void DrawEquipmentAiming(Thing eq, Vector3 drawLoc, float aimAngle
 
 
 
+

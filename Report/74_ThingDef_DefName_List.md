@@ -1,4 +1,7 @@
 # ThingDef DefName 목록
+@Xxx = 랫킨 연구
+#Xxx = 림월드 코어의 연구
+Xxx + Xxx 와 같이 +로 합쳐진 경우 모두 연구를 마쳐야함
 
 @목공
 - RK_Crossbow           석궁
@@ -27,33 +30,31 @@
 - RK_Halberd        할버드      (밸런스 잡힌 무기)
 - RK_HeavyLance     헤비 랜스   (고관통 높은피해, 돌진기능, 낮은 회피, 이동속도저하)
 
-#삭제
-- RK_EnhanceCrossBow
   
 @목공 + @랫킨 공학
 - RK_AutoCrossBow       자동 쇠뇌
 
-#총기 제작
+@랫킨 공학
 - RK_Rifle              소총
 - RK_Rifle_line         샷건
   
-#총기 제작 + @관측과 측량
+@관측과 측량
 - RK_SniperRifle        망원 소총
+
+@관측과 측량 + @분리 역학
 - RK_Weapon_BFR         고양이 사냥 소총    (적중시 뒤로 탄환이 흩뿌려짐)
 
 @챗바퀴 역학
 - RK_Weapon_RatHolicGun 쥑이는 총       (발사 간격이 점점 빨라짐)   
 
 @성난쥐 프로젝트
-- RK_Weapon_Bolter      핸드 캐논       (한방이 강한 권총)
-- RK_PrototypePulseRifle파동 소총       (랫킨용 원거리 3연발 소총)
- 
-@용의 화염
-- RK_Weapon_Gunlance                랜스캐논
-- RK_Ammo_WyvernFire                랜스 캐논 탄약
-
-@정밀 재연소
-- RK_Weapon_ProtoChainSword         체인소드
+- RK_Weapon_Bolter          핸드 캐논 (한방이 강한 권총)
+- RK_PrototypePulseRifle    파동 소총 (랫킨용 원거리 3연발 소총)
+- RK_Weapon_ProtoChainSword 체인소드 (다단히트)
+- 
+@ 검과 방패 + @랫킨식 제련 + @용의 화염 
+- RK_Weapon_Gunlance    랜스캐논
+- RK_Ammo_WyvernFire    랜스 캐논 탄약
 
 @랫킨 의류
 - RK_ApronSkirt         일상복 1
@@ -115,17 +116,16 @@
 - RK_Weapon_ProtoFlameChainSword    플라즈마 체인 소드  (다단히트,화염피해)
 - RK_MagicWand  폭발막대    (건물 높은 피해)
 
-
 @목공
 - RK_WoodenShield       목재 방패
 @랫킨식 단조
 - RK_HeavyShield        철제 방패
 @검과 방패 + @랫킨식 단조
-- RK_TowerShield        대방패
+- RK_TowerShield        대방패      
 @검과 방패
 - RK_Apparel_Banner     깃발
 
-@궤도 장비
+@고급 의류 + @궤도 장비 + @방직
 - RK_Apparel_VacsuitHelmet          진공헬멧
 - RK_Apparel_Vacsuit                진공복
 - RK_Apparel_VacsuitChildren        어린이 진공복
@@ -136,23 +136,25 @@
 
 @식품 보존
 - RK_Food_Hardtack      건빵
-- RK_StrawberryBeer     딸기 맥주
+- RK_StrawberryBeer     딸기 맥주   (던질 수 있음)
 
-#보철물
+#생체공학
 - RK_Thing_BionicTail
 
 @요새화
-- RK_Ballista_Strait_Body
 - RK_Turret_Ballista_Strait
 - RK_Building_Cannon
-- RK_Building_CannonTurret
-- BallistaBolt
 - BallistaBolt_Normal
-- BallistaBolt_Heavy
+- 트리뷰셋
 
-@요새화 + @랫킨식 제련술
-- BallistaBolt_AP       (대상 관통)
+@요새화 + @분리 역학
+- BallistaBolt_Heavy    (주변으로 파편이 튐)
+
+@요새화 + @랫킨식 제련
+- BallistaBolt_AP       (확률적 관통)
 
 !미사용
 - RK_Weapon_FlameChainSword         #미사용
 - RK_Weapon_EMPChainSword           #미사용
+#삭제
+- RK_EnhanceCrossBow

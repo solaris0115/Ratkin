@@ -75,9 +75,9 @@
 			<li>PlaceWorker_TurretTop</li>
 		</placeWorkers>
 		<uiIconScale>1</uiIconScale>
-		<researchPrerequisites>
+		<!-- <researchPrerequisites>
 			<li>Ballista</li>
-		</researchPrerequisites>
+		</researchPrerequisites> -->
 	</ThingDef>
 	<!-- 발리스타 무기 -->
 	<ThingDef Name="RK_BaseArtilleryWeapon" Abstract="True">
@@ -246,9 +246,9 @@
 			<Steel>15</Steel>
 			<WoodLog>10</WoodLog>
 		</costList>
-		<recipeMaker>
+		<!-- <recipeMaker>
 			<researchPrerequisite>Ballista</researchPrerequisite>
-		</recipeMaker>
+		</recipeMaker> -->
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBolt">
@@ -294,9 +294,9 @@
 			<Steel>40</Steel>
 			<WoodLog>20</WoodLog>
 		</costList>
-		<recipeMaker>
+		<!-- <recipeMaker>
 			<researchPrerequisite>Advanced_BallistaBolt</researchPrerequisite>
-		</recipeMaker>
+		</recipeMaker> -->
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBolt">
@@ -341,9 +341,9 @@
 			<Steel>30</Steel>
 			<WoodLog>30</WoodLog>
 		</costList>
-		<recipeMaker>
+		<!-- <recipeMaker>
 			<researchPrerequisite>Advanced_BallistaBolt</researchPrerequisite>
-		</recipeMaker>
+		</recipeMaker> -->
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBolt">
@@ -451,9 +451,9 @@
 			<li>PlaceWorker_TurretTop</li>
 		</placeWorkers>
 		<uiIconScale>1</uiIconScale>
-		<researchPrerequisites>
+		<!-- <researchPrerequisites>
 			<li>Bigmouse</li>
-		</researchPrerequisites>
+		</researchPrerequisites> -->
 	</ThingDef>
 	<!-- 대포 무기 -->
 	<ThingDef Name="RK_BaseArtilleryWeapon_Cannon" Abstract="True">
@@ -611,9 +611,9 @@
 		<costList>
 			<Steel>5</Steel>
 		</costList>
-		<recipeMaker>
+		<!-- <recipeMaker>
 			<researchPrerequisite>Bigmouse</researchPrerequisite>
-		</recipeMaker>
+		</recipeMaker> -->
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBolt">
