@@ -1,4 +1,4 @@
-# ThingDef DefName 목록
+ThingDef DefName 목록
 @Xxx = 랫킨 연구
 #Xxx = 림월드 코어의 연구
 Xxx + Xxx 와 같이 +로 합쳐진 경우 모두 연구를 마쳐야함
@@ -138,7 +138,7 @@ Xxx + Xxx 와 같이 +로 합쳐진 경우 모두 연구를 마쳐야함
 - RK_Food_Hardtack      건빵
 - RK_StrawberryBeer     딸기 맥주   (던질 수 있음)
 
-#생체공학
+#Bionics
 - RK_Thing_BionicTail
 
 @요새화
@@ -153,8 +153,6 @@ Xxx + Xxx 와 같이 +로 합쳐진 경우 모두 연구를 마쳐야함
 @요새화 + @랫킨식 제련
 - BallistaBolt_AP       (확률적 관통)
 
-!미사용
+!무시
 - RK_Weapon_FlameChainSword         #미사용
 - RK_Weapon_EMPChainSword           #미사용
-#삭제
-- RK_EnhanceCrossBow

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	<!-- 랫킨용 아노말리 탭 -->
+	<!-- TODO: 기본 아노말리에 포함 시키거나 또는 따로 탭을 만든다?.. 너무 탭 많지 않나. -->
+	<!-- Ratnormaly는 따로 파일을 분리해서 복잡치 않도록 정리 -->
+	<!-- 연구 항목은 Draw.io 파일 참고 -->
+
 	<!-- 랫킨 연구 탭 -->
 	<ResearchTabDef>
 		<defName>RK_ResearchTab_Default</defName>
 		<label>ratkin tech</label>
 	</ResearchTabDef>
-
-	<!-- 랫킨용 아노말리 탭 -->
-	<!-- TODO: 기본 아노말리에 포함 시키거나 또는 따로 탭을 만든다?.. 너무 탭 많지 않나. -->
-	<!-- Ratnormaly는 따로 파일을 분리해서 복잡치 않도록 정리 -->
-	<!-- 연구 항목은 Draw.io 파일 참고 -->
 
 	<!-- 개발용 참고 샘플. 상속 받지도, 사용도 하지 말것 -->
 	<ResearchProjectDef Name="RK_ResearchAttr_DontUse" Abstract="True">
@@ -56,6 +56,7 @@
 		<!-- <requireGravEngineInspected>false</requireGravEngineInspected> -->
 	</ResearchProjectDef>
 
+	<!-- 랫킨 연구용 기본 항목 -->
 	<ResearchProjectDef Name="RK_ResearchAttr_Base" Abstract="True">
 		<tab>RK_ResearchTab_Default</tab>
 		<baseCost>600</baseCost>
@@ -65,18 +66,6 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
-
-	<!-- 
-		x축 0부터 커질수록 상위 티어
-
-		1티어		  2티어			3티어			4티어			5티어	 5.5        6티어        6.5
-		목공					  요새화						챗바퀴 역학
-		농업		식품 보존					   랫킨 공학	  용의 화염			성난쥐 프로젝트
-		랫킨식 단조  랫킨식 제련								 관측과 측량
-				 	검과 방패									분리 역학
-		랫킨 의류	 기능성 의류										   궤도 장비			크루세이더 갑옷
-		방직		고급 의류       귀족 의류					
-	 -->
 
 	<!-- 1티어 연구 -->
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -101,6 +90,9 @@
 		<baseCost>600</baseCost>
 		<researchViewX>0</researchViewX>
 		<researchViewY>2</researchViewY>
+		<tags>
+			<li>RK_ResearchTag_MedievalBasic</li>
+		</tags>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -108,7 +100,10 @@
 		<label>랫킨 의류</label>
 		<baseCost>600</baseCost>
 		<researchViewX>0</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewY>4</researchViewY>
+		<tags>
+			<li>RK_ResearchTag_MedievalBasic</li>
+		</tags>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -116,7 +111,7 @@
 		<label>방직</label>
 		<baseCost>600</baseCost>
 		<researchViewX>0</researchViewX>
-		<researchViewY>4</researchViewY>
+		<researchViewY>5</researchViewY>
 	</ResearchProjectDef>
 
 	<!-- 2티어 연구 -->
@@ -125,7 +120,10 @@
 		<label>식품 보존</label>
 		<baseCost>800</baseCost>
 		<researchViewX>1</researchViewX>
-		<researchViewY>0</researchViewY>
+		<researchViewY>1</researchViewY>
+		<prerequisites>
+			<li>RK_Research_Agriculture</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -133,7 +131,10 @@
 		<label>랫킨식 제련</label>
 		<baseCost>1000</baseCost>
 		<researchViewX>1</researchViewX>
-		<researchViewY>1</researchViewY>
+		<researchViewY>2</researchViewY>
+		<prerequisites>
+			<li>RK_Research_Smithing</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -141,7 +142,10 @@
 		<label>검과 방패</label>
 		<baseCost>800</baseCost>
 		<researchViewX>1</researchViewX>
-		<researchViewY>2</researchViewY>
+		<researchViewY>3</researchViewY>
+		<prerequisites>
+			<li>RK_Research_Smithing</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -149,15 +153,21 @@
 		<label>기능성 의류</label>
 		<baseCost>600</baseCost>
 		<researchViewX>1</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewY>4</researchViewY>
+		<prerequisites>
+			<li>RK_Research_Tailoring</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
-		<defName>RK_Research_FineApparel</defName>
+		<defName>RK_Research_AdvancedApparel</defName>
 		<label>고급 의류</label>
 		<baseCost>800</baseCost>
 		<researchViewX>1</researchViewX>
-		<researchViewY>4</researchViewY>
+		<researchViewY>5</researchViewY>
+		<prerequisites>
+			<li>RK_Research_Tailoring</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<!-- 3티어 연구 -->
@@ -167,6 +177,9 @@
 		<baseCost>800</baseCost>
 		<researchViewX>2</researchViewX>
 		<researchViewY>0</researchViewY>
+		<prerequisites>
+			<li>RK_Research_Carpentry</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
@@ -174,75 +187,99 @@
 		<label>귀족 의류</label>
 		<baseCost>400</baseCost>
 		<researchViewX>2</researchViewX>
-		<researchViewY>1</researchViewY>
+		<researchViewY>4</researchViewY>
+		<prerequisites>
+			<li>RK_Research_AdvancedApparel</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<!-- 4티어 연구 -->
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_RatkinEngineering</defName>
 		<label>랫킨 공학</label>
+		<techLevel>Industrial</techLevel>
 		<baseCost>1200</baseCost>
 		<researchViewX>3</researchViewX>
-		<researchViewY>0</researchViewY>
-		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewY>1</researchViewY>
 	</ResearchProjectDef>
 
 	<!-- 5티어 연구 -->
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_GearMechanics</defName>
 		<label>챗바퀴 역학</label>
+		<techLevel>Industrial</techLevel>
 		<baseCost>1800</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>0</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<prerequisites>
+			<li>RK_Research_RatkinEngineering</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_ObservationAndSurveying</defName>
 		<label>관측과 측량</label>
+		<techLevel>Industrial</techLevel>
 		<baseCost>1600</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>2</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<prerequisites>
+			<li>RK_Research_RatkinEngineering</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_SeparationMechanics</defName>
 		<label>분리 역학</label>
-		<baseCost>600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<baseCost>1200</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>3</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<prerequisites>
+			<li>RK_Research_RatkinEngineering</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_DragonFlame</defName>
 		<label>용의 화염</label>
-		<baseCost>600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<baseCost>1600</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>1</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<prerequisites>
+			<li>RK_Research_RatkinEngineering</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_OrbitalEquipment</defName>
 		<label>궤도 장비</label>
-		<baseCost>600</baseCost>
-		<researchViewX>4</researchViewX>
+		<techLevel>Spacer</techLevel>
+		<baseCost>1200</baseCost>
+		<researchViewX>4.5</researchViewX>
 		<researchViewY>4</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
+		<prerequisites>
+			<li>RK_Research_RatkinEngineering</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<!-- 5.5티어 연구 -->
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_AngryRatProject</defName>
 		<label>성난쥐 프로젝트</label>
-		<baseCost>600</baseCost>
+		<techLevel>Spacer</techLevel>
+		<baseCost>6000</baseCost>
 		<researchViewX>5</researchViewX>
-		<researchViewY>0</researchViewY>
+		<researchViewY>1</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
@@ -253,18 +290,24 @@
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_CrusaderArmor</defName>
 		<label>크루세이더 갑옷</label>
-		<baseCost>600</baseCost>
-		<researchViewX>7</researchViewX>
-		<researchViewY>0</researchViewY>
+		<techLevel>Spacer</techLevel>
+		<baseCost>6000</baseCost>
+		<researchViewX>5.5</researchViewX>
+		<researchViewY>4</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
+		<prerequisites>
+			<li>RK_Research_OrbitalEquipment</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
-
+	<ResearchProjectTagDef>
+		<defName>RK_ResearchTag_MedievalBasic</defName>
+	</ResearchProjectTagDef>
 
 	<ResearchProjectTagDef>
-		<defName>RK_ResearchTag_Default</defName>
+		<defName>RK_ResearchTag_IndustrialBasic</defName>
 	</ResearchProjectTagDef>
 </Defs>
