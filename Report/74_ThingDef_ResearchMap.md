@@ -12,13 +12,15 @@ Xxx + Xxx 와 같이 +로 합쳐진 경우 모두 연구를 마쳐야함
 @목공 + @검과 방패
 - RK_LightLance     나무 랜스
 
-@랫킨식 단조
-- RK_Dagger         단검
-- RK_OneHanded      한손검
+@랫킨식 단조 + @농업
 - RK_Axe        도끼
 - RK_Cleaver    식칼
 - RK_Hockey     쟁기        
-- RK_Fork       쇠스랑      
+- RK_Fork       쇠스랑    
+
+@랫킨식 단조
+- RK_Dagger         단검
+- RK_OneHanded      한손검  
 
 @검과 방패
 - RK_Mace           메이스      (건물 높은 피해)
@@ -118,12 +120,13 @@ Xxx + Xxx 와 같이 +로 합쳐진 경우 모두 연구를 마쳐야함
 
 @목공
 - RK_WoodenShield       목재 방패
-@랫킨식 단조
-- RK_HeavyShield        철제 방패
-@검과 방패 + @랫킨식 단조
-- RK_TowerShield        대방패      
+- 
 @검과 방패
+- RK_HeavyShield        철제 방패
 - RK_Apparel_Banner     깃발
+- 
+@검과 방패 + @랫킨식 제련
+- RK_TowerShield        대방패  
 
 @고급 의류 + @궤도 장비 + @방직
 - RK_Apparel_VacsuitHelmet          진공헬멧
