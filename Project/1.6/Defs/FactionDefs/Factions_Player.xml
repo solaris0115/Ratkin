@@ -49,10 +49,14 @@
 		<factionNameMaker>NamerFaction_RatkinKingdom</factionNameMaker>
 		<settlementNameMaker>NamerSettlement_RatkinKingdom</settlementNameMaker>
 		<startingResearchTags>
-			<li>RK_ResearchTag_Default</li>
+			<li>RK_ResearchTag_MedievalBasic</li>
+			<li>TribalStart</li>
+			<li>TribalStartTechprints</li>
 		</startingResearchTags>
 		<startingTechprintsResearchTags>
-			<li>RK_ResearchTag_Default</li>
+			<li>RK_ResearchTag_MedievalBasic</li>
+			<li>TribalStart</li>
+			<li>TribalStartTechprints</li>
 		</startingTechprintsResearchTags>
 		<apparelStuffFilter>
 			<thingDefs>
