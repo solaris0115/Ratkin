@@ -58,8 +58,8 @@ namespace DebugTools
 
             foreach (ThingDef apparelDef in allApparels)
             {
-                // Spawn twice: once for age 15, once for age 20
-                int[] ages = { 15, 20 };
+                // Spawn twice: once for age 10, once for age 20
+                int[] ages = { 10, 20 };
                 
                 foreach (int age in ages)
                 {
@@ -142,7 +142,7 @@ namespace DebugTools
                 }
             }
 
-            Messages.Message($"Spawned {spawnedCount} Ratkin colonists (age 15 & 20) with {allApparels.Count} different RK_ apparels.", MessageTypeDefOf.TaskCompletion);
+            Messages.Message($"Spawned {spawnedCount} Ratkin colonists (age 10 & 20) with {allApparels.Count} different RK_ apparels.", MessageTypeDefOf.TaskCompletion);
         }
 
         private static void ClearMapExceptTerrain()
