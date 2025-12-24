@@ -42,7 +42,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-	
+
 
 
 
@@ -55,7 +55,7 @@
 		<techLevel>Medieval</techLevel>
 		<graphicData>
 			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
-			<!--소재로 인한 컬러링 무시를 디폴트로.-->	
+			<!--소재로 인한 컬러링 무시를 디폴트로.-->
 			<ignoreThingDrawColor>true</ignoreThingDrawColor>
 		</graphicData>
 		<drawGUIOverlay>true</drawGUIOverlay>
@@ -164,6 +164,59 @@
 				<li>RK_1Tier</li>
 				<li>RK_Thief</li>
 			</tags>
+		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="RK_ApparelMakeableBase" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>RK_ApronSkirtChildren</defName>
+		<label>kid skirt</label>
+		<description>어린이용 일상복입니다.</description>
+		<graphicData>
+			<texPath>Apparel/RK_ApronSkirt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToMake>1200</WorkToMake>
+			<Mass>0.2</Mass>
+			<StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.20</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<costStuffCount>50</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Legs</li>
+			</bodyPartGroups>
+			<defaultOutfitTags>
+				<li>Child</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Apparel/RK_ApronSkirt</wornGraphicPath>
+			<layers>
+				<li>OnSkin</li>
+			</layers>
+			<tags>
+				<li>RK_Worker</li>
+				<li>RK_Servant</li>
+				<li>RK_Maid</li>
+				<li>RK_1Tier</li>
+				<li>RK_Thief</li>
+			</tags>
+			<drawData>
+				<childScale>0.6</childScale>
+			</drawData>
+			<developmentalStageFilter>Child</developmentalStageFilter>
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
