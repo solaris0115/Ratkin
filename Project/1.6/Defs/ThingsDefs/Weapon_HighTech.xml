@@ -58,7 +58,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>MechanicalWeapon</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_DragonFlame</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
@@ -154,7 +154,7 @@
 			</li>
 		</comps>
 		<recipeMaker>
-			<!-- <researchPrerequisite>MechanicalWeapon</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_DragonFlame</researchPrerequisite>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>
@@ -393,7 +393,7 @@
 				<li>TableMachining</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -458,7 +458,7 @@
 				<li>TableMachining</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 

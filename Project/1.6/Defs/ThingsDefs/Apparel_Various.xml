@@ -503,7 +503,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 작업모  식중독 예방 +5% 동물채집량 +5% -->
@@ -549,7 +549,7 @@
 			</defaultOutfitTags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -611,7 +611,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 공돌이 수술 성공률 +5% 치료품질 +5%-->
@@ -673,7 +673,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<Steel>15</Steel>
@@ -771,7 +771,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -786,7 +786,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<Cloth>25</Cloth>
@@ -1027,7 +1027,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1135,7 +1135,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1195,7 +1195,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1255,7 +1255,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1306,7 +1306,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 리본 거래가격 개선 +10% -->
@@ -1355,7 +1355,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1415,7 +1415,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1468,7 +1468,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1786,7 +1786,7 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -1900,7 +1900,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -1965,7 +1965,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2029,7 +2029,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -2263,7 +2263,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 		<costStuffCount>120</costStuffCount>
 		<stuffCategories>

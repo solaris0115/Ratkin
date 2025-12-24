@@ -30,7 +30,7 @@
 			<li>RK_Research_Carpentry</li>
 		</hiddenPrerequisites>
 		<tags>
-			<li>RK_ResearchTag_Default</li>
+			<li>RK_ResearchTag_MedievalBasic</li>
 		</tags>
 		<!-- 필요 연구 시설, 연구 장치-->
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

@@ -24,7 +24,7 @@
 			<Steel>20</Steel>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Carpentry</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -114,7 +114,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Machining</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -213,7 +213,7 @@
 			<ComponentIndustrial>1</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -312,6 +312,7 @@
 			<ComponentIndustrial>3</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
+			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -400,7 +401,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>MicroOptical</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_ObservationAndSurveying</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>7</Crafting>
 			</skillRequirements>
@@ -678,7 +679,7 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -822,6 +823,7 @@
 			</li>
 		</verbs>
 		<recipeMaker Inherit="false">
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
         </recipeMaker>
 		<weaponClasses>
 			<li>RangedLight</li>
@@ -911,6 +913,7 @@
 			</li>
 		</verbs>
 		<recipeMaker Inherit="false">
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
         </recipeMaker>
 		<weaponTags Inherit="false">
 			<li>RK_4TierWeapon</li>
@@ -1035,7 +1038,7 @@
 			<!-- </li> -->
 		</verbs>
 		<recipeMaker Inherit="false">
-			<!-- <researchPrerequisite>PulseTech</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SeparationMechanics</researchPrerequisite>
 			<!-- <skillRequirements> -->
 			<!-- <Crafting>10</Crafting> -->
 			<!-- </skillRequirements> -->
@@ -1154,7 +1157,7 @@
 			<ComponentIndustrial>20</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>MultibarrelWeapons</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_GearMechanics</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>

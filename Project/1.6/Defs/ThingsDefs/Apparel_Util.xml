@@ -97,6 +97,9 @@
 		<defName>RK_Apparel_Banner</defName>
 		<label>war banner</label>
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
+		</recipeMaker>
 		<apparel>
 			<abilities>
 				<li>RK_Ability_MeleeMoraleBooster</li>
@@ -131,6 +134,9 @@
 		<defName>RK_CrossBack</defName>
 		<label>cross back</label>
 		<description>간단한 봇짐입니다. 짐을 조금 더 나를 수 있게 해줍니다.</description>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
 		<graphicData>
 			<texPath>Apparel/RK_CrossBack</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -264,9 +270,12 @@
 		</recipeMaker>
 	</ThingDef>
 
-	<!-- 목제 방패 -->
+		<!-- 목제 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
 		<defName>RK_WoodenShield</defName>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Carpentry</researchPrerequisite>
+		</recipeMaker>
 		<label>ratkin wooden Shield</label>
 		<description>목재 방패.</description>
 		<graphicData>

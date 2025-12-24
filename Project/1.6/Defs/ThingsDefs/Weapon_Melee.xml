@@ -60,7 +60,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Smithing</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -173,7 +173,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Smithing</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -277,7 +277,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -389,7 +389,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -476,7 +476,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>LongBlades</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>7</Crafting>
 				<Artistic>3</Artistic>
@@ -593,7 +593,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>PiercingWeapon</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
@@ -685,7 +685,7 @@
 			<PlantHarvestYield>0.1</PlantHarvestYield>
 		</equippedStatOffsets>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>7</Crafting>
 				<Artistic>5</Artistic>
@@ -791,7 +791,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -872,7 +872,7 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<!-- <researchPrerequisite>Smithing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
