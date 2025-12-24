@@ -82,6 +82,10 @@
 		</tradeTags>
 		<apparel>
 			<useWornGraphicMask>true</useWornGraphicMask>
+			<drawData>
+				<childScale>0.6</childScale>
+			</drawData>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 		</apparel>
 	</ThingDef>
 
