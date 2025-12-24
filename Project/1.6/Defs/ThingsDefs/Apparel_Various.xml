@@ -165,6 +165,9 @@
 				<li>RK_Thief</li>
 			</tags>
 		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 
 	<!-- 더위저항 +12 -->
@@ -208,6 +211,9 @@
 				<li>RoyalTier2</li>
 			</tags>
 		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 	<!-- 여름모자 더위저항 +5 -->
 	<ThingDef ParentName="RK_HatMakeableBase">
@@ -255,6 +261,9 @@
 				</li>
 			</options>
 		</colorGenerator>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 
 	<!-- 추위저항15 -->
@@ -319,6 +328,9 @@
 				</li>
 			</options>
 		</colorGenerator>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 	<!-- 가디건 추위저항 +6 -->
 	<ThingDef ParentName="RK_ApparelMakeableBase">
@@ -387,6 +399,9 @@
 				</li>
 			</options>
 		</colorGenerator>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 	<!-- 털모자 추위저항 +5 -->
 	<ThingDef ParentName="RK_ApparelMakeableBase">
@@ -658,7 +673,7 @@
 			</tags>
 		</apparel>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -723,6 +738,9 @@
 				<li>RoyalTier2</li>
 			</tags>
 		</apparel>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 	<!-- 탐험모 이동속도+0.1 더위저항 +10 스탤스효과 +3% -->
 	<ThingDef ParentName="RK_HatMakeableBase">
@@ -2358,7 +2376,10 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisites>
+				<li>RK_Research_Weaving</li>
+				<li>RK_Research_NobleApparel</li>
+			</researchPrerequisites>
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>

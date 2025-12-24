@@ -178,7 +178,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
 		</recipeMaker>
 		<costStuffCount>45</costStuffCount>
 		<costList>
@@ -217,7 +217,10 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisites>
+				<li>RK_Research_AdvancedApparel</li>
+				<li>RK_Research_FunctionalApparel</li>
+			</researchPrerequisites>
 		</recipeMaker>
 		<costList>
 			<Steel>20</Steel>
@@ -363,7 +366,7 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
@@ -465,7 +468,10 @@
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<!-- <researchPrerequisite>HighClassClothing</researchPrerequisite> -->
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+			</researchPrerequisites>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>

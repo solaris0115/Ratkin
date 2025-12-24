@@ -114,7 +114,10 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_Carpentry</li>
+				<li>RK_Research_RatkinEngineering</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -213,7 +216,10 @@
 			<ComponentIndustrial>1</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_Carpentry</li>
+				<li>RK_Research_Fortification</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -1038,7 +1044,10 @@
 			<!-- </li> -->
 		</verbs>
 		<recipeMaker Inherit="false">
-			<researchPrerequisite>RK_Research_SeparationMechanics</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_ObservationAndSurveying</li>
+				<li>RK_Research_SeparationMechanics</li>
+			</researchPrerequisites>
 			<!-- <skillRequirements> -->
 			<!-- <Crafting>10</Crafting> -->
 			<!-- </skillRequirements> -->

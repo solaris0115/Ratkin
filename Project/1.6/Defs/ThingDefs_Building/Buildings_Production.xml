@@ -59,7 +59,7 @@
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
 		<researchPrerequisites>
-			<li>ComplexClothing</li>
+			<li>RK_Research_Tailoring</li>
 		</researchPrerequisites>
 	</ThingDef>
 
@@ -131,7 +131,7 @@
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
 		<researchPrerequisites>
-			<li>ComplexClothing</li>
+			<li>RK_Research_Tailoring</li>
 			<li>Electricity</li>
 		</researchPrerequisites>
 	</ThingDef>
@@ -208,7 +208,7 @@
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
 		<researchPrerequisites>
-			<li>Smithing</li>
+			<li>RK_Research_Smithing</li>
 		</researchPrerequisites>
 	</ThingDef>
 
@@ -285,7 +285,7 @@
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
 		<researchPrerequisites>
-			<li>Smithing</li>
+			<li>RK_Research_Smithing</li>
 			<li>Electricity</li>
 		</researchPrerequisites>
 	</ThingDef>

@@ -129,7 +129,7 @@
 
 	<!--================ 직사 발리스타 ================-->
 	<ThingDef ParentName="RK_BaseArtilleryBuilding">
-		<defName>RK_Ballista_Strait_Body</defName>
+		<defName>RK_Building_Ballista</defName>
 		<label>ballista</label>
 		<description>It is a machine that fires large arrows. It is designed to be easy to operate by Ratkin.</description>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -141,6 +141,9 @@
 		</building>
 		<uiIconPath>Things/Building/Security/Ballista_Turret_Icon</uiIconPath>
 		<uiIconScale>1</uiIconScale>
+		<researchPrerequisites>
+			<li>RK_Research_Fortification</li>
+		</researchPrerequisites>
 	</ThingDef>
 
 	<ThingDef ParentName="RK_BaseArtilleryWeapon">
@@ -516,6 +519,10 @@
 		</building>
 		<uiIconPath>Things/Building/Security/RK_Texture_CannonIcon</uiIconPath>
 		<uiIconScale>1</uiIconScale>
+		<researchPrerequisites>
+			<li>RK_Research_Fortification</li>
+			<li>RK_Research_Smithing</li>
+		</researchPrerequisites>
 	</ThingDef>
 
 	<ThingDef ParentName="RK_BaseArtilleryWeapon_Cannon">

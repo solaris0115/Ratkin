@@ -476,7 +476,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>7</Crafting>
 				<Artistic>3</Artistic>
@@ -593,7 +596,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
@@ -872,7 +878,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Metallurgy</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>

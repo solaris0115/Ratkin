@@ -58,7 +58,11 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_DragonFlame</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+				<li>RK_Research_DragonFlame</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
@@ -154,7 +158,11 @@
 			</li>
 		</comps>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_DragonFlame</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+				<li>RK_Research_DragonFlame</li>
+			</researchPrerequisites>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<effectWorking>Cook</effectWorking>
 			<soundWorking>Recipe_Machining</soundWorking>

@@ -72,7 +72,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Smithing</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_Smithing</li>
+				<li>RK_Research_Agriculture</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -129,7 +132,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Smithing</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_Smithing</li>
+				<li>RK_Research_Agriculture</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -185,7 +191,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Smithing</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_Smithing</li>
+				<li>RK_Research_Agriculture</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
@@ -241,7 +250,10 @@
 			</li>
 		</tools>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Smithing</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_Smithing</li>
+				<li>RK_Research_Agriculture</li>
+			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
