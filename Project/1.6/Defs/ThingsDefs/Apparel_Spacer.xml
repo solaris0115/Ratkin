@@ -79,7 +79,6 @@
 		</recipeMaker>
 	</ThingDef>
 
-
 	<ThingDef ParentName="ApparelMakeableBase" MayRequire="Ludeon.RimWorld.Odyssey">
 		<defName>RK_Apparel_Vacsuit</defName>
 		<label>vacsuit</label>
@@ -141,10 +140,6 @@
 			<useDeflectMetalEffect>true</useDeflectMetalEffect>
 			<soundWear>Wear_PowerArmor</soundWear>
 			<soundRemove>Remove_PowerArmor</soundRemove>
-			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
-			<drawData>
-				<childScale>0.5</childScale>
-			</drawData>
 		</apparel>
 		<costList>
 			<ComponentIndustrial>3</ComponentIndustrial>

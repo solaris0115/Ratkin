@@ -82,10 +82,6 @@
 		</tradeTags>
 		<apparel>
 			<useWornGraphicMask>true</useWornGraphicMask>
-			<drawData>
-				<childScale>0.6</childScale>
-			</drawData>
-			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 		</apparel>
 	</ThingDef>
 
@@ -106,7 +102,7 @@
 		</thingCategories>
 		<colorGenerator Class="ColorGenerator_StandardApparel" />
 	</ThingDef>
-	
+
 	<ThingDef Name="RK_HatMakeableBase" ParentName="RK_ApparelMakeableBase" Abstract="True">
 		<thingCategories>
 			<li>RK_Headgear</li>
