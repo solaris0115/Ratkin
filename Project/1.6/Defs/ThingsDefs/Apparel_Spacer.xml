@@ -141,6 +141,10 @@
 			<useDeflectMetalEffect>true</useDeflectMetalEffect>
 			<soundWear>Wear_PowerArmor</soundWear>
 			<soundRemove>Remove_PowerArmor</soundRemove>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+			<drawData>
+				<childScale>0.5</childScale>
+			</drawData>
 		</apparel>
 		<costList>
 			<ComponentIndustrial>3</ComponentIndustrial>
@@ -225,6 +229,9 @@
 			<useDeflectMetalEffect>true</useDeflectMetalEffect>
 			<soundWear>Wear_PowerArmor</soundWear>
 			<soundRemove>Remove_PowerArmor</soundRemove>
+			<drawData>
+				<childScale>0.6</childScale>
+			</drawData>
 		</apparel>
 		<costList>
 			<ComponentIndustrial>3</ComponentIndustrial>
