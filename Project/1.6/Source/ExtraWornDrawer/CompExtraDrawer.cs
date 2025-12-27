@@ -130,6 +130,15 @@ namespace NewRatkin
         }
 
         /// <summary>
+        /// Apparel 착용 시 호출됨 - Graphic 로딩 보장 (Dev Tool 소환 등 타이밍 문제 대응)
+        /// </summary>
+        public override void Notify_Equipped(Pawn pawn)
+        {
+            base.Notify_Equipped(pawn);
+            LoadGraphic();
+        }
+
+        /// <summary>
         /// Graphic 로딩 (비동기 처리)
         /// </summary>
         private void LoadGraphic()
@@ -219,6 +228,14 @@ namespace NewRatkin
                 return;
             }
 
+            // Graphic이 아직 로딩되지 않은 경우 로딩 시도 (Dev Tool 소환 등 타이밍 문제 대응)
+            if (extraGraphicDrafted == null || extraGraphicBack == null)
+            {
+                LoadGraphic();
+                // 비동기 로딩이므로 이번 프레임에서는 그리지 않음
+                return;
+            }
+
             Pawn pawn = Wearer;
             Vector3 rootLoc = pawn.DrawPos;
 
@@ -226,8 +243,6 @@ namespace NewRatkin
             if (ShouldShowOnArm)
             {
                 // 소집 시 - 팔/어깨에 표시 (Arm 그래픽)
-                if (extraGraphicDrafted == null) return;
-                
                 GraphicDrawData drawData = Props.draftedDrawData;
                 switch (pawn.Rotation.AsInt)
                 {
@@ -250,8 +265,6 @@ namespace NewRatkin
             else
             {
                 // 평상시 - 등에 표시 (Unarm 그래픽)
-                if (extraGraphicBack == null) return;
-                
                 if (!pawn.Dead && pawn.GetPosture() == PawnPosture.Standing)
                 {
                     GraphicDrawData drawData = Props.backDrawData;
