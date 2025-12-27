@@ -587,6 +587,10 @@
 				<skill>Melee</skill>
 				<range>8~13</range>
 			</li>
+			<li>
+				<skill>Social</skill>
+				<range>6~10</range>
+			</li>
 		</skills>
 	</PawnKindDef>
 
