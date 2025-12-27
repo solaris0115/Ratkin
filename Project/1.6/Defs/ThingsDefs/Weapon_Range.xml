@@ -1079,7 +1079,7 @@
 		</tools>
 		<tradeability>None</tradeability>
 	</ThingDef>
-	<ThingDef ParentName="BaseBolt">
+	<ThingDef ParentName="BaseBullet">
 		<defName>Bullet_BFR_AP</defName>
 		<label>wedge bullet (AP)</label>
 		<graphicData>
