@@ -285,7 +285,7 @@
 		<comps>
 			<li Class="SYS.CompProperties_Sheath">
 				<sheathOnlyGraphicData>
-					<texPath>Things/NullDraw</texPath>
+					<texPath>RK_Texture_Empty</texPath>
 					<graphicClass>Graphic_Single</graphicClass>
 				</sheathOnlyGraphicData>
 				<fullGraphicData>
