@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using RimWorld;
@@ -24,6 +25,27 @@ namespace NewRatkin
     }
 
     /// <summary>
+    /// 이념 아이콘 드로잉 데이터 (위치 + 각도, 경로는 Pawn.Ideo에서 자동 참조)
+    /// </summary>
+    public class IdeoIconDrawData
+    {
+        public Vector3 offsetNorth = Vector3.zero;
+        public Vector3 offsetEast = Vector3.zero;
+        public Vector3 offsetSouth = Vector3.zero;
+        public Vector3 offsetWest = Vector3.zero;
+
+        public float angleNorth = 0f;
+        public float angleEast = 0f;
+        public float angleSouth = 0f;
+        public float angleWest = 0f;
+
+        /// <summary>
+        /// 이념 아이콘 크기 (기본값: 0.5)
+        /// </summary>
+        public float iconSize = 0.5f;
+    }
+
+    /// <summary>
     /// Apparel의 조건부 추가 드로잉을 담당하는 Component
     /// RimWorld CompShield 패턴을 따름
     /// </summary>
@@ -43,6 +65,16 @@ namespace NewRatkin
         /// 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치)
         /// </summary>
         public GraphicDrawData backDrawData;
+
+        /// <summary>
+        /// 소집 시 이념 아이콘 드로잉 데이터 (위치 + 각도)
+        /// </summary>
+        public IdeoIconDrawData draftedIdeoIconData;
+
+        /// <summary>
+        /// 비소집 시 이념 아이콘 드로잉 데이터 (위치 + 각도)
+        /// </summary>
+        public IdeoIconDrawData backIdeoIconData;
 
         public CompProperties_ExtraDrawer()
         {
@@ -190,7 +222,6 @@ namespace NewRatkin
                 string graphicPathDrafted = Props.draftedDrawData?.graphicPath;
                 if (graphicPathDrafted.NullOrEmpty())
                 {
-                    Log.Warning($"[CompExtraDrawer] {parent.def.defName}: draftedDrawData.graphicPath가 설정되지 않았습니다. 기본 경로 사용.");
                     graphicPathDrafted = "Apparel/Util/RK_TextureApparel_BannerArm";
                 }
                 extraGraphicDrafted = GraphicDatabase.Get<Graphic_Multi>(
@@ -203,7 +234,6 @@ namespace NewRatkin
                 string graphicPathBack = Props.backDrawData?.graphicPath;
                 if (graphicPathBack.NullOrEmpty())
                 {
-                    Log.Warning($"[CompExtraDrawer] {parent.def.defName}: backDrawData.graphicPath가 설정되지 않았습니다. 기본 경로 사용.");
                     graphicPathBack = "Apparel/Util/RK_TextureApparel_BannerUnarm";
                 }
                 extraGraphicBack = GraphicDatabase.Get<Graphic_Multi>(
@@ -261,6 +291,12 @@ namespace NewRatkin
                     default:
                         break;
                 }
+
+                // 소집 시 이념 아이콘 그리기
+                if (Props.draftedIdeoIconData != null)
+                {
+                    DrawIdeoIcon(pawn, Props.draftedIdeoIconData, rootLoc);
+                }
             }
             else
             {
@@ -284,6 +320,12 @@ namespace NewRatkin
                             break;
                         default:
                             break;
+                    }
+
+                    // 비소집 시 이념 아이콘 그리기
+                    if (Props.backIdeoIconData != null)
+                    {
+                        DrawIdeoIcon(pawn, Props.backIdeoIconData, rootLoc);
                     }
                 }
             }
@@ -312,6 +354,109 @@ namespace NewRatkin
 
             Mesh mesh = MeshPool.plane10;
             Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(angle, Vector3.up), mat, 0, null, 0, matPropertyBlock);
+        }
+
+        /// <summary>
+        /// 이념 아이콘을 그리는 메서드
+        /// 리포트 참고: Ideo.iconDef.iconPath에서 텍스처 경로를 가져옴
+        /// </summary>
+        /// <param name="pawn">Pawn</param>
+        /// <param name="iconData">이념 아이콘 드로잉 데이터</param>
+        /// <param name="rootLoc">기준 위치</param>
+        private void DrawIdeoIcon(Pawn pawn, IdeoIconDrawData iconData, Vector3 rootLoc)
+        {
+            // Ideology DLC 활성화 확인
+            if (!ModsConfig.IdeologyActive)
+            {
+                return;
+            }
+
+            // 이념이 없으면 그리지 않음
+            if (pawn.Ideo == null)
+            {
+                return;
+            }
+
+            // 매번 pawn.Ideo에서 직접 텍스처와 경로 가져오기 (사상 변경 대응)
+            // Ideo.Icon 속성은 iconDef.iconPath에서 텍스처를 로드함
+            Texture2D ideoIconTex = pawn.Ideo.Icon;
+            if (ideoIconTex == null || ideoIconTex == BaseContent.BadTex)
+            {
+                return;
+            }
+
+            // 텍스처 경로 가져오기 (Material 생성용)
+            string iconPath = null;
+            if (pawn.Ideo.iconDef != null && !pawn.Ideo.iconDef.iconPath.NullOrEmpty())
+            {
+                iconPath = pawn.Ideo.iconDef.iconPath;
+            }
+            else
+            {
+                // iconDef가 없으면 텍스처의 name을 경로로 사용
+                iconPath = ideoIconTex.name;
+            }
+
+            if (iconPath.NullOrEmpty())
+            {
+                return;
+            }
+
+            // 방향에 따른 오프셋과 각도 결정
+            Vector3 offset;
+            float angle;
+            int rotation = pawn.Rotation.AsInt;
+            switch (rotation)
+            {
+                case 0: // North
+                    offset = iconData.offsetNorth;
+                    angle = iconData.angleNorth;
+                    break;
+                case 1: // East
+                    offset = iconData.offsetEast;
+                    angle = iconData.angleEast;
+                    break;
+                case 2: // South
+                    offset = iconData.offsetSouth;
+                    angle = iconData.angleSouth;
+                    break;
+                case 3: // West
+                    offset = iconData.offsetWest;
+                    angle = iconData.angleWest;
+                    break;
+                default:
+                    return;
+            }
+
+            // 이념 색상 가져오기 (리포트 참고: Ideo.Color 속성 사용)
+            Color ideoColor = pawn.Ideo.Color;
+
+            // Material 생성
+            Material iconMaterial = MaterialPool.MatFrom(iconPath, ShaderDatabase.Cutout);
+            if (iconMaterial == null)
+            {
+                return;
+            }
+
+            // 아이콘 그리기
+            Vector3 iconLoc = rootLoc + offset;
+            float iconSize = iconData.iconSize;
+            
+            MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
+            matPropertyBlock.SetColor(ShaderPropertyIDs.Color, ideoColor);
+
+            // 아이콘 크기 적용을 위한 스케일 매트릭스
+            Matrix4x4 matrix = Matrix4x4.TRS(iconLoc, Quaternion.AngleAxis(angle, Vector3.up), new Vector3(iconSize, 1f, iconSize));
+            
+            Mesh mesh = MeshPool.plane10;
+            Graphics.DrawMesh(
+                mesh,
+                matrix,
+                iconMaterial,
+                0,
+                null,
+                0,
+                matPropertyBlock);
         }
 
         /// <summary>
