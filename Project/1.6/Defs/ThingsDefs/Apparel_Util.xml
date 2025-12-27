@@ -58,15 +58,15 @@
 
 				<!-- 소집 시 이념 아이콘 드로잉 데이터 (위치 + 각도, 경로는 Pawn.Ideo에서 자동 참조) -->
 				<draftedIdeoIconData>
-					<offsetNorth>(-0.20, -0.18, -0.08)</offsetNorth>
-					<offsetSouth>(0.30, 0.15, -0.08)</offsetSouth>
-					<offsetEast>(0.35, -0.12, -0.12)</offsetEast>
-					<offsetWest>(-0.15, 0.12, -0.12)</offsetWest>
+					<offsetNorth>(-0.24, -0.18, -0.08)</offsetNorth>
+					<offsetSouth>(0.26, 0.15, -0.08)</offsetSouth>
+					<offsetEast>(0.31, -0.12, -0.12)</offsetEast>
+					<offsetWest>(-0.19, 0.12, -0.12)</offsetWest>
 					<angleNorth>0</angleNorth>
 					<angleSouth>0</angleSouth>
 					<angleEast>0</angleEast>
 					<angleWest>0</angleWest>
-					<iconSize>1</iconSize>
+					<iconSize>0.2</iconSize>
 				</draftedIdeoIconData>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
