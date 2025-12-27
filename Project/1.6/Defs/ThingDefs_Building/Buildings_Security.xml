@@ -514,10 +514,10 @@
 			<li>
 				<filter>
 					<categories>
-						<li>Stony</li>
+						<li>StoneChunks</li>
 					</categories>
 				</filter>
-				<count>30</count>
+				<count>1</count>
 			</li>
 			<li>
 				<filter>
@@ -533,7 +533,7 @@
 		</products>
 		<fixedIngredientFilter>
 			<categories>
-				<li>Stony</li>
+				<li>StoneChunks</li>
 			</categories>
 			<thingDefs>
 				<li>Steel</li>
@@ -541,7 +541,7 @@
 		</fixedIngredientFilter>
 		<defaultIngredientFilter>
 			<categories>
-				<li>Stony</li>
+				<li>StoneChunks</li>
 			</categories>
 		</defaultIngredientFilter>
 	</RecipeDef>
