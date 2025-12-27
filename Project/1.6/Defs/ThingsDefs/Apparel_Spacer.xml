@@ -225,7 +225,7 @@
 			<soundWear>Wear_PowerArmor</soundWear>
 			<soundRemove>Remove_PowerArmor</soundRemove>
 			<drawData>
-				<childScale>0.6</childScale>
+				<childScale>0.7</childScale>
 			</drawData>
 		</apparel>
 		<costList>
