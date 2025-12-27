@@ -127,7 +127,7 @@
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
 			<turretGunDef>RK_Weapon_Ballista</turretGunDef>
-			<turretTopDrawSize>1</turretTopDrawSize>
+			<turretTopDrawSize>1.15</turretTopDrawSize>
 			<buildingTags>
 				<li>Ratkin_Artillery</li>
 			</buildingTags>
@@ -359,6 +359,11 @@
 			<WorkToBuild>2300</WorkToBuild>
 			<Mass>50</Mass>
 			<Beauty>-20</Beauty>
+			<AccuracyTouch>0.9</AccuracyTouch>
+			<AccuracyShort>0.85</AccuracyShort>
+			<AccuracyMedium>0.70</AccuracyMedium>
+			<AccuracyLong>0.65</AccuracyLong>
+			<RangedWeapon_Cooldown>10</RangedWeapon_Cooldown>
 		</statBases>
 		<building>
 			<turretBurstWarmupTime>3.0</turretBurstWarmupTime>
@@ -425,7 +430,7 @@
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<building>
 			<turretGunDef>RK_Building_CannonTurret</turretGunDef>
-			<turretTopDrawSize>1</turretTopDrawSize>
+			<turretTopDrawSize>1.15</turretTopDrawSize>
 			<buildingTags>
 				<li>Ratkin_Artillery</li>
 			</buildingTags>
@@ -454,7 +459,6 @@
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<warmupTime>15.0</warmupTime>
-				<forcedMissRadius>0</forcedMissRadius>
 				<minRange>3</minRange>
 				<range>50</range>
 				<burstShotCount>1</burstShotCount>
@@ -467,7 +471,7 @@
 	</ThingDef>
 
 	<!--================ 빅 마우스 ================-->
-	<ThingDef ParentName="RK_AmmoAttr_MakeableAmmo">
+	<ThingDef ParentName="RK_AmmoAttr_Base">
 		<defName>RK_Ammo_CannonBall</defName>
 		<label>Ratkin Cannon Shell</label>
 		<description>다듬어진 돌덩어리의 표면을 강철로 둘러 싼 포탄입니다.</description>
@@ -484,10 +488,63 @@
 		<costList>
 			<Steel>5</Steel>
 		</costList>
-		<recipeMaker>
-			<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
-		</recipeMaker>
 	</ThingDef>
+
+	<!-- 포탄 제작 레시피 -->
+	<RecipeDef>
+		<defName>Make_RK_Ammo_CannonBall</defName>
+		<label>make Ratkin Cannon Shell</label>
+		<description>Make Ratkin Cannon Shell.</description>
+		<jobString>Making Ratkin Cannon Shell.</jobString>
+		<workAmount>250</workAmount>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<targetCountAdjustment>5</targetCountAdjustment>
+		<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
+		<recipeUsers>
+			<li>RK_FueledSmithy</li>
+			<li>RK_ElectricSmithy</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>4</Crafting>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Stony</li>
+					</categories>
+				</filter>
+				<count>30</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<products>
+			<RK_Ammo_CannonBall>1</RK_Ammo_CannonBall>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Stony</li>
+			</categories>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>Stony</li>
+			</categories>
+		</defaultIngredientFilter>
+	</RecipeDef>
 
 	<ThingDef ParentName="BaseBullet">
 		<defName>RK_Projectile_CannonBall</defName>
@@ -500,8 +557,8 @@
 		</graphicData>
 		<thingClass>Projectile_Explosive</thingClass>
 		<projectile>
-			<damageDef>Crush</damageDef>
-			<damageAmountBase>55</damageAmountBase>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>10</damageAmountBase>
 			<armorPenetrationBase>0.5</armorPenetrationBase>
 			<stoppingPower>4</stoppingPower>
 			<speed>70</speed>
