@@ -88,8 +88,7 @@
 				<li>RK_FueledSmithy</li>
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
-			<!-- TODO: 사기 진작 아이템 연구 필요 -->
-			<!-- <researchPrerequisite>RK_Research_MoraleBooster</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
 
@@ -273,7 +272,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-		<!-- 목제 방패 -->
+	<!-- 목제 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
 		<defName>RK_WoodenShield</defName>
 		<recipeMaker>
