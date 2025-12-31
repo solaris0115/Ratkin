@@ -781,7 +781,8 @@
 			<li>RK_Worker</li>
 		</apparelTags>
 	</PawnKindDef>
-	<!-- 방랑자-->
+
+	<!-- 방랑자, 랫킨버전 맨인 블랙-->
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RatkinVagabond</defName>
 		<label>Vagabond</label>
@@ -838,6 +839,7 @@
 				<range>6~10</range>
 			</li>
 		</skills>
+		<minGenerationAge>20</minGenerationAge>
 	</PawnKindDef>
 	<!-- 랫킨 용병 판매용-->
 	<PawnKindDef ParentName="RKCombatantBase">

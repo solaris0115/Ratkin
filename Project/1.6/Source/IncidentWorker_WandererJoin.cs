@@ -58,7 +58,9 @@ namespace NewRatkin
 			bool pawnMustBeCapableOfViolence = mustBeCapableOfViolenceOverride ?? this.def.pawnMustBeCapableOfViolence;
 			Gender? fixedGender = gender;
 			Ideo fixedIdeo = ideo;
-			return PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, ofPlayer, context, null, true, false, false, true, pawnMustBeCapableOfViolence, 20f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, fixedGender, null, null, null, fixedIdeo, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null, false, false, false, -1, 0, false));
+			// 최소 나이 20세 설정
+			FloatRange? biologicalAgeRange = new FloatRange(20f, float.MaxValue);
+			return PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, ofPlayer, context, null, true, false, false, true, pawnMustBeCapableOfViolence, 20f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, fixedGender, null, null, null, fixedIdeo, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, biologicalAgeRange, false, false, false, -1, 0, false));
 		}
 
 		public virtual bool CanSpawnJoiner(Map map)
@@ -67,17 +69,22 @@ namespace NewRatkin
 			return this.TryFindEntryCell(map, out intVec);
 		}
 
-		public virtual void SpawnJoiner(Map map, Pawn pawn)
+		public virtual void SpawnJoiner(Map map, Pawn pawn, IntVec3 spawnCell)
 		{
-			IntVec3 loc;
-			this.TryFindEntryCell(map, out loc);
-			GenSpawn.Spawn(pawn, loc, map, WipeMode.Vanish);
+			GenSpawn.Spawn(pawn, spawnCell, map, WipeMode.Vanish);
 		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
 			Map map = (Map)parms.target;
 			if (!this.CanSpawnJoiner(map))
+			{
+				return false;
+			}
+
+			// 모든 pawn을 같은 위치에 spawn하기 위해 한 번만 위치 찾기
+			IntVec3 spawnCell;
+			if (!this.TryFindEntryCell(map, out spawnCell))
 			{
 				return false;
 			}
@@ -102,7 +109,7 @@ namespace NewRatkin
 							Log.Warning($"Failed to generate pawn of kind {pawnKindCount.pawnKind?.defName ?? "null"} after multiple attempts. Skipping.");
 							continue;
 						}
-						this.SpawnJoiner(map, pawn);
+						this.SpawnJoiner(map, pawn, spawnCell);
 						if (this.def.pawnHediff != null)
 						{
 							pawn.health.AddHediff(this.def.pawnHediff, null, null, null);
@@ -120,7 +127,7 @@ namespace NewRatkin
 					Log.Warning($"Failed to generate pawn of kind {this.def.pawnKind.defName} after multiple attempts.");
 					return false;
 				}
-				this.SpawnJoiner(map, pawn);
+				this.SpawnJoiner(map, pawn, spawnCell);
 				if (this.def.pawnHediff != null)
 				{
 					pawn.health.AddHediff(this.def.pawnHediff, null, null, null);
