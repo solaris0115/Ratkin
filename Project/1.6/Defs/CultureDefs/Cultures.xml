@@ -21,9 +21,6 @@
 		<!-- festivalNameMaker: 축제 이름 생성기 (Ideology DLC 필요). 새로 만들어야 함 -->
 		<!-- TODO: RulePackDef 파일에 NamerFestival_RatkinKingdom 생성 필요 -->
 		<festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestival_RatkinKingdom</festivalNameMaker>
-		<preferredWeaponClasses>
-			<noble>Melee</noble>
-		</preferredWeaponClasses>
 		<!-- allowedPlaceTags: 허용된 장소 태그. 봉건주의 왕국이므로 OriginTechnoFeudal 또는 OriginSpacer 사용 -->
 		<!-- OriginTechnoFeudal: 기술-봉건주의 기원 (Sophian과 동일) -->
 		<!-- OriginSpacer: 우주 시대 기원 (일부 울트라테크 장비 취급 가능) -->
