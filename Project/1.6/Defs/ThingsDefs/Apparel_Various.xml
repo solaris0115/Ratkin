@@ -2385,6 +2385,9 @@
 		<defName>RK_RoyalCrown</defName>
 		<label>Ratkin royal crown</label>
 		<description>금속제 왕관입니다.</description>
+		<thingCategories>
+			<li>HeadgearNoble</li>
+		</thingCategories>
 		<graphicData>
 			<texPath>Apparel/RK_RoyalCrown</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -2426,6 +2429,9 @@
 				<li>RoyalTier6</li>
 				<li>RoyalTier7</li>
 			</tags>
+			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+			<canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
