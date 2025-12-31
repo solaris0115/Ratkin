@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- 사상 지위 설정에서 랫킨 의류를 선택할 수 있도록 추가 -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/PreceptDef[defName = 'IdeoRole_Moralist']/roleApparelRequirements</xpath>
+		<value>
+			<!-- 랫킨 왕관 -->
+			<li>
+				<requirement>
+					<bodyPartGroupsMatchAny>
+						<li>UpperHead</li>
+					</bodyPartGroupsMatchAny>
+					<requiredDefs>
+						<li>RK_RoyalCrown</li>
+					</requiredDefs>
+				</requirement>
+			</li>
+			<!-- 랫킨 로열 외투 -->
+			<li>
+				<requirement>
+					<bodyPartGroupsMatchAny>
+						<li>Torso</li>
+						<li>Neck</li>
+						<li>Shoulders</li>
+						<li>Arms</li>
+						<li>Legs</li>
+					</bodyPartGroupsMatchAny>
+					<requiredDefs>
+						<li>RK_RoyalRobe</li>
+					</requiredDefs>
+				</requirement>
+			</li>
+			<!-- 랫킨 수녀복 -->
+			<li>
+				<requirement>
+					<bodyPartGroupsMatchAny>
+						<li>Torso</li>
+						<li>Neck</li>
+						<li>Shoulders</li>
+						<li>Arms</li>
+						<li>Legs</li>
+					</bodyPartGroupsMatchAny>
+					<requiredDefs>
+						<li>RK_SistersDerss</li>
+					</requiredDefs>
+				</requirement>
+			</li>
+			<!-- 랫킨 수녀 베일 -->
+			<li>
+				<requirement>
+					<bodyPartGroupsMatchAny>
+						<li>UpperHead</li>
+					</bodyPartGroupsMatchAny>
+					<requiredDefs>
+						<li>RK_SistersVeil</li>
+					</requiredDefs>
+				</requirement>
+			</li>
+			<!-- 랫킨 화이트 코트 -->
+			<li>
+				<requirement>
+					<bodyPartGroupsMatchAny>
+						<li>Torso</li>
+						<li>Neck</li>
+						<li>Shoulders</li>
+						<li>Arms</li>
+						<li>Legs</li>
+					</bodyPartGroupsMatchAny>
+					<requiredDefs>
+						<li>RK_WhiteCoat</li>
+					</requiredDefs>
+				</requirement>
+			</li>
+		</value>
+	</Operation>
+</Patch>
+
