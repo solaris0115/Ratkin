@@ -184,10 +184,10 @@
 		<exclusionTags>
 			<li>Ears</li>
 		</exclusionTags>
-		<!-- <renderNodeProperties>
+		<renderNodeProperties>
 			<li>
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<workerClass>PawnRenderNodeWorker_EarHideWhenFullHead</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarLeft</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
@@ -201,22 +201,22 @@
 						<layer>105</layer>
 					</defaultData>
 					<dataNorth>
-						<offset>(0, 0,0)</offset>
+						<offset>(0.02, 0.15, 0.16)</offset>
 					</dataNorth>
 					<dataSouth>
-						<offset>(0, 0,0)</offset>
+						<offset>(-0.04, 0.15, 0.19)</offset>
 					</dataSouth>
 					<dataEast>
-						<offset>(-0.15, 0,0.25)</offset>
+						<offset>(-0.15, -0.25, 0.26)</offset>
 					</dataEast>
 					<dataWest>
-						<offset>(0.15, 0,0.25)</offset>
+						<offset>(0.15,0.15, 0.26)</offset>
 					</dataWest>
 				</drawData>
 			</li>
 			<li>
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<workerClass>PawnRenderNodeWorker_EarHideWhenFullHead</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarRight</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
@@ -230,20 +230,20 @@
 						<layer>105</layer>
 					</defaultData>
 					<dataNorth>
-						<offset>(0, 0,0)</offset>
+						<offset>(-0.02, 0.15, 0.16)</offset>
 					</dataNorth>
 					<dataSouth>
-						<offset>(0, 0,0)</offset>
+						<offset>(0.04, 0.15, 0.19)</offset>
 					</dataSouth>
 					<dataEast>
-						<offset>(-0.15, 0,0.25)</offset>
+						<offset>(-0.15, 0.15, 0.26)</offset>
 					</dataEast>
 					<dataWest>
-						<offset>(0.15, 0,0.25)</offset>
+						<offset>(0.15, -0.25, 0.26)</offset>
 					</dataWest>
 				</drawData>
 			</li>
-		</renderNodeProperties> -->
+		</renderNodeProperties>
 		<symbolPack>
 			<prefixSymbols>
 				<li>
@@ -285,36 +285,38 @@
 		<exclusionTags>
 			<li>Tail</li>
 		</exclusionTags>
-		<!-- <renderNodeProperties>
+		<renderNodeProperties>
 			<li>
 				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_Tail</texPath>
 				<colorType>Skin</colorType>
 				<overrideMeshSize>(1, 1)</overrideMeshSize>
 				<parentTagDef>Body</parentTagDef>
-				<linkedBodyPartsGroup>RK_Tail</linkedBodyPartsGroup>
+				<!-- <linkedBodyPartsGroup>RK_Tail</linkedBodyPartsGroup> -->
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
 				<drawData>
+					<scale>1.5</scale>
+					<childScale>1</childScale>
 					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
 					<defaultData>
 						<layer>-2</layer>
 					</defaultData>
 					<dataNorth>
-						<offset>(0, 0,-0.5)</offset>
+						<offset>(0, 0.15,-0.45)</offset>
 						<layer>90</layer>
 					</dataNorth>
 					<dataSouth>
 						<offset>(0, 0,0)</offset>
 					</dataSouth>
 					<dataEast>
-						<offset>(-0.3, 0,-0.3)</offset>
+						<offset>(-0.37, 0,-0.29)</offset>
 					</dataEast>
 					<dataWest>
-						<offset>(0.3, 0,-0.3)</offset>
+						<offset>(0.37, 0,-0.29)</offset>
 					</dataWest>
 				</drawData>
 			</li>
-		</renderNodeProperties> -->
+		</renderNodeProperties>
 		<symbolPack>
 			<prefixSymbols>
 				<li>

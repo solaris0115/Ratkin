@@ -172,7 +172,7 @@
 					<bodyAddons>
 						<li>
 							<drawSize>1</drawSize>
-							<path>Things/Ratkin/Body/RK_Texture_Tail</path>
+							<path>Things/Ratkin/BodyAddon/RK_Texture_Tail</path>
 							<inFrontOfBody>false</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<defaultOffset>Tail</defaultOffset>
@@ -217,7 +217,7 @@
 						</li>
 						<li>
 							<drawSize>1</drawSize>
-							<path>Things/Ratkin/Body/RK_Texture_EarLeft</path>
+							<path>Things/Ratkin/BodyAddon/RK_Texture_EarLeft</path>
 							<inFrontOfBody>true</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
@@ -285,7 +285,7 @@
 						</li>
 						<li>
 							<drawSize>1</drawSize>
-							<path>Things/Ratkin/Body/RK_Texture_EarRight</path>
+							<path>Things/Ratkin/BodyAddon/RK_Texture_EarRight</path>
 							<inFrontOfBody>true</inFrontOfBody>
 							<colorChannel>skin</colorChannel>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
