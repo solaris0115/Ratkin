@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 using RimWorld;
@@ -26,22 +27,36 @@ namespace NewRatkin
 
                 return !compHW.CanUseNow;
             });
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
+            Toil gotoToil = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
+            // GotoThing 완료 후 즉시 동쪽을 바라보도록 설정
+            gotoToil.AddFinishAction(delegate ()
+            {
+                Pawn actor = gotoToil.actor;
+                // 동쪽 방향으로 설정 (X축 양의 방향 = 동쪽)
+                actor.rotationTracker.Face(actor.DrawPos + new Vector3(1f, 0f, 0f));
+            });
+            yield return gotoToil;
 
             Toil work = new Toil();
+            work.handlingFacing = true; // Toil이 방향을 제어하도록 설정
             work.initAction = delegate ()
             {
                 Pawn actor = work.actor;
                 Building building = (Building)actor.CurJob.targetA.Thing;
                 CompPowerPlantHamsterWheel comp = building.GetComp<CompPowerPlantHamsterWheel>();
                 comp.StartTurnning(actor.GetStatValue(StatDefOf.MoveSpeed, true), actor);
-
+                // 챗바퀴를 사용하는 동안 항상 동쪽을 바라보도록 설정
+                actor.rotationTracker.Face(actor.DrawPos + new Vector3(1f, 0f, 0f));
             };
             work.tickAction = delegate ()
             {
+                Pawn actor = work.actor;
+                // 매 틱마다 동쪽을 바라보도록 강제 (다른 시스템이 방향을 바꾸는 것을 방지)
+                actor.rotationTracker.Face(actor.DrawPos + new Vector3(1f, 0f, 0f));
+                
+                // 무작위 방향으로 jitter 효과
                 if(Current.Game.tickManager.TicksGame % 10 ==0)
                 {
-                    Pawn actor = work.actor;
                     Traverse.Create(actor.Drawer).Field<JitterHandler>("jitterer").Value.AddOffset(0.07f, Rand.Range(0, 360));
                 }
             };

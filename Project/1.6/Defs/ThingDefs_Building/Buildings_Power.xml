@@ -10,7 +10,7 @@
 		<graphicData>
 			<texPath>Things/Building/RK_HamsterWheelGeneratorBody</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(6,6)</drawSize>
+			<drawSize>(3,3)</drawSize>
 		</graphicData>
 		<castEdgeShadows>false</castEdgeShadows>
 		<altitudeLayer>Building</altitudeLayer>
@@ -29,7 +29,7 @@
 			<Beauty>-5</Beauty>
 		</statBases>
 		<tickerType>Normal</tickerType>
-		<size>(2,2)</size>
+		<size>(1,1)</size>
 		<costList>
 			<WoodLog>280</WoodLog>
 			<Steel>25</Steel>
@@ -37,10 +37,20 @@
 		</costList>
 		<comps>
 			<li Class="CompProperties_Forbiddable"/>
-			<li Class="CompProperties_Power">
-				<compClass>NewRatkin.CompPowerPlantHamsterWheel</compClass>
+			<li Class="NewRatkin.CompProperties_PowerHamsterWheel">
 				<basePowerConsumption>-1</basePowerConsumption>
 				<transmitsPower>true</transmitsPower>
+				<!-- 드로잉 오프셋 및 스케일 설정 -->
+				<centerOffset>(0, 0, 0.15)</centerOffset>
+				<centerFacingOffset>0</centerFacingOffset>
+				<frontOffset>(0, 1, -0.1)</frontOffset>
+				<backOffset>(0, -1, 0.15)</backOffset>
+				<rimScale>(1, 0.5, 1)</rimScale>
+				<bladeScale>(1, 0.5, 1.6)</bladeScale>
+				<bladeRadius>0.475</bladeRadius>
+				<bladeYOffset>0.086875</bladeYOffset>
+				<bladeZOffset>0.45</bladeZOffset>
+				<bladeCount>16</bladeCount>
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>

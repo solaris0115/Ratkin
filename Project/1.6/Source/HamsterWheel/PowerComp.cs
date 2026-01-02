@@ -6,6 +6,33 @@ using RimWorld;
 
 namespace NewRatkin
 {
+    /// <summary>
+    /// 햄스터 휠 발전기의 드로잉 설정을 담는 Properties 클래스
+    /// </summary>
+    public class CompProperties_PowerHamsterWheel : CompProperties_Power
+    {
+        public CompProperties_PowerHamsterWheel()
+        {
+            this.compClass = typeof(CompPowerPlantHamsterWheel);
+        }
+
+        // 회전 중심축 오프셋
+        public Vector3 centerOffset = new Vector3(-0.65f, 0f, 0f);
+        public float centerFacingOffset = -0.1f;
+
+        // Front/Back 테두리 설정
+        public Vector3 frontOffset = new Vector3(0f, 1f, -0.2f);
+        public Vector3 backOffset = new Vector3(0f, -1f, 0.3f);
+        public Vector3 rimScale = new Vector3(2f, 1f, 2f);
+
+        // Blades(살) 설정
+        public Vector3 bladeScale = new Vector3(2f, 1f, 3.2f);
+        public float bladeRadius = 0.95f;
+        public float bladeYOffset = 0.086875f;
+        public float bladeZOffset = 0.9f;
+        public int bladeCount = 16;
+    }
+
     [StaticConstructorOnStartup]
     public class CompPowerPlantHamsterWheel : CompPowerPlant
     {
@@ -24,6 +51,9 @@ namespace NewRatkin
 
         private const int BladeCount = 9;
 
+        // 최대 전력 생산량 제한 (W 단위)
+        private const float MaxPowerOutput = 500f;
+
         public bool isUsingNow=false;
         public int currentSpinPower = 0;
         
@@ -33,6 +63,8 @@ namespace NewRatkin
         public static readonly Material Back = MaterialPool.MatFrom("Things/Building/Back");
         public static readonly Material Front = MaterialPool.MatFrom("Things/Building/Front");
 
+        public new CompProperties_PowerHamsterWheel Props => (CompProperties_PowerHamsterWheel)this.props;
+
         
         protected override float DesiredPowerOutput
         {
@@ -40,7 +72,9 @@ namespace NewRatkin
             {
                 if(currentSpinPower>0)
                 {
-                    return base.DesiredPowerOutput * currentSpinPower;
+                    float powerOutput = base.DesiredPowerOutput * currentSpinPower;
+                    // 최대 전력 생산량 제한 적용
+                    return Mathf.Min(powerOutput, MaxPowerOutput);
                 }
                 else
                 {
@@ -98,44 +132,47 @@ namespace NewRatkin
             base.PostDraw();
             //현재 회전 정보
             float spinAngle = spinPosition;
-            Vector3 scale2 = new Vector3(2, 1, 2);
             Quaternion rotation = (spinAngle / spinFactor * 360).ToQuat();
 
-            //회전 중심축
+            //회전 중심축 (XML에서 설정 가능)
             Vector3 centerPos = parent.TrueCenter();
-            centerPos += parent.Rotation.FacingCell.ToVector3() * -0.1f + new Vector3(-0.65f,0,0);
+            centerPos += parent.Rotation.FacingCell.ToVector3() * Props.centerFacingOffset + Props.centerOffset;
             centerPos.y = AltitudeLayer.Pawn.AltitudeFor();
 
-            //쳇바퀴 테두리
+            //쳇바퀴 테두리 (XML에서 설정 가능)
             Matrix4x4 backMatrix = default;
             Matrix4x4 frontMatrix = default;
-            Vector3 frontPosition = centerPos + Vector3.up * 1f + Vector3.back * 0.2f;
-            Vector3 backPosition = centerPos + Vector3.down + Vector3.forward * 0.3f;
+            Vector3 frontPosition = centerPos + Props.frontOffset;
+            Vector3 backPosition = centerPos + Props.backOffset;
 
-            frontMatrix.SetTRS(frontPosition, rotation, scale2);
-            backMatrix.SetTRS(backPosition, rotation, scale2);
+            frontMatrix.SetTRS(frontPosition, rotation, Props.rimScale);
+            backMatrix.SetTRS(backPosition, rotation, Props.rimScale);
             Graphics.DrawMesh(MeshPool.plane10, frontMatrix, Front, 0);
             Graphics.DrawMesh(MeshPool.plane10, backMatrix, Back, 0);
             
-            Vector3 scale = new Vector3(2, 1, 3.2f);
             Matrix4x4 matrix = default;
             Vector3 position = default;
             float cosin = 0;
 
-            //16개의 쳇바퀴 살 회전
-            for (int i = 0; i < 16; i++)
+            //쳇바퀴 살 회전 (XML에서 설정 가능)
+            for (int i = 0; i < Props.bladeCount; i++)
             {
-                spinAngle += spinFactor * i / 16f;
+                spinAngle += spinFactor * i / (float)Props.bladeCount;
                 cosin = Mathf.Cos(spinAngle);
-                position = centerPos + new Vector3(Mathf.Sin(spinAngle) * 0.95f, 0.086875f * cosin, 0.9f * cosin);
-                matrix.SetTRS(position, parent.Rotation.AsQuat, scale);
+                position = centerPos + new Vector3(Mathf.Sin(spinAngle) * Props.bladeRadius, Props.bladeYOffset * cosin, Props.bladeZOffset * cosin);
+                matrix.SetTRS(position, parent.Rotation.AsQuat, Props.bladeScale);
                 Graphics.DrawMesh(MeshPool.plane10, matrix, BladesMat, 0);
             }
         }
 
         public void StartTurnning(float Speed,Pawn user)
         {
-            maxSpinPower = Speed * 100;
+            // 최대 전력 생산량 제한을 고려하여 maxSpinPower 계산
+            // MaxPowerOutput = base.DesiredPowerOutput * maxSpinPower
+            // 따라서 maxSpinPower = MaxPowerOutput / base.DesiredPowerOutput
+            float calculatedMaxSpinPower = Speed * 100;
+            float limitedMaxSpinPower = MaxPowerOutput / base.DesiredPowerOutput;
+            maxSpinPower = Mathf.Min(calculatedMaxSpinPower, limitedMaxSpinPower);
             isUsingNow = true;
             this.user = user;
             //spinPower = 100;

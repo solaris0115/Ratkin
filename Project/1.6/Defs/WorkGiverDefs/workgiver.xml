@@ -5,8 +5,8 @@
 		<defName>RK_Work_HamsterWheel</defName>
 		<label>running hamster wheel</label>
 		<giverClass>NewRatkin.WorkGiver_HamsterWheel</giverClass>
-		<workType>RK_HamsterWheel</workType>
-		<priorityInType>50</priorityInType>
+		<workType>Hauling</workType>
+		<priorityInType>10</priorityInType>
 		<verb>run</verb>
 		<gerund>running at</gerund>
 	</WorkGiverDef>
