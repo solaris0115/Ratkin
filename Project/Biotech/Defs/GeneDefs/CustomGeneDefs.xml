@@ -352,6 +352,11 @@
 			<li>RK_HeadType_Head1</li>
 			<li>RK_HeadType_Head2</li>
 			<li>RK_HeadType_Head3</li>
+			<li>RK_HeadType_Head4</li>
+			<li>RK_HeadType_Head5</li>
+			<li>RK_HeadType_Head6</li>
+			<li>RK_HeadType_Head7</li>
+			<li>RK_HeadType_Head8</li>
 		</forcedHeadTypes>
 		<statFactors>
 			<NegotiationAbility>0.80</NegotiationAbility>
