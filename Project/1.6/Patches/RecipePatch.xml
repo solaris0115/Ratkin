@@ -63,11 +63,19 @@
 		</operations>
 	</Operation>
 	
-	<Operation Class="PatchOperationAdd">
-        <xpath>*/ThingDef[defName = "Brewery"]/recipes</xpath>
-        <value>
-            <li>Make_RK_StrawberryBeer</li>
-			<li>Make_RK_StrawberryBeer_Bulk</li>
-        </value>
-    </Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>Defs/ThingDef[defName = "Brewery"]/recipes</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName = "Brewery"]/recipes</xpath>
+				<value>
+					<li>Make_RK_StrawberryBeer</li>
+					<li>Make_RK_StrawberryBeer_Bulk</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
 </Patch>
