@@ -2170,7 +2170,7 @@
 		</tradeTags>
 	</ThingDef>
 	<!-- 산타 모자 추위저항 +5 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_SantaHat</defName>
 		<label>santa hat</label>
 		<description>털장식이 달린 산타모자입니다.</description>
