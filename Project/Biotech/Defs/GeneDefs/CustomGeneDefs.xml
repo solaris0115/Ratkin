@@ -185,9 +185,8 @@
 			<li>Ears</li>
 		</exclusionTags>
 		<renderNodeProperties>
-			<li>
+			<li Class="PawnRenderNodeProperties_EarHideByApparelTag">
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-				<workerClass>PawnRenderNodeWorker_EarHideWhenFullHead</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarLeft</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
@@ -195,16 +194,19 @@
 				<useSkinShader>true</useSkinShader>
 				<useRottenColor>true</useRottenColor>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<hiddenUnderApparelTags>
+					<li>RK_ApparelTag_HideEar</li>
+				</hiddenUnderApparelTags>
 				<drawData>
 					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
 					<defaultData>
 						<layer>105</layer>
 					</defaultData>
 					<dataNorth>
-						<offset>(0.02, 0.15, 0.16)</offset>
+						<offset>(0.02, 0, 0.16)</offset>
 					</dataNorth>
 					<dataSouth>
-						<offset>(-0.04, 0.15, 0.19)</offset>
+						<offset>(-0.04, 0, 0.19)</offset>
 					</dataSouth>
 					<dataEast>
 						<offset>(-0.15, -0.25, 0.26)</offset>
@@ -214,9 +216,8 @@
 					</dataWest>
 				</drawData>
 			</li>
-			<li>
+			<li Class="PawnRenderNodeProperties_EarHideByApparelTag">
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
-				<workerClass>PawnRenderNodeWorker_EarHideWhenFullHead</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarRight</texPath>
 				<colorType>Skin</colorType>
 				<parentTagDef>Head</parentTagDef>
@@ -224,16 +225,19 @@
 				<useSkinShader>true</useSkinShader>
 				<useRottenColor>true</useRottenColor>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<hiddenUnderApparelTags>
+					<li>RK_ApparelTag_HideEar</li>
+				</hiddenUnderApparelTags>
 				<drawData>
 					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
 					<defaultData>
 						<layer>105</layer>
 					</defaultData>
 					<dataNorth>
-						<offset>(-0.02, 0.15, 0.16)</offset>
+						<offset>(-0.02, 0, 0.16)</offset>
 					</dataNorth>
 					<dataSouth>
-						<offset>(0.04, 0.15, 0.19)</offset>
+						<offset>(0.04, 0, 0.19)</offset>
 					</dataSouth>
 					<dataEast>
 						<offset>(-0.15, 0.15, 0.26)</offset>
