@@ -184,8 +184,8 @@
 		<exclusionTags>
 			<li>Ears</li>
 		</exclusionTags>
-		<renderNodeProperties>
-			<li Class="Verse.PawnRenderNodeProperties_EarHideByApparelTag">
+		<!-- <renderNodeProperties>
+			<li Class="PawnRenderNodeProperties_EarHideByApparelTag">
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarLeft</texPath>
 				<colorType>Skin</colorType>
@@ -216,7 +216,7 @@
 					</dataWest>
 				</drawData>
 			</li>
-			<li Class="Verse.PawnRenderNodeProperties_EarHideByApparelTag">
+			<li Class="PawnRenderNodeProperties_EarHideByApparelTag">
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarRight</texPath>
 				<colorType>Skin</colorType>
@@ -247,7 +247,7 @@
 					</dataWest>
 				</drawData>
 			</li>
-		</renderNodeProperties>
+		</renderNodeProperties> -->
 		<symbolPack>
 			<prefixSymbols>
 				<li>
@@ -289,14 +289,14 @@
 		<exclusionTags>
 			<li>Tail</li>
 		</exclusionTags>
-		<renderNodeProperties>
+		<!-- <renderNodeProperties>
 			<li>
 				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_Tail</texPath>
 				<colorType>Skin</colorType>
 				<overrideMeshSize>(1, 1)</overrideMeshSize>
 				<parentTagDef>Body</parentTagDef>
-				<!-- <linkedBodyPartsGroup>RK_Tail</linkedBodyPartsGroup> -->
+				<linkedBodyPartsGroup>RK_Tail</linkedBodyPartsGroup>
 				<rotDrawMode>Fresh, Rotting</rotDrawMode>
 				<drawData>
 					<scale>1.5</scale>
@@ -320,7 +320,7 @@
 					</dataWest>
 				</drawData>
 			</li>
-		</renderNodeProperties>
+		</renderNodeProperties> -->
 		<symbolPack>
 			<prefixSymbols>
 				<li>
