@@ -6,7 +6,7 @@ using RimWorld;
 
 namespace DebugTools
 {
-    public static class DebugActionsAllApparel
+    public static class DebugActions
     {
         [DebugAction("Ratkin", "All Apparel Test", 
             allowedGameStates = AllowedGameStates.PlayingOnMap,
@@ -174,6 +174,52 @@ namespace DebugTools
             }
 
             Messages.Message("Map cleared (terrain preserved).", MessageTypeDefOf.TaskCompletion);
+        }
+
+        [DebugAction("Ratkin", "Fill All Needs", 
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            displayPriority = 998)]
+        private static void FillAllNeeds()
+        {
+            if (Find.CurrentMap == null)
+            {
+                Log.Error("No current map found.");
+                return;
+            }
+
+            List<Pawn> selectedPawns = Find.Selector.SelectedObjects.OfType<Pawn>().ToList();
+            
+            if (selectedPawns.Count == 0)
+            {
+                // 선택된 pawn이 없으면 맵의 모든 플레이어 소속 pawn 선택
+                selectedPawns = Find.CurrentMap.mapPawns.FreeColonistsSpawned.ToList();
+            }
+
+            if (selectedPawns.Count == 0)
+            {
+                Messages.Message("No pawns found to fill needs.", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            int filledCount = 0;
+            foreach (Pawn pawn in selectedPawns)
+            {
+                if (pawn.needs == null)
+                    continue;
+
+                // 모든 need를 최대치로 채우기
+                foreach (Need need in pawn.needs.AllNeeds)
+                {
+                    if (need != null)
+                    {
+                        need.CurLevel = need.MaxLevel;
+                    }
+                }
+
+                filledCount++;
+            }
+
+            Messages.Message($"Filled all needs for {filledCount} pawn(s).", MessageTypeDefOf.TaskCompletion);
         }
     }
 }
