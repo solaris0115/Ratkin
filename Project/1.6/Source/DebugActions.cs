@@ -187,22 +187,20 @@ namespace DebugTools
                 return;
             }
 
-            List<Pawn> selectedPawns = Find.Selector.SelectedObjects.OfType<Pawn>().ToList();
-            
-            if (selectedPawns.Count == 0)
-            {
-                // 선택된 pawn이 없으면 맵의 모든 플레이어 소속 pawn 선택
-                selectedPawns = Find.CurrentMap.mapPawns.FreeColonistsSpawned.ToList();
-            }
+            // 맵의 모든 플레이어 소속 pawn 가져오기 (식민지 주민, 죄수, 노예 포함)
+            List<Pawn> allColonyPawns = new List<Pawn>();
+            allColonyPawns.AddRange(Find.CurrentMap.mapPawns.FreeColonistsSpawned);
+            allColonyPawns.AddRange(Find.CurrentMap.mapPawns.PrisonersOfColonySpawned);
+            allColonyPawns.AddRange(Find.CurrentMap.mapPawns.SlavesOfColonySpawned);
 
-            if (selectedPawns.Count == 0)
+            if (allColonyPawns.Count == 0)
             {
                 Messages.Message("No pawns found to fill needs.", MessageTypeDefOf.RejectInput);
                 return;
             }
 
             int filledCount = 0;
-            foreach (Pawn pawn in selectedPawns)
+            foreach (Pawn pawn in allColonyPawns)
             {
                 if (pawn.needs == null)
                     continue;
