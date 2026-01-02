@@ -185,7 +185,7 @@
 			<li>Ears</li>
 		</exclusionTags>
 		<renderNodeProperties>
-			<li Class="PawnRenderNodeProperties_EarHideByApparelTag">
+			<li Class="Verse.PawnRenderNodeProperties_EarHideByApparelTag">
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarLeft</texPath>
 				<colorType>Skin</colorType>
@@ -216,7 +216,7 @@
 					</dataWest>
 				</drawData>
 			</li>
-			<li Class="PawnRenderNodeProperties_EarHideByApparelTag">
+			<li Class="Verse.PawnRenderNodeProperties_EarHideByApparelTag">
 				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
 				<texPath>Things/Ratkin/Body/RK_Texture_EarRight</texPath>
 				<colorType>Skin</colorType>

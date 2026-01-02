@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using RimWorld;
 
 namespace Verse
 {
+	[StaticConstructorOnStartup]
 	public class PawnRenderNodeProperties_EarHideByApparelTag : PawnRenderNodeProperties
 	{
 		public List<string> hiddenUnderApparelTags;
