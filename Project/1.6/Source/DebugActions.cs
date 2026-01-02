@@ -219,6 +219,51 @@ namespace DebugTools
 
             Messages.Message($"Filled all needs for {filledCount} pawn(s).", MessageTypeDefOf.TaskCompletion);
         }
+
+        [DebugAction("Ratkin", "Remove Body Part", 
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            actionType = DebugActionType.ToolMapForPawns,
+            displayPriority = 997)]
+        private static void RemoveBodyPart(Pawn p)
+        {
+            if (p == null)
+            {
+                Log.Error("RemoveBodyPart: Pawn is null.");
+                return;
+            }
+
+            Find.WindowStack.Add(new Dialog_DebugOptionListLister(Options_RemovePart(p), null));
+        }
+
+        private static List<DebugMenuOption> Options_RemovePart(Pawn p)
+        {
+            if (p == null)
+            {
+                throw new System.ArgumentNullException("p");
+            }
+
+            List<DebugMenuOption> list = new List<DebugMenuOption>();
+            
+            // 현재 존재하는 body part 목록 가져오기 (이미 제거된 것은 제외)
+            foreach (BodyPartRecord localPart2 in p.health.hediffSet.GetNotMissingParts(BodyPartHeight.Undefined, BodyPartDepth.Undefined, null, null))
+            {
+                BodyPartRecord localPart = localPart2;
+                list.Add(new DebugMenuOption(localPart.LabelCap, DebugMenuOptionMode.Action, delegate()
+                {
+                    // Hediff_MissingPart 생성 및 추가
+                    Hediff_MissingPart hediff_MissingPart = (Hediff_MissingPart)HediffMaker.MakeHediff(HediffDefOf.MissingBodyPart, p, null);
+                    hediff_MissingPart.Part = localPart;
+                    hediff_MissingPart.IsFresh = false;
+                    hediff_MissingPart.lastInjury = HediffDefOf.Cut; // 기본 부상 타입 설정
+                    
+                    p.health.AddHediff(hediff_MissingPart, localPart, null, null);
+                    
+                    Messages.Message($"Removed {localPart.LabelCap} from {p.LabelShort}.", MessageTypeDefOf.NeutralEvent);
+                }));
+            }
+            
+            return list;
+        }
     }
 }
 
