@@ -72,6 +72,7 @@
 					<RatkinDefender>5</RatkinDefender>
 					<RatkinVanguard>10</RatkinVanguard>
 					<RatkinCombatant>15</RatkinCombatant>
+					<RK_PawnKind_StandardBearer>10</RK_PawnKind_StandardBearer>
 				</options>
 			</li>
 			<!-- 중후반 군인-->
@@ -97,6 +98,7 @@
 					<RatkinEliteGuardener>30</RatkinEliteGuardener>
 					<RatkinKnight>30</RatkinKnight>
 					<RatkinEliteDefender>15</RatkinEliteDefender>
+					<RK_PawnKind_StandardBearer>10</RK_PawnKind_StandardBearer>
 				</options>
 			</li>
 			<!-- 중후반 엘리트 디펜더, 기사, 커맨더-->

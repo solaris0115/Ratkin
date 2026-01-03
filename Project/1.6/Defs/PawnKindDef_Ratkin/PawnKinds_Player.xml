@@ -502,6 +502,7 @@
 		<factionLeader>true</factionLeader>
 		<itemQuality>Excellent</itemQuality>
 		<minGenerationAge>21</minGenerationAge>
+		<maxPerGroup>1</maxPerGroup>
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
@@ -548,10 +549,11 @@
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RK_PawnKind_StandardBearer</defName>
 		<label>ratkin standard bearer</label>
-		<combatPower>80</combatPower>
+		<combatPower>50</combatPower>
 		<isFighter>true</isFighter>
 		<itemQuality>Normal</itemQuality>
 		<minGenerationAge>24</minGenerationAge>
+		<maxPerGroup>1</maxPerGroup>
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
@@ -576,7 +578,7 @@
 			<max>3500</max>
 		</weaponMoney>
 		<weaponTags>
-			<li>RK_Knight</li>
+			<li>RK_WeaponTag_OneHandMeleeAttack</li>
 		</weaponTags>
 		<apparelTags>
 			<li>RK_Knight</li>
