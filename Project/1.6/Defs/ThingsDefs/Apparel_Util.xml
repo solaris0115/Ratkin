@@ -265,7 +265,7 @@
 		<graphicData>
 			<ignoreThingDrawColor>false</ignoreThingDrawColor>
 		</graphicData>
-		<thingClass>NewRatkin.Shield</thingClass>
+		<thingClass>Apparel</thingClass>
 		<techLevel>Medieval</techLevel>
 		<apparel>
 			<defaultOutfitTags>
@@ -353,6 +353,9 @@
 					<li>RK_WeaponTag_LightShieldCompatible</li>
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+			</li>
+			<li Class="NewRatkin.CompProperties_StaminaShield">
+				<!-- StaminaShield 컴포넌트 -->
 			</li>
 		</comps>
 		<apparel>
@@ -452,6 +455,9 @@
 					<li>RK_WeaponTag_LightShieldCompatible</li>
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+			</li>
+			<li Class="NewRatkin.CompProperties_StaminaShield">
+				<!-- StaminaShield 컴포넌트 -->
 			</li>
 		</comps>
 		<apparel>
@@ -558,6 +564,9 @@
 					<li>RK_WeaponTag_HeavyShieldCompatible</li>
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+			</li>
+			<li Class="NewRatkin.CompProperties_StaminaShield">
+				<!-- StaminaShield 컴포넌트 -->
 			</li>
 		</comps>
 		<apparel>
