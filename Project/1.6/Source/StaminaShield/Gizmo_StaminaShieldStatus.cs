@@ -35,11 +35,11 @@ namespace NewRatkin
             Widgets.Label(rect3, this.shield.IsApparel ? this.shield.parent.LabelCap : "ShieldInbuilt".Translate().Resolve());
             Rect rect4 = rect2;
             rect4.yMin = rect2.y + rect2.height / 2f;
-            float fillPercent = this.shield.Energy / Mathf.Max(1f, this.shield.parent.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true, -1));
+            float fillPercent = this.shield.Stamina / Mathf.Max(1f, this.shield.StaminaMax);
             Widgets.FillableBar(rect4, fillPercent, Gizmo_StaminaShieldStatus.FullShieldBarTex, Gizmo_StaminaShieldStatus.EmptyShieldBarTex, false);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleCenter;
-            Widgets.Label(rect4, (this.shield.Energy * 100f).ToString("F0") + " / " + (this.shield.parent.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true, -1) * 100f).ToString("F0"));
+            Widgets.Label(rect4, (this.shield.Stamina * 100f).ToString("F0") + " / " + (this.shield.StaminaMax * 100f).ToString("F0"));
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(rect2, "ShieldPersonalTip".Translate());
             return new GizmoResult(GizmoState.Clear);

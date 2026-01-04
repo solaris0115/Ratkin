@@ -151,5 +151,7 @@ namespace NewRatkin
     {
         public static StatDef RK_Stat_RangeCoolDown;
         public static StatDef RK_Stat_RangeCoolDownMultiplier;
+        public static StatDef RK_Stat_ShieldStamina;
+        public static StatDef RK_Stat_ShieldStaminaRechargeRate;
     }
 }

@@ -8,5 +8,9 @@ alwaysApply: true
 
 !워크플로: [01-workflow.mdc](01-workflow.mdc) 참고하여 워크플로 문서 생성 후 진행
 !분석: [03-def-structure-guide.mdc](03-def-structure-guide.mdc)를 참고하여 분석 진행 후 보고서 생성
+- 분석, 또는 보고서 등으로 파일을 만드는 경우 검색 용이하게 관련 키워드를 맨 상단 태그를 달아줘
+- ex: EnergyShield Belt Apparel Analysis 등 
+- 너가 검색 용이한거, 채팅에서 나왔던 내용을 담아서 나중에 빠르게 찾으면 됨
+- 분석 요청시 Report 폴더도 같이 검색해봐. 용이한 정보가 있다면 로드해.
 !빌드: [02-csharp-manage-rule.mdc](02-csharp-manage-rule.mdc)를 참고
 !구현: [03-def-structure-guide.mdc](03-def-structure-guide.mdc)과 Report 폴더에서 관련 내용을 확인 후 진행

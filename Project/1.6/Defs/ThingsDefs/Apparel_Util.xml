@@ -267,12 +267,14 @@
 		</graphicData>
 		<thingClass>Apparel</thingClass>
 		<techLevel>Medieval</techLevel>
+		<tickerType>Normal</tickerType>
 		<apparel>
+			<wearPerDay>0.2</wearPerDay>
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<layers>
-				<li>OffHand</li>
+				<li>Belt</li>
 			</layers>
 		</apparel>
 		<recipeMaker>
@@ -311,6 +313,8 @@
 			<ArmorRating_Heat>0.2</ArmorRating_Heat>
 			<Flammability>0.8</Flammability>
 			<EquipDelay>1</EquipDelay>
+			<RK_Stat_ShieldStamina>1.0</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStaminaRechargeRate>0.45</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 		</equippedStatOffsets>
@@ -356,6 +360,14 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
+				<startingTicksToReset>3200</startingTicksToReset>
+				<staminaOnReset>0.7</staminaOnReset>
+				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
+				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
+				<staminaLossPerDamageExplosive>0.8</staminaLossPerDamageExplosive>
+				<damageReductionPercentMelee>0.5</damageReductionPercentMelee>
+				<damageReductionPercentRanged>0.5</damageReductionPercentRanged>
+				<damageReductionPercentExplosive>0.1</damageReductionPercentExplosive>
 			</li>
 		</comps>
 		<apparel>
@@ -411,6 +423,8 @@
 			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
 			<Flammability>0.3</Flammability>
 			<EquipDelay>1</EquipDelay>
+			<RK_Stat_ShieldStamina>1.5</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStaminaRechargeRate>0.4</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
@@ -458,6 +472,14 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
+				<startingTicksToReset>3200</startingTicksToReset>
+				<staminaOnReset>0.5</staminaOnReset>
+				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
+				<staminaLossPerDamageRanged>0.066</staminaLossPerDamageRanged>
+				<staminaLossPerDamageExplosive>0.2</staminaLossPerDamageExplosive>
+				<damageReductionPercentMelee>0.6</damageReductionPercentMelee>
+				<damageReductionPercentRanged>0.8</damageReductionPercentRanged><!--원거리는 거의 가드-->
+				<damageReductionPercentExplosive>0.5</damageReductionPercentExplosive>
 			</li>
 		</comps>
 		<apparel>
@@ -474,7 +496,7 @@
 		</apparel>
 	</ThingDef>
 
-	<!-- 대형 철제 방패 -->
+	<!-- 타워 쉴드 -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
 		<defName>RK_TowerShield</defName>
 		<label>ratkin Tower Shield</label>
@@ -519,6 +541,8 @@
 			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 			<Flammability>0.2</Flammability>
 			<EquipDelay>1</EquipDelay>
+			<RK_Stat_ShieldStamina>2.0</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStaminaRechargeRate>0.35</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
@@ -567,6 +591,14 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
+				<startingTicksToReset>3200</startingTicksToReset>
+				<staminaOnReset>0.3</staminaOnReset>
+				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
+				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
+				<staminaLossPerDamageExplosive>0.1</staminaLossPerDamageExplosive>
+				<damageReductionPercentMelee>1</damageReductionPercentMelee>
+				<damageReductionPercentRanged>1</damageReductionPercentRanged><!--원거리는 거의 가드-->
+				<damageReductionPercentExplosive>1</damageReductionPercentExplosive>
 			</li>
 		</comps>
 		<apparel>
