@@ -70,6 +70,15 @@
 			<li>
 				<compClass>CompEquippable</compClass>
 			</li>
+			<li Class="CompProperties_Reloadable">
+				<maxCharges>5</maxCharges>
+				<startingCharges>1</startingCharges>
+				<ammoDef>RK_StrawberryBeer</ammoDef>
+				<ammoCountPerCharge>1</ammoCountPerCharge>
+				<baseReloadTicks>60</baseReloadTicks>
+				<soundReload>Standard_Reload</soundReload>
+				<chargeNoun>throw</chargeNoun>
+			</li>
 		</comps>
 		<tools>
 			<li>
@@ -81,16 +90,15 @@
 				<cooldownTime>2.1</cooldownTime>
 			</li>
 		</tools>
-		<!-- <verbs>
+		<verbs>
 			<li>
-				<verbClass>Verb_ShootOneUse</verbClass>
+				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>RK_StrawberryBeer_Bullet</defaultProjectile>
-				<forcedMissRadius>2.9</forcedMissRadius>
+				<forcedMissRadius>1.5</forcedMissRadius>
 				<warmupTime>1.5</warmupTime>
-				<ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+				<ai_AvoidFriendlyFireRadius>3</ai_AvoidFriendlyFireRadius>
 				<range>12.9</range>
-				<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
 				<burstShotCount>1</burstShotCount>
 				<soundCast>ThrowGrenade</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
@@ -101,10 +109,10 @@
 				</targetParams>
 				<muzzleFlashScale>1</muzzleFlashScale>
 			</li>
-		</verbs> -->
+		</verbs>
 	</ThingDef>
 	
-	<!-- <ThingDef ParentName="BaseBullet">
+	<ThingDef ParentName="BaseBullet">
 		<defName>RK_StrawberryBeer_Bullet</defName>
 		<label>Strawberry Beer</label>
 		<graphicData>
@@ -112,18 +120,43 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<thingClass>Projectile_Explosive</thingClass>
+		<thingClass>NewRatkin.Projectile_StrawberryBeer</thingClass>
 		<projectile>
 			<speed>30</speed>
-			<damageDef>Bomb</damageDef>
+			<damageDef>Blunt</damageDef>
+			<damageAmountBase>1</damageAmountBase>
 			<explosionRadius>1.1</explosionRadius>
 			<explosionDelay>0</explosionDelay>
-			<preExplosionSpawnThingDef>Filth_AntyAcid</preExplosionSpawnThingDef>
-			<preExplosionSpawnChance>0</preExplosionSpawnChance>
+			<soundExplode>Explosion_FirefoamPopper</soundExplode>
+			<postExplosionSpawnThingDef>RK_Filth_BeerFoam</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
 			<arcHeightFactor>0.4</arcHeightFactor>
 			<shadowSize>0.6</shadowSize>
 		</projectile>
-	</ThingDef> -->
+	</ThingDef>
+
+	<ThingDef ParentName="BaseFilth">
+		<defName>RK_Filth_BeerFoam</defName>
+		<label>맥주 거품</label>
+		<statBases>
+			<Beauty>-20</Beauty>
+			<Cleanliness>-4</Cleanliness>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Filth/FireFoam</texPath>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<filth>
+			<ignoreFilthMultiplierStat>true</ignoreFilthMultiplierStat>
+			<disappearsInDays>1</disappearsInDays>
+			<rainWashes>true</rainWashes>
+			<cleaningWorkToReduceThickness>100</cleaningWorkToReduceThickness>
+			<canFilthAttach>true</canFilthAttach>
+			<allowsFire>true</allowsFire>
+			<cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+		</filth>
+	</ThingDef>
 
 	<RecipeDef>
 		<defName>Make_RK_StrawberryBeer</defName>
