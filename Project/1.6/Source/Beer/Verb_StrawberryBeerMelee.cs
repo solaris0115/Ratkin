@@ -8,13 +8,10 @@ namespace NewRatkin
 	/// </summary>
 	public class Verb_StrawberryBeerMelee : RimWorld.Verb_MeleeAttackDamage
 	{
-		protected override bool TryCastShot()
-		{
-			Log.Message($"[Verb_StrawberryBeerMelee] TryCastShot START - Caster: {this.CasterPawn?.LabelCap}, Target: {this.currentTarget.Thing?.LabelCap}, Distance: {(this.CasterPawn != null && this.currentTarget.IsValid ? this.CasterPawn.Position.DistanceTo(this.currentTarget.Cell) : -1f):F2}");
-			bool result = base.TryCastShot();
-			Log.Message($"[Verb_StrawberryBeerMelee] TryCastShot END - Result: {result}");
-			return result;
-		}
+	protected override bool TryCastShot()
+	{
+		return base.TryCastShot();
+	}
 
 	protected override DamageWorker.DamageResult ApplyMeleeDamageToTarget(LocalTargetInfo target)
 	{
