@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<!-- 맥주병 근접 공격용 ToolCapacity -->
+	<ToolCapacityDef>
+		<defName>RK_BeerBottle</defName>
+		<label>beer bottle</label>
+	</ToolCapacityDef>
+
+	<!-- 맥주병 근접 공격용 ManeuverDef -->
+	<ManeuverDef>
+		<defName>RK_BeerBottleStrike</defName>
+		<requiredCapacity>RK_BeerBottle</requiredCapacity>
+		<verb>
+			<verbClass>NewRatkin.Verb_StrawberryBeerMelee</verbClass>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
 	<ThingDef ParentName="DrugBase">
 		<defName>RK_StrawberryBeer</defName>
 		<label>Strawberry Beer</label>
@@ -70,24 +91,16 @@
 			<li>
 				<compClass>CompEquippable</compClass>
 			</li>
-			<li Class="CompProperties_Reloadable">
-				<maxCharges>5</maxCharges>
-				<startingCharges>1</startingCharges>
-				<ammoDef>RK_StrawberryBeer</ammoDef>
-				<ammoCountPerCharge>1</ammoCountPerCharge>
-				<baseReloadTicks>60</baseReloadTicks>
-				<soundReload>Standard_Reload</soundReload>
-				<chargeNoun>throw</chargeNoun>
-			</li>
 		</comps>
 		<tools>
 			<li>
 				<label>bottle</label>
 				<capacities>
-					<li>Blunt</li>
+					<li>RK_BeerBottle</li>
 				</capacities>
-				<power>10</power>
+				<power>5</power>
 				<cooldownTime>2.1</cooldownTime>
+				<chanceFactor>5.0</chanceFactor>
 			</li>
 		</tools>
 		<verbs>
@@ -98,7 +111,7 @@
 				<forcedMissRadius>1.5</forcedMissRadius>
 				<warmupTime>1.5</warmupTime>
 				<ai_AvoidFriendlyFireRadius>3</ai_AvoidFriendlyFireRadius>
-				<range>12.9</range>
+				<range>7.9</range>
 				<burstShotCount>1</burstShotCount>
 				<soundCast>ThrowGrenade</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
@@ -111,7 +124,7 @@
 			</li>
 		</verbs>
 	</ThingDef>
-	
+
 	<ThingDef ParentName="BaseBullet">
 		<defName>RK_StrawberryBeer_Bullet</defName>
 		<label>Strawberry Beer</label>
