@@ -406,12 +406,8 @@
 			</defaultIngredientFilter>
 		</recipeMaker>
 		<costList>
-			<Steel>60</Steel>
+			<Steel>180</Steel>
 		</costList>
-		<costStuffCount>120</costStuffCount>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
 		<statBases>
 			<MaxHitPoints>240</MaxHitPoints>
 			<WorkToMake>35000</WorkToMake>
@@ -521,12 +517,10 @@
 			</defaultIngredientFilter>
 		</recipeMaker>
 		<costList>
-			<Steel>70</Steel>
+			<Steel>200</Steel>
+			<Plasteel>30</Plasteel>
+			<Uranium>20</Uranium>
 		</costList>
-		<costStuffCount>165</costStuffCount>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
 		<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<WorkToMake>40000</WorkToMake>
