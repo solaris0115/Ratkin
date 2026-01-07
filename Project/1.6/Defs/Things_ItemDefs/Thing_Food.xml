@@ -29,7 +29,7 @@
         <allowedArchonexusCount>40</allowedArchonexusCount>
         <comps>
             <li Class="CompProperties_Rottable">
-                <daysToRotStart>45</daysToRotStart>
+                <daysToRotStart>120</daysToRotStart>
                 <rotDestroys>true</rotDestroys>
             </li>
             <li Class="CompProperties_Ingredients">
