@@ -210,6 +210,9 @@
 		<baseCost>1200</baseCost>
 		<researchViewX>3</researchViewX>
 		<researchViewY>1</researchViewY>
+		<prerequisites>
+			<li>Machining</li>
+		</prerequisites>
 	</ResearchProjectDef>
 
 	<!-- 5티어 연구 -->
