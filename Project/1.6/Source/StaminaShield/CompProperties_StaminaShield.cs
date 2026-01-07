@@ -50,10 +50,17 @@ namespace NewRatkin
         public float damageReductionPercentExplosive = 1.0f;
 
         /// <summary>
-        /// 전투 피해로 인한 방패 내구도 손상 비율 (기본값 0.25 = 25%, 일반 의류와 동일)
+        /// 방패가 흡수한 데미지량에 대한 내구도 손상 비율 (기본값 0.25 = 25%)
+        /// 실제로 방패가 막아낸 데미지량(reducedDamage) × 이 비율만큼 내구도 손상 발생
         /// 0.0 = 내구도 손상 없음, 0.125 = 12.5%, 0.5 = 50% 등
         /// </summary>
         public float durabilityDamagePercent = 0.25f;
+
+        /// <summary>
+        /// 스태미나 브레이크 시 pawn에게 부여할 스턴 시간 (틱 단위)
+        /// 0 = 스턴 부여 안 함, 60 = 1초, 300 = 5초 등
+        /// </summary>
+        public int stunDurationTicks = 0;
     }
 }
 

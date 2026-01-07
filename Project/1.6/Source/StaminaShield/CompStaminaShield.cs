@@ -8,6 +8,14 @@ using RimWorld;
 
 namespace NewRatkin
 {
+    public enum AttackType
+    {
+        Melee,      // 근접 공격
+        Ranged,     // 원거리 공격
+        Explosive,  // 폭발 공격
+        Etc         // 그 외 (통과)
+    }
+
     [StaticConstructorOnStartup]
     public class CompStaminaShield : ThingComp
     {
@@ -25,6 +33,8 @@ namespace NewRatkin
 
         private float ApparelScorePerStaminaMax = 0.25f;
 
+        private bool isApplyingDurabilityDamage = false;
+
         public CompProperties_StaminaShield Props
         {
             get
@@ -37,39 +47,7 @@ namespace NewRatkin
         {
             get
             {
-                float value = this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldStamina, true, -1);
-                
-                // 디버그: 상세 정보 로그 출력
-                if (Find.TickManager != null && Find.TickManager.TicksGame % 300 == 0) // 5초마다
-                {
-                    float baseValue = this.parent?.def?.statBases?.FirstOrDefault(s => s.stat == RatkinStatDefOf.RK_Stat_ShieldStamina)?.value ?? 0f;
-                    QualityCategory? quality = null;
-                    if (this.parent.TryGetQuality(out QualityCategory qc))
-                    {
-                        quality = qc;
-                    }
-                    string stuffName = this.parent.Stuff?.defName ?? "null";
-                    
-                    Log.Message($"[CompStaminaShield] StaminaMax Debug - Parent: {this.parent?.def?.defName ?? "null"}, " +
-                        $"BaseValue: {baseValue:F2}, Quality: {quality?.ToString() ?? "null"}, " +
-                        $"Stuff: {stuffName}, FinalValue: {value:F2}");
-                }
-                
-                // 디버그: 값이 비정상적으로 크면 로그 출력
-                if (value > 100f)
-                {
-                    float baseValue = this.parent?.def?.statBases?.FirstOrDefault(s => s.stat == RatkinStatDefOf.RK_Stat_ShieldStamina)?.value ?? 0f;
-                    QualityCategory? quality = null;
-                    if (this.parent.TryGetQuality(out QualityCategory qc))
-                    {
-                        quality = qc;
-                    }
-                    string stuffName = this.parent.Stuff?.defName ?? "null";
-                    
-                    Log.Warning($"[CompStaminaShield] StaminaMax is abnormally high: {value:F2} for {this.parent?.def?.defName ?? "null"}. " +
-                        $"BaseValue: {baseValue:F2}, Quality: {quality?.ToString() ?? "null"}, Stuff: {stuffName}");
-                }
-                return value;
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldStamina, true, -1);
             }
         }
 
@@ -175,7 +153,6 @@ namespace NewRatkin
             // 방패 장착 시 스태미나를 0으로 초기화
             this.stamina = 0f;
             this.ticksToReset = -1;
-            Log.Message($"[CompStaminaShield] Notify_Equipped: Pawn={pawn?.LabelShort ?? "null"}, Parent={this.parent?.def?.defName ?? "null"}, Stamina={this.stamina:F2}, ticksToReset={this.ticksToReset}, StaminaMax={this.StaminaMax:F2}, StaminaGainPerTick={this.StaminaGainPerTick:F4}");
         }
 
         public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
@@ -196,7 +173,10 @@ namespace NewRatkin
                 yield return new Command_Action
                 {
                     defaultLabel = "DEV: Break",
-                    action = new Action(this.Break)
+                    action = delegate()
+                    {
+                        this.Break(0f); // DEV 명령어는 기본 스턴 시간만 적용
+                    }
                 };
                 if (this.ticksToReset > 0)
                 {
@@ -259,12 +239,6 @@ namespace NewRatkin
         {
             base.CompTick();
             
-            // 디버그 로그 (60틱마다 출력, 1초마다)
-            if (Find.TickManager.TicksGame % 60 == 0)
-            {
-                Log.Message($"[CompStaminaShield] CompTick called. Parent: {this.parent?.def?.defName ?? "null"}, PawnOwner: {this.PawnOwner?.LabelShort ?? "null"}, Stamina: {this.stamina:F2}, StaminaMax: {this.StaminaMax:F2}, ticksToReset: {this.ticksToReset}, ShieldState: {this.ShieldState}, StaminaGainPerTick: {this.StaminaGainPerTick:F4}");
-            }
-            
             if (this.PawnOwner == null)
             {
                 this.stamina = 0f;
@@ -283,25 +257,10 @@ namespace NewRatkin
             }
             else if (currentState == ShieldState.Active)
             {
-                float oldStamina = this.stamina;
                 this.stamina += this.StaminaGainPerTick;
                 if (this.stamina > this.StaminaMax)
                 {
                     this.stamina = this.StaminaMax;
-                }
-                
-                // 스테미나 회복 로그 (변화가 있을 때만)
-                if (Find.TickManager.TicksGame % 60 == 0 && oldStamina != this.stamina)
-                {
-                    Log.Message($"[CompStaminaShield] Stamina recovering: {oldStamina:F2} -> {this.stamina:F2} (Max: {this.StaminaMax:F2})");
-                }
-            }
-            else if (currentState == ShieldState.Disabled)
-            {
-                // Disabled 상태일 때 로그
-                if (Find.TickManager.TicksGame % 60 == 0)
-                {
-                    Log.Message($"[CompStaminaShield] Shield is Disabled. Stamina: {this.stamina:F2}");
                 }
             }
         }
@@ -310,79 +269,191 @@ namespace NewRatkin
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
+            
+            float incomingDamage = dinfo.Amount;
+            string damageType = dinfo.Def.defName;
+            
+            // 내구도 데미지 적용 중이면 무시 (무한 루프 방지)
+            if (this.isApplyingDurabilityDamage)
+            {
+                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: 내구도 데미지 적용 중 (무한 루프 방지)");
+                return;
+            }
+            
             if (this.ShieldState != ShieldState.Active || this.PawnOwner == null)
             {
+                string reason = this.PawnOwner == null ? "PawnOwner 없음" : $"ShieldState: {this.ShieldState} (Active 아님)";
+                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: {reason}");
                 return;
             }
             
-            // EMP 공격은 통과 (스태미나 감소 없음)
-            if (dinfo.Def == DamageDefOf.EMP)
+            // 소집 상태이고 행동 가능한 상태에서만 흡수 동작
+            Pawn pawn = this.PawnOwner;
+            if (!pawn.Drafted || pawn.Dead || pawn.Downed || !pawn.Awake())
             {
-                return;
-            }
-            
-            // ignoreShields 속성은 통과 (스태미나 감소 없음)
-            if (dinfo.Def.ignoreShields)
-            {
+                string reason = "";
+                if (!pawn.Drafted) reason = "소집 상태 아님";
+                else if (pawn.Dead) reason = "Pawn 사망";
+                else if (pawn.Downed) reason = "Pawn 눕힘";
+                else if (!pawn.Awake()) reason = "Pawn 수면/무의식";
+                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: {reason}");
                 return;
             }
             
             // 근접/원거리/폭발 공격 처리
+            AttackType attackType = this.GetAttackType(dinfo);
             float damageReductionPercent = 0f;
             float staminaLossPerDamage = 0f;
             bool shouldProcess = false;
+            string classificationType = "미분류";
             
-            if (dinfo.Def.isRanged)
+            switch (attackType)
             {
-                damageReductionPercent = this.Props.damageReductionPercentRanged;
-                staminaLossPerDamage = this.Props.staminaLossPerDamageRanged;
-                shouldProcess = true;
+                case AttackType.Melee:
+                    classificationType = "근접";
+                    damageReductionPercent = this.Props.damageReductionPercentMelee;
+                    staminaLossPerDamage = this.Props.staminaLossPerDamageMelee;
+                    shouldProcess = true;
+                    break;
+                    
+                case AttackType.Ranged:
+                    classificationType = "원거리";
+                    damageReductionPercent = this.Props.damageReductionPercentRanged;
+                    staminaLossPerDamage = this.Props.staminaLossPerDamageRanged;
+                    shouldProcess = true;
+                    break;
+                    
+                case AttackType.Explosive:
+                    classificationType = "폭발";
+                    damageReductionPercent = this.Props.damageReductionPercentExplosive;
+                    staminaLossPerDamage = this.Props.staminaLossPerDamageExplosive;
+                    shouldProcess = true;
+                    break;
+                    
+                case AttackType.Etc:
+                default:
+                    classificationType = "ETC (통과)";
+                    shouldProcess = false;  // ETC는 통과 처리
+                    break;
             }
-            else if (dinfo.Def.isExplosive)
+            
+            // DamageDef 분류 정보 로그
+            Log.Message($"[StaminaShield] DamageDef 분류 정보:");
+            Log.Message($"[StaminaShield]   - DamageDef: {damageType}");
+            Log.Message($"[StaminaShield]   - isRanged: {dinfo.Def.isRanged}");
+            Log.Message($"[StaminaShield]   - isExplosive: {dinfo.Def.isExplosive}");
+            Log.Message($"[StaminaShield]   - Tool: {(dinfo.Tool != null ? "있음" : "없음")}");
+            Log.Message($"[StaminaShield]   - Weapon: {(dinfo.Weapon != null ? dinfo.Weapon.defName : "없음")}");
+            Log.Message($"[StaminaShield]   - 처리 타입: {classificationType} (AttackType: {attackType})");
+            
+            if (!shouldProcess)
             {
-                damageReductionPercent = this.Props.damageReductionPercentExplosive;
-                staminaLossPerDamage = this.Props.staminaLossPerDamageExplosive;
-                shouldProcess = true;
+                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: {classificationType}");
+                return;
             }
-            else
+            
+            if (damageReductionPercent <= 0f)
             {
-                // 근접 공격 (isRanged = false, isExplosive = false)
-                damageReductionPercent = this.Props.damageReductionPercentMelee;
-                staminaLossPerDamage = this.Props.staminaLossPerDamageMelee;
-                shouldProcess = true;
+                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: 피해 감소율 0% (처리 안 함)");
+                return;
             }
             
             if (shouldProcess && damageReductionPercent > 0f)
             {
                 // 원래 데미지를 기준으로 스태미나 소모 (감쇄 전)
                 float originalDamage = dinfo.Amount;
+                
                 float staminaLoss = originalDamage * staminaLossPerDamage;
+                float currentStaminaBefore = this.stamina;
+                
+                // 스태미나가 충분한지 확인
+                bool hasEnoughStamina = this.stamina >= staminaLoss;
+                
+                // 스태미나 차감
                 this.stamina -= staminaLoss;
                 
-                // 그 다음 피해 감소율만큼 데미지 감쇄
-                float reducedDamage = originalDamage * damageReductionPercent;
-                float remainingDamage = originalDamage - reducedDamage;
+                float reducedDamage = 0f;
+                float remainingDamage = originalDamage;
+                
+                // 스태미나가 충분한 경우에만 피해 감소 적용
+                if (hasEnoughStamina)
+                {
+                    // 피해 감소율만큼 데미지 감쇄
+                    reducedDamage = originalDamage * damageReductionPercent;
+                    remainingDamage = originalDamage - reducedDamage;
+                    
+                    // 감쇄된 데미지만 차단, 나머지는 통과
+                    if (remainingDamage > 0f)
+                    {
+                        dinfo.SetAmount(remainingDamage);
+                    }
+                }
+                else
+                {
+                    // 스태미나 부족 시 피해 감소 적용 안 함 (원래 데미지 그대로)
+                    reducedDamage = 0f;
+                    remainingDamage = originalDamage;
+                    // dinfo는 그대로 유지 (원래 데미지)
+                }
+                
+                // 로그 출력: 피격 정보
+                Log.Message($"[StaminaShield] 피격 정보:");
+                Log.Message($"[StaminaShield]   - 오리지널 데미지: {originalDamage:F2} ({damageType})");
+                Log.Message($"[StaminaShield]   - 스태미나 데미지: {staminaLoss:F2} (배율: {staminaLossPerDamage:F4})");
+                Log.Message($"[StaminaShield]   - 스태미나 충분 여부: {hasEnoughStamina} (현재: {currentStaminaBefore:F2}, 필요: {staminaLoss:F2})");
+                if (hasEnoughStamina)
+                {
+                    Log.Message($"[StaminaShield]   - 흡수된 피해량: {reducedDamage:F2} (감쇄 배율: {damageReductionPercent:P2})");
+                    Log.Message($"[StaminaShield]   - 결과: {(remainingDamage <= 0f ? "흡수됨" : $"통과 ({remainingDamage:F2} 데미지)")}");
+                }
+                else
+                {
+                    Log.Message($"[StaminaShield]   - 스태미나 부족으로 피해 감소 미적용");
+                    Log.Message($"[StaminaShield]   - 결과: 통과 ({remainingDamage:F2} 데미지, 원래 데미지 그대로)");
+                }
                 
                 // 스태미나가 0 이하가 되면 쉴드 파괴
                 if (this.stamina <= 0f)
                 {
-                    this.Break();
+                    // 흡수 못한 피해 비율 계산 (스턴 시간 증가용)
+                    float remainingStaminaRatio = 0f;
+                    if (staminaLoss > 0f)
+                    {
+                        // 잔여 스태미나 비율 = 브레이크 전 스태미나 / 필요한 스태미나 손실량
+                        // 흡수 못한 비율 = 1 - 잔여 스태미나 비율
+                        remainingStaminaRatio = Mathf.Clamp01(currentStaminaBefore / staminaLoss);
+                    }
+                    this.Break(remainingStaminaRatio);
                 }
-                else
+                else if (hasEnoughStamina)
                 {
-                    // 흡수 효과 표시
+                    // 흡수 효과 표시 (스태미나가 충분했을 때만)
                     this.AbsorbedDamage(dinfo);
                 }
                 
-                // 감쇄된 데미지만 차단, 나머지는 통과
-                if (remainingDamage > 0f)
+                // 의류 내구도 손상 처리 (흡수된 데미지량 기준, 스태미나가 충분했을 때만)
+                if (hasEnoughStamina && this.Props.durabilityDamagePercent > 0f && this.IsApparel && this.parent.Spawned)
                 {
-                    dinfo.SetAmount(remainingDamage);
+                    // 실제로 방패가 흡수한 데미지량(reducedDamage)을 기준으로 내구도 손상 계산
+                    float durabilityDamage = reducedDamage * this.Props.durabilityDamagePercent;
+                    if (durabilityDamage > 0f)
+                    {
+                        Log.Message($"[StaminaShield]   - 내구도 데미지: {durabilityDamage:F2} (흡수량 {reducedDamage:F2} × {this.Props.durabilityDamagePercent:P2})");
+                        this.isApplyingDurabilityDamage = true;
+                        try
+                        {
+                            DamageInfo durabilityDinfo = new DamageInfo(dinfo.Def, durabilityDamage, dinfo.ArmorPenetrationInt, dinfo.Angle, dinfo.Instigator, null, dinfo.Weapon, dinfo.Category, dinfo.IntendedTarget);
+                            this.parent.TakeDamage(durabilityDinfo);
+                        }
+                        finally
+                        {
+                            this.isApplyingDurabilityDamage = false;
+                        }
+                    }
                 }
-                else
-                {
-                    absorbed = true;
-                }
+                
+                // 피격 처리 후 absorbed = true 설정
+                absorbed = true;
             }
         }
 
@@ -412,7 +483,7 @@ namespace NewRatkin
             this.KeepDisplaying();
         }
 
-        private void Break()
+        private void Break(float remainingStaminaRatio = 0f)
         {
             if (this.parent.Spawned)
             {
@@ -425,7 +496,35 @@ namespace NewRatkin
                 // 사운드 제거 (계획서 요구사항)
             }
             this.stamina = 0f;
-            this.ticksToReset = this.Props.startingTicksToReset;
+            
+            // 스태미나 브레이크 시 stun 부여 및 재생 대기 시간 설정
+            int totalStunTicks = this.Props.startingTicksToReset; // 기본값 (스턴이 부여되지 않는 경우)
+            
+            if (this.Props.stunDurationTicks > 0 && this.PawnOwner != null && this.PawnOwner.stances != null && this.PawnOwner.stances.stunner != null)
+            {
+                // 흡수 못한 피해 비율에 따라 스턴 시간 증가 (최대 100%)
+                // remainingStaminaRatio: 잔여 스태미나 비율 (0.0 ~ 1.0)
+                // 흡수 못한 비율 = 1.0 - remainingStaminaRatio
+                // 예: 스태미나 피해량 50, 잔여 스태미나 25 → remainingStaminaRatio = 0.5 → 흡수 못한 비율 = 0.5 → 스턴 시간 50% 증가
+                float unabsorbedRatio = 1.0f - remainingStaminaRatio;
+                unabsorbedRatio = Mathf.Clamp01(unabsorbedRatio); // 최대 100%로 제한
+                
+                int baseStunTicks = this.Props.stunDurationTicks;
+                int additionalStunTicks = Mathf.RoundToInt(baseStunTicks * unabsorbedRatio);
+                totalStunTicks = baseStunTicks + additionalStunTicks;
+                
+                Log.Message($"[StaminaShield] 쉴드 브레이크 - 스턴 시간 계산:");
+                Log.Message($"[StaminaShield]   - 기본 스턴 시간: {baseStunTicks}틱");
+                Log.Message($"[StaminaShield]   - 잔여 스태미나 비율: {remainingStaminaRatio:P2}");
+                Log.Message($"[StaminaShield]   - 흡수 못한 비율: {unabsorbedRatio:P2}");
+                Log.Message($"[StaminaShield]   - 추가 스턴 시간: {additionalStunTicks}틱");
+                Log.Message($"[StaminaShield]   - 총 스턴 시간: {totalStunTicks}틱");
+                
+                this.PawnOwner.stances.stunner.StunFor(totalStunTicks, this.parent, true, true, false);
+            }
+            
+            // 스턴 시간과 재생 대기 시간을 동일하게 설정
+            this.ticksToReset = totalStunTicks;
         }
 
         private void Reset()
@@ -440,6 +539,114 @@ namespace NewRatkin
 
         // 원거리 무기 차단 기능 제거 (계획서 요구사항)
         // CompAllowVerbCast 제거됨
+
+        /// <summary>
+        /// DamageInfo를 통해 공격 타입을 구분합니다.
+        /// </summary>
+        private AttackType GetAttackType(DamageInfo dinfo)
+        {
+            // 1순위: 폭발 공격 확인 (최우선, 근접/원거리 무시)
+            if (dinfo.Def.isExplosive)
+            {
+                return AttackType.Explosive;
+            }
+            
+            // 2순위: ignoreShields 또는 EMP는 ETC로 처리 (통과)
+            if (dinfo.Def.ignoreShields || dinfo.Def == DamageDefOf.EMP)
+            {
+                return AttackType.Etc;
+            }
+            
+            // 3순위: Tool 확인 (근접 무기는 항상 Tool을 가짐)
+            if (dinfo.Tool != null)
+            {
+                return AttackType.Melee;
+            }
+            
+            // 4순위: Weapon의 Verbs 확인
+            if (dinfo.Weapon != null && dinfo.Weapon.Verbs != null)
+            {
+                bool hasMeleeVerb = false;
+                bool hasRangedVerb = false;
+                
+                foreach (VerbProperties verbProps in dinfo.Weapon.Verbs)
+                {
+                    if (verbProps.IsMeleeAttack)
+                    {
+                        hasMeleeVerb = true;
+                    }
+                    if (verbProps.Ranged)
+                    {
+                        hasRangedVerb = true;
+                    }
+                }
+                
+                // 근접과 원거리 모두 있으면 근접 우선 (근접 무기로 원거리 공격 불가)
+                if (hasMeleeVerb)
+                {
+                    return AttackType.Melee;
+                }
+                if (hasRangedVerb)
+                {
+                    return AttackType.Ranged;
+                }
+            }
+            
+            // 5순위: Instigator의 현재 Verb 확인
+            if (dinfo.Instigator is Pawn attacker)
+            {
+                // 현재 작업 중인 Verb
+                Verb currentVerb = attacker.CurJob?.verbToUse;
+                if (currentVerb != null)
+                {
+                    if (currentVerb.verbProps.IsMeleeAttack)
+                    {
+                        return AttackType.Melee;
+                    }
+                    if (currentVerb.verbProps.Ranged)
+                    {
+                        return AttackType.Ranged;
+                    }
+                }
+                
+                // 장비 중인 무기의 PrimaryVerb
+                Verb primaryVerb = attacker.equipment?.PrimaryEq?.PrimaryVerb;
+                if (primaryVerb != null)
+                {
+                    if (primaryVerb.verbProps.IsMeleeAttack)
+                    {
+                        return AttackType.Melee;
+                    }
+                    if (primaryVerb.verbProps.Ranged)
+                    {
+                        return AttackType.Ranged;
+                    }
+                }
+                
+                // CurrentEffectiveVerb 확인 (폴백)
+                Verb effectiveVerb = attacker.CurrentEffectiveVerb;
+                if (effectiveVerb != null)
+                {
+                    if (effectiveVerb.IsMeleeAttack)
+                    {
+                        return AttackType.Melee;
+                    }
+                    if (effectiveVerb.verbProps.Ranged)
+                    {
+                        return AttackType.Ranged;
+                    }
+                }
+            }
+            
+            // 6순위: DamageDef의 isRanged 속성 확인 (폴백)
+            if (dinfo.Def.isRanged)
+            {
+                return AttackType.Ranged;
+            }
+            
+            // 7순위: 그 외 (ETC - 통과)
+            return AttackType.Etc;
+        }
     }
 }
 

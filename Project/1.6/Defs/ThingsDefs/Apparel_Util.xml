@@ -287,6 +287,7 @@
 		</recipeMaker>
 	</ThingDef>
 
+	<!-- 방패류는 폭발이 약점 -->
 	<!-- 목제 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
 		<defName>RK_WoodenShield</defName>
@@ -308,13 +309,10 @@
 			<MaxHitPoints>120</MaxHitPoints>
 			<WorkToMake>12500</WorkToMake>
 			<Mass>3</Mass>
-			<ArmorRating_Sharp>0.57</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.57</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.2</ArmorRating_Heat>
 			<Flammability>0.8</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>1.0</RK_Stat_ShieldStamina>
-			<RK_Stat_ShieldStaminaRechargeRate>0.45</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldStamina>1.1</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStaminaRechargeRate>0.25</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 		</equippedStatOffsets>
@@ -360,14 +358,16 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
-				<startingTicksToReset>3200</startingTicksToReset>
-				<staminaOnReset>0.7</staminaOnReset>
-				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
+				<startingTicksToReset>180</startingTicksToReset>
+				<stunDurationTicks>180</stunDurationTicks>
+				<durabilityDamagePercent>0.1</durabilityDamagePercent>
+				<staminaOnReset>0.2</staminaOnReset>
+				<staminaLossPerDamageMelee>0.066</staminaLossPerDamageMelee>
 				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
-				<staminaLossPerDamageExplosive>0.8</staminaLossPerDamageExplosive>
-				<damageReductionPercentMelee>0.5</damageReductionPercentMelee>
+				<staminaLossPerDamageExplosive>0.1</staminaLossPerDamageExplosive>
+				<damageReductionPercentMelee>0.4</damageReductionPercentMelee>
 				<damageReductionPercentRanged>0.5</damageReductionPercentRanged>
-				<damageReductionPercentExplosive>0.1</damageReductionPercentExplosive>
+				<damageReductionPercentExplosive>0.25</damageReductionPercentExplosive>
 			</li>
 		</comps>
 		<apparel>
@@ -416,15 +416,10 @@
 			<MaxHitPoints>240</MaxHitPoints>
 			<WorkToMake>35000</WorkToMake>
 			<Mass>7</Mass>
-			<StuffEffectMultiplierArmor>0.8</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
-			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
-			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.0</ArmorRating_Blunt>
 			<Flammability>0.3</Flammability>
 			<EquipDelay>1</EquipDelay>
 			<RK_Stat_ShieldStamina>1.5</RK_Stat_ShieldStamina>
-			<RK_Stat_ShieldStaminaRechargeRate>0.4</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldStaminaRechargeRate>0.16</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
@@ -472,14 +467,16 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
-				<startingTicksToReset>3200</startingTicksToReset>
-				<staminaOnReset>0.5</staminaOnReset>
-				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
-				<staminaLossPerDamageRanged>0.066</staminaLossPerDamageRanged>
-				<staminaLossPerDamageExplosive>0.2</staminaLossPerDamageExplosive>
-				<damageReductionPercentMelee>0.6</damageReductionPercentMelee>
-				<damageReductionPercentRanged>0.8</damageReductionPercentRanged><!--원거리는 거의 가드-->
-				<damageReductionPercentExplosive>0.5</damageReductionPercentExplosive>
+				<startingTicksToReset>180</startingTicksToReset>
+				<stunDurationTicks>180</stunDurationTicks>
+				<durabilityDamagePercent>0.1</durabilityDamagePercent>
+				<staminaOnReset>0.2</staminaOnReset>
+				<staminaLossPerDamageMelee>0.066</staminaLossPerDamageMelee>
+				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
+				<staminaLossPerDamageExplosive>0.1</staminaLossPerDamageExplosive>
+				<damageReductionPercentMelee>0.7</damageReductionPercentMelee>
+				<damageReductionPercentRanged>0.8</damageReductionPercentRanged>
+				<damageReductionPercentExplosive>0.4</damageReductionPercentExplosive>
 			</li>
 		</comps>
 		<apparel>
@@ -534,15 +531,10 @@
 			<MaxHitPoints>300</MaxHitPoints>
 			<WorkToMake>40000</WorkToMake>
 			<Mass>10</Mass>
-			<StuffEffectMultiplierArmor>0.85</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold>
-			<StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat>
-			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 			<Flammability>0.2</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>2.0</RK_Stat_ShieldStamina>
-			<RK_Stat_ShieldStaminaRechargeRate>0.35</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldStamina>1.9</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStaminaRechargeRate>0.13</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
@@ -591,14 +583,16 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
-				<startingTicksToReset>3200</startingTicksToReset>
-				<staminaOnReset>0.3</staminaOnReset>
+				<startingTicksToReset>180</startingTicksToReset>
+				<stunDurationTicks>180</stunDurationTicks>
+				<durabilityDamagePercent>0.1</durabilityDamagePercent>
+				<staminaOnReset>0.2</staminaOnReset>
 				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
 				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
-				<staminaLossPerDamageExplosive>0.1</staminaLossPerDamageExplosive>
-				<damageReductionPercentMelee>1</damageReductionPercentMelee>
-				<damageReductionPercentRanged>1</damageReductionPercentRanged><!--원거리는 거의 가드-->
-				<damageReductionPercentExplosive>1</damageReductionPercentExplosive>
+				<staminaLossPerDamageExplosive>0.066</staminaLossPerDamageExplosive>
+				<damageReductionPercentMelee>0.9</damageReductionPercentMelee>
+				<damageReductionPercentRanged>1.0</damageReductionPercentRanged>
+				<damageReductionPercentExplosive>0.5</damageReductionPercentExplosive>
 			</li>
 		</comps>
 		<apparel>
