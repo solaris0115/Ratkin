@@ -63,7 +63,7 @@
 		<constructEffect>ConstructWood</constructEffect>
 		<researchPrerequisites>
 			<li>Electricity</li>
-			<li>RK_Research_GearMechanics</li>
+			<li>RK_Research_RatkinEngineering</li>
 		</researchPrerequisites>
 		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 	</ThingDef>	
