@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<!-- 건랜스 일반-->
 	<ThingDef ParentName="RK_MeleeWeapon">
@@ -20,6 +20,10 @@
 			<li>RK_WeaponTag_LightShieldCompatible</li>
 			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_4TierWeapon</li>
+			<li>RK_TradeTag_HighTech</li>
+		</tradeTags>
 		<costStuffCount>100</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -183,6 +187,8 @@
 		</thingCategories>
 		<tradeTags>
 			<li>MortarShell</li>
+			<li>RK_TradeTag_4TierWeapon</li>
+			<li>RK_TradeTag_HighTech</li>
 		</tradeTags>
 	</ThingDef>
 
@@ -326,6 +332,8 @@
 			<li>RK_TradeTag_Weapon</li>
 			<li>RK_TradeTag_MeleeWeapon</li>
 			<li>RK_TradeTag_UltraTech</li>
+			<li>RK_TradeTag_4TierWeapon</li>
+			<li>RK_TradeTag_HighTech</li>
 			<!-- <li>RK_TradeTag_Exotic</li> -->
 		</tradeTags>
 		<thingCategories>
