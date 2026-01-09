@@ -1052,9 +1052,13 @@
 			<!-- <Crafting>10</Crafting> -->
 			<!-- </skillRequirements> -->
 		</recipeMaker>
-		<weaponTags Inherit="false">
-			<!-- <li>RK_4TierWeapon</li> -->
-			<!-- <li>RK_HeavyRifle</li> -->
+		<weaponTags Inherit="false">			<li>RK_Weapon_All</li>
+			<li>RK_Weapon_Range</li>
+			<li>RK_Weapon_TwoHand</li>
+			<li>RK_Weapon_TwoHandRange</li>
+			<li>RK_WeaponTag_Reward</li>
+			<li>RK_WeaponTag_Exotic</li>
+			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
 		<tradeTags Inherit="false">
 			<!-- <li>ExoticMisc</li> -->
@@ -1180,6 +1184,7 @@
 			<li>RK_Weapon_TwoHand</li>
 			<li>RK_Weapon_TwoHandRange</li>
 			<li>RK_Weapon_TwoHandRangeAttack</li>
+			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.25</MoveSpeed>

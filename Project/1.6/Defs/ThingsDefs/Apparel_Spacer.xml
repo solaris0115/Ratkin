@@ -53,6 +53,7 @@
 				<li>RK_4Tier</li>
 				<li>RK_ApparelTag_SpaceWear</li>
 				<li>RK_ApparelTag_HideEar</li>
+				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Spacefarer</li>
@@ -133,6 +134,7 @@
 				<li>RK_4Tier</li>
 				<li>RK_ApparelTag_SpaceWear</li>
 				<li>RK_ApparelTag_HideTail</li>
+				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Spacefarer</li>
@@ -217,6 +219,7 @@
 				<li>RK_4Tier</li>
 				<li>RK_ApparelTag_SpaceWear</li>
 				<li>RK_ApparelTag_HideTail</li>
+				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Spacefarer</li>
@@ -288,6 +291,7 @@
 			</layers>
 			<tags>
 				<li>RK_ApparelTag_HideTail</li>
+				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
@@ -334,6 +338,7 @@
 			<useWornGraphicMask>true</useWornGraphicMask>
 			<tags>
 				<li>RK_ApparelTag_HideEar</li>
+				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
