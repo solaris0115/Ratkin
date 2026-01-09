@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<ThingDef Abstract="True" Name="RK_NeolithicRangeWeapon" ParentName="BaseWeaponNeolithic">
 		<recipeMaker>
@@ -51,6 +51,9 @@
 			<li>RK_WeaponTag_OneHandRange</li>
 			<li>RK_WeaponTag_OneHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_1TierWeapon</li>
+		</tradeTags>
 		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
@@ -97,7 +100,7 @@
 			<speed>45</speed>
 		</projectile>
 	</ThingDef>
-	
+
 	<!-- 연발석궁 -->
 	<ThingDef ParentName="RK_NeolithicRangeWeapon">
 		<defName>RK_AutoCrossBow</defName>
@@ -143,6 +146,9 @@
 			<li>RK_WeaponTag_OneHandRange</li>
 			<li>RK_WeaponTag_OneHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_1TierWeapon</li>
+		</tradeTags>
 		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
@@ -243,6 +249,9 @@
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_2TierWeapon</li>
+		</tradeTags>
 		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
@@ -365,6 +374,9 @@
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_3TierWeapon</li>
+		</tradeTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
@@ -452,6 +464,9 @@
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_3TierWeapon</li>
+		</tradeTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
@@ -547,6 +562,9 @@
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_3TierWeapon</li>
+		</tradeTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
@@ -642,6 +660,9 @@
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_3TierWeapon</li>
+		</tradeTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
@@ -759,6 +780,9 @@
 			<li>RK_WeaponTag_OneHandRange</li>
 			<li>RK_WeaponTag_OneHandRangeAttack</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_2TierWeapon</li>
+		</tradeTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
@@ -830,7 +854,7 @@
 		</verbs>
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
-        </recipeMaker>
+		</recipeMaker>
 		<weaponClasses>
 			<li>RangedLight</li>
 		</weaponClasses>
@@ -841,6 +865,7 @@
 			<li>RK_WeaponTag_OneHandRangeAttack</li>
 		</weaponTags>
 		<tradeTags Inherit="false">
+			<li>RK_TradeTag_4TierWeapon</li>
 			<!-- <li>ExoticMisc</li> -->
 		</tradeTags>
 		<tools>
@@ -920,7 +945,7 @@
 		</verbs>
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
-        </recipeMaker>
+		</recipeMaker>
 		<weaponTags Inherit="false">
 			<li>RK_4TierWeapon</li>
 			<li>RK_WeaponTag_TwoHand</li>
@@ -928,6 +953,7 @@
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
 		</weaponTags>
 		<tradeTags Inherit="false">
+			<li>RK_TradeTag_4TierWeapon</li>
 			<!-- <li>ExoticMisc</li> -->
 		</tradeTags>
 		<tools>
@@ -1052,7 +1078,8 @@
 			<!-- <Crafting>10</Crafting> -->
 			<!-- </skillRequirements> -->
 		</recipeMaker>
-		<weaponTags Inherit="false">			<li>RK_Weapon_All</li>
+		<weaponTags Inherit="false">
+			<li>RK_Weapon_All</li>
 			<li>RK_Weapon_Range</li>
 			<li>RK_Weapon_TwoHand</li>
 			<li>RK_Weapon_TwoHandRange</li>
@@ -1061,6 +1088,7 @@
 			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
 		<tradeTags Inherit="false">
+			<li>RK_TradeTag_4TierWeapon</li>
 			<!-- <li>ExoticMisc</li> -->
 		</tradeTags>
 		<tools>
@@ -1186,6 +1214,9 @@
 			<li>RK_Weapon_TwoHandRangeAttack</li>
 			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
+		<tradeTags>
+			<li>RK_TradeTag_3TierWeapon</li>
+		</tradeTags>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.25</MoveSpeed>
 		</equippedStatOffsets>
