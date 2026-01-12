@@ -2,10 +2,6 @@
 <Defs>
 	<!-- 유니크 방어구 - Apparel_Various.xml -->
 	
-	<!-- 판금 갑옷 Attr -->
-	<ThingDef ParentName="RK_Plate" Name="RK_ApparelAttr_Plate" Abstract="True">
-	</ThingDef>
-	
 	<!-- 판금 갑옷 -->
 	<ThingDef ParentName="RK_ApparelAttr_Plate">
 		<defName>RK_Plate_Unique</defName>
@@ -33,10 +29,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 판금 투구 A Attr -->
-	<ThingDef ParentName="RK_PlateHelmA" Name="RK_ApparelAttr_PlateHelmA" Abstract="True">
-	</ThingDef>
-	
 	<!-- 판금 투구 A -->
 	<ThingDef ParentName="RK_ApparelAttr_PlateHelmA">
 		<defName>RK_PlateHelmA_Unique</defName>
@@ -64,10 +56,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 판금 투구 B Attr -->
-	<ThingDef ParentName="RK_PlateHelmB" Name="RK_ApparelAttr_PlateHelmB" Abstract="True">
-	</ThingDef>
-	
 	<!-- 판금 투구 B -->
 	<ThingDef ParentName="RK_ApparelAttr_PlateHelmB">
 		<defName>RK_PlateHelmB_Unique</defName>
@@ -95,10 +83,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 판금 투구 C Attr -->
-	<ThingDef ParentName="RK_PlateHelmC" Name="RK_ApparelAttr_PlateHelmC" Abstract="True">
-	</ThingDef>
-	
 	<!-- 판금 투구 C -->
 	<ThingDef ParentName="RK_ApparelAttr_PlateHelmC">
 		<defName>RK_PlateHelmC_Unique</defName>
@@ -128,10 +112,6 @@
 
 	<!-- 유니크 방어구 - Apparel_Spacer.xml -->
 	
-	<!-- Spacearmor (cataphract armor) Attr -->
-	<ThingDef ParentName="RK_Apparel_SpaceArmor" Name="RK_ApparelAttr_SpaceArmor" Abstract="True">
-	</ThingDef>
-	
 	<!-- Spacearmor (cataphract armor) -->
 	<ThingDef ParentName="RK_ApparelAttr_SpaceArmor">
 		<defName>RK_Apparel_SpaceArmor_Unique</defName>
@@ -156,10 +136,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- Spacearmor Helmet (cataphract helmet) Attr -->
-	<ThingDef ParentName="RK_Apparel_SpaceArmorHelmet" Name="RK_ApparelAttr_SpaceArmorHelmet" Abstract="True">
-	</ThingDef>
-	
 	<!-- Spacearmor Helmet (cataphract helmet) -->
 	<ThingDef ParentName="RK_ApparelAttr_SpaceArmorHelmet">
 		<defName>RK_Apparel_SpaceArmorHelmet_Unique</defName>
@@ -185,10 +161,6 @@
 	</ThingDef>
 
 	<!-- 유니크 방어구 - Apparel_Util.xml -->
-	
-	<!-- 목재 방패 Attr -->
-	<ThingDef ParentName="RK_WoodenShield" Name="RK_ApparelAttr_WoodenShield" Abstract="True">
-	</ThingDef>
 	
 	<!-- 목재 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_WoodenShield">
@@ -218,10 +190,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 금속 방패 Attr -->
-	<ThingDef ParentName="RK_HeavyShield" Name="RK_ApparelAttr_HeavyShield" Abstract="True">
-	</ThingDef>
-	
 	<!-- 금속 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_HeavyShield">
 		<defName>RK_HeavyShield_Unique</defName>
@@ -247,10 +215,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 타워 방패 Attr -->
-	<ThingDef ParentName="RK_TowerShield" Name="RK_ApparelAttr_TowerShield" Abstract="True">
-	</ThingDef>
-	
 	<!-- 타워 방패 -->
 	<ThingDef ParentName="RK_ApparelAttr_TowerShield">
 		<defName>RK_TowerShield_Unique</defName>
@@ -276,10 +240,6 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 전쟁 배너 Attr -->
-	<ThingDef ParentName="RK_Apparel_Banner" Name="RK_ApparelAttr_Banner" Abstract="True">
-	</ThingDef>
-	
 	<!-- 전쟁 배너 -->
 	<ThingDef ParentName="RK_ApparelAttr_Banner">
 		<defName>RK_Apparel_Banner_Unique</defName>

@@ -2,16 +2,12 @@
 <Defs>
 	<!-- 유니크 무기 - Weapon_HighTech.xml -->
 	
-	<!-- 건랜스 일반형 Attr -->
-	<ThingDef ParentName="RK_Weapon_Gunlance" Name="RK_WeaponAttr_Gunlance" Abstract="True">
-	</ThingDef>
-	
 	<!-- 건랜스 일반형 -->
 	<ThingDef ParentName="RK_WeaponAttr_Gunlance">
 		<defName>RK_Weapon_Gunlance_Unique</defName>
 		<label>unique ratkin gunlance</label>
 		<description>A unique gunlance with customized parts and enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="SYS.CompProperties_WeaponExtention">
 				<littleDown>True</littleDown>
@@ -65,7 +61,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -75,16 +71,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 화염 체인소드 Attr -->
-	<ThingDef ParentName="RK_Weapon_FlameChainSword" Name="RK_WeaponAttr_FlameChainSword" Abstract="True">
-	</ThingDef>
-	
 	<!-- 화염 체인소드 -->
 	<ThingDef ParentName="RK_WeaponAttr_FlameChainSword">
 		<defName>RK_Weapon_FlameChainSword_Unique</defName>
 		<label>unique flame chain sword</label>
 		<description>A unique flame chain sword with enhanced fire capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -109,7 +101,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -119,16 +111,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- EMP 체인소드 Attr -->
-	<ThingDef ParentName="RK_Weapon_EMPChainSword" Name="RK_WeaponAttr_EMPChainSword" Abstract="True">
-	</ThingDef>
-	
 	<!-- EMP 체인소드 -->
 	<ThingDef ParentName="RK_WeaponAttr_EMPChainSword">
 		<defName>RK_Weapon_EMPChainSword_Unique</defName>
 		<label>unique EMP chain sword</label>
 		<description>A unique EMP chain sword with enhanced EMP capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -153,7 +141,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -165,16 +153,12 @@
 
 	<!-- 유니크 무기 - Weapon_Melee.xml -->
 	
-	<!-- 철퇴 Attr -->
-	<ThingDef ParentName="RK_Mace" Name="RK_WeaponAttr_Mace" Abstract="True">
-	</ThingDef>
-	
 	<!-- 철퇴 -->
 	<ThingDef ParentName="RK_WeaponAttr_Mace">
 		<defName>RK_Mace_Unique</defName>
 		<label>unique ratkin mace</label>
 		<description>A unique ratkin mace with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -199,7 +183,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -209,16 +193,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 양손검 Attr -->
-	<ThingDef ParentName="RK_TwoHanded" Name="RK_WeaponAttr_TwoHanded" Abstract="True">
-	</ThingDef>
-	
 	<!-- 양손검 -->
 	<ThingDef ParentName="RK_WeaponAttr_TwoHanded">
 		<defName>RK_TwoHanded_Unique</defName>
 		<label>unique two-handed sword</label>
 		<description>A unique two-handed sword with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -243,7 +223,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -253,16 +233,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 헤비 랜스 Attr -->
-	<ThingDef ParentName="RK_HeavyLance" Name="RK_WeaponAttr_HeavyLance" Abstract="True">
-	</ThingDef>
-	
 	<!-- 헤비 랜스 -->
 	<ThingDef ParentName="RK_WeaponAttr_HeavyLance">
 		<defName>RK_HeavyLance_Unique</defName>
 		<label>unique heavy lance</label>
 		<description>A unique heavy lance with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -287,7 +263,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -297,16 +273,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 정원사검 Attr -->
-	<ThingDef ParentName="RK_LongSword" Name="RK_WeaponAttr_LongSword" Abstract="True">
-	</ThingDef>
-	
 	<!-- 정원사검 -->
 	<ThingDef ParentName="RK_WeaponAttr_LongSword">
 		<defName>RK_LongSword_Unique</defName>
 		<label>unique longsword</label>
 		<description>A unique longsword with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -331,7 +303,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -341,16 +313,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 창 Attr -->
-	<ThingDef ParentName="RK_Spear" Name="RK_WeaponAttr_Spear" Abstract="True">
-	</ThingDef>
-	
 	<!-- 창 -->
 	<ThingDef ParentName="RK_WeaponAttr_Spear">
 		<defName>RK_Spear_Unique</defName>
 		<label>unique spear</label>
 		<description>A unique spear with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -375,7 +343,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -385,16 +353,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 할버드 Attr -->
-	<ThingDef ParentName="RK_Halberd" Name="RK_WeaponAttr_Halberd" Abstract="True">
-	</ThingDef>
-	
 	<!-- 할버드 -->
 	<ThingDef ParentName="RK_WeaponAttr_Halberd">
 		<defName>RK_Halberd_Unique</defName>
 		<label>unique halberd</label>
 		<description>A unique halberd with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -419,7 +383,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -431,16 +395,12 @@
 
 	<!-- 유니크 무기 - Weapon_Range.xml -->
 	
-	<!-- 석궁 Attr -->
-	<ThingDef ParentName="RK_Crossbow" Name="RK_WeaponAttr_Crossbow" Abstract="True">
-	</ThingDef>
-	
 	<!-- 석궁 -->
 	<ThingDef ParentName="RK_WeaponAttr_Crossbow">
 		<defName>RK_Crossbow_Unique</defName>
 		<label>unique crossbow</label>
 		<description>A unique crossbow with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -465,7 +425,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -475,16 +435,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 저격 라이플 Attr -->
-	<ThingDef ParentName="RK_SniperRifle" Name="RK_WeaponAttr_SniperRifle" Abstract="True">
-	</ThingDef>
-	
 	<!-- 저격 라이플 -->
 	<ThingDef ParentName="RK_WeaponAttr_SniperRifle">
 		<defName>RK_SniperRifle_Unique</defName>
 		<label>unique sniper rifle</label>
 		<description>A unique sniper rifle with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -513,7 +469,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -523,16 +479,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 플레셰트 라이플 Attr -->
-	<ThingDef ParentName="RK_FlechetteRifle" Name="RK_WeaponAttr_FlechetteRifle" Abstract="True">
-	</ThingDef>
-	
 	<!-- 플레셰트 라이플 -->
 	<ThingDef ParentName="RK_WeaponAttr_FlechetteRifle">
 		<defName>RK_FlechetteRifle_Unique</defName>
 		<label>unique flechette rifle</label>
 		<description>A unique flechette rifle with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -561,7 +513,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -571,16 +523,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 플레셰트 저격 라이플 Attr -->
-	<ThingDef ParentName="RK_FlechetteSniperRifle" Name="RK_WeaponAttr_FlechetteSniperRifle" Abstract="True">
-	</ThingDef>
-	
 	<!-- 플레셰트 저격 라이플 -->
 	<ThingDef ParentName="RK_WeaponAttr_FlechetteSniperRifle">
 		<defName>RK_FlechetteSniperRifle_Unique</defName>
 		<label>unique flechette sniper rifle</label>
 		<description>A unique flechette sniper rifle with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -609,7 +557,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -619,16 +567,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 대형 쇠뇌 Attr -->
-	<ThingDef ParentName="RK_Weapon_Arbalest" Name="RK_WeaponAttr_Arbalest" Abstract="True">
-	</ThingDef>
-	
 	<!-- 대형 쇠뇌 -->
 	<ThingDef ParentName="RK_WeaponAttr_Arbalest">
 		<defName>RK_Weapon_Arbalest_Unique</defName>
 		<label>unique arbalest</label>
 		<description>A unique arbalest with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -653,7 +597,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -663,16 +607,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 연발 석궁 Attr -->
-	<ThingDef ParentName="RK_AutoCrossBow" Name="RK_WeaponAttr_AutoCrossBow" Abstract="True">
-	</ThingDef>
-	
 	<!-- 연발 석궁 -->
 	<ThingDef ParentName="RK_WeaponAttr_AutoCrossBow">
 		<defName>RK_AutoCrossBow_Unique</defName>
 		<label>unique autocrossbow</label>
 		<description>A unique autocrossbow with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -697,7 +637,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -707,16 +647,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 라이플 Attr -->
-	<ThingDef ParentName="RK_Rifle" Name="RK_WeaponAttr_Rifle" Abstract="True">
-	</ThingDef>
-	
 	<!-- 라이플 -->
 	<ThingDef ParentName="RK_WeaponAttr_Rifle">
 		<defName>RK_Rifle_Unique</defName>
 		<label>unique ratkin rifle</label>
 		<description>A unique ratkin rifle with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -745,7 +681,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -755,16 +691,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 샷건 Attr -->
-	<ThingDef ParentName="RK_Rifle_line" Name="RK_WeaponAttr_Rifle_line" Abstract="True">
-	</ThingDef>
-	
 	<!-- 샷건 -->
 	<ThingDef ParentName="RK_WeaponAttr_Rifle_line">
 		<defName>RK_Rifle_line_Unique</defName>
 		<label>unique shotgun</label>
 		<description>A unique shotgun with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -792,7 +724,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -805,13 +737,13 @@
 	<!-- 볼터건 Attr -->
 	<ThingDef ParentName="RK_Weapon_Bolter" Name="RK_WeaponAttr_Bolter" Abstract="True">
 	</ThingDef>
-	
+
 	<!-- 볼터건 -->
 	<ThingDef ParentName="RK_WeaponAttr_Bolter">
 		<defName>RK_Weapon_Bolter_Unique</defName>
 		<label>unique bolter</label>
 		<description>A unique bolter with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -839,7 +771,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -849,16 +781,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- 프로토타입 펄스 라이플 Attr -->
-	<ThingDef ParentName="RK_PrototypePulseRifle" Name="RK_WeaponAttr_PrototypePulseRifle" Abstract="True">
-	</ThingDef>
-	
 	<!-- 프로토타입 펄스 라이플 -->
 	<ThingDef ParentName="RK_WeaponAttr_PrototypePulseRifle">
 		<defName>RK_PrototypePulseRifle_Unique</defName>
 		<label>unique prototype pulse rifle</label>
 		<description>A unique prototype pulse rifle with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -887,7 +815,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -897,16 +825,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- BFR 3000 Attr -->
-	<ThingDef ParentName="RK_Weapon_BFR" Name="RK_WeaponAttr_BFR" Abstract="True">
-	</ThingDef>
-	
 	<!-- BFR 3000 -->
 	<ThingDef ParentName="RK_WeaponAttr_BFR">
 		<defName>RK_Weapon_BFR_Unique</defName>
 		<label>unique BFR 3000</label>
 		<description>A unique BFR 3000 with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -935,7 +859,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>
@@ -945,16 +869,12 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
-	<!-- RatHolic Gun Attr -->
-	<ThingDef ParentName="RK_Weapon_RatHolicGun" Name="RK_WeaponAttr_RatHolicGun" Abstract="True">
-	</ThingDef>
-	
 	<!-- RatHolic Gun -->
 	<ThingDef ParentName="RK_WeaponAttr_RatHolicGun">
 		<defName>RK_Weapon_RatHolicGun_Unique</defName>
 		<label>unique RatHolic gun</label>
 		<description>A unique RatHolic gun with enhanced capabilities.</description>
-		
+
 		<comps Inherit="False">
 			<li Class="CompProperties_EquippableAbilityReloadable" />
 			<li Class="CompProperties_Forbiddable"/>
@@ -982,7 +902,7 @@
 				</namerLabels>
 			</li>
 		</comps>
-		
+
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
 		<tradeability>Sellable</tradeability>

@@ -105,7 +105,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_ApparelAttr_Banner">
+	<ThingDef ParentName="RK_ApparelAttr_Banner" Name="RK_ApparelAttr_Banner">
 		<defName>RK_Apparel_Banner</defName>
 		<label>war banner</label>
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
@@ -289,7 +289,7 @@
 
 	<!-- 방패류는 폭발이 약점 -->
 	<!-- 목제 방패 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_WoodenShield">
 		<defName>RK_WoodenShield</defName>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Carpentry</researchPrerequisite>
@@ -383,7 +383,7 @@
 	</ThingDef>
 
 	<!-- 철제 방패 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_HeavyShield">
 		<defName>RK_HeavyShield</defName>
 		<label>ratkin heavy Shield</label>
 		<description>금속 방패.</description>
@@ -490,7 +490,7 @@
 	</ThingDef>
 
 	<!-- 타워 쉴드 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_TowerShield">
 		<defName>RK_TowerShield</defName>
 		<label>ratkin Tower Shield</label>
 		<description>금속 대방패.</description>

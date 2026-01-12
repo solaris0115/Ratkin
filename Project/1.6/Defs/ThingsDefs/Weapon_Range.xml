@@ -10,7 +10,7 @@
 	</ThingDef>
 	<!-- 원거리 무기 -->
 	<!-- 석궁 스탤스 +10%-->
-	<ThingDef ParentName="RK_NeolithicRangeWeapon">
+	<ThingDef ParentName="RK_NeolithicRangeWeapon" Name="RK_WeaponAttr_Crossbow">
 		<defName>RK_Crossbow</defName>
 		<label>cross bow</label>
 		<description>간단한 석궁입니다. 사냥을 할때 쓰입니다.</description>
@@ -102,7 +102,7 @@
 	</ThingDef>
 
 	<!-- 연발석궁 -->
-	<ThingDef ParentName="RK_NeolithicRangeWeapon">
+	<ThingDef ParentName="RK_NeolithicRangeWeapon" Name="RK_WeaponAttr_AutoCrossBow">
 		<defName>RK_AutoCrossBow</defName>
 		<label>autocross bow</label>
 		<description>기계식으로 발사되는 반자동 석궁입니다. 원형 탄창에서 빠른속도로 볼트를 발사할 수 있습니다.</description>
@@ -207,7 +207,7 @@
 	</ThingDef>
 
 	<!-- 대형 쇠뇌 -->
-	<ThingDef ParentName="RK_NeolithicRangeWeapon">
+	<ThingDef ParentName="RK_NeolithicRangeWeapon" Name="RK_WeaponAttr_Arbalest">
 		<defName>RK_Weapon_Arbalest</defName>
 		<label>large cross bow</label>
 		<description>대형석궁입니다. 큰 힘에는 큰 파괴력이 따릅니다.</description>
@@ -303,7 +303,7 @@
 	</ThingDef>
 
 	<!-- 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_Rifle">
 		<defName>RK_Rifle</defName>
 		<label>ratkin rifle</label>
 		<description>인간의 라이플을 흉내내 만든 라이플입니다. 석궁보다 사거리가 길고 작은 검을 달아두어 유사시 창처럼 사용할 수 있습니다.</description>
@@ -395,7 +395,7 @@
 		</graphicData>
 	</ThingDef>
 	<!-- 저격 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_SniperRifle">
 		<defName>RK_SniperRifle</defName>
 		<label>ratkin sniper rifle</label>
 		<description>랫킨식 망원렌즈가 달린 소총입니다. 망원장비덕분에 더 먼곳까지 조준할 수 있지만 가까운 곳을 조준하기 힘듭니다.</description>
@@ -485,7 +485,7 @@
 		</graphicData>
 	</ThingDef>
 	<!-- 플레셰트 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_FlechetteRifle">
 		<defName>RK_FlechetteRifle</defName>
 		<label>flechette rifle</label>
 		<description>플레셰트탄을 사용하는 소총입니다. 랫킨식 플레셰트 탄환을 사용하여 사거리를 조금 희생해 관통력을 높였습니다. 유사시 근접전을 할 수 있도록 작은 검 달아두었습니다.</description>
@@ -583,7 +583,7 @@
 		</graphicData>
 	</ThingDef>
 	<!-- 플레셰트 저격 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_FlechetteSniperRifle">
 		<defName>RK_FlechetteSniperRifle</defName>
 		<label>flechette sniper rifle</label>
 		<description>플레셰트탄을 사용하는 망원렌즈가 달린 소총입니다. 두꺼운 장갑을 갖춘 적도 확실하게 제압할 수 있습니다. 유사시 근접전을 위해 작은 검을 달아두었습니다.</description>
@@ -682,7 +682,7 @@
 	</ThingDef>
 	<!-- 2티어 -->
 	<!-- 샷건 	-->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_Rifle_line">
 		<defName>RK_Rifle_line</defName>
 		<label>ratkin shotgun</label>
 		<description>소드오프 샷건입니다. 랫킨 왕국에서는 샷건이 랫킨을 쏩니다.</description>
@@ -816,7 +816,7 @@
 		</graphicData>
 	</ThingDef>
 	<!-- 3티어 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_Bolter">
 		<defName>RK_Weapon_Bolter</defName>
 		<label>ratkin bolter</label>
 		<description>실험용 파동 소총입니다. 실험용 랫킨들을 위해 제작되어 특수망원렌즈가 근거리 원거리 모두 정밀하게 조준해줍니다. 랫킨식 플레셰트탄환에서 아이디어를 얻어 제작한 이 무기는 쇄기모양의 고관통 에너지탄을 빠르게 발사합니다.</description>
@@ -905,7 +905,7 @@
 		</projectile>
 	</ThingDef>
 	<!-- 랫킨용 실험용총 2연발 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_PrototypePulseRifle">
 		<defName>RK_PrototypePulseRifle</defName>
 		<label>prototype pulse rifle</label>
 		<description>실험용 파동 소총입니다. 실험용 랫킨들을 위해 제작되어 특수망원렌즈가 근거리 원거리 모두 정밀하게 조준해줍니다. 랫킨식 플레셰트탄환에서 아이디어를 얻어 제작한 이 무기는 쇄기모양의 고관통 에너지탄을 빠르게 발사합니다.</description>
@@ -1006,7 +1006,7 @@
 		</projectile>
 	</ThingDef>
 	<!-- BFR 3000 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_BFR">
 		<defName>RK_Weapon_BFR</defName>
 		<label>BFR 3000</label>
 		<description>Big Force Rifle 3000.</description>
@@ -1166,7 +1166,7 @@
 		</projectile>
 	</ThingDef>
 	<!-- 쥑이는건(RatHolic Gun) -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon">
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_RatHolicGun">
 		<defName>RK_Weapon_RatHolicGun</defName>
 		<label>RatHolic Gun</label>
 		<description>A multi-barrel machine gun. It's unwieldy, but once it starts firing it fires very fast. Where most self-loading guns are powered by the energy from the gunpowder, the minigun uses an electric motor to rapidly cycle cartridges through the weapon.</description>

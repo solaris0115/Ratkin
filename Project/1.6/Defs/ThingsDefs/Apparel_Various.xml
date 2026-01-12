@@ -1846,7 +1846,7 @@
 
 
 	<!-- 판금 갑옷 높은 날카로움, 둔탁함 방어력, 느려짐-->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
+	<ThingDef ParentName="RK_ApparelMakeableBase" Name="RK_ApparelAttr_Plate">
 		<defName>RK_Plate</defName>
 		<label>ratkin plate armor</label>
 		<description>금속으로 만든 방어구입니다. 덧입을 수 있어 방어력을 한층 더 올릴 수 있습니다.</description>
@@ -1921,7 +1921,7 @@
 		</apparel>
 	</ThingDef>
 	<!-- 판금 투구 높은 날카로움, 둔탁함 방어력, 느려짐-->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_HatMakeableBase" Name="RK_ApparelAttr_PlateHelmA">
 		<defName>RK_PlateHelmA</defName>
 		<label>Ratkin plate Helm</label>
 		<description>금속으로 만든 투구입니다.</description>
@@ -1985,7 +1985,7 @@
 		</recipeMaker>
 	</ThingDef>
 	<!-- 투구 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_HatMakeableBase" Name="RK_ApparelAttr_PlateHelmB">
 		<defName>RK_PlateHelmB</defName>
 		<label>Ratkin plate Helm</label>
 		<description>금속으로 만든 투구입니다.</description>
@@ -2050,7 +2050,7 @@
 		</recipeMaker>
 	</ThingDef>
 	<!-- 투구 -->
-	<ThingDef ParentName="RK_HatMakeableBase">
+	<ThingDef ParentName="RK_HatMakeableBase" Name="RK_ApparelAttr_PlateHelmC">
 		<defName>RK_PlateHelmC</defName>
 		<label>Ratkin plate Helm</label>
 		<description>금속으로 만든 투구입니다.</description>

@@ -250,7 +250,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-	<ThingDef ParentName="ApparelArmorCataphractBase">
+	<ThingDef ParentName="ApparelArmorCataphractBase" Name="RK_ApparelAttr_SpaceArmor">
 		<defName>RK_Apparel_SpaceArmor</defName>
 		<label>cataphract armor</label>
 		<description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
@@ -305,7 +305,7 @@
 		</tradeTags>
 	</ThingDef>
 
-	<ThingDef ParentName="ApparelArmorHelmetCataphractBase">
+	<ThingDef ParentName="ApparelArmorHelmetCataphractBase" Name="RK_ApparelAttr_SpaceArmorHelmet">
 		<defName>RK_Apparel_SpaceArmorHelmet</defName>
 		<label>cataphract helmet</label>
 		<description>A heavily-armored high-tech helmet, with a solid plasteel-weave shell and indirect visual system for non-frontal view angles. It protects against all but the most powerful or luckily-aimed shots.\n\nArmor like this is used by imperial cataphracts to break heavily fortified positions in frontal assaults when no other option is available.</description>
