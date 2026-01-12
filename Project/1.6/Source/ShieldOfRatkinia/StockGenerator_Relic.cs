@@ -76,9 +76,6 @@ namespace NewRatkin
                 yield break;
             }
 
-            // 무작위로 1개 선택
-            ThingDef chosenDef = candidates.RandomElement();
-            
             // 임시 Ideo 생성 (한 번만)
             if (tempIdeo == null)
             {
@@ -102,22 +99,39 @@ namespace NewRatkin
             }
 
             // Precept_Relic 생성
-            PreceptDef relicPreceptDef = DefDatabase<PreceptDef>.GetNamedSilentFail("Relic");
+            PreceptDef relicPreceptDef = PreceptDefOf.IdeoRelic;
             if (relicPreceptDef == null)
             {
                 yield break;
             }
 
-            Precept_Relic relicPrecept = (Precept_Relic)PreceptMaker.MakePrecept(relicPreceptDef);
-            relicPrecept.ideo = tempIdeo;
-            relicPrecept.ThingDef = chosenDef;  // setter 사용
-            relicPrecept.SetRandomStuff();
-
-            // 유물 생성
-            Thing relic = relicPrecept.GenerateRelic();
-            if (relic != null)
+            // countRange에 따라 여러 개 생성
+            int count = this.countRange.RandomInRange;
+            
+            for (int i = 0; i < count; i++)
             {
-                yield return relic;
+                // 무작위로 ThingDef 선택
+                ThingDef chosenDef = candidates.RandomElement();
+
+                Precept_Relic relicPrecept = (Precept_Relic)PreceptMaker.MakePrecept(relicPreceptDef);
+                
+                // ideo를 먼저 설정 (ThingDef setter에서 ideo를 참조하므로)
+                relicPrecept.ideo = tempIdeo;
+                
+                // ThingDef 설정 (이제 ideo가 설정되어 있으므로 Notify_ThingDefSet()에서 안전하게 사용 가능)
+                relicPrecept.ThingDef = chosenDef;  // setter 사용
+                relicPrecept.SetRandomStuff();
+                
+                // Precept를 이데올로기에 추가 (효과가 작동하려면 필요)
+                tempIdeo.AddPrecept(relicPrecept, false); // 이미 ideo와 ThingDef가 설정되어 있으므로 init=false
+                relicPrecept.RegenerateName();
+
+                // 유물 생성
+                Thing relic = relicPrecept.GenerateRelic();
+                if (relic != null)
+                {
+                    yield return relic;
+                }
             }
         }
 
@@ -128,4 +142,3 @@ namespace NewRatkin
         }
     }
 }
-

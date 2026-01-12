@@ -470,6 +470,12 @@
 				<thingDefCountRange>2~2</thingDefCountRange>
 				<countRange>1~1</countRange>
 			</li>
+			
+			<!-- Unique Weapons -->
+			<li MayRequire="Ludeon.RimWorld.Odyssey" Class="NewRatkin.StockGenerator_UniqueWeapon">
+				<tradeTag>RK_TradeTag_Weapon</tradeTag>
+				<countRange>1~3</countRange>
+			</li>
 
 			 <!-- Serums -->
 			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="StockGenerator_Tag">
