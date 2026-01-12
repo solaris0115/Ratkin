@@ -84,15 +84,6 @@
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
-			<li MayRequire="Ludeon.RimWorld.Odyssey" Class="CompProperties_UniqueWeapon">
-				<weaponCategories>
-					<li>Melee</li>
-				</weaponCategories>
-				<namerLabels>
-					<li>axe</li>
-					<li>tool</li>
-				</namerLabels>
-			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
@@ -159,16 +150,6 @@
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
-			<li MayRequire="Ludeon.RimWorld.Odyssey" Class="CompProperties_UniqueWeapon">
-				<weaponCategories>
-					<li>Melee</li>
-				</weaponCategories>
-				<namerLabels>
-					<li>cleaver</li>
-					<li>knife</li>
-					<li>tool</li>
-				</namerLabels>
-			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
@@ -234,15 +215,6 @@
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
-			<li MayRequire="Ludeon.RimWorld.Odyssey" Class="CompProperties_UniqueWeapon">
-				<weaponCategories>
-					<li>Melee</li>
-				</weaponCategories>
-				<namerLabels>
-					<li>hoe</li>
-					<li>tool</li>
-				</namerLabels>
-			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
@@ -307,15 +279,6 @@
 		<comps>
 			<li>
 				<compClass>CompQuality</compClass>
-			</li>
-			<li MayRequire="Ludeon.RimWorld.Odyssey" Class="CompProperties_UniqueWeapon">
-				<weaponCategories>
-					<li>Melee</li>
-				</weaponCategories>
-				<namerLabels>
-					<li>fork</li>
-					<li>tool</li>
-				</namerLabels>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>

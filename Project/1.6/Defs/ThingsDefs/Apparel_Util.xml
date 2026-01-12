@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<!-- ====================== 배너류 ========================== -->
-	<ThingDef Name="RK_ApparelAttr_Banner" Abstract="True" ParentName="RK_ApparelMakeableBase">
+	<ThingDef Name="RK_ApparelAttr_BannerBase" Abstract="True" ParentName="RK_ApparelMakeableBase">
 		<graphicData>
 			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>			<!--배너 기본 그래픽-->
 			<graphicClass>Graphic_Single</graphicClass>
@@ -105,7 +105,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_ApparelAttr_Banner" Name="RK_ApparelAttr_Banner">
+	<ThingDef ParentName="RK_ApparelAttr_BannerBase" Name="RK_ApparelAttr_Banner">
 		<defName>RK_Apparel_Banner</defName>
 		<label>war banner</label>
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
