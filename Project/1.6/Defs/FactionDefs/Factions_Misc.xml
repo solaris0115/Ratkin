@@ -3,7 +3,7 @@
 	<FactionDef ParentName="FactionBase" Name="RatkinFactionBase" Abstract="True">
 		<pawnSingular>ratkin</pawnSingular>
 		<pawnsPlural>Ratkins</pawnsPlural>
-		<categoryTag>RatkinStory</categoryTag>
+		<categoryTag>Empire</categoryTag>
 		<listOrderPriority>30</listOrderPriority>
 		<settlementGenerationWeight>1</settlementGenerationWeight>
 		<requiredCountAtGameStart>1</requiredCountAtGameStart>

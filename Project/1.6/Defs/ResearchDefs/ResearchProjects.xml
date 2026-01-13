@@ -212,6 +212,8 @@
 		<researchViewY>1</researchViewY>
 		<prerequisites>
 			<li>Machining</li>
+			<li>RK_Research_Carpentry</li>
+			<li>RK_Research_Smithing</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
@@ -282,6 +284,7 @@
 		</requiredResearchFacilities>
 		<prerequisites>
 			<li>RK_Research_RatkinEngineering</li>
+			<li>MicroelectronicsBasics</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
@@ -298,6 +301,12 @@
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
+		<techprintCount>3</techprintCount>
+		<techprintCommonality>3</techprintCommonality>
+		<techprintMarketValue>3000</techprintMarketValue>
+		<heldByFactionCategoryTags>
+			<li>Empire</li>
+		</heldByFactionCategoryTags>
 	</ResearchProjectDef>
 
 	<!-- 6.5티어 연구 -->
@@ -314,6 +323,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<prerequisites>
+			<li>Fabrication</li>
 			<li>RK_Research_OrbitalEquipment</li>
 		</prerequisites>
 	</ResearchProjectDef>
