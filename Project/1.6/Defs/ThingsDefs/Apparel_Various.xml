@@ -1544,57 +1544,6 @@
 	</ThingDef>
 
 	<!-- 적대 세력 한정 -->
-	<!-- 도둑질 보따리 +50 내구도 +20 -->
-	<ThingDef ParentName="RK_ApparelMakeableBase">
-		<defName>RK_Sack</defName>
-		<label>ratkin package</label>
-		<description>등에 편하게 맬 수 있는 등짐가방입니다. 물건을 많이 넣을 수 있기때문에 도둑들이 애용합니다.</description>
-		<graphicData>
-			<texPath>Apparel/RK_Sack</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-		</graphicData>
-		<recipeMaker Inherit="false">
-		</recipeMaker>
-		<costList>
-			<Steel>10</Steel>
-		</costList>
-		<costStuffCount>180</costStuffCount>
-		<stuffCategories>
-			<li>Leathery</li>
-			<li>Fabric</li>
-		</stuffCategories>
-		<techLevel>Medieval</techLevel>
-		<statBases>
-			<MaxHitPoints>240</MaxHitPoints>
-			<WorkToMake>8000</WorkToMake>
-			<Mass>0.5</Mass>
-			<EquipDelay>1</EquipDelay>
-		</statBases>
-		<equippedStatOffsets>
-			<CarryingCapacity>50</CarryingCapacity>
-		</equippedStatOffsets>
-		<apparel>
-			<bodyPartGroups>
-				<li>Shoulders</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_Sack</wornGraphicPath>
-			<layers>
-				<li>BackPack</li>
-			</layers>
-			<tags>
-				<li>RK_Package</li>
-				<li>RK_Thief</li>
-			</tags>
-		</apparel>
-		<tradeability>Sellable</tradeability>
-		<tradeTags Inherit="false">
-		</tradeTags>
-	</ThingDef>
 
 	<!-- 특수 부대 복장-->
 	<ThingDef ParentName="RK_ApparelMakeableBase">
@@ -1607,6 +1556,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1681,6 +1631,8 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<researchPrerequisite>Machining</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1744,6 +1696,8 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<researchPrerequisite>Machining</researchPrerequisite>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
