@@ -24,6 +24,8 @@
 			<li>RK_TraderKind_KingdomBulkGoods</li>			<!-- 원자재상 -->
 			<li>RK_TraderKind_KingdomCombatSupplier</li>			<!-- 무기상 -->
 			<li>RK_TraderKind_KingdomExotic</li>			<!-- 단순 희귀템 말고 무작위 유물과 일부 진귀한 아이템들로만 구성-->
+			<li>RK_TraderKind_KingdomFoodMerchant</li>			<!-- 식자재상 -->
+			<li>RK_TraderKind_KingdomTextileMerchant</li>			<!-- 원단상 -->
 		</caravanTraderKinds>
 		<visitorTraderKinds>
 			<li>Visitor_Outlander_Standard</li>

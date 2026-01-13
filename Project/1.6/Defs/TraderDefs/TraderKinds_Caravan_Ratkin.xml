@@ -525,4 +525,145 @@
 			
 		</stockGenerators>
 	</TraderKindDef>
+
+	<!-- 랫킨 식자재 상인 -->
+	<TraderKindDef>
+		<defName>RK_TraderKind_KingdomFoodMerchant</defName>
+		<label>food merchant</label>
+		<stockGenerators>
+
+			<!-- Resources -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>750~1200</countRange>
+		</li>
+
+	<!-- 일반 동물 고기 (MeatRaw 카테고리, Fish 제외) -->
+		<li Class="StockGenerator_Category">
+			<categoryDef>MeatRaw</categoryDef>
+			<thingDefCountRange>4~6</thingDefCountRange>
+			<totalPriceRange>300~600</totalPriceRange>
+			<excludedCategories>
+				<li MayRequire="Ludeon.RimWorld.Odyssey">Fish</li>
+			</excludedCategories>
+		</li>
+
+		<!-- 야채 (PlantFoodRaw 카테고리) -->
+		<li Class="StockGenerator_Category">
+			<categoryDef>PlantFoodRaw</categoryDef>
+			<thingDefCountRange>4~6</thingDefCountRange>
+			<totalPriceRange>200~600</totalPriceRange>
+		</li>
+
+		<!-- 비수정란 (EggsUnfertilized 카테고리) -->
+		<li Class="StockGenerator_Category">
+			<categoryDef>EggsUnfertilized</categoryDef>
+			<thingDefCountRange>2~3</thingDefCountRange>
+			<totalPriceRange>100~250</totalPriceRange>
+		</li>
+
+		<!-- 우유 -->
+		<li Class="StockGenerator_SingleDef">
+			<thingDef>Milk</thingDef>
+			<countRange>20~50</countRange>
+		</li>
+
+		<!-- 조리된 음식 (3개 중 하나) -->
+		<li Class="StockGenerator_MultiDef">
+			<thingDefs>
+				<li>MealSimple</li>
+				<li>MealFine</li>
+				<li>MealLavish</li>
+			</thingDefs>
+			<countRange>30~60</countRange>
+		</li>
+
+		<!-- 기타 음식류 (Pemmican, Chocolate 등) -->
+		<li Class="StockGenerator_MultiDef">
+			<thingDefs>
+				<li>Pemmican</li>
+				<li>Chocolate</li>
+				<li>Kibble</li>
+			</thingDefs>
+			<countRange>20~50</countRange>
+		</li>
+
+		<!-- 랫킨 고유 식자재 -->
+		<li Class="StockGenerator_MultiDef">
+			<thingDefs>
+				<li>RK_Food_Hardtack</li>
+				<li>RK_StrawberryBeer</li>
+			</thingDefs>
+			<countRange>15~40</countRange>
+		</li>
+
+			<!-- 식자재 보관 관련 -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>WoodLog</thingDef>
+				<countRange>200~400</countRange>
+			</li>
+
+			<!-- Buying -->
+			<li Class="StockGenerator_BuyExpensiveSimple" />
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
+
+		</stockGenerators>
+	</TraderKindDef>
+
+	<!-- 랫킨 원단 상인 -->
+	<TraderKindDef>
+		<defName>RK_TraderKind_KingdomTextileMerchant</defName>
+		<label>textile merchant</label>
+		<stockGenerators>
+
+			<!-- Resources -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>750~1200</countRange>
+			</li>
+
+			<!-- 원단 카테고리 -->
+			<li Class="StockGenerator_Category">
+				<categoryDef>Textiles</categoryDef>
+				<thingDefCountRange>10~16</thingDefCountRange>
+				<totalPriceRange>400~1000</totalPriceRange>
+				<excludedThingDefs>
+					<li MayRequire="Ludeon.RimWorld.Anomaly">Leather_Dread</li>
+				</excludedThingDefs>
+			</li>
+
+			<!-- 천 (Cloth) -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Cloth</thingDef>
+				<countRange>300~600</countRange>
+			</li>
+
+			<!-- 염료 (Dye) -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Dye</thingDef>
+				<countRange>30~60</countRange>
+			</li>
+
+			<!-- 기타 원단 관련 원자재 -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Steel</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+
+			<!-- Buying -->
+			<li Class="StockGenerator_BuyExpensiveSimple" />
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
+
+		</stockGenerators>
+	</TraderKindDef>
 </Defs>
