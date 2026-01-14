@@ -315,6 +315,8 @@
 			<RK_Stat_ShieldStaminaRechargeRate>0.25</RK_Stat_ShieldStaminaRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
+			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
+			<MeleeHitChance>-0.1</MeleeHitChance>
 		</equippedStatOffsets>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
@@ -419,6 +421,7 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
+			<MeleeHitChance>-0.1</MeleeHitChance>
 			<MoveSpeed>-0.1</MoveSpeed>
 		</equippedStatOffsets>
 		<comps>
