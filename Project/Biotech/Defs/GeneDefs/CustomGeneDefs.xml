@@ -5,7 +5,7 @@
 	     Ratkin Custom Genes
 	     ======================================== -->
 
-	<!-- TODO: 가벼운 체형, -->
+	<!-- 가벼운 체형 - Thin bodyType 고정 -->
 	<GeneDef>
 		<defName>RK_Gene_SmallBody</defName>
 		<label>small body</label>
@@ -15,6 +15,9 @@
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>100</displayOrderInCategory>
 		<bodyType>Thin</bodyType>
+		<exclusionTags>
+			<li>BodyType</li>
+		</exclusionTags>
 		<statOffsets>
 			<HuntingStealth>1.15</HuntingStealth>
 			<MeatAmount>-50</MeatAmount>
