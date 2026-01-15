@@ -179,7 +179,14 @@
 				</disallowedTraits>
 			</generalSettings>
 			<graphicPaths>
-				<body>Things/Ratkin/Body/</body>
+				<body>
+					<path>Things/Ratkin/Body/Thin/Naked_Thin</path>
+					<bodytypeGraphics>
+						<Thin>Things/Ratkin/Body/Thin/Naked_Thin</Thin>
+						<Child MayRequire="Ludeon.RimWorld.Biotech">Things/Ratkin/Body/Child/Naked_Child</Child>
+						<Baby MayRequire="Ludeon.RimWorld.Biotech">Things/Ratkin/Body/Baby/Naked_Baby</Baby>
+					</bodytypeGraphics>
+				</body>
 				<head>Things/Ratkin/Head/</head>
 			</graphicPaths>
 			<styleSettings>
