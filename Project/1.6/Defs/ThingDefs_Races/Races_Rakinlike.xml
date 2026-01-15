@@ -304,6 +304,7 @@
 				</blackXenotypeList>
 				<whiteXenotypeList MayRequire="Ludeon.RimWorld.Biotech">
 					<li MayRequire="Ludeon.RimWorld.Biotech">RK_XenoType_Ratkin</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">Baseliner</li>
 				</whiteXenotypeList>
 				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
 			</raceRestriction>

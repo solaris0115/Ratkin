@@ -17,9 +17,11 @@
 		<initialWillRange>5~10</initialWillRange>
 		<xenotypeSet>
 			<xenotypeChances>
-				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
+				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">99999</RK_XenoType_Ratkin>
+				<Baseliner MayRequire="Ludeon.RimWorld.Biotech">0</Baseliner>
 			</xenotypeChances>
 		</xenotypeSet>
+		<useFactionXenotypes>false</useFactionXenotypes>
 	</PawnKindDef>
 
 	<!-- 평화 -->
