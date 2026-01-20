@@ -319,9 +319,9 @@
 		<weaponTags Inherit="false">
 			<li>RK_WeaponTag_All</li>
 			<li>RK_WeaponTag_Melee</li>
-			<li>RK_WeaponTag_OneHand</li>
-			<li>RK_WeaponTag_OneHandMelee</li>
-			<li>RK_WeaponTag_OneHandMeleeAttack</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
 			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
 		<weaponClasses>
