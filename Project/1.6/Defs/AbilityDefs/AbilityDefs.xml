@@ -37,6 +37,7 @@
 		<iconPath>UI/Abilities/RK_TextureIcon_Banner</iconPath>
 		<warmupMoteSocialSymbol>UI/Icons/RK_TextureIcon_Horn</warmupMoteSocialSymbol>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<aiCanUse>true</aiCanUse>
 		<groupDef>RK_AbilityGroup_MoraleBoost</groupDef>		<!--overrides MultiRole-->
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
