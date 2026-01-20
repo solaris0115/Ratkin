@@ -16,6 +16,22 @@
 		<combatLogRules>Damage_EMP</combatLogRules>
 	</DamageDef>
 
+	<!-- 곡괭이용 찌르기 데미지 - 건물에 추가 피해 -->
+	<DamageDef>
+		<defName>RK_Damage_PickaxeStab</defName>
+		<label>pickaxe stab</label>
+		<workerClass>DamageWorker_Stab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} has been stabbed to death.</deathMessage>
+		<hediff>Stab</hediff>
+		<hediffSolid>Crack</hediffSolid>
+		<impactSoundType>Blunt</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<stabChanceOfForcedInternal>0.6</stabChanceOfForcedInternal>
+		<overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
+		<buildingDamageFactor>10</buildingDamageFactor>
+	</DamageDef>
+
 	<SoundDef>
 		<defName>RK_Sound_Emp_Crack</defName>
 		<context>MapOnly</context>

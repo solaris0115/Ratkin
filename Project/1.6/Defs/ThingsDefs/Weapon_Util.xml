@@ -283,5 +283,91 @@
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
+	
+	<!-- 곡괭이 채굴속도 +10%-->
+	<ThingDef ParentName="RK_MeleeWeapon">
+		<defName>RK_Pickaxe</defName>
+		<label>pickaxe</label>
+		<description>채굴할 때 쓰는 곡괭이입니다. 돌을 파는데 도움이 될것같습니다.</description>
+		<graphicData>
+			<texPath>Weapon/RK_Texture_Pickaxe</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<weaponTags Inherit="false">
+			<li>RK_WeaponTag_Mining</li>
+			<li>RK_WeaponTag_TwoHand</li>
+			<li>RK_WeaponTag_TwoHandMelee</li>
+		</weaponTags>
+		<costList>
+			<WoodLog>40</WoodLog>
+		</costList>
+		<costStuffCount>70</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<WorkToMake>6000</WorkToMake>
+			<Mass>1.6</Mass>
+		</statBases>
+		<equippedStatOffsets>
+			<MiningSpeed>0.20</MiningSpeed>
+			<MiningYield>0.10</MiningYield>
+			<DeepDrillingSpeed>0.20</DeepDrillingSpeed>
+		</equippedStatOffsets>
+		<equippedAngleOffset>-20</equippedAngleOffset>
+		<tools>
+			<li>
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>RK_ToolCapacity_PickaxeStab</li>
+				</capacities>
+				<power>20</power>
+				<armorPenetration>0.50</armorPenetration>
+				<cooldownTime>3</cooldownTime>
+			</li>
+		</tools>
+		<recipeMaker>
+			<researchPrerequisites>
+				<li>RK_Research_Smithing</li>
+			</researchPrerequisites>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<tradeability>Sellable</tradeability>
+	</ThingDef>
+	
+	<!-- 곡괭이용 커스텀 ToolCapacity -->
+	<ToolCapacityDef>
+		<defName>RK_ToolCapacity_PickaxeStab</defName>
+	</ToolCapacityDef>
 
+	<!-- 곡괭이용 커스텀 ManeuverDef - 건물에 추가 피해 -->
+	<ManeuverDef>
+		<defName>RK_Maneuver_PickaxeStab</defName>
+		<requiredCapacity>RK_ToolCapacity_PickaxeStab</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>RK_Damage_PickaxeStab</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
 </Defs>
