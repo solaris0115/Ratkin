@@ -100,7 +100,6 @@
 					<canTargetBuildings>false</canTargetBuildings>
 					<canTargetAnimals>false</canTargetAnimals>
 					<canTargetMechs>false</canTargetMechs>
-					<onlyTargetColonists>true</onlyTargetColonists>
 				</targetingParameters>
 				<hediff>RK_Hediff_MoraleBoosterBuffDefault</hediff>
 			</li>
