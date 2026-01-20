@@ -292,9 +292,12 @@
 		<graphicData>
 			<texPath>Weapon/RK_Texture_Pickaxe</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(0.7, 0.7)</drawSize>
 		</graphicData>
 		<techLevel>Medieval</techLevel>
 		<weaponTags Inherit="false">
+			<li>RK_WeaponTag_Util</li>
 			<li>RK_WeaponTag_Mining</li>
 			<li>RK_WeaponTag_TwoHand</li>
 			<li>RK_WeaponTag_TwoHandMelee</li>
@@ -315,24 +318,30 @@
 			<MiningYield>0.10</MiningYield>
 			<DeepDrillingSpeed>0.20</DeepDrillingSpeed>
 		</equippedStatOffsets>
-		<equippedAngleOffset>-20</equippedAngleOffset>
+		<equippedAngleOffset>60</equippedAngleOffset>
 		<tools>
 			<li>
-				<label>handle</label>
+				<label>hammer</label>
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>8</power>
-				<cooldownTime>2</cooldownTime>
+				<power>15</power>
+				<cooldownTime>2.5</cooldownTime>
 			</li>
 			<li>
 				<label>point</label>
 				<capacities>
 					<li>RK_ToolCapacity_PickaxeStab</li>
 				</capacities>
-				<power>20</power>
+				<power>10</power>
 				<armorPenetration>0.50</armorPenetration>
 				<cooldownTime>3</cooldownTime>
+				<extraMeleeDamages>
+					<li>
+						<def>Crush</def>
+						<amount>10</amount>
+					</li>
+				</extraMeleeDamages>
 			</li>
 		</tools>
 		<recipeMaker>
