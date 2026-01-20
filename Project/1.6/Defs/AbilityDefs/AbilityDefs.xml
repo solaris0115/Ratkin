@@ -81,6 +81,25 @@
 		</subSounds>
 	</SoundDef>
 
+	<!-- 민트색 오라 Mote -->
+	<ThingDef ParentName="MoteBase">
+		<defName>RK_Mote_MoraleBooster</defName>
+		<thingClass>MoteAttached</thingClass>
+		<altitudeLayer>LightingOverlay</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<mote>
+			<solidTime>9999999</solidTime>
+			<needsMaintenance>true</needsMaintenance>
+		</mote>
+		<graphicData>
+			<graphicClass>Graphic_Mote</graphicClass>
+			<texPath>Things/Mote/CombatCommandMask</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(0, 200, 150, 50)</color>
+			<drawSize>20</drawSize>
+		</graphicData>
+	</ThingDef>
+
 	<!-- 사기 진작 시전자 헤딥 -->
 	<HediffDef ParentName="RoleStatBuff">
 		<defName>RK_Hediff_MoraleBoosterCaster</defName>
@@ -94,7 +113,7 @@
 			<li Class="HediffCompProperties_DisappearsOnDeath"/>
 			<li Class="NewRatkin.HediffCompProperties_GiveHediffsInRange">
 				<range>9.9</range>
-				<mote>Mote_CombatCommand</mote>
+				<mote>RK_Mote_MoraleBooster</mote>
 				<hideMoteWhenNotDrafted>true</hideMoteWhenNotDrafted>
 				<targetingParameters>
 					<canTargetBuildings>false</canTargetBuildings>

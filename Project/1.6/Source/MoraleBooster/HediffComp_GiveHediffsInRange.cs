@@ -53,12 +53,13 @@ namespace NewRatkin
 					{
 						hediff = pawn.health.AddHediff(this.Props.hediff, pawn.health.hediffSet.GetBrain(), null, null);
 						hediff.Severity = this.Props.initialSeverity;
-						HediffComp_Link hediffComp_Link = hediff.TryGetComp<HediffComp_Link>();
-						if (hediffComp_Link != null)
-						{
-							hediffComp_Link.drawConnection = true;
-							hediffComp_Link.other = this.parent.pawn;
-						}
+						// 링크 표시 제거: drawConnection 설정하지 않음
+						// HediffComp_Link hediffComp_Link = hediff.TryGetComp<HediffComp_Link>();
+						// if (hediffComp_Link != null)
+						// {
+						// 	hediffComp_Link.drawConnection = true;
+						// 	hediffComp_Link.other = this.parent.pawn;
+						// }
 					}
 					HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
 					if (hediffComp_Disappears == null)
