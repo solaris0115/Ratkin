@@ -199,11 +199,27 @@
 		<category>Attachment</category>
 		<tickerType>Normal</tickerType>
 		<graphicData>
-			<texPath>Things/Special/GunlancePreIgnition</texPath>
+			<!-- 실제 렌더링은 AttachableThing_GunlanceIgnition에서 PreIgnitionA와 PreIgnitionB를 번갈아가며 사용 -->
+			<!-- 여기서는 로드 시점 오류 방지를 위해 PreIgnitionA를 참조 -->
+			<texPath>Things/Special/PreIgnitionA</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<altitudeLayer>PawnState</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
+		<comps>
+			<li Class="NewRatkin.CompProperties_AttachableIgnition">
+				<positionOffset>(0, 0, 0)</positionOffset>
+				<powerIncreasePerTick>0.02</powerIncreasePerTick>
+				<maxPower>1</maxPower>
+				<directionOffsetDistance>1.1</directionOffsetDistance>
+				<preIgnitionBaseSize>2.5</preIgnitionBaseSize>
+				<preIgnitionSizeMultiplier>4</preIgnitionSizeMultiplier>
+				<preIgnitionMaxSize>2</preIgnitionMaxSize>
+				<preIgnitionSizeScale>1.5</preIgnitionSizeScale>
+				<preIgnitionHeightBase>1.1</preIgnitionHeightBase>
+				<preIgnitionHeightReduction>0.2</preIgnitionHeightReduction>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<ThingDef>
@@ -218,6 +234,19 @@
 		</graphicData>
 		<altitudeLayer>Gas</altitudeLayer>
 		<useHitPoints>false</useHitPoints>
+		<comps>
+			<li Class="NewRatkin.CompProperties_AttachableIgnition">
+				<positionOffset>(0, 0.4, 0)</positionOffset>
+				<powerDecreasePerTick>0.1</powerDecreasePerTick>
+				<initialPower>1</initialPower>
+				<directionOffsetDistance>1.1</directionOffsetDistance>
+				<afterIgnitionSizeMultiplier>4</afterIgnitionSizeMultiplier>
+				<afterIgnitionSizeScale>2</afterIgnitionSizeScale>
+				<afterIgnitionHeightMultiplier>2</afterIgnitionHeightMultiplier>
+				<afterIgnitionBaseColor>(1, 0.75, 0.75)</afterIgnitionBaseColor>
+				<afterIgnitionAlphaMultiplier>1.25</afterIgnitionAlphaMultiplier>
+			</li>
+		</comps>
 	</ThingDef>
 
 	<!-- Wyvern Fire Ability -->
@@ -233,8 +262,8 @@
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
 			<requireLineOfSight>true</requireLineOfSight>
-			<range>5</range>
-			<warmupTime>2</warmupTime>
+			<range>5.5</range>
+			<warmupTime>1.7</warmupTime>
 			<soundCast>RK_Sound_WyvernFire</soundCast>
 			<targetParams>
 				<canTargetLocations>true</canTargetLocations>
@@ -242,26 +271,60 @@
 		</verbProperties>
 		<comps>
 			<li Class="NewRatkin.CompProperties_AbilityWyvernFire">
-				<range>5</range>
+				<range>6</range>
 				<lineWidthEnd>5</lineWidthEnd>
 				<damageDef>Bomb</damageDef>
 				<damAmount>35</damAmount>
 				<armorPenetration>0.7</armorPenetration>
 				<canHitFilledCells>true</canHitFilledCells>
 			</li>
-			<li Class="CompProperties_AbilityBurner">
-				<numStreams>15</numStreams>
-				<range>11</range>
-				<coneSizeDegrees>7.2</coneSizeDegrees>
-				<moteDef>Mote_IncineratorBurst</moteDef>
-				<barrelOffsetDistance>6</barrelOffsetDistance>
-				<sizeReductionDistanceThreshold>8</sizeReductionDistanceThreshold>
-				<lifespanNoise>40</lifespanNoise>
-				<rangeNoise>.4</rangeNoise>
+			<li Class="NewRatkin.CompProperties_AbilityBurnerCustom">
+				<numStreams>8</numStreams>
+				<range>5.5</range>
+				<coneSizeDegrees>18.2</coneSizeDegrees>
+				<moteDef>RK_Mote_IncineratorBurst</moteDef>
+				<barrelOffsetDistance>4</barrelOffsetDistance>
+				<spawnOffsetDistance>-1</spawnOffsetDistance>
+				<sizeReductionDistanceThreshold>2</sizeReductionDistanceThreshold>
+				<lifespanTicks>10</lifespanTicks>
+				<lifespanNoise>0</lifespanNoise>
+				<rangeNoise>.2</rangeNoise>
 				<effecterDef>RK_Effecter_BurnerUsed</effecterDef>
 			</li>
 		</comps>
 	</AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>RK_Mote_IncineratorBurst</defName>
+		<thingClass>MoteDualAttached</thingClass>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<isSaveable>false</isSaveable>		<!-- because it's pure-vis, and weirdly constructed, it's better to not persist them at all -->
+		<mote>
+			<fadeInTime>0</fadeInTime>
+			<fadeOutTime>1</fadeOutTime>
+			<solidTime>999999</solidTime>
+			<needsMaintenance>True</needsMaintenance>
+			<rotateTowardsTarget>True</rotateTowardsTarget>
+			<scaleToConnectTargets>False</scaleToConnectTargets>
+			<fadeOutUnmaintained>True</fadeOutUnmaintained>
+		</mote>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Things/Mote/IncineratorFlameSheet</texPath>
+			<graphicClass>Graphic_MoteWithAgeSecs</graphicClass>
+			<shaderType>MoteIncineratorBeam</shaderType>
+			<shaderParameters>
+				<_GradientTex>/Things/Mote/IncineratorBeamGradient</_GradientTex>
+				<_AgeScalarNoise>/Things/Mote/IncineratorBeamAgeNoise</_AgeScalarNoise>
+				<_ScrollSpeedA>-4</_ScrollSpeedA>
+				<_ScrollSpeedB>8</_ScrollSpeedB>
+				<_Intensity>0</_Intensity>
+				<_NumFrames>12</_NumFrames>
+				<_FramesPerSec>30</_FramesPerSec>
+			</shaderParameters>
+			<drawSize>10</drawSize>
+		</graphicData>
+	</ThingDef>
 
 	<EffecterDef>
 		<defName>RK_Effecter_BurnerUsed</defName>
@@ -271,13 +334,13 @@
 				<fleckDef>Fleck_BurnerUsedSmoke</fleckDef>
 				<initialDelayTicks>5</initialDelayTicks>
 				<scale>.1~1</scale>
-				<burstCount>7~10</burstCount>
+				<burstCount>2</burstCount>
 				<spawnLocType>OnSource</spawnLocType>
 				<absoluteAngle>True</absoluteAngle>
-				<positionRadius>2.5</positionRadius>
+				<positionRadius>2</positionRadius>
 				<positionRadiusMin>0</positionRadiusMin>
 				<angle>0</angle>
-				<speed>0~.6</speed>
+				<speed>5</speed>
 				<rotation>0~360</rotation>
 				<fleckUsesAngleForVelocity>True</fleckUsesAngleForVelocity>
 			</li>

@@ -1,27 +1,44 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using RimWorld;
 
 namespace NewRatkin
 {
 	[StaticConstructorOnStartup]
 	public class AttachableThing_GunlanceIgnition : AttachableThing
 	{
-		Pawn parentPawn;
-		public float currentPower = 0;
-		public readonly Vector3 posFix = new Vector3(0, 0, -0.2f);
-		public Graphic currentGraphic;
+		private Pawn parentPawn;
+		private float currentPower = 0;
+		private Graphic currentGraphic;
+		private CompAttachableIgnition compIgnition;
 
 		public static Graphic[] graphics = new Graphic[] { GraphicDatabase.Get<Graphic_Single>("Things/Special/PreIgnitionA"), GraphicDatabase.Get<Graphic_Single>("Things/Special/PreIgnitionB") };
-		public bool swap=false;
+		private bool swap = false;
+
+		private CompProperties_AttachableIgnition Props
+		{
+			get
+			{
+				return compIgnition?.Props ?? new CompProperties_AttachableIgnition();
+			}
+		}
+
+		private Vector3 PositionOffset
+		{
+			get
+			{
+				return Props.positionOffset;
+			}
+		}
 
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
 			parentPawn = parent as Pawn;
+			compIgnition = this.TryGetComp<CompAttachableIgnition>();
 		}
 		public override void ExposeData()
 		{
@@ -43,9 +60,9 @@ namespace NewRatkin
 		}
 		protected override void Tick()
 		{
-			if(currentPower<1)
+			if (currentPower < Props.maxPower)
 			{
-				currentPower +=0.02f;
+				currentPower += Props.powerIncreasePerTick;
 			}
 			swap = !swap;
 		}
@@ -57,19 +74,19 @@ namespace NewRatkin
 				{
 					return new Color(1, 0.5f + currentPower, 0);
 				}
-				return new Color(1.75f - currentPower, 1.35f - currentPower*0.5f, currentPower*2-0.5f);
+				return new Color(1.75f - currentPower, 1.35f - currentPower * 0.5f, currentPower * 2 - 0.5f);
 			}
 		}
 
 		protected override void DrawAt(Vector3 drawLoc, bool flip = false)
 		{
 			Vector3 targetVector;
-			if(parentPawn!=null&& parentPawn.stances!=null && parentPawn.stances.curStance!=null)
+			if (parentPawn != null && parentPawn.stances != null && parentPawn.stances.curStance != null)
 			{
 				Stance_Busy stance_Busy = parentPawn.stances.curStance as Stance_Busy;
-				if (stance_Busy!=null)
+				if (stance_Busy != null)
 				{
-					if(stance_Busy.focusTarg.HasThing)
+					if (stance_Busy.focusTarg.HasThing)
 					{
 						targetVector = stance_Busy.focusTarg.Thing.DrawPos;
 					}
@@ -87,7 +104,28 @@ namespace NewRatkin
 					}
 					currentGraphic.MatSingle.color = FireColor;
 					float angle = (targetVector - parent.TrueCenter()).AngleFlat();
-					Graphics.DrawMesh(MeshPool.GridPlane(new Vector2(3 - Mathf.Clamp(currentPower*4,0,2.5f), 1.1f - currentPower * 0.2f)), parent.TrueCenter()+ posFix + new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad) * 1.1f, 1, Mathf.Cos(angle * Mathf.Deg2Rad)) * 1.1f, Quaternion.AngleAxis(angle, Vector3.up), currentGraphic.MatSingle, 0);
+
+					// Mesh 크기 계산 (외부 크기 배율 적용)
+					float baseMeshWidth = Props.preIgnitionBaseSize - Mathf.Clamp(currentPower * Props.preIgnitionSizeMultiplier, 0, Props.preIgnitionMaxSize);
+					float meshWidth = baseMeshWidth * Props.preIgnitionSizeScale;
+					float meshHeight = Props.preIgnitionHeightBase - currentPower * Props.preIgnitionHeightReduction;
+
+					// 방향 오프셋 계산
+					float offsetDistance = Props.directionOffsetDistance;
+					Vector3 directionOffset = new Vector3(
+						Mathf.Sin(angle * Mathf.Deg2Rad) * offsetDistance,
+						1f,
+						Mathf.Cos(angle * Mathf.Deg2Rad) * offsetDistance
+					);
+
+					Vector3 finalPosition = parent.TrueCenter() + PositionOffset + directionOffset;
+					Graphics.DrawMesh(
+						MeshPool.GridPlane(new Vector2(meshWidth, meshHeight)),
+						finalPosition,
+						Quaternion.AngleAxis(angle, Vector3.up),
+						currentGraphic.MatSingle,
+						0
+					);
 				}
 			}
 
@@ -103,14 +141,32 @@ namespace NewRatkin
 
 	public class AttachableThing_AfterIgnition : AttachableThing
 	{
-		Pawn parentPawn;
-		public float currentPower = 1;
-		public readonly Vector3 posFix = new Vector3(0, 0, -0.2f);
+		private Pawn parentPawn;
+		private float currentPower = 1f;
+		private CompAttachableIgnition compIgnition;
+
+		private CompProperties_AttachableIgnition Props
+		{
+			get
+			{
+				return compIgnition?.Props ?? new CompProperties_AttachableIgnition();
+			}
+		}
+
+		private Vector3 PositionOffset
+		{
+			get
+			{
+				return Props.positionOffset;
+			}
+		}
 
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
 			parentPawn = parent as Pawn;
+			compIgnition = this.TryGetComp<CompAttachableIgnition>();
+			currentPower = Props.initialPower;
 		}
 		public override void ExposeData()
 		{
@@ -125,7 +181,7 @@ namespace NewRatkin
 		{
 			if (currentPower > 0)
 			{
-				currentPower -= 0.1f;
+				currentPower -= Props.powerDecreasePerTick;
 			}
 			else
 			{
@@ -136,12 +192,8 @@ namespace NewRatkin
 		{
 			get
 			{
-				return new Color(1, 0.75f,0.75f, currentPower*1.25f);
-				/*if (currentPower > 0.5f)
-				{
-					return new Color(1, currentPower-0.3f, currentPower - 0.25f);
-				}
-				return new Color(1.75f - currentPower, 1.35f - currentPower * 0.5f, 0.25f currentPower * 2 - 0.5f);*/
+				Color baseColor = Props.afterIgnitionBaseColor;
+				return new Color(baseColor.r, baseColor.g, baseColor.b, currentPower * Props.afterIgnitionAlphaMultiplier);
 			}
 		}
 
@@ -163,7 +215,28 @@ namespace NewRatkin
 					}
 					Graphic.MatSingle.color = FireColor;
 					float angle = (targetVector - parent.TrueCenter()).AngleFlat();
-					Graphics.DrawMesh(MeshPool.GridPlane(new Vector2(currentPower*4f, Mathf.Clamp01(currentPower*2f))), parent.TrueCenter() + posFix + new Vector3(Mathf.Sin(angle * Mathf.Deg2Rad) * 1.1f, 1, Mathf.Cos(angle * Mathf.Deg2Rad)) * 1.1f, Quaternion.AngleAxis(angle, Vector3.up), Graphic.MatSingle, 0);
+
+					// Mesh 크기 계산 (외부 크기 배율 적용)
+					float baseMeshWidth = currentPower * Props.afterIgnitionSizeMultiplier;
+					float meshWidth = baseMeshWidth * Props.afterIgnitionSizeScale;
+					float meshHeight = Mathf.Clamp01(currentPower * Props.afterIgnitionHeightMultiplier);
+
+					// 방향 오프셋 계산
+					float offsetDistance = Props.directionOffsetDistance;
+					Vector3 directionOffset = new Vector3(
+						Mathf.Sin(angle * Mathf.Deg2Rad) * offsetDistance,
+						1f,
+						Mathf.Cos(angle * Mathf.Deg2Rad) * offsetDistance
+					);
+
+					Vector3 finalPosition = parent.TrueCenter() + PositionOffset + directionOffset;
+					Graphics.DrawMesh(
+						MeshPool.GridPlane(new Vector2(meshWidth, meshHeight)),
+						finalPosition,
+						Quaternion.AngleAxis(angle, Vector3.up),
+						Graphic.MatSingle,
+						0
+					);
 				}
 			}
 

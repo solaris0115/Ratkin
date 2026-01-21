@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -17,14 +17,15 @@ namespace NewRatkin
 			Pawn casterPawn = this.CasterPawn;
 			if (!casterPawn.Spawned || casterPawn.stances.FullBodyBusy)
 			{
-				Log.Message($"[Verb_GunlanceFiring] TryCastShot: return false - CasterPawn not spawned or full body busy. CasterPawn: {casterPawn}, Spawned: {casterPawn?.Spawned}, FullBodyBusy: {casterPawn?.stances?.FullBodyBusy}");
 				return false;
 			}
 
 			// 타겟 확인 및 근접 사거리 내에 있는지 검증
 			Thing targetThing = this.currentTarget.Thing;
 			if (!this.CanHitTarget(targetThing))
-				Log.Warning($"{casterPawn} meleed {targetThing} from out of melee position.");
+			{
+				// 타겟이 근접 사거리 밖에 있음
+			}
 
 			// 공격자가 타겟을 바라보도록 회전
 			casterPawn.rotationTracker.Face(targetThing.DrawPos);
@@ -64,7 +65,6 @@ namespace NewRatkin
 			// 호출자(이벤트 리스너)에게 근접 공격 완료 알림
 			if (casterPawn.caller != null) casterPawn.caller.Notify_DidMeleeAttack();
 			
-			Log.Message($"[Verb_GunlanceFiring] TryCastShot: return true - Gunlance firing completed successfully. CasterPawn: {casterPawn}, Target: {targetThing}");
 			return true;
 		}
 

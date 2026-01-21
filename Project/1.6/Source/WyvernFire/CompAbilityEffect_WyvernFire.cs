@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using RimWorld;
 using UnityEngine;
 using Verse;
-using RimWorld;
 
 namespace NewRatkin
 {
@@ -29,26 +29,47 @@ namespace NewRatkin
 
 		public override void Apply(LocalTargetInfo target, LocalTargetInfo dest)
 		{
+			Pawn pawn = this.Pawn;
+
+			// 발사 전 효과(PreIgnition) 제거
+			if (pawn != null && pawn.Spawned)
+			{
+				// 기존 PreIgnition 제거
+				AttachableThing existingPreIgnition = pawn.GetAttachment(GunlanceDefOf.GunlancePreIgnition) as AttachableThing;
+				if (existingPreIgnition != null)
+				{
+					existingPreIgnition.Destroy();
+				}
+
+				// AfterIgnition 스폰 제거 (발사시에는 표시하지 않음)
+				// AttachableThing_AfterIgnition afterIgnition = ThingMaker.MakeThing(GunlanceDefOf.GunlanceAfterIgnition, null) as AttachableThing_AfterIgnition;
+				// if (afterIgnition != null)
+				// {
+				// 	afterIgnition.AttachTo(pawn);
+				// 	GenSpawn.Spawn(afterIgnition, pawn.Position, pawn.Map, pawn.Rotation, WipeMode.Vanish, false);
+				// }
+			}
+
 			IntVec3 cell = target.Cell;
 			Map mapHeld = this.parent.pawn.MapHeld;
 			float radius = 0f;
-			
+
 			// Use configured damageDef instead of hardcoded Flame
 			DamageDef damageDef = this.Props.damageDef ?? DamageDefOf.Bomb;
-			
-			Thing pawn = this.Pawn;
+
+			Thing pawnThing = pawn;
 			int damAmount = this.Props.damAmount;
 			if (damAmount == -1)
 			{
 				damAmount = damageDef.defaultDamage;
 			}
-			
+
 			float armorPenetration = this.Props.armorPenetration;
 			if (Mathf.Approximately(armorPenetration, -1f))
 			{
 				armorPenetration = damageDef.defaultArmorPenetration;
 			}
-			
+
 			SoundDef explosionSound = null;
 			ThingDef weapon = null;
 			ThingDef projectile = null;
@@ -58,25 +79,55 @@ namespace NewRatkin
 			int postExplosionSpawnThingCount = 0;
 			SimpleCurve flammabilityAttachFireChanceCurve = null;
 			List<IntVec3> overrideCells = this.AffectedCells(target);
-			
+
 			GenExplosion.DoExplosion(
-				cell, mapHeld, radius, damageDef, pawn, 
-				damAmount, armorPenetration, explosionSound, weapon, projectile, 
-				intendedTarget, postExplosionSpawnThingDef, postExplosionSpawnChance, postExplosionSpawnThingCount, 
-				null, null, 255, false, null, 0f, 1, 1f, false, 
-				null, null, null, false, 0f, 0f, false, 
+				cell, mapHeld, radius, damageDef, pawnThing,
+				damAmount, armorPenetration, explosionSound, weapon, projectile,
+				intendedTarget, postExplosionSpawnThingDef, postExplosionSpawnChance, postExplosionSpawnThingCount,
+				null, null, 255, false, null, 0f, 1, 1f, false,
+				null, null, null, false, 0f, 0f, false,
 				null, 1f, flammabilityAttachFireChanceCurve, overrideCells, null, null);
-			
+
 			base.Apply(target, dest);
 		}
 
 		public override IEnumerable<PreCastAction> GetPreCastActions()
 		{
+			// 발사 전 충전 효과 (PreIgnition) - warmup 시작 시점에 스폰
+			// warmupTime이 2초(120틱)이므로, warmup 시작 시점에 실행되도록 설정
+			// RimWorld에서 1초 = 60틱
+			int warmupTicks = Mathf.RoundToInt(this.parent.verb.verbProps.warmupTime * 60f);
+			yield return new PreCastAction
+			{
+				action = delegate (LocalTargetInfo a, LocalTargetInfo b)
+				{
+					Pawn pawn = this.Pawn;
+					if (pawn != null && pawn.Spawned)
+					{
+						// 기존 PreIgnition이 있으면 제거
+						AttachableThing existingPreIgnition = pawn.GetAttachment(GunlanceDefOf.GunlancePreIgnition) as AttachableThing;
+						if (existingPreIgnition != null)
+						{
+							existingPreIgnition.Destroy();
+						}
+
+						// 새로운 PreIgnition 스폰
+						AttachableThing_GunlanceIgnition ignition = ThingMaker.MakeThing(GunlanceDefOf.GunlancePreIgnition, null) as AttachableThing_GunlanceIgnition;
+						if (ignition != null)
+						{
+							ignition.AttachTo(pawn);
+							GenSpawn.Spawn(ignition, pawn.Position, pawn.Map, pawn.Rotation, WipeMode.Vanish, false);
+						}
+					}
+				},
+				ticksAwayFromCast = warmupTicks
+			};
+
 			if (this.Props.effecterDef != null)
 			{
 				yield return new PreCastAction
 				{
-					action = delegate(LocalTargetInfo a, LocalTargetInfo b)
+					action = delegate (LocalTargetInfo a, LocalTargetInfo b)
 					{
 						this.parent.AddEffecterToMaintain(this.Props.effecterDef.Spawn(this.parent.pawn.Position, a.Cell, this.parent.pawn.Map, 1f), this.Pawn.Position, a.Cell, 17, this.Pawn.MapHeld);
 					},
@@ -153,12 +204,11 @@ namespace NewRatkin
 		private bool CanUseCell(IntVec3 c)
 		{
 			ShootLine shootLine;
-			return c.InBounds(this.Pawn.Map) && 
-				!(c == this.Pawn.Position) && 
-				(this.Props.canHitFilledCells || !c.Filled(this.Pawn.Map)) && 
-				c.InHorDistOf(this.Pawn.Position, this.Props.range) && 
+			return c.InBounds(this.Pawn.Map) &&
+				!(c == this.Pawn.Position) &&
+				(this.Props.canHitFilledCells || !c.Filled(this.Pawn.Map)) &&
+				c.InHorDistOf(this.Pawn.Position, this.Props.range) &&
 				this.parent.verb.TryFindShootLineFromTo(this.parent.pawn.Position, c, out shootLine, false);
 		}
 	}
 }
-
