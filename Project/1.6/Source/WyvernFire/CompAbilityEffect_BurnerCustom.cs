@@ -87,7 +87,6 @@ namespace NewRatkin
 
 							if (incineratorSpray != null)
 							{
-							{
 								incineratorSpray.Add(new IncineratorProjectileMotion
 								{
 									mote = mote,

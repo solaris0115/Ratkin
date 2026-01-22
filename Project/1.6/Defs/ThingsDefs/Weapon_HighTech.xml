@@ -94,12 +94,13 @@
 			</li>
 			<li Class="CompProperties_EquippableAbilityReloadable">
 				<abilityDef>RK_WyvernFire_Ability</abilityDef>
-				<maxCharges>2</maxCharges>
+				<maxCharges>6</maxCharges>
 				<soundReload>RK_Sound_Reload</soundReload>
 				<chargeNoun>wyvern charge</chargeNoun>
 				<ammoDef>RK_Ammo_WyvernFire</ammoDef>
 				<ammoCountPerCharge>1</ammoCountPerCharge>
 				<baseReloadTicks>60</baseReloadTicks>
+				<replenishAfterCooldown>False</replenishAfterCooldown>
 			</li>
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="CompProperties_Styleable"/>
@@ -255,7 +256,9 @@
 		<label>wyvern fire</label>
 		<description>Unleash a devastating cone of explosive force.</description>
 		<iconPath>UI/Abilities/Burner</iconPath>
-		<cooldownTicksRange>120000</cooldownTicksRange>
+		<abilityClass>NewRatkin.Ability_WyvernFire</abilityClass>
+		<cooldownTicksRange>2400</cooldownTicksRange>
+		<cooldownPerCharge>False</cooldownPerCharge>
 		<aiCanUse>true</aiCanUse>
 		<warmupStartSound>RK_Sound_Warmup</warmupStartSound>
 		<showOnCharacterCard>false</showOnCharacterCard>
