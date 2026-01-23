@@ -126,7 +126,7 @@
 		<verb Class="NewRatkin.VerbProperties_Gunlance">
 			<verbClass>NewRatkin.Verb_GunlanceFiring</verbClass>
 			<damageDef>Bomb</damageDef>
-			<range>1</range>
+			<range>1.7</range>
 			<angle>50</angle>
 		</verb>
 		<logEntryDef>MeleeAttack</logEntryDef>
