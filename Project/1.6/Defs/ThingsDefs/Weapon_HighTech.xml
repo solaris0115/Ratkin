@@ -255,6 +255,8 @@
 		<cooldownTicksRange>2400</cooldownTicksRange>
 		<cooldownPerCharge>False</cooldownPerCharge>
 		<aiCanUse>true</aiCanUse>
+		<ai_IsOffensive>true</ai_IsOffensive>
+		<ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
 		<warmupStartSound>RK_Sound_WyvernFireCast</warmupStartSound>
 		<showOnCharacterCard>false</showOnCharacterCard>
 		<verbProperties>
