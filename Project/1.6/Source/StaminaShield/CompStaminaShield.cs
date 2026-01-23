@@ -276,14 +276,11 @@ namespace NewRatkin
             // 내구도 데미지 적용 중이면 무시 (무한 루프 방지)
             if (this.isApplyingDurabilityDamage)
             {
-                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: 내구도 데미지 적용 중 (무한 루프 방지)");
                 return;
             }
             
             if (this.ShieldState != ShieldState.Active || this.PawnOwner == null)
             {
-                string reason = this.PawnOwner == null ? "PawnOwner 없음" : $"ShieldState: {this.ShieldState} (Active 아님)";
-                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: {reason}");
                 return;
             }
             
@@ -291,12 +288,6 @@ namespace NewRatkin
             Pawn pawn = this.PawnOwner;
             if (!pawn.Drafted || pawn.Dead || pawn.Downed || !pawn.Awake())
             {
-                string reason = "";
-                if (!pawn.Drafted) reason = "소집 상태 아님";
-                else if (pawn.Dead) reason = "Pawn 사망";
-                else if (pawn.Downed) reason = "Pawn 눕힘";
-                else if (!pawn.Awake()) reason = "Pawn 수면/무의식";
-                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: {reason}");
                 return;
             }
             
@@ -337,24 +328,13 @@ namespace NewRatkin
                     break;
             }
             
-            // DamageDef 분류 정보 로그
-            Log.Message($"[StaminaShield] DamageDef 분류 정보:");
-            Log.Message($"[StaminaShield]   - DamageDef: {damageType}");
-            Log.Message($"[StaminaShield]   - isRanged: {dinfo.Def.isRanged}");
-            Log.Message($"[StaminaShield]   - isExplosive: {dinfo.Def.isExplosive}");
-            Log.Message($"[StaminaShield]   - Tool: {(dinfo.Tool != null ? "있음" : "없음")}");
-            Log.Message($"[StaminaShield]   - Weapon: {(dinfo.Weapon != null ? dinfo.Weapon.defName : "없음")}");
-            Log.Message($"[StaminaShield]   - 처리 타입: {classificationType} (AttackType: {attackType})");
-            
             if (!shouldProcess)
             {
-                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: {classificationType}");
                 return;
             }
             
             if (damageReductionPercent <= 0f)
             {
-                Log.Message($"[StaminaShield] 데미지 통과: {incomingDamage:F2} ({damageType}) - 사유: 피해 감소율 0% (처리 안 함)");
                 return;
             }
             
@@ -396,22 +376,6 @@ namespace NewRatkin
                     // dinfo는 그대로 유지 (원래 데미지)
                 }
                 
-                // 로그 출력: 피격 정보
-                Log.Message($"[StaminaShield] 피격 정보:");
-                Log.Message($"[StaminaShield]   - 오리지널 데미지: {originalDamage:F2} ({damageType})");
-                Log.Message($"[StaminaShield]   - 스태미나 데미지: {staminaLoss:F2} (배율: {staminaLossPerDamage:F4})");
-                Log.Message($"[StaminaShield]   - 스태미나 충분 여부: {hasEnoughStamina} (현재: {currentStaminaBefore:F2}, 필요: {staminaLoss:F2})");
-                if (hasEnoughStamina)
-                {
-                    Log.Message($"[StaminaShield]   - 흡수된 피해량: {reducedDamage:F2} (감쇄 배율: {damageReductionPercent:P2})");
-                    Log.Message($"[StaminaShield]   - 결과: {(remainingDamage <= 0f ? "흡수됨" : $"통과 ({remainingDamage:F2} 데미지)")}");
-                }
-                else
-                {
-                    Log.Message($"[StaminaShield]   - 스태미나 부족으로 피해 감소 미적용");
-                    Log.Message($"[StaminaShield]   - 결과: 통과 ({remainingDamage:F2} 데미지, 원래 데미지 그대로)");
-                }
-                
                 // 스태미나가 0 이하가 되면 쉴드 파괴
                 if (this.stamina <= 0f)
                 {
@@ -438,7 +402,6 @@ namespace NewRatkin
                     float durabilityDamage = reducedDamage * this.Props.durabilityDamagePercent;
                     if (durabilityDamage > 0f)
                     {
-                        Log.Message($"[StaminaShield]   - 내구도 데미지: {durabilityDamage:F2} (흡수량 {reducedDamage:F2} × {this.Props.durabilityDamagePercent:P2})");
                         this.isApplyingDurabilityDamage = true;
                         try
                         {
@@ -512,13 +475,6 @@ namespace NewRatkin
                 int baseStunTicks = this.Props.stunDurationTicks;
                 int additionalStunTicks = Mathf.RoundToInt(baseStunTicks * unabsorbedRatio);
                 totalStunTicks = baseStunTicks + additionalStunTicks;
-                
-                Log.Message($"[StaminaShield] 쉴드 브레이크 - 스턴 시간 계산:");
-                Log.Message($"[StaminaShield]   - 기본 스턴 시간: {baseStunTicks}틱");
-                Log.Message($"[StaminaShield]   - 잔여 스태미나 비율: {remainingStaminaRatio:P2}");
-                Log.Message($"[StaminaShield]   - 흡수 못한 비율: {unabsorbedRatio:P2}");
-                Log.Message($"[StaminaShield]   - 추가 스턴 시간: {additionalStunTicks}틱");
-                Log.Message($"[StaminaShield]   - 총 스턴 시간: {totalStunTicks}틱");
                 
                 this.PawnOwner.stances.stunner.StunFor(totalStunTicks, this.parent, true, true, false);
             }
