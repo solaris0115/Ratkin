@@ -150,11 +150,6 @@
 		</costList>
 		<tradeability>Sellable</tradeability>
 		<comps>
-			<li Class="CompProperties_Usable">
-				<useJob>UseItem</useJob>
-				<useLabel>Reload wyvern shell(normal)</useLabel>
-				<useDuration>600</useDuration>
-			</li>
 			<li Class="CompProperties_Explosive">
 				<explosiveRadius>2.9</explosiveRadius>
 				<explosiveDamageType>Bomb</explosiveDamageType>
