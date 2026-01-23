@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -17,6 +15,14 @@ namespace NewRatkin
 			{
 				return (CompProperties_AbilityWyvernFire)this.props;
 			}
+		}
+
+		/// <summary>
+		/// meleeCooldownTime 값을 반환 (Ability_WyvernFire에서 접근용)
+		/// </summary>
+		public float GetMeleeCooldownTime()
+		{
+			return this.Props.meleeCooldownTime;
 		}
 
 		private Pawn Pawn
@@ -89,6 +95,15 @@ namespace NewRatkin
 				null, 1f, flammabilityAttachFireChanceCurve, overrideCells, null, null);
 
 			base.Apply(target, dest);
+
+			// WyvernFire 발사 후 후딜레이(cooldown) 적용
+			// VerbTick에서 BurstingTick이 호출되어 state가 Idle로 변경된 후에 설정되도록
+			// Ability_WyvernFire의 AbilityTick에서 처리하도록 플래그 설정
+			Ability_WyvernFire ability = this.parent as Ability_WyvernFire;
+			if (ability != null)
+			{
+				ability.SetShouldApplyCooldown(true);
+			}
 		}
 
 		public override IEnumerable<PreCastAction> GetPreCastActions()

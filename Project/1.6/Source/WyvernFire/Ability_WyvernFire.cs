@@ -1,4 +1,5 @@
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace NewRatkin
@@ -10,6 +11,7 @@ namespace NewRatkin
 	/// </summary>
 	public class Ability_WyvernFire : Ability
 	{
+		private bool shouldApplyCooldown = false;
 		public Ability_WyvernFire()
 		{
 		}
@@ -83,7 +85,7 @@ namespace NewRatkin
 
 		/// <summary>
 		/// AbilityTick 오버라이드
-		/// StartCooldown에서 charge 자동 회복 방지
+		/// StartCooldown에서 charge 자동 회복 방지 및 후딜레이 적용
 		/// </summary>
 		public override void AbilityTick()
 		{
@@ -104,6 +106,67 @@ namespace NewRatkin
 					this.RemainingCharges = chargeBefore;
 				}
 			}
+
+			// WyvernFire 발사 후 후딜레이(cooldown) 적용
+			// VerbTick에서 BurstingTick이 호출되어 state가 Idle로 변경된 후에 설정
+			if (this.shouldApplyCooldown)
+			{
+				this.shouldApplyCooldown = false;
+				ApplyWyvernFireCooldown();
+			}
+		}
+
+		/// <summary>
+		/// WyvernFire 발사 후 후딜레이(cooldown) 적용
+		/// </summary>
+		private void ApplyWyvernFireCooldown()
+		{
+			Pawn pawn = this.pawn;
+			if (pawn == null || !pawn.Spawned || pawn.stances == null)
+			{
+				return;
+			}
+
+			// CompAbilityEffect_WyvernFire에서 meleeCooldownTime 가져오기
+			CompAbilityEffect_WyvernFire wyvernFireEffect = null;
+			foreach (CompAbilityEffect effect in this.EffectComps)
+			{
+				if (effect is CompAbilityEffect_WyvernFire)
+				{
+					wyvernFireEffect = effect as CompAbilityEffect_WyvernFire;
+					break;
+				}
+			}
+
+			if (wyvernFireEffect == null)
+			{
+				return;
+			}
+
+			float cooldownTime = wyvernFireEffect.GetMeleeCooldownTime();
+
+			// XML에서 설정한 값만 사용 (무기 tool cooldown 자동 사용 안 함)
+			// 양수 값이면 해당 값 사용, 0 이하면 cooldown 없음
+			if (cooldownTime > 0f)
+			{
+				// cooldownTime을 틱으로 변환 (1초 = 60틱)
+				int cooldownTicks = Mathf.RoundToInt(cooldownTime * 60f);
+
+				if (cooldownTicks > 0)
+				{
+					// Stance_Cooldown 설정 (verb는 null로 설정 - ability이므로)
+					// 이 Stance가 활성화되면 Pawn.stances.FullBodyBusy = true가 됩니다
+					pawn.stances.SetStance(new Verse.Stance_Cooldown(cooldownTicks, LocalTargetInfo.Invalid, null));
+				}
+			}
+		}
+
+		/// <summary>
+		/// 후딜레이 적용 플래그 설정 (CompAbilityEffect_WyvernFire에서 호출)
+		/// </summary>
+		public void SetShouldApplyCooldown(bool value)
+		{
+			this.shouldApplyCooldown = value;
 		}
 
 		/// <summary>

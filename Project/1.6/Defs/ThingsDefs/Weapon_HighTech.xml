@@ -95,7 +95,7 @@
 			<li Class="CompProperties_EquippableAbilityReloadable">
 				<abilityDef>RK_WyvernFire_Ability</abilityDef>
 				<maxCharges>6</maxCharges>
-				<soundReload>RK_Sound_Reload</soundReload>
+				<soundReload>RK_Sound_GunlanceAmmoReload</soundReload>
 				<chargeNoun>wyvern charge</chargeNoun>
 				<ammoDef>RK_Ammo_WyvernFire</ammoDef>
 				<ammoCountPerCharge>1</ammoCountPerCharge>
@@ -255,14 +255,14 @@
 		<cooldownTicksRange>2400</cooldownTicksRange>
 		<cooldownPerCharge>False</cooldownPerCharge>
 		<aiCanUse>true</aiCanUse>
-		<warmupStartSound>RK_Sound_Warmup</warmupStartSound>
+		<warmupStartSound>RK_Sound_WyvernFireCast</warmupStartSound>
 		<showOnCharacterCard>false</showOnCharacterCard>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
 			<requireLineOfSight>true</requireLineOfSight>
 			<range>5.5</range>
 			<warmupTime>1.7</warmupTime>
-			<soundCast>RK_Sound_WyvernFire</soundCast>
+			<soundCast>RK_Sound_WyvernFireShoot</soundCast>
 			<targetParams>
 				<canTargetLocations>true</canTargetLocations>
 			</targetParams>
@@ -275,6 +275,7 @@
 				<damAmount>35</damAmount>
 				<armorPenetration>0.7</armorPenetration>
 				<canHitFilledCells>true</canHitFilledCells>
+				<meleeCooldownTime>1</meleeCooldownTime>
 			</li>
 			<li Class="NewRatkin.CompProperties_AbilityBurnerCustom">
 				<numStreams>8</numStreams>

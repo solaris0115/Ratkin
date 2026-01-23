@@ -96,6 +96,7 @@ namespace NewRatkin
 				instigator: CasterPawn,
 				damAmount: finalDamage,
 				armorPenetration: calculatedArmorPen,
+				explosionSound: RatkinSoundDefOf.RK_Sound_GunlanceFire,
 				weapon: weapon?.def,
 				screenShakeFactor: 0f,
 				overrideCells: explosionCells);
