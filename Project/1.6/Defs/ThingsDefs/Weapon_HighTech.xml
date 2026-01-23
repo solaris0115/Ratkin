@@ -275,7 +275,8 @@
 				<damAmount>35</damAmount>
 				<armorPenetration>0.7</armorPenetration>
 				<canHitFilledCells>true</canHitFilledCells>
-				<meleeCooldownTime>1</meleeCooldownTime>
+				<meleeCooldownTime>0.5</meleeCooldownTime>
+				<cooldownEndSound>RK_Sound_WyvernFireOverheat</cooldownEndSound>
 			</li>
 			<li Class="NewRatkin.CompProperties_AbilityBurnerCustom">
 				<numStreams>8</numStreams>

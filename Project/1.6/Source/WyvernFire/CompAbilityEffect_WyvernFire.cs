@@ -25,6 +25,14 @@ namespace NewRatkin
 			return this.Props.meleeCooldownTime;
 		}
 
+		/// <summary>
+		/// cooldownEndSound 값을 반환 (Ability_WyvernFire에서 접근용)
+		/// </summary>
+		public SoundDef GetCooldownEndSound()
+		{
+			return this.Props.cooldownEndSound;
+		}
+
 		private Pawn Pawn
 		{
 			get

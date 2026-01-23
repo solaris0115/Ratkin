@@ -32,6 +32,12 @@ namespace NewRatkin
 		/// </summary>
 		public float meleeCooldownTime = 0f;
 
+		/// <summary>
+		/// meleeCooldownTime이 끝날 때 재생할 사운드
+		/// null이면 사운드를 재생하지 않습니다
+		/// </summary>
+		public SoundDef cooldownEndSound;
+
 		public CompProperties_AbilityWyvernFire()
 		{
 			this.compClass = typeof(CompAbilityEffect_WyvernFire);

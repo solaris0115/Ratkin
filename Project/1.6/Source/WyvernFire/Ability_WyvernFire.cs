@@ -1,6 +1,7 @@
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace NewRatkin
 {
@@ -12,6 +13,7 @@ namespace NewRatkin
 	public class Ability_WyvernFire : Ability
 	{
 		private bool shouldApplyCooldown = false;
+		private bool wasOnCooldown = false;
 		public Ability_WyvernFire()
 		{
 		}
@@ -58,6 +60,8 @@ namespace NewRatkin
 			if (this.HasCooldown)
 			{
 				this.StartCooldown(this.def.cooldownTicksRange.RandomInRange);
+				// Ability 쿨다운 시작 플래그 설정
+				wasOnCooldown = true;
 			}
 
 			// StartCooldown()이 charge를 회복했다면, 소모된 상태로 복원
@@ -114,6 +118,9 @@ namespace NewRatkin
 				this.shouldApplyCooldown = false;
 				ApplyWyvernFireCooldown();
 			}
+
+			// cooldownTicksRange 끝나고 나면 사운드 재생
+			CheckAbilityCooldownEnd();
 		}
 
 		/// <summary>
@@ -144,6 +151,7 @@ namespace NewRatkin
 			}
 
 			float cooldownTime = wyvernFireEffect.GetMeleeCooldownTime();
+			SoundDef cooldownEndSound = wyvernFireEffect.GetCooldownEndSound();
 
 			// XML에서 설정한 값만 사용 (무기 tool cooldown 자동 사용 안 함)
 			// 양수 값이면 해당 값 사용, 0 이하면 cooldown 없음
@@ -154,9 +162,14 @@ namespace NewRatkin
 
 				if (cooldownTicks > 0)
 				{
-					// Stance_Cooldown 설정 (verb는 null로 설정 - ability이므로)
+					// Stance_Cooldown_WithSound 설정 (verb는 null로 설정 - ability이므로)
+					// 쿨다운 종료 시 XML에서 지정한 사운드 자동 재생
 					// 이 Stance가 활성화되면 Pawn.stances.FullBodyBusy = true가 됩니다
-					pawn.stances.SetStance(new Verse.Stance_Cooldown(cooldownTicks, LocalTargetInfo.Invalid, null));
+					pawn.stances.SetStance(new Stance_Cooldown_WithSound(
+						cooldownTicks, 
+						LocalTargetInfo.Invalid, 
+						null, 
+						cooldownEndSound));
 				}
 			}
 		}
@@ -167,6 +180,34 @@ namespace NewRatkin
 		public void SetShouldApplyCooldown(bool value)
 		{
 			this.shouldApplyCooldown = value;
+		}
+
+		/// <summary>
+		/// cooldownTicksRange 끝나고 나면 사운드 재생 체크
+		/// </summary>
+		private void CheckAbilityCooldownEnd()
+		{
+			Pawn pawn = this.pawn;
+			if (pawn == null || !pawn.Spawned)
+			{
+				wasOnCooldown = false;
+				return;
+			}
+
+			// 현재 Ability 쿨다운 상태 확인
+			bool isOnCooldown = this.OnCooldown;
+
+			// 이전에는 쿨다운이었는데 지금은 아닌 경우 = 쿨다운이 끝남
+			if (wasOnCooldown && !isOnCooldown)
+			{
+				// RK_Sound_WyvernFireCoolDownEnd 재생
+				if (RatkinSoundDefOf.RK_Sound_WyvernFireCoolDownEnd != null)
+				{
+					RatkinSoundDefOf.RK_Sound_WyvernFireCoolDownEnd.PlayOneShot(SoundInfo.InMap(new TargetInfo(pawn.Position, pawn.Map, false), MaintenanceType.None));
+				}
+			}
+
+			wasOnCooldown = isOnCooldown;
 		}
 
 		/// <summary>
