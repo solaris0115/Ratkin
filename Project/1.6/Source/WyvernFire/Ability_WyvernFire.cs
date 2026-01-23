@@ -1,6 +1,7 @@
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 using Verse.Sound;
 
 namespace NewRatkin
@@ -22,24 +23,24 @@ namespace NewRatkin
 		{
 		}
 
-		/// <summary>
-		/// CanCast 오버라이드
-		/// 쿨다운 중에는 탄약이 있어도 무조건 발사 불가
-		/// </summary>
-		public override AcceptanceReport CanCast
+	/// <summary>
+	/// CanCast 오버라이드
+	/// 쿨다운 중에는 탄약이 있어도 무조건 발사 불가
+	/// </summary>
+	public override AcceptanceReport CanCast
+	{
+		get
 		{
-			get
+			// 쿨다운 중에는 무조건 발사 불가
+			if (this.OnCooldown)
 			{
-				// 쿨다운 중에는 무조건 발사 불가
-				if (this.OnCooldown)
-				{
-					return false;
-				}
-
-				// 기본 CanCast 체크 (탄약 확인 등)
-				return base.CanCast;
+				return false;
 			}
+
+			// 기본 CanCast 체크 (탄약 확인 등)
+			return base.CanCast;
 		}
+	}
 
 		/// <summary>
 		/// PreActivate 오버라이드
@@ -166,9 +167,9 @@ namespace NewRatkin
 					// 쿨다운 종료 시 XML에서 지정한 사운드 자동 재생
 					// 이 Stance가 활성화되면 Pawn.stances.FullBodyBusy = true가 됩니다
 					pawn.stances.SetStance(new Stance_Cooldown_WithSound(
-						cooldownTicks, 
-						LocalTargetInfo.Invalid, 
-						null, 
+						cooldownTicks,
+						LocalTargetInfo.Invalid,
+						null,
 						cooldownEndSound));
 				}
 			}
@@ -209,6 +210,123 @@ namespace NewRatkin
 
 			wasOnCooldown = isOnCooldown;
 		}
+
+	/// <summary>
+	/// AIGetAOETarget 오버라이드
+	/// 자기 자신 제외, 적대 타겟만 검색
+	/// </summary>
+	public override LocalTargetInfo AIGetAOETarget()
+	{
+		// ai_SearchAOEForTargets가 true인 경우에만 AOE 타겟 검색
+		if (this.def.ai_SearchAOEForTargets)
+		{
+			// 원형 반경 내 타겟 검색
+			foreach (Thing thing in GenRadial.RadialDistinctThingsAround(this.pawn.Position, this.pawn.Map, this.verb.EffectiveRange, true))
+			{
+				// 자기 자신 제외
+				if (thing == this.pawn)
+				{
+					continue;
+				}
+				
+				// 적대 관계가 아니면 스킵
+				if (!this.pawn.HostileTo(thing))
+				{
+					continue;
+				}
+				
+				// ValidAOEAffectedTarget 체크 (private이므로 직접 구현)
+				if (!IsValidAOETarget(thing))
+				{
+					continue;
+				}
+				
+				// CompAbilityEffect들의 AICanTargetNow 체크
+				bool allCompsValid = true;
+				foreach (CompAbilityEffect comp in this.EffectComps)
+				{
+					if (!comp.AICanTargetNow(thing))
+					{
+						allCompsValid = false;
+						break;
+					}
+				}
+				
+				if (allCompsValid)
+				{
+					return thing;
+				}
+			}
+		}
+		
+		return LocalTargetInfo.Invalid;
+	}
+	
+	/// <summary>
+	/// ValidAOEAffectedTarget의 로직을 구현 (private이므로 직접 접근 불가)
+	/// </summary>
+	private bool IsValidAOETarget(Thing target)
+	{
+		// targetParams 체크
+		if (!this.verb.targetParams.CanTarget(target, null))
+		{
+			return false;
+		}
+		
+		// Fog 체크
+		if (target.Fogged())
+		{
+			return false;
+		}
+		
+		// CompAbilityEffect들의 Valid 체크
+		LocalTargetInfo localTarget = new LocalTargetInfo(target);
+		for (int i = 0; i < this.EffectComps.Count; i++)
+		{
+			if (!this.EffectComps[i].Valid(localTarget, false))
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
+	/// <summary>
+	/// AICanTargetNow 오버라이드
+	/// AI가 타겟을 선택할 수 있는지 확인 (사거리 체크 포함)
+	/// </summary>
+	public override bool AICanTargetNow(LocalTargetInfo target)
+	{
+		// 기본 조건 체크
+		if (!base.AICanTargetNow(target))
+		{
+			return false;
+		}
+		
+		// 사거리 체크 추가
+		if (this.verb != null && !this.verb.CanHitTarget(target))
+		{
+			return false;
+		}
+		
+		// 적대 관계 체크 (타겟이 Thing인 경우)
+		if (target.HasThing && !this.pawn.HostileTo(target.Thing))
+		{
+			return false;
+		}
+		
+		return true;
+	}
+
+	/// <summary>
+	/// GetJob 오버라이드
+	/// AI가 어빌리티를 사용하기 위한 Job 생성
+	/// </summary>
+	public override Job GetJob(LocalTargetInfo target, LocalTargetInfo destination)
+	{
+		return base.GetJob(target, destination);
+	}
 
 		/// <summary>
 		/// CompEquippableAbilityReloadable이 있고 ammoDef가 설정된 경우인지 확인
