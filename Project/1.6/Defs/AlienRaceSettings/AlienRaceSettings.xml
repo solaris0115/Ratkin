@@ -103,11 +103,11 @@
 								<east>
 									<offset>(0.2,-0.25)</offset>
 									<bodyTypes>
-										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.04)</Baby>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.1)</Baby>
 										<Child MayRequire="Ludeon.RimWorld.Biotech">(-0.05,-0.04)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.04)</Baby>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.1)</Baby>
 										<Child MayRequire="Ludeon.RimWorld.Biotech">(-0.05,-0.04)</Child>
 									</portraitBodyTypes>
 								</east>
@@ -168,11 +168,11 @@
 								<east>
 									<offset>(0.2,-0.25)</offset>
 									<bodyTypes>
-										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.04)</Baby>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.1)</Baby>
 										<Child MayRequire="Ludeon.RimWorld.Biotech">(-0.05,-0.04)</Child>
 									</bodyTypes>
 									<portraitBodyTypes>
-										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.04)</Baby>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.1)</Baby>
 										<Child MayRequire="Ludeon.RimWorld.Biotech">(-0.05,-0.04)</Child>
 									</portraitBodyTypes>
 								</east>
