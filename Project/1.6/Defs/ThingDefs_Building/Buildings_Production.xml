@@ -254,10 +254,9 @@
 		<passability>PassThroughOnly</passability>
 		<pathCost>70</pathCost>
 		<hasInteractionCell>True</hasInteractionCell>
-		<interactionCellOffset>(1,0,-1)</interactionCellOffset>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<surfaceType>Item</surfaceType>
 		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-		<defaultPlacingRot>South</defaultPlacingRot>
 		<inspectorTabs>
 			<li>ITab_Bills</li>
 		</inspectorTabs>
