@@ -313,6 +313,13 @@
 			<EquipDelay>1</EquipDelay>
 			<RK_Stat_ShieldStamina>1.1</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.25</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldReduceDamageMelee>0.4</RK_Stat_ShieldReduceDamageMelee>
+			<RK_Stat_ShieldReduceDamageRanged>0.5</RK_Stat_ShieldReduceDamageRanged>
+			<RK_Stat_ShieldReduceDamageExplosive>0.25</RK_Stat_ShieldReduceDamageExplosive>
+			<RK_Stat_ShieldStaminaOnReset>1</RK_Stat_ShieldStaminaOnReset>
+			<RK_Stat_ShieldStaminaLossMelee>0.066</RK_Stat_ShieldStaminaLossMelee>
+			<RK_Stat_ShieldStaminaLossRanged>0.033</RK_Stat_ShieldStaminaLossRanged>
+			<RK_Stat_ShieldStaminaLossExplosive>0.1</RK_Stat_ShieldStaminaLossExplosive>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
@@ -360,16 +367,10 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
+				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
 				<startingTicksToReset>180</startingTicksToReset>
 				<stunDurationTicks>180</stunDurationTicks>
-				<durabilityDamagePercent>0.1</durabilityDamagePercent>
-				<staminaOnReset>0.2</staminaOnReset>
-				<staminaLossPerDamageMelee>0.066</staminaLossPerDamageMelee>
-				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
-				<staminaLossPerDamageExplosive>0.1</staminaLossPerDamageExplosive>
-				<damageReductionPercentMelee>0.4</damageReductionPercentMelee>
-				<damageReductionPercentRanged>0.5</damageReductionPercentRanged>
-				<damageReductionPercentExplosive>0.25</damageReductionPercentExplosive>
+				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
 		</comps>
 		<apparel>
@@ -380,6 +381,7 @@
 			</bodyPartGroups>
 			<tags>
 				<li>RK_LightArmor</li>
+				<li>RK_ApparelTag_Shield</li>
 			</tags>
 		</apparel>
 	</ThingDef>
@@ -418,6 +420,13 @@
 			<EquipDelay>1</EquipDelay>
 			<RK_Stat_ShieldStamina>1.5</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.16</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldReduceDamageMelee>0.7</RK_Stat_ShieldReduceDamageMelee>
+			<RK_Stat_ShieldReduceDamageRanged>0.8</RK_Stat_ShieldReduceDamageRanged>
+			<RK_Stat_ShieldReduceDamageExplosive>0.4</RK_Stat_ShieldReduceDamageExplosive>
+			<RK_Stat_ShieldStaminaOnReset>0.7</RK_Stat_ShieldStaminaOnReset>
+			<RK_Stat_ShieldStaminaLossMelee>0.066</RK_Stat_ShieldStaminaLossMelee>
+			<RK_Stat_ShieldStaminaLossRanged>0.033</RK_Stat_ShieldStaminaLossRanged>
+			<RK_Stat_ShieldStaminaLossExplosive>0.1</RK_Stat_ShieldStaminaLossExplosive>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
@@ -466,16 +475,10 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
+				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
 				<startingTicksToReset>180</startingTicksToReset>
 				<stunDurationTicks>180</stunDurationTicks>
-				<durabilityDamagePercent>0.1</durabilityDamagePercent>
-				<staminaOnReset>0.2</staminaOnReset>
-				<staminaLossPerDamageMelee>0.066</staminaLossPerDamageMelee>
-				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
-				<staminaLossPerDamageExplosive>0.1</staminaLossPerDamageExplosive>
-				<damageReductionPercentMelee>0.7</damageReductionPercentMelee>
-				<damageReductionPercentRanged>0.8</damageReductionPercentRanged>
-				<damageReductionPercentExplosive>0.4</damageReductionPercentExplosive>
+				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
 		</comps>
 		<apparel>
@@ -488,6 +491,7 @@
 			</bodyPartGroups>
 			<tags>
 				<li>RK_HeavyArmor</li>
+				<li>RK_ApparelTag_Shield</li>
 			</tags>
 		</apparel>
 	</ThingDef>
@@ -532,6 +536,13 @@
 			<EquipDelay>1</EquipDelay>
 			<RK_Stat_ShieldStamina>1.9</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.13</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldReduceDamageMelee>0.9</RK_Stat_ShieldReduceDamageMelee>
+			<RK_Stat_ShieldReduceDamageRanged>1.0</RK_Stat_ShieldReduceDamageRanged>
+			<RK_Stat_ShieldReduceDamageExplosive>0.5</RK_Stat_ShieldReduceDamageExplosive>
+			<RK_Stat_ShieldStaminaOnReset>0.7</RK_Stat_ShieldStaminaOnReset>
+			<RK_Stat_ShieldStaminaLossMelee>0.033</RK_Stat_ShieldStaminaLossMelee>
+			<RK_Stat_ShieldStaminaLossRanged>0.033</RK_Stat_ShieldStaminaLossRanged>
+			<RK_Stat_ShieldStaminaLossExplosive>0.066</RK_Stat_ShieldStaminaLossExplosive>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
@@ -580,16 +591,10 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
+				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
 				<startingTicksToReset>180</startingTicksToReset>
-				<stunDurationTicks>180</stunDurationTicks>
-				<durabilityDamagePercent>0.1</durabilityDamagePercent>
-				<staminaOnReset>0.2</staminaOnReset>
-				<staminaLossPerDamageMelee>0.033</staminaLossPerDamageMelee>
-				<staminaLossPerDamageRanged>0.033</staminaLossPerDamageRanged>
-				<staminaLossPerDamageExplosive>0.066</staminaLossPerDamageExplosive>
-				<damageReductionPercentMelee>0.9</damageReductionPercentMelee>
-				<damageReductionPercentRanged>1.0</damageReductionPercentRanged>
-				<damageReductionPercentExplosive>0.5</damageReductionPercentExplosive>
+				<!-- <stunDurationTicks>180</stunDurationTicks> -->
+				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
 		</comps>
 		<apparel>
@@ -602,6 +607,7 @@
 			</bodyPartGroups>
 			<tags>
 				<li>RK_HeavyArmor</li>
+				<li>RK_ApparelTag_Shield</li>
 			</tags>
 		</apparel>
 	</ThingDef>

@@ -60,6 +60,83 @@ namespace NewRatkin
             }
         }
 
+        /// <summary>
+        /// 근접 공격 피해 감소율 (품질 영향)
+        /// </summary>
+        private float DamageReductionMelee
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldReduceDamageMelee, true, -1);
+            }
+        }
+
+        /// <summary>
+        /// 원거리 공격 피해 감소율 (품질 영향)
+        /// </summary>
+        private float DamageReductionRanged
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldReduceDamageRanged, true, -1);
+            }
+        }
+
+        /// <summary>
+        /// 폭발 공격 피해 감소율 (품질 영향)
+        /// </summary>
+        private float DamageReductionExplosive
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldReduceDamageExplosive, true, -1);
+            }
+        }
+
+        /// <summary>
+        /// 스태미나 브레이크 후 초기 스태미나 (품질 영향)
+        /// </summary>
+        private float StaminaOnReset
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldStaminaOnReset, true, -1);
+            }
+        }
+
+        /// <summary>
+        /// 근접 공격당 스태미나 손실 (품질 영향)
+        /// </summary>
+        private float StaminaLossMelee
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldStaminaLossMelee, true, -1);
+            }
+        }
+
+        /// <summary>
+        /// 원거리 공격당 스태미나 손실 (품질 영향)
+        /// </summary>
+        private float StaminaLossRanged
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldStaminaLossRanged, true, -1);
+            }
+        }
+
+        /// <summary>
+        /// 폭발 공격당 스태미나 손실 (품질 영향)
+        /// </summary>
+        private float StaminaLossExplosive
+        {
+            get
+            {
+                return this.parent.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldStaminaLossExplosive, true, -1);
+            }
+        }
+
         public float Stamina
         {
             get
@@ -302,22 +379,22 @@ namespace NewRatkin
             {
                 case AttackType.Melee:
                     classificationType = "근접";
-                    damageReductionPercent = this.Props.damageReductionPercentMelee;
-                    staminaLossPerDamage = this.Props.staminaLossPerDamageMelee;
+                    damageReductionPercent = this.DamageReductionMelee;
+                    staminaLossPerDamage = this.StaminaLossMelee;
                     shouldProcess = true;
                     break;
                     
                 case AttackType.Ranged:
                     classificationType = "원거리";
-                    damageReductionPercent = this.Props.damageReductionPercentRanged;
-                    staminaLossPerDamage = this.Props.staminaLossPerDamageRanged;
+                    damageReductionPercent = this.DamageReductionRanged;
+                    staminaLossPerDamage = this.StaminaLossRanged;
                     shouldProcess = true;
                     break;
                     
                 case AttackType.Explosive:
                     classificationType = "폭발";
-                    damageReductionPercent = this.Props.damageReductionPercentExplosive;
-                    staminaLossPerDamage = this.Props.staminaLossPerDamageExplosive;
+                    damageReductionPercent = this.DamageReductionExplosive;
+                    staminaLossPerDamage = this.StaminaLossExplosive;
                     shouldProcess = true;
                     break;
                     
@@ -396,7 +473,8 @@ namespace NewRatkin
                 }
                 
                 // 의류 내구도 손상 처리 (흡수된 데미지량 기준, 스태미나가 충분했을 때만)
-                if (hasEnoughStamina && this.Props.durabilityDamagePercent > 0f && this.IsApparel && this.parent.Spawned)
+                // 착용 중인 의류는 Spawned가 false이므로 PawnOwner 존재 여부로 체크
+                if (hasEnoughStamina && this.Props.durabilityDamagePercent > 0f && this.IsApparel && this.PawnOwner != null)
                 {
                     // 실제로 방패가 흡수한 데미지량(reducedDamage)을 기준으로 내구도 손상 계산
                     float durabilityDamage = reducedDamage * this.Props.durabilityDamagePercent;
@@ -463,7 +541,8 @@ namespace NewRatkin
             // 스태미나 브레이크 시 stun 부여 및 재생 대기 시간 설정
             int totalStunTicks = this.Props.startingTicksToReset; // 기본값 (스턴이 부여되지 않는 경우)
             
-            if (this.Props.stunDurationTicks > 0 && this.PawnOwner != null && this.PawnOwner.stances != null && this.PawnOwner.stances.stunner != null)
+            // enableStun이 true이고 stunDurationTicks가 0보다 클 때만 스턴 부여
+            if (this.Props.enableStun && this.Props.stunDurationTicks > 0 && this.PawnOwner != null && this.PawnOwner.stances != null && this.PawnOwner.stances.stunner != null)
             {
                 // 흡수 못한 피해 비율에 따라 스턴 시간 증가 (최대 100%)
                 // remainingStaminaRatio: 잔여 스태미나 비율 (0.0 ~ 1.0)
@@ -487,7 +566,8 @@ namespace NewRatkin
         {
             // 재충전 사운드 및 번개 글로우 제거 (계획서 요구사항)
             this.ticksToReset = -1;
-            this.stamina = this.Props.staminaOnReset;
+            // StaminaOnReset은 최대 스태미나의 비율로 적용 (0.7 = 70%)
+            this.stamina = this.StaminaMax * this.StaminaOnReset;
         }
 
         // 쉴드 버블 렌더링 제거 (계획서 요구사항)
