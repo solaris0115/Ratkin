@@ -150,14 +150,31 @@ namespace NewRatkin
         {
             Map map = Find.CurrentMap;
             
-            // Remove all pawns
+            // 1. Remove overhead mountain (thick roof) first - items will fall down
+            int removedRoofs = 0;
+            foreach (IntVec3 cell in map.AllCells)
+            {
+                RoofDef roof = map.roofGrid.RoofAt(cell);
+                if (roof != null && roof.isThickRoof)
+                {
+                    map.roofGrid.SetRoof(cell, null);
+                    removedRoofs++;
+                }
+            }
+            
+            if (removedRoofs > 0)
+            {
+                Log.Message($"Removed {removedRoofs} overhead mountain roofs.");
+            }
+
+            // 2. Remove all pawns
             List<Pawn> pawns = map.mapPawns.AllPawnsSpawned.ToList();
             foreach (Pawn pawn in pawns)
             {
                 pawn.Destroy();
             }
 
-            // Remove all things (buildings, items, plants, etc.)
+            // 3. Remove all things (buildings, items, plants, etc.) - after roofs are removed
             List<Thing> things = map.listerThings.AllThings.ToList();
             foreach (Thing thing in things)
             {
@@ -167,7 +184,7 @@ namespace NewRatkin
                 }
             }
 
-            // Remove all plants
+            // 4. Remove all plants
             var plants = map.listerThings.ThingsInGroup(ThingRequestGroup.Plant).ToList();
             foreach (Thing plant in plants)
             {
@@ -369,6 +386,155 @@ namespace NewRatkin
                 }
             }
             return count;
+        }
+
+        [DebugAction("Ratkin", "Spawn All PawnKinds Test (25 each)", 
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            displayPriority = 995)]
+        private static void SpawnAllPawnKindsTest()
+        {
+            if (Find.CurrentMap == null)
+            {
+                Log.Error("No current map found.");
+                return;
+            }
+
+            Map map = Find.CurrentMap;
+
+            // 맵 사이즈 체크
+            if (map.Size.x < 225 || map.Size.z < 225)
+            {
+                Messages.Message($"Map size ({map.Size.x}x{map.Size.z}) is too small. Minimum required: 225x225", MessageTypeDefOf.RejectInput);
+                Log.Warning($"Map size ({map.Size.x}x{map.Size.z}) is too small. Minimum required: 225x225");
+                return;
+            }
+
+            // 1. Clear all things on map except terrain
+            ClearMapExceptTerrain();
+
+            // 2. Get all Ratkin PawnKindDefs (exclude abstract ones by checking defName is not null)
+            var ratkinPawnKinds = DefDatabase<PawnKindDef>.AllDefs
+                .Where(def => def.race != null && def.race.defName == "Ratkin" && def.defName != null)
+                .OrderBy(def => def.defName)
+                .ToList();
+
+            if (ratkinPawnKinds.Count == 0)
+            {
+                Log.Error("No Ratkin PawnKindDef found.");
+                return;
+            }
+
+            // 3. Get Ratkin XenotypeDef
+            XenotypeDef ratkinXenotype = DefDatabase<XenotypeDef>.GetNamedSilentFail("RK_XenoType_Ratkin");
+
+            // 4. 배치 설정
+            const int startX = 25;
+            const int startZ = 25;
+            const int spacing = 25; // 간격 25칸
+            const int margin = 5; // 여백 5칸
+            const int pawnsPerKind = 25; // 각 pawnkind당 50명
+
+            // 한 줄에 배치 가능한 최대 수 계산 (시작 위치 25, 끝 여백 5)
+            int maxPawnsPerRow = (map.Size.x - startX - margin) / spacing;
+
+            if (maxPawnsPerRow <= 0)
+            {
+                Log.Error($"Cannot fit any pawns in a row. Map width: {map.Size.x}, Start: {startX}, Margin: {margin}, Spacing: {spacing}");
+                return;
+            }
+
+            int totalSpawned = 0;
+            List<Pawn> spawnedPawns = new List<Pawn>();
+
+            // 전역 위치 변수 - 각 pawnkind가 연속된 위치에 배치되도록 함
+            int currentX = startX;
+            int currentZ = startZ;
+
+            foreach (PawnKindDef pawnKind in ratkinPawnKinds)
+            {
+                int spawnedForThisKind = 0;
+
+                // 각 pawnkind당 50명 생성
+                for (int i = 0; i < pawnsPerKind; i++)
+                {
+                    try
+                    {
+                        // 현재 줄에 더 이상 배치할 수 없으면 다음 줄로
+                        if (currentX + spacing > map.Size.x - margin)
+                        {
+                            currentX = startX;
+                            currentZ += spacing;
+                        }
+
+                        IntVec3 spawnPos = new IntVec3(currentX, 0, currentZ);
+
+                        // 유효한 스폰 위치 찾기
+                        if (!spawnPos.InBounds(map) || !spawnPos.Standable(map))
+                        {
+                            spawnPos = CellFinder.RandomSpawnCellForPawnNear(spawnPos, map, 10);
+                            if (!spawnPos.InBounds(map))
+                            {
+                                Log.Warning($"Could not find valid spawn position for {pawnKind.defName} at ({currentX}, {currentZ})");
+                                break; // 이 pawnkind는 더 이상 생성 불가
+                            }
+                        }
+
+                        // Pawn 생성
+                        PawnGenerationRequest request = new PawnGenerationRequest(
+                            kind: pawnKind,
+                            faction: Faction.OfPlayer,
+                            forceGenerateNewPawn: true,
+                            allowFood: false,
+                            allowAddictions: false,
+                            relationWithExtraPawnChanceFactor: 0f
+                        );
+
+                        // Set Ratkin xenotype if available
+                        if (ratkinXenotype != null && ModsConfig.BiotechActive)
+                        {
+                            request.ForcedXenotype = ratkinXenotype;
+                        }
+
+                        Pawn pawn = PawnGenerator.GeneratePawn(request);
+
+                        // Spawn pawn
+                        GenSpawn.Spawn(pawn, spawnPos, map);
+
+                        // Make colonist
+                        if (pawn.Faction != Faction.OfPlayer)
+                        {
+                            pawn.SetFaction(Faction.OfPlayer);
+                        }
+
+                        spawnedPawns.Add(pawn);
+                        spawnedForThisKind++;
+                        totalSpawned++;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Failed to spawn pawn {i + 1} of {pawnKind.defName}: {ex.Message}");
+                        // Continue to next pawn
+                    }
+                    finally
+                    {
+                        // 예외 발생 여부와 관계없이 다음 위치로 이동
+                        currentX += spacing;
+                    }
+                }
+
+                Log.Message($"Spawned {spawnedForThisKind} pawns of {pawnKind.defName}");
+            }
+
+            // Draft all spawned pawns
+            foreach (Pawn pawn in spawnedPawns)
+            {
+                if (pawn.drafter != null)
+                {
+                    pawn.drafter.Drafted = true;
+                }
+            }
+
+            Messages.Message($"Spawned {totalSpawned} Ratkin pawns ({ratkinPawnKinds.Count} kinds, 50 each).", MessageTypeDefOf.TaskCompletion);
         }
     }
 }
