@@ -69,7 +69,7 @@
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_OrbitalEquipment</researchPrerequisite>
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-			<displayPriority>237</displayPriority>
+			<displayPriority>47237</displayPriority>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
@@ -151,7 +151,7 @@
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_OrbitalEquipment</researchPrerequisite>
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-			<displayPriority>235</displayPriority>
+			<displayPriority>47235</displayPriority>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
@@ -239,7 +239,7 @@
 		<recipeMaker MayRequire="Ludeon.RimWorld.Biotech">
 			<researchPrerequisite>RK_Research_OrbitalEquipment</researchPrerequisite>
 			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-			<displayPriority>235</displayPriority>
+			<displayPriority>47235</displayPriority>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
@@ -296,7 +296,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_CrusaderArmor</researchPrerequisite>
-			<displayPriority>125</displayPriority>
+			<displayPriority>47125</displayPriority>
 		</recipeMaker>
 		<thingCategories>
 			<li>RK_Apparel</li>
@@ -344,7 +344,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_CrusaderArmor</researchPrerequisite>
-			<displayPriority>120</displayPriority>
+			<displayPriority>47120</displayPriority>
 		</recipeMaker>
 		<thingCategories>
 			<li>RK_Apparel</li>

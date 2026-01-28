@@ -167,6 +167,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47200</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -220,6 +221,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47205</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -266,6 +268,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47210</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 여름모자 더위저항 +5 -->
@@ -316,6 +319,7 @@
 		</colorGenerator>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47215</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -383,6 +387,7 @@
 		</colorGenerator>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47220</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 가디건 추위저항 +6 -->
@@ -517,6 +522,9 @@
 				</li>
 			</options>
 		</colorGenerator>
+		<recipeMaker>
+			<displayPriority>47225</displayPriority>
+		</recipeMaker>
 	</ThingDef>
 
 
@@ -572,6 +580,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47230</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 작업모  식중독 예방 +5% 동물채집량 +5% -->
@@ -680,6 +689,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+			<displayPriority>47240</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 공돌이 수술 성공률 +5% 치료품질 +5%-->
@@ -727,6 +737,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+			<displayPriority>47245</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -741,7 +752,8 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+			<displayPriority>47250</displayPriority>
 		</recipeMaker>
 		<costList>
 			<Steel>15</Steel>
@@ -791,9 +803,6 @@
 				<li>RoyalTier2</li>
 			</tags>
 		</apparel>
-		<recipeMaker>
-			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
-		</recipeMaker>
 	</ThingDef>
 	<!-- 탐험모 이동속도+0.1 더위저항 +10 스탤스효과 +3% -->
 	<ThingDef ParentName="RK_HatMakeableBase">
@@ -843,6 +852,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+			<displayPriority>47255</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -858,6 +868,7 @@
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+			<displayPriority>47260</displayPriority>
 		</recipeMaker>
 		<costList>
 			<Cloth>25</Cloth>
@@ -955,6 +966,7 @@
 		</apparel>
 		<recipeMaker>
 			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<displayPriority>47265</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1023,6 +1035,7 @@
 		</apparel>
 		<recipeMaker>
 			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<displayPriority>47270</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1038,6 +1051,7 @@
 		</graphicData>
 		<recipeMaker>
 			<!-- <researchPrerequisite>RatkinClothing</researchPrerequisite> -->
+			<displayPriority>47275</displayPriority>
 		</recipeMaker>
 		<costStuffCount>85</costStuffCount>
 		<stuffCategories>
@@ -1099,6 +1113,7 @@
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47280</displayPriority>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1207,6 +1222,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47285</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1267,6 +1283,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47290</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1378,6 +1395,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47300</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 리본 거래가격 개선 +10% -->
@@ -1427,6 +1445,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47305</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1487,6 +1506,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47310</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1540,6 +1560,7 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47315</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -1557,6 +1578,7 @@
 		</graphicData>
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<displayPriority>47370</displayPriority>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1633,6 +1655,7 @@
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 			<researchPrerequisite>Machining</researchPrerequisite>
+			<displayPriority>47375</displayPriority>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1698,6 +1721,7 @@
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 			<researchPrerequisite>Machining</researchPrerequisite>
+			<displayPriority>47375</displayPriority>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1762,6 +1786,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
+			<displayPriority>47380</displayPriority>
 		</recipeMaker>
 		<costList>
 			<DevilstrandCloth>35</DevilstrandCloth>
@@ -1822,6 +1847,7 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<displayPriority>47360</displayPriority>
 		</recipeMaker>
 		<costList>
 			<Steel>60</Steel>
@@ -1936,6 +1962,7 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 투구 -->
@@ -2001,6 +2028,7 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	<!-- 투구 -->
@@ -2065,6 +2093,7 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 

@@ -111,6 +111,7 @@
 		<description>주변 아군을 브루스 배너로 만듭니다.</description>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
+			<displayPriority>47335</displayPriority>
 		</recipeMaker>
 		<apparel>
 			<abilities>
@@ -148,6 +149,7 @@
 		<description>간단한 봇짐입니다. 짐을 조금 더 나를 수 있게 해줍니다.</description>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
+			<displayPriority>47320</displayPriority>
 		</recipeMaker>
 		<graphicData>
 			<texPath>Apparel/RK_CrossBack</texPath>
@@ -191,6 +193,7 @@
 		</graphicData>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_FunctionalApparel</researchPrerequisite>
+			<displayPriority>47325</displayPriority>
 		</recipeMaker>
 		<costStuffCount>45</costStuffCount>
 		<costList>
@@ -233,6 +236,7 @@
 				<li>RK_Research_AdvancedApparel</li>
 				<li>RK_Research_FunctionalApparel</li>
 			</researchPrerequisites>
+			<displayPriority>47330</displayPriority>
 		</recipeMaker>
 		<costList>
 			<Steel>20</Steel>
@@ -293,6 +297,7 @@
 		<defName>RK_WoodenShield</defName>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Carpentry</researchPrerequisite>
+			<displayPriority>47340</displayPriority>
 		</recipeMaker>
 		<label>ratkin wooden Shield</label>
 		<description>목재 방패.</description>
@@ -408,6 +413,7 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<displayPriority>47345</displayPriority>
 		</recipeMaker>
 		<costList>
 			<Steel>180</Steel>
@@ -522,6 +528,7 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<displayPriority>47350</displayPriority>
 		</recipeMaker>
 		<costList>
 			<Steel>200</Steel>
