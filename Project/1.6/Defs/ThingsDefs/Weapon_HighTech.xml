@@ -544,7 +544,8 @@
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
 		</recipeMaker>
 	</ThingDef>
-
+	
+<!-- 
 	<ThingDef ParentName="RK_WeaponAttr_UltratechBase" Name="RK_WeaponAttr_FlameChainSword">
 		<defName>RK_Weapon_FlameChainSword</defName>
 		<label>chain sword</label>
@@ -649,7 +650,7 @@
 			<li>RK_WeaponTag_Exotic</li>
 			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
-	</ThingDef>
+	</ThingDef> -->
 
 	<!-- 신규 데미지 유형 -->
 	<ToolCapacityDef>
