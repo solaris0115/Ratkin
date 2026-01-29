@@ -11,6 +11,7 @@
 		<graphicData>
 			<texPath>Apparel/Vacsuit/RK_Apparel_VacsuitHelmet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.7</drawSize>
 			<ignoreThingDrawColor>true</ignoreThingDrawColor>
 		</graphicData>
 		<statBases>
@@ -89,7 +90,7 @@
 		<graphicData>
 			<texPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>0.9</drawSize>
+			<drawSize>0.7</drawSize>
 			<ignoreThingDrawColor>true</ignoreThingDrawColor>
 		</graphicData>
 		<statBases>
@@ -257,6 +258,7 @@
 		<graphicData>
 			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmor</texPath>
 			<shaderType>CutoutComplex</shaderType>
+			<drawSize>0.7</drawSize>
 		</graphicData>
 		<statBases>
 			<WorkToMake>75000</WorkToMake>
@@ -313,6 +315,7 @@
 		<graphicData>
 			<texPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</texPath>
 			<shaderType>CutoutComplex</shaderType>
+			<drawSize>0.7</drawSize>
 		</graphicData>
 		<statBases>
 			<WorkToMake>26250</WorkToMake>
