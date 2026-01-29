@@ -473,7 +473,7 @@
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
 			<recipeUsers>
-				<li>TableMachining</li>
+				<li>FabricationBench</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
@@ -538,7 +538,7 @@
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
 			<recipeUsers>
-				<li>TableMachining</li>
+				<li>FabricationBench</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
