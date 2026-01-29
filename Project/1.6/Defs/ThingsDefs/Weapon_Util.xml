@@ -79,6 +79,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78000</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li>
@@ -145,6 +146,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78005</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li>
@@ -210,6 +212,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78010</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li>
@@ -275,6 +278,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78015</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li>
@@ -351,6 +355,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78020</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li>

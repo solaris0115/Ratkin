@@ -71,6 +71,7 @@
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
+			<displayPriority>78540</displayPriority>
 		</recipeMaker>
 		<comps Inherit="false">
 			<li Class="SYS.CompProperties_WeaponExtention">
@@ -477,6 +478,7 @@
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<displayPriority>78550</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 
@@ -542,6 +544,7 @@
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<displayPriority>78560</displayPriority>
 		</recipeMaker>
 	</ThingDef>
 	

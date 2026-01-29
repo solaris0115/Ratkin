@@ -28,6 +28,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78100</displayPriority>
 		</recipeMaker>
 		<statBases>
 			<WorkToMake>2400</WorkToMake>
@@ -124,6 +125,7 @@
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
+			<displayPriority>78110</displayPriority>
 		</recipeMaker>
 		<statBases>
 			<WorkToMake>7500</WorkToMake>
@@ -229,6 +231,7 @@
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
+			<displayPriority>78120</displayPriority>
 		</recipeMaker>
 		<statBases>
 			<WorkToMake>2400</WorkToMake>
@@ -331,6 +334,7 @@
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
+			<displayPriority>78300</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
@@ -423,6 +427,7 @@
 			<skillRequirements>
 				<Crafting>7</Crafting>
 			</skillRequirements>
+			<displayPriority>78310</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
@@ -513,6 +518,7 @@
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
+			<displayPriority>78400</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
@@ -611,6 +617,7 @@
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
+			<displayPriority>78410</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
@@ -710,6 +717,7 @@
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
+			<displayPriority>78320</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
@@ -808,12 +816,12 @@
 		<soundInteract>Interact_Rifle</soundInteract>
 		<statBases>
 			<WorkToMake>40000</WorkToMake>
-			<Mass>1.4</Mass>
-			<AccuracyTouch>0.80</AccuracyTouch>
-			<AccuracyShort>0.75</AccuracyShort>
+			<Mass>3.5</Mass>
+			<AccuracyTouch>0.85</AccuracyTouch>
+			<AccuracyShort>0.65</AccuracyShort>
 			<AccuracyMedium>0.55</AccuracyMedium>
 			<AccuracyLong>0.40</AccuracyLong>
-			<RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
 		</statBases>
 		<costList>
 			<Plasteel>60</Plasteel>
@@ -825,7 +833,7 @@
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>RK_Bullet_Bolter</defaultProjectile>
-				<warmupTime>0.3</warmupTime>
+				<warmupTime>0.2</warmupTime>
 				<range>25.9</range>
 				<soundCast>PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
@@ -835,6 +843,10 @@
 		</verbs>
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<recipeUsers>
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>78500</displayPriority>
 		</recipeMaker>
 		<weaponClasses>
 			<li>RangedLight</li>
@@ -874,18 +886,19 @@
 		<defName>RK_Bullet_Bolter</defName>
 		<label>bolter bullet</label>
 		<graphicData>
-			<texPath>Things/Projectile/ChargeLanceShot</texPath>
+			<texPath>Things/Projectile/launchershot</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>5</drawSize>
+			<drawSize>2</drawSize>
 		</graphicData>
 		<projectile>
 			<damageDef>Bullet</damageDef>
 			<damageAmountBase>20</damageAmountBase>
 			<speed>85</speed>
 			<armorPenetrationBase>0.45</armorPenetrationBase>
-			<stoppingPower>4</stoppingPower>
+			<stoppingPower>3</stoppingPower>
 		</projectile>
 	</ThingDef>
+
 	<!-- 랫킨용 실험용총 2연발 -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_PrototypePulseRifle">
 		<defName>RK_PrototypePulseRifle</defName>
@@ -898,7 +911,7 @@
 		<soundInteract>Interact_Rifle</soundInteract>
 		<statBases>
 			<WorkToMake>40000</WorkToMake>
-			<Mass>3.5</Mass>
+			<Mass>5.5</Mass>
 			<AccuracyTouch>0.75</AccuracyTouch>
 			<AccuracyShort>0.85</AccuracyShort>
 			<AccuracyMedium>0.65</AccuracyMedium>
@@ -917,7 +930,7 @@
 				<defaultProjectile>Bullet_RK_PrototypePulseRifleLight</defaultProjectile>
 				<warmupTime>1.5</warmupTime>
 				<range>31</range>
-				<burstShotCount>4</burstShotCount>
+				<burstShotCount>2</burstShotCount>
 				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
 				<soundCast>PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
@@ -927,6 +940,10 @@
 		</verbs>
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<recipeUsers>
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>78510</displayPriority>
 		</recipeMaker>
 		<weaponTags Inherit="false">
 			<li>RK_4TierWeapon</li>
@@ -959,20 +976,22 @@
 		</tools>
 		<tradeability>None</tradeability>
 	</ThingDef>
+
 	<ThingDef ParentName="RK_BaseBullet">
 		<defName>Bullet_RK_PrototypePulseRifleLight</defName>
 		<label>wedge bullet</label>
 		<graphicData>
-			<texPath>Things/Projectile/ChargeLanceShot</texPath>
+			<texPath>Things/Projectile/charge_small</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<projectile>
 			<damageDef>Bullet</damageDef>
-			<damageAmountBase>9</damageAmountBase>
+			<damageAmountBase>12</damageAmountBase>
 			<speed>85</speed>
-			<armorPenetrationBase>0.45</armorPenetrationBase>
+			<armorPenetrationBase>0.60</armorPenetrationBase>
 		</projectile>
 	</ThingDef>
+
 	<ThingDef ParentName="RK_BaseBullet">
 		<defName>Bullet_RK_PrototypePulseRifleHeavy</defName>
 		<label>wedge bullet</label>
@@ -1052,6 +1071,9 @@
 			<!-- </li> -->
 		</verbs>
 		<recipeMaker Inherit="false">
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
 			<researchPrerequisites>
 				<li>RK_Research_ObservationAndSurveying</li>
 				<li>RK_Research_SeparationMechanics</li>
@@ -1059,6 +1081,7 @@
 			<!-- <skillRequirements> -->
 			<!-- <Crafting>10</Crafting> -->
 			<!-- </skillRequirements> -->
+			<displayPriority>78520</displayPriority>
 		</recipeMaker>
 		<weaponTags Inherit="false">
 			<li>RK_Weapon_All</li>
@@ -1184,7 +1207,7 @@
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
-			<displayPriority>450</displayPriority>
+			<displayPriority>78530</displayPriority>
 		</recipeMaker>
 		<techLevel>Industrial</techLevel>
 		<weaponTags Inherit="false">

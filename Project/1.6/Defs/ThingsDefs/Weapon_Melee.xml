@@ -64,6 +64,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78200</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_Sheath">
@@ -177,6 +178,7 @@
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
+			<displayPriority>78210</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_Sheath">
@@ -282,6 +284,7 @@
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
+			<displayPriority>78220</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_Sheath">
@@ -394,6 +397,7 @@
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
+			<displayPriority>78240</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_WeaponExtention">
@@ -485,6 +489,7 @@
 				<Crafting>7</Crafting>
 				<Artistic>3</Artistic>
 			</skillRequirements>
+			<displayPriority>78250</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_WeaponExtention">
@@ -604,6 +609,7 @@
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
+			<displayPriority>78260</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_WeaponExtention">
@@ -697,6 +703,7 @@
 				<Crafting>7</Crafting>
 				<Artistic>5</Artistic>
 			</skillRequirements>
+			<displayPriority>78270</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_Sheath">
@@ -802,6 +809,7 @@
 			<skillRequirements>
 				<Crafting>4</Crafting>
 			</skillRequirements>
+			<displayPriority>78230</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_WeaponExtention">
@@ -886,6 +894,7 @@
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
+			<displayPriority>78280</displayPriority>
 		</recipeMaker>
 		<comps>
 			<li Class="SYS.CompProperties_WeaponExtention">
