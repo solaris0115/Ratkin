@@ -294,6 +294,39 @@
 					<li>RK_Spear</li>
 					<li>RK_Halberd</li>
 				</weaponList>
+				<!-- 랫킨 전용 연구 제한 - 랫킨만 연구 가능 -->
+				<researchList>
+					<li>
+						<projects>
+							<!-- 1티어 연구 -->
+							<li>RK_Research_Carpentry</li>
+							<li>RK_Research_Agriculture</li>
+							<li>RK_Research_Smithing</li>
+							<li>RK_Research_Tailoring</li>
+							<li>RK_Research_Weaving</li>
+							<!-- 2티어 연구 -->
+							<li>RK_Research_FoodPreservation</li>
+							<li>RK_Research_Metallurgy</li>
+							<li>RK_Research_SwordAndShield</li>
+							<li>RK_Research_FunctionalApparel</li>
+							<li>RK_Research_AdvancedApparel</li>
+							<!-- 3티어 연구 -->
+							<li>RK_Research_Fortification</li>
+							<li>RK_Research_NobleApparel</li>
+							<!-- 4티어 연구 -->
+							<li>RK_Research_RatkinEngineering</li>
+							<!-- 5티어 연구 -->
+							<li>RK_Research_GearMechanics</li>
+							<li>RK_Research_ObservationAndSurveying</li>
+							<li>RK_Research_SeparationMechanics</li>
+							<li>RK_Research_DragonFlame</li>
+							<li>RK_Research_OrbitalEquipment</li>
+							<!-- 고급 연구 -->
+							<li>RK_Research_AngryRatProject</li>
+							<li>RK_Research_CrusaderArmor</li>
+						</projects>
+					</li>
+				</researchList>
 				<blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">
 				</blackEndoCategories>
 				<blackGeneTags MayRequire="Ludeon.RimWorld.Biotech">
