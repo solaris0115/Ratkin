@@ -277,6 +277,9 @@
 			<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
 			<layers>
 				<li>Belt</li>
 			</layers>
@@ -380,9 +383,7 @@
 		</comps>
 		<apparel>
 			<bodyPartGroups>
-				<li>Torso</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
+				<li>Waist</li>
 			</bodyPartGroups>
 			<tags>
 				<li>RK_LightArmor</li>
@@ -489,11 +490,7 @@
 		</comps>
 		<apparel>
 			<bodyPartGroups>
-				<li>Torso</li>
-				<li>Neck</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
-				<li>Legs</li>
+				<li>Waist</li>
 			</bodyPartGroups>
 			<tags>
 				<li>RK_HeavyArmor</li>
@@ -606,11 +603,7 @@
 		</comps>
 		<apparel>
 			<bodyPartGroups>
-				<li>Torso</li>
-				<li>Neck</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
-				<li>Legs</li>
+				<li>Waist</li>
 			</bodyPartGroups>
 			<tags>
 				<li>RK_HeavyArmor</li>
