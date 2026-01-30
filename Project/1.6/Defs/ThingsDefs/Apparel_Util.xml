@@ -316,14 +316,14 @@
 			<Mass>3</Mass>
 			<Flammability>0.8</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>1.1</RK_Stat_ShieldStamina>
-			<RK_Stat_ShieldStaminaRechargeRate>0.25</RK_Stat_ShieldStaminaRechargeRate>
-			<RK_Stat_ShieldReduceDamageMelee>0.4</RK_Stat_ShieldReduceDamageMelee>
+			<RK_Stat_ShieldStamina>0.3</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStaminaRechargeRate>0.16</RK_Stat_ShieldStaminaRechargeRate>
+			<RK_Stat_ShieldReduceDamageMelee>0.5</RK_Stat_ShieldReduceDamageMelee>
 			<RK_Stat_ShieldReduceDamageRanged>0.5</RK_Stat_ShieldReduceDamageRanged>
 			<RK_Stat_ShieldReduceDamageExplosive>0.25</RK_Stat_ShieldReduceDamageExplosive>
-			<RK_Stat_ShieldStaminaOnReset>1</RK_Stat_ShieldStaminaOnReset>
+			<RK_Stat_ShieldStaminaOnReset>0.2</RK_Stat_ShieldStaminaOnReset>
 			<RK_Stat_ShieldStaminaLossMelee>0.066</RK_Stat_ShieldStaminaLossMelee>
-			<RK_Stat_ShieldStaminaLossRanged>0.033</RK_Stat_ShieldStaminaLossRanged>
+			<RK_Stat_ShieldStaminaLossRanged>0.045</RK_Stat_ShieldStaminaLossRanged>
 			<RK_Stat_ShieldStaminaLossExplosive>0.1</RK_Stat_ShieldStaminaLossExplosive>
 		</statBases>
 		<equippedStatOffsets>
@@ -374,7 +374,7 @@
 				<!-- StaminaShield 컴포넌트 -->
 				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
 				<startingTicksToReset>180</startingTicksToReset>
-				<stunDurationTicks>180</stunDurationTicks>
+				<!-- <stunDurationTicks>180</stunDurationTicks> -->
 				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
 		</comps>
@@ -424,14 +424,14 @@
 			<Mass>7</Mass>
 			<Flammability>0.3</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>1.5</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStamina>0.5</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.16</RK_Stat_ShieldStaminaRechargeRate>
 			<RK_Stat_ShieldReduceDamageMelee>0.7</RK_Stat_ShieldReduceDamageMelee>
 			<RK_Stat_ShieldReduceDamageRanged>0.8</RK_Stat_ShieldReduceDamageRanged>
-			<RK_Stat_ShieldReduceDamageExplosive>0.4</RK_Stat_ShieldReduceDamageExplosive>
-			<RK_Stat_ShieldStaminaOnReset>0.7</RK_Stat_ShieldStaminaOnReset>
+			<RK_Stat_ShieldReduceDamageExplosive>0.5</RK_Stat_ShieldReduceDamageExplosive>
+			<RK_Stat_ShieldStaminaOnReset>0.3</RK_Stat_ShieldStaminaOnReset>
 			<RK_Stat_ShieldStaminaLossMelee>0.066</RK_Stat_ShieldStaminaLossMelee>
-			<RK_Stat_ShieldStaminaLossRanged>0.033</RK_Stat_ShieldStaminaLossRanged>
+			<RK_Stat_ShieldStaminaLossRanged>0.045</RK_Stat_ShieldStaminaLossRanged>
 			<RK_Stat_ShieldStaminaLossExplosive>0.1</RK_Stat_ShieldStaminaLossExplosive>
 		</statBases>
 		<equippedStatOffsets>
@@ -483,7 +483,7 @@
 				<!-- StaminaShield 컴포넌트 -->
 				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
 				<startingTicksToReset>180</startingTicksToReset>
-				<stunDurationTicks>180</stunDurationTicks>
+				<!-- <stunDurationTicks>180</stunDurationTicks> -->
 				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
 		</comps>
@@ -541,15 +541,15 @@
 			<Mass>10</Mass>
 			<Flammability>0.2</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>1.9</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStamina>0.95</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.13</RK_Stat_ShieldStaminaRechargeRate>
-			<RK_Stat_ShieldReduceDamageMelee>0.9</RK_Stat_ShieldReduceDamageMelee>
-			<RK_Stat_ShieldReduceDamageRanged>1.0</RK_Stat_ShieldReduceDamageRanged>
-			<RK_Stat_ShieldReduceDamageExplosive>0.5</RK_Stat_ShieldReduceDamageExplosive>
-			<RK_Stat_ShieldStaminaOnReset>0.7</RK_Stat_ShieldStaminaOnReset>
-			<RK_Stat_ShieldStaminaLossMelee>0.033</RK_Stat_ShieldStaminaLossMelee>
+			<RK_Stat_ShieldReduceDamageMelee>0.8</RK_Stat_ShieldReduceDamageMelee>
+			<RK_Stat_ShieldReduceDamageRanged>0.9</RK_Stat_ShieldReduceDamageRanged>
+			<RK_Stat_ShieldReduceDamageExplosive>0.6</RK_Stat_ShieldReduceDamageExplosive>
+			<RK_Stat_ShieldStaminaOnReset>0.4</RK_Stat_ShieldStaminaOnReset>
+			<RK_Stat_ShieldStaminaLossMelee>0.045</RK_Stat_ShieldStaminaLossMelee>
 			<RK_Stat_ShieldStaminaLossRanged>0.033</RK_Stat_ShieldStaminaLossRanged>
-			<RK_Stat_ShieldStaminaLossExplosive>0.066</RK_Stat_ShieldStaminaLossExplosive>
+			<RK_Stat_ShieldStaminaLossExplosive>0.1</RK_Stat_ShieldStaminaLossExplosive>
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
