@@ -15,7 +15,7 @@
 		<genes>
 		<li>MoveSpeed_Quick</li><!-- Met:-3 MoveSpeed ×1.2 -->
 		<li>Immunity_Strong</li><!-- Met:-1 ImmunityGainSpeed ×1.3 -->
-		<li>RK_Gene_ToxicEnvironmentResistance_Mild</li><!-- Met:-1 ToxicEnvironmentResistance +0.35 -->
+		<li>ToxicEnvironmentResistance_Partial</li><!-- Met:-1 ToxicEnvironmentResistance +0.5 -->
 
 		<!-- Custom Ratkin Genes -->
 

@@ -12,8 +12,8 @@
 		<labelShortAdj>small-bodied</labelShortAdj>
 		<description>Small, compact body that dodges better but hits weaker and carries less.</description>
 		<iconPath>UI/Icons/Genes/Gene_BodyThin</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>100</displayOrderInCategory>
+		<displayCategory>Cosmetic_Body</displayCategory>
+		<displayOrderInCategory>15</displayOrderInCategory>
 		<bodyType>Thin</bodyType>
 		<exclusionTags>
 			<li>BodyType</li>
@@ -31,7 +31,7 @@
 	</GeneDef>
 
 	<!-- TODO: 독성 레지스턴스 웨이스터나 이타킨등 기존거 재활용 이용-->
-	<GeneDef>
+	<!-- <GeneDef>
 		<defName>RK_Gene_ToxicEnvironmentResistance_Mild</defName>
 		<label>mild antitoxic lungs</label>
 		<labelShortAdj>tox-adapted</labelShortAdj>
@@ -47,7 +47,7 @@
 		<exclusionTags>
 			<li>ToxicEnvironmentResistance</li>
 		</exclusionTags>
-	</GeneDef>
+	</GeneDef> -->
 
 	<!-- 전투 특성 -->
 	<!-- TODO: 재빠름은 있지만 없어서 추가. 그리고 어중간한 회피율이라 가벼운 몸과 추가 -->
@@ -74,7 +74,7 @@
 		<labelShortAdj>poor eyesight</labelShortAdj>
 		<description>Carriers of this gene have difficulty with precision aiming, resulting in slower aim time and research speed.</description>
 		<iconPath>UI/Icons/Genes/Gene_Nearsighted</iconPath>
-		<displayCategory>Violence</displayCategory>
+		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>55</displayOrderInCategory>
 		<statFactors>
 			<AimingDelayFactor>1.15</AimingDelayFactor>
@@ -109,8 +109,8 @@
 		<labelShortAdj>miner</labelShortAdj>
 		<description>Carriers of this gene have an innate talent for digging and mining, working faster and extracting more resources.</description>
 		<iconPath>UI/Icons/Genes/Skills/Mining/Strong</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>103</displayOrderInCategory>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>10040</displayOrderInCategory>
 		<statFactors>
 			<MiningSpeed>0.9</MiningSpeed>
 			<MiningYield>1.10</MiningYield>
@@ -125,8 +125,8 @@
 		<labelShortAdj>green thumb</labelShortAdj>
 		<description>Carriers of this gene work more efficiently with plants.</description>
 		<iconPath>UI/Icons/Genes/Skills/Plants/Strong</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>104</displayOrderInCategory>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>8040</displayOrderInCategory>
 		<statFactors>
 			<PlantWorkSpeed>0.9</PlantWorkSpeed>
 			<PlantHarvestYield>1.1</PlantHarvestYield>
@@ -142,8 +142,8 @@
 		<labelShortAdj>clumsy</labelShortAdj>
 		<description>Carriers of this gene are not naturally gifted at construction work.</description>
 		<iconPath>UI/Icons/Genes/Skills/Construction/Poor</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>106</displayOrderInCategory>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>11020</displayOrderInCategory>
 		<statFactors>
 			<ConstructionSpeed>0.8</ConstructionSpeed>
 		</statFactors>
@@ -157,8 +157,8 @@
 		<labelShortAdj>slow learner</labelShortAdj>
 		<description>Carriers of this gene learn and research more slowly than others.</description>
 		<iconPath>UI/Icons/Genes/Skills/Intellectual/Poor</iconPath>
-		<displayCategory>Miscellaneous</displayCategory>
-		<displayOrderInCategory>107</displayOrderInCategory>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>12020</displayOrderInCategory>
 		<statFactors>
 			<GlobalLearningFactor>0.9</GlobalLearningFactor>
 			<ResearchSpeed>0.9</ResearchSpeed>
@@ -180,7 +180,7 @@
 		<iconPath>UI/Icons/Genes/Gene_EarCat</iconPath>
 		<iconColor>(0.75, 0.75, 0.75)</iconColor>
 		<displayCategory>Cosmetic</displayCategory>
-		<displayOrderInCategory>70</displayOrderInCategory>
+		<displayOrderInCategory>75</displayOrderInCategory>
 		<randomChosen>false</randomChosen>
 		<biostatCpx>0</biostatCpx>
 		<endogeneCategory>Ears</endogeneCategory>
@@ -351,8 +351,8 @@
 		<labelShortAdj>cute-faced</labelShortAdj>
 		<description>Carriers of this gene have an adorable facial structure with rounded features, button nose, and expressive eyes that make them appear endearing and approachable.</description>
 		<iconPath>UI/Icons/Genes/Gene_Beautiful</iconPath>
-		<displayCategory>Cosmetic</displayCategory>
-		<displayOrderInCategory>50</displayOrderInCategory>
+		<displayCategory>Beauty</displayCategory>
+		<displayOrderInCategory>35</displayOrderInCategory>
 		<selectionWeight>5.0</selectionWeight>
 		<exclusionTags>
 			<li>FaceType</li>
