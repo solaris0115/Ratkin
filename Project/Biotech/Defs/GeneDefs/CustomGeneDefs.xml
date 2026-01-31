@@ -56,7 +56,7 @@
 		<label>nimble</label>
 		<labelShortAdj>nimble</labelShortAdj>
 		<description>Carriers of this gene have heightened sensory receptor sensitivity, allowing them to better detect nearby threats and evade close-range attacks more effectively.</description>
-		<iconPath>UI/Icons/Genes/Gene_MoveSpeed_Quick</iconPath>
+		<iconPath>UI/Icons/Gene/Gene_Nimble</iconPath>
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>45</displayOrderInCategory>
 		<statFactors>
