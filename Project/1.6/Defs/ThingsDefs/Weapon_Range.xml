@@ -331,6 +331,9 @@
 		</costList>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -424,6 +427,9 @@
 		</costList>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_ObservationAndSurveying</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>7</Crafting>
 			</skillRequirements>
@@ -515,6 +521,9 @@
 		</costList>
 		<recipeMaker>
 			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>6</Crafting>
 			</skillRequirements>
@@ -614,6 +623,9 @@
 		</costList>
 		<recipeMaker>
 			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
@@ -714,6 +726,9 @@
 		</costList>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>5</Crafting>
 			</skillRequirements>
@@ -1204,6 +1219,9 @@
 		</costList>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_GearMechanics</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>

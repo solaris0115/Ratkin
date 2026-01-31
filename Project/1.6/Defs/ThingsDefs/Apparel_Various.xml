@@ -1222,6 +1222,9 @@
 		</apparel>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<displayPriority>47285</displayPriority>
 		</recipeMaker>
 	</ThingDef>
@@ -1578,6 +1581,9 @@
 		</graphicData>
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
 			<displayPriority>47370</displayPriority>
 		</recipeMaker>
 		<costList>
@@ -1655,6 +1661,9 @@
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 			<researchPrerequisite>Machining</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
 			<displayPriority>47375</displayPriority>
 		</recipeMaker>
 		<costList>
@@ -1721,6 +1730,9 @@
 		<recipeMaker Inherit="false">
 			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 			<researchPrerequisite>Machining</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
 			<displayPriority>47375</displayPriority>
 		</recipeMaker>
 		<costList>
@@ -1786,6 +1798,9 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
 			<displayPriority>47380</displayPriority>
 		</recipeMaker>
 		<costList>

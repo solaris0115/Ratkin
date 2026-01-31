@@ -68,6 +68,9 @@
 				<li>RK_Research_Metallurgy</li>
 				<li>RK_Research_DragonFlame</li>
 			</researchPrerequisites>
+			<recipeUsers Inherit="false">
+				<li>TableMachining</li>
+			</recipeUsers>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
@@ -172,8 +175,7 @@
 			<targetCountAdjustment>5</targetCountAdjustment>
 			<workSkill>Crafting</workSkill>
 			<recipeUsers Inherit="false">
-				<li>RK_FueledSmithy</li>
-				<li>RK_ElectricSmithy</li>
+				<li>TableMachining</li>
 			</recipeUsers>
 			<skillRequirements>
 				<Crafting>8</Crafting>

@@ -51,6 +51,9 @@
         <soundWorking>Recipe_CookMeal</soundWorking>
         <allowMixingIngredients>true</allowMixingIngredients>
         <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+        <researchPrerequisites>
+            <li>RK_Research_FoodPreservation</li>
+        </researchPrerequisites>
         <ingredients>
             <li>
                 <filter>
@@ -100,6 +103,9 @@
         <soundWorking>Recipe_CookMeal</soundWorking>
         <allowMixingIngredients>true</allowMixingIngredients>
         <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+        <researchPrerequisites>
+            <li>RK_Research_FoodPreservation</li>
+        </researchPrerequisites>
         <ingredients>
             <li>
                 <filter>
