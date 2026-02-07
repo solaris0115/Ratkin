@@ -1,0 +1,20 @@
+---
+description: 림월드 로그 파일 경로 정보
+alwaysApply: true
+---
+
+# 림월드 로그 파일
+
+## 로그 파일 경로
+
+**Player.log**: `C:\Users\HunJaeJeung\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Player.log`
+
+## 용도
+
+- 게임 실행 중 발생하는 오류 및 경고 메시지 확인
+- 모드 로딩 문제 디버깅
+- 예외(Exception) 스택 트레이스 분석
+
+## 사용 방법
+
+사용자가 "로그 확인", "로그 분석", "오류 확인" 등을 요청하면 위 경로의 파일을 읽어서 분석합니다.
