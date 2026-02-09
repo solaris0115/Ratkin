@@ -1326,9 +1326,6 @@
 			<Social>4</Social>
 			<Medicine>4</Medicine>
 		</skillGains>
-		<workDisables>
-			<li>Violent</li>
-		</workDisables>
 		<spawnCategories>
 			<li>RatkinStory</li>
 			<li>RatkinNoble</li>
