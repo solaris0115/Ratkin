@@ -1,0 +1,71 @@
+---
+description: 테스트 빌드 ZIP 패키징 규칙 (!테스트빌드 명령어)
+alwaysApply: false
+---
+# 테스트 빌드 패키징 규칙
+
+`!테스트빌드` 또는 `!testbuild` 명령어 사용 시 이 규칙을 따릅니다.
+
+## 파일명 형식
+
+```
+[1.6]TestBuild_YYMMDD_버전.zip
+```
+
+- **YYMMDD**: 년월일 (예: 260209 = 2026년 2월 9일)
+- **버전**: 사용자 지정 또는 이전 버전에서 증가 (예: 0.0.5)
+
+## 출력 경로
+
+```
+Build/TestBuild/[1.6]TestBuild_YYMMDD_버전.zip
+```
+
+## 패키징 대상
+
+- **포함**: `Project/` 폴더 전체
+- **제외**: `Project/1.5/` 폴더
+
+## 7-Zip 명령어
+
+```powershell
+# 워크스페이스 루트에서 실행
+7z a -tzip "Build/TestBuild/[1.6]TestBuild_260209_0.0.5.zip" "./Project/*" -xr!"Project/1.5"
+```
+
+### 옵션 설명
+- `a`: 압축 파일 생성
+- `-tzip`: ZIP 형식 지정
+- `-xr!"Project/1.5"`: Project/1.5 폴더 재귀적 제외
+
+## 실행 예시
+
+```powershell
+# 변수 설정
+$date = Get-Date -Format "yyMMdd"
+$version = "0.0.5"
+$filename = "[1.6]TestBuild_${date}_${version}.zip"
+$output = "Build/TestBuild/$filename"
+
+# 디렉토리 확인
+if (-not (Test-Path "Build/TestBuild")) { 
+    New-Item -ItemType Directory -Path "Build/TestBuild" -Force 
+}
+
+# 압축 실행
+7z a -tzip $output "./Project/*" -xr!"Project/1.5"
+```
+
+## 수동 실행 (한 줄)
+
+```powershell
+7z a -tzip "Build/TestBuild/[1.6]TestBuild_260209_0.0.5.zip" ".\Project\*" "-xr!1.5"
+```
+
+## 버전 관리
+
+- **기본 동작**: 테스트 빌드 요청 시 패치 버전만 자동 증가 (예: 0.0.5 → 0.0.6)
+- **마이너/메이저**: 사용자가 명시적으로 요청할 때만 증가
+  - 마이너 업: 0.0.6 → 0.1.0
+  - 메이저 업: 0.1.0 → 1.0.0
+- 기존 빌드 파일 확인 후 버전 결정
