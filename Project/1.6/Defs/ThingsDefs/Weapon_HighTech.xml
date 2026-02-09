@@ -17,7 +17,7 @@
 			<li>RK_WeaponTag_TwoHand</li>
 			<li>RK_WeaponTag_TwoHandMelee</li>
 			<li>RK_WeaponTag_TwoHandMeleeAttack</li>
-			<li>RK_WeaponTag_LightShieldCompatible</li>
+			<li>RK_WeaponTag_ShieldCompatible</li>
 			<li>RK_WeaponTag_HighTech</li>
 		</weaponTags>
 		<tradeTags>
