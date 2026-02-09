@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
 	<!-- 랫킨 스토리텔러 -->
@@ -87,24 +87,24 @@
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
 			</li>
-			<li Class="StorytellerCompProperties_FactionInteraction">
-				<incident>VisitorGroup</incident>
-				<minDaysPassed>5</minDaysPassed>
-				<baseIncidentsPerYear>5</baseIncidentsPerYear>
-				<minSpacingDays>4</minSpacingDays>
-				<allowedTargetTags>
-					<li>Map_PlayerHome</li>
-				</allowedTargetTags>
-			</li>
-			<li Class="StorytellerCompProperties_FactionInteraction">
-				<incident>TravelerGroup</incident>
-				<minDaysPassed>3</minDaysPassed>
-				<baseIncidentsPerYear>8</baseIncidentsPerYear>
-				<minSpacingDays>1</minSpacingDays>
-				<allowedTargetTags>
-					<li>Map_PlayerHome</li>
-				</allowedTargetTags>
-			</li>
+		<li Class="StorytellerCompProperties_FactionInteraction">
+			<incident>VisitorGroup</incident>
+			<minDaysPassed>3</minDaysPassed>
+			<baseIncidentsPerYear>4</baseIncidentsPerYear>
+			<minSpacingDays>5</minSpacingDays>
+			<allowedTargetTags>
+				<li>Map_PlayerHome</li>
+			</allowedTargetTags>
+		</li>
+		<li Class="StorytellerCompProperties_FactionInteraction">
+			<incident>TravelerGroup</incident>
+			<minDaysPassed>1</minDaysPassed>
+			<baseIncidentsPerYear>6</baseIncidentsPerYear>
+			<minSpacingDays>1</minSpacingDays>
+			<allowedTargetTags>
+				<li>Map_PlayerHome</li>
+			</allowedTargetTags>
+		</li>
 			<!-- Caravan / temp map -->
 			<li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
 				<category>Misc</category>
@@ -181,14 +181,10 @@
 				<incident>RK_Incident_VagabondJoin</incident>
 				<delayTicks>300</delayTicks>
 			</li>
-			<!-- 30일 이후 무작위 날짜에 1회 발생: RatkinPriest 합류 희망 (퀘스트 형태) -->
-			<li Class="StorytellerCompProperties_SingleMTB">
+			<!-- 30일에 1회만 발생: RatkinPriest 합류 희망 (퀘스트 형태) -->
+			<li Class="StorytellerCompProperties_SingleOnceFixed">
 				<incident>RK_Incident_PriestJoin</incident>
-				<minDaysPassed>30</minDaysPassed>
-				<mtbDays>2</mtbDays>
-				<allowedTargetTags>
-					<li>Map_PlayerHome</li>
-				</allowedTargetTags>
+				<fireAfterDaysPassed>60</fireAfterDaysPassed>
 			</li>
 		</comps>
 	</StorytellerDef>
