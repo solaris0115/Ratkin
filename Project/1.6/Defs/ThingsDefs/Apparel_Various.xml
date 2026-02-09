@@ -1580,7 +1580,15 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
-			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_AdvancedApparel</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+			</researchPrerequisites>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
 			<recipeUsers>
 				<li>TableMachining</li>
 			</recipeUsers>
@@ -1659,8 +1667,15 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
-			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
-			<researchPrerequisite>Machining</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_AdvancedApparel</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+			</researchPrerequisites>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
 			<recipeUsers>
 				<li>TableMachining</li>
 			</recipeUsers>
@@ -1728,8 +1743,15 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker Inherit="false">
-			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
-			<researchPrerequisite>Machining</researchPrerequisite>
+			<researchPrerequisites>
+				<li>RK_Research_AdvancedApparel</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">ToxFiltration</li>
+			</researchPrerequisites>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
 			<recipeUsers>
 				<li>TableMachining</li>
 			</recipeUsers>
@@ -1797,10 +1819,8 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
-		<recipeMaker Inherit="false">
-			<recipeUsers>
-				<li>TableMachining</li>
-			</recipeUsers>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
 			<displayPriority>47380</displayPriority>
 		</recipeMaker>
 		<costList>
