@@ -184,7 +184,7 @@
 			<!-- 30일에 1회만 발생: RatkinPriest 합류 희망 (퀘스트 형태) -->
 			<li Class="StorytellerCompProperties_SingleOnceFixed">
 				<incident>RK_Incident_PriestJoin</incident>
-				<fireAfterDaysPassed>60</fireAfterDaysPassed>
+				<fireAfterDaysPassed>30</fireAfterDaysPassed>
 			</li>
 		</comps>
 	</StorytellerDef>
