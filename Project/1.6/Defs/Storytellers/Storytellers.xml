@@ -2,8 +2,6 @@
 <Defs>
 
 	<!-- 랫킨 스토리텔러 -->
-	<!-- 병해충과 벌레. -->
-
 	<StorytellerDef ParentName="BaseStoryteller">
 		<defName>RK_Storyteller_RottyMilden</defName>
 		<label>Rotty Milden</label>
@@ -87,24 +85,24 @@
 					<li>Map_PlayerHome</li>
 				</allowedTargetTags>
 			</li>
-		<li Class="StorytellerCompProperties_FactionInteraction">
-			<incident>VisitorGroup</incident>
-			<minDaysPassed>3</minDaysPassed>
-			<baseIncidentsPerYear>4</baseIncidentsPerYear>
-			<minSpacingDays>5</minSpacingDays>
-			<allowedTargetTags>
-				<li>Map_PlayerHome</li>
-			</allowedTargetTags>
-		</li>
-		<li Class="StorytellerCompProperties_FactionInteraction">
-			<incident>TravelerGroup</incident>
-			<minDaysPassed>1</minDaysPassed>
-			<baseIncidentsPerYear>6</baseIncidentsPerYear>
-			<minSpacingDays>1</minSpacingDays>
-			<allowedTargetTags>
-				<li>Map_PlayerHome</li>
-			</allowedTargetTags>
-		</li>
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>VisitorGroup</incident>
+				<minDaysPassed>3</minDaysPassed>
+				<baseIncidentsPerYear>4</baseIncidentsPerYear>
+				<minSpacingDays>5</minSpacingDays>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
+			<li Class="StorytellerCompProperties_FactionInteraction">
+				<incident>TravelerGroup</incident>
+				<minDaysPassed>1</minDaysPassed>
+				<baseIncidentsPerYear>6</baseIncidentsPerYear>
+				<minSpacingDays>1</minSpacingDays>
+				<allowedTargetTags>
+					<li>Map_PlayerHome</li>
+				</allowedTargetTags>
+			</li>
 			<!-- Caravan / temp map -->
 			<li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
 				<category>Misc</category>
