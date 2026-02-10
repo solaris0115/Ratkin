@@ -179,10 +179,11 @@
 				<incident>RK_Incident_VagabondJoin</incident>
 				<delayTicks>300</delayTicks>
 			</li>
-			<!-- 30일에 1회만 발생: RatkinPriest 합류 희망 (퀘스트 형태) -->
-			<li Class="StorytellerCompProperties_SingleOnceFixed">
+			<!-- 사제 합류 이벤트: 60일 이후 1회만 트리거 -->
+			<li Class="StorytellerCompProperties_RK_PriestJoin">
 				<incident>RK_Incident_PriestJoin</incident>
-				<fireAfterDaysPassed>30</fireAfterDaysPassed>
+				<fireAfterDaysPassed>60</fireAfterDaysPassed>
+				<mtbDays>3</mtbDays>
 			</li>
 		</comps>
 	</StorytellerDef>
@@ -221,18 +222,20 @@
 		</modExtensions>
 	</IncidentDef>
 
-	<!-- WandererJoin 동일하게 하나 준비 -->
+	<!-- 랫킨 사제 합류 이벤트 -->
 	<IncidentDef>
 		<defName>RK_Incident_PriestJoin</defName>
-		<label>priest join</label>
+		<label>ratkin priest join</label>
 		<category>Special</category>
 		<targetTags>
 			<li>Map_PlayerHome</li>
 		</targetTags>
 		<workerClass>IncidentWorker_GiveQuest</workerClass>
 		<questScriptDef>RK_QuestScript_PriestJoin</questScriptDef>
+		<letterLabel>랫킨 사제 합류</letterLabel>
+		<letterText>랫킨 사제 [PAWN_nameDef]이(가) 당신의 정착지에 합류하고자 합니다.\n\n[PAWN_pronoun]은(는) 신앙심이 깊고 치유의 손길을 가진 자입니다.</letterText>
 		<baseChance>0.4</baseChance>
-		<pawnKind>Villager</pawnKind>
+		<pawnKind>RatkinPriest</pawnKind>
 		<populationEffect>IncreaseEasy</populationEffect>
 	</IncidentDef>
 
@@ -241,16 +244,18 @@
 		<autoAccept>true</autoAccept>
 		<defaultHidden>true</defaultHidden>
 		<isRootSpecial>true</isRootSpecial>
+		<successHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">CharityFulfilled_WandererJoins</successHistoryEvent>
+		<failedOrExpiredHistoryEvent MayRequire="Ludeon.RimWorld.Ideology">CharityRefused_WandererJoins</failedOrExpiredHistoryEvent>
 		<questNameRules>
 			<rulesStrings>
-				<li>questName->Priest joins</li>
+				<li>questName->랫킨 사제 합류</li>
 			</rulesStrings>
 		</questNameRules>
 		<questDescriptionRules>
 			<rulesStrings>
-				<li>questDescription-></li>
+				<li>questDescription->랫킨 사제가 정착지에 합류하고자 합니다.</li>
 			</rulesStrings>
 		</questDescriptionRules>
-		<root Class="QuestNode_Root_WandererJoin_WalkIn" />
+		<root Class="NewRatkin.QuestNode_Root_PriestJoin" />
 	</QuestScriptDef>
 </Defs>
