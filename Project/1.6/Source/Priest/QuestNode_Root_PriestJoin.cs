@@ -1,178 +1,93 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using RimWorld.QuestGen;
 using Verse;
-using Verse.Grammar;
 
 namespace NewRatkin
 {
-	// 랫킨 사제 합류 퀘스트 노드
-	public class QuestNode_Root_PriestJoin : QuestNode
+	/// <summary>
+	/// 랫킨 사제 합류 퀘스트 노드
+	/// 바닐라 QuestNode_Root_WandererJoin_WalkIn을 상속받아 GeneratePawn()만 오버라이드
+	/// </summary>
+	public class QuestNode_Root_PriestJoin : QuestNode_Root_WandererJoin_WalkIn
 	{
-		protected override void RunInt()
+		public override Pawn GeneratePawn()
 		{
-			Quest quest = QuestGen.quest;
-			Slate slate = QuestGen.slate;
-			Map map = QuestGen_Get.GetMap(false, null, false);
-			
-			if (map == null)
-			{
-				return;
-			}
-			
-			// 랫킨 사제 생성
-			PawnKindDef priestKind = RatkinPawnKindDefOf.RatkinPriest;
+			// 랫킨 사제 PawnKindDef 가져오기
+			PawnKindDef priestKind = DefDatabase<PawnKindDef>.GetNamed("RatkinPriest", false);
 			if (priestKind == null)
 			{
-				return;
+				Log.Error("[RK_PriestJoin] RatkinPriest PawnKindDef not found! Falling back to base.");
+				return base.GeneratePawn();
 			}
-			
-			// 중립 팩션 생성 (임시)
-			FactionDef factionDef = FactionDefOf.OutlanderCivil;
-			List<FactionRelation> relations = new List<FactionRelation>();
-			foreach (Faction faction in Find.FactionManager.AllFactionsListForReading)
-			{
-				if (!faction.def.PermanentlyHostileTo(factionDef))
-				{
-					relations.Add(new FactionRelation
-					{
-						other = faction,
-						kind = FactionRelationKind.Neutral
-					});
-				}
-			}
-			Faction tempFaction = FactionGenerator.NewGeneratedFactionWithRelations(factionDef, relations, true);
-			tempFaction.temporary = true;
-			Find.FactionManager.Add(tempFaction);
-			
-			// 사제 Pawn 생성
-			Pawn priest = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+
+			PawnGenerationRequest request = new PawnGenerationRequest(
 				priestKind,
-				tempFaction,
+				null, // faction - null이면 나중에 플레이어 팩션으로 설정됨
 				PawnGenerationContext.NonPlayer,
-				null,
-				true,
-				false,
-				false,
-				true,
-				false, // pawnMustBeCapableOfViolence = false (사제는 폭력 불가능 가능)
-				20f,
-				false,
-				true,
-				false,
-				true,
-				true,
-				false,
-				false,
-				false,
-				false,
-				0f,
-				0f,
-				null,
-				1f,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				false,
-				false,
-				false,
-				false,
-				null,
-				null,
-				null,
-				null,
-				null,
-				0f,
-				DevelopmentalStage.Adult,
-				null,
-				null,
-				null,
-				false,
-				false,
-				false,
 				-1,
-				0,
-				false
-			));
-			
-			quest.SetFactionHidden(tempFaction, false, null);
-			
-			// 사제 도착
-			quest.PawnsArrive(
-				new List<Pawn> { priest },
-				null,
-				map.Parent,
-				null,
-				false,
-				null,
-				"[priestArrivedLetterLabel]",
-				"[priestArrivedLetterText]",
-				null,
-				null,
-				false,
-				false,
-				true
+				true, // forceGenerateNewPawn
+				false, // allowDead
+				false, // allowDowned
+				true, // canGeneratePawnRelations
+				false, // mustBeCapableOfViolence
+				20f, // colonistRelationChanceFactor
+				false, // forceAddFreeWarmLayerIfNeeded
+				true, // allowGay
+				true, // allowPregnant
+				true, // allowFood
+				true, // allowAddictions
+				false, // inhabitant
+				false, // certainlyBeenInCryptosleep
+				false, // forceRedressWorldPawnIfFormerColonist
+				false, // worldPawnFactionDoesntMatter
+				0f, // biocodeWeaponChance
+				0f, // biocodeApparelChance
+				null, // extraPawnForExtraRelationChance
+				1f, // relationWithExtraPawnChanceFactor
+				null, // validatorPreGear
+				null, // validatorPostGear
+				null, // forcedTraits
+				null, // prohibitedTraits
+				null, // minChanceToRedressWorldPawn
+				null, // fixedBiologicalAge
+				null, // fixedChronologicalAge
+				null, // fixedGender
+				null, // fixedLastName
+				null, // fixedBirthName
+				null, // fixedTitle
+				null, // fixedIdeo
+				false, // forceNoIdeo
+				false, // forceNoBackstory
+				false, // forbidAnyTitle
+				false, // forceDead
+				null, // forcedXenotype
+				null, // forcedCustomXenotype
+				null, // allowedXenotypes
+				null, // forcedEndogenes
+				null, // forcedXenogenes
+				0f, // forceBaselinerChance
+				DevelopmentalStage.Adult
 			);
-			
-			// 선택지 처리 시그널
-			string acceptSignal = QuestGen.GenerateNewSignal("PriestAccepted", true);
-			string rejectSignal = QuestGen.GenerateNewSignal("PriestRejected", true);
-			string postponeSignal = QuestGen.GenerateNewSignal("PriestPostponed", true);
-			
-			// 선택지 생성 (보상 선택이 아닌 플레이어 선택을 위한 구조)
-			// QuestPart_Choice는 보상 선택용이므로, 여기서는 시그널 기반으로 처리
-			// 실제 선택은 Interaction을 통해 처리되거나 다른 QuestPart를 사용해야 함
-			
-			// 수락 시: 사제를 플레이어 세력에 추가
-			quest.Signal(acceptSignal, delegate
+
+			// 아이 허용 설정 확인
+			if (Find.Storyteller.difficulty.ChildrenAllowed)
 			{
-				priest.SetFaction(Faction.OfPlayer);
-				quest.Message("[priestAcceptedMessage]", MessageTypeDefOf.PositiveEvent, false, null, new List<Pawn> { priest }, null);
-			});
+				request.AllowedDevelopmentalStages |= DevelopmentalStage.Child;
+			}
+
+			Pawn pawn = PawnGenerator.GeneratePawn(request);
 			
-			// 거절 시: 사제를 맵에서 제거
-			quest.Signal(rejectSignal, delegate
+			if (!pawn.IsWorldPawn())
 			{
-				if (priest.Spawned)
-				{
-					priest.DeSpawn();
-				}
-				Find.WorldPawns.PassToWorld(priest);
-				quest.Message("[priestRejectedMessage]", MessageTypeDefOf.NeutralEvent, false, null, null, null);
-			});
-			
-			// 미루기 시: 사제는 맵에 남아있음
-			quest.Signal(postponeSignal, delegate
-			{
-				quest.Message("[priestPostponedMessage]", MessageTypeDefOf.NeutralEvent, false, null, new List<Pawn> { priest }, null);
-			});
-			
-			// 퀘스트 종료
-			quest.End(QuestEndOutcome.Success, 0, null, acceptSignal, QuestPart.SignalListenMode.OngoingOnly, false, false);
-			quest.End(QuestEndOutcome.Fail, 0, null, rejectSignal, QuestPart.SignalListenMode.OngoingOnly, false, false);
-			quest.End(QuestEndOutcome.Fail, 0, null, QuestGenUtility.HardcodedSignalWithQuestID("map.MapRemoved"), QuestPart.SignalListenMode.OngoingOnly, true, false);
-			
-			// Slate에 데이터 저장
-			slate.Set<Map>("map", map, false);
-			slate.Set<List<Pawn>>("pawns", new List<Pawn> { priest }, false);
-			slate.Set<Pawn>("pawns0", priest, false);
-			slate.Set<Faction>("faction", tempFaction, false);
-		}
-		
-		protected override bool TestRunInt(Slate slate)
-		{
-			Map map = QuestGen_Get.GetMap(false, null, false);
-			return map != null && RatkinPawnKindDefOf.RatkinPriest != null;
+				Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Decide);
+			}
+
+			Log.Message($"[RK_PriestJoin] Generated priest: {pawn.Name}, Kind: {pawn.kindDef.defName}");
+			return pawn;
 		}
 	}
 }
