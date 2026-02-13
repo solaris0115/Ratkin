@@ -430,6 +430,25 @@
 				</westOffset>
 			</li>
 		</comps>
+		<statBases>
+			<WorkToMake>60000</WorkToMake>
+			<Mass>10</Mass>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+			<displayPriority>78550</displayPriority>
+		</recipeMaker>
 	</ThingDef>
 
 	<!-- 체인소드 -->
@@ -469,19 +488,6 @@
 				<chanceFactor>5.0</chanceFactor>
 			</li>
 		</tools>
-		<!-- TODO: 레시피 추가 필요 -->
-		<recipeMaker>
-			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-			<workSkill>Crafting</workSkill>
-			<effectWorking>Smith</effectWorking>
-			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
-				<li>FabricationBench</li>
-			</recipeUsers>
-			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
-			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
-			<displayPriority>78550</displayPriority>
-		</recipeMaker>
 	</ThingDef>
 
 	<ThingDef ParentName="RK_WeaponAttr_UltratechBase">
@@ -535,19 +541,6 @@
 				</extraMeleeDamages>
 			</li>
 		</tools>
-		<!-- TODO: 레시피 추가 필요 -->
-		<recipeMaker>
-			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-			<workSkill>Crafting</workSkill>
-			<effectWorking>Smith</effectWorking>
-			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
-				<li>FabricationBench</li>
-			</recipeUsers>
-			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
-			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
-			<displayPriority>78560</displayPriority>
-		</recipeMaker>
 	</ThingDef>
 	
 <!-- 
