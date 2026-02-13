@@ -13,30 +13,33 @@
 		<nameMaker>RK_RulePack_NamerPerson</nameMaker> -->
 		<factionlessGenerationWeight>0</factionlessGenerationWeight>
 		<genes>
-		<li>MoveSpeed_Quick</li><!-- Met:-3 MoveSpeed ×1.2 -->
 		<li>Immunity_Strong</li><!-- Met:-1 ImmunityGainSpeed ×1.3 -->
 		<li>ToxicEnvironmentResistance_Partial</li><!-- Met:-1 ToxicEnvironmentResistance +0.5 -->
 
 		<!-- Custom Ratkin Genes -->
 
 		<!-- 작은 신체 - 은신 정도 증가 -->
-		<li>RK_Gene_SmallBody</li><!-- Met:0 HuntingStealth +1.15, MeatAmount -50, LeatherAmount -30, MeleeDamageFactor ×0.9 -->
+		<li>RK_Gene_SmallBody</li><!-- Met:0 CarryingCapacity -15 -->
 
 		<!-- 환경 적응 -->
 		<li>MinTemp_SmallDecrease</li><!-- Met:-1 ComfyTemperatureMin -10 -->
 
 		<!-- 전투 -->
 		<li>RK_Gene_Nimble</li><!-- Met:-1 MeleeDodgeChance ×1.25 -->
-		<li>RK_Gene_PoorEyesight</li><!-- Met:+3 AimingDelayFactor ×1.15, ShootingAccuracyPawn ×0.9 -->
-		<li>RK_Gene_FragilePain</li><!-- Met:+2 PainShockThreshold -0.3, CarryingCapacity -15 -->
+		<li>RK_Gene_PoorEyesight</li><!-- Met:+3 Poor Eyesight - 장거리 사격 정확도 감소 -->
+		<li>CaveDweller</li><!-- Met:0 실내 거주자 - 야외 필요 없음 -->
+		<li>RK_Gene_FragilePain</li><!-- Met:+4 Cpx:-1 PainShockThreshold -0.1 -->
 
 		<!-- 작업 능력 -->
 		<li>RK_Gene_EfficientMiner</li><!-- Met:0 MiningSpeed ×0.9, MiningYield ×1.10 -->
 		<li>RK_Gene_GreenThumb</li><!-- Met:0 PlantWorkSpeed ×0.9, PlantHarvestYield ×1.1 -->
 		<li>RK_Gene_ClumsyBuilder</li><!-- Met:+1 ConstructionSpeed ×0.9 -->
-		<li>RK_Gene_SlowResearcher</li><!-- Met:+1 GlobalLearningFactor ×0.9, ResearchSpeed ×0.9 -->
+		<li>RK_Gene_MessyWorker</li><!-- Met:+1 FoodPoisonChance ×2.05, MedicalSurgerySuccessChance ×0.95 -->
 
-		<!-- 외형 -->
+		<!-- 외형 - 피부색 (순백/밝은 회색/창백한 노란색, exclusion으로 1개만 적용) -->
+		<li>RK_Skin_PureWhite</li><!-- 순백색 -->
+		<li>RK_Skin_LightGray</li><!-- 밝은 회색 -->
+		<li>RK_Skin_PaleYellow</li><!-- 창백한 노란색 -->
 		<li>RK_Gene_LargeEars</li><!-- Met:0 외형만 -->
 		<li>RK_Gene_ThinTail</li><!-- Met:0 외형만 -->
 		<li>RK_Gene_CuteFace</li><!-- Met:0 NegotiationAbility ×0.80, TradePriceImprovement ×0.90, SocialImpact ×1.20 -->

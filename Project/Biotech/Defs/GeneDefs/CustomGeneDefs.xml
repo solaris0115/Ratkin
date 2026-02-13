@@ -19,14 +19,9 @@
 			<li>BodyType</li>
 		</exclusionTags>
 		<statOffsets>
-			<HuntingStealth>1.15</HuntingStealth>
-			<MeatAmount>-50</MeatAmount>
-			<LeatherAmount>-30</LeatherAmount>
+			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
-		<statFactors>
-			<MeleeDamageFactor>0.9</MeleeDamageFactor>
-		</statFactors>
-		<biostatMet>0</biostatMet>
+		<biostatMet>1</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
 
@@ -59,11 +54,13 @@
 		<iconPath>UI/Icons/Gene/Gene_Nimble</iconPath>
 		<displayCategory>Violence</displayCategory>
 		<displayOrderInCategory>45</displayOrderInCategory>
+		<statOffsets>
+			<MoveSpeed>0.1</MoveSpeed>
+		</statOffsets>
 		<statFactors>
 			<MeleeDodgeChance>1.25</MeleeDodgeChance>
-			<MeleeCooldownFactor>0.9</MeleeCooldownFactor>
 		</statFactors>
-		<biostatMet>-1</biostatMet>
+		<biostatMet>-2</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -95,9 +92,8 @@
 		<displayOrderInCategory>25</displayOrderInCategory>
 		<statOffsets>
 			<PainShockThreshold>-0.1</PainShockThreshold>
-			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
-		<biostatMet>2</biostatMet>
+		<biostatMet>1</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
@@ -145,23 +141,24 @@
 		<displayCategory>Aptitudes</displayCategory>
 		<displayOrderInCategory>11020</displayOrderInCategory>
 		<statFactors>
-			<ConstructionSpeed>0.8</ConstructionSpeed>
+			<ConstructSuccessChance>0.9</ConstructSuccessChance>
+			<FixBrokenDownBuildingSuccessChance>0.9</FixBrokenDownBuildingSuccessChance>
 		</statFactors>
 		<biostatMet>1</biostatMet>
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
 	<GeneDef>
-		<defName>RK_Gene_SlowResearcher</defName>
-		<label>slow learner</label>
-		<labelShortAdj>slow learner</labelShortAdj>
-		<description>Carriers of this gene learn and research more slowly than others.</description>
+		<defName>RK_Gene_MessyWorker</defName>
+		<label>messy worker</label>
+		<labelShortAdj>messy</labelShortAdj>
+		<description>Carriers of this gene tend to be careless in their work, causing more food poisoning and surgical mistakes.</description>
 		<iconPath>UI/Icons/Genes/Skills/Intellectual/Poor</iconPath>
 		<displayCategory>Aptitudes</displayCategory>
 		<displayOrderInCategory>12020</displayOrderInCategory>
 		<statFactors>
-			<GlobalLearningFactor>0.9</GlobalLearningFactor>
-			<ResearchSpeed>0.9</ResearchSpeed>
+			<FoodPoisonChance>1.05</FoodPoisonChance>
+			<MedicalSurgerySuccessChance>0.95</MedicalSurgerySuccessChance>
 		</statFactors>
 		<biostatMet>1</biostatMet>
 		<biostatCpx>1</biostatCpx>
@@ -170,6 +167,39 @@
 	<!-- ========================================
 	     Ratkin Appearance Genes
 	     ======================================== -->
+
+	<!-- 피부색 - 랫킨 전용 (순백색, 밝은 회색, 창백한 노란색 중 랜덤) -->
+	<GeneDef ParentName="GeneSkinColorOverride" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>RK_Skin_PureWhite</defName>
+		<label>pure white skin</label>
+		<labelShortAdj>snow-white</labelShortAdj>
+		<description>Carriers of this gene have pure white skin characteristic of ratkin.</description>
+		<skinColorOverride>(255, 255, 255)</skinColorOverride>
+		<randomBrightnessFactor>0</randomBrightnessFactor>
+		<displayOrderInCategory>93</displayOrderInCategory>
+		<selectionWeight>1</selectionWeight>
+		<randomChosen>true</randomChosen>
+	</GeneDef>
+	<GeneDef ParentName="GeneSkinColorOverride" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>RK_Skin_LightGray</defName>
+		<label>light gray skin</label>
+		<labelShortAdj>gray</labelShortAdj>
+		<description>Carriers of this gene have light gray skin characteristic of ratkin.</description>
+		<skinColorOverride>(200, 200, 200)</skinColorOverride>
+		<displayOrderInCategory>95</displayOrderInCategory>
+		<selectionWeight>1</selectionWeight>
+		<randomChosen>true</randomChosen>
+	</GeneDef>
+	<GeneDef ParentName="GeneSkinColorOverride" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>RK_Skin_PaleYellow</defName>
+		<label>pale yellow skin</label>
+		<labelShortAdj>cream</labelShortAdj>
+		<description>Carriers of this gene have pale yellowish skin characteristic of ratkin.</description>
+		<skinColorOverride>(220, 200, 160)</skinColorOverride>
+		<displayOrderInCategory>68</displayOrderInCategory>
+		<selectionWeight>1</selectionWeight>
+		<randomChosen>true</randomChosen>
+	</GeneDef>
 
 	<!-- 큰 귀 -->
 	<GeneDef>
@@ -287,8 +317,12 @@
 		<iconColor>(0.75, 0.75, 0.75)</iconColor>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>1000</displayOrderInCategory>
+		<statOffsets>
+			<MoveSpeed>0.05</MoveSpeed>
+		</statOffsets>
 		<randomChosen>true</randomChosen>
-		<biostatCpx>0</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<biostatCpx>1</biostatCpx>
 		<exclusionTags>
 			<li>Tail</li>
 		</exclusionTags>
