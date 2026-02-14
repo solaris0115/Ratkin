@@ -903,7 +903,7 @@
 				<cooldownTime>2</cooldownTime>
 			</li>
 		</tools>
-		<tradeability>None</tradeability>
+		<tradeability>All</tradeability>
 	</ThingDef>
 	<ThingDef ParentName="RK_BaseBullet">
 		<defName>RK_Bullet_Bolter</defName>
@@ -1005,7 +1005,7 @@
 				<cooldownTime>2</cooldownTime>
 			</li>
 		</tools>
-		<tradeability>None</tradeability>
+		<tradeability>All</tradeability>
 	</ThingDef>
 
 	<ThingDef ParentName="RK_BaseBullet">
@@ -1150,7 +1150,7 @@
 				<cooldownTime>3</cooldownTime>
 			</li>
 		</tools>
-		<tradeability>None</tradeability>
+		<tradeability>All</tradeability>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
 		<defName>Bullet_BFR_AP</defName>
