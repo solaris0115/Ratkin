@@ -9,6 +9,52 @@ namespace NewRatkin
 {
     public static class DebugActions
     {
+        /// <summary>
+        /// 랫킨 모드 출처 ThingDef 중, Apparel 또는 Equipable이며, 판매 불가(sellable 아님) 아이템 목록을 로그에 출력
+        /// </summary>
+        [DebugAction("Mods", "List Non-Sellable RK Equipment", 
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            displayPriority = 1000)]
+        private static void ListNonSellableRatkinEquipment()
+        {
+            ModContentPack ratkinMod = LoadedModManager.RunningModsListForReading
+                .FirstOrDefault(mod => mod.assemblies?.loadedAssemblies?.Contains(typeof(DebugActions).Assembly) == true);
+
+            if (ratkinMod == null)
+            {
+                Log.Error("랫킨 모드 ModContentPack을 찾을 수 없습니다.");
+                Messages.Message("랫킨 모드 출처를 찾을 수 없음", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            var nonSellable = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.modContentPack == ratkinMod
+                    && (def.IsApparel || def.IsWeapon)
+                    && !def.tradeability.TraderCanSell())
+                .OrderBy(def => def.IsApparel ? 0 : 1)
+                .ThenBy(def => def.defName)
+                .ToList();
+
+            Log.Message("=== 랫킨 장비 중 판매 불가(Not Sellable) 목록 ===");
+            Log.Message($"  [출처: {ratkinMod.Name} | Apparel 또는 Equipable(Weapon)]");
+            if (nonSellable.Count == 0)
+            {
+                Log.Message("(없음)");
+            }
+            else
+            {
+                foreach (var def in nonSellable)
+                {
+                    string type = def.IsApparel ? "Apparel" : "Weapon";
+                    Log.Message($"  [{type}] {def.defName} - {def.label}");
+                }
+                Log.Message($"총 {nonSellable.Count}개");
+            }
+            Log.Message("==========================================");
+
+            Messages.Message($"판매 불가 랫킨 장비 {nonSellable.Count}개 - 로그 확인", MessageTypeDefOf.NeutralEvent);
+        }
+
         [DebugAction("Ratkin", "All Apparel Test", 
             allowedGameStates = AllowedGameStates.PlayingOnMap,
             displayPriority = 999)]
@@ -236,6 +282,17 @@ namespace NewRatkin
             }
 
             Messages.Message($"Filled all needs for {filledCount} pawn(s).", MessageTypeDefOf.TaskCompletion);
+        }
+
+        /// <summary>
+        /// RK Equipment Spawn 설정 UI 열기. 품질/아이템 선택 후 맵에서 스폰 위치 지정.
+        /// </summary>
+        [DebugAction("Ratkin", "Spawn RK Equipment Per Colonist",
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            displayPriority = 997)]
+        private static void SpawnRKEquipmentPerColonist()
+        {
+            Find.WindowStack.Add(new Dialog_RKSpawnEquipmentConfig());
         }
 
         [DebugAction("Ratkin", "Remove Body Part", 
