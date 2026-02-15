@@ -20,7 +20,6 @@ namespace NewRatkin
 			PawnKindDef priestKind = DefDatabase<PawnKindDef>.GetNamed("RatkinPriest", false);
 			if (priestKind == null)
 			{
-				Log.Error("[RK_PriestJoin] RatkinPriest PawnKindDef not found! Falling back to base.");
 				return base.GeneratePawn();
 			}
 
@@ -86,7 +85,6 @@ namespace NewRatkin
 				Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Decide);
 			}
 
-			Log.Message($"[RK_PriestJoin] Generated priest: {pawn.Name}, Kind: {pawn.kindDef.defName}");
 			return pawn;
 		}
 	}

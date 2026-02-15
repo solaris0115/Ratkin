@@ -12,8 +12,6 @@ namespace RimWorld
 	/// </summary>
 	public class StorytellerComp_RK_PriestJoin : StorytellerComp
 	{
-		private const string LogPrefix = "[RK_PriestJoin]";
-
 		private StorytellerCompProperties_RK_PriestJoin Props
 		{
 			get
@@ -57,10 +55,6 @@ namespace RimWorld
 			// 3. 최소 경과 일수 체크
 			if (currentDays < minDays)
 			{
-				if (Prefs.DevMode)
-				{
-					Log.Message($"{LogPrefix} 스킵: 최소 경과 일수 미충족 (현재: {currentDays:F1}일, 필요: {minDays}일)");
-				}
 				yield break;
 			}
 			
@@ -74,12 +68,10 @@ namespace RimWorld
 			IncidentParms parms = this.GenerateParms(this.Props.incident.category, target);
 			if (!this.Props.incident.Worker.CanFireNow(parms))
 			{
-				Log.Message($"{LogPrefix} 스킵: CanFireNow 실패 (incident={this.Props.incident.defName})");
 				yield break;
 			}
 
 			// 모든 조건 충족 - 이벤트 발생 (1회성)
-			Log.Message($"{LogPrefix} 이벤트 트리거! (경과 일수: {currentDays:F1}일) - 1회성 이벤트 완료");
 			yield return new FiringIncident(this.Props.incident, this, parms);
 		}
 
