@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
 
@@ -10,6 +10,7 @@
 		<maxGenerationAge>35</maxGenerationAge>
 		<defaultFactionType>Rakinia</defaultFactionType>
 		<invNutrition>2</invNutrition>
+		<invFoodDef>RK_Food_Hardtack</invFoodDef>
 		<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
 		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
 		<apparelColor>(255,255,255)</apparelColor>
@@ -824,13 +825,6 @@
 					<countRange>
 						<min>5</min>
 						<max>8</max>
-					</countRange>
-				</li>
-				<li>
-					<thingDef>Pemmican</thingDef>
-					<countRange>
-						<min>3</min>
-						<max>6</max>
 					</countRange>
 				</li>
 			</subOptionsChooseOne>
