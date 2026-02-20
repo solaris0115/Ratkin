@@ -15,7 +15,9 @@ namespace NewRatkin
         {
             if (__result == null) return;
 
-            if (__result?.story?.Adulthood == RatkinBackstoryDefOf.Ratkin_Sister)
+            bool isPriest = __result.kindDef == RatkinPawnKindDefOf.RatkinPriest
+                || __result.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Priest;
+            if (isPriest)
             {
                 __result.abilities?.GainAbility(RatkinAbilityDefOf.RK_PrayerService);
             }
@@ -32,7 +34,12 @@ namespace NewRatkin
         {
             if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
             {
-                if (___pawn?.story?.Adulthood == RatkinBackstoryDefOf.Ratkin_Sister && !__instance.abilities.Any(x => x.def == RatkinAbilityDefOf.RK_PrayerService))
+                bool isPriest = ___pawn?.kindDef == RatkinPawnKindDefOf.RatkinPriest
+                    || ___pawn?.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Priest;
+                bool needsAbility = isPriest
+                    && !__instance.abilities.Any(x => x.def == RatkinAbilityDefOf.RK_PrayerService);
+
+                if (needsAbility)
                 {
                     __instance.GainAbility(RatkinAbilityDefOf.RK_PrayerService);
                 }
