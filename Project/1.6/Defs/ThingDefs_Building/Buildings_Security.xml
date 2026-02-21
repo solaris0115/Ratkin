@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!-- 발리스타 받침 -->
 	<ThingDef Name="RK_BaseArtilleryBuilding" ParentName="BuildingBase" Abstract="True">
@@ -228,9 +228,9 @@
 			<Steel>15</Steel>
 			<WoodLog>10</WoodLog>
 		</costList>
-		<!-- <recipeMaker>
-			<researchPrerequisite>Ballista</researchPrerequisite>
-		</recipeMaker> -->
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
+		</recipeMaker>
 	</ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
