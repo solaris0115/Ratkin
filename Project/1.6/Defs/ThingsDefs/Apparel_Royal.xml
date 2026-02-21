@@ -11,7 +11,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<recipeMaker>
-			<researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+			<researchPrerequisite>RK_Research_NobleApparel</researchPrerequisite>
 		</recipeMaker>
 		<costStuffCount>120</costStuffCount>
 		<stuffCategories>
@@ -112,10 +112,7 @@
 		</apparel>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
-			<researchPrerequisites>
-				<li>RK_Research_Weaving</li>
-				<li>RK_Research_NobleApparel</li>
-			</researchPrerequisites>
+			<researchPrerequisite>RK_Research_NobleApparel</researchPrerequisite>
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>

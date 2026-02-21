@@ -4,7 +4,7 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>*/PreceptDef[leaderRole = 'true']/roleApparelRequirements</xpath>
 		<value>
-			<!-- 랫킨 왕관 -->
+			<!-- 머리(UpperHead): 왕관, 베일, 코사주, 리본 -->
 			<li>
 				<requirement>
 					<bodyPartGroupsMatchAny>
@@ -12,10 +12,13 @@
 					</bodyPartGroupsMatchAny>
 					<requiredDefs>
 						<li>RK_RoyalCrown</li>
+						<li>RK_SistersVeil</li>
+						<li>RK_HairCorsage</li>
+						<li>RK_RibbonHairBand</li>
 					</requiredDefs>
 				</requirement>
 			</li>
-			<!-- 랫킨 로열 외투 -->
+			<!-- 몸통(Torso~Legs): 로열외투, 수녀복, 화이트코트, 프릴원피스, 플랫컬러코트 -->
 			<li>
 				<requirement>
 					<bodyPartGroupsMatchAny>
@@ -27,47 +30,10 @@
 					</bodyPartGroupsMatchAny>
 					<requiredDefs>
 						<li>RK_RoyalRobe</li>
-					</requiredDefs>
-				</requirement>
-			</li>
-			<!-- 랫킨 수녀복 -->
-			<li>
-				<requirement>
-					<bodyPartGroupsMatchAny>
-						<li>Torso</li>
-						<li>Neck</li>
-						<li>Shoulders</li>
-						<li>Arms</li>
-						<li>Legs</li>
-					</bodyPartGroupsMatchAny>
-					<requiredDefs>
 						<li>RK_SistersDerss</li>
-					</requiredDefs>
-				</requirement>
-			</li>
-			<!-- 랫킨 수녀 베일 -->
-			<li>
-				<requirement>
-					<bodyPartGroupsMatchAny>
-						<li>UpperHead</li>
-					</bodyPartGroupsMatchAny>
-					<requiredDefs>
-						<li>RK_SistersVeil</li>
-					</requiredDefs>
-				</requirement>
-			</li>
-			<!-- 랫킨 화이트 코트 -->
-			<li>
-				<requirement>
-					<bodyPartGroupsMatchAny>
-						<li>Torso</li>
-						<li>Neck</li>
-						<li>Shoulders</li>
-						<li>Arms</li>
-						<li>Legs</li>
-					</bodyPartGroupsMatchAny>
-					<requiredDefs>
 						<li>RK_WhiteCoat</li>
+						<li>RK_FrillOnepiece</li>
+						<li>RK_FlatColorCoat</li>
 					</requiredDefs>
 				</requirement>
 			</li>
