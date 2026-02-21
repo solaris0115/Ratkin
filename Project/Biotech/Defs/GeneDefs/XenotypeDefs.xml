@@ -21,19 +21,16 @@
 		<!-- 작은 신체 - 은신 정도 증가 -->
 		<li>RK_Gene_SmallBody</li><!-- Met:0 CarryingCapacity -15 -->
 
-		<!-- 환경 적응 -->
-		<li>MinTemp_SmallDecrease</li><!-- Met:-1 ComfyTemperatureMin -10 -->
-
 		<!-- 전투 -->
 		<li>RK_Gene_Nimble</li><!-- Met:-1 MeleeDodgeChance ×1.25 -->
 		<li>RK_Gene_PoorEyesight</li><!-- Met:+3 Poor Eyesight - 장거리 사격 정확도 감소 -->
 		<li>CaveDweller</li><!-- Met:0 실내 거주자 - 야외 필요 없음 -->
 		<li>RK_Gene_FragilePain</li><!-- Met:+4 Cpx:-1 PainShockThreshold -0.1 -->
 
-		<!-- 작업 능력 -->
-		<li>RK_Gene_PoorConstruction</li><!-- Met:+1 ConstructionSpeed ×0.9 -->
-		<li>RK_Gene_GoodGardening</li><!-- Met:-1 PlantWorkSpeed ×1.1, PlantHarvestYield ×1.1 -->
-		<li>RK_Gene_PoorCrafting</li><!-- Met:+1 GeneralLaborSpeed ×0.9 -->
+		<!-- 작업 능력 - 림월드 코어 기본 유전자 -->
+		<li>AptitudePoor_Construction</li><!-- 나쁜 건설 -->
+		<li>AptitudeStrong_Plants</li><!-- 좋은 원예 -->
+		<li>AptitudePoor_Crafting</li><!-- 나쁜 제작 -->
 
 		<!-- 외형 - 피부색 (순백/밝은 회색/창백한 노란색, exclusion으로 1개만 적용) -->
 		<li>RK_Skin_PureWhite</li><!-- 순백색 -->
