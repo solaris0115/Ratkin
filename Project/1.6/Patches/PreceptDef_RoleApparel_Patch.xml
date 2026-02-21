@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<!-- 사상 지위 설정에서 랫킨 의류를 선택할 수 있도록 추가 -->
+	<!-- leaderRole=true인 모든 지도자형 역할에 랫킨 의류 통일 적용 (바닐라+모드 추가 역할 자동 포함) -->
 	<Operation Class="PatchOperationAdd">
-		<xpath>*/PreceptDef[defName = 'IdeoRole_Moralist']/roleApparelRequirements</xpath>
+		<xpath>*/PreceptDef[leaderRole = 'true']/roleApparelRequirements</xpath>
 		<value>
 			<!-- 랫킨 왕관 -->
 			<li>
@@ -74,4 +74,3 @@
 		</value>
 	</Operation>
 </Patch>
-
