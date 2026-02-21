@@ -31,10 +31,9 @@
 		<li>RK_Gene_FragilePain</li><!-- Met:+4 Cpx:-1 PainShockThreshold -0.1 -->
 
 		<!-- 작업 능력 -->
-		<li>RK_Gene_EfficientMiner</li><!-- Met:0 MiningSpeed ×0.9, MiningYield ×1.10 -->
-		<li>RK_Gene_GreenThumb</li><!-- Met:0 PlantWorkSpeed ×0.9, PlantHarvestYield ×1.1 -->
-		<li>RK_Gene_ClumsyBuilder</li><!-- Met:+1 ConstructionSpeed ×0.9 -->
-		<li>RK_Gene_MessyWorker</li><!-- Met:+1 FoodPoisonChance ×2.05, MedicalSurgerySuccessChance ×0.95 -->
+		<li>RK_Gene_PoorConstruction</li><!-- Met:+1 ConstructionSpeed ×0.9 -->
+		<li>RK_Gene_GoodGardening</li><!-- Met:-1 PlantWorkSpeed ×1.1, PlantHarvestYield ×1.1 -->
+		<li>RK_Gene_PoorCrafting</li><!-- Met:+1 GeneralLaborSpeed ×0.9 -->
 
 		<!-- 외형 - 피부색 (순백/밝은 회색/창백한 노란색, exclusion으로 1개만 적용) -->
 		<li>RK_Skin_PureWhite</li><!-- 순백색 -->
