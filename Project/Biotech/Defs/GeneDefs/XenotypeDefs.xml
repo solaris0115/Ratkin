@@ -38,8 +38,6 @@
 
 		<!-- 외형 - 피부색 (순백/밝은 회색/창백한 노란색, exclusion으로 1개만 적용) -->
 		<li>RK_Skin_PureWhite</li><!-- 순백색 -->
-		<li>RK_Skin_LightGray</li><!-- 밝은 회색 -->
-		<li>RK_Skin_PaleYellow</li><!-- 창백한 노란색 -->
 		<li>RK_Gene_LargeEars</li><!-- Met:0 외형만 -->
 		<li>RK_Gene_ThinTail</li><!-- Met:0 외형만 -->
 		<li>RK_Gene_CuteFace</li><!-- Met:0 NegotiationAbility ×0.80, TradePriceImprovement ×0.90, SocialImpact ×1.20 -->
