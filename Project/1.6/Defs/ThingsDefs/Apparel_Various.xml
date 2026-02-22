@@ -1882,6 +1882,12 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<defaultStuffFilter>
+				<thingDefs>
+					<li>Steel</li>
+					<li>Plasteel</li>
+				</thingDefs>
+			</defaultStuffFilter>
 			<displayPriority>47360</displayPriority>
 		</recipeMaker>
 		<costList>
@@ -1997,6 +2003,12 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<defaultStuffFilter>
+				<thingDefs>
+					<li>Steel</li>
+					<li>Plasteel</li>
+				</thingDefs>
+			</defaultStuffFilter>
 			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
@@ -2063,6 +2075,12 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<defaultStuffFilter>
+				<thingDefs>
+					<li>Steel</li>
+					<li>Plasteel</li>
+				</thingDefs>
+			</defaultStuffFilter>
 			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
@@ -2128,6 +2146,12 @@
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
+			<defaultStuffFilter>
+				<thingDefs>
+					<li>Steel</li>
+					<li>Plasteel</li>
+				</thingDefs>
+			</defaultStuffFilter>
 			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
