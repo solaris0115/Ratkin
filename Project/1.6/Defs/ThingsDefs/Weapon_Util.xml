@@ -141,7 +141,6 @@
 		<recipeMaker>
 			<researchPrerequisites>
 				<li>RK_Research_Smithing</li>
-				<li>RK_Research_Agriculture</li>
 			</researchPrerequisites>
 			<skillRequirements>
 				<Crafting>4</Crafting>
