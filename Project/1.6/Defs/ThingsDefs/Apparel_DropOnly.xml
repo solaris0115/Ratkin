@@ -47,8 +47,9 @@
 			<layers>
 				<li>Shell</li>
 			</layers>
-			<tags>
-				<li>RK_Santa</li>
+			<tags inherit="false">
+				<li>RK_ApparelTag_DropOnly</li>
+				<li>RK_ApparelTag_Santa</li>
 			</tags>
 		</apparel>
 		<tradeability>Sellable</tradeability>
@@ -82,8 +83,9 @@
 			<bodyPartGroups>
 				<li>UpperHead</li>
 			</bodyPartGroups>
-			<tags>
-				<li>RK_Santa</li>
+			<tags inherit="false">
+				<li>RK_ApparelTag_DropOnly</li>
+				<li>RK_ApparelTag_Santa</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -135,16 +137,13 @@
 			<bodyPartGroups>
 				<li>Shoulders</li>
 			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Worker</li>
-				<li>Soldier</li>
-			</defaultOutfitTags>
 			<wornGraphicPath>Apparel/RK_SantaSack</wornGraphicPath>
 			<layers>
 				<li>BackPack</li>
 			</layers>
-			<tags>
-				<li>RK_Santa</li>
+			<tags inherit="false">
+				<li>RK_ApparelTag_DropOnly</li>
+				<li>RK_ApparelTag_Santa</li>
 			</tags>
 		</apparel>
 		<tradeability>Sellable</tradeability>
@@ -252,9 +251,9 @@
 			<layers>
 				<li>BackPack</li>
 			</layers>
-			<tags>
-				<li>RK_Package</li>
-				<li>RK_Thief</li>
+			<tags inherit="false">
+				<li>RK_ApparelTag_DropOnly</li>
+				<li>RK_ApparelTag_Thief</li>
 			</tags>
 		</apparel>
 		<tradeability>Sellable</tradeability>
