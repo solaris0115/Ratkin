@@ -87,7 +87,7 @@
             </categories>
         </defaultIngredientFilter>
         <workSkill>Cooking</workSkill>
-        <displayPriority>1430</displayPriority>
+        <displayPriority>420</displayPriority>
     </RecipeDef>
 
     <!-- Make Hardtack Bulk Recipe -->
@@ -139,6 +139,6 @@
             </categories>
         </defaultIngredientFilter>
         <workSkill>Cooking</workSkill>
-        <displayPriority>1440</displayPriority>
+        <displayPriority>425</displayPriority>
     </RecipeDef>
 </Defs>
