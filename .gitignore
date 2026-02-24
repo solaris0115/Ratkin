@@ -32,6 +32,10 @@ Thumbs.db
 *.rar
 *.7z
 
+# Rimworld 참조 데이터 (원본 소스/Defs - 로컬 참조용)
+RimworldSource/
+RimworldData/
+
 # IDE 설정 파일들 (Cursor 제외)
 .vscode/
 .idea/
