@@ -351,6 +351,7 @@
 		</recipeMaker>
 		<thingCategories>
 			<li>RK_Apparel</li>
+			<li>RK_Headgear</li>
 		</thingCategories>
 		<tradeTags>
 			<li>RK_Apparel_Rare</li>

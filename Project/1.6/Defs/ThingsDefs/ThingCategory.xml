@@ -17,4 +17,10 @@
 		<label>ratkin melee</label>
 		<parent>WeaponsMelee</parent>
 	</ThingCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>RK_ThingCategory_Util</defName>
+		<label>ratkin utility</label>
+		<parent>ApparelUtility</parent>
+	</ThingCategoryDef>
 </Defs>

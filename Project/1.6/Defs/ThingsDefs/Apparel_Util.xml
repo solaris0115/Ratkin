@@ -2,6 +2,9 @@
 <Defs>
 	<!-- ====================== 배너류 ========================== -->
 	<ThingDef Name="RK_ApparelAttr_BannerBase" Abstract="True" ParentName="RK_ApparelMakeableBase">
+		<thingCategories Inherit="false">
+			<li>RK_ThingCategory_Util</li>
+		</thingCategories>
 		<graphicData>
 			<texPath>Apparel/Util/RK_TextureApparel_Banner</texPath>			<!--배너 기본 그래픽-->
 			<graphicClass>Graphic_Single</graphicClass>
@@ -266,6 +269,9 @@
 
 	<!-- ====================== 방패류 ========================== -->
 	<ThingDef ParentName="RK_ApparelMakeableBase" Name="RK_ApparelAttr_ShieldBase" Abstract="True">
+		<thingCategories Inherit="false">
+			<li>RK_ThingCategory_Util</li>
+		</thingCategories>
 		<graphicData>
 			<ignoreThingDrawColor>false</ignoreThingDrawColor>
 		</graphicData>
