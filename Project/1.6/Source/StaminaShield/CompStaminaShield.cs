@@ -429,28 +429,14 @@ namespace NewRatkin
                 // 스태미나 차감
                 this.stamina -= staminaLoss;
                 
-                float reducedDamage = 0f;
-                float remainingDamage = originalDamage;
+                // 피해 감소율 적용 (스태미나 충분/부족 공통: 방패가 막다가 깨져도 부분 방어는 적용)
+                float reducedDamage = originalDamage * damageReductionPercent;
+                float remainingDamage = originalDamage - reducedDamage;
                 
-                // 스태미나가 충분한 경우에만 피해 감소 적용
-                if (hasEnoughStamina)
+                // dinfo에 감소된 데미지 반영 (remainingDamage가 파운에게 전달됨)
+                if (remainingDamage > 0f)
                 {
-                    // 피해 감소율만큼 데미지 감쇄
-                    reducedDamage = originalDamage * damageReductionPercent;
-                    remainingDamage = originalDamage - reducedDamage;
-                    
-                    // 감쇄된 데미지만 차단, 나머지는 통과
-                    if (remainingDamage > 0f)
-                    {
-                        dinfo.SetAmount(remainingDamage);
-                    }
-                }
-                else
-                {
-                    // 스태미나 부족 시 피해 감소 적용 안 함 (원래 데미지 그대로)
-                    reducedDamage = 0f;
-                    remainingDamage = originalDamage;
-                    // dinfo는 그대로 유지 (원래 데미지)
+                    dinfo.SetAmount(remainingDamage);
                 }
                 
                 // 스태미나가 0 이하가 되면 쉴드 파괴
@@ -472,6 +458,9 @@ namespace NewRatkin
                     this.AbsorbedDamage(dinfo);
                 }
                 
+                // absorbed: remainingDamage가 0이면 완전 흡수, 그 외에는 false로 데미지 파이프라인에 전달
+                absorbed = (remainingDamage <= 0f);
+                
                 // 의류 내구도 손상 처리 (흡수된 데미지량 기준, 스태미나가 충분했을 때만)
                 // 착용 중인 의류는 Spawned가 false이므로 PawnOwner 존재 여부로 체크
                 if (hasEnoughStamina && this.Props.durabilityDamagePercent > 0f && this.IsApparel && this.PawnOwner != null)
@@ -492,9 +481,6 @@ namespace NewRatkin
                         }
                     }
                 }
-                
-                // 피격 처리 후 absorbed = true 설정
-                absorbed = true;
             }
         }
 
