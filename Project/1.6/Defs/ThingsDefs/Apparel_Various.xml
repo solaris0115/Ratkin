@@ -1877,17 +1877,14 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<defaultIngredientFilter>
+				<categories>
+					<li>Metallic</li>
+				</categories>
 				<disallowedThingDefs>
 					<li>Gold</li>
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
-			<defaultStuffFilter>
-				<thingDefs>
-					<li>Steel</li>
-					<li>Plasteel</li>
-				</thingDefs>
-			</defaultStuffFilter>
 			<displayPriority>47360</displayPriority>
 		</recipeMaker>
 		<costList>
@@ -1998,17 +1995,14 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<defaultIngredientFilter>
+				<categories>
+					<li>Metallic</li>
+				</categories>
 				<disallowedThingDefs>
 					<li>Gold</li>
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
-			<defaultStuffFilter>
-				<thingDefs>
-					<li>Steel</li>
-					<li>Plasteel</li>
-				</thingDefs>
-			</defaultStuffFilter>
 			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
@@ -2070,17 +2064,14 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<defaultIngredientFilter>
+				<categories>
+					<li>Metallic</li>
+				</categories>
 				<disallowedThingDefs>
 					<li>Gold</li>
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
-			<defaultStuffFilter>
-				<thingDefs>
-					<li>Steel</li>
-					<li>Plasteel</li>
-				</thingDefs>
-			</defaultStuffFilter>
 			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
@@ -2141,17 +2132,14 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<defaultIngredientFilter>
+				<categories>
+					<li>Metallic</li>
+				</categories>
 				<disallowedThingDefs>
 					<li>Gold</li>
 					<li>Silver</li>
 				</disallowedThingDefs>
 			</defaultIngredientFilter>
-			<defaultStuffFilter>
-				<thingDefs>
-					<li>Steel</li>
-					<li>Plasteel</li>
-				</thingDefs>
-			</defaultStuffFilter>
 			<displayPriority>47365</displayPriority>
 		</recipeMaker>
 	</ThingDef>
