@@ -79,7 +79,13 @@ namespace NewRatkin
 			}
 
 			Pawn pawn = PawnGenerator.GeneratePawn(request);
-			
+
+			// PawnGenerator 패치가 적용되지 않는 경우 대비 - QuestNode에서 직접 기도회 능력 부여
+			if (pawn.abilities != null && pawn.abilities.GetAbility(RatkinAbilityDefOf.RK_PrayerService) == null)
+			{
+				pawn.abilities.GainAbility(RatkinAbilityDefOf.RK_PrayerService);
+			}
+
 			if (!pawn.IsWorldPawn())
 			{
 				Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Decide);
