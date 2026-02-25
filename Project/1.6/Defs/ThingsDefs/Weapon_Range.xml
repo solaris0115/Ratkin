@@ -234,7 +234,7 @@
 			<displayPriority>78120</displayPriority>
 		</recipeMaker>
 		<statBases>
-			<WorkToMake>2400</WorkToMake>
+			<WorkToMake>8000</WorkToMake>
 			<Mass>0.8</Mass>
 			<AccuracyTouch>0.70</AccuracyTouch>
 			<AccuracyShort>0.75</AccuracyShort>
