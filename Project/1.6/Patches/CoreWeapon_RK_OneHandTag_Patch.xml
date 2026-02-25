@@ -2,7 +2,7 @@
 <Patch>
 	<!-- Core 한손 근접 무기: RK_WeaponTag_OneHand, RK_WeaponTag_OneHandMelee, RK_WeaponTag_OneHandMeleeAttack -->
 	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName='MeleeWeapon_Club' or defName='MeleeWeapon_Knife' or defName='MeleeWeapon_Ikwa' or defName='MeleeWeapon_Spear' or defName='MeleeWeapon_Mace' or defName='MeleeWeapon_Gladius' or defName='MeleeWeapon_LongSword' or defName='MeleeWeapon_BreachAxe']/weaponTags</xpath>
+		<xpath>Defs/ThingDef[defName='MeleeWeapon_Club' or defName='MeleeWeapon_Knife' or defName='MeleeWeapon_Ikwa' or defName='MeleeWeapon_Spear' or defName='MeleeWeapon_Mace' or defName='MeleeWeapon_Gladius' or defName='MeleeWeapon_LongSword' or defName='MeleeWeapon_BreachAxe' or defName='MeleeWeapon_Axe']/weaponTags</xpath>
 		<value>
 			<li>RK_WeaponTag_OneHand</li>
 			<li>RK_WeaponTag_OneHandMelee</li>
