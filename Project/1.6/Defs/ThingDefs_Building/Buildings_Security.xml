@@ -342,7 +342,6 @@
 		<costList>
 			<WoodLog>50</WoodLog>
 			<ComponentIndustrial>3</ComponentIndustrial>
-			<Chemfuel>30</Chemfuel>
 		</costList>
 		<inspectorTabs>
 			<li>ITab_Shells</li>
