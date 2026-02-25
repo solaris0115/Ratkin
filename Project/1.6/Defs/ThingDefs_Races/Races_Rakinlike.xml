@@ -217,82 +217,96 @@
 			<raceRestriction>
 				<onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel>
 				<apparelList>
+					<li>RK_Apparel_Banner</li>
+					<li>RK_Apparel_SpaceArmor</li>
+					<li>RK_Apparel_SpaceArmorHelmet</li>
+					<li>RK_Apparel_Vacsuit</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">RK_Apparel_VacsuitChildren</li>
+					<li>RK_Apparel_VacsuitHelmet</li>
 					<li>RK_ApronSkirt</li>
-					<li>RK_SummerDress</li>
-					<li>RK_StrawHat</li>
-					<li>RK_Muffler</li>
-					<li>RK_CrossBack</li>
-					<li>RK_Cardigan</li>
-					<li>RK_WoolenHat</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">RK_ApronSkirtChildren</li>
 					<li>RK_Backpack</li>
-					<li>RK_WorkerWear</li>
-					<li>RK_Coif</li>
-					<li>RK_ResearchGown</li>
-					<li>RK_ResearchGlasses</li>
-					<li>RK_ExplorerWear</li>
-					<li>RK_ExplorerHat</li>
-					<li>RK_ChefSuit</li>
-					<li>RK_ChefHat</li>
-					<li>RK_GaurdenUniform</li>
-					<li>RK_WinterRobe</li>
-					<li>RK_OutdoorBackpack</li>
-					<li>RK_OrderUniform</li>
+					<li>RK_BattleSuit</li>
 					<li>RK_BulletProofHelmet</li>
+					<li>RK_Cardigan</li>
+					<li>RK_ChefHat</li>
+					<li>RK_ChefSuit</li>
+					<li>RK_Coif</li>
+					<li>RK_CrossBack</li>
+					<li>RK_ExplorerHat</li>
+					<li>RK_ExplorerWear</li>
 					<li>RK_FlatColorCoat</li>
 					<li>RK_FrillOnepiece</li>
+					<li>RK_GaurdenUniform</li>
 					<li>RK_HairCorsage</li>
-					<li>RK_RibbonHairBand</li>
-					<li>RK_SistersDerss</li>
-					<li>RK_SistersVeil</li>
-					<li>RK_Sack</li>
-					<li>RK_BattleSuit</li>
+					<li>RK_HeadBand</li>
+					<li>RK_HeavyShield</li>
 					<li>RK_Mask</li>
 					<li>RK_MaskB</li>
-					<li>RK_HeadBand</li>
+					<li>RK_Muffler</li>
+					<li>RK_OrderUniform</li>
+					<li>RK_OutdoorBackpack</li>
 					<li>RK_Plate</li>
 					<li>RK_PlateHelmA</li>
 					<li>RK_PlateHelmB</li>
 					<li>RK_PlateHelmC</li>
-					<li>RK_WoodenShield</li>
-					<li>RK_HeavyShield</li>
-					<li>RK_TowerShield</li>
-					<li>RK_SantaRobe</li>
-					<li>RK_SantaHat</li>
-					<li>RK_SantaSack</li>
-					<li>RK_WhiteCoat</li>
-					<li>RK_RoyalRobe</li>
+					<li>RK_ResearchGlasses</li>
+					<li>RK_ResearchGown</li>
+					<li>RK_RibbonHairBand</li>
 					<li>RK_RoyalCrown</li>
-					<li>RK_Apparel_Vacsuit</li>
-					<li MayRequire="Ludeon.RimWorld.Biotech">RK_Apparel_VacsuitChildren</li>
-					<li>RK_Apparel_VacsuitHelmet</li>
-					<li>RK_Apparel_SpaceArmor</li>
-					<li>RK_Apparel_SpaceArmorHelmet</li>
+					<li>RK_RoyalRobe</li>
+					<li>RK_Sack</li>
+					<li>RK_SantaHat</li>
+					<li>RK_SantaRobe</li>
+					<li>RK_SantaSack</li>
+					<li>RK_SistersDerss</li>
+					<li>RK_SistersVeil</li>
+					<li>RK_StrawHat</li>
+					<li>RK_SummerDress</li>
+					<li>RK_TowerShield</li>
+					<li>RK_WhiteCoat</li>
+					<li>RK_WinterRobe</li>
+					<li>RK_WoodenShield</li>
+					<li>RK_WoolenHat</li>
+					<li>RK_WorkerWear</li>
 				</apparelList>
 				<whiteApparelList>
 					<li>Apparel_ShieldBelt</li>
 					<li>Apparel_SmokepopBelt</li>
 				</whiteApparelList>
 				<weaponList>
+					<li>RK_AutoCrossBow</li>
 					<li>RK_Axe</li>
 					<li>RK_Cleaver</li>
-					<li>RK_Hockey</li>
-					<li>RK_Fork</li>
-					<li>RK_LongSword</li>
 					<li>RK_Crossbow</li>
-					<li>RK_AutoCrossBow</li>
-					<li>RK_Rifle</li>
-					<li>RK_SniperRifle</li>
+					<li>RK_Dagger</li>
 					<li>RK_FlechetteRifle</li>
 					<li>RK_FlechetteSniperRifle</li>
-					<li>RK_Rifle_line</li>
-					<li>RK_Dagger</li>
-					<li>RK_OneHanded</li>
-					<li>RK_LightLance</li>
-					<li>RK_HeavyLance</li>
-					<li>RK_Weapon_Gunlance</li>
-					<li>RK_Mace</li>
-					<li>RK_Spear</li>
+					<li>RK_Fork</li>
 					<li>RK_Halberd</li>
+					<li>RK_HeavyLance</li>
+					<li>RK_Hockey</li>
+					<li>RK_LightLance</li>
+					<li>RK_LongSword</li>
+					<li>RK_Mace</li>
+					<li>RK_MagicWand</li>
+					<li>RK_OneHanded</li>
+					<li>RK_Pickaxe</li>
+					<li>RK_PrototypePulseRifle</li>
+					<li>RK_Rifle</li>
+					<li>RK_Rifle_line</li>
+					<li>RK_Spear</li>
+					<li>RK_SniperRifle</li>
+					<li>RK_TwoHanded</li>
+					<li>RK_Weapon_Arbalest</li>
+					<li>RK_Weapon_BFR</li>
+					<li>RK_Weapon_Bolter</li>
+					<li>RK_Weapon_Gunlance</li>
+					<li>RK_Weapon_ProtoChainSword</li>
+					<li>RK_Weapon_ProtoFlameChainSword</li>
+					<li>RK_Weapon_RatHolicGun</li>
+					<li>GunlanceAfterIgnition</li>
+					<li>GunlancePreIgnition</li>
 				</weaponList>
 				<!-- 종족 연구 제한 제거 - 모든 종족이 랫킨 연구 가능 -->
 				<blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">

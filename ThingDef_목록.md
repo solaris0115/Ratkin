@@ -64,25 +64,10 @@
 
 ---
 
-## Equip (무기/장비)
+### 무기
 
 | defName |
 |---------|
-| Bolt_RK_AutoCrossBow |
-| Bolt_RK_Buck |
-| Bolt_RK_Crossbow |
-| Bullet_RK_PrototypePulseRifleHeavy |
-| Bullet_RK_PrototypePulseRifleLight |
-| Bullet_RK_FlechetteRifle |
-| Bullet_RK_FlechetteSniperRifle |
-| Bullet_RK_Rifle |
-| Bullet_RK_SniperRifle |
-| Bullet_RK_Slug |
-| Bullet_BFR_AP |
-| Bullet_BFR_SC |
-| GunlanceAfterIgnition |
-| GunlancePreIgnition |
-| RK_Ammo_WyvernFire |
 | RK_AutoCrossBow |
 | RK_Axe |
 | RK_Cleaver |
@@ -99,8 +84,6 @@
 | RK_Mace |
 | RK_MagicWand |
 | RK_OneHanded |
-| RK_Pickaxe |
-| RK_Projectile_Arbalest |
 | RK_PrototypePulseRifle |
 | RK_Rifle |
 | RK_Rifle_line |
@@ -114,8 +97,30 @@
 | RK_Weapon_ProtoChainSword |
 | RK_Weapon_ProtoFlameChainSword |
 | RK_Weapon_RatHolicGun |
+| RK_Pickaxe |
+
+### 기타 아이템 (탄약, 탄환)
+
+| defName |
+|---------|
+| Bolt_RK_AutoCrossBow |
+| Bolt_RK_Buck |
+| Bolt_RK_Crossbow |
+| Bullet_RK_PrototypePulseRifleHeavy |
+| Bullet_RK_PrototypePulseRifleLight |
+| Bullet_RK_FlechetteRifle |
+| Bullet_RK_FlechetteSniperRifle |
+| Bullet_RK_Rifle |
+| Bullet_RK_SniperRifle |
+| Bullet_RK_Slug |
+| Bullet_BFR_AP |
+| Bullet_BFR_SC |
+| RK_Ammo_WyvernFire |
 | RK_Bullet_Bolter |
 | RK_Bullet_RatHolicGun |
+| RK_Projectile_Arbalest |
+| GunlanceAfterIgnition |
+| GunlancePreIgnition |
 
 ---
 
@@ -130,5 +135,8 @@
 ## 요약
 
 - **Apparel**: 51개
-- **Equip**: 47개
-- **기타**: 1개
+- **Equip**
+  - 장비: 1개
+  - 무기: 30개
+  - 기타 아이템 (탄약/탄환): 16개
+- **기타 (Mote 등)**: 1개
