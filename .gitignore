@@ -4,8 +4,6 @@
 # 림월드 참조 데이터/소스 (로컬 심볼릭 링크 또는 폴더)
 RimworldData/
 RimworldSource/
-RimWorldData/
-RimWorldSource/
 
 # C# 프로젝트 빌드 출력 폴더
 obj/
