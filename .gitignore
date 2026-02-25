@@ -2,8 +2,8 @@
 # 필요한 파일들만 무시하는 방식
 
 # 림월드 참조 데이터/소스 (로컬 심볼릭 링크 또는 폴더)
-RimworldData/
-RimworldSource/
+#RimworldData/
+#RimworldSource/
 
 # C# 프로젝트 빌드 출력 폴더
 obj/
