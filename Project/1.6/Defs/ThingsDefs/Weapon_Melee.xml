@@ -701,7 +701,6 @@
 			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>7</Crafting>
-				<Artistic>5</Artistic>
 			</skillRequirements>
 			<displayPriority>78270</displayPriority>
 		</recipeMaker>
