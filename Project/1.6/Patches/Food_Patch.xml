@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
+	<!-- Hardtack: Remove FoodPoisonable comp (no food poisoning from cooking) -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName='RK_Food_Hardtack']/comps</xpath>
+		<value>
+			<comps>
+				<li Class="CompProperties_Forbiddable" />
+				<li Class="CompProperties_Rottable">
+					<daysToRotStart>120</daysToRotStart>
+					<rotDestroys>true</rotDestroys>
+				</li>
+				<li Class="CompProperties_Ingredients">
+					<noIngredientsFoodKind>NonMeat</noIngredientsFoodKind>
+				</li>
+			</comps>
+		</value>
+	</Operation>
+
+	<!-- Hardtack: Set food poison chance to 0 -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName='RK_Food_Hardtack']/statBases</xpath>
+		<value>
+			<FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+		</value>
+	</Operation>
+
 	<!-- Add Hardtack recipes to Electric Stove -->
 	<Operation Class="PatchOperationAdd">
 		<xpath>*/ThingDef[defName = "ElectricStove"]/recipes</xpath>

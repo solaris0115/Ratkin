@@ -10,7 +10,7 @@
         </graphicData>
         <statBases>
             <DeteriorationRate>0.5</DeteriorationRate>
-            <MarketValue>5</MarketValue>
+            <MarketValue>4</MarketValue>
             <Mass>0.15</Mass>
             <WorkToMake>450</WorkToMake>
             <Nutrition>0.6</Nutrition>
@@ -27,6 +27,7 @@
             <canAutoSelectAsFoodForCaravan>true</canAutoSelectAsFoodForCaravan>
         </ingestible>
         <allowedArchonexusCount>40</allowedArchonexusCount>
+        <smallVolume>true</smallVolume>
         <comps>
             <li Class="CompProperties_Rottable">
                 <daysToRotStart>120</daysToRotStart>
