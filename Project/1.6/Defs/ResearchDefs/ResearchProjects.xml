@@ -294,14 +294,14 @@
 		<defName>RK_Research_AngryRatProject</defName>
 		<label>성난쥐 프로젝트</label>
 		<techLevel>Spacer</techLevel>
-		<baseCost>6000</baseCost>
+		<baseCost>3500</baseCost>
 		<researchViewX>5</researchViewX>
 		<researchViewY>1</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
-		<techprintCount>3</techprintCount>
+		<techprintCount>2</techprintCount>
 		<techprintCommonality>3</techprintCommonality>
 		<techprintMarketValue>3000</techprintMarketValue>
 		<heldByFactionCategoryTags>
@@ -310,18 +310,24 @@
 	</ResearchProjectDef>
 
 	<!-- 6.5티어 연구 -->
-	<!-- 크루세이더 갑옷 -->
+	<!-- 크루세이더 갑옷 (랫킨 스페이스 아머) -->
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_CrusaderArmor</defName>
 		<label>크루세이더 갑옷</label>
 		<techLevel>Spacer</techLevel>
-		<baseCost>6000</baseCost>
+		<baseCost>3500</baseCost>
 		<researchViewX>5.5</researchViewX>
 		<researchViewY>4</researchViewY>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
+		<techprintCount>2</techprintCount>
+		<techprintCommonality>3</techprintCommonality>
+		<techprintMarketValue>3000</techprintMarketValue>
+		<heldByFactionCategoryTags>
+			<li>Empire</li>
+		</heldByFactionCategoryTags>
 		<prerequisites>
 			<li>Fabrication</li>
 			<li>RK_Research_OrbitalEquipment</li>
