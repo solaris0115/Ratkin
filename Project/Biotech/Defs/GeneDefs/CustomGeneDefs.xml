@@ -97,6 +97,54 @@
 		<biostatCpx>1</biostatCpx>
 	</GeneDef>
 
+	<!-- 작업 능력 -->
+
+	<GeneDef>
+		<defName>RK_Gene_PoorConstruction</defName>
+		<label>poor construction</label>
+		<labelShortAdj>clumsy builder</labelShortAdj>
+		<description>Carriers of this gene are not naturally gifted at construction work.</description>
+		<iconPath>UI/Icons/Genes/Skills/Construction/Poor</iconPath>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>11020</displayOrderInCategory>
+		<statFactors>
+			<ConstructionSpeed>0.9</ConstructionSpeed>
+		</statFactors>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_GoodGardening</defName>
+		<label>good gardening</label>
+		<labelShortAdj>green thumb</labelShortAdj>
+		<description>Carriers of this gene work more efficiently with plants.</description>
+		<iconPath>UI/Icons/Genes/Skills/Plants/Strong</iconPath>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>8040</displayOrderInCategory>
+		<statFactors>
+			<PlantWorkSpeed>1.1</PlantWorkSpeed>
+			<PlantHarvestYield>1.1</PlantHarvestYield>
+		</statFactors>
+		<biostatMet>-1</biostatMet>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
+	<GeneDef>
+		<defName>RK_Gene_PoorCrafting</defName>
+		<label>poor crafting</label>
+		<labelShortAdj>clumsy crafter</labelShortAdj>
+		<description>Carriers of this gene are not naturally gifted at crafting work.</description>
+		<iconPath>UI/Icons/Genes/Skills/Crafting/Poor</iconPath>
+		<displayCategory>Aptitudes</displayCategory>
+		<displayOrderInCategory>10020</displayOrderInCategory>
+		<statFactors>
+			<GeneralLaborSpeed>0.9</GeneralLaborSpeed>
+		</statFactors>
+		<biostatMet>1</biostatMet>
+		<biostatCpx>1</biostatCpx>
+	</GeneDef>
+
 	<!-- ========================================
 	     Ratkin Appearance Genes
 	     ======================================== -->
