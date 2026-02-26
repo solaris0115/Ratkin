@@ -161,7 +161,6 @@
 		<researchViewY>4</researchViewY>
 		<prerequisites>
 			<li>RK_Research_Tailoring</li>
-			<li>RK_Research_Weaving</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
@@ -174,7 +173,6 @@
 		<researchViewY>5</researchViewY>
 		<prerequisites>
 			<li>RK_Research_Tailoring</li>
-			<li>RK_Research_Weaving</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
