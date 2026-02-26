@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- 기본 옷 재배속도+5% 요리속도 +5% -->
@@ -213,6 +213,9 @@
 
   <RK_PlateHelmC.label>Ratkin plate helm C</RK_PlateHelmC.label>
   <RK_PlateHelmC.description>It's a plate helmet.</RK_PlateHelmC.description>
+
+  <RK_PlateHelm.label>Ratkin plate helm</RK_PlateHelm.label>
+  <RK_PlateHelm.description>It's a plate helmet.</RK_PlateHelm.description>
 
 
   <!-- 목제 방패 -->

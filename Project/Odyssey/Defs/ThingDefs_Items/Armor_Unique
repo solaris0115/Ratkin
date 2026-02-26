@@ -110,6 +110,33 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
+	<!-- 판금 투구 (텍스처 바리에이션) -->
+	<ThingDef ParentName="RK_ApparelAttr_PlateHelm">
+		<defName>RK_PlateHelm_Unique</defName>
+		<label>unique ratkin plate helm</label>
+		<description>A unique ratkin plate helm with enhanced protection and craftsmanship.</description>
+		
+		<comps Inherit="False">
+			<li Class="CompProperties_Forbiddable" />
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerArtApparel</nameMaker>
+				<descriptionMaker>ArtDescription_Apparel</descriptionMaker>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+		</comps>
+		
+		<generateAllowChance>0</generateAllowChance>
+		<possessionCount>0</possessionCount>
+		<tradeability>Sellable</tradeability>
+		<recipeMaker Inherit="False" IsNull="True" />
+	</ThingDef>
+
 	<!-- 유니크 방어구 - Apparel_Spacer.xml -->
 	
 	<!-- Spacearmor (cataphract armor) -->

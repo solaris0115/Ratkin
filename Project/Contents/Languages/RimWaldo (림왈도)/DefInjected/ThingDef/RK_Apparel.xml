@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- 기본 옷 재배속도+5% 요리속도 +5% -->
@@ -209,6 +209,9 @@
 
   <RK_PlateHelmC.label>랫킨 판금 투구</RK_PlateHelmC.label>
   <RK_PlateHelmC.description>금속으로 만든 투구입니다.</RK_PlateHelmC.description>
+
+  <RK_PlateHelm.label>랫킨 판금 투구</RK_PlateHelm.label>
+  <RK_PlateHelm.description>금속으로 만든 투구입니다.</RK_PlateHelm.description>
 
 
   <!-- 목제 방패 -->

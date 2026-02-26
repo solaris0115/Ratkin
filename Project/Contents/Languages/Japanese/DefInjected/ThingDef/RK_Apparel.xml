@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- Basic clothing cultivation +5% cooking +5% -->
@@ -213,6 +213,9 @@
 
   <RK_PlateHelmC.label>RK グレートヘルム</RK_PlateHelmC.label>
   <RK_PlateHelmC.description>バイザーの無い金属で作られたヘルメットです。</RK_PlateHelmC.description>
+
+  <RK_PlateHelm.label>RK プレートヘルム</RK_PlateHelm.label>
+  <RK_PlateHelm.description>金属で作られたヘルメットです。</RK_PlateHelm.description>
 
 
   <!-- Ratkin Wooden Shield -->

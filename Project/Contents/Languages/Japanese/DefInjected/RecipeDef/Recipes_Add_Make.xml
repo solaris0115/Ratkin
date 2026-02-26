@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- Recipe Users: RK_FueledSmithy, RK_ElectricSmithy -->
@@ -170,6 +170,10 @@
   <Make_RK_PlateHelmC.label>RK グレートヘルムを作る</Make_RK_PlateHelmC.label>
   <Make_RK_PlateHelmC.description>RK グレートヘルムを作る。</Make_RK_PlateHelmC.description>
   <Make_RK_PlateHelmC.jobString>RK グレートヘルムを作成中</Make_RK_PlateHelmC.jobString>
+
+  <Make_RK_PlateHelm.label>RK プレートヘルムを作る</Make_RK_PlateHelm.label>
+  <Make_RK_PlateHelm.description>RK プレートヘルムを作る。</Make_RK_PlateHelm.description>
+  <Make_RK_PlateHelm.jobString>RK プレートヘルムを作成中</Make_RK_PlateHelm.jobString>
 
   <Make_RK_WoodenShield.label>RK ウッドシールドを作る</Make_RK_WoodenShield.label>
   <Make_RK_WoodenShield.description>RK ウッドシールドを作る。</Make_RK_WoodenShield.description>

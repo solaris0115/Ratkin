@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- 기본 옷 재배속도+5% 요리속도 +5% -->
@@ -209,6 +209,9 @@
 
   <RK_PlateHelmC.label>鼠族鎧甲頭盔(十字)</RK_PlateHelmC.label>
   <RK_PlateHelmC.description>金屬製成的古代頭盔。</RK_PlateHelmC.description>
+
+  <RK_PlateHelm.label>鼠族鎧甲頭盔</RK_PlateHelm.label>
+  <RK_PlateHelm.description>金屬製成的古代頭盔。</RK_PlateHelm.description>
 
 
   <!-- 목제 방패 -->
