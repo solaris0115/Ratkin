@@ -183,6 +183,9 @@
   <RK_Mask.label>鼠族面具</RK_Mask.label>
   <RK_Mask.description>配有防毒面具的頭盔。可以在有毒環境中進行長時間的工作。</RK_Mask.description>
 
+  <RK_Apparel_GasMask.label>鼠族面具</RK_Apparel_GasMask.label>
+  <RK_Apparel_GasMask.description>配有防毒面具的頭盔。可以在有毒環境中進行長時間的工作。</RK_Apparel_GasMask.description>
+
 
   <!-- 특공 머리띠 -->
 

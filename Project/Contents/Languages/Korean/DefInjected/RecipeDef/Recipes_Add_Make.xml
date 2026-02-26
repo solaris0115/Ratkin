@@ -90,6 +90,10 @@
   <Make_RK_BulletProofHelmet.description>랫킨 방탄 헬멧 제작합니다.</Make_RK_BulletProofHelmet.description>
   <Make_RK_BulletProofHelmet.jobString>랫킨 방탄 헬멧 제작 중.</Make_RK_BulletProofHelmet.jobString>
 
+  <Make_RK_Apparel_GasMask.label>랫킨 마스크 핼멧 제작</Make_RK_Apparel_GasMask.label>
+  <Make_RK_Apparel_GasMask.description>랫킨 마스크 핼멧을 제작합니다.</Make_RK_Apparel_GasMask.description>
+  <Make_RK_Apparel_GasMask.jobString>랫킨 마스크 핼멧 제작 중.</Make_RK_Apparel_GasMask.jobString>
+
   <Make_RK_FlatColorCoat.label>랫킨 플랫 칼라 드레스 제작</Make_RK_FlatColorCoat.label>
   <Make_RK_FlatColorCoat.description>랫킨 플랫 칼라 드레스 제작합니다.</Make_RK_FlatColorCoat.description>
   <Make_RK_FlatColorCoat.jobString>랫킨 플랫 칼라 드레스 제작 중.</Make_RK_FlatColorCoat.jobString>

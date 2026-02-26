@@ -124,6 +124,10 @@
   <Make_RK_BulletProofHelmet.description>ラットキン軍用ヘルメットを作る。</Make_RK_BulletProofHelmet.description>
   <Make_RK_BulletProofHelmet.jobString>ラットキン軍用ヘルメットを作成中</Make_RK_BulletProofHelmet.jobString>
 
+  <Make_RK_Apparel_GasMask.label>RK ガスマスクを作る</Make_RK_Apparel_GasMask.label>
+  <Make_RK_Apparel_GasMask.description>RK ガスマスクを作る。</Make_RK_Apparel_GasMask.description>
+  <Make_RK_Apparel_GasMask.jobString>RK ガスマスクを作成中</Make_RK_Apparel_GasMask.jobString>
+
   <Make_RK_FlatColorCoat.label>フラットカラーコートを作る</Make_RK_FlatColorCoat.label>
   <Make_RK_FlatColorCoat.description>フラットカラーコートを作る。</Make_RK_FlatColorCoat.description>
   <Make_RK_FlatColorCoat.jobString>フラットカラーコートを作成中</Make_RK_FlatColorCoat.jobString>

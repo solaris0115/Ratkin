@@ -183,6 +183,9 @@
   <RK_Mask.label>랫킨 마스크 핼멧</RK_Mask.label>
   <RK_Mask.description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</RK_Mask.description>
 
+  <RK_Apparel_GasMask.label>랫킨 마스크 핼멧</RK_Apparel_GasMask.label>
+  <RK_Apparel_GasMask.description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</RK_Apparel_GasMask.description>
+
 
   <!-- 특공 머리띠 -->
 

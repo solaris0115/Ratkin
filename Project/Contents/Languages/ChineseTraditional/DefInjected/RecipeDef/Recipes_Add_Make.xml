@@ -90,6 +90,10 @@
   <Make_RK_BulletProofHelmet.description>製作軍用頭盔。</Make_RK_BulletProofHelmet.description>
   <Make_RK_BulletProofHelmet.jobString>正在製作軍用頭盔</Make_RK_BulletProofHelmet.jobString>
 
+  <Make_RK_Apparel_GasMask.label>製作面具</Make_RK_Apparel_GasMask.label>
+  <Make_RK_Apparel_GasMask.description>製作面具。</Make_RK_Apparel_GasMask.description>
+  <Make_RK_Apparel_GasMask.jobString>正在製作面具</Make_RK_Apparel_GasMask.jobString>
+
   <Make_RK_FlatColorCoat.label>製作單色大衣</Make_RK_FlatColorCoat.label>
   <Make_RK_FlatColorCoat.description>製作單色大衣。</Make_RK_FlatColorCoat.description>
   <Make_RK_FlatColorCoat.jobString>正在製作單色大衣</Make_RK_FlatColorCoat.jobString>

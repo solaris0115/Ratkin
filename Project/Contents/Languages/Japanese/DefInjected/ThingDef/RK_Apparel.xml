@@ -188,6 +188,9 @@
   <RK_MaskB.label>RK ガスマスクB</RK_MaskB.label>
   <RK_MaskB.description>ガスマスク付きのヘルメットです。有毒な環境でも長時間活動できるよう工夫されています。</RK_MaskB.description>
 
+  <RK_Apparel_GasMask.label>RK ガスマスク</RK_Apparel_GasMask.label>
+  <RK_Apparel_GasMask.description>ガスマスク付きのヘルメットです。有毒な環境でも長時間活動できるように工夫されています。</RK_Apparel_GasMask.description>
+
   <!-- Commando Headband -->
 
   <RK_HeadBand.label>RK 鉢巻き</RK_HeadBand.label>

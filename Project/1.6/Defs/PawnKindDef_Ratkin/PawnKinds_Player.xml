@@ -627,7 +627,7 @@
 		</apparelMoney>
 		<apparelRequired>
 			<li>RK_BattleSuit</li>
-			<li>RK_Mask</li>
+			<li>RK_Apparel_GasMask</li>
 		</apparelRequired>
 		<weaponMoney>
 			<min>3500</min>
