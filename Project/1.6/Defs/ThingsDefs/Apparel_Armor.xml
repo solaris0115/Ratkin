@@ -50,8 +50,9 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
+			<MentalBreakThreshold>-0.1</MentalBreakThreshold>
 			<PainShockThreshold>0.1</PainShockThreshold>
-			<MoveSpeed>-0.3</MoveSpeed>
+			<MoveSpeed>-0.65</MoveSpeed>
 		</equippedStatOffsets>
 		<apparel>
 			<bodyPartGroups>
