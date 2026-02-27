@@ -32,7 +32,7 @@
 			<li>
 				<label>head</label>
 				<capacities>
-					<li>Kaboom</li>
+					<li>RK_ToolCapacity_MeleeExplosion</li>
 				</capacities>
 				<power>5</power>
 				<armorPenetration>0.35</armorPenetration>
@@ -41,7 +41,7 @@
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>Kaboom</li>
+					<li>RK_ToolCapacity_MeleeExplosion</li>
 				</capacities>
 				<power>5</power>
 				<armorPenetration>0.35</armorPenetration>
@@ -54,12 +54,12 @@
 	</ThingDef>
 
 	<ToolCapacityDef>
-		<defName>Kaboom</defName>
+		<defName>RK_ToolCapacity_MeleeExplosion</defName>
 	</ToolCapacityDef>
 
 	<ManeuverDef>
 		<defName>RK_MeleeExplosion</defName>
-		<requiredCapacity>Kaboom</requiredCapacity>
+		<requiredCapacity>RK_ToolCapacity_MeleeExplosion</requiredCapacity>
 		<verb>
 			<verbClass>NewRatkin.Verb_MeleeExplosion</verbClass>
 			<meleeDamageDef>DemoBomb</meleeDamageDef>
