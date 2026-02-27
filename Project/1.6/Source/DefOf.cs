@@ -28,9 +28,7 @@ namespace NewRatkin
     public static class RatkinBuildingDefOf
     {
         public static ThingDef RK_GuerrillaTunnel;
-        public static ThingDef RK_ThiefTunnel;
         public static ThingDef RK_GuerrillaTunnelSpawner;
-        public static ThingDef RK_ThiefTunnelSpawner;
 
         public static ThingDef RK_EmpBomb;
 

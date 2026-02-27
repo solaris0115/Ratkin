@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -281,26 +281,5 @@ namespace NewRatkin
         {
             return LordMaker.MakeNewLord(Faction, new LordJob_BombPlanting(Faction,Position, eventPoint), Map, null);
         }
-    }
-    public class Building_ThiefTunnel : ThingWithComps
-    {
-        public static List<PawnKindDef> spawnablePawnKinds = new List<PawnKindDef>();
-
-        protected override void Tick()
-        {
-            if (Spawned && !Destroyed)
-            {
-                if (!GenGrid.Impassable(Position, Map))
-                {
-                    WallDestroyed();
-                }
-            }
-        }
-        private void WallDestroyed()
-        {
-            Messages.Message(Translator.Translate("RatHoleGone"), MessageTypeDefOf.NegativeEvent, true);
-            Destroy(DestroyMode.Deconstruct);
-        }
-
     }
 }
