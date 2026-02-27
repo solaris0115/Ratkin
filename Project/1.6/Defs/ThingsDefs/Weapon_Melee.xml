@@ -880,7 +880,7 @@
 				<capacities>
 					<li>RK_HalberdCleave</li>
 				</capacities>
-				<power>27</power>
+				<power>23</power>
 				<armorPenetration>0.65</armorPenetration>
 				<cooldownTime>3.2</cooldownTime>
 			</li>
