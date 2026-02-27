@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
 		<defName>RK_MagicWand</defName>
@@ -58,10 +58,10 @@
 	</ToolCapacityDef>
 
 	<ManeuverDef>
-		<defName>RK_MeeleExplosion</defName>
+		<defName>RK_MeleeExplosion</defName>
 		<requiredCapacity>Kaboom</requiredCapacity>
 		<verb>
-			<verbClass>NewRatkin.Verb_MeleeAttackDamage</verbClass>
+			<verbClass>NewRatkin.Verb_MeleeExplosion</verbClass>
 			<meleeDamageDef>DemoBomb</meleeDamageDef>
 		</verb>
 		<logEntryDef>MeleeAttack</logEntryDef>
