@@ -609,7 +609,6 @@
 		<combatPower>100</combatPower>
 		<isFighter>true</isFighter>
 		<itemQuality>Excellent</itemQuality>
-		<destroyGearOnDrop>true</destroyGearOnDrop>
 		<gearHealthRange>
 			<min>0.8</min>
 			<max>1.5</max>
@@ -641,11 +640,6 @@
 			<li>RK_EliteSoldier</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
-		<modExtensions>
-			<li Class="NewRatkin.DestroyApparelExtension">
-				<destroyOnlyWeapon>true</destroyOnlyWeapon>
-			</li>
-		</modExtensions>
 		<skills>
 			<li>
 				<skill>Shooting</skill>
