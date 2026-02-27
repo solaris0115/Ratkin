@@ -878,7 +878,7 @@
 			<li>
 				<label>edge</label>
 				<capacities>
-					<li>Cut</li>
+					<li>RK_HalberdCleave</li>
 				</capacities>
 				<power>27</power>
 				<armorPenetration>0.65</armorPenetration>
@@ -918,5 +918,40 @@
 		</comps>
 	</ThingDef>
 
-	
+	<ToolCapacityDef>
+		<defName>RK_HalberdCleave</defName>
+	</ToolCapacityDef>
+
+	<ManeuverDef>
+		<defName>RK_Maneuver_HalberdCleave</defName>
+		<requiredCapacity>RK_HalberdCleave</requiredCapacity>
+		<verb Class="NewRatkin.VerbProperties_HalberdCleave">
+			<verbClass>NewRatkin.Verb_HalberdCleave</verbClass>
+			<meleeDamageDef>RK_Damage_BonusCut</meleeDamageDef>
+			<cleaveChance>0.3</cleaveChance>
+			<cleaveDamageRatio>0.5</cleaveDamageRatio>
+			<maxCleaveTargets>1</maxCleaveTargets>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+	<!-- Cut과 동일, HalberdCleave 등에서 cutExtraTargetsCurve/cutCleaveBonus 조정용 -->
+	<DamageDef ParentName="CutBase">
+		<defName>RK_Damage_BonusCut</defName>
+		<label>bonus cut</label>
+		<cutExtraTargetsCurve>
+			<points>
+				<li>0, 0</li>
+				<li>0.7, 0</li>
+				<li>1, 1</li>
+			</points>
+		</cutExtraTargetsCurve>
+		<cutCleaveBonus>1</cutCleaveBonus>
+		<!-- cutExtraTargetsCurve: 랜덤(0~1) 입력→추가 부위 수. 생략 시 0개(단일 부위만) -->
+		<!-- cutCleaveBonus: 부위 분산 시 총 데미지 보너스. 0이면 분산 보너스 없음 -->
+	</DamageDef>
 </Defs>
