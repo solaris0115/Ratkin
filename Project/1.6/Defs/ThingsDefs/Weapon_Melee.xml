@@ -268,7 +268,7 @@
 					<li>Blunt</li>
 				</capacities>
 				<power>19</power>
-				<cooldownTime>2.2</cooldownTime>
+				<cooldownTime>2.4</cooldownTime>
 			</li>
 			<li>
 				<label>handle</label>
@@ -276,7 +276,7 @@
 					<li>Blunt</li>
 				</capacities>
 				<power>10</power>
-				<cooldownTime>1.8</cooldownTime>
+				<cooldownTime>2.2</cooldownTime>
 			</li>
 		</tools>
 		<recipeMaker>
