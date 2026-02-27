@@ -741,7 +741,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-	<!-- 탐험복 이동속도 +0.2 더위저항 +10 스탤스효과 +7% 조련확률 +5% 훈련확률 +5% 근접회피 +5%-->
+	<!-- 탐험복 이동속도 +0.2 상단속도 +50% 더위저항 +10 스탤스효과 +7% 조련확률 +5% 훈련확률 +5% 근접회피 +5%-->
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_ExplorerWear</defName>
 		<label>explorer wear</label>
@@ -775,6 +775,7 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MoveSpeed>0.2</MoveSpeed>
+			<CaravanBonusSpeedFactor>0.5</CaravanBonusSpeedFactor>
 			<HuntingStealth>0.07</HuntingStealth>
 			<TameAnimalChance>0.05</TameAnimalChance>
 			<TrainAnimalChance>0.05</TrainAnimalChance>
