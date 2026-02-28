@@ -6,6 +6,13 @@ namespace NewRatkin
 {
 	public class Verb_CastAbilityCharge : Verb_CastAbilityJump
 	{
+		protected override bool TryCastShot()
+		{
+			CompAbilityEffect_ChargeOnJump chargeComp = ability?.comps?.OfType<CompAbilityEffect_ChargeOnJump>().FirstOrDefault();
+			chargeComp?.ApplyHediffsImmediately(CasterPawn);
+			return base.TryCastShot();
+		}
+
 		public override ThingDef JumpFlyerDef
 		{
 			get

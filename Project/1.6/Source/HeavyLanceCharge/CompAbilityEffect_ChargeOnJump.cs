@@ -7,9 +7,12 @@ namespace NewRatkin
 	{
 		private new CompProperties_ChargeOnJump Props => (CompProperties_ChargeOnJump)props;
 
-		public void OnJumpCompleted(IntVec3 origin, LocalTargetInfo target)
+		/// <summary>
+		/// 어빌리티 사용 즉시 Hediff 부여. CompEquippableAbility 기반 능력은 PawnFlyer.RespawnPawn에서
+		/// GetAbility(includeTemporary:false)로 찾지 못하므로, Verb에서 돌진 시작 시점에 호출.
+		/// </summary>
+		public void ApplyHediffsImmediately(Pawn pawn)
 		{
-			Pawn pawn = parent.pawn;
 			if (pawn == null) return;
 
 			if (Props.exhaustionHediffDef != null)
@@ -29,6 +32,11 @@ namespace NewRatkin
 					compFocus.SetDuration(Props.focusDurationTicks);
 				pawn.health.AddHediff(focus, null, null, null);
 			}
+		}
+
+		public void OnJumpCompleted(IntVec3 origin, LocalTargetInfo target)
+		{
+			ApplyHediffsImmediately(parent.pawn);
 		}
 
 		public override bool Valid(LocalTargetInfo target, bool throwMessages = false)
