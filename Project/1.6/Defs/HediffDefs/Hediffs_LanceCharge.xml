@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>RK_Hediff_LanceChargeExhaustion</defName>
+    <label>lance charge exhaustion</label>
+    <description>Exhausted from the lance charge. Movement speed reduced.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>300~300</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MoveSpeed>-0.5</MoveSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>RK_Hediff_LanceChargeFocus</defName>
+    <label>lance charge focus</label>
+    <description>Focused from the lance charge. Melee hit chance increased.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1200~1200</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <MeleeHitChance>0.15</MeleeHitChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

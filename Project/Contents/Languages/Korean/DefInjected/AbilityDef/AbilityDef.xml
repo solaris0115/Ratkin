@@ -2,4 +2,7 @@
 <LanguageData>
   <RK_PrayerService.label>기도회</RK_PrayerService.label>
   <RK_PrayerService.description>사람들의 불안을 잠재우고 평화롭게 하는 기도회를 엽니다.</RK_PrayerService.description>
+
+  <RK_Ability_LanceCharge.label>돌진</RK_Ability_LanceCharge.label>
+  <RK_Ability_LanceCharge.description>적을 향해 짧은 거리를 돌진합니다. 착지 후 이속이 감소하지만 근접 명중률이 상승합니다.</RK_Ability_LanceCharge.description>
 </LanguageData>

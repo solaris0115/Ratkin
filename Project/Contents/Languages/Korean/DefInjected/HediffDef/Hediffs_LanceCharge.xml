@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Hediff_LanceChargeExhaustion.label>돌진 피로</RK_Hediff_LanceChargeExhaustion.label>
+  <RK_Hediff_LanceChargeExhaustion.description>돌진으로 인한 피로. 이동 속도가 감소합니다.</RK_Hediff_LanceChargeExhaustion.description>
+
+  <RK_Hediff_LanceChargeFocus.label>돌진 집중</RK_Hediff_LanceChargeFocus.label>
+  <RK_Hediff_LanceChargeFocus.description>돌진으로 인한 집중. 근접 명중률이 상승합니다.</RK_Hediff_LanceChargeFocus.description>
+</LanguageData>
