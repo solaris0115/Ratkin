@@ -44,7 +44,11 @@ namespace NewRatkin
 			if (target.Pawn == null)
 				return false;
 			if (Props.onlyHostilePawns && !target.Pawn.HostileTo(parent.pawn))
+			{
+				if (throwMessages)
+					Messages.Message("CannotUseAbility".Translate(parent.def.label) + ": " + "RK_AbilityMustTargetHostile".Translate(), target.ToTargetInfo(parent.pawn.Map), MessageTypeDefOf.RejectInput, false);
 				return false;
+			}
 			return base.Valid(target, throwMessages);
 		}
 

@@ -3,9 +3,9 @@
   <ThingDef ParentName="PawnFlyerBase">
     <defName>RK_PawnFlyer_LanceCharge</defName>
     <pawnFlyer>
-      <flightDurationMin>0.3</flightDurationMin>
-      <flightSpeed>15</flightSpeed>
-      <heightFactor>0.3</heightFactor>
+      <flightDurationMin>0.5</flightDurationMin>
+      <flightSpeed>10</flightSpeed>
+      <heightFactor>0.0</heightFactor>
     </pawnFlyer>
   </ThingDef>
 </Defs>

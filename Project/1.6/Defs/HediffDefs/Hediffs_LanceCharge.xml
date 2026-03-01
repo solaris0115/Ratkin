@@ -7,14 +7,14 @@
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>300~300</disappearsAfterTicks>
+        <disappearsAfterTicks>600~600</disappearsAfterTicks>
         <showRemainingTime>true</showRemainingTime>
       </li>
     </comps>
     <stages>
       <li>
         <statOffsets>
-          <MoveSpeed>-0.5</MoveSpeed>
+          <MoveSpeed>-1.6</MoveSpeed>
         </statOffsets>
       </li>
     </stages>
@@ -27,14 +27,14 @@
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
       <li Class="HediffCompProperties_Disappears">
-        <disappearsAfterTicks>1200~1200</disappearsAfterTicks>
+        <disappearsAfterTicks>3000~3000</disappearsAfterTicks>
         <showRemainingTime>true</showRemainingTime>
       </li>
     </comps>
     <stages>
       <li>
         <statOffsets>
-          <MeleeHitChance>0.15</MeleeHitChance>
+          <MeleeHitChance>0.4</MeleeHitChance>
         </statOffsets>
       </li>
     </stages>

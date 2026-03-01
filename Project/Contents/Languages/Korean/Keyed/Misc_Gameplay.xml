@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <RK_AbilityMustTargetHostile>적대적 대상만 지정할 수 있습니다.</RK_AbilityMustTargetHostile>
   <AbilityPrayerServiceCooldown>다음 기도회 준비</AbilityPrayerServiceCooldown>
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>이미 기도회가 진행 중입니다.</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>소집된 상태에서는 사용할 수 없습니다.</AbilityPrayerServiceDisabledDrafted>
