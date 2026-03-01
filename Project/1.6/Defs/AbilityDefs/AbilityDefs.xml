@@ -143,36 +143,4 @@
 		</stages>
 	</HediffDef>
 
-	<!-- 헤비랜스 돌진 능력 -->
-	<AbilityDef>
-		<defName>RK_Ability_LanceCharge</defName>
-		<label>charge</label>
-		<description>Short-range charge toward a hostile target. After landing, movement speed is reduced but melee hit chance increases.</description>
-		<cooldownTicksRange>60000~60000</cooldownTicksRange>
-		<ai_IsOffensive>true</ai_IsOffensive>
-		<aiCanUse>true</aiCanUse>
-		<jobDef>CastJump</jobDef>
-		<verbProperties>
-			<verbClass>NewRatkin.Verb_CastAbilityCharge</verbClass>
-			<range>2.9</range>
-			<requireLineOfSight>true</requireLineOfSight>
-			<warmupTime>0.5</warmupTime>
-			<targetParams>
-				<canTargetLocations>false</canTargetLocations>
-				<canTargetPawns>true</canTargetPawns>
-				<canTargetBuildings>false</canTargetBuildings>
-			</targetParams>
-		</verbProperties>
-		<comps>
-			<li Class="NewRatkin.CompProperties_ChargeOnJump">
-				<pawnFlyerDef>RK_PawnFlyer_LanceCharge</pawnFlyerDef>
-				<exhaustionHediffDef>RK_Hediff_LanceChargeExhaustion</exhaustionHediffDef>
-				<exhaustionDurationTicks>600</exhaustionDurationTicks>
-				<focusHediffDef>RK_Hediff_LanceChargeFocus</focusHediffDef>
-				<focusDurationTicks>3000</focusDurationTicks>
-				<onlyHostilePawns>true</onlyHostilePawns>
-			</li>
-		</comps>
-	</AbilityDef>
-
 </Defs>

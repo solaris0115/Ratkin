@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LanceCharge Ability RK_Ability_LanceCharge RK_PawnFlyer_LanceCharge RK_Hediff_LanceCharge -->
+<Defs>
+	<!-- 헤비랜스 돌진 능력 -->
+	<AbilityDef>
+		<defName>RK_Ability_LanceCharge</defName>
+		<label>charge</label>
+		<description>Short-range charge toward a hostile target. After landing, movement speed is reduced but melee hit chance increases.</description>
+		<cooldownTicksRange>60000~60000</cooldownTicksRange>
+		<ai_IsOffensive>true</ai_IsOffensive>
+		<aiCanUse>true</aiCanUse>
+		<jobDef>CastJump</jobDef>
+		<verbProperties>
+			<verbClass>NewRatkin.Verb_CastAbilityCharge</verbClass>
+			<range>2.9</range>
+			<requireLineOfSight>true</requireLineOfSight>
+			<warmupTime>0.5</warmupTime>
+			<targetParams>
+				<canTargetLocations>false</canTargetLocations>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ChargeOnJump">
+				<pawnFlyerDef>RK_PawnFlyer_LanceCharge</pawnFlyerDef>
+				<exhaustionHediffDef>RK_Hediff_LanceChargeExhaustion</exhaustionHediffDef>
+				<exhaustionDurationTicks>600</exhaustionDurationTicks>
+				<focusHediffDef>RK_Hediff_LanceChargeFocus</focusHediffDef>
+				<focusDurationTicks>3000</focusDurationTicks>
+				<onlyHostilePawns>true</onlyHostilePawns>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<!-- 랜스 차지 비행체 (돌진 이동용) -->
+	<ThingDef ParentName="PawnFlyerBase">
+		<defName>RK_PawnFlyer_LanceCharge</defName>
+		<pawnFlyer>
+			<flightDurationMin>0.5</flightDurationMin>
+			<flightSpeed>10</flightSpeed>
+			<heightFactor>0.0</heightFactor>
+		</pawnFlyer>
+	</ThingDef>
+
+	<!-- 랜스 차지 후 피로 (이동속도 감소) -->
+	<HediffDef>
+		<defName>RK_Hediff_LanceChargeExhaustion</defName>
+		<label>lance charge exhaustion</label>
+		<description>Exhausted from the lance charge. Movement speed reduced.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>600~600</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<MoveSpeed>-1.6</MoveSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<!-- 랜스 차지 후 집중 (근접 명중률 증가) -->
+	<HediffDef>
+		<defName>RK_Hediff_LanceChargeFocus</defName>
+		<label>lance charge focus</label>
+		<description>Focused from the lance charge. Melee hit chance increased.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>3000~3000</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<MeleeHitChance>0.4</MeleeHitChance>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>
