@@ -11,12 +11,15 @@ description: Ratkin 프로젝트 간단 빌드 규칙 (폴더/PowerShell 중심)
 
 ## PowerShell로 빌드
 ```powershell
-# 프로젝트 소스 폴더로 이동
-cd Project/1.6/Source
-
-# Visual Studio 2022 Community MSBuild 사용 예시
-& "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
+# 프로젝트 소스 폴더로 이동 후 빌드 (한 줄)
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
 ```
+
+## 중요: PowerShell 문법 (Windows PowerShell 5.x)
+- **`&&` 사용 금지**: `'&&' 토큰은 이 버전에서 올바른 문 구분 기호가 아닙니다` 오류 발생
+- **명령 연결 시 `;` 사용**: `cd ... ; & "MSBuild..."` 형태로 작성
+- 잘못된 예: `cd Project/1.6/Source && & "C:\...\MSBuild.exe" ...`
+- 올바른 예: `cd Project/1.6/Source; & "C:\...\MSBuild.exe" ...`
 
 ## 메모
 - PowerShell 권장. (Windows CMD 사용 시 경로 따옴표 처리 주의)
