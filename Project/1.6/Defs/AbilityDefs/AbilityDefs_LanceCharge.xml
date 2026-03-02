@@ -33,12 +33,45 @@
 		</comps>
 	</AbilityDef>
 
+	<!-- 헤비랜스 돌진 능력 V2: LOS 기반 목적지, 최소 3칸~최대 5칸 -->
+	<AbilityDef>
+		<defName>RK_Ability_LanceChargeV2</defName>
+		<label>charge (v2)</label>
+		<description>Short-range charge toward a hostile target (3-5 tiles). Stops at the last clear tile before obstacles. After landing, movement speed is reduced but melee hit chance increases.</description>
+		<cooldownTicksRange>60000~60000</cooldownTicksRange>
+		<ai_IsOffensive>true</ai_IsOffensive>
+		<aiCanUse>true</aiCanUse>
+		<jobDef>CastJump</jobDef>
+		<verbProperties>
+			<verbClass>NewRatkin.Verb_CastAbilityChargeV2</verbClass>
+			<range>5.9</range>
+			<minRange>2.7</minRange>
+			<requireLineOfSight>true</requireLineOfSight>
+			<warmupTime>0.5</warmupTime>
+			<targetParams>
+				<canTargetLocations>false</canTargetLocations>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ChargeOnJump">
+				<pawnFlyerDef>RK_PawnFlyer_LanceCharge</pawnFlyerDef>
+				<exhaustionHediffDef>RK_Hediff_LanceChargeExhaustion</exhaustionHediffDef>
+				<exhaustionDurationTicks>600</exhaustionDurationTicks>
+				<focusHediffDef>RK_Hediff_LanceChargeFocus</focusHediffDef>
+				<focusDurationTicks>3000</focusDurationTicks>
+				<onlyHostilePawns>true</onlyHostilePawns>
+			</li>
+		</comps>
+	</AbilityDef>
+
 	<!-- 랜스 차지 비행체 (돌진 이동용) -->
 	<ThingDef ParentName="PawnFlyerBase">
 		<defName>RK_PawnFlyer_LanceCharge</defName>
 		<pawnFlyer>
-			<flightDurationMin>0.5</flightDurationMin>
-			<flightSpeed>10</flightSpeed>
+			<flightDurationMin>0.3</flightDurationMin>
+			<flightSpeed>20</flightSpeed>
 			<heightFactor>0.0</heightFactor>
 		</pawnFlyer>
 	</ThingDef>
@@ -72,7 +105,7 @@
 		<hediffClass>HediffWithComps</hediffClass>
 		<comps>
 			<li Class="HediffCompProperties_Disappears">
-				<disappearsAfterTicks>3000~3000</disappearsAfterTicks>
+				<disappearsAfterTicks>2400~2400</disappearsAfterTicks>
 				<showRemainingTime>true</showRemainingTime>
 			</li>
 		</comps>

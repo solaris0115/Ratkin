@@ -5,4 +5,7 @@
 
   <RK_Ability_LanceCharge.label>돌진</RK_Ability_LanceCharge.label>
   <RK_Ability_LanceCharge.description>적을 향해 짧은 거리를 돌진합니다. 착지 후 이속이 감소하지만 근접 명중률이 상승합니다.</RK_Ability_LanceCharge.description>
+
+  <RK_Ability_LanceChargeV2.label>돌진 (v2)</RK_Ability_LanceChargeV2.label>
+  <RK_Ability_LanceChargeV2.description>3~5칸 거리의 적을 향해 돌진합니다. 장애물 직전까지 직선으로 이동합니다. 착지 후 이속이 감소하지만 근접 명중률이 상승합니다.</RK_Ability_LanceChargeV2.description>
 </LanguageData>

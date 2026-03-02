@@ -9,9 +9,11 @@ namespace NewRatkin
 		/// <summary>
 		/// 돌진 목적지 계산: 대상이 움직이면 현재 위치로, 정지 시 주변 8셀 중 나와 가장 가까운 유효 셀로.
 		/// currentTarget은 LocalTargetInfo로 Thing 참조 시 TryCastShot 시점의 최신 위치를 반영(추적됨).
+		/// effectiveTarget: 실제 돌진 대상 (경로에 다른 Pawn이 있으면 그 Pawn으로 변경 가능).
 		/// </summary>
-		private LocalTargetInfo ResolveChargeDestination()
+		protected virtual LocalTargetInfo ResolveChargeDestination(out LocalTargetInfo effectiveTarget)
 		{
+			effectiveTarget = currentTarget;
 			LocalTargetInfo targ = currentTarget;
 			if (!targ.IsValid || CasterPawn?.Map == null)
 				return LocalTargetInfo.Invalid;
@@ -57,13 +59,14 @@ namespace NewRatkin
 			CompAbilityEffect_ChargeOnJump chargeComp = ability?.comps?.OfType<CompAbilityEffect_ChargeOnJump>().FirstOrDefault();
 			chargeComp?.ApplyHediffsImmediately(CasterPawn);
 
-			LocalTargetInfo dest = ResolveChargeDestination();
+			LocalTargetInfo effectiveTarget;
+			LocalTargetInfo dest = ResolveChargeDestination(out effectiveTarget);
 			if (!dest.IsValid)
 				return false;
 
 			// ability.Activate만 호출 후, 계산된 목적지로 DoJump (base 호출 시 currentTarget으로 중복 점프됨)
-			return (ability?.Activate(currentTarget, currentDestination) ?? false)
-				&& JumpUtility.DoJump(CasterPawn, dest, ReloadableCompSource, verbProps, ability, CurrentTarget, JumpFlyerDef);
+			return (ability?.Activate(effectiveTarget, currentDestination) ?? false)
+				&& JumpUtility.DoJump(CasterPawn, dest, ReloadableCompSource, verbProps, ability, effectiveTarget, JumpFlyerDef);
 		}
 
 		public override ThingDef JumpFlyerDef
