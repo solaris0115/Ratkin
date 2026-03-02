@@ -6,9 +6,9 @@ alwaysApply: true
 **프로젝트 파일**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
 
 ```powershell
-cd Project/1.6/Source
-& "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
 ```
+<!-- PowerShell 5.x: && 미지원. 명령 연결은 ; 사용 -->
 
 ## 빌드 출력 경로
 
