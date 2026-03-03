@@ -30,10 +30,13 @@
 		<!-- 작업 능력 - 림월드 코어 기본 유전자 -->
 		<li>AptitudePoor_Construction</li><!-- 나쁜 건설 -->
 		<li>AptitudeStrong_Plants</li><!-- 좋은 원예 -->
-		<li>AptitudePoor_Crafting</li><!-- 나쁜 제작 -->
+
+		<!-- 환경 - 온도 -->
+		<li>MinTemp_SmallIncrease</li><!-- 냉기에 약함 -->
 
 		<!-- 외형 - 피부색 (순백/밝은 회색/창백한 노란색, exclusion으로 1개만 적용) -->
-		<li>RK_Skin_PureWhite</li><!-- 순백색 -->
+		<li>Skin_SheerWhite</li><!-- 순백색 - 림월드 바이오테크 기본 -->
+		<li>Beard_NoBeardOnly</li><!-- 수염 없음 -->
 		<li>RK_Gene_LargeEars</li><!-- Met:0 외형만 -->
 		<li>RK_Gene_ThinTail</li><!-- Met:0 외형만 -->
 		<li>RK_Gene_CuteFace</li><!-- Met:0 NegotiationAbility ×0.80, TradePriceImprovement ×0.90, SocialImpact ×1.20 -->

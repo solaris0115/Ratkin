@@ -336,7 +336,7 @@
 			<Mass>50</Mass>
 			<MoveSpeed>4.8</MoveSpeed>
 			<ComfyTemperatureMax>26</ComfyTemperatureMax>
-			<ComfyTemperatureMin>11</ComfyTemperatureMin>
+			<ComfyTemperatureMin>21</ComfyTemperatureMin><!-- Biotech 없을 때: Human 16 + 냉기에 약함(+5)과 동일 -->
 			<ImmunityGainSpeed>1.1</ImmunityGainSpeed>
 			<!--  기존 45가 나오려면 0.8을 곱해서 역산해줘야함-->
 			<CarryingCapacity>56</CarryingCapacity>

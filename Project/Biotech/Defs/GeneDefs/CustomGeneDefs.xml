@@ -161,26 +161,6 @@
 		<selectionWeight>1</selectionWeight>
 		<randomChosen>true</randomChosen>
 	</GeneDef>
-	<GeneDef ParentName="GeneSkinColorOverride" MayRequire="Ludeon.RimWorld.Biotech">
-		<defName>RK_Skin_LightGray</defName>
-		<label>light gray skin</label>
-		<labelShortAdj>gray</labelShortAdj>
-		<description>Carriers of this gene have light gray skin characteristic of ratkin.</description>
-		<skinColorOverride>(200, 200, 200)</skinColorOverride>
-		<displayOrderInCategory>95</displayOrderInCategory>
-		<selectionWeight>1</selectionWeight>
-		<randomChosen>true</randomChosen>
-	</GeneDef>
-	<GeneDef ParentName="GeneSkinColorOverride" MayRequire="Ludeon.RimWorld.Biotech">
-		<defName>RK_Skin_PaleYellow</defName>
-		<label>pale yellow skin</label>
-		<labelShortAdj>cream</labelShortAdj>
-		<description>Carriers of this gene have pale yellowish skin characteristic of ratkin.</description>
-		<skinColorOverride>(220, 200, 160)</skinColorOverride>
-		<displayOrderInCategory>68</displayOrderInCategory>
-		<selectionWeight>1</selectionWeight>
-		<randomChosen>true</randomChosen>
-	</GeneDef>
 
 	<!-- 큰 귀 -->
 	<GeneDef>
