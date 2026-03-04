@@ -9,16 +9,17 @@ alwaysApply: false
 ## 파일명 형식
 
 ```
-[1.6]TestBuild_YYMMDD_버전.zip
+Ratkin_TestBuild_YYMMDD_버전.zip
 ```
 
 - **YYMMDD**: 년월일 (예: 260209 = 2026년 2월 9일)
 - **버전**: 사용자 지정 또는 이전 버전에서 증가 (예: 0.0.5)
+- **대괄호 없음**: gh glob 오류 방지, 파일 1개만 생성 (복사 단계 불필요)
 
 ## 출력 경로
 
 ```
-Build/TestBuild/[1.6]TestBuild_YYMMDD_버전.zip
+Build/TestBuild/Ratkin_TestBuild_YYMMDD_버전.zip
 ```
 
 ## 패키징 대상
@@ -29,8 +30,8 @@ Build/TestBuild/[1.6]TestBuild_YYMMDD_버전.zip
 ## 7-Zip 명령어
 
 ```powershell
-# 워크스페이스 루트에서 실행
-7z a -tzip "Build/TestBuild/[1.6]TestBuild_260209_0.0.5.zip" "./Project/*" -xr!"Project/1.5"
+# 워크스페이스 루트에서 실행 (파일 1개만 생성)
+7z a -tzip "Build/TestBuild/Ratkin_TestBuild_260209_0.0.5.zip" "./Project/*" -xr!"Project/1.5"
 ```
 
 ### 옵션 설명
@@ -44,7 +45,7 @@ Build/TestBuild/[1.6]TestBuild_YYMMDD_버전.zip
 # 변수 설정
 $date = Get-Date -Format "yyMMdd"
 $version = "0.0.5"
-$filename = "[1.6]TestBuild_${date}_${version}.zip"
+$filename = "Ratkin_TestBuild_${date}_${version}.zip"
 $output = "Build/TestBuild/$filename"
 
 # 디렉토리 확인
@@ -52,14 +53,14 @@ if (-not (Test-Path "Build/TestBuild")) {
     New-Item -ItemType Directory -Path "Build/TestBuild" -Force 
 }
 
-# 압축 실행
+# 압축 실행 (파일 1개만)
 7z a -tzip $output "./Project/*" -xr!"Project/1.5"
 ```
 
 ## 수동 실행 (한 줄)
 
 ```powershell
-7z a -tzip "Build/TestBuild/[1.6]TestBuild_260209_0.0.5.zip" ".\Project\*" "-xr!1.5"
+7z a -tzip "Build/TestBuild/Ratkin_TestBuild_260209_0.0.5.zip" ".\Project\*" "-xr!1.5"
 ```
 
 ## 버전 관리
@@ -98,14 +99,12 @@ Get-ChildItem "Build/TestBuild" -Filter "*.zip" | Sort-Object Name -Descending |
 - **제목**: `[1.6]TestBuild`
 - **Pre-release**: 사용
 - **에셋**: 최신 빌드 1개만 (기존 Release 삭제 후 재생성)
+- **ZIP**: `Ratkin_TestBuild_YYMMDD_버전.zip` 1개만 생성·업로드 (복사 단계 없음)
 
 ```powershell
-# 1. 최신 ZIP을 대괄호 없는 이름으로 복사 (gh glob 오류 방지)
-Copy-Item -LiteralPath "Build/TestBuild/[1.6]TestBuild_YYMMDD_버전.zip" -Destination "Build/TestBuild/Ratkin_TestBuild_버전.zip" -Force
-
-# 2. 기존 Release 삭제 후 최신 파일로 재생성
+# 기존 Release 삭제 후 최신 파일로 재생성
 gh -R solaris0115/NewRatkin release delete Dev1.6 --yes
-gh -R solaris0115/NewRatkin release create Dev1.6 "Build/TestBuild/Ratkin_TestBuild_버전.zip" --title "[1.6]TestBuild" --prerelease -n " "
+gh -R solaris0115/NewRatkin release create Dev1.6 "Build/TestBuild/Ratkin_TestBuild_YYMMDD_버전.zip" --title "[1.6]TestBuild" --prerelease -n " "
 ```
 
 ### Ratkin (별도 저장소)
@@ -116,6 +115,5 @@ gh -R solaris0115/NewRatkin release create Dev1.6 "Build/TestBuild/Ratkin_TestBu
 - **에셋**: 릴리스당 **최신 빌드 1개만** 업로드
 
 ```powershell
-Copy-Item -LiteralPath "Build/TestBuild/[1.6]TestBuild_YYMMDD_버전.zip" -Destination "Build/TestBuild/Ratkin_TestBuild_버전.zip" -Force
-gh -R solaris0115/Ratkin release create v버전 "Build/TestBuild/Ratkin_TestBuild_버전.zip" --title "Test Build 버전" --notes "Test build (YYYY-MM-DD)"
+gh -R solaris0115/Ratkin release create v버전 "Build/TestBuild/Ratkin_TestBuild_YYMMDD_버전.zip" --title "Test Build 버전" --notes "Test build (YYYY-MM-DD)"
 ```
