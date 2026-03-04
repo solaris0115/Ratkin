@@ -21,6 +21,8 @@
 
 의상은 `Insulation_Cold` / `Insulation_Heat`를 제공하여 착용 시 **쾌적 온도 범위를 확장**합니다.
 
+> **참고**: 아래 "착용 시 약" 값은 **해당 의상만** 착용했을 때의 대략적 범위입니다. 재료 의존 의상은 Leather(16,16) 기준 추정.
+
 ---
 
 ## 2. 수정 방법 요약
@@ -46,19 +48,21 @@
 재료와 무관하게 고정 단열을 제공하는 의상입니다.
 
 
-| defName                     | label             | Insulation_Cold | Insulation_Heat | 파일                   |
-| --------------------------- | ----------------- | --------------- | --------------- | -------------------- |
-| RK_Apparel_VacsuitHelmet    | vacsuit helmet    | 6               | 4               | Apparel_Spacer.xml   |
-| RK_Apparel_Vacsuit          | vacsuit           | 90              | 15              | Apparel_Spacer.xml   |
-| RK_Apparel_VacsuitChildren  | kid vacsuit       | 90              | 15              | Apparel_Spacer.xml   |
-| RK_Apparel_SpaceArmor       | cataphract armor  | 70              | 70              | Apparel_Spacer.xml   |
-| RK_Apparel_SpaceArmorHelmet | cataphract helmet | 10              | 20              | Apparel_Spacer.xml   |
-| RK_StrawHat                 | Straw Hat         | 2               | 6               | Apparel_Various.xml  |
-| RK_Cardigan                 | cardigan          | 8               | —               | Apparel_Various.xml  |
-| RK_WinterRobe               | winter robe       | 8               | —               | Apparel_Various.xml  |
-| RK_RoyalRobe                | ratkin royal robe | 12              | —               | Apparel_Royal.xml    |
-| RK_SantaRobe                | santa robe        | 13              | —               | Apparel_DropOnly.xml |
-| RK_WhiteCoat                | ratkin white coat | 60              | 15              | Apparel_DropOnly.xml |
+| defName                     | label             | Insulation_Cold | Insulation_Heat | 착용 시 약   | 파일                   |
+| --------------------------- | ----------------- | --------------- | --------------- | ------------ | -------------------- |
+| RK_Apparel_VacsuitHelmet    | vacsuit helmet    | 6               | 4               | 15~30°C      | Apparel_Spacer.xml   |
+| RK_Apparel_Vacsuit          | vacsuit           | 90              | 15              | -69~41°C     | Apparel_Spacer.xml   |
+| RK_Apparel_VacsuitChildren  | kid vacsuit       | 90              | 15              | -69~41°C     | Apparel_Spacer.xml   |
+| RK_Apparel_SpaceArmor       | cataphract armor  | 70              | 70              | -49~96°C     | Apparel_Spacer.xml   |
+| RK_Apparel_SpaceArmorHelmet | cataphract helmet | 10              | 20              | 11~46°C      | Apparel_Spacer.xml   |
+| RK_StrawHat                 | Straw Hat         | 2               | 6               | 19~32°C      | Apparel_Various.xml  |
+| RK_Cardigan                 | cardigan          | 8               | —               | 13~26°C*     | Apparel_Various.xml  |
+| RK_WinterRobe               | winter robe       | 8               | —               | 13~26°C*     | Apparel_Various.xml  |
+| RK_RoyalRobe                | ratkin royal robe | 12              | —               | 9~26°C*      | Apparel_Royal.xml    |
+| RK_SantaRobe                | santa robe        | 13              | —               | 8~26°C*      | Apparel_DropOnly.xml |
+| RK_WhiteCoat                | ratkin white coat | 60              | 15              | -39~41°C     | Apparel_DropOnly.xml |
+
+\* 고정값만 반영. 재료(Leather 등) 적용 시 냉기 단열 추가로 최소 온도 더 낮아짐.
 
 
 **수정 예시** (냉기 단열 10 증가):
@@ -77,31 +81,31 @@
 제작 시 사용한 재료(Fabric, Leathery 등)의 StuffPower에 배수를 곱해 실제 단열이 결정됩니다.
 
 
-| defName               | label                  | Cold 배수 | Heat 배수 | 파일                   |
-| --------------------- | ---------------------- | ------- | ------- | -------------------- |
-| RK_ApronSkirt         | apron skirt            | 0.20    | 0.10    | Apparel_Various.xml  |
-| RK_ApronSkirtChildren | kid skirt              | 0.20    | 0.10    | Apparel_Various.xml  |
-| RK_SummerDress        | summer dress           | 0.10    | 0.70    | Apparel_Various.xml  |
-| RK_Muffler            | muffler                | 0.65    | 0.25    | Apparel_Various.xml  |
-| RK_WoolenHat          | woolen hat             | 0.50    | —       | Apparel_Various.xml  |
-| RK_WorkerWear         | Ratkin red outfit      | 0.30    | 0.20    | Apparel_Various.xml  |
-| RK_Coif               | coif                   | 0.15    | 0.10    | Apparel_Various.xml  |
-| RK_ResearchGown       | research gown          | 0.30    | 0.15    | Apparel_Various.xml  |
-| RK_ExplorerWear       | explorer wear          | 0.20    | 0.40    | Apparel_Various.xml  |
-| RK_ExplorerHat        | explorer hat           | 0.15    | 0.25    | Apparel_Various.xml  |
-| RK_ChefSuit           | chef suit              | 0.25    | 0.25    | Apparel_Various.xml  |
-| RK_ChefHat            | chef hat               | 0.15    | 0.15    | Apparel_Various.xml  |
-| RK_GaurdenUniform     | gaurden uniform        | 0.40    | 0.25    | Apparel_Various.xml  |
-| RK_OrderUniform       | ratkin order uniform   | 0.40    | 0.40    | Apparel_Various.xml  |
-| RK_BulletProofHelmet  | Ratkin military helmet | 0.25    | 0.15    | Apparel_Various.xml  |
-| RK_FlatColorCoat      | flatcolor coat         | 0.40    | 0.35    | Apparel_Various.xml  |
-| RK_FrillOnepiece      | frill onepiece         | 0.35    | 0.40    | Apparel_Various.xml  |
-| RK_SistersDerss       | Sisters Dress          | 0.35    | 0.45    | Apparel_Various.xml  |
-| RK_SistersVeil        | Veil                   | 0.25    | 0.15    | Apparel_Various.xml  |
-| RK_BattleSuit         | ratkin battlesuit      | 0.55    | 0.45    | Apparel_Various.xml  |
-| RK_Apparel_GasMask    | mask helmet            | 0.55    | 0.45    | Apparel_Various.xml  |
-| RK_HeadBand           | Ratkin head band       | 0.15    | 0.15    | Apparel_Various.xml  |
-| RK_SantaHat           | santa hat              | 0.65    | —       | Apparel_DropOnly.xml |
+| defName               | label                  | Cold 배수 | Heat 배수 | 착용 시 약 (Leather기준) | 파일                   |
+| --------------------- | ---------------------- | ------- | ------- | ------------------------ | -------------------- |
+| RK_ApronSkirt         | apron skirt            | 0.20    | 0.10    | 18~28°C                  | Apparel_Various.xml  |
+| RK_ApronSkirtChildren | kid skirt              | 0.20    | 0.10    | 18~28°C                  | Apparel_Various.xml  |
+| RK_SummerDress        | summer dress           | 0.10    | 0.70    | 19~37°C                  | Apparel_Various.xml  |
+| RK_Muffler            | muffler                | 0.65    | 0.25    | 11~30°C                  | Apparel_Various.xml  |
+| RK_WoolenHat          | woolen hat             | 0.50    | —       | 13~26°C                  | Apparel_Various.xml  |
+| RK_WorkerWear         | Ratkin red outfit      | 0.30    | 0.20    | 16~29°C                  | Apparel_Various.xml  |
+| RK_Coif               | coif                   | 0.15    | 0.10    | 19~28°C                  | Apparel_Various.xml  |
+| RK_ResearchGown       | research gown          | 0.30    | 0.15    | 16~28°C                  | Apparel_Various.xml  |
+| RK_ExplorerWear       | explorer wear          | 0.20    | 0.40    | 18~32°C                  | Apparel_Various.xml  |
+| RK_ExplorerHat        | explorer hat           | 0.15    | 0.25    | 19~30°C                  | Apparel_Various.xml  |
+| RK_ChefSuit           | chef suit              | 0.25    | 0.25    | 17~30°C                  | Apparel_Various.xml  |
+| RK_ChefHat            | chef hat               | 0.15    | 0.15    | 19~28°C                  | Apparel_Various.xml  |
+| RK_GaurdenUniform     | gaurden uniform        | 0.40    | 0.25    | 15~30°C                  | Apparel_Various.xml  |
+| RK_OrderUniform       | ratkin order uniform   | 0.40    | 0.40    | 15~32°C                  | Apparel_Various.xml  |
+| RK_BulletProofHelmet  | Ratkin military helmet | 0.25    | 0.15    | 17~28°C                  | Apparel_Various.xml  |
+| RK_FlatColorCoat      | flatcolor coat         | 0.40    | 0.35    | 15~32°C                  | Apparel_Various.xml  |
+| RK_FrillOnepiece      | frill onepiece         | 0.35    | 0.40    | 15~32°C                  | Apparel_Various.xml  |
+| RK_SistersDerss       | Sisters Dress          | 0.35    | 0.45    | 15~33°C                  | Apparel_Various.xml  |
+| RK_SistersVeil        | Veil                   | 0.25    | 0.15    | 17~28°C                  | Apparel_Various.xml  |
+| RK_BattleSuit         | ratkin battlesuit      | 0.55    | 0.45    | 12~33°C                  | Apparel_Various.xml  |
+| RK_Apparel_GasMask    | mask helmet            | 0.55    | 0.45    | 12~33°C                  | Apparel_Various.xml  |
+| RK_HeadBand           | Ratkin head band       | 0.15    | 0.15    | 19~28°C                  | Apparel_Various.xml  |
+| RK_SantaHat           | santa hat              | 0.65    | —       | 11~26°C                  | Apparel_DropOnly.xml |
 
 
 **수정 예시** (냉기 배수 0.1 증가):
@@ -120,12 +124,12 @@
 고정 Insulation과 StuffEffectMultiplier를 동시에 가진 의상입니다.
 
 
-| defName       | label             | Insulation_Cold | Cold 배수 | Heat 배수 | 파일                   |
-| ------------- | ----------------- | --------------- | ------- | ------- | -------------------- |
-| RK_Cardigan   | cardigan          | 8               | 0.95    | 0.30    | Apparel_Various.xml  |
-| RK_WinterRobe | winter robe       | 8               | 1.20    | 0       | Apparel_Various.xml  |
-| RK_RoyalRobe  | ratkin royal robe | 12              | 1.40    | —       | Apparel_Royal.xml    |
-| RK_SantaRobe  | santa robe        | 13              | 1.30    | 0       | Apparel_DropOnly.xml |
+| defName       | label             | Insulation_Cold | Cold 배수 | Heat 배수 | 착용 시 약 (Leather기준) | 파일                   |
+| ------------- | ----------------- | --------------- | ------- | ------- | ------------------------ | -------------------- |
+| RK_Cardigan   | cardigan          | 8               | 0.95    | 0.30    | -2~31°C                  | Apparel_Various.xml  |
+| RK_WinterRobe | winter robe       | 8               | 1.20    | 0       | -6~26°C                  | Apparel_Various.xml  |
+| RK_RoyalRobe  | ratkin royal robe | 12              | 1.40    | —       | -13~26°C                 | Apparel_Royal.xml    |
+| RK_SantaRobe  | santa robe        | 13              | 1.30    | 0       | -13~26°C                 | Apparel_DropOnly.xml |
 
 
 ---
@@ -133,21 +137,21 @@
 ### 3.4 단열 없음 (온도 영향 없음)
 
 
-| defName            | label                   | 비고  | 파일                   |
-| ------------------ | ----------------------- | --- | -------------------- |
-| RK_ResearchGlasses | ratkin glasses          | —   | Apparel_Various.xml  |
-| RK_HairCorsage     | hair corsage            | —   | Apparel_Various.xml  |
-| RK_RibbonHairBand  | ribbon hair band        | —   | Apparel_Various.xml  |
-| RK_Apparel_Banner  | war banner              | —   | Apparel_Util.xml     |
-| RK_CrossBack       | cross back              | —   | Apparel_Util.xml     |
-| RK_Backpack        | backpack                | —   | Apparel_Util.xml     |
-| RK_OutdoorBackpack | ratkin outdoor backpack | —   | Apparel_Util.xml     |
-| RK_WoodenShield    | ratkin wooden Shield    | —   | Apparel_Util.xml     |
-| RK_HeavyShield     | ratkin heavy Shield     | —   | Apparel_Util.xml     |
-| RK_TowerShield     | ratkin Tower Shield     | —   | Apparel_Util.xml     |
-| RK_RoyalCrown      | Ratkin royal crown      | —   | Apparel_Royal.xml    |
-| RK_SantaSack       | santa package           | —   | Apparel_DropOnly.xml |
-| RK_Sack            | ratkin package          | —   | Apparel_DropOnly.xml |
+| defName            | label                   | 착용 시 약 | 비고  | 파일                   |
+| ------------------ | ----------------------- | ---------- | --- | -------------------- |
+| RK_ResearchGlasses | ratkin glasses          | 21~26°C    | —   | Apparel_Various.xml  |
+| RK_HairCorsage     | hair corsage            | 21~26°C    | —   | Apparel_Various.xml  |
+| RK_RibbonHairBand  | ribbon hair band        | 21~26°C    | —   | Apparel_Various.xml  |
+| RK_Apparel_Banner  | war banner              | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_CrossBack       | cross back              | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_Backpack        | backpack                | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_OutdoorBackpack | ratkin outdoor backpack | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_WoodenShield    | ratkin wooden Shield    | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_HeavyShield     | ratkin heavy Shield     | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_TowerShield     | ratkin Tower Shield     | 21~26°C    | —   | Apparel_Util.xml     |
+| RK_RoyalCrown      | Ratkin royal crown      | 21~26°C    | —   | Apparel_Royal.xml    |
+| RK_SantaSack       | santa package           | 21~26°C    | —   | Apparel_DropOnly.xml |
+| RK_Sack            | ratkin package          | 21~26°C    | —   | Apparel_DropOnly.xml |
 
 
 ---
@@ -155,10 +159,10 @@
 ### 3.5 단열 0 (의도적 무효화)
 
 
-| defName      | label              | Cold 배수 | Heat 배수 | 비고       | 파일                |
-| ------------ | ------------------ | ------- | ------- | -------- | ----------------- |
-| RK_Plate     | ratkin plate armor | 0.0     | 0.0     | 재료 영향 없음 | Apparel_Armor.xml |
-| RK_PlateHelm | (inherited)        | 0.0     | 0.0     | 재료 영향 없음 | Apparel_Armor.xml |
+| defName      | label              | Cold 배수 | Heat 배수 | 착용 시 약 | 비고       | 파일                |
+| ------------ | ------------------ | ------- | ------- | ---------- | -------- | ----------------- |
+| RK_Plate     | ratkin plate armor | 0.0     | 0.0     | 21~26°C    | 재료 영향 없음 | Apparel_Armor.xml |
+| RK_PlateHelm | (inherited)        | 0.0     | 0.0     | 21~26°C    | 재료 영향 없음 | Apparel_Armor.xml |
 
 
 ---
