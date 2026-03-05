@@ -4,16 +4,16 @@ overview: 랜스 차지 돌진 중 이동 경로를 따라 먼지/연기 이펙�
 todos:
   - id: effecter-def
     content: AbilityDefs_LanceCharge.xml에 커스텀 EffecterDef (RK_LanceChargeFlightEffect) 추가 - DustPuffThick + DustPuff 기반 연기 트레일
-    status: pending
+    status: completed
   - id: verb-v1-link
     content: RK_Ability_LanceCharge의 verbProperties에 flightEffecterDef 추가
-    status: pending
+    status: completed
   - id: verb-v2-link
     content: RK_Ability_LanceChargeV2의 verbProperties에 flightEffecterDef 추가
-    status: pending
+    status: completed
   - id: test-build
     content: 빌드 확인 및 인게임 테스트 후 수치 미세조정
-    status: pending
+    status: completed
 isProject: false
 ---
 

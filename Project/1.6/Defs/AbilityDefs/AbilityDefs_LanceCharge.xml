@@ -15,6 +15,7 @@
 			<range>2.9</range>
 			<requireLineOfSight>true</requireLineOfSight>
 			<warmupTime>0.5</warmupTime>
+			<flightEffecterDef>RK_LanceChargeFlightEffect</flightEffecterDef>
 			<targetParams>
 				<canTargetLocations>false</canTargetLocations>
 				<canTargetPawns>true</canTargetPawns>
@@ -46,10 +47,11 @@
 		<jobDef>CastJump</jobDef>
 		<verbProperties>
 			<verbClass>NewRatkin.Verb_CastAbilityChargeV2</verbClass>
-			<range>6.9</range>
-			<minRange>2.7</minRange>
+			<range>7.7</range>
+			<minRange>2.9</minRange>
 			<requireLineOfSight>true</requireLineOfSight>
 			<warmupTime>0.75</warmupTime>
+			<flightEffecterDef>RK_LanceChargeFlightEffect</flightEffecterDef>
 			<targetParams>
 				<canTargetLocations>false</canTargetLocations>
 				<canTargetPawns>true</canTargetPawns>
@@ -142,4 +144,35 @@
 			</li>
 		</stages>
 	</HediffDef>
+
+	<!-- 랜스 차지 돌진 비행 이펙트 (경로 먼지 트레일) -->
+	<EffecterDef>
+		<defName>RK_LanceChargeFlightEffect</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+				<scale>0.6~0.9</scale>
+				<spawnLocType>OnSource</spawnLocType>
+				<positionOffset>(0,0,-0.3)</positionOffset>
+				<fleckDef>DustPuffThick</fleckDef>
+				<ticksBetweenMotes>1</ticksBetweenMotes>
+				<maxMoteCount>20</maxMoteCount>
+				<speed>2~3</speed>
+				<angle>160~200</angle>
+				<absoluteAngle>true</absoluteAngle>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+				<scale>0.3~0.5</scale>
+				<spawnLocType>OnSource</spawnLocType>
+				<positionOffset>(0,0,-0.2)</positionOffset>
+				<fleckDef>DustPuff</fleckDef>
+				<ticksBetweenMotes>2</ticksBetweenMotes>
+				<maxMoteCount>12</maxMoteCount>
+				<speed>3~5</speed>
+				<angle>140~220</angle>
+				<absoluteAngle>true</absoluteAngle>
+			</li>
+		</children>
+	</EffecterDef>
 </Defs>
