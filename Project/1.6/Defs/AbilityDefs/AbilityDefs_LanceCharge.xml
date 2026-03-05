@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- LanceCharge Ability RK_Ability_LanceCharge RK_PawnFlyer_LanceCharge RK_Hediff_LanceCharge -->
 <Defs>
-	<!-- 헤비랜스 돌진 능력 -->
+	<!-- 헤비랜스 돌진 능력 미사용 -->
 	<AbilityDef>
 		<defName>RK_Ability_LanceCharge</defName>
 		<label>charge</label>
@@ -28,6 +28,8 @@
 				<exhaustionDurationTicks>600</exhaustionDurationTicks>
 				<focusHediffDef>RK_Hediff_LanceChargeFocus</focusHediffDef>
 				<focusDurationTicks>3000</focusDurationTicks>
+				<momentumHediffDef>RK_Hediff_LanceChargeMomentum</momentumHediffDef>
+				<momentumDurationTicks>600</momentumDurationTicks>
 				<onlyHostilePawns>true</onlyHostilePawns>
 			</li>
 		</comps>
@@ -36,31 +38,33 @@
 	<!-- 헤비랜스 돌진 능력 V2: LOS 기반 목적지, 최소 3칸~최대 5칸 -->
 	<AbilityDef>
 		<defName>RK_Ability_LanceChargeV2</defName>
-		<label>charge (v2)</label>
+		<label>charge</label>
 		<description>Short-range charge toward a hostile target (3-5 tiles). Stops at the last clear tile before obstacles. After landing, movement speed is reduced but melee hit chance increases.</description>
-		<cooldownTicksRange>60000~60000</cooldownTicksRange>
+		<cooldownTicksRange>12000~12000</cooldownTicksRange>
 		<ai_IsOffensive>true</ai_IsOffensive>
 		<aiCanUse>true</aiCanUse>
 		<jobDef>CastJump</jobDef>
 		<verbProperties>
 			<verbClass>NewRatkin.Verb_CastAbilityChargeV2</verbClass>
-			<range>5.9</range>
+			<range>6.9</range>
 			<minRange>2.7</minRange>
 			<requireLineOfSight>true</requireLineOfSight>
-			<warmupTime>0.5</warmupTime>
+			<warmupTime>0.75</warmupTime>
 			<targetParams>
 				<canTargetLocations>false</canTargetLocations>
 				<canTargetPawns>true</canTargetPawns>
-				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetBuildings>true</canTargetBuildings>
 			</targetParams>
 		</verbProperties>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ChargeOnJump">
 				<pawnFlyerDef>RK_PawnFlyer_LanceCharge</pawnFlyerDef>
 				<exhaustionHediffDef>RK_Hediff_LanceChargeExhaustion</exhaustionHediffDef>
-				<exhaustionDurationTicks>600</exhaustionDurationTicks>
+				<exhaustionDurationTicks>1200</exhaustionDurationTicks>
 				<focusHediffDef>RK_Hediff_LanceChargeFocus</focusHediffDef>
-				<focusDurationTicks>3000</focusDurationTicks>
+				<focusDurationTicks>1200</focusDurationTicks>
+				<momentumHediffDef>RK_Hediff_LanceChargeMomentum</momentumHediffDef>
+				<momentumDurationTicks>300</momentumDurationTicks>
 				<onlyHostilePawns>true</onlyHostilePawns>
 			</li>
 		</comps>
@@ -113,6 +117,27 @@
 			<li>
 				<statOffsets>
 					<MeleeHitChance>0.4</MeleeHitChance>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<!-- 랜스 차지 모멘텀 (최초 공격 시 피해량 +25%, 공격 시 소멸) -->
+	<HediffDef>
+		<defName>RK_Hediff_LanceChargeMomentum</defName>
+		<label>lance charge momentum</label>
+		<description>Momentum from the lance charge. First melee attack deals 25% more damage, then this effect is consumed.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>300~300</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<MeleeDamageFactor>0.25</MeleeDamageFactor>
 				</statOffsets>
 			</li>
 		</stages>

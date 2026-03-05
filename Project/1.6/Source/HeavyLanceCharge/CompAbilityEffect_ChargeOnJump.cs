@@ -32,6 +32,15 @@ namespace NewRatkin
 					compFocus.SetDuration(Props.focusDurationTicks);
 				pawn.health.AddHediff(focus, null, null, null);
 			}
+
+			if (Props.momentumHediffDef != null)
+			{
+				Hediff momentum = HediffMaker.MakeHediff(Props.momentumHediffDef, pawn, null);
+				Verse.HediffComp_Disappears compMomentum = momentum.TryGetComp<Verse.HediffComp_Disappears>();
+				if (compMomentum != null)
+					compMomentum.SetDuration(Props.momentumDurationTicks);
+				pawn.health.AddHediff(momentum, null, null, null);
+			}
 		}
 
 		public void OnJumpCompleted(IntVec3 origin, LocalTargetInfo target)

@@ -9,6 +9,8 @@ namespace NewRatkin
 		public int exhaustionDurationTicks;
 		public HediffDef focusHediffDef;
 		public int focusDurationTicks;
+		public HediffDef momentumHediffDef;
+		public int momentumDurationTicks = 600;
 		public bool onlyHostilePawns = true;
 
 		public CompProperties_ChargeOnJump()

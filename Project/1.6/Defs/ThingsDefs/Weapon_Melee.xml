@@ -363,7 +363,7 @@
 			<Mass>8</Mass>		
 		</statBases>
 		<equippedStatOffsets>
-			<MeleeHitChance>-3</MeleeHitChance>	
+			<MeleeHitChance>-1</MeleeHitChance>
 		</equippedStatOffsets>
 		<equippedAngleOffset>45</equippedAngleOffset>
 		<tools>
@@ -572,7 +572,7 @@
 			<Mass>12</Mass>
 		</statBases>
 		<equippedStatOffsets>
-			<MeleeHitChance>-4</MeleeHitChance>	
+			<MeleeHitChance>-2</MeleeHitChance>
 		</equippedStatOffsets>
 		<equippedAngleOffset>45</equippedAngleOffset>
 		<tools>
