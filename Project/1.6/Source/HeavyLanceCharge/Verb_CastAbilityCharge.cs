@@ -96,6 +96,20 @@ namespace NewRatkin
 		}
 
 		/// <summary>
+		/// OrderJump 대신 QueueCastingJob 사용 → job.targetA = Pawn → warmup 시 focusTarg가 Thing 참조로
+		/// 매 프레임 대상의 현재 위치를 추적하여 조준 연출이 이동 중인 대상을 따라감.
+		/// </summary>
+		public override void OrderForceTarget(LocalTargetInfo target)
+		{
+			if (ability != null && target.IsValid)
+			{
+				ability.QueueCastingJob(target, null);
+				return;
+			}
+			base.OrderForceTarget(target);
+		}
+
+		/// <summary>
 		/// Verb_CastAbilityJump는 ValidateTarget을 재정의하여 EffectComps.Valid() 검사를 건너뜀.
 		/// 돌진은 적대 pawn만 타겟 가능하므로, 여기서 EffectComps 검사를 추가함.
 		/// </summary>
