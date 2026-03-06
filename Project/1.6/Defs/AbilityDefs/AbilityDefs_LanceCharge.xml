@@ -75,6 +75,7 @@
 	<!-- 랜스 차지 비행체 (돌진 이동용) -->
 	<ThingDef ParentName="PawnFlyerBase">
 		<defName>RK_PawnFlyer_LanceCharge</defName>
+		<thingClass>NewRatkin.PawnFlyer_LanceCharge</thingClass>
 		<pawnFlyer>
 			<flightDurationMin>0.3</flightDurationMin>
 			<flightSpeed>20</flightSpeed>
