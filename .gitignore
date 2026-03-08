@@ -36,9 +36,6 @@ Thumbs.db
 *.rar
 *.7z
 
-# Def 데이터 캐시 (AI 작업용, 로컬 전용)
-.cursor/def-cache/
-
 # IDE 설정 파일들 (Cursor 제외)
 .vscode/
 .idea/
