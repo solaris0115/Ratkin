@@ -21,24 +21,10 @@ note: damageType = capacity(armorCategory). stuff O = steel/plasteel 등 재료�
 
 # 근접 무기 (Melee Weapons)
 
-## damageType 매핑 (capacity → armorCategory)
+## damageType 매핑 및 소재 계수
 
-| capacity | damageType |
-|----------|------------|
-| Poke | blunt |
-| Cut | sharp |
-| Stab | sharp |
-| Blunt | blunt |
-| Scratch | sharp |
-| Demolish | blunt |
-| Bite | sharp |
-| Flame | heat |
-| Burn | heat |
-| RK_HalberdCleave | sharp |
-| RK_ToolCapacity_PickaxeStab | sharp |
-| RK_ToolCapacity_ChainSword | sharp |
-| RK_ToolCapacity_MeleeExplosion | sharp (Bomb) |
-| GunlanceShell_Normal | sharp (Bomb, 원거리) |
+- **[damage-type-mapping.md](damage-type-mapping.md)**: capacity → damageType, damageType → armorCategory
+- **[material-coefficients.md](material-coefficients.md)**: 소재 카테고리, 공격/방어 계수
 
 ## 림월드 (Core + DLC)
 
