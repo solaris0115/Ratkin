@@ -103,8 +103,14 @@ ToolCapacityDef는 ManeuverDef를 통해 DamageDef에 연결된다.
 | RK_ToolCapacity_ChainSword | (커스텀) | 체인소드 전용 |
 | GunlanceShell_Normal | Bomb | 건랜스 포격, 범위 폭발 |
 
+## combat-coefficients (전투 관련 계수)
+
+- **탐색 경로**: `Stats_Weapons_Melee.xml`, `Stats_Weapons_Ranged.xml`, `Stats_Apparel.xml`, `Stats_Stuff.xml`, Stuff ThingDefs
+- **내용**: 등급별(quality) 피해/방어 계수 + 소재별(stuff) 공격/방어 계수
+- **기본 필드**: StatDef별 factorAwful~factorLegendary, StuffPower_Armor_*, SharpDamageMultiplier, BluntDamageMultiplier
+
 ## 네이밍 규칙
 
-- 파일명: kebab-case (`melee-weapons.md`, `ranged-weapons.md`)
+- 파일명: kebab-case (`melee-weapons.md`, `ranged-weapons.md`, `combat-coefficients.md`)
 - 카테고리명: 영문 소문자, 하이픈 구분
 - 복합 카테고리 가능: `melee-weapons-tools.md` (특정 필드 집합)

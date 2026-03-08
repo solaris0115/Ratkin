@@ -24,7 +24,7 @@ note: damageType = capacity(armorCategory). stuff O = steel/plasteel 등 재료�
 ## damageType 매핑 및 소재 계수
 
 - **[damage-type-mapping.md](damage-type-mapping.md)**: capacity → damageType, damageType → armorCategory
-- **[material-coefficients.md](material-coefficients.md)**: 소재 카테고리, 공격/방어 계수
+- **[combat-coefficients.md](combat-coefficients.md)**: 전투 관련 계수 (등급별 피해/방어, 소재별 계수)
 
 ## 림월드 (Core + DLC)
 
