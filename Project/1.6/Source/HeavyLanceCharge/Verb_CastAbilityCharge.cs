@@ -1,6 +1,7 @@
 using System.Linq;
 using RimWorld;
 using Verse;
+using Verse.Sound;
 
 namespace NewRatkin
 {
@@ -63,6 +64,10 @@ namespace NewRatkin
 			LocalTargetInfo dest = ResolveChargeDestination(out effectiveTarget);
 			if (!dest.IsValid)
 				return false;
+
+			// 돌진 시작 시점에 사운드 재생
+			if (verbProps.soundCast != null && CasterPawn?.MapHeld != null)
+				verbProps.soundCast.PlayOneShot(new TargetInfo(CasterPawn.Position, CasterPawn.MapHeld, false));
 
 			// ability.Activate만 호출 후, 계산된 목적지로 DoJump (base 호출 시 currentTarget으로 중복 점프됨)
 			return (ability?.Activate(effectiveTarget, currentDestination) ?? false)

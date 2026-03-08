@@ -13,6 +13,7 @@
 		<verbProperties>
 			<verbClass>NewRatkin.Verb_CastAbilityCharge</verbClass>
 			<range>2.9</range>
+			<soundCast>RK_Sound_LanceCharge</soundCast>
 			<requireLineOfSight>true</requireLineOfSight>
 			<warmupTime>0.5</warmupTime>
 			<flightEffecterDef>RK_LanceChargeFlightEffect</flightEffecterDef>
@@ -48,6 +49,7 @@
 		<verbProperties>
 			<verbClass>NewRatkin.Verb_CastAbilityChargeV2</verbClass>
 			<range>7.7</range>
+			<soundCast>RK_Sound_LanceCharge</soundCast>
 			<minRange>2.9</minRange>
 			<requireLineOfSight>true</requireLineOfSight>
 			<warmupTime>0.75</warmupTime>
@@ -176,4 +178,27 @@
 			</li>
 		</children>
 	</EffecterDef>
+
+	<!-- 랜스 차지 돌진 사운드 (warmup 시작 시 재생) -->
+	<SoundDef>
+		<defName>RK_Sound_LanceCharge</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>3</maxSimultaneous>
+		<priorityMode>PrioritizeNearest</priorityMode>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>LanceCharge/RK_Sound_LanceCharge</clipPath>
+					</li>
+				</grains>
+				<volumeRange>50~70</volumeRange>
+				<pitchRange>
+					<min>0.9</min>
+					<max>1.1</max>
+				</pitchRange>
+				<muteWhenPaused>True</muteWhenPaused>
+			</li>
+		</subSounds>
+	</SoundDef>
 </Defs>
