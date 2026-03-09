@@ -20,6 +20,15 @@ note: 전투 관련 계수 = 소재(stuff) 계수 + 등급(quality) 계수
 
 소재(stuff)와 등급(quality)에 따른 공격/방어 계수를 정리한다.
 
+## 계수 적용 조건
+
+| 계수 종류 | 적용 조건 |
+|-----------|-----------|
+| **등급(quality) 계수** | 해당 아이템이 **생산 가능**하고 CompQuality 보유 시. 제작 시 등급이 부여되면 적용됨. |
+| **소재(stuff) 계수** | 해당 아이템이 **stuff 방식**으로 생산될 때. ThingDef에 `costStuffCount` + `stuffCategories` 존재 시 소재 선택 가능 → 소재별 Sharp/Blunt/Cooldown 계수 적용. |
+
+※ Fixed Cost(고정 재료): `costList`만 있고 `costStuffCount` 없음 → 소재 계수 **미적용**
+
 ---
 
 ## 0. 근접 무기(Melee) StatDef 요약
@@ -33,13 +42,13 @@ note: 전투 관련 계수 = 소재(stuff) 계수 + 등급(quality) 계수
 | SharpDamageMultiplier | StuffStatFactors | 날카로운 공격 피해 배율 | **소재(stuff)** |
 | BluntDamageMultiplier | StuffStatFactors | 둔한 공격 피해 배율 | **소재(stuff)** |
 
-※ stuff O 무기: Sharp/Blunt/Cooldown는 소재에 따라, DamageMultiplier는 등급에 따라 적용
+※ stuff 방식 무기: Sharp/Blunt/Cooldown는 소재에 따라, DamageMultiplier는 등급에 따라 적용
 
 ---
 
 ## 1. 등급별 계수 (Quality Tier Coefficients)
 
-`StatPart_Quality`로 적용. CompQuality 보유 아이템에만 적용됨.
+`StatPart_Quality`로 적용. **생산 가능** + CompQuality 보유 아이템에만 적용됨.
 
 ### 1.1 공격 계수
 
@@ -71,7 +80,7 @@ note: 전투 관련 계수 = 소재(stuff) 계수 + 등급(quality) 계수
 
 ## 2. 소재별 계수 (Stuff/Material Coefficients)
 
-소재 ThingDef의 `statBases`에 정의. **stuff O** 무기/방어구에만 적용됨.
+소재 ThingDef의 `statBases`/`stuffProps.statFactors`에 정의. **stuff 방식** 무기/방어구(`costStuffCount` + `stuffCategories` 존재)에만 적용됨.
 
 ### 2.1 소재 카테고리 (StuffCategories)
 
