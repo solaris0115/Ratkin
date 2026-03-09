@@ -877,7 +877,7 @@
 			<Mass>4</Mass>
 		</statBases>
 		<equippedStatOffsets>
-			<MeleeHitChance>-2</MeleeHitChance>	
+			<!-- <MeleeHitChance>-2</MeleeHitChance>	 -->
 		</equippedStatOffsets>
 		<equippedAngleOffset>30</equippedAngleOffset>
 		<tools>
