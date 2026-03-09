@@ -1062,15 +1062,18 @@
 			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<equippedAngleOffset>45</equippedAngleOffset>
-		<!-- <comps> -->
-		<!-- <li> -->
-		<!-- <compClass>AdditionalVerb.Comp_VerbSaveable</compClass> -->
-		<!-- </li> -->
-		<!-- </comps> -->
+		<comps>
+			<li Class="NewRatkin.CompProperties_BFRAmmoToggle">
+				<projectileAP>Bullet_BFR_AP</projectileAP>
+				<projectileHE>Bullet_BFR_HE</projectileHE>
+				<iconPathAP>UI/BFR/BFR_AP</iconPathAP>
+				<iconPathHE>UI/BFR/BFR_HE</iconPathHE>
+			</li>
+		</comps>
 		<verbs>
 			<!-- 관통탄 -->
 			<li>
-				<verbClass>Verb_Shoot</verbClass>
+				<verbClass>NewRatkin.Verb_BFRShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<soundCast>PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
@@ -1175,6 +1178,29 @@
 			<flyOverhead>false</flyOverhead>
 			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
 			<!-- <soundExplode>Shockwave</soundExplode> -->
+			<soundImpactAnticipate>Flying</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_BFR_HE</defName>
+		<label>wedge bullet (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Ballista_Bolt_HE</texPath>
+			<drawSize>(2,2)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<explosionRadius>1.7</explosionRadius>
+			<speed>95</speed>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<flyOverhead>false</flyOverhead>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Shockwave</soundExplode>
 			<soundImpactAnticipate>Flying</soundImpactAnticipate>
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
 		</projectile>

@@ -4,19 +4,19 @@ overview: BFR 3000 무기에 AP탄/폭발탄 토글 기능을 추가합니다. �
 todos:
   - id: comp-toggle
     content: Comp_BFRAmmoToggle.cs 작성 (CompProperties + Comp + Gizmo + ExposeData)
-    status: pending
+    status: completed
   - id: verb-bfr
     content: Verb_BFRShoot.cs 작성 (Verb_Shoot 상속, Projectile override)
-    status: pending
+    status: completed
   - id: def-weapon
     content: Weapon_Range.xml - RK_Weapon_BFR에 Comp 추가 및 verbClass 변경
-    status: pending
+    status: completed
   - id: def-bullet-he
     content: Weapon_Range.xml - Bullet_BFR_HE 폭발탄 ThingDef 추가 (바닐라 Bullet 기반)
-    status: pending
+    status: completed
   - id: build-test
     content: 빌드 및 린트 확인
-    status: pending
+    status: completed
 isProject: false
 ---
 
