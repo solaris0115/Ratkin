@@ -20,6 +20,7 @@
 			<xenotypeChances>
 				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">99999</RK_XenoType_Ratkin>
 				<Baseliner MayRequire="Ludeon.RimWorld.Biotech">0</Baseliner>
+				<Sanguophage MayRequire="Ludeon.RimWorld.Biotech">0</Sanguophage>
 			</xenotypeChances>
 		</xenotypeSet>
 		<useFactionXenotypes>false</useFactionXenotypes>

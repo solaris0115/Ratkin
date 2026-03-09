@@ -26,6 +26,7 @@
 		<xenotypeSet>
 			<xenotypeChances>
 				<RK_XenoType_Ratkin MayRequire="Ludeon.RimWorld.Biotech">1</RK_XenoType_Ratkin>
+				<Sanguophage MayRequire="Ludeon.RimWorld.Biotech">0</Sanguophage>
 			</xenotypeChances>
 		</xenotypeSet>
 	</FactionDef>
