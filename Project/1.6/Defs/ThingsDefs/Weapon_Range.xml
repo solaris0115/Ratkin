@@ -1179,7 +1179,8 @@
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
 		</projectile>
 	</ThingDef>
-	<ThingDef ParentName="BaseBullet">
+
+	<!-- <ThingDef ParentName="BaseBullet">
 		<defName>Bullet_BFR_SC</defName>
 		<label>wedge bullet (SC)</label>
 		<graphicData>
@@ -1201,11 +1202,11 @@
 			<alwaysFreeIntercept>true</alwaysFreeIntercept>
 			<flyOverhead>false</flyOverhead>
 			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
-			<!-- <soundExplode>Shockwave</soundExplode> -->
+			<soundExplode>Shockwave</soundExplode>
 			<soundImpactAnticipate>Flying</soundImpactAnticipate>
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
 		</projectile>
-	</ThingDef>
+	</ThingDef> -->
 	<!-- 쥑이는건(RatHolic Gun) -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_RatHolicGun">
 		<defName>RK_Weapon_RatHolicGun</defName>
