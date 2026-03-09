@@ -59,7 +59,7 @@
 			<MoveSpeed>0.1</MoveSpeed>
 		</statOffsets>
 		<statFactors>
-			<MeleeDodgeChance>1.25</MeleeDodgeChance>
+			<MeleeDodgeChance>1.3</MeleeDodgeChance>
 		</statFactors>
 		<biostatMet>-2</biostatMet>
 		<biostatCpx>1</biostatCpx>
@@ -124,8 +124,8 @@
 		<displayCategory>Aptitudes</displayCategory>
 		<displayOrderInCategory>8040</displayOrderInCategory>
 		<statFactors>
-			<PlantWorkSpeed>1.1</PlantWorkSpeed>
-			<PlantHarvestYield>1.1</PlantHarvestYield>
+			<!-- <PlantWorkSpeed>1.0</PlantWorkSpeed> 1이라서 주석 처리 -->
+			<PlantHarvestYield>1.3</PlantHarvestYield>
 		</statFactors>
 		<biostatMet>-1</biostatMet>
 		<biostatCpx>1</biostatCpx>
@@ -269,7 +269,7 @@
 		</symbolPack>
 	</GeneDef>
 
-	<!-- 얇은 꼬리 -->
+	<!-- 얇은 꼬리 - 외형만 (이동속도 보너스 제거됨) -->
 	<GeneDef>
 		<defName>RK_Gene_ThinTail</defName>
 		<label>thin tail</label>
@@ -279,11 +279,8 @@
 		<iconColor>(0.75, 0.75, 0.75)</iconColor>
 		<displayCategory>Miscellaneous</displayCategory>
 		<displayOrderInCategory>1000</displayOrderInCategory>
-		<statOffsets>
-			<MoveSpeed>0.05</MoveSpeed>
-		</statOffsets>
 		<randomChosen>true</randomChosen>
-		<biostatMet>-1</biostatMet>
+		<biostatMet>0</biostatMet>
 		<biostatCpx>1</biostatCpx>
 		<exclusionTags>
 			<li>Tail</li>
