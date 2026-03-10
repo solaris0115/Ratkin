@@ -1,4 +1,4 @@
-﻿using RimWorld;
+using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -169,7 +169,7 @@ namespace NewRatkin
                 ImpactSomething();
                 return;
             }
-            if (ambientSustainer != null)
+            if (ambientSustainer != null && !ambientSustainer.Ended)
             {
                 ambientSustainer.Maintain();
             }

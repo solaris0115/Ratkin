@@ -13,8 +13,8 @@ namespace NewRatkin
     {
         public ThingDef projectileAP;
         public ThingDef projectileHE;
-        public string iconPathAP = "UI/BFR/BFR_AP";
-        public string iconPathHE = "UI/BFR/BFR_HE";
+        public string iconPathAP = "UI/Commands/RK_Icon_ArmorPiercing";
+        public string iconPathHE = "UI/Commands/RK_Icon_ShapedCharge";
 
         public CompProperties_BFRAmmoToggle()
         {
@@ -43,38 +43,11 @@ namespace NewRatkin
             Scribe_Values.Look(ref isHEMode, "isHEMode", false);
         }
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        /// <summary>
+        /// 탄종 토글 Gizmo 반환. 장비 시 CompGetEquippedGizmosExtra 패치에서 호출됨.
+        /// </summary>
+        public IEnumerable<Gizmo> GetToggleGizmos()
         {
-            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
-            {
-                yield return gizmo;
-            }
-
-            if (parent.Faction != Faction.OfPlayer)
-            {
-                yield break;
-            }
-
-            bool showGizmo = false;
-            if (parent.Spawned)
-            {
-                showGizmo = parent.Map.IsPlayerHome;
-            }
-            else if (parent.ParentHolder is Pawn holderPawn)
-            {
-                showGizmo = holderPawn.Faction == Faction.OfPlayer;
-            }
-            else if (parent.ParentHolder is IThingHolder holder)
-            {
-                Thing holderThing = holder as Thing;
-                showGizmo = holderThing?.Map?.IsPlayerHome ?? false;
-            }
-
-            if (!showGizmo)
-            {
-                yield break;
-            }
-
             string label = isHEMode ? "HE" : "AP";
             string iconPath = isHEMode ? Props.iconPathHE : Props.iconPathAP;
             Texture2D icon = ContentFinder<Texture2D>.Get(iconPath, false);
@@ -90,6 +63,59 @@ namespace NewRatkin
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
                 }
             };
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+            {
+                yield return gizmo;
+            }
+
+            if (!ShouldShowGizmo())
+            {
+                yield break;
+            }
+
+            foreach (Gizmo gizmo in GetToggleGizmos())
+            {
+                yield return gizmo;
+            }
+        }
+
+        private bool ShouldShowGizmo()
+        {
+            if (parent.Faction != null && parent.Faction != Faction.OfPlayer)
+            {
+                return false;
+            }
+
+            if (parent.Spawned)
+            {
+                return parent.Map?.IsPlayerHome ?? false;
+            }
+
+            Pawn holderPawn = GetHolderPawn();
+            if (holderPawn != null)
+            {
+                return holderPawn.Faction == Faction.OfPlayer;
+            }
+
+            if (parent.ParentHolder is Thing holderThing)
+            {
+                return holderThing.Map?.IsPlayerHome ?? false;
+            }
+
+            return false;
+        }
+
+        private Pawn GetHolderPawn()
+        {
+            if (parent.ParentHolder is Pawn_EquipmentTracker tracker)
+            {
+                return tracker.pawn;
+            }
+            return parent.ParentHolder as Pawn;
         }
     }
 }

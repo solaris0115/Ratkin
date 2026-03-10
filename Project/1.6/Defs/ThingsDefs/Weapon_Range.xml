@@ -1066,8 +1066,8 @@
 			<li Class="NewRatkin.CompProperties_BFRAmmoToggle">
 				<projectileAP>Bullet_BFR_AP</projectileAP>
 				<projectileHE>Bullet_BFR_HE</projectileHE>
-				<iconPathAP>UI/BFR/BFR_AP</iconPathAP>
-				<iconPathHE>UI/BFR/BFR_HE</iconPathHE>
+				<iconPathAP>UI/Commands/RK_Icon_ArmorPiercing</iconPathAP>
+				<iconPathHE>UI/Commands/RK_Icon_ShapedCharge</iconPathHE>
 			</li>
 		</comps>
 		<verbs>
