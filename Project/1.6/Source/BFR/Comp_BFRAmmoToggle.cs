@@ -61,6 +61,12 @@ namespace NewRatkin
                 {
                     isHEMode = !isHEMode;
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
+                    // 발사 직전 토글 시 잘못된 탄종 발사 방지: 조준 초기화
+                    Pawn holder = GetHolderPawn();
+                    if (holder != null && holder.stances.curStance is Stance_Warmup)
+                    {
+                        holder.stances.CancelBusyStanceSoft();
+                    }
                 }
             };
         }

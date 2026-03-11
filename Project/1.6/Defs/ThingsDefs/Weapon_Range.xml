@@ -1081,28 +1081,9 @@
 				<muzzleFlashScale>12</muzzleFlashScale>
 				<warmupTime>2.5</warmupTime>
 				<burstShotCount>1</burstShotCount>
-				<minRange>3</minRange>
 				<range>44.9</range>
-				<!-- <desc>관통성이 높은 정밀 탄환을 발사합니다.</desc> -->
 				<label>AP fire</label>
-				<!-- <texPath>UI/Commands/AP</texPath> -->
 			</li>
-			<!-- 후폭풍탄 -->
-			<!-- <li Class="AdditionalVerb.VerbProperties_Custom"> -->
-			<!-- <verbClass>Verb_Shoot</verbClass> -->
-			<!-- <hasStandardCommand>true</hasStandardCommand> -->
-			<!-- <soundCast>PrototypePulse</soundCast> -->
-			<!-- <soundCastTail>GunTail_Heavy</soundCastTail> -->
-			<!-- <defaultProjectile>Bullet_BFR_SC</defaultProjectile> -->
-			<!-- <muzzleFlashScale>12</muzzleFlashScale> -->
-			<!-- <warmupTime>2.5</warmupTime> -->
-			<!-- <burstShotCount>1</burstShotCount> -->
-			<!-- <minRange>3</minRange> -->
-			<!-- <range>44.9</range>	 -->
-			<!-- <desc>적중시 뒤로 파편을 비산시키는 특수탄을 발사합니다.</desc> -->
-			<!-- <label>SC fire</label> -->
-			<!-- <texPath>UI/Commands/SC</texPath> -->
-			<!-- </li> -->
 		</verbs>
 		<recipeMaker Inherit="false">
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -1166,7 +1147,7 @@
 		</graphicData>
 		<thingClass>NewRatkin.Projectile_BallistaBoltAP</thingClass>
 		<projectile Class="NewRatkin.ProjectileProperties_BallistaBoltAP">
-			<shockWaveDef>ShockWaveLight</shockWaveDef>
+			<!-- <shockWaveDef>ShockWaveLight</shockWaveDef> -->
 			<maxPenetrationCount>3</maxPenetrationCount>
 			<damageReduceRate>0.4</damageReduceRate>
 			<damageDef>RangedStab</damageDef>
@@ -1191,11 +1172,10 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<thingClass>Projectile_Explosive</thingClass>
-		<projectile>
-			<damageDef>Bomb</damageDef>
+		<thingClass>NewRatkin.Projectile_BFRHE</thingClass>
+		<projectile Class="NewRatkin.ProjectileProperties_BFRHE">
+			<damageDef>RangedStab</damageDef>
 			<damageAmountBase>40</damageAmountBase>
-			<explosionRadius>1.7</explosionRadius>
 			<speed>95</speed>
 			<alwaysFreeIntercept>true</alwaysFreeIntercept>
 			<flyOverhead>false</flyOverhead>
@@ -1203,36 +1183,13 @@
 			<soundExplode>Shockwave</soundExplode>
 			<soundImpactAnticipate>Flying</soundImpactAnticipate>
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<!-- 부채꼴 폭발 설정 (후면, 벽 무시) -->
+			<sectorAngle>90</sectorAngle>
+			<sectorRadius>5</sectorRadius>
+			<damageAmountExplosion>25</damageAmountExplosion>
 		</projectile>
 	</ThingDef>
 
-	<!-- <ThingDef ParentName="BaseBullet">
-		<defName>Bullet_BFR_SC</defName>
-		<label>wedge bullet (SC)</label>
-		<graphicData>
-			<texPath>Things/Projectile/Ballista_Bolt_HE</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<shaderType>TransparentPostLight</shaderType>
-		</graphicData>
-		<thingClass>NewRatkin.Projectile_BallistaBoltAP</thingClass>
-		<projectile Class="NewRatkin.ProjectileProperties_BallistaBoltAP">
-			<shockWaveDef>ShockWaveLight</shockWaveDef>
-			<maxPenetrationCount>1</maxPenetrationCount>
-			<damageReduceRate>0.4</damageReduceRate>
-			<damageDef>RangedStab</damageDef>
-			<damageAmountBase>40</damageAmountBase>
-			<armorPenetrationBase>0.60</armorPenetrationBase>
-			<stoppingPower>8</stoppingPower>
-			<speed>85</speed>
-			<explosionRadius>1.7</explosionRadius>
-			<alwaysFreeIntercept>true</alwaysFreeIntercept>
-			<flyOverhead>false</flyOverhead>
-			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
-			<soundExplode>Shockwave</soundExplode>
-			<soundImpactAnticipate>Flying</soundImpactAnticipate>
-			<soundAmbient>MortarRound_Ambient</soundAmbient>
-		</projectile>
-	</ThingDef> -->
 	<!-- 쥑이는건(RatHolic Gun) -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_RatHolicGun">
 		<defName>RK_Weapon_RatHolicGun</defName>
