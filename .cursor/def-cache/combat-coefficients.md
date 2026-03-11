@@ -150,3 +150,20 @@ note: 전투 관련 계수 = 소재(stuff) 계수 + 등급(quality) 계수
 | Uranium | Metallic | 1.08 | 0.54 | 0.65 |
 | Wood | Woody | 0.54 | 0.54 | 0.40 |
 | Bioferrite | Metallic, Bioferrite | 1.1 | 0.5 | 0.5 |
+
+---
+
+## 3. 방어력 계산식 (Armor Rating Formula)
+
+**상세**: [armor-rating-formula.md](armor-rating-formula.md)
+
+```
+최종 방어력 = (고정방어력 + StuffEffectMultiplierArmor × StuffPower_Armor_XXX) × QualityFactor
+```
+
+| 요소 | 출처 | 비고 |
+|------|------|------|
+| 고정방어력 | 방어구 statBases (ArmorRating_Sharp/Blunt/Heat) | Base 값 |
+| StuffEffectMultiplierArmor | 방어구 statBases | 0~1, 소재 반영 배율 |
+| StuffPower_Armor_XXX | 소재 statBases | 위 2.3 표 참조 |
+| QualityFactor | StatPart_Quality | 위 1.2 표 참조 |

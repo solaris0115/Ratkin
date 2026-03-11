@@ -109,6 +109,12 @@ ToolCapacityDef는 ManeuverDef를 통해 DamageDef에 연결된다.
 - **내용**: 등급별(quality) 피해/방어 계수 + 소재별(stuff) 공격/방어 계수
 - **기본 필드**: StatDef별 factorAwful~factorLegendary, StuffPower_Armor_*, SharpDamageMultiplier, BluntDamageMultiplier
 
+## armor-rating-formula (방어력 계산식)
+
+- **탐색 경로**: `Stats_Apparel.xml`, `StatPart_Stuff.cs`, `StatPart_Quality.cs`, `StatDef.cs`
+- **내용**: 품질·소재·고정방어력이 반영된 방어력 최종 계산식
+- **기본 필드**: BaseArmor, StuffEffectMultiplierArmor, StuffPower_Armor_Sharp/Blunt/Heat, QualityFactor
+
 ## 네이밍 규칙
 
 - 파일명: kebab-case (`melee-weapons.md`, `ranged-weapons.md`, `combat-coefficients.md`)

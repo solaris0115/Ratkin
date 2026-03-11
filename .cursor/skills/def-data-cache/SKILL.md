@@ -42,6 +42,7 @@ description: Def 데이터 캐시 관리 스킬. 림월드/랫킨 Def 데이터�
 | 능력, ability, 스킬 | `abilities.md` |
 | 종족, race | `races.md` |
 | 전투 계수, 등급별 피해, 등급별 방어, quality coefficient | `combat-coefficients.md` |
+| 방어력 계산, armor rating, 품질 소재 고정방어력, StuffEffectMultiplierArmor | `armor-rating-formula.md` |
 
 판별 불가 시 사용자에게 카테고리명을 확인한다.
 
