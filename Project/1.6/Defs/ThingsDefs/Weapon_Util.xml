@@ -21,7 +21,7 @@
 		</recipeMaker>
 	</ThingDef>
 	<!-- 근접무기 -->
-	<!-- 도끼 수확속도 +5% 수확량 +5%-->
+	<!-- 도끼 수확속도 +5%-->
 	<ThingDef ParentName="RK_MeleeWeapon">
 		<defName>RK_Axe</defName>
 		<label>axe</label>
