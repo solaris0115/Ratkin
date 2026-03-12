@@ -99,19 +99,19 @@ note: DPS/관통력 = 전설등급. 고정관통력(armorPenetration 지정)은 
 
 | defName | 생산 | damageType | power | piercing | cooldown | DPS |
 |---|---|---|---|---|---|---|
-| RK_Dagger | stuff | Stab(sharp) | 15.0 | 0.4084 | 2.0 | 17.02 |
+| RK_Dagger | stuff | Stab(sharp) | 14.0 | 0.38 | 1.5 | 21.18 |
 | RK_Dagger | stuff | Cut(sharp)+Stun(sharp)+Cut(sharp) | 12.0 | 0.3267 | 1.5 | 18.15 |
 | RK_OneHanded | stuff | Stab(sharp) | 21.0 | 0.5717 | 2.4 | 19.85 |
 | RK_OneHanded | stuff | Cut(sharp) | 21.0 | 0.5717 | 2.4 | 19.85 |
 | RK_OneHanded | stuff | Blunt(blunt) | 10.0 | 0.3712 | 1.8 | 12.5 |
-| RK_Mace | stuff | Blunt(blunt) | 19.0 | 0.7054 | 2.4 | 17.81 |
+| RK_Mace | stuff | Blunt(blunt) | 20.0 | 0.74 | 2.4 | 18.75 |
 | RK_Mace | stuff | Blunt(blunt) | 10.0 | 0.3712 | 2.2 | 10.23 |
 | RK_LightLance | Fixed Cost | Stab(sharp) | 27.0 | 0.6682 | 2.5 | 17.82 |
 | RK_LightLance | Fixed Cost | Cut(sharp) | 21.0 | 0.5197 | 2.8 | 12.38 |
 | RK_LightLance | Fixed Cost | Blunt(blunt) | 13.0 | 0.3217 | 2.8 | 7.66 |
-| RK_TwoHanded | stuff | Blunt(blunt) | 12.0 | 0.4455 | 2.0 | 13.5 |
-| RK_TwoHanded | stuff | Stab(sharp) | 27.0 | 0.7351 | 2.9 | 21.12 |
-| RK_TwoHanded | stuff | Cut(sharp) | 27.0 | 0.7351 | 2.9 | 21.12 |
+| RK_TwoHanded | stuff | Blunt(blunt) | 12.0 | 0.45 | 2.0 | 13.5 |
+| RK_TwoHanded | stuff | Stab(sharp) | 24.0 | 0.65 | 2.5 | 21.78 |
+| RK_TwoHanded | stuff | Cut(sharp) | 27.0 | 0.74 | 2.8 | 21.88 |
 | RK_HeavyLance | stuff | Stab(sharp) | 32.0 | 0.8712 | 3.0 | 24.2 |
 | RK_HeavyLance | stuff | Cut(sharp) | 27.0 | 0.7351 | 3.4 | 18.02 |
 | RK_HeavyLance | stuff | Blunt(blunt) | 16.0 | 0.594 | 3.4 | 10.59 |
@@ -120,8 +120,8 @@ note: DPS/관통력 = 전설등급. 고정관통력(armorPenetration 지정)은 
 | RK_LongSword | stuff | Blunt(blunt) | 12.0 | 0.4455 | 1.8 | 15.0 |
 | RK_Spear | stuff | Blunt(blunt); Poke(blunt) | 6.5 | 0.2413 | 1.3 | 11.25 |
 | RK_Spear | stuff | Stab(sharp) | 11.5 | 0.825 | 1.3 | 20.07 |
-| RK_Halberd | stuff | Stab(sharp) | 15.0 | 0.4084 | 1.6 | 21.27 |
-| RK_Halberd | stuff | RK_HalberdCleave(sharp) | 23.0 | 1.0725 | 3.2 | 16.31 |
+| RK_Halberd | stuff | Stab(sharp) | 15.0 | 0.41 | 1.8 | 18.91 |
+| RK_Halberd | stuff | RK_HalberdCleave(sharp) | 23.0 | 1.07 | 2.4 | 21.74 |
 
 
 ### Weapon_Util (10 tool행)
@@ -132,11 +132,11 @@ note: DPS/관통력 = 전설등급. 고정관통력(armorPenetration 지정)은 
 | RK_Axe | stuff | Cut(sharp) | 20.0 | 0.5445 | 2.5 | 18.15 |
 | RK_Cleaver | stuff | Blunt(blunt) | 5.0 | 0.1856 | 2.0 | 5.62 |
 | RK_Cleaver | stuff | Cut(sharp) | 12.0 | 0.3267 | 1.8 | 15.12 |
-| RK_Hockey | stuff | Stab(sharp) | 14.0 | 0.3811 | 2.0 | 15.88 |
-| RK_Hockey | stuff | Cut(sharp) | 14.0 | 0.3811 | 2.0 | 15.88 |
-| RK_Fork | stuff | Stab(sharp) | 14.0 | 0.3811 | 2.0 | 15.88 |
-| RK_Fork | stuff | Cut(sharp) | 14.0 | 0.3811 | 2.0 | 15.88 |
-| RK_Pickaxe | stuff | Blunt(blunt) | 15.0 | 0.5569 | 2.5 | 13.5 |
+| RK_Hockey | stuff | Stab(sharp) | 17.0 | 0.46 | 2.4 | 16.07 |
+| RK_Hockey | stuff | Cut(sharp) | 14.0 | 0.38 | 2.0 | 15.88 |
+| RK_Fork | stuff | Stab(sharp) | 17.0 | 0.46 | 2.4 | 16.07 |
+| RK_Fork | stuff | Cut(sharp) | 14.0 | 0.38 | 2.0 | 15.88 |
+| RK_Pickaxe | stuff | Blunt(blunt) | 20.0 | 0.74 | 3.0 | 15.0 |
 | RK_Pickaxe | stuff | RK_ToolCapacity_PickaxeStab(sharp)+Crush(blunt) | 10.0 | 0.825 | 3.0 | 7.56 |
 
 
@@ -154,8 +154,8 @@ note: DPS/관통력 = 전설등급. 고정관통력(armorPenetration 지정)은 
 |---|---|---|---|---|---|---|
 | RK_Weapon_Gunlance | stuff | Stab(sharp) | 20.0 | 0.5445 | 3.0 | 15.12 |
 | RK_Weapon_Gunlance | stuff | GunlanceShell_Normal(sharp) | 25.0 | 0.6806 | 3.0 | 18.91 |
-| RK_Weapon_ProtoChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp) | 20.0 | 1.155 | 3.0 | 11.0 |
-| RK_Weapon_ProtoChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp) | 20.0 | 1.155 | 3.0 | 11.0 |
-| RK_Weapon_ProtoFlameChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp)+Burn(heat) | 20.0 | 1.155 | 3.0 | 11.0 |
-| RK_Weapon_ProtoFlameChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp)+Burn(heat) | 20.0 | 1.155 | 3.0 | 11.0 |
+| RK_Weapon_ProtoChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp) | 20.0 | 1.16 | 2.0 | 16.5 |
+| RK_Weapon_ProtoChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp) | 20.0 | 1.16 | 2.0 | 16.5 |
+| RK_Weapon_ProtoFlameChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp)+Burn(heat) | 20.0 | 1.16 | 2.0 | 16.5 |
+| RK_Weapon_ProtoFlameChainSword | Fixed Cost | RK_ToolCapacity_ChainSword(sharp)+Burn(heat) | 20.0 | 1.16 | 2.0 | 16.5 |
 

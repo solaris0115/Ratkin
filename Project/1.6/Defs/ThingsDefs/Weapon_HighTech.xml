@@ -474,7 +474,7 @@
 				</capacities>
 				<power>20</power>
 				<armorPenetration>0.7</armorPenetration>
-				<cooldownTime>3</cooldownTime>
+				<cooldownTime>2</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 			</li>
 			<li>
@@ -484,7 +484,7 @@
 				</capacities>
 				<power>20</power>
 				<armorPenetration>0.7</armorPenetration>
-				<cooldownTime>3</cooldownTime>
+				<cooldownTime>2</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 			</li>
 		</tools>
@@ -513,7 +513,7 @@
 				</capacities>
 				<power>20</power>
 				<armorPenetration>0.7</armorPenetration>
-				<cooldownTime>3</cooldownTime>
+				<cooldownTime>2</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 				<extraMeleeDamages>
 					<li>
@@ -530,7 +530,7 @@
 				</capacities>
 				<power>20</power>
 				<armorPenetration>0.7</armorPenetration>
-				<cooldownTime>3</cooldownTime>
+				<cooldownTime>2</cooldownTime>
 				<chanceFactor>5.0</chanceFactor>
 				<extraMeleeDamages>
 					<li>
@@ -685,12 +685,12 @@
 		<cutExtraTargetsCurve>
 			<points>
 				<li>0, 1</li>
-				<li>0.6, 3</li>
-				<li>0.9, 5</li>
-				<li>1, 7</li>
+				<li>0.6, 5</li>
+				<li>0.9, 7</li>
+				<li>1, 9</li>
 			</points>
 		</cutExtraTargetsCurve>
-		<cutCleaveBonus>0.6</cutCleaveBonus>
+		<cutCleaveBonus>1.2</cutCleaveBonus>
 	</DamageDef>
 
 	<DamageDef>
@@ -704,17 +704,17 @@
 		<hediffSolid>Crush</hediffSolid>
 		<harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
 		<impactSoundType>RK_Impact_ChainSaw</impactSoundType>
-		<armorCategory>Sharp</armorCategory>
+		<armorCategory>Heat</armorCategory>
 		<overkillPctToDestroyPart>0~0.1</overkillPctToDestroyPart>
 		<cutExtraTargetsCurve>
 			<points>
 				<li>0, 1</li>
-				<li>0.6, 3</li>
-				<li>0.9, 5</li>
-				<li>1, 7</li>
+				<li>0.6, 5</li>
+				<li>0.9, 7</li>
+				<li>1, 9</li>
 			</points>
 		</cutExtraTargetsCurve>
-		<cutCleaveBonus>0.6</cutCleaveBonus>
+		<cutCleaveBonus>1.2</cutCleaveBonus>
 	</DamageDef>
 
 	<!-- 일반 피해 유형보다 부가 피해를 더 유발 -->

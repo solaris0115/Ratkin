@@ -49,8 +49,8 @@
 			<Mass>1.6</Mass>
 		</statBases>
 		<equippedStatOffsets>
-			<PlantWorkSpeed>0.05</PlantWorkSpeed>
-			<PlantHarvestYield>0.05</PlantHarvestYield>
+			<PlantWorkSpeed>0.20</PlantWorkSpeed>
+			<PlantHarvestYield>0.20</PlantHarvestYield>
 		</equippedStatOffsets>
 		<equippedAngleOffset>-20</equippedAngleOffset>
 		<tools>
@@ -116,8 +116,8 @@
 			<Mass>0.8</Mass>
 		</statBases>
 		<equippedStatOffsets>
-			<CookSpeed>0.10</CookSpeed>
-			<ButcheryFleshSpeed>0.15</ButcheryFleshSpeed>
+			<CookSpeed>0.30</CookSpeed>
+			<ButcheryFleshSpeed>0.30</ButcheryFleshSpeed>
 		</equippedStatOffsets>
 		<equippedAngleOffset>-55</equippedAngleOffset>
 		<tools>
@@ -181,8 +181,7 @@
 			<Mass>1.6</Mass>
 		</statBases>
 		<equippedStatOffsets>
-			<PlantWorkSpeed>0.05</PlantWorkSpeed>
-			<PlantHarvestYield>0.15</PlantHarvestYield>
+			<PlantHarvestYield>0.30</PlantHarvestYield>
 		</equippedStatOffsets>
 		<equippedAngleOffset>20</equippedAngleOffset>
 		<tools>
@@ -191,8 +190,8 @@
 				<capacities>
 					<li>Stab</li>
 				</capacities>
-				<power>14</power>
-				<cooldownTime>2</cooldownTime>
+				<power>17</power>
+				<cooldownTime>2.4</cooldownTime>
 			</li>
 			<li>
 				<label>edge</label>
@@ -247,8 +246,7 @@
 			<Mass>1.6</Mass>
 		</statBases>
 		<equippedStatOffsets>
-			<PlantWorkSpeed>0.10</PlantWorkSpeed>
-			<PlantHarvestYield>0.10</PlantHarvestYield>
+			<PlantWorkSpeed>0.50</PlantWorkSpeed>
 		</equippedStatOffsets>
 		<equippedAngleOffset>20</equippedAngleOffset>
 		<tools>
@@ -257,8 +255,8 @@
 				<capacities>
 					<li>Stab</li>
 				</capacities>
-				<power>14</power>
-				<cooldownTime>2</cooldownTime>
+				<power>17</power>
+				<cooldownTime>2.4</cooldownTime>
 			</li>
 			<li>
 				<label>edge</label>
@@ -318,7 +316,7 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MiningSpeed>0.20</MiningSpeed>
-			<MiningYield>0.10</MiningYield>
+			<MiningYield>0.30</MiningYield>
 			<DeepDrillingSpeed>0.20</DeepDrillingSpeed>
 		</equippedStatOffsets>
 		<equippedAngleOffset>60</equippedAngleOffset>
@@ -328,8 +326,8 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>15</power>
-				<cooldownTime>2.5</cooldownTime>
+				<power>20</power>
+				<cooldownTime>3</cooldownTime>
 			</li>
 			<li>
 				<label>point</label>

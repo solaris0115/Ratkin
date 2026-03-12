@@ -35,8 +35,8 @@
 				<capacities>
 					<li>Stab</li>
 				</capacities>
-				<power>15</power>
-				<cooldownTime>2</cooldownTime>
+				<power>14</power>
+				<cooldownTime>1.5</cooldownTime>
 			</li>
 			<li>
 				<label>edge</label>
@@ -267,7 +267,7 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>19</power>
+				<power>20</power>
 				<cooldownTime>2.4</cooldownTime>
 			</li>
 			<li>
@@ -468,8 +468,8 @@
 				<capacities>
 					<li>Stab</li>
 				</capacities>
-				<power>27</power>
-				<cooldownTime>2.9</cooldownTime>
+				<power>24</power>
+				<cooldownTime>2.5</cooldownTime>
 			</li>
 			<li>
 				<label>edge</label>
@@ -477,7 +477,7 @@
 					<li>Cut</li>
 				</capacities>
 				<power>27</power>
-				<cooldownTime>2.9</cooldownTime>
+				<cooldownTime>2.8</cooldownTime>
 			</li>
 		</tools>
 		<recipeMaker>
@@ -887,7 +887,7 @@
 					<li>Stab</li>
 				</capacities>
 				<power>15</power>
-				<cooldownTime>1.6</cooldownTime>
+				<cooldownTime>1.8</cooldownTime>
 			</li>
 			<li>
 				<label>edge</label>
@@ -896,7 +896,7 @@
 				</capacities>
 				<power>23</power>
 				<armorPenetration>0.65</armorPenetration>
-				<cooldownTime>3.2</cooldownTime>
+				<cooldownTime>2.4</cooldownTime>
 			</li>
 		</tools>
 		<recipeMaker>
