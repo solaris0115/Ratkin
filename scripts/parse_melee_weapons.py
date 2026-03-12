@@ -442,9 +442,9 @@ def calc_melee_piercing(
     - armor_penetration < 0 (미지정): effective_damage × 0.015
     """
     if armor_penetration >= 0:
-        return round(armor_penetration * QUALITY_LEGENDARY, 4)
+        return round(armor_penetration * QUALITY_LEGENDARY, 2)
     effective_damage = power * _effective_damage_mult(armor_cat, is_stuff)
-    return round(effective_damage * PIERCING_DEFAULT_FACTOR, 4)
+    return round(effective_damage * PIERCING_DEFAULT_FACTOR, 2)
 
 
 def is_melee_weapon(def_name, all_defs, tools_cache, verb_cache):
@@ -626,15 +626,22 @@ def _markdown_table(headers: list, rows: list) -> str:
     return "\n".join([row_str(headers), sep] + [row_str(r) for r in rows])
 
 
+def _round2(val):
+    """소수점 두 자리로 반올림."""
+    if isinstance(val, (int, float)):
+        return round(val, 2)
+    return val
+
+
 def _tool_row(r: dict) -> list:
     return [
         r["defName"],
         r["생산"],
         r["damageType"],
-        r["power"],
-        r["piercing"],
-        r["cooldown"],
-        r["DPS"],
+        _round2(r["power"]),
+        _round2(r["piercing"]),
+        _round2(r["cooldown"]),
+        _round2(r["DPS"]),
     ]
 
 
@@ -738,7 +745,7 @@ def _piercing_formula(row_idx: int, params_sheet: str = "Parameters") -> str:
         f"IF(AND({b}=\"stuff\",OR(ISNUMBER(SEARCH(\"(sharp)\",{c})),ISNUMBER(SEARCH(\"(heat)\",{c})))),{ev}!$B$2,"
         f"IF(AND({b}=\"stuff\",ISNUMBER(SEARCH(\"(blunt)\",{c}))),{ev}!$B$4,1))"
     )
-    return f"=ROUND({d}*{p}!$B$2*{mat_mult}*{p}!$B$7,4)"
+    return f"=ROUND({d}*{p}!$B$2*{mat_mult}*{p}!$B$7,2)"
 
 
 def write_excel(result):
@@ -846,7 +853,7 @@ def write_excel(result):
     ws_params.cell(row=6, column=3, value="blunt 소재 쿨다운 배율 (Edit_Values Slot2)")
     ws_params.cell(row=7, column=1, value="PIERCING_FACTOR")
     ws_params.cell(row=7, column=2, value=PIERCING_DEFAULT_FACTOR)
-    ws_params.cell(row=7, column=2).number_format = "0.000"
+    ws_params.cell(row=7, column=2).number_format = "0.00"
     ws_params.cell(row=7, column=3, value="관통력 power기반 계산: effective_damage×이값 (armorPenetration 미지정 시)")
     ws_params.column_dimensions["A"].width = 20
     ws_params.column_dimensions["B"].width = 18
