@@ -29,10 +29,23 @@ RANGED_VERBS = {
 # Legendary quality multiplier (MeleeWeapon_DamageMultiplier)
 QUALITY_LEGENDARY = 1.65
 
+# Armor penetration: 미지정 시 power×0.015 (effective_damage 기반), 고정 지정 시 품질만
+# VerbProperties.AdjustedArmorPenetration: armorPenetration<0 → damage×0.015, >=0 → ap×quality
+PIERCING_DEFAULT_FACTOR = 0.015
+
 # Material coefficients: sharp=Plasteel, blunt=Uranium (combat-coefficients.md)
-# (damage_mult, cooldown_mult) - cooldown lower = faster
-MATERIAL_PLASTEEL = (1.1, 0.8)   # sharp
-MATERIAL_URANIUM = (1.5, 1.10)  # blunt
+# (SharpDamageMult, BluntDamageMult, CooldownMult) - cooldown lower = faster
+# Default for stuff weapons: sharp→Plasteel, blunt→Uranium
+MATERIAL_PLASTEEL = (1.1, 0.9, 0.8)   # sharp 기본
+MATERIAL_URANIUM = (1.1, 1.5, 1.10)   # blunt 기본
+
+# 레퍼런스용 소재별 계수 (combat-coefficients.md)
+MATERIAL_REFERENCE = {
+    "Steel": (1.0, 1.0, 1.0),
+    "Uranium": (1.1, 1.5, 1.10),
+    "Plasteel": (1.1, 0.9, 0.8),
+    "Bioferrite": (1.3, 0.9, 1.0),
+}
 
 # capacity -> (damageType, armorCategory) from damage-type-mapping.md
 CAPACITY_TO_ARMOR = {
@@ -301,11 +314,11 @@ def capacity_to_damage_type(capacity: str) -> tuple:
 
 
 def format_damage_type(capacities: list, extra_damages: list) -> str:
-    """Format as 'Cap(dmg); Cap(dmg)' or 'Cap(dmg)+Extra(heat)'."""
+    """Format as 'Cap(armor)' - capacity 이름으로 표시 (Blunt/Poke 구분)."""
     parts = []
     for cap in capacities:
-        dmg, armor = capacity_to_damage_type(cap)
-        parts.append(f"{dmg}({armor})")
+        _, armor = capacity_to_damage_type(cap)
+        parts.append(f"{cap}({armor})")
     main = "; ".join(parts)
     for ed in extra_damages:
         dmg, armor = capacity_to_damage_type(ed)
@@ -350,6 +363,8 @@ def extract_tools(tools_elem):
         cooldown = get_float(find_direct(li, "cooldownTime"), 0.0)
         if cooldown <= 0:
             cooldown = 2.0  # fallback
+        # armorPenetration: 미지정 시 -1, 지정 시 0~1 (고정 관통력, 품질만 적용)
+        armor_penetration = get_float(find_direct(li, "armorPenetration"), -1.0)
 
         extra_damages = []
         extra_elem = find_direct(li, "extraMeleeDamages")
@@ -379,9 +394,21 @@ def extract_tools(tools_elem):
                 "capacities": capacities,
                 "power": power,
                 "cooldown": cooldown,
+                "armor_penetration": armor_penetration,
                 "extra_damages": extra_damages,
             })
     return result
+
+
+def _effective_damage_mult(armor_cat: str, is_stuff: bool) -> float:
+    """전설등급 기준 유효 피해 배율 (power × 이 값 = effective_damage)."""
+    dmg_mult = QUALITY_LEGENDARY
+    if is_stuff:
+        if armor_cat == "sharp":
+            dmg_mult *= MATERIAL_PLASTEEL[0]  # SharpDamageMultiplier
+        elif armor_cat == "blunt":
+            dmg_mult *= MATERIAL_URANIUM[1]  # BluntDamageMultiplier
+    return dmg_mult
 
 
 def calc_melee_dps(power: float, cooldown: float, armor_cat: str, is_stuff: bool) -> float:
@@ -393,15 +420,31 @@ def calc_melee_dps(power: float, cooldown: float, armor_cat: str, is_stuff: bool
     if is_stuff:
         if armor_cat == "sharp":
             dmg_mult *= MATERIAL_PLASTEEL[0]
-            cd_mult = MATERIAL_PLASTEEL[1]
+            cd_mult = MATERIAL_PLASTEEL[2]  # CooldownMultiplier
         elif armor_cat == "blunt":
-            dmg_mult *= MATERIAL_URANIUM[0]
-            cd_mult = MATERIAL_URANIUM[1]
+            dmg_mult *= MATERIAL_URANIUM[1]
+            cd_mult = MATERIAL_URANIUM[2]
         elif armor_cat == "heat":
-            cd_mult = MATERIAL_PLASTEEL[1]  # heat uses plasteel cooldown as default
+            cd_mult = MATERIAL_PLASTEEL[2]  # heat uses plasteel cooldown as default
     effective_damage = power * dmg_mult
     effective_cooldown = cooldown * cd_mult
     return round(effective_damage / effective_cooldown, 2)
+
+
+def calc_melee_piercing(
+    power: float,
+    armor_penetration: float,
+    armor_cat: str,
+    is_stuff: bool,
+) -> float:
+    """관통력 계산. VerbProperties.AdjustedArmorPenetration 로직.
+    - armor_penetration >= 0 (고정): ap × 품질 (소재 영향 없음)
+    - armor_penetration < 0 (미지정): effective_damage × 0.015
+    """
+    if armor_penetration >= 0:
+        return round(armor_penetration * QUALITY_LEGENDARY, 4)
+    effective_damage = power * _effective_damage_mult(armor_cat, is_stuff)
+    return round(effective_damage * PIERCING_DEFAULT_FACTOR, 4)
 
 
 def is_melee_weapon(def_name, all_defs, tools_cache, verb_cache):
@@ -443,13 +486,19 @@ def extract_melee_weapon_data(def_name, all_defs, tools_cache, verb_cache, prod_
         damage_type_str = format_damage_type(capacities, extra)
         primary_armor = get_primary_armor_category(capacities, extra)
         dps = calc_melee_dps(t["power"], t["cooldown"], primary_armor, is_stuff)
+        piercing = calc_melee_piercing(
+            t["power"], t["armor_penetration"], primary_armor, is_stuff
+        )
         rows.append({
             "defName": def_name,
             "source": rel,
             "source_type": source_type,
             "생산": production,
             "damageType": damage_type_str,
+            "primary_armor": primary_armor,
             "power": t["power"],
+            "piercing": piercing,
+            "armor_penetration": t["armor_penetration"],  # Def 원본값: <0=power기반, >=0=고정
             "cooldown": t["cooldown"],
             "DPS": dps,
         })
@@ -557,8 +606,13 @@ def main():
         sheet = source_to_ratkin_sheet(r["source"])
         project_by_sheet[sheet].append(r)
 
+    sharp_rows = [r for r in all_rows if r["primary_armor"] in ("sharp", "heat")]
+    blunt_rows = [r for r in all_rows if r["primary_armor"] == "blunt"]
+
     return {
         "all_rows": all_rows,
+        "sharp_rows": sharp_rows,
+        "blunt_rows": blunt_rows,
         "rimworld_by_dlc": dict(rimworld_by_dlc),
         "project": project_rows,
         "project_by_sheet": dict(project_by_sheet),
@@ -578,6 +632,7 @@ def _tool_row(r: dict) -> list:
         r["생산"],
         r["damageType"],
         r["power"],
+        r["piercing"],
         r["cooldown"],
         r["DPS"],
     ]
@@ -605,8 +660,8 @@ sources:
     for s in sorted(sources)[:40]:
         yaml += f"  - {s.replace(chr(92), '/')}\n"
     yaml += """scope: 순수 근접 무기만 (원거리 무기의 근접 tools 제외)
-fields: defName, 생산, damageType, power, cooldown, DPS
-note: DPS = 전설등급 기준. stuff→sharp:플라스틸/blunt:우라늄, Fixed Cost/생산불가→소재계수 미적용
+fields: defName, 생산, damageType, power, piercing, cooldown, DPS
+note: DPS/관통력 = 전설등급. 고정관통력(armorPenetration 지정)은 품질만, 미지정은 effective_damage×0.015
 ---
 """
 
@@ -626,7 +681,7 @@ note: DPS = 전설등급 기준. stuff→sharp:플라스틸/blunt:우라늄, Fix
         "",
     ]
 
-    headers = ["defName", "생산", "damageType", "power", "cooldown", "DPS"]
+    headers = ["defName", "생산", "damageType", "power", "piercing", "cooldown", "DPS"]
     dlc_order = ["Core", "Royalty", "Ideology", "Biotech", "Anomaly", "Odyssey"]
     for dlc in dlc_order:
         rows = result["rimworld_by_dlc"].get(dlc, [])
@@ -655,6 +710,37 @@ note: DPS = 전설등급 기준. stuff→sharp:플라스틸/blunt:우라늄, Fix
     print(f"Wrote {out_path}")
 
 
+def _dps_formula(row_idx: int, params_sheet: str = "Parameters") -> str:
+    """DPS 수식: power(D), cooldown(F), 생산(B), damageType(C) 참조. 계수 시트 레퍼런스."""
+    # 열: A=defName, B=생산, C=damageType, D=power, E=piercing, F=cooldown, G=DPS
+    # Parameters: B2=QUALITY, B3=PLASTEEL_DMG, B4=PLASTEEL_CD, B5=URANIUM_DMG, B6=URANIUM_CD
+    p = params_sheet
+    b, c, d, f = f"B{row_idx}", f"C{row_idx}", f"D{row_idx}", f"F{row_idx}"
+    return (
+        f"=ROUND(({d}*IF(AND({b}=\"stuff\",ISNUMBER(SEARCH(\"(sharp)\",{c}))),{p}!$B$2*{p}!$B$3,"
+        f"IF(AND({b}=\"stuff\",ISNUMBER(SEARCH(\"(blunt)\",{c}))),{p}!$B$2*{p}!$B$5,{p}!$B$2)))/"
+        f"({f}*IF(AND({b}=\"stuff\",OR(ISNUMBER(SEARCH(\"(sharp)\",{c})),ISNUMBER(SEARCH(\"(heat)\",{c})))),{p}!$B$4,"
+        f"IF(AND({b}=\"stuff\",ISNUMBER(SEARCH(\"(blunt)\",{c}))),{p}!$B$6,1))),2)"
+    )
+
+
+def _piercing_formula(row_idx: int, params_sheet: str = "Parameters") -> str:
+    """관통력 수식: power 기반(armorPenetration 미지정) 시 power(D)×quality×소재계수×0.015.
+    Edit_Values Slot1(sharp/heat), Slot2(blunt) 레퍼런스. power 수정 시 자동 반영."""
+    # 열: A=defName, B=생산, C=damageType, D=power, E=piercing
+    # Parameters: B2=QUALITY, B7=PIERCING_FACTOR(0.015)
+    # Edit_Values: B2=Plasteel(sharp), B4=Uranium(blunt) - 소재별 DMG_MULT
+    p = params_sheet
+    ev = "Edit_Values"
+    b, c, d = f"B{row_idx}", f"C{row_idx}", f"D{row_idx}"
+    # effective_damage = power × quality × material_dmg_mult; piercing = effective_damage × 0.015
+    mat_mult = (
+        f"IF(AND({b}=\"stuff\",OR(ISNUMBER(SEARCH(\"(sharp)\",{c})),ISNUMBER(SEARCH(\"(heat)\",{c})))),{ev}!$B$2,"
+        f"IF(AND({b}=\"stuff\",ISNUMBER(SEARCH(\"(blunt)\",{c}))),{ev}!$B$4,1))"
+    )
+    return f"=ROUND({d}*{p}!$B$2*{mat_mult}*{p}!$B$7,4)"
+
+
 def write_excel(result):
     import openpyxl
     from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
@@ -672,46 +758,160 @@ def write_excel(result):
     )
     num_fmt = "0.00"
 
-    headers = ["defName", "생산", "damageType", "power", "cooldown", "DPS"]
+    headers = ["defName", "생산", "damageType", "power", "piercing", "cooldown", "DPS"]
 
-    def _write_sheet(ws, title, rows):
+    # 1. Edit_Values 시트: 사용자가 직접 수정. Parameters가 여기 참조.
+    ws_edit = wb.active
+    ws_edit.title = "Edit_Values"
+    ws_edit.cell(row=1, column=1, value="Slot 1 (sharp)")
+    ws_edit.cell(row=1, column=2, value="DMG_MULT")
+    ws_edit.cell(row=1, column=3, value="CD_MULT")
+    ws_edit.cell(row=2, column=1, value="기본: Plasteel")
+    ws_edit.cell(row=2, column=2, value=MATERIAL_PLASTEEL[0])
+    ws_edit.cell(row=2, column=3, value=MATERIAL_PLASTEEL[2])
+    ws_edit.cell(row=3, column=1, value="Slot 2 (blunt)")
+    ws_edit.cell(row=3, column=2, value="DMG_MULT")
+    ws_edit.cell(row=3, column=3, value="CD_MULT")
+    ws_edit.cell(row=4, column=1, value="기본: Uranium")
+    ws_edit.cell(row=4, column=2, value=MATERIAL_URANIUM[1])
+    ws_edit.cell(row=4, column=3, value=MATERIAL_URANIUM[2])
+    for r in (2, 4):
+        for c in (2, 3):
+            ws_edit.cell(row=r, column=c).number_format = num_fmt
+    ws_edit.column_dimensions["A"].width = 18
+    ws_edit.column_dimensions["B"].width = 12
+    ws_edit.column_dimensions["C"].width = 12
+
+    # 참조란: 소재별 sharp, blunt, cooldown (수정 시 참고). 관통력도 Slot1/Slot2 DMG_MULT 참조
+    ws_edit.cell(row=6, column=1, value="참조: 소재별 계수 (직접 수정 시 참고). piercing=power×quality×DMG_MULT×0.015")
+    ws_edit.cell(row=6, column=1).font = Font(bold=True)
+    ref_headers = ["소재", "Sharp", "Blunt", "Cooldown"]
+    for c, h in enumerate(ref_headers, 1):
+        cell = ws_edit.cell(row=7, column=c, value=h)
+        cell.font = header_font_white
+        cell.fill = header_fill
+    for i, (mat_name, (sharp, blunt, cd)) in enumerate(MATERIAL_REFERENCE.items(), 8):
+        ws_edit.cell(row=i, column=1, value=mat_name)
+        ws_edit.cell(row=i, column=2, value=sharp)
+        ws_edit.cell(row=i, column=3, value=blunt)
+        ws_edit.cell(row=i, column=4, value=cd)
+        for c in (2, 3, 4):
+            ws_edit.cell(row=i, column=c).number_format = num_fmt
+
+    # 2. Material_Reference 시트: 레퍼런스용 참고 데이터만
+    ws_ref = wb.create_sheet("Material_Reference")
+    ws_ref.cell(row=1, column=1, value="소재")
+    ws_ref.cell(row=1, column=2, value="SharpDamageMult")
+    ws_ref.cell(row=1, column=3, value="BluntDamageMult")
+    ws_ref.cell(row=1, column=4, value="CooldownMult")
+    ws_ref.cell(row=2, column=1, value="참조: combat-coefficients.md")
+    for c in range(1, 5):
+        ws_ref.cell(row=1, column=c).font = header_font_white
+        ws_ref.cell(row=1, column=c).fill = header_fill
+    for i, (mat_name, (sharp, blunt, cd)) in enumerate(MATERIAL_REFERENCE.items(), 3):
+        ws_ref.cell(row=i, column=1, value=mat_name)
+        ws_ref.cell(row=i, column=2, value=sharp)
+        ws_ref.cell(row=i, column=3, value=blunt)
+        ws_ref.cell(row=i, column=4, value=cd)
+        for c in (2, 3, 4):
+            ws_ref.cell(row=i, column=c).number_format = num_fmt
+    ws_ref.column_dimensions["A"].width = 14
+    ws_ref.column_dimensions["B"].width = 16
+    ws_ref.column_dimensions["C"].width = 16
+    ws_ref.column_dimensions["D"].width = 14
+
+    # 3. Parameters 시트: Edit_Values 링크 참조
+    ws_params = wb.create_sheet("Parameters")
+    ws_params.cell(row=1, column=1, value="계수")
+    ws_params.cell(row=1, column=2, value="값")
+    ws_params.cell(row=1, column=3, value="설명")
+    for c in range(1, 4):
+        ws_params.cell(row=1, column=c).font = header_font_white
+        ws_params.cell(row=1, column=c).fill = header_fill
+    ws_params.cell(row=2, column=1, value="QUALITY_LEGENDARY")
+    ws_params.cell(row=2, column=2, value=QUALITY_LEGENDARY)
+    ws_params.cell(row=2, column=2).number_format = num_fmt
+    ws_params.cell(row=2, column=3, value="전설등급 피해 배율")
+    ws_params.cell(row=3, column=1, value="PLASTEEL_DMG")
+    ws_params.cell(row=3, column=2, value="=Edit_Values!$B$2")
+    ws_params.cell(row=3, column=3, value="sharp 소재 피해 배율 (Edit_Values Slot1)")
+    ws_params.cell(row=4, column=1, value="PLASTEEL_CD")
+    ws_params.cell(row=4, column=2, value="=Edit_Values!$C$2")
+    ws_params.cell(row=4, column=3, value="sharp 소재 쿨다운 배율 (Edit_Values Slot1)")
+    ws_params.cell(row=5, column=1, value="URANIUM_DMG")
+    ws_params.cell(row=5, column=2, value="=Edit_Values!$B$4")
+    ws_params.cell(row=5, column=3, value="blunt 소재 피해 배율 (Edit_Values Slot2)")
+    ws_params.cell(row=6, column=1, value="URANIUM_CD")
+    ws_params.cell(row=6, column=2, value="=Edit_Values!$C$4")
+    ws_params.cell(row=6, column=3, value="blunt 소재 쿨다운 배율 (Edit_Values Slot2)")
+    ws_params.cell(row=7, column=1, value="PIERCING_FACTOR")
+    ws_params.cell(row=7, column=2, value=PIERCING_DEFAULT_FACTOR)
+    ws_params.cell(row=7, column=2).number_format = "0.000"
+    ws_params.cell(row=7, column=3, value="관통력 power기반 계산: effective_damage×이값 (armorPenetration 미지정 시)")
+    ws_params.column_dimensions["A"].width = 20
+    ws_params.column_dimensions["B"].width = 18
+    ws_params.column_dimensions["C"].width = 35
+
+    def _write_sheet(ws, title, rows, ref_info=None):
         ws.title = title[:31]
+        row_offset = 1
+        if ref_info:
+            ref_cell = ws.cell(row=1, column=1, value=ref_info)
+            ref_cell.hyperlink = "#Edit_Values!A1"
+            ref_cell.font = Font(color="0563C1", underline="single")
+            row_offset = 2
         for col_idx, h in enumerate(headers, 1):
-            cell = ws.cell(row=1, column=col_idx, value=h)
+            cell = ws.cell(row=row_offset, column=col_idx, value=h)
             cell.font = header_font_white
             cell.fill = header_fill
             cell.alignment = Alignment(horizontal="center")
             cell.border = thin_border
 
-        for row_idx, r in enumerate(rows, 2):
+        for row_idx, r in enumerate(rows, row_offset + 1):
             vals = _tool_row(r)
             for col_idx, val in enumerate(vals, 1):
-                cell = ws.cell(row=row_idx, column=col_idx, value=val)
-                cell.border = thin_border
                 h = headers[col_idx - 1]
-                if h in ("power", "cooldown", "DPS") and isinstance(val, (int, float)):
+                if h == "DPS":
+                    cell = ws.cell(row=row_idx, column=col_idx, value=_dps_formula(row_idx))
+                elif h == "piercing" and r.get("armor_penetration", -1) < 0:
+                    # power 기반 관통: power 수정 시 자동 반영, 소재(Edit_Values) 레퍼런스
+                    cell = ws.cell(row=row_idx, column=col_idx, value=_piercing_formula(row_idx))
+                else:
+                    cell = ws.cell(row=row_idx, column=col_idx, value=val)
+                cell.border = thin_border
+                if h in ("power", "piercing", "cooldown") and isinstance(val, (int, float)):
+                    cell.number_format = num_fmt
+                    cell.alignment = Alignment(horizontal="right")
+                elif h == "DPS" or (h == "piercing" and r.get("armor_penetration", -1) < 0):
                     cell.number_format = num_fmt
                     cell.alignment = Alignment(horizontal="right")
 
         for col_idx in range(1, len(headers) + 1):
             col_letter = get_column_letter(col_idx)
             max_len = len(headers[col_idx - 1])
-            for row_idx in range(2, len(rows) + 2):
+            for row_idx in range(row_offset + 1, len(rows) + row_offset + 1):
                 val = ws.cell(row=row_idx, column=col_idx).value
                 if val is not None:
                     max_len = max(max_len, len(str(val)))
             ws.column_dimensions[col_letter].width = min(max_len + 3, 40)
 
-        ws.auto_filter.ref = f"A1:{get_column_letter(len(headers))}{len(rows) + 1}"
+        if rows:
+            ws.auto_filter.ref = f"A{row_offset}:{get_column_letter(len(headers))}{len(rows) + row_offset}"
+
+    # 4. Sharp 시트 (기본 소재: Plasteel)
+    _write_sheet(wb.create_sheet(), "Sharp", result["sharp_rows"],
+                 ref_info="참조: Edit_Values Slot1 (Plasteel) - 클릭하여 계수 수정")
+
+    # 5. Blunt 시트 (기본 소재: Uranium)
+    _write_sheet(wb.create_sheet(), "Blunt", result["blunt_rows"],
+                 ref_info="참조: Edit_Values Slot2 (Uranium) - 클릭하여 계수 수정")
 
     all_rimworld = []
     for rows in result["rimworld_by_dlc"].values():
         all_rimworld.extend(rows)
 
-    _write_sheet(wb.active, "Rimworld", all_rimworld)
-
-    ws_rk = wb.create_sheet()
-    _write_sheet(ws_rk, "Ratkin", result["project"])
+    _write_sheet(wb.create_sheet(), "Rimworld", all_rimworld)
+    _write_sheet(wb.create_sheet(), "Ratkin", result["project"])
 
     dlc_order = ["Core", "Royalty", "Ideology", "Biotech", "Anomaly", "Odyssey"]
     for dlc in dlc_order:
