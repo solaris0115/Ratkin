@@ -1,0 +1,82 @@
+defName	생산	damageType	power	piercing	cooldown	DPS
+MeleeWeapon_MonoSwordBladelink	생산 불가	Stab(sharp)	27.00	1.49	1.60	27.84
+MeleeWeapon_MonoSwordBladelink	생산 불가	Cut(sharp)	27.00	1.49	1.60	27.84
+RK_LongSword	stuff	Stab(sharp)	23.00	0.63	2.10	24.85
+RK_LongSword	stuff	Cut(sharp)	23.00	0.63	2.10	24.85
+RK_HeavyLance	stuff	Stab(sharp)	32.00	0.87	3.00	24.20
+MeleeWeapon_ZeusHammerBladelink	생산 불가	Blunt(blunt)+EMP(sharp)	31.00	0.77	2.20	23.25
+RK_TwoHanded	stuff	Cut(sharp)	27.00	0.74	2.80	21.88
+RK_TwoHanded	stuff	Stab(sharp)	24.00	0.65	2.50	21.78
+RK_Halberd	stuff	RK_HalberdCleave(sharp)	23.00	1.07	2.40	21.74
+RK_Dagger	stuff	Stab(sharp)	14.00	0.38	1.50	21.18
+MeleeWeapon_MonoSword	생산 불가	Stab(sharp)	25.00	1.49	2.00	20.63
+MeleeWeapon_MonoSword	생산 불가	Cut(sharp)	25.00	1.49	2.00	20.63
+MeleeWeapon_LongSword	stuff	Stab(sharp)	23.00	0.63	2.60	20.07
+MeleeWeapon_LongSword	stuff	Cut(sharp)	23.00	0.63	2.60	20.07
+MeleeWeapon_Spear	stuff	Stab(sharp)	23.00	0.83	2.60	20.07
+RK_Spear	stuff	Stab(sharp)	11.50	0.83	1.30	20.07
+RK_OneHanded	stuff	Stab(sharp)	21.00	0.57	2.40	19.85
+RK_OneHanded	stuff	Cut(sharp)	21.00	0.57	2.40	19.85
+MeleeWeapon_PlasmaSwordBladelink	생산 불가	Stab(sharp)+Flame(heat)	23.00	0.57	2.00	18.98
+MeleeWeapon_PlasmaSwordBladelink	생산 불가	Cut(sharp)+Flame(heat)	23.00	0.57	2.00	18.98
+RK_Halberd	stuff	Stab(sharp)	15.00	0.41	1.80	18.91
+RK_Weapon_Gunlance	stuff	GunlanceShell_Normal(sharp)	25.00	0.68	3.00	18.91
+RK_Mace	stuff	Blunt(blunt)	20.00	0.74	2.40	18.75
+MeleeWeapon_Gladius	stuff	Stab(sharp)	16.00	0.44	2.00	18.15
+MeleeWeapon_Gladius	stuff	Cut(sharp)	16.00	0.44	2.00	18.15
+MeleeWeapon_Knife	stuff	Cut(sharp)	12.00	0.33	1.50	18.15
+RK_Dagger	stuff	Cut(sharp)+Stun(sharp)+Cut(sharp)	12.00	0.33	1.50	18.15
+RK_Axe	stuff	Cut(sharp)	20.00	0.54	2.50	18.15
+RK_HeavyLance	stuff	Cut(sharp)	27.00	0.74	3.40	18.02
+RK_LightLance	Fixed Cost	Stab(sharp)	27.00	0.67	2.50	17.82
+MeleeWeapon_Mace	stuff	Blunt(blunt)	15.70	0.58	2.00	17.66
+MeleeWeapon_Warhammer	stuff	Blunt(blunt)	20.00	0.74	2.60	17.31
+MeleeWeapon_Zeushammer	생산 불가	Blunt(blunt)+EMP(sharp)	31.00	0.77	3.00	17.05
+MeleeWeapon_Ikwa	stuff	Stab(sharp)	15.00	0.41	2.00	17.02
+MeleeWeapon_Ikwa	stuff	Cut(sharp)	15.00	0.41	2.00	17.02
+MeleeWeapon_Axe	stuff	Cut(sharp)	15.00	0.41	2.00	17.02
+MeleeWeapon_BreachAxe	stuff	Demolish(blunt)	7.50	0.28	1.00	16.88
+RK_Weapon_ProtoChainSword	Fixed Cost	RK_ToolCapacity_ChainSword(sharp)	20.00	1.16	2.00	16.50
+RK_Weapon_ProtoChainSword	Fixed Cost	RK_ToolCapacity_ChainSword(sharp)	20.00	1.16	2.00	16.50
+RK_Weapon_ProtoFlameChainSword	Fixed Cost	RK_ToolCapacity_ChainSword(sharp)+Burn(heat)	20.00	1.16	2.00	16.50
+RK_Weapon_ProtoFlameChainSword	Fixed Cost	RK_ToolCapacity_ChainSword(sharp)+Burn(heat)	20.00	1.16	2.00	16.50
+RK_Hockey	stuff	Stab(sharp)	17.00	0.46	2.40	16.07
+RK_Fork	stuff	Stab(sharp)	17.00	0.46	2.40	16.07
+RK_Hockey	stuff	Cut(sharp)	14.00	0.38	2.00	15.88
+RK_Fork	stuff	Cut(sharp)	14.00	0.38	2.00	15.88
+MeleeWeapon_Club	stuff	Blunt(blunt)	14.00	0.52	2.00	15.75
+MeleeWeapon_ZeusHammerBladelink	생산 불가	Poke(blunt)	15.00	0.37	1.60	15.47
+RK_Weapon_Gunlance	stuff	Stab(sharp)	20.00	0.54	3.00	15.13
+RK_Cleaver	stuff	Cut(sharp)	12.00	0.33	1.80	15.13
+RK_LongSword	stuff	Blunt(blunt)	12.00	0.45	1.80	15.00
+RK_Pickaxe	stuff	Blunt(blunt)	20.00	0.74	3.00	15.00
+MeleeWeapon_Knife	stuff	Stab(sharp)	13.00	0.35	2.00	14.75
+RK_TwoHanded	stuff	Blunt(blunt)	12.00	0.45	2.00	13.50
+MeleeWeapon_PlasmaSword	생산 불가	Stab(sharp)+Flame(heat)	21.00	0.52	2.60	13.33
+MeleeWeapon_PlasmaSword	생산 불가	Cut(sharp)+Flame(heat)	21.00	0.52	2.60	13.33
+RK_OneHanded	stuff	Blunt(blunt)	10.00	0.37	1.80	12.50
+MeleeWeapon_MonoSwordBladelink	생산 불가	Blunt(blunt)	12.00	0.30	1.60	12.38
+MeleeWeapon_PlasmaSwordBladelink	생산 불가	Blunt(blunt)	12.00	0.30	1.60	12.38
+MeleeWeapon_MonoSword	생산 불가	Blunt(blunt)	12.00	0.30	1.60	12.38
+MeleeWeapon_Zeushammer	생산 불가	Poke(blunt)	15.00	0.37	2.00	12.38
+RK_LightLance	Fixed Cost	Cut(sharp)	21.00	0.52	2.80	12.38
+MeleeWeapon_Spear	stuff	Blunt(blunt); Poke(blunt)	13.00	0.48	2.60	11.25
+RK_Spear	stuff	Blunt(blunt); Poke(blunt)	6.50	0.24	1.30	11.25
+RK_HeavyLance	stuff	Blunt(blunt)	16.00	0.59	3.40	10.59
+RK_Mace	stuff	Blunt(blunt)	10.00	0.37	2.20	10.23
+MeleeWeapon_BreachAxe	stuff	Blunt(blunt); Poke(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_Mace	stuff	Poke(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_Gladius	stuff	Blunt(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_LongSword	stuff	Blunt(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_Club	stuff	Poke(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_Knife	stuff	Blunt(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_Ikwa	stuff	Blunt(blunt); Poke(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_Axe	stuff	Poke(blunt)	9.00	0.33	2.00	10.13
+MeleeWeapon_PlasmaSword	생산 불가	Blunt(blunt)	12.00	0.30	2.00	9.90
+MeleeWeapon_Warhammer	stuff	Poke(blunt)	11.00	0.41	2.60	9.52
+RK_Axe	stuff	Blunt(blunt)	8.00	0.30	2.00	9.00
+RK_LightLance	Fixed Cost	Blunt(blunt)	13.00	0.32	2.80	7.66
+MeleeWeapon_PsyfocusStaff	생산 불가	Blunt(blunt)	12.00	0.30	2.60	7.62
+RK_Pickaxe	stuff	RK_ToolCapacity_PickaxeStab(sharp)+Crush(blunt)	10.00	0.83	3.00	7.56
+RK_Cleaver	stuff	Blunt(blunt)	5.00	0.19	2.00	5.63
+
