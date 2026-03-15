@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <RK_AbilityMustTargetHostile>Must target a hostile pawn.</RK_AbilityMustTargetHostile>
+  <RK_ShieldFaceDirection>Face direction</RK_ShieldFaceDirection>
+  <RK_ShieldFaceDirectionDesc>Click a point to face that direction. Hold position while facing. Target a pawn to track them continuously.</RK_ShieldFaceDirectionDesc>
+  <RK_ShieldFaceDirectionReport>facing direction.</RK_ShieldFaceDirectionReport>
+  <RK_ShieldFaceDirection_NotDrafted>Must be drafted.</RK_ShieldFaceDirection_NotDrafted>
+  <RK_ShieldFaceDirection_InvalidState>Cannot use while dead or downed.</RK_ShieldFaceDirection_InvalidState>
+  <RK_ShieldFaceDirection_Busy>Cannot use while busy.</RK_ShieldFaceDirection_Busy>
+  <RK_ShieldFaceDirection_ShieldInactive>Shield is inactive.</RK_ShieldFaceDirection_ShieldInactive>
+  <RK_ShieldFaceDirection_Cooldown>Cooldown: {0}</RK_ShieldFaceDirection_Cooldown>
   <AbilityPrayerServiceCooldown>Next Prayer meeting ready in</AbilityPrayerServiceCooldown>
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>already giving a prayer meeting.</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>can't use when drafted.</AbilityPrayerServiceDisabledDrafted>

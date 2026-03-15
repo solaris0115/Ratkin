@@ -118,6 +118,7 @@ namespace NewRatkin
     {
         public static JobDef RK_Job_PrayerService;
         public static JobDef RK_Job_SpectatePray;
+        public static JobDef RK_Job_ShieldFaceDirection;
     }
 
     [DefOf]

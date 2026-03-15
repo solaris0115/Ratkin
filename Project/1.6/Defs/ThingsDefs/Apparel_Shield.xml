@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- 타워 쉴드 v2 -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_TowerShield_Second">
+		<defName>RK_TowerShield_Second</defName>
+		<label>ratkin Tower Shield v2</label>
+		<description>금속 대방패.</description>
+		<graphicData>
+			<texPath>Apparel/Util/RK_TowerShield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
+			<researchPrerequisites>
+				<li>RK_Research_SwordAndShield</li>
+				<li>RK_Research_Metallurgy</li>
+			</researchPrerequisites>
+			<recipeUsers Inherit="false">
+				<li>RK_FueledSmithy</li>
+				<li>RK_ElectricSmithy</li>
+			</recipeUsers>
+			<defaultIngredientFilter>
+				<disallowedThingDefs>
+					<li>Gold</li>
+					<li>Silver</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
+			<displayPriority>47350</displayPriority>
+		</recipeMaker>
+		<costList>
+			<Steel>200</Steel>
+			<Plasteel>30</Plasteel>
+			<Uranium>20</Uranium>
+		</costList>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>10</Mass>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>1</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
+			<MeleeHitChance>-0.2</MeleeHitChance>
+			<MoveSpeed>-0.8</MoveSpeed>
+		</equippedStatOffsets>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ExtraDrawer">
+				<!-- 방패 조건부 드로잉 Comp -->
+				<drawSize>(1.0, 1.0)</drawSize>
+				<!-- 소집 시 드로잉 데이터 (그래픽 경로 + 팔/어깨 위치) -->
+				<draftedDrawData>
+					<graphicPath>Apparel/Util/RK_TowerShield</graphicPath>
+					<offsetNorth>(-0.2, -0.2, 0.01)</offsetNorth>
+					<offsetSouth>(0.2, 0.2, -0.05)</offsetSouth>
+					<offsetEast>(0.2, -0.2, -0.1)</offsetEast>
+					<offsetWest>(-0.2, 0.2, -0.1)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
+				</draftedDrawData>
+
+				<!-- 비소집 시 드로잉 데이터 (그래픽 경로 + 등 위치) -->
+				<backDrawData>
+					<graphicPath>Apparel/Util/RK_TowerShieldUnarm</graphicPath>
+					<offsetNorth>(0, 0.2, -0.1)</offsetNorth>
+					<offsetSouth>(0, -0.2, 0.01)</offsetSouth>
+					<offsetEast>(-0.15, 0.05, 0.03)</offsetEast>
+					<offsetWest>(0.15, -2.0, 0.03)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>15</angleEast>
+					<angleWest>-15</angleWest>
+				</backDrawData>
+			</li>
+			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+				<!-- 방패와 무기 동시 착용 제한 Comp -->
+				<allowedWeaponTags>
+					<li>RK_WeaponTag_OneHand</li>
+				</allowedWeaponTags>
+				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+			</li>
+			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
+				<cooldownTicks>300</cooldownTicks>
+			</li>
+			<!-- <li Class="NewRatkin.CompProperties_StaminaShield">
+				<startingTicksToReset>180</startingTicksToReset>
+				<durabilityDamagePercent>0.05</durabilityDamagePercent>
+			</li> -->
+		</comps>
+		<apparel>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<tags>
+				<li>RK_HeavyArmor</li>
+				<li>RK_ApparelTag_Shield</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+</Defs>
