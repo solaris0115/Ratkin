@@ -16,9 +16,7 @@ namespace NewRatkin
 	{
 		private static readonly HashSet<PawnKindDef> SalePawnKinds = new HashSet<PawnKindDef>
 		{
-			RatkinPawnKindDefOf.RK_PawnKind_Gypsy,
-			RatkinPawnKindDefOf.RK_PawnKind_WanderingSlave,
-			RatkinPawnKindDefOf.RK_PawnKind_WanderingRefugee,
+			RatkinPawnKindDefOf.RK_PawnKind_Nomad,
 			RatkinPawnKindDefOf.RK_PawnKind_WanderingMercenary
 		};
 

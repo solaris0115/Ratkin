@@ -75,9 +75,7 @@ namespace NewRatkin
         public static PawnKindDef RK_PawnKind_NoblePilgrim;
 
         // 유랑 상인 판매용
-        public static PawnKindDef RK_PawnKind_Gypsy;
-        public static PawnKindDef RK_PawnKind_WanderingSlave;
-        public static PawnKindDef RK_PawnKind_WanderingRefugee;
+        public static PawnKindDef RK_PawnKind_Nomad;
         public static PawnKindDef RK_PawnKind_WanderingMercenary;
     }
 

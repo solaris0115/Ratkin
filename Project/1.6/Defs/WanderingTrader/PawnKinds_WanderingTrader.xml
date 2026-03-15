@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Ratkin Wandering Trader - 유랑 상인 판매용 PawnKindDef -->
+<!-- RK_PawnKind_Nomad WanderingMercenary -->
+<Defs>
+
+	<PawnKindDef ParentName="RKBasePawnKind">
+		<defName>RK_PawnKind_Nomad</defName>
+		<label>ratkin nomad</label>
+		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
+		<combatPower>25</combatPower>
+		<isFighter>false</isFighter>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RK_Backstory_Nomad</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>	
+		<apparelRequired>
+			<li>RK_Cardigan</li>
+		</apparelRequired>
+		<apparelMoney>800~1600</apparelMoney>
+		<weaponMoney>0~0</weaponMoney>
+		<apparelAllowHeadgearChance>0.3</apparelAllowHeadgearChance>
+		<apparelTags>
+			<li>RK_Apparel_CommonClothes</li>
+		</apparelTags>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="RKCombatantBase">
+		<defName>RK_PawnKind_Wanderer</defName>
+		<label>ratkin wandering mercenary</label>
+		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
+		<combatPower>55</combatPower>
+		<isFighter>true</isFighter>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RK_Backstory_Wanderer</li>
+				</categories>
+				<exclude>
+					<li>RatkinNonViolence</li>
+				</exclude>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelMoney>400~1200</apparelMoney>
+		<weaponMoney>1500~3000</weaponMoney>
+		<weaponTags>
+			<li>RK_Weapon_Wanderer</li>
+		</weaponTags>
+		<apparelTags>
+			<li>RK_Apparel_Wanderer</li>
+		</apparelTags>
+		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+		<gearHealthRange>0.3~0.8</gearHealthRange>
+	</PawnKindDef>
+</Defs>
