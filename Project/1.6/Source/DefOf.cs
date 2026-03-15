@@ -73,6 +73,12 @@ namespace NewRatkin
         public static PawnKindDef RK_PawnKind_Pilgrim;
         public static PawnKindDef RK_PawnKind_Priest;
         public static PawnKindDef RK_PawnKind_NoblePilgrim;
+
+        // 유랑 상인 판매용
+        public static PawnKindDef RK_PawnKind_Gypsy;
+        public static PawnKindDef RK_PawnKind_WanderingSlave;
+        public static PawnKindDef RK_PawnKind_WanderingRefugee;
+        public static PawnKindDef RK_PawnKind_WanderingMercenary;
     }
 
     [DefOf]
@@ -80,6 +86,7 @@ namespace NewRatkin
     {
         public static FactionDef Rakinia;
         public static FactionDef RK_Faction_Pilgrims;
+        public static FactionDef RK_Faction_Caravan;
     }
     [DefOf]
     public static class RatkinMoteDefOf
@@ -92,6 +99,7 @@ namespace NewRatkin
     {
         public static IncidentDef RatkinFollowUpTroops;
         public static IncidentDef GiveQuest_ReliquaryPilgrims_Ratkin;
+        public static IncidentDef RK_Incident_WanderingTrader;
     }
     [DefOf]
     public static class RatkinRaceDefOf

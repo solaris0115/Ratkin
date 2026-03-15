@@ -257,9 +257,12 @@
 		<requiredCountAtGameStart>0</requiredCountAtGameStart>
 		<mustStartOneEnemy>false</mustStartOneEnemy>
 		<techLevel>Industrial</techLevel>
+		<!-- Alien Race: GetRaceOfFaction에서 basicMemberKind 사용. Trader pawnGroupMaker는 options가 없어 First() 예외 발생 방지 -->
+		<basicMemberKind>RatkinMerchant</basicMemberKind>
 		<!-- hidden=true 설정으로 HasGoodwill=false가 되어 공격받아도 우호도 변화 없음 -->
+		<!-- 유랑 상인 전용 TraderKind (판매용 pawn은 IncidentWorker에서 별도 생성) -->
 		<caravanTraderKinds>
-			<li>Caravan_Outlander_BulkGoods</li>
+			<li>RK_TraderKind_WanderingTrader</li>
 		</caravanTraderKinds>
 		<maxPawnCostPerTotalPointsCurve>
 			<points>
@@ -285,7 +288,7 @@
 			</li>
 		</backstoryFilters>
 		<pawnGroupMakers>
-			<!-- 전투 그룹 없음 - 상인 그룹만 존재 -->
+			<!-- 유랑 상인 그룹: 상인 + 호위병 (판매용 pawn은 IncidentWorker_RatkinWanderingTrader에서 별도 생성) -->
 			<li>
 				<kindDef>Trader</kindDef>
 				<traders>

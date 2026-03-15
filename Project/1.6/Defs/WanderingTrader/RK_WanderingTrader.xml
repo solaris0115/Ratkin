@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Ratkin Wandering Trader - 유랑 상인 Def 통합 -->
+<!-- RK_WanderingTrader Gypsy Refugee Slave Mercenary PawnKind Backstory TraderKind Incident -->
+<Defs>
+
+	<!-- ========== BackstoryDef (유년기 1 + 성인기 4) ========== -->
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+		<defName>RK_Backstory_WandererChild</defName>
+		<title>Ratkin wanderer child</title>
+		<titleShort>wanderer child</titleShort>
+		<description>[PAWN_nameDef]은 어려서부터 유랑 생활을 해왔습니다. [PAWN_pronoun]은 한곳에 머무르지 못하고 떠돌아다니며 살아남는 법을 배웠습니다.</description>
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+		<slot>Childhood</slot>
+		<skillGains>
+			<Social>2</Social>
+			<Animals>1</Animals>
+			<Plants>1</Plants>
+			<Construction>1</Construction>
+		</skillGains>
+		<workDisables>
+			<li>Intellectual</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RatkinWanderer</li>
+			<li>RatkinStory</li>
+			<li>RatkinThief</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+		<defName>RK_Backstory_Gypsy</defName>
+		<title>Ratkin gypsy</title>
+		<titleShort>gypsy</titleShort>
+		<description>[PAWN_nameDef]은 유랑 예능인으로 여러 마을을 돌아다니며 노래와 춤으로 생계를 이어왔습니다. [PAWN_pronoun]은 사람들과 어울리는 데 능숙합니다.</description>
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+		<slot>Adulthood</slot>
+		<skillGains>
+			<Social>4</Social>
+			<Artistic>4</Artistic>
+			<Animals>2</Animals>
+		</skillGains>
+		<workDisables>
+			<li>Mining</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RatkinWanderer</li>
+			<li>RatkinWandererGypsy</li>
+			<li>RatkinStory</li>
+			<li>RatkinMerchant</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+		<defName>RK_Backstory_RefugeeSlave</defName>
+		<title>Ratkin refugee slave</title>
+		<titleShort>refugee slave</titleShort>
+		<description>[PAWN_nameDef]은 노예로 지내다가 가까스로 탈출한 피난민입니다. [PAWN_pronoun]은 힘든 노동을 견뎌내며 살아남았습니다.</description>
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+		<slot>Adulthood</slot>
+		<skillGains>
+			<Mining>3</Mining>
+			<Plants>3</Plants>
+			<Construction>2</Construction>
+		</skillGains>
+		<workDisables>
+			<li>Artistic</li>
+			<li>Intellectual</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RatkinWanderer</li>
+			<li>RatkinWandererSlave</li>
+			<li>RatkinStory</li>
+			<li>RatkinUneducated</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+		<defName>RK_Backstory_WanderingRefugee</defName>
+		<title>Ratkin wandering refugee</title>
+		<titleShort>wandering refugee</titleShort>
+		<description>[PAWN_nameDef]은 전쟁으로 고향을 잃고 떠돌아다니는 피난민입니다. [PAWN_pronoun]은 새로운 삶을 위해 정착할 곳을 찾고 있습니다.</description>
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+		<slot>Adulthood</slot>
+		<skillGains>
+			<Construction>3</Construction>
+			<Cooking>3</Cooking>
+			<Plants>2</Plants>
+		</skillGains>
+		<workDisables>
+			<li>Artistic</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RatkinWanderer</li>
+			<li>RatkinWandererRefugee</li>
+			<li>RatkinStory</li>
+			<li>RatkinFarm</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+		<defName>RK_Backstory_WanderingMercenary</defName>
+		<title>Ratkin wandering mercenary</title>
+		<titleShort>wandering mercenary</titleShort>
+		<description>[PAWN_nameDef]은 떠돌이 용병으로 여러 전장을 전전해왔습니다. [PAWN_pronoun]은 전투에 능숙하며 새로운 고용주를 찾고 있습니다.</description>
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+		<slot>Adulthood</slot>
+		<skillGains>
+			<Shooting>4</Shooting>
+			<Melee>4</Melee>
+			<Medicine>2</Medicine>
+		</skillGains>
+		<workDisables>
+			<li>PlantWork</li>
+		</workDisables>
+		<spawnCategories>
+			<li>RatkinWanderer</li>
+			<li>RatkinWandererMercenary</li>
+			<li>RatkinViolence</li>
+			<li>RatkinMerchant</li>
+			<li>RatkinSoldier</li>
+			<li>RatkinCombatant</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+	<!-- ========== PawnKindDef (판매용 4종) ========== -->
+	<PawnKindDef ParentName="RKBasePawnKind">
+		<defName>RK_PawnKind_Gypsy</defName>
+		<label>ratkin gypsy</label>
+		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
+		<combatPower>25</combatPower>
+		<isFighter>false</isFighter>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RatkinWanderer</li>
+					<li>RatkinWandererGypsy</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RK_Cardigan</li>
+			<li>RK_Muffler</li>
+		</apparelRequired>
+		<apparelMoney>80~200</apparelMoney>
+		<apparelTags>
+			<li>RK_Worker</li>
+		</apparelTags>
+		<apparelAllowHeadgearChance>0.3</apparelAllowHeadgearChance>
+		<weaponMoney>0~0</weaponMoney>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="RKBasePawnKind">
+		<defName>RK_PawnKind_WanderingSlave</defName>
+		<label>ratkin refugee slave</label>
+		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
+		<combatPower>20</combatPower>
+		<isFighter>false</isFighter>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RatkinWanderer</li>
+					<li>RatkinWandererSlave</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelMoney>0~150</apparelMoney>
+		<apparelTags>
+			<li>RK_Worker</li>
+			<li>IndustrialBasic</li>
+		</apparelTags>
+		<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+		<weaponMoney>0~0</weaponMoney>
+		<itemQuality>Awful</itemQuality>
+		<initialWillRange>0~1</initialWillRange>
+		<initialResistanceRange>4~8</initialResistanceRange>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="RKBasePawnKind">
+		<defName>RK_PawnKind_WanderingRefugee</defName>
+		<label>ratkin refugee</label>
+		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
+		<combatPower>30</combatPower>
+		<isFighter>false</isFighter>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RatkinWanderer</li>
+					<li>RatkinWandererRefugee</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelRequired>
+			<li>RK_ApronSkirt</li>
+		</apparelRequired>
+		<apparelMoney>120~280</apparelMoney>
+		<apparelTags>
+			<li>RK_Worker</li>
+		</apparelTags>
+		<apparelAllowHeadgearChance>0.2</apparelAllowHeadgearChance>
+		<weaponMoney>0~0</weaponMoney>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="RKCombatantBase">
+		<defName>RK_PawnKind_WanderingMercenary</defName>
+		<label>ratkin wandering mercenary</label>
+		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
+		<combatPower>55</combatPower>
+		<isFighter>true</isFighter>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RatkinWanderer</li>
+					<li>RatkinViolence</li>
+					<li>RatkinMerchant</li>
+				</categories>
+				<exclude>
+					<li>RatkinNonViolence</li>
+				</exclude>
+			</li>
+		</backstoryFiltersOverride>
+		<apparelMoney>400~1200</apparelMoney>
+		<weaponMoney>1500~3000</weaponMoney>
+		<weaponTags>
+			<li>RK_Combatant</li>
+		</weaponTags>
+		<apparelTags>
+			<li>RK_Soldier</li>
+			<li>RK_Combatant</li>
+		</apparelTags>
+		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+		<gearHealthRange>0.3~0.8</gearHealthRange>
+	</PawnKindDef>
+
+	<!-- ========== TraderKindDef ========== -->
+	<TraderKindDef>
+		<defName>RK_TraderKind_WanderingTrader</defName>
+		<label>ratkin wandering trader</label>
+		<modExtensions>
+			<li Class="NewRatkin.WanderingTraderSettings">
+				<basePawnPrice>500</basePawnPrice>
+				<combatPowerPriceMultiplier>5</combatPowerPriceMultiplier>
+			</li>
+		</modExtensions>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>500~1000</countRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>FoodRaw</categoryDef>
+				<thingDefCountRange>2~3</thingDefCountRange>
+				<totalPriceRange>100~400</totalPriceRange>
+			</li>
+			<li Class="StockGenerator_MultiDef">
+				<thingDefs>
+					<li>Pemmican</li>
+					<li>RK_Food_Hardtack</li>
+					<li>Chocolate</li>
+				</thingDefs>
+				<countRange>20~50</countRange>
+			</li>
+			<li Class="StockGenerator_MarketValue">
+				<tradeTag>BasicClothing</tradeTag>
+				<countRange>3~5</countRange>
+			</li>
+			<li Class="StockGenerator_BuyExpensiveSimple" />
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+
+	<!-- ========== IncidentDef ========== -->
+	<IncidentDef>
+		<defName>RK_Incident_WanderingTrader</defName>
+		<label>ratkin wandering trader arrival</label>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>NewRatkin.IncidentWorker_RatkinWanderingTrader</workerClass>
+		<category>Misc</category>
+		<baseChance>0</baseChance>
+		<requireColonistsPresent>True</requireColonistsPresent>
+	</IncidentDef>
+
+</Defs>

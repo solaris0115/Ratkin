@@ -13,4 +13,12 @@
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>already giving a prayer meeting.</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>can't use when drafted.</AbilityPrayerServiceDisabledDrafted>
   <AbilityPrayerServiceDisabledNoPulpit>no pulpit or proper place for prayer meeting.</AbilityPrayerServiceDisabledNoPulpit>
+
+  <!-- Wandering Trader -->
+  <RK_WanderingTrader_Info>Info</RK_WanderingTrader_Info>
+  <RK_WanderingTrader_ViewSettlers>View settlers seeking to join</RK_WanderingTrader_ViewSettlers>
+  <RK_WanderingTrader_MercenarySearch>Mercenary search</RK_WanderingTrader_MercenarySearch>
+  <RK_WanderingTrader_Buy>Buy ({0})</RK_WanderingTrader_Buy>
+  <RK_WanderingTrader_NotEnoughSilver>Not enough silver.</RK_WanderingTrader_NotEnoughSilver>
+  <RK_WanderingTrader_Recruited>{0} has joined the colony.</RK_WanderingTrader_Recruited>
 </LanguageData>

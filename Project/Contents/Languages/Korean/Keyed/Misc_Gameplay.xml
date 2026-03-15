@@ -13,4 +13,12 @@
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>이미 기도회가 진행 중입니다.</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>소집된 상태에서는 사용할 수 없습니다.</AbilityPrayerServiceDisabledDrafted>
   <AbilityPrayerServiceDisabledNoPulpit>기도회를 위한 예배용 연단이나 적절한 공간이 없습니다.</AbilityPrayerServiceDisabledNoPulpit>
+
+  <!-- 유랑 상인 -->
+  <RK_WanderingTrader_Info>정보</RK_WanderingTrader_Info>
+  <RK_WanderingTrader_ViewSettlers>정착 희망 유랑민 보기</RK_WanderingTrader_ViewSettlers>
+  <RK_WanderingTrader_MercenarySearch>용병 물색</RK_WanderingTrader_MercenarySearch>
+  <RK_WanderingTrader_Buy>구매 ({0})</RK_WanderingTrader_Buy>
+  <RK_WanderingTrader_NotEnoughSilver>은화가 부족합니다.</RK_WanderingTrader_NotEnoughSilver>
+  <RK_WanderingTrader_Recruited>{0}이(가) 정착민으로 합류했습니다.</RK_WanderingTrader_Recruited>
 </LanguageData>
