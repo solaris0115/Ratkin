@@ -922,7 +922,7 @@
 		</projectile>
 	</ThingDef>
 
-	<!-- 랫킨용 실험용총 2연발 -->
+	<!-- 랫킨용 실험용총 3점사/단발 토글 -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_PrototypePulseRifle">
 		<defName>RK_PrototypePulseRifle</defName>
 		<label>prototype pulse rifle</label>
@@ -946,15 +946,34 @@
 			<ComponentIndustrial>7</ComponentIndustrial>
 			<ComponentSpacer>1</ComponentSpacer>
 		</costList>
+		<comps>
+			<li Class="NewRatkin.CompProperties_PulseRifleFireMode">
+				<projectileBurst>Bullet_RK_PrototypePulseRifleLight</projectileBurst>
+				<projectileSingle>Bullet_RK_PrototypePulseRifleHeavy</projectileSingle>
+				<rangeBurst>27</rangeBurst>
+				<rangeSingle>35</rangeSingle>
+				<burstShotCountBurst>4</burstShotCountBurst>
+				<burstShotCountSingle>2</burstShotCountSingle>
+				<ticksBetweenBurstShotsBurst>10</ticksBetweenBurstShotsBurst>
+				<ticksBetweenBurstShotsSingle>0</ticksBetweenBurstShotsSingle>
+				<warmupTimeBurst>1</warmupTimeBurst>
+				<warmupTimeSingle>1.7</warmupTimeSingle>
+				<statOffsetsSingle>
+					<AccuracyTouch>-0.10</AccuracyTouch>
+					<AccuracyShort>-0.10</AccuracyShort>
+					<AccuracyMedium>0.15</AccuracyMedium>
+					<AccuracyLong>0.25</AccuracyLong>
+					<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+				</statOffsetsSingle>
+				<iconPathBurst>UI/Commands/RK_Icon_BurstShot</iconPathBurst>
+				<iconPathSingle>UI/Commands/RK_Icon_Snipe</iconPathSingle>
+			</li>
+		</comps>
 		<verbs>
 			<li>
-				<verbClass>Verb_Shoot</verbClass>
+				<verbClass>NewRatkin.Verb_PulseRifleShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Bullet_RK_PrototypePulseRifleLight</defaultProjectile>
-				<warmupTime>1.5</warmupTime>
-				<range>31</range>
-				<burstShotCount>2</burstShotCount>
-				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<!-- defaultProjectile, warmupTime, range, burstShotCount, ticksBetweenBurstShots → Comp_PulseRifleFireMode에서 모드별로 덮어씀 -->
 				<soundCast>PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
@@ -1019,7 +1038,7 @@
 			<damageDef>Bullet</damageDef>
 			<damageAmountBase>12</damageAmountBase>
 			<speed>85</speed>
-			<armorPenetrationBase>0.60</armorPenetrationBase>
+			<armorPenetrationBase>0.50</armorPenetrationBase>
 		</projectile>
 	</ThingDef>
 
@@ -1029,14 +1048,17 @@
 		<graphicData>
 			<texPath>Things/Projectile/ChargeLanceShot</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2</drawSize>
 		</graphicData>
 		<projectile>
 			<damageDef>Bullet</damageDef>
-			<damageAmountBase>20</damageAmountBase>
+			<damageAmountBase>25</damageAmountBase>
 			<speed>120</speed>
-			<armorPenetrationBase>0.60</armorPenetrationBase>
+			<armorPenetrationBase>0.70</armorPenetrationBase>
 		</projectile>
 	</ThingDef>
+
+
 	<!-- BFR 3000 -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_BFR">
 		<defName>RK_Weapon_BFR</defName>
