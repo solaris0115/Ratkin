@@ -18,6 +18,16 @@ namespace NewRatkin
             return true;
         }
 
+        public override void Notify_DamageTaken(DamageInfo dinfo)
+        {
+            base.Notify_DamageTaken(dinfo);
+            // 근접 피해 시 즉시 Job 해제 → 반격 가능
+            if (!dinfo.Def.isRanged)
+            {
+                EndJobWith(JobCondition.Succeeded);
+            }
+        }
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
             Toil toil = ToilMaker.MakeToil("MakeNewToils");
