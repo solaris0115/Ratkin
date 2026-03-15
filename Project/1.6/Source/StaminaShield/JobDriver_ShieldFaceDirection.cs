@@ -43,6 +43,12 @@ namespace NewRatkin
                     EndJobWith(JobCondition.Succeeded);
                     return;
                 }
+                // 근접 공격받는 중(meleeThreat)이면 즉시 해제 → 반격 (피해가 막혀도 반응)
+                if (pawn.mindState.meleeThreat != null && pawn.mindState.MeleeThreatStillThreat)
+                {
+                    EndJobWith(JobCondition.Succeeded);
+                    return;
+                }
                 if (job.targetA.IsValid)
                 {
                     if (job.targetA.HasThing && job.targetA.Thing.Spawned)

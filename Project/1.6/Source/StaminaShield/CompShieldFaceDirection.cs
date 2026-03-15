@@ -146,6 +146,10 @@ namespace NewRatkin
             };
             var candidates = GetSelectedPawnsWithShieldFaceDirection().ToList();
             bool anyDrafted = candidates.Any(p => p.Drafted);
+            if (!anyDrafted)
+            {
+                yield break; // 소집 시에만 커맨드 표시
+            }
             bool anyDeadDowned = candidates.Any(p => p.Dead || p.Downed);
             bool anyBusy = candidates.Any(p => p.stances.FullBodyBusy);
             int maxCooldownLeft = candidates
@@ -155,11 +159,7 @@ namespace NewRatkin
                 .DefaultIfEmpty(0)
                 .Max();
 
-            if (!anyDrafted)
-            {
-                cmd.Disable("RK_ShieldFaceDirection_NotDrafted".Translate());
-            }
-            else if (anyDeadDowned)
+            if (anyDeadDowned)
             {
                 cmd.Disable("RK_ShieldFaceDirection_InvalidState".Translate());
             }
