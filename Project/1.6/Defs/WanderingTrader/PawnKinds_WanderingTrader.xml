@@ -29,7 +29,7 @@
 
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RK_PawnKind_Wanderer</defName>
-		<label>ratkin wandering mercenary</label>
+		<label>ratkin wanderer</label>
 		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
 		<combatPower>55</combatPower>
 		<isFighter>true</isFighter>
@@ -49,9 +49,9 @@
 			<li>RK_Weapon_Wanderer</li>
 		</weaponTags>
 		<apparelTags>
-			<li>RK_Apparel_Wanderer</li>
+			<li>RK_Apparel_ArmedWanderer</li>
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
-		<gearHealthRange>0.3~0.8</gearHealthRange>
+		<gearHealthRange>0.3~0.6</gearHealthRange>
 	</PawnKindDef>
 </Defs>
