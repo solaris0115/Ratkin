@@ -19,11 +19,11 @@
 			<MaxHitPoints>120</MaxHitPoints>
 			<Mass>1.5</Mass>
 			<Flammability>0.4</Flammability>
-			<ArmorRating_Sharp>0.52</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.24</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.66</ArmorRating_Heat>
-			<Insulation_Cold>6</Insulation_Cold>
-			<Insulation_Heat>4</Insulation_Heat>
+			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.7</ArmorRating_Heat>
+			<Insulation_Cold>10</Insulation_Cold>
+			<Insulation_Heat>20</Insulation_Heat>
 			<EquipDelay>4</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
@@ -64,6 +64,7 @@
 			<li>RK_Apparel_Rare</li>
 		</tradeTags>
 		<costList>
+			<DevilstrandCloth>10</DevilstrandCloth>
 			<ComponentIndustrial>2</ComponentIndustrial>
 			<Steel>40</Steel>
 		</costList>
@@ -99,17 +100,17 @@
 			<MaxHitPoints>180</MaxHitPoints>
 			<Mass>12</Mass>
 			<Flammability>0.4</Flammability>
-			<ArmorRating_Sharp>0.52</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.66</ArmorRating_Heat>
-			<Insulation_Cold>90</Insulation_Cold>
-			<Insulation_Heat>15</Insulation_Heat>
+			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.8</ArmorRating_Heat>
+			<Insulation_Cold>70</Insulation_Cold>
+			<Insulation_Heat>70</Insulation_Heat>
 			<EquipDelay>14</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
-			<MoveSpeed>-1.25</MoveSpeed>
+			<MoveSpeed>0.25</MoveSpeed>
 			<VacuumResistance>0.32</VacuumResistance>
-			<CarryingCapacity>15</CarryingCapacity>
+			<CarryingCapacity>35</CarryingCapacity>
 		</equippedStatOffsets>
 		<thingCategories>
 			<li>RK_Apparel</li>
@@ -146,6 +147,7 @@
 			<soundRemove>Remove_PowerArmor</soundRemove>
 		</apparel>
 		<costList>
+			<DevilstrandCloth>15</DevilstrandCloth>
 			<ComponentIndustrial>3</ComponentIndustrial>
 			<Steel>90</Steel>
 			<Plasteel>20</Plasteel>
@@ -189,9 +191,9 @@
 			<EquipDelay>14</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
-			<MoveSpeed>-1.25</MoveSpeed>
+			<MoveSpeed>0.25</MoveSpeed>
 			<VacuumResistance>0.32</VacuumResistance>
-			<CarryingCapacity>10</CarryingCapacity>
+			<CarryingCapacity>35</CarryingCapacity>
 		</equippedStatOffsets>
 		<thingCategories>
 			<li>RK_Apparel</li>
@@ -233,6 +235,7 @@
 			</drawData>
 		</apparel>
 		<costList>
+			<DevilstrandCloth>15</DevilstrandCloth>
 			<ComponentIndustrial>3</ComponentIndustrial>
 			<Steel>45</Steel>
 			<Plasteel>10</Plasteel>
@@ -265,8 +268,8 @@
 			<WorkToMake>75000</WorkToMake>
 			<MaxHitPoints>400</MaxHitPoints>
 			<Mass>10.5</Mass>
-			<ArmorRating_Sharp>1.0</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
 			<ArmorRating_Heat>1.0</ArmorRating_Heat>
 			<Insulation_Cold>70</Insulation_Cold>
 			<Insulation_Heat>70</Insulation_Heat>
@@ -280,6 +283,7 @@
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.3</VacuumResistance>
 		</equippedStatOffsets>
 		<costList>
+			<DevilstrandCloth>35</DevilstrandCloth>
 			<ComponentSpacer>6</ComponentSpacer>
 			<Plasteel>150</Plasteel>
 			<Uranium>50</Uranium>
@@ -325,10 +329,10 @@
 			<Mass>1.4</Mass>
 			<Flammability>0.1</Flammability>
 			<ArmorRating_Sharp>1.0</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Blunt>0.7</ArmorRating_Blunt>
 			<ArmorRating_Heat>1.0</ArmorRating_Heat>
 			<Insulation_Cold>10</Insulation_Cold>
-			<Insulation_Heat>20</Insulation_Heat>
+			<Insulation_Heat>50</Insulation_Heat>
 			<EquipDelay>6</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
@@ -338,6 +342,7 @@
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.68</VacuumResistance>
 		</equippedStatOffsets>
 		<costList>
+			<DevilstrandCloth>20</DevilstrandCloth>
 			<ComponentSpacer>1</ComponentSpacer>
 			<Plasteel>50</Plasteel>
 		</costList>

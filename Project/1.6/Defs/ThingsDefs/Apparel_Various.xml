@@ -163,6 +163,7 @@
 				<li>RK_Maid</li>
 				<li>RK_1Tier</li>
 				<li>RK_Thief</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
@@ -213,6 +214,7 @@
 				<li>RK_Maid</li>
 				<li>RK_1Tier</li>
 				<li>RK_Thief</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 			<drawData>
 				<childScale>0.7</childScale>
@@ -307,6 +309,7 @@
 				<li>RK_1Tier</li>
 				<li>RK_Worker</li>
 				<li>RoyalTier2</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 		</apparel>
 		<colorGenerator Class="ColorGenerator_Options">
@@ -355,6 +358,8 @@
 				<li>RK_1Tier</li>
 				<li>RK_Thief</li>
 				<li>RK_Worker</li>
+				<li>RK_Apparel_CommonClothes</li>
+				<li>RK_Apparel_ArmedWanderer</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -427,6 +432,7 @@
 				<li>RK_Worker</li>
 				<li>RK_Thief</li>
 				<li>RoyalTier2</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -492,6 +498,8 @@
 				<li>RK_1Tier</li>
 				<li>RK_Worker</li>
 				<li>RK_Thief</li>
+				<li>RK_Apparel_CommonClothes</li>
+				<li>RK_Apparel_ArmedWanderer</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -576,6 +584,7 @@
 				<li>RK_Apparel</li>
 				<li>RK_Servant</li>
 				<li>RK_2Tier</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
@@ -620,6 +629,7 @@
 			<tags>
 				<li>RK_Servant</li>
 				<li>RK_2Tier</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -733,6 +743,7 @@
 				<li>RK_Murderer</li>
 				<li>RK_2Tier</li>
 				<li>RoyalTier2</li>
+				<li>RK_Apparel_CommonClothes</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
@@ -1004,8 +1015,7 @@
 		<equippedStatOffsets>
 			<PlantWorkSpeed>0.15</PlantWorkSpeed>
 			<PlantHarvestYield>0.05</PlantHarvestYield>
-			<MeleeDodgeChance>0.2</MeleeDodgeChance>
-			<MoveSpeed>0.1</MoveSpeed>
+			<MeleeDodgeChance>2</MeleeDodgeChance>
 		</equippedStatOffsets>
 		<apparel>
 			<bodyPartGroups>
@@ -1032,6 +1042,8 @@
 				<li>RK_LightArmor</li>
 				<li>RK_HeavyArmor</li>
 				<li>RoyalCombatGear</li>
+				<li>RK_Apparel_CommonClothes</li>
+				<li>RK_Apparel_ArmedWanderer</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
@@ -1097,6 +1109,8 @@
 				<li>RK_Noble</li>
 				<li>RK_2Tier</li>
 				<li>RoyalTier5</li>
+				<li>RK_Apparel_CommonClothes</li>
+				<li>RK_Apparel_ArmedWanderer</li>
 			</tags>
 		</apparel>
 	</ThingDef>
@@ -1117,7 +1131,7 @@
 			<displayPriority>47280</displayPriority>
 		</recipeMaker>
 		<costList>
-			<DevilstrandCloth>35</DevilstrandCloth>
+			<!-- <DevilstrandCloth>35</DevilstrandCloth> -->
 			<Steel>40</Steel>
 			<ComponentIndustrial>3</ComponentIndustrial>
 		</costList>
@@ -1134,8 +1148,8 @@
 			<StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
 			<StuffEffectMultiplierInsulation_Cold>0.40</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.40</StuffEffectMultiplierInsulation_Heat>
-			<ArmorRating_Sharp>0.8</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<Flammability>0.64</Flammability>
 			<EquipDelay>3</EquipDelay>
 		</statBases>
@@ -1168,6 +1182,7 @@
 				<li>RK_Soldier</li>
 				<li>RK_3Tier</li>
 				<li>RoyalCombatGear</li>
+				<li>RK_Apparel_ArmedWanderer</li>
 			</tags>
 		</apparel>
 	</ThingDef>
@@ -1193,11 +1208,11 @@
 			<MaxHitPoints>220</MaxHitPoints>
 			<WorkToMake>18000</WorkToMake>
 			<Mass>1</Mass>
-			<StuffEffectMultiplierArmor>0.5</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierArmor>0.3</StuffEffectMultiplierArmor>
 			<StuffEffectMultiplierInsulation_Cold>0.25</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
 			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
 			<EquipDelay>1.5</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
@@ -1595,7 +1610,7 @@
 			<displayPriority>47370</displayPriority>
 		</recipeMaker>
 		<costList>
-			<DevilstrandCloth>35</DevilstrandCloth>
+			<!-- <DevilstrandCloth>35</DevilstrandCloth> -->
 			<Steel>60</Steel>
 			<ComponentIndustrial>3</ComponentIndustrial>
 			<Plasteel>40</Plasteel>
@@ -1609,10 +1624,10 @@
 			<MaxHitPoints>280</MaxHitPoints>
 			<WorkToMake>35000</WorkToMake>
 			<Mass>7</Mass>
-			<StuffEffectMultiplierArmor>0.35</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierArmor>0.3</StuffEffectMultiplierArmor>
 			<StuffEffectMultiplierInsulation_Cold>0.55</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.45</StuffEffectMultiplierInsulation_Heat>
-			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+			<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.6</ArmorRating_Heat>
 			<Flammability>0.2</Flammability>
@@ -1622,7 +1637,6 @@
 			<SocialImpact>-0.2</SocialImpact>
 			<PainShockThreshold>0.1</PainShockThreshold>
 			<Flammability>-0.25</Flammability>
-			<MoveSpeed>-0.15</MoveSpeed>
 			<CarryingCapacity>23</CarryingCapacity>
 		</equippedStatOffsets>
 		<apparel>
@@ -1681,7 +1695,7 @@
 			<displayPriority>47375</displayPriority>
 		</recipeMaker>
 		<costList>
-			<DevilstrandCloth>35</DevilstrandCloth>
+			<!-- <DevilstrandCloth>35</DevilstrandCloth> -->
 			<ComponentIndustrial>4</ComponentIndustrial>
 			<Plasteel>20</Plasteel>
 		</costList>
@@ -1694,12 +1708,12 @@
 			<MaxHitPoints>240</MaxHitPoints>
 			<WorkToMake>18000</WorkToMake>
 			<Mass>2</Mass>
-			<StuffEffectMultiplierArmor>0.60</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierArmor>0.45</StuffEffectMultiplierArmor>
 			<StuffEffectMultiplierInsulation_Cold>0.55</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.45</StuffEffectMultiplierInsulation_Heat>
-			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.5</ArmorRating_Heat>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.3</ArmorRating_Heat>
 			<EquipDelay>1.5</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
