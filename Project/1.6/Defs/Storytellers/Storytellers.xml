@@ -185,6 +185,15 @@
 				<fireAfterDaysPassed>60</fireAfterDaysPassed>
 				<mtbDays>3</mtbDays>
 			</li>
+			<!-- 유랑단 캐러반: 봄 MTB 시작, 여름 확률 상승, 연 1회 이상 minRefireDays 간격 -->
+			<li Class="NewRatkin.StorytellerCompProperties_WanderingCaravan">
+				<incident>RK_Incident_WanderingTrader</incident>
+				<minDaysPassed>30</minDaysPassed>
+				<springMtbDays>3</springMtbDays>
+				<summerMtbDays>1.5</summerMtbDays>
+				<fallbackMtbDays>0.5</fallbackMtbDays>
+				<minRefireDays>45</minRefireDays>
+			</li>
 		</comps>
 	</StorytellerDef>
 

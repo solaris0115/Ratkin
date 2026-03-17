@@ -18,7 +18,31 @@
   <RK_WanderingTrader_Info>정보</RK_WanderingTrader_Info>
   <RK_WanderingTrader_ViewSettlers>정착 희망 유랑민 보기</RK_WanderingTrader_ViewSettlers>
   <RK_WanderingTrader_MercenarySearch>용병 물색</RK_WanderingTrader_MercenarySearch>
-  <RK_WanderingTrader_Buy>구매 ({0})</RK_WanderingTrader_Buy>
-  <RK_WanderingTrader_NotEnoughSilver>은화가 부족합니다.</RK_WanderingTrader_NotEnoughSilver>
-  <RK_WanderingTrader_Recruited>{0}이(가) 정착민으로 합류했습니다.</RK_WanderingTrader_Recruited>
+
+  <!-- 유랑단 캐러반 (리워크) -->
+  <RK_WanderingCaravan_TalkToLeader>대화하기</RK_WanderingCaravan_TalkToLeader>
+  <RK_WanderingCaravan_DismissCaravan>돌려보내기</RK_WanderingCaravan_DismissCaravan>
+  <RK_WanderingCaravan_TradeGoods>물자 거래</RK_WanderingCaravan_TradeGoods>
+  <RK_WanderingCaravan_Commission>물건 의뢰</RK_WanderingCaravan_Commission>
+  <RK_WanderingCaravan_SettleProposal>합류 제안</RK_WanderingCaravan_SettleProposal>
+  <RK_WanderingCaravan_EndDialog>대화 마치기</RK_WanderingCaravan_EndDialog>
+  <RK_WanderingCaravan_LeaderGreeting>{0}이(가) 따뜻하게 인사합니다.</RK_WanderingCaravan_LeaderGreeting>
+  <RK_WanderingCaravan_LeaderTitle>유랑단 리더</RK_WanderingCaravan_LeaderTitle>
+  <RK_WanderingCaravan_ArrivalLetterLabel>유랑단 도착</RK_WanderingCaravan_ArrivalLetterLabel>
+  <RK_WanderingCaravan_ArrivalLetter>랫킨 유랑단이 도착했습니다. 리더에게 말을 걸어 거래하거나 정착민을 영입하세요.</RK_WanderingCaravan_ArrivalLetter>
+  <RK_WanderingCaravan_AcceptOne>제안</RK_WanderingCaravan_AcceptOne>
+  <RK_WanderingCaravan_AcceptAll>일괄 제안</RK_WanderingCaravan_AcceptAll>
+  <RK_WanderingCaravan_OneJoined>{0}이(가) 정착민으로 합류했습니다.</RK_WanderingCaravan_OneJoined>
+  <RK_WanderingCaravan_AllJoined>{0}명이 정착민으로 합류했습니다.</RK_WanderingCaravan_AllJoined>
+  <RK_WanderingCaravan_CommissionPlaceholder>물건 의뢰 기능은 준비 중입니다.</RK_WanderingCaravan_CommissionPlaceholder>
+
+  <!-- 정착지 합류 조건 -->
+  <RK_JoinReq_Silver_Desc>이 유랑민은 부유한 곳에 합류를 희망합니다.</RK_JoinReq_Silver_Desc>
+  <RK_JoinReq_Silver_DescShort>은 {0} 이상 보유</RK_JoinReq_Silver_DescShort>
+  <RK_JoinReq_SkillMentor_Desc>이 유랑민은 {0}과 {1} 모두 뛰어난 스승이 있었으면 좋겠다고 합니다.</RK_JoinReq_SkillMentor_Desc>
+  <RK_JoinReq_SkillMentor_DescShort>{0}, {1} 모두 {2} 이상</RK_JoinReq_SkillMentor_DescShort>
+  <RK_JoinReq_Item_Desc>이 유랑민은 {0}이 풍부한 정착지에 합류하고 싶어합니다.</RK_JoinReq_Item_Desc>
+  <RK_JoinReq_Item_DescShort>{0} {1}개 이상</RK_JoinReq_Item_DescShort>
+  <RK_JoinReq_Met>충족</RK_JoinReq_Met>
+  <RK_JoinReq_NotMet>미충족</RK_JoinReq_NotMet>
 </LanguageData>

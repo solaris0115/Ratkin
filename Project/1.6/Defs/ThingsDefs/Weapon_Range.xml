@@ -51,6 +51,7 @@
 			<li>RK_WeaponTag_OneHand</li>
 			<li>RK_WeaponTag_OneHandRange</li>
 			<li>RK_WeaponTag_OneHandRangeAttack</li>
+			<li>RK_WeaponTag_ArmedWanderer</li>
 		</weaponTags>
 		<tradeTags>
 			<li>RK_TradeTag_1TierWeapon</li>
@@ -147,6 +148,7 @@
 			<li>RK_WeaponTag_OneHand</li>
 			<li>RK_WeaponTag_OneHandRange</li>
 			<li>RK_WeaponTag_OneHandRangeAttack</li>
+			<li>RK_WeaponTag_ArmedWanderer</li>
 		</weaponTags>
 		<tradeTags>
 			<li>RK_TradeTag_1TierWeapon</li>
@@ -251,6 +253,7 @@
 			<li>RK_WeaponTag_TwoHand</li>
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
+			<li>RK_WeaponTag_ArmedWanderer</li>
 		</weaponTags>
 		<tradeTags>
 			<li>RK_TradeTag_2TierWeapon</li>

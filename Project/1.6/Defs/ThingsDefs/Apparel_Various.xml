@@ -359,7 +359,7 @@
 				<li>RK_Thief</li>
 				<li>RK_Worker</li>
 				<li>RK_Apparel_CommonClothes</li>
-				<li>RK_Apparel_ArmedWanderer</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -438,6 +438,7 @@
 				<li>Worker</li>
 			</defaultOutfitTags>
 			<wornGraphicPath>Apparel/RK_Cardigan</wornGraphicPath>
+			<shellRenderedBehindHead>true</shellRenderedBehindHead>
 			<layers>
 				<li>Shell</li>
 			</layers>
@@ -499,7 +500,7 @@
 				<li>RK_Worker</li>
 				<li>RK_Thief</li>
 				<li>RK_Apparel_CommonClothes</li>
-				<li>RK_Apparel_ArmedWanderer</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 			<defaultOutfitTags>
 				<li>Worker</li>
@@ -1043,7 +1044,7 @@
 				<li>RK_HeavyArmor</li>
 				<li>RoyalCombatGear</li>
 				<li>RK_Apparel_CommonClothes</li>
-				<li>RK_Apparel_ArmedWanderer</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 		</apparel>
 		<recipeMaker>
@@ -1110,7 +1111,7 @@
 				<li>RK_2Tier</li>
 				<li>RoyalTier5</li>
 				<li>RK_Apparel_CommonClothes</li>
-				<li>RK_Apparel_ArmedWanderer</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 		</apparel>
 	</ThingDef>
@@ -1182,7 +1183,7 @@
 				<li>RK_Soldier</li>
 				<li>RK_3Tier</li>
 				<li>RoyalCombatGear</li>
-				<li>RK_Apparel_ArmedWanderer</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 		</apparel>
 	</ThingDef>

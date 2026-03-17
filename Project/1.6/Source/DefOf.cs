@@ -76,7 +76,9 @@ namespace NewRatkin
 
         // 유랑 상인 판매용
         public static PawnKindDef RK_PawnKind_Nomad;
-        public static PawnKindDef RK_PawnKind_WanderingMercenary;
+        public static PawnKindDef RK_PawnKind_Wanderer;
+        public static PawnKindDef RK_PawnKind_CaravanLeader;
+        public static PawnKindDef RK_PawnKind_CaravanGuard;
     }
 
     [DefOf]
@@ -125,6 +127,7 @@ namespace NewRatkin
         public static JobDef RK_Job_PrayerService;
         public static JobDef RK_Job_SpectatePray;
         public static JobDef RK_Job_ShieldFaceDirection;
+        public static JobDef RK_Job_TalkToCaravanLeader;
     }
 
     [DefOf]

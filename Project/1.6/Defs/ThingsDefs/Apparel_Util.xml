@@ -260,6 +260,7 @@
 			<wornGraphicPath>Apparel/RK_OutdoorBackpack</wornGraphicPath>
 			<tags>
 				<li>RK_3Tier</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 		</apparel>
 	</ThingDef>
@@ -393,6 +394,7 @@
 			<tags>
 				<li>RK_LightArmor</li>
 				<li>RK_ApparelTag_Shield</li>
+				<li>RK_ApparelTag_ArmedWanderer</li>
 			</tags>
 		</apparel>
 	</ThingDef>

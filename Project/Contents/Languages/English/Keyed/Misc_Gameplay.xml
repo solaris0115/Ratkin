@@ -18,7 +18,31 @@
   <RK_WanderingTrader_Info>Info</RK_WanderingTrader_Info>
   <RK_WanderingTrader_ViewSettlers>View settlers seeking to join</RK_WanderingTrader_ViewSettlers>
   <RK_WanderingTrader_MercenarySearch>Mercenary search</RK_WanderingTrader_MercenarySearch>
-  <RK_WanderingTrader_Buy>Buy ({0})</RK_WanderingTrader_Buy>
-  <RK_WanderingTrader_NotEnoughSilver>Not enough silver.</RK_WanderingTrader_NotEnoughSilver>
-  <RK_WanderingTrader_Recruited>{0} has joined the colony.</RK_WanderingTrader_Recruited>
+
+  <!-- Wandering Caravan (Rework) -->
+  <RK_WanderingCaravan_TalkToLeader>Talk to leader</RK_WanderingCaravan_TalkToLeader>
+  <RK_WanderingCaravan_DismissCaravan>Dismiss caravan</RK_WanderingCaravan_DismissCaravan>
+  <RK_WanderingCaravan_TradeGoods>Trade goods</RK_WanderingCaravan_TradeGoods>
+  <RK_WanderingCaravan_Commission>Commission item</RK_WanderingCaravan_Commission>
+  <RK_WanderingCaravan_SettleProposal>Propose join</RK_WanderingCaravan_SettleProposal>
+  <RK_WanderingCaravan_EndDialog>End conversation</RK_WanderingCaravan_EndDialog>
+  <RK_WanderingCaravan_LeaderGreeting>{0} greets you warmly.</RK_WanderingCaravan_LeaderGreeting>
+  <RK_WanderingCaravan_LeaderTitle>Caravan leader</RK_WanderingCaravan_LeaderTitle>
+  <RK_WanderingCaravan_ArrivalLetterLabel>Caravan arrival</RK_WanderingCaravan_ArrivalLetterLabel>
+  <RK_WanderingCaravan_ArrivalLetter>A ratkin caravan has arrived. Talk to the leader to trade or recruit settlers.</RK_WanderingCaravan_ArrivalLetter>
+  <RK_WanderingCaravan_AcceptOne>Propose</RK_WanderingCaravan_AcceptOne>
+  <RK_WanderingCaravan_AcceptAll>Propose all</RK_WanderingCaravan_AcceptAll>
+  <RK_WanderingCaravan_OneJoined>{0} has joined the colony.</RK_WanderingCaravan_OneJoined>
+  <RK_WanderingCaravan_AllJoined>{0} have joined the colony.</RK_WanderingCaravan_AllJoined>
+  <RK_WanderingCaravan_CommissionPlaceholder>Commission feature is under development.</RK_WanderingCaravan_CommissionPlaceholder>
+
+  <!-- Settlement join requirements -->
+  <RK_JoinReq_Silver_Desc>This settler hopes to join a wealthy colony.</RK_JoinReq_Silver_Desc>
+  <RK_JoinReq_Silver_DescShort>Silver {0} or more</RK_JoinReq_Silver_DescShort>
+  <RK_JoinReq_SkillMentor_Desc>This settler seeks a mentor who excels in both {0} and {1}.</RK_JoinReq_SkillMentor_Desc>
+  <RK_JoinReq_SkillMentor_DescShort>{0} and {1} both level {2}+</RK_JoinReq_SkillMentor_DescShort>
+  <RK_JoinReq_Item_Desc>This settler wants to join a colony with plenty of {0}.</RK_JoinReq_Item_Desc>
+  <RK_JoinReq_Item_DescShort>{0} x{1} or more</RK_JoinReq_Item_DescShort>
+  <RK_JoinReq_Met>Met</RK_JoinReq_Met>
+  <RK_JoinReq_NotMet>Not met</RK_JoinReq_NotMet>
 </LanguageData>
