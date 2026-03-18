@@ -149,6 +149,20 @@ namespace NewRatkin
 			return pawn != null && settlerRequirements.TryGetValue(pawn, out r) ? r : null;
 		}
 
+		/// <summary>돌려보내기로 맵 끝 이동 후, 각 pawn이 ExitMap할 때 호출. roster에 추가 (WorldPawns는 Pawn_ExitMap_Patch에서 KeepForever 처리)</summary>
+		public void OnCaravanPawnExitedMap(Pawn p)
+		{
+			if (p == null || p.DestroyedOrNull() || p.Dead) return;
+
+			if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader)
+				rosterLeader.Add(p);
+			else if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard)
+				rosterGuards.Add(p);
+			else if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad || p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+				rosterSettlers.Add(p);
+			// 짐꾼(동물)은 roster에 포함하지 않음 - 매번 새로 생성
+		}
+
 		/// <summary>캐러반 퇴장 시 Lord의 생존 인물로 명부 갱신 후 WorldPawn 보존. 유랑민은 풀에 유지(이미 있음).</summary>
 		public void OnCaravanExited(Lord lord)
 		{
@@ -188,6 +202,17 @@ namespace NewRatkin
 
 		/// <summary>명부가 비어있는지 (첫 방문 여부)</summary>
 		public bool IsRosterEmpty => (rosterLeader.Count == 0 && rosterGuards.Count == 0 && settlerPool.Count == 0);
+
+		/// <summary>roster 또는 settlerPool에 스폰된 pawn이 있는지. 캐러반이 아직 맵에 있어 중복 인시던트 방지용.</summary>
+		public bool HasRosterOrPoolPawnsSpawned()
+		{
+			foreach (Pawn p in rosterLeader.Concat(rosterGuards).Concat(rosterSettlers).Concat(settlerPool))
+			{
+				if (p != null && !p.DestroyedOrNull() && !p.Dead && p.Spawned)
+					return true;
+			}
+			return false;
+		}
 
 		/// <summary>현재 연도가 마지막 방문 이후 새해인지</summary>
 		public bool IsNewYearFor(int tile)

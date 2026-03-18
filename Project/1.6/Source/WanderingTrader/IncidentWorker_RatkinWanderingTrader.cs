@@ -31,17 +31,97 @@ namespace NewRatkin
 			if (!base.CanFireNowSub(parms))
 				return false;
 			Map map = (Map)parms.target;
+			if (map == null) return false;
 			foreach (GameCondition cond in map.GameConditionManager.ActiveConditions)
 			{
 				if (cond.def.preventNeutralVisitors)
 					return false;
 			}
+			// 유랑단이 이미 어딘가에 존재하면 트리거 안 함 (다중 맵, 디버그 강제 호출 대비)
+			if (HasWanderingCaravanActiveAnywhere())
+				return false;
 			return true;
+		}
+
+		/// <summary>
+		/// 맵에 유랑단 캐러반이 이미 존재하는지 확인.
+		/// LordJob_WanderingCaravan 보유 Lord 또는 RK_Faction_Caravan 소속 유랑단 멤버(리더/호위/유랑민)가 맵에 있으면 true.
+		/// 플레이어가 영입한 pawn은 Faction.OfPlayer로 변경되므로 제외됨.
+		/// </summary>
+		private static bool HasWanderingCaravanOnMap(Map map)
+		{
+			if (map == null) return false;
+			FactionDef caravanFaction = RatkinFactionDefOf.RK_Faction_Caravan;
+			if (caravanFaction == null) return false;
+
+			// LordJob_WanderingCaravan 보유 Lord가 맵에 있는지
+			foreach (Lord lord in map.lordManager.lords)
+			{
+				if (lord?.LordJob is LordJob_WanderingCaravan)
+					return true;
+			}
+
+			// RK_Faction_Caravan 소속 유랑단 멤버(리더/호위/유랑민)가 맵에 스폰되어 있는지
+			foreach (Pawn p in map.mapPawns.AllPawnsSpawned)
+			{
+				if (p == null || p.DestroyedOrNull() || p.Dead) continue;
+				if (p.Faction?.def != caravanFaction) continue;
+				if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader
+					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard
+					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad
+					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+					return true;
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// 유랑단 캐러반이 어느 맵에서든 활성 상태인지 확인.
+		/// 다중 맵 시 다른 맵에 캐러반이 있어도, 또는 roster/풀 pawn이 이미 스폰되어 있어도 중복 호출 방지.
+		/// </summary>
+		private static bool HasWanderingCaravanActiveAnywhere()
+		{
+			FactionDef caravanFaction = RatkinFactionDefOf.RK_Faction_Caravan;
+			if (caravanFaction == null) return false;
+
+			// 모든 맵에서 LordJob_WanderingCaravan 또는 유랑단 멤버 검사
+			foreach (Map m in Find.Maps)
+			{
+				if (m == null) continue;
+				foreach (Lord lord in m.lordManager.lords)
+				{
+					if (lord?.LordJob is LordJob_WanderingCaravan)
+						return true;
+				}
+				foreach (Pawn p in m.mapPawns.AllPawnsSpawned)
+				{
+					if (p == null || p.DestroyedOrNull() || p.Dead) continue;
+					if (p.Faction?.def != caravanFaction) continue;
+					if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader
+						|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard
+						|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad
+						|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+						return true;
+				}
+			}
+
+			// GameComponent roster/풀에 스폰된 pawn이 있으면 아직 캐러반 활동 중
+			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
+			if (comp != null && comp.HasRosterOrPoolPawnsSpawned())
+				return true;
+
+			return false;
 		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
 			Map map = (Map)parms.target;
+			// 디버그 수동 호출 등 CanFireNow를 우회하는 경우 대비: 캐러반이 이미 어딘가에 있으면 경고 후 중단
+			if (HasWanderingCaravanActiveAnywhere())
+			{
+				Messages.Message("RK_WanderingCaravan_AlreadySpawned".Translate(), MessageTypeDefOf.NeutralEvent, false);
+				return false;
+			}
 			var ext = Ext ?? new IncidentDefExtension_WanderingCaravan();
 			int maxRoster = ext.maxRosterCount;
 			IntRange yearlyRecruit = ext.yearlyRecruitRange;
@@ -87,15 +167,12 @@ namespace NewRatkin
 			}
 			else
 			{
-				// 재방문: 사망/만료 정리, 풀 충원, 풀에서 로스터 선택
+				// 재방문: 사망/만료 정리, 풀 충원, 풀에서 로스터 선택 (이벤트마다 충원, 시간 통제는 minRefireDays 등으로 처리)
 				comp.CleanupDeadPawns();
-				if (comp.IsNewYearFor(map.Tile))
-				{
-					comp.RemoveExpiredFromPool(ext.expireAfterAppearances);
-					comp.RefillPool(map, faction, yearlyRecruit.RandomInRange, ext.maxPoolSize);
-					if (comp.PoolCount >= maxRoster)
-						comp.RefillPool(map, faction, ext.overflowRecruitCount, ext.maxPoolSize);
-				}
+				comp.RemoveExpiredFromPool(ext.expireAfterAppearances);
+				comp.RefillPool(map, faction, yearlyRecruit.RandomInRange, ext.maxPoolSize);
+				if (comp.PoolCount >= maxRoster)
+					comp.RefillPool(map, faction, ext.overflowRecruitCount, ext.maxPoolSize);
 				comp.SelectRosterFromPool(maxRoster);
 				comp.TakePawnsForSpawn(map, out leader, out guards, out salePawns);
 
@@ -113,11 +190,14 @@ namespace NewRatkin
 				CleanupAndRefillGuards(guards, faction, map.Tile);
 			}
 
-			// 리더 인벤토리에 거래용 물품 추가
+			List<Pawn> packAnimals = CreatePackAnimals(faction, map.Tile);
+
+			// 거래 물품 생성 후 짐꾼 동물에게 우선 분배, 나머지는 리더에게
 			ThingSetMakerParams stockParms = default(ThingSetMakerParams);
 			stockParms.traderDef = traderKind;
 			stockParms.tile = new PlanetTile?(map.Tile);
 			stockParms.makingFaction = faction;
+			List<Thing> wares = new List<Thing>();
 			foreach (Thing thing in ThingSetMakerDefOf.TraderStock.root.Generate(stockParms))
 			{
 				Pawn stockPawn = thing as Pawn;
@@ -127,16 +207,17 @@ namespace NewRatkin
 						stockPawn.SetFaction(faction, null);
 					salePawns.Add(stockPawn);
 				}
-				else if (!leader.inventory.innerContainer.TryAdd(thing, true))
+				else
 				{
-					thing.Destroy(DestroyMode.Vanish);
+					wares.Add(thing);
 				}
 			}
+			DistributeWaresToCarriers(wares, packAnimals, leader);
 			PawnInventoryGenerator.GiveRandomFood(leader);
-
 			List<Pawn> allPawns = new List<Pawn> { leader };
 			allPawns.AddRange(guards);
 			allPawns.AddRange(salePawns);
+			allPawns.AddRange(packAnimals);
 
 			foreach (Pawn p in allPawns)
 			{
@@ -225,6 +306,59 @@ namespace NewRatkin
 				if (pawn != null) list.Add(pawn);
 			}
 			return list;
+		}
+
+		private static List<Pawn> CreatePackAnimals(Faction faction, int tile)
+		{
+			var list = new List<Pawn>();
+			int count = Rand.RangeInclusive(1, 2);
+			for (int i = 0; i < count; i++)
+			{
+				Pawn animal = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+					RatkinPawnKindDefOf.Ratkin_KingHamster, faction, PawnGenerationContext.NonPlayer, tile,
+					false, false, false, true, false, 1f, true, true, false, true, true,
+					false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
+					null, null, null, null, null, null, null, null, false, false, false, false,
+					null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
+					false, false, false, -1, 0, false));
+				if (animal != null)
+				{
+					animal.training.Train(RimWorld.TrainableDefOf.Obedience, null, true);
+					list.Add(animal);
+				}
+			}
+			return list;
+		}
+
+		/// <summary>
+		/// 바닐라 PawnGroupKindWorker_Trader.GenerateCarriers() 방식 참조.
+		/// 짐꾼 동물(packAnimal)에게 우선 분배하고, 남은 물품은 리더에게 넣는다.
+		/// </summary>
+		private static void DistributeWaresToCarriers(List<Thing> wares, List<Pawn> packAnimals, Pawn leader)
+		{
+			if (wares.Count == 0) return;
+
+			if (packAnimals.Count == 0)
+			{
+				foreach (Thing thing in wares)
+				{
+					if (!leader.inventory.innerContainer.TryAdd(thing, true))
+						thing.Destroy(DestroyMode.Vanish);
+				}
+				return;
+			}
+
+			// 라운드 로빈으로 각 짐꾼에게 순서대로 분배
+			for (int i = 0; i < wares.Count; i++)
+			{
+				Pawn carrier = packAnimals[i % packAnimals.Count];
+				if (!carrier.inventory.innerContainer.TryAdd(wares[i], true))
+				{
+					// 짐꾼이 못 받으면 리더에게
+					if (!leader.inventory.innerContainer.TryAdd(wares[i], true))
+						wares[i].Destroy(DestroyMode.Vanish);
+				}
+			}
 		}
 
 		private static void CleanupAndRefillGuards(List<Pawn> guards, Faction faction, int tile)

@@ -35,6 +35,7 @@
   <RK_WanderingCaravan_OneJoined>{0} has joined the colony.</RK_WanderingCaravan_OneJoined>
   <RK_WanderingCaravan_AllJoined>{0} have joined the colony.</RK_WanderingCaravan_AllJoined>
   <RK_WanderingCaravan_CommissionPlaceholder>Commission feature is under development.</RK_WanderingCaravan_CommissionPlaceholder>
+  <RK_WanderingCaravan_AlreadySpawned>The caravan is already on the map.</RK_WanderingCaravan_AlreadySpawned>
 
   <!-- Settlement join requirements -->
   <RK_JoinReq_Silver_Desc>This settler hopes to join a wealthy colony.</RK_JoinReq_Silver_Desc>

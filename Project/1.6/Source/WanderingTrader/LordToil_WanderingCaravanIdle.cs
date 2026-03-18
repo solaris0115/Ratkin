@@ -19,6 +19,14 @@ namespace NewRatkin
 
 		public override IEnumerable<FloatMenuOption> ExtraFloatMenuOptions(Pawn clickedPawn, Pawn forPawn)
 		{
+			return GetFloatMenuOptionsForLeader(lord, clickedPawn, forPawn);
+		}
+
+		/// <summary>
+		/// 리더 우클릭 시 대화하기/돌려보내기 옵션. Idle·Travel 공통 사용.
+		/// </summary>
+		internal static IEnumerable<FloatMenuOption> GetFloatMenuOptionsForLeader(Lord lord, Pawn clickedPawn, Pawn forPawn)
+		{
 			LordJob_WanderingCaravan job = lord?.LordJob as LordJob_WanderingCaravan;
 			if (job == null || job.leader != clickedPawn)
 				yield break;
