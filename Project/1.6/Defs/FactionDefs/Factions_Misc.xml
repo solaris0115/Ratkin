@@ -234,7 +234,7 @@
 	</FactionDef>
 
 	<!-- 히든 팩션1: 랫킨 캐러반 -->
-	<!-- 상인 전용 팩션. hidden=true이므로 공격받아도 우호도 변화 없음 (적대로 변하지 않음) -->
+	<!-- 상인 전용 팩션. hidden=true → HasGoodwill=false → 우호도 상승/하락 없음. factionHostileOnHarmByPlayer=true → 공격 시 적대 전환 -->
 	<FactionDef ParentName="FactionBase">
 		<defName>RK_Faction_Caravan</defName>
 		<label>ratkin caravan</label>
@@ -259,7 +259,7 @@
 		<techLevel>Industrial</techLevel>
 		<!-- Alien Race: GetRaceOfFaction에서 basicMemberKind 사용. Trader pawnGroupMaker는 options가 없어 First() 예외 발생 방지 -->
 		<basicMemberKind>RatkinMerchant</basicMemberKind>
-		<!-- hidden=true 설정으로 HasGoodwill=false가 되어 공격받아도 우호도 변화 없음 -->
+		<!-- hidden=true → HasGoodwill=false → 우호도 변동 없음 (퀘스트/거래 등 영향 없음). 적대 전환은 factionHostileOnHarmByPlayer로 처리 -->
 		<!-- 유랑 상인 전용 TraderKind (판매용 pawn은 IncidentWorker에서 별도 생성) -->
 		<caravanTraderKinds>
 			<li>RK_TraderKind_WanderingTrader</li>
