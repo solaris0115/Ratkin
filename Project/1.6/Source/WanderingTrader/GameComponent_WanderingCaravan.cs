@@ -22,6 +22,11 @@ namespace NewRatkin
 		private List<Pawn> rosterSettlers = new List<Pawn>();
 		private int lastVisitYear = -1;
 
+		/// <summary>플레이어 공격으로 퇴각한 경우, roster 추가 건너뜀 및 패널티 적용용</summary>
+		private bool wasAttackedByPlayer = false;
+		/// <summary>패널티 만료 틱. 이 틱 이후에야 캐러반 방문 가능</summary>
+		private int attackPenaltyUntilTick = 0;
+
 		public GameComponent_WanderingCaravan(Game game) { }
 
 		public override void ExposeData()
@@ -32,6 +37,8 @@ namespace NewRatkin
 			Scribe_Collections.Look(ref settlerPool, "settlerPool", LookMode.Reference);
 			Scribe_Collections.Look(ref rosterSettlers, "rosterSettlers", LookMode.Reference);
 			Scribe_Values.Look(ref lastVisitYear, "lastVisitYear", -1);
+			Scribe_Values.Look(ref wasAttackedByPlayer, "wasAttackedByPlayer", false);
+			Scribe_Values.Look(ref attackPenaltyUntilTick, "attackPenaltyUntilTick", 0);
 
 			// Dictionary 직렬화: Pawn 리스트 + 값 리스트 분리
 			List<Pawn> reqPawns = settlerRequirements?.Keys.ToList() ?? new List<Pawn>();
@@ -68,6 +75,42 @@ namespace NewRatkin
 							settlerAppearanceCount[countPawns[i]] = countValues[i];
 				}
 			}
+		}
+
+		/// <summary>플레이어 공격으로 퇴각 시 호출. 로스터/풀 초기화 및 패널티 적용</summary>
+		public void NotifyCaravanAttacked()
+		{
+			wasAttackedByPlayer = true;
+			attackPenaltyUntilTick = GenTicks.TicksGame + (120 * 60000); // 120일 = 2년
+
+			// 풀 pawn들을 WorldPawns에서 KeepForever → Decide로 전환 (자연 GC 허용)
+			foreach (Pawn p in settlerPool.ToList())
+			{
+				if (p != null && !p.DestroyedOrNull() && !p.Dead && p.IsWorldPawn())
+				{
+					Find.WorldPawns.RemovePawn(p);
+					Find.WorldPawns.PassToWorld(p, PawnDiscardDecideMode.Decide);
+				}
+			}
+
+			rosterLeader.Clear();
+			rosterGuards.Clear();
+			rosterSettlers.Clear();
+			settlerPool.Clear();
+			settlerRequirements.Clear();
+			settlerAppearanceCount.Clear();
+		}
+
+		/// <summary>공격 패널티 기간 중인지</summary>
+		public bool IsAttackPenaltyActive => attackPenaltyUntilTick > 0 && GenTicks.TicksGame < attackPenaltyUntilTick;
+
+		/// <summary>플레이어 공격으로 퇴각 중인지 (Pawn_ExitMap_Patch 등에서 사용)</summary>
+		public bool WasAttackedByPlayer => wasAttackedByPlayer;
+
+		/// <summary>패널티 만료 후 다음 방문 시 플래그 리셋 (IncidentWorker에서 호출)</summary>
+		public void ResetAttackedFlag()
+		{
+			wasAttackedByPlayer = false;
 		}
 
 		/// <summary>사망/파괴된 폰을 풀 및 명부에서 제거</summary>
@@ -153,6 +196,10 @@ namespace NewRatkin
 		public void OnCaravanPawnExitedMap(Pawn p)
 		{
 			if (p == null || p.DestroyedOrNull() || p.Dead) return;
+			// 플레이어 공격으로 퇴각 중이면 roster에 추가하지 않음
+			if (wasAttackedByPlayer) return;
+			// 합류한 pawn(플레이어 소속)은 roster에 추가하지 않음 - 풀에서 이미 제거됨, 트리거에 영향 없어야 함
+			if (p.Faction == Faction.OfPlayer) return;
 
 			if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader)
 				rosterLeader.Add(p);

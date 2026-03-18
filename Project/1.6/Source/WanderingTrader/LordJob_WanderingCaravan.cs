@@ -68,6 +68,7 @@ namespace NewRatkin
 			Transition toExitEnemy = new Transition(idle, exitDefend, false, true);
 			toExitEnemy.AddSource(travel);
 			toExitEnemy.AddSource(defend);
+			toExitEnemy.AddPreAction(new TransitionAction_Custom(() => MarkAttackedIfPlayerHostile()));
 			toExitEnemy.AddTrigger(new Trigger_BecamePlayerEnemy());
 			toExitEnemy.AddPostAction(new TransitionAction_WakeAll());
 			toExitEnemy.AddPostAction(new TransitionAction_EndAllJobs());
@@ -84,6 +85,7 @@ namespace NewRatkin
 
 			// Defend: 피해 20% 누적 → ExitDefend (퇴각)
 			Transition defendToExit = new Transition(defend, exitDefend, false, true);
+			defendToExit.AddPreAction(new TransitionAction_Custom(() => MarkAttackedIfPlayerHostile()));
 			defendToExit.AddTrigger(new Trigger_FractionPawnsLost(0.2f));
 			defendToExit.AddPostAction(new TransitionAction_WakeAll());
 			defendToExit.AddPostAction(new TransitionAction_EndAllJobs());
@@ -110,6 +112,16 @@ namespace NewRatkin
 		private void SaveCaravanToWorldPawns()
 		{
 			Current.Game.GetComponent<GameComponent_WanderingCaravan>()?.OnCaravanExited(lord);
+		}
+
+		private void MarkAttackedIfPlayerHostile()
+		{
+			if (faction != null && faction.HostileTo(Faction.OfPlayer))
+			{
+				GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
+				comp?.NotifyCaravanAttacked();
+				Messages.Message("RK_WanderingCaravan_AttackedPenalty".Translate(), MessageTypeDefOf.NegativeEvent, false);
+			}
 		}
 
 		public override void Notify_PawnLost(Pawn p, PawnLostCondition cond)

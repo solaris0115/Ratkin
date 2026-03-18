@@ -37,6 +37,10 @@ namespace NewRatkin
 				if (cond.def.preventNeutralVisitors)
 					return false;
 			}
+			// 공격 패널티 기간 중에는 방문 차단
+			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
+			if (comp != null && comp.IsAttackPenaltyActive)
+				return false;
 			// 유랑단이 이미 어딘가에 존재하면 트리거 안 함 (다중 맵, 디버그 강제 호출 대비)
 			if (HasWanderingCaravanActiveAnywhere())
 				return false;
@@ -122,6 +126,10 @@ namespace NewRatkin
 				Messages.Message("RK_WanderingCaravan_AlreadySpawned".Translate(), MessageTypeDefOf.NeutralEvent, false);
 				return false;
 			}
+			// 패널티 만료 후 첫 방문: 공격 플래그 리셋 (로스터는 NotifyCaravanAttacked에서 이미 클리어됨)
+			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
+			if (comp != null && comp.WasAttackedByPlayer)
+				comp.ResetAttackedFlag();
 			var ext = Ext ?? new IncidentDefExtension_WanderingCaravan();
 			int maxRoster = ext.maxRosterCount;
 			IntRange yearlyRecruit = ext.yearlyRecruitRange;
@@ -145,7 +153,6 @@ namespace NewRatkin
 			if (!parms.spawnCenter.IsValid && !RCellFinder.TryFindRandomPawnEntryCell(out parms.spawnCenter, map, CellFinder.EdgeRoadChance_Neutral, false, null))
 				return false;
 
-			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
 			if (comp == null)
 				return false;
 

@@ -36,6 +36,7 @@
   <RK_WanderingCaravan_AllJoined>{0}명이 정착민으로 합류했습니다.</RK_WanderingCaravan_AllJoined>
   <RK_WanderingCaravan_CommissionPlaceholder>물건 의뢰 기능은 준비 중입니다.</RK_WanderingCaravan_CommissionPlaceholder>
   <RK_WanderingCaravan_AlreadySpawned>유랑단이 이미 맵에 있습니다.</RK_WanderingCaravan_AlreadySpawned>
+  <RK_WanderingCaravan_AttackedPenalty>유랑단은 공격당한 기억 때문에 당분간 이 정착지를 방문하지 않을 것입니다.</RK_WanderingCaravan_AttackedPenalty>
 
   <!-- 정착지 합류 조건 -->
   <RK_JoinReq_Silver_Desc>이 유랑민은 부유한 곳에 합류를 희망합니다.</RK_JoinReq_Silver_Desc>

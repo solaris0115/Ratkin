@@ -25,14 +25,19 @@ namespace NewRatkin
 				return;
 			if (pawn.Faction.def != RatkinFactionDefOf.RK_Faction_Caravan)
 				return;
-			// 유랑단 캐러반 roster 대상(리더/호위/유랑민)만 KeepForever. 짐꾼(동물)은 제외.
-			if (pawn.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader
-				|| pawn.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard
-				|| pawn.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad
-				|| pawn.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+			// 유랑단 캐러반 roster 대상(리더/호위/유랑민)만 처리. 짐꾼(동물)은 제외.
+			if (pawn.kindDef != RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader
+				&& pawn.kindDef != RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard
+				&& pawn.kindDef != RatkinPawnKindDefOf.RK_PawnKind_Nomad
+				&& pawn.kindDef != RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+				return;
+			// 플레이어 공격으로 퇴각 중이면 Decide 모드 (다른 방법으로 등장 가능, 캐러반으로는 안 옴)
+			if (Current.Game?.GetComponent<GameComponent_WanderingCaravan>()?.WasAttackedByPlayer == true)
 			{
-				discardMode = PawnDiscardDecideMode.KeepForever;
+				discardMode = PawnDiscardDecideMode.Decide;
+				return;
 			}
+			discardMode = PawnDiscardDecideMode.KeepForever;
 		}
 	}
 }
