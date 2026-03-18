@@ -79,6 +79,7 @@ namespace NewRatkin
         public static PawnKindDef RK_PawnKind_Wanderer;
         public static PawnKindDef RK_PawnKind_CaravanLeader;
         public static PawnKindDef RK_PawnKind_CaravanGuard;
+        public static PawnKindDef Ratkin_KingHamster;
     }
 
     [DefOf]
