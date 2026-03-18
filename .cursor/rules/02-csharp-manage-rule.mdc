@@ -1,26 +1,18 @@
 ---
 alwaysApply: true
+description: C# build and project management
 ---
-## 빌드 명령어
+# C# Build
 
-**프로젝트 파일**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
+**csproj**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
 
 ```powershell
 cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
 ```
 
-> **주의**: PowerShell 5.x에서는 `&&` 미지원. 명령 연결은 반드시 `;` 사용
+- Output: `Project/1.6/Assemblies/NewRatkin.dll`
+- Intermediate: `Project/1.6/Source/obj/Debug/`
 
-## 빌드 출력 경로
-
-- **출력 DLL**: `Project/1.6/Assemblies/NewRatkin.dll` (자동 복사)
-- **중간 출력**: `Project/1.6/Source/obj/Debug/`
-
-## 프로젝트 파일 관리
-
-**새 C# 파일 생성 시 반드시 [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)에 추가:**
-
-1. 파일 생성 후 `NewRatkin.csproj`의 `<ItemGroup>` 섹션에 `<Compile Include="[폴더명]\[파일명].cs" />` 항목 추가
-2. 예시: `Gunlance/NewFile.cs` 생성 시 → `<Compile Include="Gunlance\NewFile.cs" />` 추가
-
-**파일 삭제 시에도 `<Compile Include="..."/>` 항목 제거 필요**
+## File Management
+- New `.cs` → add `<Compile Include="Folder\File.cs" />` to csproj `<ItemGroup>`
+- Delete `.cs` → remove the `<Compile>` entry too
