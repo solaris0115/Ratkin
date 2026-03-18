@@ -373,26 +373,22 @@ namespace NewRatkin
             float damageReductionPercent = 0f;
             float staminaLossPerDamage = 0f;
             bool shouldProcess = false;
-            string classificationType = "미분류";
             
             switch (attackType)
             {
                 case AttackType.Melee:
-                    classificationType = "근접";
                     damageReductionPercent = this.DamageReductionMelee;
                     staminaLossPerDamage = this.StaminaLossMelee;
                     shouldProcess = true;
                     break;
                     
                 case AttackType.Ranged:
-                    classificationType = "원거리";
                     damageReductionPercent = this.DamageReductionRanged;
                     staminaLossPerDamage = this.StaminaLossRanged;
                     shouldProcess = true;
                     break;
                     
                 case AttackType.Explosive:
-                    classificationType = "폭발";
                     damageReductionPercent = this.DamageReductionExplosive;
                     staminaLossPerDamage = this.StaminaLossExplosive;
                     shouldProcess = true;
@@ -400,7 +396,6 @@ namespace NewRatkin
                     
                 case AttackType.Etc:
                 default:
-                    classificationType = "ETC (통과)";
                     shouldProcess = false;  // ETC는 통과 처리
                     break;
             }
