@@ -27,6 +27,18 @@ description: Git 워크플로우 및 커밋 규칙
 
 - **커밋 전 검증**: `git status`로 스테이징된 파일 확인 후 작업 파일만 포함
 
-## 터미널 및 인코딩 규칙 (필수)
+## 터미널 명령어 규칙 (필수)
 
-- **Git Bash 사용 필수**: 모든 Git 명령어는 Git Bash 터미널에서 실행
+- **Shell 환경**: 현재 환경은 **PowerShell 5.x**
+- **`&&` 사용 금지**: PowerShell 5.x에서는 `&&` 연산자를 지원하지 않음. 반드시 `;`으로 대체
+- **`cd /d` 사용 금지**: PowerShell에서는 `cd /d`가 아닌 `working_directory` 파라미터를 사용
+- **외부 실행파일 호출**: `& "경로"` 형식 사용 (예: `& "C:\Program Files\Git\bin\git.exe"`)
+
+```powershell
+# 올바른 예시
+git add .; git commit -m "메시지"
+
+# 잘못된 예시 (절대 사용 금지)
+cd /d D:/GitProject/Ratkin && git status
+git add . && git commit -m "메시지"
+```
