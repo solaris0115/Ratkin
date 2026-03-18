@@ -85,10 +85,6 @@
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
 				<cooldownTicks>300</cooldownTicks>
 			</li>
-			<!-- <li Class="NewRatkin.CompProperties_StaminaShield">
-				<startingTicksToReset>180</startingTicksToReset>
-				<durabilityDamagePercent>0.05</durabilityDamagePercent>
-			</li> -->
 		</comps>
 		<apparel>
 			<bodyPartGroups>
