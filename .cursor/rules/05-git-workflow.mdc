@@ -4,21 +4,14 @@ description: Git workflow and commit rules
 ---
 # Git Rules
 
-## Auto-Stage (no auto-commit)
-- Stage changed files after every chat that modifies files
-- Do NOT commit — user reviews staged changes first
-- Leave comment: "Staged. Review with `git diff --staged` then commit."
-- Never `git push` unless user explicitly asks
-- When user commits: prefix `[AI]`, message in Korean
+## Git 미관여 (비활성화)
+- **stage, commit, push 등 Git 작업을 수행하지 않음**
+- 파일 수정 후 자동 stage 하지 않음
+- 커밋 관련 룰 비활성화 — 사용자가 직접 Git 관리
 
 ## Safety
 - Forbidden: `git reset --hard`, `git clean -fd`, `git rebase -i --hard`, `git branch -D`
 - Before destructive ops: `git stash push -m "desc"`
-
-## Commit Scope
-- Only stage task-related files
-- Exclude: temp files, build output, logs, personal config
-- Verify with `git status` before commit
 
 ## Shell (PowerShell 5.x)
 - `&&` is **NOT supported** → use `;`
@@ -27,7 +20,7 @@ description: Git workflow and commit rules
 
 ```powershell
 # OK
-git add path/to/file.cs
+& "C:\path\to\msbuild.exe" project.csproj
 # WRONG
-git add . && git commit -m "msg"
+cd /d C:\path && dotnet build
 ```
