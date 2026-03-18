@@ -129,6 +129,7 @@ namespace NewRatkin
         public static JobDef RK_Job_SpectatePray;
         public static JobDef RK_Job_ShieldFaceDirection;
         public static JobDef RK_Job_TalkToCaravanLeader;
+        public static JobDef RK_Job_DismissCaravanLeader;
     }
 
     [DefOf]

@@ -63,10 +63,26 @@ namespace NewRatkin
 					forPawn, clickedPawn, "ReservedBy", null);
 			}
 
-			// 돌려보내기
-			Action dismissAction = () => lord.ReceiveMemo("CaravanDismissed");
-			yield return new FloatMenuOption("RK_WanderingCaravan_DismissCaravan".Translate(), dismissAction,
-				MenuOptionPriority.Default, null, clickedPawn, 0f, null, null, true, 0);
+			// 돌려보내기: pawn이 리더에게 직접 이동 후 요청 (대화하기와 동일)
+			Action dismissAction = () =>
+			{
+				Job dismissJob = JobMaker.MakeJob(RatkinJobDefOf.RK_Job_DismissCaravanLeader, clickedPawn);
+				dismissJob.playerForced = true;
+				forPawn.jobs.TryTakeOrderedJob(dismissJob, new JobTag?(JobTag.Misc), false);
+			};
+
+			if (!forPawn.CanReach(clickedPawn, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
+			{
+				yield return new FloatMenuOption("RK_WanderingCaravan_DismissCaravan".Translate() + ": " + "NoPath".Translate().CapitalizeFirst(),
+					null, MenuOptionPriority.Default, null, null, 0f, null, null, true, 0);
+			}
+			else
+			{
+				yield return FloatMenuUtility.DecoratePrioritizedTask(
+					new FloatMenuOption("RK_WanderingCaravan_DismissCaravan".Translate(), dismissAction,
+						MenuOptionPriority.InitiateSocial, null, clickedPawn, 0f, null, null, true, 0),
+					forPawn, clickedPawn, "ReservedBy", null);
+			}
 		}
 
 		internal static Dialog_NodeTree CreateMainDialog(Pawn leader, Pawn colonist)

@@ -142,11 +142,13 @@ namespace NewRatkin
 			}
 		}
 
-		/// <summary>유저가 유랑민 수락 시 풀·조건·등장횟수에서 제거</summary>
+		/// <summary>유저가 유랑민 수락 시 풀·로스터·조건·등장횟수에서 제거</summary>
+		/// <remarks>첫 방문 시 TakePawnsForSpawn이 호출되지 않아 rosterSettlers가 비워지지 않음. 합류 시 rosterSettlers에서도 제거해야 HasRosterOrPoolPawnsSpawned/트리거에 영향 없음.</remarks>
 		public void OnSettlerAccepted(Pawn pawn)
 		{
 			if (pawn == null) return;
 			settlerPool.Remove(pawn);
+			rosterSettlers.Remove(pawn);
 			settlerRequirements.Remove(pawn);
 			settlerAppearanceCount.Remove(pawn);
 		}
@@ -198,8 +200,6 @@ namespace NewRatkin
 			if (p == null || p.DestroyedOrNull() || p.Dead) return;
 			// 플레이어 공격으로 퇴각 중이면 roster에 추가하지 않음
 			if (wasAttackedByPlayer) return;
-			// 합류한 pawn(플레이어 소속)은 roster에 추가하지 않음 - 풀에서 이미 제거됨, 트리거에 영향 없어야 함
-			if (p.Faction == Faction.OfPlayer) return;
 
 			if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader)
 				rosterLeader.Add(p);

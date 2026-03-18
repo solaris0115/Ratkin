@@ -64,6 +64,13 @@ namespace NewRatkin
 			toExitDismissed.AddPostAction(new TransitionAction_WakeAll());
 			stateGraph.AddTransition(toExitDismissed, false);
 
+			// Travel: CaravanDismissed → Exit (진입 중에도 돌려보내기 가능)
+			Transition toExitDismissedFromTravel = new Transition(travel, exitMap, false, true);
+			toExitDismissedFromTravel.AddTrigger(new Trigger_Memo("CaravanDismissed"));
+			toExitDismissedFromTravel.AddPreAction(new TransitionAction_Message("MessageTraderCaravanDismissed".Translate(faction.Name), null, 1f));
+			toExitDismissedFromTravel.AddPostAction(new TransitionAction_WakeAll());
+			stateGraph.AddTransition(toExitDismissedFromTravel, false);
+
 			// Idle/Travel: BecamePlayerEnemy → ExitDefend (플레이어 적대 시 즉시 퇴각)
 			Transition toExitEnemy = new Transition(idle, exitDefend, false, true);
 			toExitEnemy.AddSource(travel);
