@@ -28,7 +28,7 @@ namespace NewRatkin
 			doCloseButton = true;
 			doCloseX = true;
 			absorbInputAroundWindow = true;
-			forcePause = false;
+			forcePause = true;
 		}
 
 		public override Vector2 InitialSize => new Vector2(800f, 900f);
