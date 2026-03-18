@@ -4,11 +4,12 @@ description: Git workflow and commit rules
 ---
 # Git Rules
 
-## Auto-Commit
-- Commit after every chat that changes files
+## Auto-Stage (no auto-commit)
+- Stage changed files after every chat that modifies files
+- Do NOT commit — user reviews staged changes first
+- Leave comment: "Staged. Review with `git diff --staged` then commit."
 - Never `git push` unless user explicitly asks
-- Commit message prefix: `[AI]`
-- Commit message language: Korean
+- When user commits: prefix `[AI]`, message in Korean
 
 ## Safety
 - Forbidden: `git reset --hard`, `git clean -fd`, `git rebase -i --hard`, `git branch -D`
@@ -26,7 +27,7 @@ description: Git workflow and commit rules
 
 ```powershell
 # OK
-git add .; git commit -m "msg"
-# WRONG — never do this
+git add path/to/file.cs
+# WRONG
 git add . && git commit -m "msg"
 ```
