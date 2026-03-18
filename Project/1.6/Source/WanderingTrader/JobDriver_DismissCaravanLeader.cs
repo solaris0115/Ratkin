@@ -15,7 +15,8 @@ namespace NewRatkin
 
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
-			return pawn.Reserve(Leader, job, 1, -1, null, errorOnFailed, false);
+			// Travel 중 리더가 이동할 때 예약 충돌 가능 → ignoreOtherReservations로 우선 예약
+			return pawn.Reserve(Leader, job, 1, -1, null, errorOnFailed, true);
 		}
 
 		protected override IEnumerable<Toil> MakeNewToils()

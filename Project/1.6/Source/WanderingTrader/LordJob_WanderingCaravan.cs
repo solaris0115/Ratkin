@@ -38,6 +38,10 @@ namespace NewRatkin
 			LordToil_WanderingCaravanDefend defend = new LordToil_WanderingCaravanDefend();
 			stateGraph.AddToil(defend);
 
+			// 트레이더처럼 리더 따라 한곳으로 모여 퇴장
+			LordToil_ExitMapWanderingCaravan exitCaravan = new LordToil_ExitMapWanderingCaravan();
+			stateGraph.AddToil(exitCaravan);
+
 			LordToil_ExitMap exitMap = new LordToil_ExitMap(LocomotionUrgency.None, false, false);
 			stateGraph.AddToil(exitMap);
 
@@ -49,26 +53,28 @@ namespace NewRatkin
 			toIdle.AddTrigger(new Trigger_Memo("TravelArrived"));
 			stateGraph.AddTransition(toIdle, false);
 
-			// Idle: TicksPassed → Exit
-			Transition toExitTime = new Transition(idle, exitMap, false, true);
+			// Idle: TicksPassed → Exit (리더 따라 한곳으로 퇴장)
+			Transition toExitTime = new Transition(idle, exitCaravan, false, true);
 			toExitTime.AddTrigger(new Trigger_TicksPassed(DebugSettings.instantVisitorsGift ? 0 : Rand.Range(27000, 45000)));
 			toExitTime.AddPreAction(new TransitionAction_Custom(() => SaveCaravanToWorldPawns()));
 			toExitTime.AddPreAction(new TransitionAction_Message("MessageTraderCaravanLeaving".Translate(faction.Name), null, 1f));
 			toExitTime.AddPostAction(new TransitionAction_WakeAll());
 			stateGraph.AddTransition(toExitTime, false);
 
-			// Idle: CaravanDismissed → Exit (맵 끝까지 이동 후 퇴장, SaveCaravanToWorldPawns는 각 pawn ExitMap 시 Notify_PawnLost에서 처리)
-			Transition toExitDismissed = new Transition(idle, exitMap, false, true);
+			// Idle: CaravanDismissed → Exit (리더 따라 한곳으로 퇴장)
+			Transition toExitDismissed = new Transition(idle, exitCaravan, false, true);
 			toExitDismissed.AddTrigger(new Trigger_Memo("CaravanDismissed"));
 			toExitDismissed.AddPreAction(new TransitionAction_Message("MessageTraderCaravanDismissed".Translate(faction.Name), null, 1f));
 			toExitDismissed.AddPostAction(new TransitionAction_WakeAll());
+			toExitDismissed.AddPostAction(new TransitionAction_EndAllJobs());
 			stateGraph.AddTransition(toExitDismissed, false);
 
 			// Travel: CaravanDismissed → Exit (진입 중에도 돌려보내기 가능)
-			Transition toExitDismissedFromTravel = new Transition(travel, exitMap, false, true);
+			Transition toExitDismissedFromTravel = new Transition(travel, exitCaravan, false, true);
 			toExitDismissedFromTravel.AddTrigger(new Trigger_Memo("CaravanDismissed"));
 			toExitDismissedFromTravel.AddPreAction(new TransitionAction_Message("MessageTraderCaravanDismissed".Translate(faction.Name), null, 1f));
 			toExitDismissedFromTravel.AddPostAction(new TransitionAction_WakeAll());
+			toExitDismissedFromTravel.AddPostAction(new TransitionAction_EndAllJobs());
 			stateGraph.AddTransition(toExitDismissedFromTravel, false);
 
 			// Idle/Travel: BecamePlayerEnemy → ExitDefend (플레이어 적대 시 즉시 퇴각)
@@ -103,8 +109,8 @@ namespace NewRatkin
 			defendToIdle.AddTrigger(new Trigger_TicksPassedWithoutHarm(1200));
 			stateGraph.AddTransition(defendToIdle, false);
 
-			// Idle/Travel: DangerousTemperatures → Exit
-			Transition toExitTemp = new Transition(idle, exitMap, false, true);
+			// Idle/Travel: DangerousTemperatures → Exit (리더 따라 한곳으로 퇴장)
+			Transition toExitTemp = new Transition(idle, exitCaravan, false, true);
 			toExitTemp.AddSource(travel);
 			toExitTemp.AddSource(defend);
 			toExitTemp.AddPreAction(new TransitionAction_Custom(() => SaveCaravanToWorldPawns()));
@@ -112,6 +118,18 @@ namespace NewRatkin
 			toExitTemp.AddPostAction(new TransitionAction_EndAllJobs());
 			toExitTemp.AddTrigger(new Trigger_PawnExperiencingDangerousTemperatures());
 			stateGraph.AddTransition(toExitTemp, false);
+
+			// ExitCaravan: PawnLost 시 self-transition으로 UpdateAllDuties 재호출 (리더 퇴장 시 나머지 pawn duty 갱신)
+			Transition exitCaravanSelfUpdate = new Transition(exitCaravan, exitCaravan, true, true);
+			exitCaravanSelfUpdate.canMoveToSameState = true;
+			exitCaravanSelfUpdate.AddTrigger(new Trigger_PawnLost(PawnLostCondition.Undefined, null));
+			stateGraph.AddTransition(exitCaravanSelfUpdate, false);
+
+			// ExitCaravan: 60000틱(약 16시간) 경과 시 개별 퇴장으로 폴백 (트레이더와 동일)
+			Transition exitCaravanToIndividual = new Transition(exitCaravan, exitMap, false, true);
+			exitCaravanToIndividual.AddTrigger(new Trigger_TicksPassed(60000));
+			exitCaravanToIndividual.AddPostAction(new TransitionAction_WakeAll());
+			stateGraph.AddTransition(exitCaravanToIndividual, false);
 
 			return stateGraph;
 		}
