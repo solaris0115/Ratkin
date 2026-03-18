@@ -26,7 +26,8 @@ namespace NewRatkin
 		public override void UpdateAllDuties()
 		{
 			Pawn leader = Leader;
-			if (leader == null || !leader.Spawned)
+			// 리더가 ownedPawns에 없으면(ExitedMap 직후 RemovePawn됐으나 아직 DeSpawn 전) fallback
+			if (leader == null || !leader.Spawned || !lord.ownedPawns.Contains(leader))
 			{
 				// 리더 없으면 전원 ExitMapBest로 개별 퇴장
 				for (int i = 0; i < lord.ownedPawns.Count; i++)
