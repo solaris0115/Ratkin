@@ -2,6 +2,7 @@
 <Defs>
 	<!-- 타워 쉴드 v2 -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_TowerShield_Second">
+		<thingClass>NewRatkin.ApparelShieldTowerSecond</thingClass>
 		<defName>RK_TowerShield_Second</defName>
 		<label>ratkin Tower Shield v2</label>
 		<description>금속 대방패.</description>
@@ -84,6 +85,8 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
 				<cooldownTicks>300</cooldownTicks>
+				<deflectAngleHalf>70</deflectAngleHalf>
+				<deflectChance>1.0</deflectChance>
 			</li>
 		</comps>
 		<apparel>

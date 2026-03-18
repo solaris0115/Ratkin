@@ -10,5 +10,11 @@ namespace NewRatkin
         }
 
         public int cooldownTicks = 300;
+
+        /// <summary>방향 고정 시 원거리 공격 차단 각도 (좌우 각도, 기본 70 = ±70도)</summary>
+        public float deflectAngleHalf = 70f;
+
+        /// <summary>방향 고정 시 원거리 공격 흡수 확률 (0~1, 기본 1.0 = 100%)</summary>
+        public float deflectChance = 1f;
     }
 }
