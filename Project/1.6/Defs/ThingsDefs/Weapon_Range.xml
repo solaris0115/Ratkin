@@ -738,8 +738,8 @@
 			<displayPriority>78320</displayPriority>
 		</recipeMaker>
 		<verbs>
-			<li Class="NewRatkin.VerbProperties_ShotgunBlast">
-				<verbClass>NewRatkin.Verb_ShotgunBlast</verbClass>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<soundCast>FlechetteRifle</soundCast>
 				<defaultProjectile>Bullet_RK_Buck</defaultProjectile>
@@ -747,11 +747,6 @@
 				<range>13.9</range>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>4</muzzleFlashScale>
-				<burstShotCount>1</burstShotCount>
-				<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-				<pelletCount>6</pelletCount>
-				<spreadAngleDeg>12</spreadAngleDeg>
-				<nonTargetHitChance>1</nonTargetHitChance>
 			</li>
 		</verbs>
 		<tools>
