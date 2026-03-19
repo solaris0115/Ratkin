@@ -271,9 +271,10 @@ namespace NewRatkin
             {
                 Vector3 dir = (destination - origin).Yto0();
                 float rot = dir.sqrMagnitude > 1E-06f ? dir.AngleFlat() : 0f;
-                var data = FleckMaker.GetDataStatic(center.ToVector3Shifted(), map, wyvernFleck, 1.2f);
+                var data = FleckMaker.GetDataStatic(center.ToVector3Shifted(), map, wyvernFleck, 1f);
+                data.exactScale = new Vector3?(new Vector3(3f, 1f, 2f)); // 가로 3배, 세로 2배
                 data.rotation = rot;
-                data.instanceColor = new Color(0.55f, 0.55f, 0.55f, 0.7f);
+                data.instanceColor = new Color(0.75f, 0.55f, 0.55f, 0.7f);
                 map.flecks.CreateFleck(data);
             }
         }

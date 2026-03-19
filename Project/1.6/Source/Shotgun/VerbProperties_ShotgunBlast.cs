@@ -18,5 +18,11 @@ namespace NewRatkin
         /// XML에서 설정 가능: &lt;spreadAngleDeg&gt;5&lt;/spreadAngleDeg&gt;
         /// </summary>
         public float spreadAngleDeg = 5f;
+
+        /// <summary>
+        /// 비목표(경로상 다른 대상) 적중 허용 확률. 1.0=항상, 0.5=50%
+        /// XML에서 설정 가능: &lt;nonTargetHitChance&gt;1&lt;/nonTargetHitChance&gt;
+        /// </summary>
+        public float nonTargetHitChance = 1f;
     }
 }

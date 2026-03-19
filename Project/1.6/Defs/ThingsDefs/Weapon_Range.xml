@@ -749,8 +749,9 @@
 				<muzzleFlashScale>4</muzzleFlashScale>
 				<burstShotCount>1</burstShotCount>
 				<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-				<pelletCount>4</pelletCount>
-				<spreadAngleDeg>5</spreadAngleDeg>
+				<pelletCount>6</pelletCount>
+				<spreadAngleDeg>12</spreadAngleDeg>
+				<nonTargetHitChance>1</nonTargetHitChance>
 			</li>
 		</verbs>
 		<tools>
@@ -828,7 +829,7 @@
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_Bolter">
 		<defName>RK_Weapon_Bolter</defName>
 		<label>handcannon</label>
-		<description></description>
+		<description>대구경 핸드캐논 입니다.</description>
 		<graphicData>
 			<texPath>Weapon/RK_Texture_WeaponBolter</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -960,7 +961,7 @@
 				<burstShotCountBurst>4</burstShotCountBurst>
 				<burstShotCountSingle>2</burstShotCountSingle>
 				<ticksBetweenBurstShotsBurst>10</ticksBetweenBurstShotsBurst>
-				<ticksBetweenBurstShotsSingle3769100</ticksBetweenBurstShotsSingle>
+				<ticksBetweenBurstShotsSingle>15</ticksBetweenBurstShotsSingle>
 				<warmupTimeBurst>1</warmupTimeBurst>
 				<warmupTimeSingle>1.7</warmupTimeSingle>
 				<statOffsetsSingle>
