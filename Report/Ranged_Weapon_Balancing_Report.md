@@ -4,7 +4,7 @@
 
 ## 개요
 
-- **생성일**: 2026-03-11
+- **생성일**: 2026-03-19
 - **데이터 소스**: RimworldData (Core, Royalty, Ideology, Biotech, Anomaly, Odyssey), Project/1.6/Defs
 - **포함 조건**: Verb_Shoot 또는 Verb_LaunchProjectile, Equippable/Equipable 컴포넌트 보유(부모 체인 포함), weaponClasses/thingCategories/weaponTags 보유, damageAmountBase > 0
 - **제외**: Verb_ShootBeam, Verb_Spray, Verb_SpewFire, 소모품(음료 등), 터렛 건물(turretGunDef 참조), 착용 불가(Equippable 미보유)
@@ -72,10 +72,9 @@ acc̄ = (1/R) × ∫₀ᴿ acc(d) dd   (R = weapon range)
 | RK_SniperRifle | 5.62 | 4.31 | 42.0 | 0.60 | 0.70 | 0.85 | 0.85 | 18.0 | 0.32 |
 | RK_FlechetteRifle | 5.81 | 4.4 | 31.0 | 0.65 | 0.85 | 0.75 | 0.65 | 18.0 | 0.38 |
 | RK_FlechetteSniperRifle | 5.71 | 4.11 | 39.0 | 0.60 | 0.65 | 0.80 | 0.80 | 20.0 | 0.42 |
-| RK_Rifle_line | 14.4 | 12.21 | 13.9 | 0.85 | 0.85 | 0.65 | 0.55 | 5.0 | 0.45 |
+| RK_Rifle_line | 13.14 | 11.17 | 10.9 | 0.85 | 0.85 | 0.65 | 0.55 | 5.0 | 0.45 |
 | RK_Weapon_Bolter | 8.0 | 5.52 | 23.9 | 0.85 | 0.65 | 0.55 | 0.40 | 20.0 | 0.45 |
-| RK_PrototypePulseRifle | 7.58 | 5.59 | 31.0 | 0.75 | 0.85 | 0.65 | 0.45 | 12.0 | 0.6 |
-| RK_Weapon_BFR | 5.6 | 3.54 | 44.9 | 0.65 | 0.35 | 0.65 | 0.85 | 28.0 | 0.6 |
+| RK_Weapon_BFR | 5.0 | 3.16 | 44.9 | 0.65 | 0.35 | 0.65 | 0.85 | 25.0 | 0.5 |
 | RK_Weapon_RatHolicGun | 2.33 | 0.55 | 30.9 | 0.20 | 0.25 | 0.25 | 0.18 | 7.0 | 0.3 |
 
 ## 전체 상세 데이터
@@ -126,14 +125,13 @@ acc̄ = (1/R) × ∫₀ᴿ acc(d) dd   (R = weapon range)
 | RK_SniperRifle | 1 | 1.4 | 42.0 | 18.0 | 0.32 | 5.62 | 4.31 | 0.7661 | 0.60 | 0.70 | 0.85 | 0.85 | Bullet_RK_SniperRifle |
 | RK_FlechetteRifle | 1 | 1.5 | 31.0 | 18.0 | 0.38 | 5.81 | 4.4 | 0.7574 | 0.65 | 0.85 | 0.75 | 0.65 | Bullet_RK_FlechetteRifle |
 | RK_FlechetteSniperRifle | 1 | 1.7 | 39.0 | 20.0 | 0.42 | 5.71 | 4.11 | 0.7192 | 0.60 | 0.65 | 0.80 | 0.80 | Bullet_RK_FlechetteSniperRifle |
-| RK_Rifle_line | 6 | 1.1 | 13.9 | 5.0 | 0.45 | 14.4 | 12.21 | 0.848 | 0.85 | 0.85 | 0.65 | 0.55 | Bullet_RK_Buck |
+| RK_Rifle_line | 6 | 1.3 | 10.9 | 5.0 | 0.45 | 13.14 | 11.17 | 0.85 | 0.85 | 0.85 | 0.65 | 0.55 | Bullet_RK_Buck |
 | RK_Weapon_Bolter | 1 | 2.0 | 23.9 | 20.0 | 0.45 | 8.0 | 5.52 | 0.69 | 0.85 | 0.65 | 0.55 | 0.40 | RK_Bullet_Bolter |
-| RK_PrototypePulseRifle | 2 | 1.5 | 31.0 | 12.0 | 0.6 | 7.58 | 5.59 | 0.7374 | 0.75 | 0.85 | 0.65 | 0.45 | Bullet_RK_PrototypePulseRifleLight |
-| RK_Weapon_BFR | 1 | 2.5 | 44.9 | 28.0 | 0.6 | 5.6 | 3.54 | 0.6317 | 0.65 | 0.35 | 0.65 | 0.85 | Bullet_BFR_AP |
+| RK_Weapon_BFR | 1 | 2.5 | 44.9 | 25.0 | 0.5 | 5.0 | 3.16 | 0.6317 | 0.65 | 0.35 | 0.65 | 0.85 | Bullet_BFR_AP |
 | RK_Weapon_RatHolicGun | 1 | 1.0 | 30.9 | 7.0 | 0.3 | 2.33 | 0.55 | 0.2352 | 0.20 | 0.25 | 0.25 | 0.18 | RK_Bullet_RatHolicGun |
 
 ## 밸런싱 참고
 
 - **림월드 최고 DPS_AVG**: Gun_ChainShotgun (11.22)
-- **랫킨 최고 DPS_AVG**: RK_Rifle_line (12.21)
+- **랫킨 최고 DPS_AVG**: RK_Rifle_line (11.17)
 - **제외된 무기**: 폭발물(로켓/박격포 등 damageAmountBase 없음), 빔/스프레이/화염(Verb_ShootBeam 등), 수류탄(explosion 기반)
