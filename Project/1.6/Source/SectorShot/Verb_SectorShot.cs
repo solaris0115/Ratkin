@@ -3,9 +3,15 @@ using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace NewRatkin
 {
+    /// <summary>피해 대상 정보: LOS 중첩 수 (가리는 경로 수).</summary>
+    public struct SectorShotTargetInfo
+    {
+        public int overlapCount;
+    }
     /// <summary>
     /// 부채꼴(Sector) 즉시 AOE 피해 Verb. 타겟에서 사수 방향으로 vertexOffset칸 당긴 위치를 부채꼴 중심으로 사용 (칸 단위 이동).
     /// </summary>
@@ -141,43 +147,157 @@ namespace NewRatkin
             IntVec3 targetCell = currentTarget.Cell;
             IntVec3 vertexCell = GetVertexCell(targetCell, sp.vertexOffset);
 
+            // LOS 기반 실제 피해 대상 수집 (중첩 수 포함)
+            Dictionary<Pawn, SectorShotTargetInfo> damageTargets = CollectDamageTargetsWithOverlap(map, sectorCells);
+
             // 피해량·관통력 계산 (품질 반영)
-            float damageMultiplier = 1f;
             Thing weapon = EquipmentSource;
-            if (weapon != null)
-                damageMultiplier = weapon.GetStatValue(StatDefOf.RangedWeapon_DamageMultiplier, true, -1);
-
-            int finalDamage = GenMath.RoundRandom(sp.sectorDamageAmount * damageMultiplier);
-            float armorPen = sp.sectorArmorPenetration >= 0f
-                ? sp.sectorArmorPenetration
-                : finalDamage * 0.015f;
-
+            float damageMultiplier = weapon != null ? weapon.GetStatValue(StatDefOf.RangedWeapon_DamageMultiplier, true, -1) : 1f;
+            int baseDamage = GenMath.RoundRandom(sp.sectorDamageAmount * damageMultiplier);
             DamageDef damageDef = sp.sectorDamageDef ?? DamageDefOf.Bullet;
 
-            // GenExplosion으로 부채꼴 피해 적용 (꼭지점 = 사수 방향으로 당긴 위치)
-            GenExplosion.DoExplosion(
-                center: vertexCell,
-                map: map,
-                radius: 0f,
-                damType: damageDef,
-                instigator: caster,
-                damAmount: finalDamage,
-                armorPenetration: armorPen,
-                explosionSound: verbProps.soundCast,
-                weapon: weapon?.def,
-                intendedTarget: currentTarget.Thing,
-                overrideCells: sectorCells);
+            // 각 피해 대상에 대해 명중률 기반 반복 피해 적용. 중첩 시 1회씩만 추가, 최대 hitRepeatOverlapCap
+            foreach (var kv in damageTargets)
+            {
+                Pawn pawn = kv.Key;
+                SectorShotTargetInfo info = kv.Value;
+                if (pawn == null || pawn.Destroyed || !pawn.Spawned)
+                    continue;
 
-            // 총구: BFR HE와 동일한 와이번 파이어 폭발 이펙트 (총구에서 발사, DrawPos+방향오프셋)
+                float hitChance = GetHitChanceForTarget(pawn);
+                int baseRepeat = Rand.RangeInclusive(sp.hitRepeatMin, sp.hitRepeatMax);
+                int repeatCount = Mathf.Min(baseRepeat + info.overlapCount, sp.hitRepeatOverlapCap);
+
+                for (int i = 0; i < repeatCount; i++)
+                {
+                    if (Rand.Chance(hitChance))
+                        ApplyDamageToPawn(pawn, baseDamage, damageDef, sp, weapon);
+                }
+            }
+
+            // 사운드
+            if (verbProps.soundCast != null)
+                verbProps.soundCast.PlayOneShot(SoundInfo.InMap(new TargetInfo(caster.Position, map, false)));
+
+            // 총구 이펙트
             SpawnWyvernFireExplosion(map, caster, vertexCell, sp.muzzleEffectOffset);
 
-            // 부채꼴 셀당 지면 착탄 이펙트 (1~3개)
-            SpawnSectorCellEffects(map, sectorCells, sp);
+            // 지면 착탄 이펙트: LOS로 가려진 경우 실제 총탄이 맞는 위치(첫 Pawn 셀)에 스폰
+            HashSet<IntVec3> effectCells = CollectEffectCells(map, sectorCells);
+            SpawnSectorCellEffects(map, effectCells, sp);
 
             if (CasterIsPawn)
                 CasterPawn.records.Increment(RecordDefOf.ShotsFired);
 
             return true;
+        }
+
+        /// <summary>지면 착탄 이펙트 셀 수집. LOS로 가려진 경우 첫 Pawn 셀, 아니면 부채꼴 셀.</summary>
+        private HashSet<IntVec3> CollectEffectCells(Map map, List<IntVec3> sectorCells)
+        {
+            var cells = new HashSet<IntVec3>();
+            IntVec3 casterPos = caster.Position;
+
+            foreach (IntVec3 sectorCell in sectorCells)
+            {
+                bool foundPawnOnThisLine = false;
+                foreach (IntVec3 pathCell in GenSight.PointsOnLineOfSight(casterPos, sectorCell))
+                {
+                    if (foundPawnOnThisLine)
+                        break;
+                    if (!pathCell.InBounds(map))
+                        continue;
+                    foreach (Thing t in pathCell.GetThingList(map))
+                    {
+                        if (t is Pawn p && p != caster)
+                        {
+                            cells.Add(pathCell);
+                            foundPawnOnThisLine = true;
+                            break;
+                        }
+                    }
+                }
+                if (!foundPawnOnThisLine)
+                    cells.Add(sectorCell);
+            }
+            return cells;
+        }
+
+        /// <summary>부채꼴 내 각 셀에 대해 사수->셀 LOS 경로상의 첫 번째 Pawn 수집. LOS로 다른 Pawn을 가리는(뒤에 Pawn이 있는) 경우에만 중첩 수 카운트.</summary>
+        private Dictionary<Pawn, SectorShotTargetInfo> CollectDamageTargetsWithOverlap(Map map, List<IntVec3> sectorCells)
+        {
+            var result = new Dictionary<Pawn, SectorShotTargetInfo>();
+            IntVec3 casterPos = caster.Position;
+
+            foreach (IntVec3 sectorCell in sectorCells)
+            {
+                Pawn firstPawn = null;
+                bool hasPawnBehind = false;
+                foreach (IntVec3 pathCell in GenSight.PointsOnLineOfSight(casterPos, sectorCell))
+                {
+                    if (!pathCell.InBounds(map))
+                        continue;
+                    foreach (Thing t in pathCell.GetThingList(map))
+                    {
+                        if (t is Pawn p && p != caster)
+                        {
+                            if (firstPawn == null)
+                                firstPawn = p;
+                            else
+                                hasPawnBehind = true;
+                        }
+                    }
+                }
+                if (firstPawn != null)
+                {
+                    if (!result.ContainsKey(firstPawn))
+                        result[firstPawn] = new SectorShotTargetInfo { overlapCount = 0 };
+                    if (hasPawnBehind)
+                    {
+                        SectorShotTargetInfo info = result[firstPawn];
+                        info.overlapCount++;
+                        result[firstPawn] = info;
+                    }
+                }
+            }
+            return result;
+        }
+
+        /// <summary>대상별 명중률 (일반 사격과 동일: 사격 스킬, 무기 정확도, 거리, 타겟 크기, 포복, 엄폐 반영).</summary>
+        private float GetHitChanceForTarget(Pawn target)
+        {
+            ShotReport report = ShotReport.HitReportFor(caster, this, target);
+            return report.TotalEstimatedHitChance;
+        }
+
+        private void ApplyDamageToPawn(Pawn pawn, int baseDamage, DamageDef damageDef, VerbProperties_SectorShot sp, Thing weapon)
+        {
+            int finalDamage = GenMath.RoundRandom(baseDamage);
+            float armorPen = sp.sectorArmorPenetration >= 0f
+                ? sp.sectorArmorPenetration
+                : finalDamage * 0.015f;
+
+            QualityCategory quality = QualityCategory.Normal;
+            if (weapon != null)
+                weapon.TryGetQuality(out quality);
+
+            DamageInfo dinfo = new DamageInfo(
+                damageDef,
+                finalDamage,
+                armorPen,
+                -1f,
+                caster,
+                null,
+                weapon?.def,
+                DamageInfo.SourceCategory.ThingOrUnknown,
+                pawn,
+                true,
+                true,
+                quality,
+                true,
+                false);
+
+            pawn.TakeDamage(dinfo);
         }
 
         /// <summary>총구: BFR HE와 동일한 RK_WyvernFireExplosion 이펙트. DrawPos + 발사방향*muzzleOffset 위치에 스폰.</summary>
@@ -197,18 +317,19 @@ namespace NewRatkin
             Vector3 muzzlePos = drawPos + dir * muzzleOffset;
 
             float rot = dir.AngleFlat();
-            FleckCreationData data = FleckMaker.GetDataStatic(muzzlePos, map, wyvernFleck, 1f);
-            data.exactScale = new Vector3?(new Vector3(3f, 1f, 2f));
+            const float effectScale = 0.5f;
+            FleckCreationData data = FleckMaker.GetDataStatic(muzzlePos, map, wyvernFleck, effectScale);
+            data.exactScale = new Vector3?(new Vector3(3f, 1f, 2f) * effectScale);
             data.rotation = rot;
             data.instanceColor = new Color(0.75f, 0.55f, 0.55f, 0.7f);
             map.flecks.CreateFleck(data);
         }
 
-        private void SpawnSectorCellEffects(Map map, List<IntVec3> sectorCells, VerbProperties_SectorShot sp)
+        private void SpawnSectorCellEffects(Map map, IEnumerable<IntVec3> effectCells, VerbProperties_SectorShot sp)
         {
             const float noiseRange = 0.3f;
 
-            foreach (IntVec3 cell in sectorCells)
+            foreach (IntVec3 cell in effectCells)
             {
                 int count = Rand.RangeInclusive(sp.effectsPerCellMin, sp.effectsPerCellMax);
                 Vector3 basePos = cell.ToVector3Shifted();

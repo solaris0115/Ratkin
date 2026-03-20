@@ -741,18 +741,23 @@
 			<li Class="NewRatkin.VerbProperties_SectorShot">
 				<verbClass>NewRatkin.Verb_SectorShot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
+				<canGoWild>true</canGoWild>
 				<warmupTime>0.9</warmupTime>
-				<range>10</range>
+				<range>7</range>
 				<soundCast>FlechetteRifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>4</muzzleFlashScale>
 				<sectorRadius>2.7</sectorRadius>
-				<sectorAngle>70</sectorAngle>
+				<sectorAngle>120</sectorAngle>
 				<vertexOffset>1</vertexOffset>
-				<sectorDamageAmount>8</sectorDamageAmount>
-				<sectorArmorPenetration>-1</sectorArmorPenetration>
+				<sectorDamageAmount>7</sectorDamageAmount>
+				<sectorArmorPenetration>0.3</sectorArmorPenetration>
 				<effectsPerCellMin>1</effectsPerCellMin>
 				<effectsPerCellMax>3</effectsPerCellMax>
+				<hitRepeatMin>2</hitRepeatMin>
+				<hitRepeatMax>3</hitRepeatMax>
+				<hitRepeatOverlapCap>6</hitRepeatOverlapCap>
+				<muzzleEffectOffset>1</muzzleEffectOffset>
 			</li>
 		</verbs>
 		<tools>
