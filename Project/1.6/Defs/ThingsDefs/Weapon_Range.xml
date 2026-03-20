@@ -1119,10 +1119,7 @@
 				<li>TableMachining</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-			<researchPrerequisites>
-				<li>RK_Research_ObservationAndSurveying</li>
-				<li>RK_Research_SeparationMechanics</li>
-			</researchPrerequisites>
+			<researchPrerequisite>RK_Research_ObservationAndSurveying</researchPrerequisite>
 			<skillRequirements>
 				<Crafting>10</Crafting>
 			</skillRequirements>
