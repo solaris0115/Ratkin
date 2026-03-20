@@ -16,7 +16,8 @@ namespace NewRatkin
 	/// </summary>
 	public class IncidentWorker_RatkinWanderingTrader : IncidentWorker
 	{
-		private static readonly IntRange GuardCountRange = new IntRange(2, 4);
+		/// <summary>재방문 시 호위 보충 최소 수. 포인트 기반 가드는 별도.</summary>
+		private const int MinGuardCountOnRefill = 2;
 
 		private IncidentDefExtension_WanderingCaravan Ext => def.GetModExtension<IncidentDefExtension_WanderingCaravan>();
 
@@ -119,10 +120,15 @@ namespace NewRatkin
 				Messages.Message("RK_WanderingCaravan_AlreadySpawned".Translate(), MessageTypeDefOf.NeutralEvent, false);
 				return false;
 			}
-			// 패널티 만료 후 첫 방문: 공격 플래그 리셋 (로스터는 NotifyCaravanAttacked에서 이미 클리어됨)
+			// 패널티 만료 후 첫 방문: 공격 플래그 리셋 + 팩션 관계 중립 복구 (로스터는 NotifyCaravanAttacked에서 이미 클리어됨)
 			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
 			if (comp != null && comp.WasAttackedByPlayer)
+			{
 				comp.ResetAttackedFlag();
+				Faction caravanFaction = Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.RK_Faction_Caravan);
+				if (caravanFaction != null && caravanFaction.HostileTo(Faction.OfPlayer))
+					caravanFaction.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Neutral, false, null, null);
+			}
 			var ext = Ext ?? new IncidentDefExtension_WanderingCaravan();
 			int maxRoster = ext.maxRosterCount;
 			IntRange yearlyRecruit = ext.yearlyRecruitRange;
@@ -159,7 +165,7 @@ namespace NewRatkin
 				leader = CreateLeader(faction, map.Tile, traderKind);
 				if (leader == null) return false;
 
-				guards = CreateGuards(faction, map.Tile);
+				guards = CreateGuardsWithPoints(faction, map.Tile, leader);
 				var initialSettlers = CreateSettlers(faction, map.Tile, ext.initialSettlerCount);
 				foreach (Pawn p in initialSettlers)
 					comp.AddToPool(p, SettlementJoinRequirement.GenerateForPawnKind(p.kindDef, ext));
@@ -190,9 +196,7 @@ namespace NewRatkin
 				CleanupAndRefillGuards(guards, faction, map.Tile);
 			}
 
-			List<Pawn> packAnimals = CreatePackAnimals(faction, map.Tile);
-
-			// 거래 물품 생성 후 짐꾼 동물에게 우선 분배, 나머지는 리더에게
+			// 거래 물품 생성 (바닐라 TraderStock과 동일)
 			ThingSetMakerParams stockParms = default(ThingSetMakerParams);
 			stockParms.traderDef = traderKind;
 			stockParms.tile = new PlanetTile?(map.Tile);
@@ -212,6 +216,8 @@ namespace NewRatkin
 					wares.Add(thing);
 				}
 			}
+			// 짐꾼 동물: 바닐라와 동일하게 물품 수에 따라 ceil(wares/8), 최소 1
+			List<Pawn> packAnimals = CreatePackAnimals(faction, map.Tile, wares.Count);
 			DistributeWaresToCarriers(wares, packAnimals, leader);
 			PawnInventoryGenerator.GiveRandomFood(leader);
 			List<Pawn> allPawns = new List<Pawn> { leader };
@@ -259,7 +265,7 @@ namespace NewRatkin
 		{
 			Pawn leader = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 				RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader, faction, PawnGenerationContext.NonPlayer, tile,
-				false, false, false, true, false, 1f, true, true, false, true, true,
+				false, false, false, true, false, 1f, true, true, true, true, true,
 				false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
 				null, null, null, null, null, null, null, null, false, false, false, false,
 				null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
@@ -272,19 +278,53 @@ namespace NewRatkin
 			return leader;
 		}
 
-		private static List<Pawn> CreateGuards(Faction faction, int tile)
+		/// <summary>
+		/// 바닐라 TraderCaravanArrival과 동일: TraderCaravanUtility.GenerateGuardPoints() 기반,
+		/// 팩션 Trader PawnGroupMaker의 guards로 포인트 기반 생성.
+		/// </summary>
+		private static List<Pawn> CreateGuardsWithPoints(Faction faction, int tile, Pawn leader)
 		{
-			int guardCount = GuardCountRange.RandomInRange;
 			var guards = new List<Pawn>();
-			for (int i = 0; i < guardCount; i++)
+			var groupMaker = faction?.def?.pawnGroupMakers?.FirstOrDefault(g => g.kindDef == PawnGroupKindDefOf.Trader);
+			if (groupMaker == null || groupMaker.guards.NullOrEmpty())
 			{
-				Pawn guard = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
-					RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard, faction, PawnGenerationContext.NonPlayer, tile,
-					false, false, false, true, true, 1f, true, true, false, true, true,
+				// 폴백: RK_PawnKind_CaravanGuard 2~4명
+				int count = Rand.RangeInclusive(2, 4);
+				for (int i = 0; i < count; i++)
+				{
+					var g = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+						RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard, faction, PawnGenerationContext.NonPlayer, tile,
+						false, false, false, true, true, 1f, true, true, true, true, true,
+						false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
+						null, null, null, null, null, null, null, null, false, false, false, false,
+						null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
+						false, false, false, -1, 0, false));
+					if (g != null) guards.Add(g);
+				}
+				return guards;
+			}
+			float points = TraderCaravanUtility.GenerateGuardPoints();
+			if (leader != null)
+				points -= leader.kindDef.combatPower;
+			if (points <= 0f) return guards;
+			var parms = new PawnGroupMakerParms
+			{
+				groupKind = PawnGroupKindDefOf.Trader,
+				tile = tile,
+				faction = faction,
+				points = points
+			};
+			foreach (var opt in PawnGroupMakerUtility.ChoosePawnGenOptionsByPoints(points, groupMaker.guards, parms))
+			{
+				var kind = opt.Option.kind;
+				var xenotype = opt.Xenotype;
+				var req = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, tile,
+					false, false, false, true, true, 1f, true, true, true, true, true,
 					false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
 					null, null, null, null, null, null, null, null, false, false, false, false,
-					null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
-					false, false, false, -1, 0, false));
+					null, null, xenotype, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
+					false, false, false, -1, 0, false);
+				var guard = PawnGenerator.GeneratePawn(req);
 				if (guard != null) guards.Add(guard);
 			}
 			return guards;
@@ -298,7 +338,7 @@ namespace NewRatkin
 				PawnKindDef kind = WanderingCaravanUtility.RandomSettlerKind();
 				Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 					kind, faction, PawnGenerationContext.NonPlayer, tile,
-					false, false, false, true, kind.isFighter, 1f, true, true, false, true, true,
+					false, false, false, true, kind.isFighter, 1f, true, true, true, true, true,
 					false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
 					null, null, null, null, null, null, null, null, false, false, false, false,
 					null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
@@ -308,15 +348,18 @@ namespace NewRatkin
 			return list;
 		}
 
-		private static List<Pawn> CreatePackAnimals(Faction faction, int tile)
+		/// <summary>
+		/// 바닐라 PawnGroupKindWorker_Trader.GenerateCarriers와 동일: ceil(waresCount/8), 최소 1.
+		/// </summary>
+		private static List<Pawn> CreatePackAnimals(Faction faction, int tile, int waresCount)
 		{
 			var list = new List<Pawn>();
-			int count = Rand.RangeInclusive(1, 2);
+			int count = Mathf.Max(1, Mathf.CeilToInt((float)waresCount / 8f));
 			for (int i = 0; i < count; i++)
 			{
 				Pawn animal = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 					RatkinPawnKindDefOf.Ratkin_KingHamster, faction, PawnGenerationContext.NonPlayer, tile,
-					false, false, false, true, false, 1f, true, true, false, true, true,
+					false, false, false, true, false, 1f, true, true, true, true, true,
 					false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
 					null, null, null, null, null, null, null, null, false, false, false, false,
 					null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
@@ -364,19 +407,46 @@ namespace NewRatkin
 		private static void CleanupAndRefillGuards(List<Pawn> guards, Faction faction, int tile)
 		{
 			guards.RemoveAll(p => p == null || p.DestroyedOrNull() || p.Dead);
-			int need = GuardCountRange.min - guards.Count;
-			if (need > 0)
+			int need = MinGuardCountOnRefill - guards.Count;
+			if (need <= 0) return;
+			// 포인트 기반 보충 (250~400으로 1~2명 수준)
+			float refillPoints = Rand.Range(250f, 400f);
+			var groupMaker = faction?.def?.pawnGroupMakers?.FirstOrDefault(g => g.kindDef == PawnGroupKindDefOf.Trader);
+			if (groupMaker != null && !groupMaker.guards.NullOrEmpty())
+			{
+				var parms = new PawnGroupMakerParms
+				{
+					groupKind = PawnGroupKindDefOf.Trader,
+					tile = tile,
+					faction = faction,
+					points = refillPoints
+				};
+				foreach (var opt in PawnGroupMakerUtility.ChoosePawnGenOptionsByPoints(refillPoints, groupMaker.guards, parms))
+				{
+					var kind = opt.Option.kind;
+					var xenotype = opt.Xenotype;
+					var req = new PawnGenerationRequest(kind, faction, PawnGenerationContext.NonPlayer, tile,
+						false, false, false, true, true, 1f, true, true, true, true, true,
+						false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
+						null, null, null, null, null, null, null, null, false, false, false, false,
+						null, null, xenotype, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
+						false, false, false, -1, 0, false);
+					var guard = PawnGenerator.GeneratePawn(req);
+					if (guard != null) guards.Add(guard);
+				}
+			}
+			else
 			{
 				for (int i = 0; i < need; i++)
 				{
-					Pawn guard = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+					var g = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 						RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard, faction, PawnGenerationContext.NonPlayer, tile,
-						false, false, false, true, true, 1f, true, true, false, true, true,
+						false, false, false, true, true, 1f, true, true, true, true, true,
 						false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
 						null, null, null, null, null, null, null, null, false, false, false, false,
 						null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
 						false, false, false, -1, 0, false));
-					if (guard != null) guards.Add(guard);
+					if (g != null) guards.Add(g);
 				}
 			}
 		}

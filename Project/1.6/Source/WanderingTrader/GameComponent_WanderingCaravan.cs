@@ -314,7 +314,7 @@ namespace NewRatkin
 				PawnKindDef kind = WanderingCaravanUtility.RandomSettlerKind();
 				Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 					kind, faction, PawnGenerationContext.NonPlayer, map.Tile,
-					false, false, false, true, kind.isFighter, 1f, true, true, false, true, true,
+					false, false, false, true, kind.isFighter, 1f, true, true, true, true, true,
 					false, false, false, false, 0f, 0f, null, 1f, null, null, null, null,
 					null, null, null, null, null, null, null, null, false, false, false, false,
 					null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,

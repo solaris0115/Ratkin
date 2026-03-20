@@ -126,10 +126,13 @@ namespace NewRatkin
 			var result = new List<Pawn>();
 			if (lord?.ownedPawns == null) return result;
 
+			var comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
 			foreach (Pawn p in lord.ownedPawns)
 			{
-				if (p != null && p.Spawned && !p.Dead && WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef))
-					result.Add(p);
+				if (p == null || !p.Spawned || p.Dead) continue;
+				if (!WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef)) continue;
+				if (comp != null && comp.GetRequirement(p) == null) continue;
+				result.Add(p);
 			}
 			return result;
 		}
