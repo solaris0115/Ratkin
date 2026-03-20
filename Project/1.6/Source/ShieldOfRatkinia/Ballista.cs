@@ -499,6 +499,13 @@ namespace NewRatkin
         protected virtual void Explode()
         {
             Map map = Map;
+            ProjectileProperties_BallistaBoltAP props = this.def.projectile as ProjectileProperties_BallistaBoltAP;
+            DamageDef damageDef = props?.shockWaveDef;
+            if (damageDef == null)
+            {
+                Destroy(DestroyMode.Vanish);
+                return;
+            }
             if (this.def.projectile.explosionEffect != null)
             {
                 Effecter effecter = this.def.projectile.explosionEffect.Spawn();
@@ -509,7 +516,6 @@ namespace NewRatkin
             Map map2 = map;
             float explosionRadius = this.def.projectile.explosionRadius;
             Thing launcher = this.launcher;
-            DamageDef damageDef = ((ProjectileProperties_BallistaBoltAP)this.def.projectile).shockWaveDef; //BallistaDamageDefOf.ShockWaveHeavy;
             int damageAmount = damageDef.defaultDamage;
             float armorPenetration = damageDef.defaultArmorPenetration;
             SoundDef soundExplode = this.def.projectile.soundExplode;
