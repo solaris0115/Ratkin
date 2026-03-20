@@ -9,38 +9,36 @@ namespace NewRatkin
 	/// <summary>
 	/// 유랑민 정착지 합류 조건의 기반 추상 클래스.
 	/// 인스턴스별로 생성되어 풀에 저장되며 세이브/로드 시 영속.
+	/// desc/descShort는 Def XML의 번역 키에서 생성 시점에 번역되어 저장됨.
 	/// </summary>
 	public abstract class SettlementJoinRequirement : IExposable
 	{
+		private const string TranslateKeyPrefix = "RK_JoinReq_";
+
 		protected string desc;
 		protected string descShort;
 
 		/// <summary>분위기 멘트 (랜덤 택1). line1.</summary>
 		public string Desc => desc ?? "";
-		/// <summary>세부 필요사항. line2 또는 GetRequirementDetails 대체.</summary>
+		/// <summary>세부 필요사항. line2.</summary>
 		public string DescShort => descShort ?? "";
 
 		public abstract bool IsMet(Map map);
 
-		/// <summary>합류 제안 UI용. DescShort 아래에 표시할 구체 수치(열거형). 비어있으면 Desc 사용.</summary>
-		public virtual string GetRequirementDetails() => "";
+		/// <summary>합류 제안 UI용 세부 수치. 기본은 DescShort 반환.</summary>
+		public virtual string GetRequirementDetails() => DescShort;
 
 		public virtual void ExposeData()
 		{
 			Scribe_Values.Look(ref desc, "desc", "");
 			Scribe_Values.Look(ref descShort, "descShort", "");
-			// 로드 후 번역 키가 저장돼 있으면 재번역 (Keyed 미로드/구 세이브 호환)
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && !string.IsNullOrEmpty(desc) && desc.StartsWith(JoinReqKeys.Prefix))
-			{
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && !string.IsNullOrEmpty(desc) && desc.StartsWith(TranslateKeyPrefix))
 				desc = desc.Translate().RawText;
-			}
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && !string.IsNullOrEmpty(descShort) && descShort.StartsWith(JoinReqKeys.Prefix))
-			{
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && !string.IsNullOrEmpty(descShort) && descShort.StartsWith(TranslateKeyPrefix))
 				descShort = descShort.Translate().RawText;
-			}
 		}
 
-		/// <summary>PawnKindDef 전용 조건 생성. extension 있으면 conditions 택1, conditions 비어있으면 무조건 영입. extension 없으면 무조건 영입.</summary>
+		/// <summary>PawnKindDef 전용 조건 생성. extension 있으면 conditions 택1, 없으면 무조건 영입.</summary>
 		public static SettlementJoinRequirement GenerateForPawnKind(PawnKindDef kind, IncidentDefExtension_WanderingCaravan ext = null)
 		{
 			var joinExt = kind?.GetModExtension<PawnKindDefExtension_WanderingCaravanJoin>();
@@ -73,12 +71,10 @@ namespace NewRatkin
 	/// <summary>조건 없음. 항상 영입 가능.</summary>
 	public class SettlementJoinRequirementAlwaysMet : SettlementJoinRequirement
 	{
-		/// <summary>Scribe 역직렬화용. 매개변수 없는 생성자 필수.</summary>
 		public SettlementJoinRequirementAlwaysMet() : this(null, null) { }
 
 		public SettlementJoinRequirementAlwaysMet(string descShortOverride = null, string descOverride = null)
 		{
-			// desc=분위기(line1), descShort=세부(line2). Def에서 키로 넘어옴.
 			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate().RawText : "";
 		}
@@ -96,8 +92,8 @@ namespace NewRatkin
 		public InjuredPatientCountRequirement(int count, string descShortOverride = null, string descOverride = null)
 		{
 			requiredCount = count;
-			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(count) : JoinReqKeys.Injured_DescShort.Translate(count);
-			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate() : JoinReqKeys.InjuredPatient_Desc1.Translate();
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(count).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
 		public override bool IsMet(Map map)
@@ -115,17 +111,10 @@ namespace NewRatkin
 			return injured >= requiredCount;
 		}
 
-		public override string GetRequirementDetails() => JoinReqKeys.Injured_DescShort.Translate(requiredCount).RawText;
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref requiredCount, "requiredCount", 0);
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && string.IsNullOrEmpty(descShort))
-			{
-				descShort = JoinReqKeys.Injured_DescShort.Translate(requiredCount);
-				desc = JoinReqKeys.InjuredPatient_Desc1.Translate();
-			}
 		}
 	}
 
@@ -139,8 +128,8 @@ namespace NewRatkin
 		public MedicineQuantityRequirement(int count, string descShortOverride = null, string descOverride = null)
 		{
 			requiredCount = count;
-			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(count) : JoinReqKeys.Medicine_DescShort.Translate(count);
-			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate() : JoinReqKeys.Medicine_Desc1.Translate();
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(count).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
 		public override bool IsMet(Map map)
@@ -152,17 +141,10 @@ namespace NewRatkin
 			return total >= requiredCount;
 		}
 
-		public override string GetRequirementDetails() => JoinReqKeys.Medicine_DescShort.Translate(requiredCount).RawText;
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref requiredCount, "requiredCount", 0);
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && string.IsNullOrEmpty(descShort))
-			{
-				descShort = JoinReqKeys.Medicine_DescShort.Translate(requiredCount);
-				desc = JoinReqKeys.Medicine_Desc1.Translate();
-			}
 		}
 	}
 
@@ -176,8 +158,8 @@ namespace NewRatkin
 		public ColonyWealthJoinRequirement(int wealth, string descShortOverride = null, string descOverride = null)
 		{
 			requiredWealth = wealth;
-			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(wealth) : JoinReqKeys.ColonyWealth_DescShort.Translate(wealth);
-			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate() : JoinReqKeys.ColonyWealth_Desc1.Translate();
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(wealth).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
 		public override bool IsMet(Map map)
@@ -186,17 +168,10 @@ namespace NewRatkin
 			return map.wealthWatcher.WealthTotal >= requiredWealth;
 		}
 
-		public override string GetRequirementDetails() => JoinReqKeys.Wealth_DescShort.Translate(requiredWealth).RawText;
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref requiredWealth, "requiredWealth", 0);
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && string.IsNullOrEmpty(descShort))
-			{
-				descShort = JoinReqKeys.ColonyWealth_DescShort.Translate(requiredWealth);
-				desc = JoinReqKeys.ColonyWealth_Desc1.Translate();
-			}
 		}
 	}
 
@@ -211,8 +186,8 @@ namespace NewRatkin
 		{
 			backstoryDefNames = defNames ?? new List<string>();
 			string summary = BuildBackstorySummary();
-			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(summary) : JoinReqKeys.Backstory_DescShort.Translate(summary);
-			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate() : JoinReqKeys.Backstory_Desc1.Translate();
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(summary).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
 		private string BuildBackstorySummary()
@@ -241,29 +216,12 @@ namespace NewRatkin
 			return true;
 		}
 
-		public override string GetRequirementDetails()
-		{
-			if (backstoryDefNames == null || backstoryDefNames.Count == 0) return "";
-			var labels = new List<string>();
-			foreach (string d in backstoryDefNames)
-			{
-				var bd = DefDatabase<BackstoryDef>.GetNamedSilentFail(d);
-				labels.Add(bd != null ? ((TaggedString)bd.TitleFor(Gender.Male)).RawText : d);
-			}
-			return JoinReqKeys.Backstory_DescShort.Translate(string.Join(", ", labels)).RawText;
-		}
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref backstoryDefNames, "backstoryDefNames", LookMode.Value);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && backstoryDefNames == null)
 				backstoryDefNames = new List<string>();
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && string.IsNullOrEmpty(descShort))
-			{
-				descShort = JoinReqKeys.Backstory_DescShort.Translate(BuildBackstorySummary());
-				desc = JoinReqKeys.Backstory_Desc1.Translate();
-			}
 		}
 	}
 
@@ -288,8 +246,8 @@ namespace NewRatkin
 			}
 			modeOr = string.IsNullOrEmpty(mode) || mode.ToUpperInvariant() == "OR";
 			string summary = BuildItemSummary();
-			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(summary) : JoinReqKeys.ThingQuantity_DescShort.Translate(summary);
-			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate() : JoinReqKeys.ThingQuantity_Desc1.Translate();
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(summary).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
 		private string BuildItemSummary()
@@ -330,22 +288,6 @@ namespace NewRatkin
 			return !modeOr && (thingCounts?.Count ?? 0) == 0 && (categoryCounts?.Count ?? 0) == 0 ? false : !modeOr;
 		}
 
-		public override string GetRequirementDetails()
-		{
-			var parts = new List<string>();
-			foreach (var tc in thingCounts ?? new List<ThingDefCountClass>())
-			{
-				if (tc?.thingDef != null)
-					parts.Add(tc.thingDef.label + " x" + tc.count);
-			}
-			foreach (var cc in categoryCounts ?? new List<ThingCategoryCountEntry>())
-			{
-				parts.Add(cc.group.ToString() + " x" + cc.requiredCount);
-			}
-			if (parts.Count == 0) return "";
-			return JoinReqKeys.Items_DescShort.Translate(string.Join(", ", parts)).RawText;
-		}
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
@@ -356,11 +298,6 @@ namespace NewRatkin
 				thingCounts = new List<ThingDefCountClass>();
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && categoryCounts == null)
 				categoryCounts = new List<ThingCategoryCountEntry>();
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && string.IsNullOrEmpty(descShort))
-			{
-				descShort = JoinReqKeys.ThingQuantity_DescShort.Translate(BuildItemSummary());
-				desc = JoinReqKeys.ThingQuantity_Desc1.Translate();
-			}
 		}
 	}
 
@@ -394,14 +331,8 @@ namespace NewRatkin
 			}
 			modeOr = !string.IsNullOrEmpty(mode) && mode.ToUpperInvariant() == "OR";
 			string summary = BuildSkillSummary();
-			if (!string.IsNullOrEmpty(descShortOverride))
-				descShort = descShortOverride.Translate(summary);
-			else
-				descShort = modeOr ? JoinReqKeys.SkillMentorMulti_Or_DescShort.Translate(summary) : JoinReqKeys.SkillMentorMulti_And_DescShort.Translate(summary);
-			if (!string.IsNullOrEmpty(descOverride))
-				desc = descOverride.Translate();
-			else
-				desc = modeOr ? JoinReqKeys.SkillMentorMulti_Or_Desc1.Translate() : JoinReqKeys.SkillMentorMulti_And_Desc1.Translate();
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(summary).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
 		private string BuildSkillSummary()
@@ -454,19 +385,6 @@ namespace NewRatkin
 			Scribe_Values.Look(ref modeOr, "modeOr", false);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit && skillEntries == null)
 				skillEntries = new List<SkillLevelEntry>();
-			if (Scribe.mode == LoadSaveMode.PostLoadInit && string.IsNullOrEmpty(descShort) && skillEntries?.Count > 0)
-			{
-				string summary = BuildSkillSummary();
-				descShort = modeOr ? JoinReqKeys.SkillMentorMulti_Or_DescShort.Translate(summary) : JoinReqKeys.SkillMentorMulti_And_DescShort.Translate(summary);
-				desc = modeOr ? JoinReqKeys.SkillMentorMulti_Or_Desc1.Translate() : JoinReqKeys.SkillMentorMulti_And_Desc1.Translate();
-			}
-		}
-
-		public override string GetRequirementDetails()
-		{
-			if (skillEntries == null || skillEntries.Count == 0) return "";
-			var parts = skillEntries.Select(e => e.skillDef != null ? e.skillDef.label + " " + e.requiredLevel + "+" : "").Where(s => !string.IsNullOrEmpty(s)).ToList();
-			return JoinReqKeys.Skills_DescShort.Translate(string.Join(", ", parts)).RawText;
 		}
 	}
 
