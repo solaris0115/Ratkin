@@ -38,6 +38,11 @@
 			<MaxHitPoints>300</MaxHitPoints>
 			<WorkToMake>40000</WorkToMake>
 			<Mass>10</Mass>
+			<StuffEffectMultiplierArmor>0.4</StuffEffectMultiplierArmor>
+			<!-- <StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold> -->
+			<!-- <StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat> -->
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 			<Flammability>0.2</Flammability>
 			<EquipDelay>1</EquipDelay>
 		</statBases>
@@ -85,7 +90,7 @@
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
 				<cooldownTicks>300</cooldownTicks>
-				<deflectAngleHalf>70</deflectAngleHalf>
+				<deflectAngleHalf>45</deflectAngleHalf>
 				<deflectChance>1.0</deflectChance>
 			</li>
 		</comps>

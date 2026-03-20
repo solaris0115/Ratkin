@@ -325,7 +325,7 @@
 			<Mass>3</Mass>
 			<Flammability>0.8</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>0.3</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStamina>0.6</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.16</RK_Stat_ShieldStaminaRechargeRate>
 			<RK_Stat_ShieldReduceDamageMelee>0.5</RK_Stat_ShieldReduceDamageMelee>
 			<RK_Stat_ShieldReduceDamageRanged>0.5</RK_Stat_ShieldReduceDamageRanged>
@@ -337,7 +337,6 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
-			<MeleeHitChance>-0.1</MeleeHitChance>
 		</equippedStatOffsets>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
@@ -382,7 +381,7 @@
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
 				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
-				<startingTicksToReset>180</startingTicksToReset>
+				<startingTicksToReset>300</startingTicksToReset>
 				<!-- <stunDurationTicks>180</stunDurationTicks> -->
 				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
@@ -432,7 +431,7 @@
 			<Mass>7</Mass>
 			<Flammability>0.3</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>0.5</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStamina>1.0</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.16</RK_Stat_ShieldStaminaRechargeRate>
 			<RK_Stat_ShieldReduceDamageMelee>0.7</RK_Stat_ShieldReduceDamageMelee>
 			<RK_Stat_ShieldReduceDamageRanged>0.8</RK_Stat_ShieldReduceDamageRanged>
@@ -444,7 +443,7 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.1</MeleeDodgeChance>
-			<MeleeHitChance>-0.1</MeleeHitChance>
+			<MeleeHitChance>-1</MeleeHitChance>
 			<MoveSpeed>-0.1</MoveSpeed>
 		</equippedStatOffsets>
 		<comps>
@@ -490,7 +489,7 @@
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
 				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
-				<startingTicksToReset>180</startingTicksToReset>
+				<startingTicksToReset>270</startingTicksToReset>
 				<!-- <stunDurationTicks>180</stunDurationTicks> -->
 				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
@@ -540,12 +539,12 @@
 			<Uranium>20</Uranium>
 		</costList>
 		<statBases>
-			<MaxHitPoints>300</MaxHitPoints>
+			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToMake>40000</WorkToMake>
 			<Mass>10</Mass>
 			<Flammability>0.2</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStamina>0.95</RK_Stat_ShieldStamina>
+			<RK_Stat_ShieldStamina>1.9</RK_Stat_ShieldStamina>
 			<RK_Stat_ShieldStaminaRechargeRate>0.13</RK_Stat_ShieldStaminaRechargeRate>
 			<RK_Stat_ShieldReduceDamageMelee>0.8</RK_Stat_ShieldReduceDamageMelee>
 			<RK_Stat_ShieldReduceDamageRanged>0.9</RK_Stat_ShieldReduceDamageRanged>
@@ -557,7 +556,7 @@
 		</statBases>
 		<equippedStatOffsets>
 			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
-			<MeleeHitChance>-0.2</MeleeHitChance>
+			<MeleeHitChance>-2</MeleeHitChance>
 			<MoveSpeed>-0.8</MoveSpeed>
 		</equippedStatOffsets>
 		<comps>
@@ -603,7 +602,7 @@
 			<li Class="NewRatkin.CompProperties_StaminaShield">
 				<!-- StaminaShield 컴포넌트 -->
 				<!-- 품질 영향 스탯들은 statBases에서 가져옴 -->
-				<startingTicksToReset>180</startingTicksToReset>
+				<startingTicksToReset>270</startingTicksToReset>
 				<!-- <stunDurationTicks>180</stunDurationTicks> -->
 				<durabilityDamagePercent>0.05</durabilityDamagePercent>
 			</li>
