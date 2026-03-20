@@ -1,4 +1,4 @@
-# Cursor 인덱싱에서 제외할 파일들
+﻿# Cursor 인덱싱에서 제외할 파일들
 
 # RimWorld 세이브 파일은 항상 포함
 !*.rws
@@ -18,8 +18,13 @@ Project/*/Source/bin/
 Project/*/Source/obj/
 Project/*/Source/.vs/
 
-# 1.5 폴더 전체 제외 (1.6으로 이전 예정)
-Project/1.5/
+# 1.5 폴더 - Assemblies, Languages만 제외 (Source, Defs, Patches는 포함)
+Project/1.5/Assemblies/
+Project/1.5/Languages/
+# 1.5 내 Source, Defs, Patches 3개만 인덱싱에 포함
+!Project/1.5/Source/
+!Project/1.5/Defs/
+!Project/1.5/Patches/
 
 # 임시 파일들
 *.tmp

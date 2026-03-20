@@ -37,14 +37,4 @@
   <RK_WanderingCaravan_CommissionPlaceholder>Commission feature is under development.</RK_WanderingCaravan_CommissionPlaceholder>
   <RK_WanderingCaravan_AlreadySpawned>The caravan is already on the map.</RK_WanderingCaravan_AlreadySpawned>
   <RK_WanderingCaravan_AttackedPenalty>The caravan will avoid this settlement for a long time after being attacked.</RK_WanderingCaravan_AttackedPenalty>
-
-  <!-- Settlement join requirements -->
-  <RK_JoinReq_Silver_Desc>This settler hopes to join a wealthy colony.</RK_JoinReq_Silver_Desc>
-  <RK_JoinReq_Silver_DescShort>Silver {0} or more</RK_JoinReq_Silver_DescShort>
-  <RK_JoinReq_SkillMentor_Desc>This settler seeks a mentor who excels in both {0} and {1}.</RK_JoinReq_SkillMentor_Desc>
-  <RK_JoinReq_SkillMentor_DescShort>{0} and {1} both level {2}+</RK_JoinReq_SkillMentor_DescShort>
-  <RK_JoinReq_Item_Desc>This settler wants to join a colony with plenty of {0}.</RK_JoinReq_Item_Desc>
-  <RK_JoinReq_Item_DescShort>{0} x{1} or more</RK_JoinReq_Item_DescShort>
-  <RK_JoinReq_Met>Met</RK_JoinReq_Met>
-  <RK_JoinReq_NotMet>Not met</RK_JoinReq_NotMet>
 </LanguageData>

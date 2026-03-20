@@ -22,6 +22,15 @@
 				<overflowRecruitCount>1</overflowRecruitCount>
 				<maxPoolSize>-1</maxPoolSize>
 				<expireAfterAppearances>-1</expireAfterAppearances>
+				<!-- 합류 요청 가능한 유랑민 풀 PawnKind. <PawnKind>가중치</PawnKind> 형식. 가중치 높을수록 등장 확률 증가 -->
+				<settlerPawnKinds>
+					<RK_PawnKind_Nomad>10</RK_PawnKind_Nomad>
+					<RK_PawnKind_Wanderer>7</RK_PawnKind_Wanderer>
+					<RatkinColonist>5</RatkinColonist>
+					<RatkinServant>3</RatkinServant>
+					<RatkinPriest>2</RatkinPriest>
+					<RatkinEliteGuardener>1</RatkinEliteGuardener>
+				</settlerPawnKinds>
 			</li>
 		</modExtensions>
 	</IncidentDef>

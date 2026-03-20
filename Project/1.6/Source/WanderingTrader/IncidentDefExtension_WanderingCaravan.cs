@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace NewRatkin
@@ -25,5 +27,8 @@ namespace NewRatkin
 
 		/// <summary>N번 로스터에 뽑혀 등장했는데 선택 안 되면 풀에서 제거. -1 = 무제한</summary>
 		public int expireAfterAppearances = -1;
+
+		/// <summary>유랑민 풀에 들어갈 PawnKind 가중치 목록. &lt;PawnKind&gt;가중치&lt;/PawnKind&gt; 형식. 비어있으면 Nomad, Wanderer 기본 사용.</summary>
+		public List<PawnKindDefWeight> settlerPawnKinds;
 	}
 }

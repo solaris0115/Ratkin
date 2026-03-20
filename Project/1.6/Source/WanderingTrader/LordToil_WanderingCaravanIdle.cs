@@ -128,8 +128,7 @@ namespace NewRatkin
 
 			foreach (Pawn p in lord.ownedPawns)
 			{
-				if (p != null && p.Spawned && !p.Dead &&
-					(p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad || p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer))
+				if (p != null && p.Spawned && !p.Dead && WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef))
 					result.Add(p);
 			}
 			return result;

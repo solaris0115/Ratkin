@@ -37,14 +37,4 @@
   <RK_WanderingCaravan_CommissionPlaceholder>물건 의뢰 기능은 준비 중입니다.</RK_WanderingCaravan_CommissionPlaceholder>
   <RK_WanderingCaravan_AlreadySpawned>유랑단이 이미 맵에 있습니다.</RK_WanderingCaravan_AlreadySpawned>
   <RK_WanderingCaravan_AttackedPenalty>유랑단은 공격당한 기억 때문에 당분간 이 정착지를 방문하지 않을 것입니다.</RK_WanderingCaravan_AttackedPenalty>
-
-  <!-- 정착지 합류 조건 -->
-  <RK_JoinReq_Silver_Desc>이 유랑민은 부유한 곳에 합류를 희망합니다.</RK_JoinReq_Silver_Desc>
-  <RK_JoinReq_Silver_DescShort>은 {0} 이상 보유</RK_JoinReq_Silver_DescShort>
-  <RK_JoinReq_SkillMentor_Desc>이 유랑민은 {0}과 {1} 모두 뛰어난 스승이 있었으면 좋겠다고 합니다.</RK_JoinReq_SkillMentor_Desc>
-  <RK_JoinReq_SkillMentor_DescShort>{0}, {1} 모두 {2} 이상</RK_JoinReq_SkillMentor_DescShort>
-  <RK_JoinReq_Item_Desc>이 유랑민은 {0}이 풍부한 정착지에 합류하고 싶어합니다.</RK_JoinReq_Item_Desc>
-  <RK_JoinReq_Item_DescShort>{0} {1}개 이상</RK_JoinReq_Item_DescShort>
-  <RK_JoinReq_Met>충족</RK_JoinReq_Met>
-  <RK_JoinReq_NotMet>미충족</RK_JoinReq_NotMet>
 </LanguageData>

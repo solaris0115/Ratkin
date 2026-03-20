@@ -45,7 +45,7 @@ namespace NewRatkin
 
 			float leftPadding = 5f;
 			float portraitSize = 140f;
-			float rowHeight = 220f;
+			float rowHeight = 155f;
 
 			foreach (Pawn pawn in settlers)
 			{
@@ -67,45 +67,46 @@ namespace NewRatkin
 				float buttonAreaWidth = 220f;
 				float infoWidth = rowRect.width - infoX - buttonAreaWidth - 10f;
 
-				// 이름 + PawnKind
+				// 이름 + PawnKind만
 				Rect labelRect = new Rect(infoX, rowRect.y, infoWidth, 24f);
 				Widgets.Label(labelRect, pawn.LabelShortCap + " - " + (pawn.kindDef?.label ?? "?"));
 
 				float infoY = rowRect.y + 26f;
 
-				// 합류 조건 (desc + descShort, 충족 시 초록/미충족 시 빨강)
+				// 합류 조건: DescShort + 필요 아이템/스킬 등 구체 수치(열거형) + 충족 여부
 				var comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
 				var req = comp?.GetRequirement(pawn);
 				if (req != null)
 				{
 					bool met = req.IsMet(Find.CurrentMap);
 					Color reqColor = met ? Color.green : Color.red;
-					string metKey = met ? "RK_JoinReq_Met" : "RK_JoinReq_NotMet";
-					Rect reqRect = new Rect(infoX, infoY, infoWidth, 36f);
+					string details = req.GetRequirementDetails();
+					// desc=분위기(line1), descShort=세부(line2). 생성·로드 시점에 이미 번역됨. 충족/미충족은 색상으로 표시.
+					string line1 = req.Desc;
+					string line2 = !string.IsNullOrEmpty(details) ? details : req.DescShort;
+					string displayText = line1 + "\n" + line2;
+					Rect reqRect = new Rect(infoX, infoY, infoWidth, 58f);
 					GUI.color = reqColor;
-					Widgets.Label(reqRect, req.Desc);
-					infoY += 38f;
-					Rect reqShortRect = new Rect(infoX, infoY, infoWidth, 20f);
-					Widgets.Label(reqShortRect, metKey.Translate() + ": " + req.DescShort);
+					Widgets.Label(reqRect, displayText);
 					GUI.color = Color.white;
-					infoY += 22f;
+					infoY += 60f;
 				}
 
-				// 성인기 Backstory만 공개
-				if (pawn.story?.Adulthood != null)
-				{
-					Rect backstoryRect = new Rect(infoX, infoY, infoWidth, 36f);
-					Widgets.Label(backstoryRect, pawn.story.Adulthood.TitleCapFor(pawn.gender));
-					infoY += 38f;
-				}
+				// 성인기 Backstory (일단 비표시)
+				// if (pawn.story?.Adulthood != null)
+				// {
+				// 	Rect backstoryRect = new Rect(infoX, infoY, infoWidth, 36f);
+				// 	Widgets.Label(backstoryRect, pawn.story.Adulthood.TitleCapFor(pawn.gender));
+				// 	infoY += 38f;
+				// }
 
-				// 가장 높은 스킬 2가지 (열정 포함)
-				string skillsStr = GetTopTwoSkillsDesc(pawn);
-				if (!string.IsNullOrEmpty(skillsStr))
-				{
-					Rect skillsRect = new Rect(infoX, infoY, infoWidth, 36f);
-					Widgets.Label(skillsRect, skillsStr);
-				}
+				// 가장 높은 스킬 2가지 (열정 포함) - 일단 주석처리
+				// string skillsStr = GetTopTwoSkillsDesc(pawn);
+				// if (!string.IsNullOrEmpty(skillsStr))
+				// {
+				// 	Rect skillsRect = new Rect(infoX, infoY, infoWidth, 36f);
+				// 	Widgets.Label(skillsRect, skillsStr);
+				// }
 
 				// 각각 받기 버튼 (조건 슬롯: CanAcceptPawn)
 				bool canAccept = CanAcceptPawn(pawn);
@@ -125,7 +126,7 @@ namespace NewRatkin
 					Find.WindowStack.Add(new Dialog_InfoCard(pawn));
 				}
 
-				y += rowHeight + 5f;
+				y += rowHeight + 2f;
 			}
 
 			foreach (Pawn p in toRemove)

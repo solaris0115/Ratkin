@@ -16,12 +16,6 @@ namespace NewRatkin
 	/// </summary>
 	public class IncidentWorker_RatkinWanderingTrader : IncidentWorker
 	{
-		private static readonly PawnKindDef[] SalePawnKinds = new[]
-		{
-			RatkinPawnKindDefOf.RK_PawnKind_Nomad,
-			RatkinPawnKindDefOf.RK_PawnKind_Wanderer
-		};
-
 		private static readonly IntRange GuardCountRange = new IntRange(2, 4);
 
 		private IncidentDefExtension_WanderingCaravan Ext => def.GetModExtension<IncidentDefExtension_WanderingCaravan>();
@@ -72,8 +66,7 @@ namespace NewRatkin
 				if (p.Faction?.def != caravanFaction) continue;
 				if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader
 					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard
-					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad
-					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+					|| WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef))
 					return true;
 			}
 			return false;
@@ -169,7 +162,7 @@ namespace NewRatkin
 				guards = CreateGuards(faction, map.Tile);
 				var initialSettlers = CreateSettlers(faction, map.Tile, ext.initialSettlerCount);
 				foreach (Pawn p in initialSettlers)
-					comp.AddToPool(p, SettlementJoinRequirement.GenerateRandom());
+					comp.AddToPool(p, SettlementJoinRequirement.GenerateForPawnKind(p.kindDef, ext));
 				salePawns = comp.SelectRosterFromPool(maxRoster);
 			}
 			else
@@ -177,9 +170,9 @@ namespace NewRatkin
 				// 재방문: 사망/만료 정리, 풀 충원, 풀에서 로스터 선택 (이벤트마다 충원, 시간 통제는 minRefireDays 등으로 처리)
 				comp.CleanupDeadPawns();
 				comp.RemoveExpiredFromPool(ext.expireAfterAppearances);
-				comp.RefillPool(map, faction, yearlyRecruit.RandomInRange, ext.maxPoolSize);
+				comp.RefillPool(map, faction, yearlyRecruit.RandomInRange, ext.maxPoolSize, ext);
 				if (comp.PoolCount >= maxRoster)
-					comp.RefillPool(map, faction, ext.overflowRecruitCount, ext.maxPoolSize);
+					comp.RefillPool(map, faction, ext.overflowRecruitCount, ext.maxPoolSize, ext);
 				comp.SelectRosterFromPool(maxRoster);
 				comp.TakePawnsForSpawn(map, out leader, out guards, out salePawns);
 
@@ -302,7 +295,7 @@ namespace NewRatkin
 			var list = new List<Pawn>();
 			for (int i = 0; i < count; i++)
 			{
-				PawnKindDef kind = SalePawnKinds.RandomElement();
+				PawnKindDef kind = WanderingCaravanUtility.RandomSettlerKind();
 				Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 					kind, faction, PawnGenerationContext.NonPlayer, tile,
 					false, false, false, true, kind.isFighter, 1f, true, true, false, true, true,

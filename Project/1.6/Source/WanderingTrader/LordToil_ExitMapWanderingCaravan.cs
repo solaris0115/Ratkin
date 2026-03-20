@@ -60,8 +60,7 @@ namespace NewRatkin
 				}
 
 				// 유랑민, 짐꾼(동물): 리더 따라가기
-				if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad
-					|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer
+				if (WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef)
 					|| p.RaceProps.Animal)
 				{
 					p.mindState.duty = new PawnDuty(DutyDefOf.Follow, leader, 5f);

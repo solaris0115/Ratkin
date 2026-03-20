@@ -22,6 +22,12 @@ namespace NewRatkin
 		private List<Pawn> rosterSettlers = new List<Pawn>();
 		private int lastVisitYear = -1;
 
+		/// <summary>Scribe Dictionary용. 모드 간 데이터 유지에 클래스 필드 필수.</summary>
+		private List<Pawn> tmpReqPawns;
+		private List<SettlementJoinRequirement> tmpReqValues;
+		private List<Pawn> tmpCountPawns;
+		private List<int> tmpCountValues;
+
 		/// <summary>플레이어 공격으로 퇴각한 경우, roster 추가 건너뜀 및 패널티 적용용</summary>
 		private bool wasAttackedByPlayer = false;
 		/// <summary>패널티 만료 틱. 이 틱 이후에야 캐러반 방문 가능</summary>
@@ -40,16 +46,8 @@ namespace NewRatkin
 			Scribe_Values.Look(ref wasAttackedByPlayer, "wasAttackedByPlayer", false);
 			Scribe_Values.Look(ref attackPenaltyUntilTick, "attackPenaltyUntilTick", 0);
 
-			// Dictionary 직렬화: Pawn 리스트 + 값 리스트 분리
-			List<Pawn> reqPawns = settlerRequirements?.Keys.ToList() ?? new List<Pawn>();
-			List<SettlementJoinRequirement> reqValues = settlerRequirements?.Values.ToList() ?? new List<SettlementJoinRequirement>();
-			Scribe_Collections.Look(ref reqPawns, "settlerRequirementsPawns", LookMode.Reference);
-			Scribe_Collections.Look(ref reqValues, "settlerRequirementsValues", LookMode.Deep);
-
-			List<Pawn> countPawns = settlerAppearanceCount?.Keys.ToList() ?? new List<Pawn>();
-			List<int> countValues = settlerAppearanceCount?.Values.ToList() ?? new List<int>();
-			Scribe_Collections.Look(ref countPawns, "settlerAppearanceCountPawns", LookMode.Reference);
-			Scribe_Collections.Look(ref countValues, "settlerAppearanceCountValues", LookMode.Value);
+			Scribe_Collections.Look(ref settlerRequirements, "settlerRequirements", LookMode.Reference, LookMode.Deep, ref tmpReqPawns, ref tmpReqValues, true, false, false);
+			Scribe_Collections.Look(ref settlerAppearanceCount, "settlerAppearanceCount", LookMode.Reference, LookMode.Value, ref tmpCountPawns, ref tmpCountValues, true, false, false);
 
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
@@ -59,21 +57,6 @@ namespace NewRatkin
 				if (rosterSettlers == null) rosterSettlers = new List<Pawn>();
 				if (settlerRequirements == null) settlerRequirements = new Dictionary<Pawn, SettlementJoinRequirement>();
 				if (settlerAppearanceCount == null) settlerAppearanceCount = new Dictionary<Pawn, int>();
-
-				if (reqPawns != null && reqValues != null && reqPawns.Count == reqValues.Count)
-				{
-					settlerRequirements.Clear();
-					for (int i = 0; i < reqPawns.Count; i++)
-						if (reqPawns[i] != null && reqValues[i] != null)
-							settlerRequirements[reqPawns[i]] = reqValues[i];
-				}
-				if (countPawns != null && countValues != null && countPawns.Count == countValues.Count)
-				{
-					settlerAppearanceCount.Clear();
-					for (int i = 0; i < countPawns.Count; i++)
-						if (countPawns[i] != null)
-							settlerAppearanceCount[countPawns[i]] = countValues[i];
-				}
 			}
 		}
 
@@ -205,7 +188,7 @@ namespace NewRatkin
 				rosterLeader.Add(p);
 			else if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard)
 				rosterGuards.Add(p);
-			else if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad || p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+			else if (WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef))
 				rosterSettlers.Add(p);
 			// 짐꾼(동물)은 roster에 포함하지 않음 - 매번 새로 생성
 		}
@@ -230,7 +213,7 @@ namespace NewRatkin
 					rosterLeader.Add(p);
 				else if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard)
 					rosterGuards.Add(p);
-				else if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad || p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
+				else if (WanderingCaravanUtility.IsSettlerPoolKind(p.kindDef))
 					rosterSettlers.Add(p);
 			}
 
@@ -317,7 +300,7 @@ namespace NewRatkin
 		public int PoolCount => settlerPool.Count(p => p != null && !p.DestroyedOrNull() && !p.Dead);
 
 		/// <summary>매년 풀에 신규 유랑민 추가 (조건 부여)</summary>
-		public void RefillPool(Map map, Faction faction, int toAdd, int maxPoolSize)
+		public void RefillPool(Map map, Faction faction, int toAdd, int maxPoolSize, IncidentDefExtension_WanderingCaravan ext = null)
 		{
 			CleanupDeadPawns();
 			int current = PoolCount;
@@ -328,7 +311,7 @@ namespace NewRatkin
 			for (int i = 0; i < add; i++)
 			{
 				if (maxPoolSize >= 0 && PoolCount >= maxPoolSize) break;
-				PawnKindDef kind = Rand.Bool ? RatkinPawnKindDefOf.RK_PawnKind_Nomad : RatkinPawnKindDefOf.RK_PawnKind_Wanderer;
+				PawnKindDef kind = WanderingCaravanUtility.RandomSettlerKind();
 				Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 					kind, faction, PawnGenerationContext.NonPlayer, map.Tile,
 					false, false, false, true, kind.isFighter, 1f, true, true, false, true, true,
@@ -337,7 +320,7 @@ namespace NewRatkin
 					null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, null,
 					false, false, false, -1, 0, false));
 				if (pawn != null)
-					AddToPool(pawn, SettlementJoinRequirement.GenerateRandom());
+					AddToPool(pawn, SettlementJoinRequirement.GenerateForPawnKind(pawn.kindDef, ext));
 			}
 		}
 	}

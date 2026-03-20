@@ -15,7 +15,7 @@
 					<li>RK_Backstory_Wanderer</li>
 				</categories>
 			</li>
-		</backstoryFiltersOverride>	
+		</backstoryFiltersOverride>
 		<apparelRequired>
 			<li>RK_Cardigan</li>
 		</apparelRequired>
@@ -25,6 +25,43 @@
 		<apparelTags>
 			<li>RK_Apparel_CommonClothes</li>
 		</apparelTags>
+		<modExtensions>
+			<li Class="NewRatkin.PawnKindDefExtension_WanderingCaravanJoin">
+				<conditions>
+					<li Class="NewRatkin.JoinCondition_ColonyWealth">
+						<weight>3</weight>
+						<countRange>15000~81000</countRange>
+						<descShort>RK_JoinReq_StableLife_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_StableLife_Desc1</li>
+							<li>RK_JoinReq_StableLife_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_AlwaysMet">
+						<weight>3</weight>
+						<descShort>RK_JoinReq_JoinHope_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_JoinHope_Desc1</li>
+							<li>RK_JoinReq_JoinHope_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_ThingQuantity">
+						<weight>3</weight>
+						<mode>OR</mode>
+						<thingCounts>
+							<!-- ThingDefCountClass: 요소명=Def이름, 내용=수량 (li+thingDef+count 형식은 InnerText가 합쳐져 Telescope1 오류 발생) -->
+							<Telescope>1</Telescope>
+							<Harp>1</Harp>
+						</thingCounts>
+						<descShort>RK_JoinReq_WindFreedom_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_WindFreedom_Desc1</li>
+							<li>RK_JoinReq_WindFreedom_Desc2</li>
+						</desc>
+					</li>
+				</conditions>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 
 	<PawnKindDef ParentName="RKCombatantBase">
@@ -53,6 +90,69 @@
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
 		<gearHealthRange>0.3~0.6</gearHealthRange>
+		<modExtensions>
+			<li Class="NewRatkin.PawnKindDefExtension_WanderingCaravanJoin">
+				<conditions>
+					<li Class="NewRatkin.JoinCondition_SkillMentorMulti">
+						<weight>3</weight>
+						<mode>AND</mode>
+						<skillList>
+							<li>
+								<skillDef>Melee</skillDef>
+								<levelRange>5~8</levelRange>
+							</li>
+							<li>
+								<skillDef>Shooting</skillDef>
+								<levelRange>5~8</levelRange>
+							</li>
+						</skillList>
+						<descShort>RK_JoinReq_SeekingMentor_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_SeekingMentor_Desc1</li>
+							<li>RK_JoinReq_SeekingMentor_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_SkillMentorMulti">
+						<weight>3</weight>
+						<mode>OR</mode>
+						<skillList>
+							<li>
+								<skillDef>Melee</skillDef>
+								<levelRange>5~8</levelRange>
+							</li>
+							<li>
+								<skillDef>Shooting</skillDef>
+								<levelRange>5~8</levelRange>
+							</li>
+							<li>
+								<skillDef>Crafting</skillDef>
+								<levelRange>5~8</levelRange>
+							</li>
+						</skillList>
+						<descShort>RK_JoinReq_Prepared_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_Prepared_Desc1</li>
+							<li>RK_JoinReq_Prepared_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_ThingQuantity">
+						<weight>3</weight>
+						<mode>OR</mode>
+						<thingCategoryCounts>
+							<li>
+								<group>Weapon</group>
+								<countRange>3~6</countRange>
+							</li>
+						</thingCategoryCounts>
+						<descShort>RK_JoinReq_WindFreedom_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_WindFreedom_Desc1</li>
+							<li>RK_JoinReq_WindFreedom_Desc2</li>
+						</desc>
+					</li>
+				</conditions>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 
 	<!-- 캐러반 리더: 상호작용 대상, 거래·의뢰 핵심 인물 -->

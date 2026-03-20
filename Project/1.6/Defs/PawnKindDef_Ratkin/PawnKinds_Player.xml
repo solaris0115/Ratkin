@@ -51,6 +51,29 @@
 		</apparelTags>
 		<apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
 		<apparelColor>(254,254,254)</apparelColor>
+		<modExtensions>
+			<li Class="NewRatkin.PawnKindDefExtension_WanderingCaravanJoin">
+				<conditions>
+					<li Class="NewRatkin.JoinCondition_ColonyWealth">
+						<weight>2</weight>
+						<countRange>15000~81000</countRange>
+						<descShort>RK_JoinReq_NewLife_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_NewLife_Desc1</li>
+							<li>RK_JoinReq_NewLife_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_AlwaysMet">
+						<weight>5</weight>
+						<descShort>RK_JoinReq_JoinHope_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_JoinHope_Desc1</li>
+							<li>RK_JoinReq_JoinHope_Desc2</li>
+						</desc>
+					</li>
+				</conditions>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<!-- 귀족 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
@@ -117,6 +140,41 @@
 			<li>RK_Apparel</li>
 			<li>RK_Servant</li>
 		</apparelTags>
+		<modExtensions>
+			<li Class="NewRatkin.PawnKindDefExtension_WanderingCaravanJoin">
+				<conditions>
+					<li Class="NewRatkin.JoinCondition_ColonyWealth">
+						<weight>3</weight>
+						<countRange>15000~81000</countRange>
+						<descShort>RK_JoinReq_StableLife_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_StableLife_Desc1</li>
+							<li>RK_JoinReq_StableLife_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_AlwaysMet">
+						<weight>5</weight>
+						<descShort>RK_JoinReq_JoinHope_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_JoinHope_Desc1</li>
+							<li>RK_JoinReq_JoinHope_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_ColonistBackstory">
+						<weight>3</weight>
+						<backstoryList>
+							<li>Ratkin_Noble</li>
+							<li>Ratkin_Rich</li>
+						</backstoryList>
+						<descShort>RK_JoinReq_NobleTired_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_NobleTired_Desc1</li>
+							<li>RK_JoinReq_NobleTired_Desc2</li>
+						</desc>
+					</li>
+				</conditions>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<!-- 랫킨 사제 -->
 	<PawnKindDef ParentName="RKBasePawnKind">
@@ -143,6 +201,38 @@
 		<apparelRequired>
 			<li>RK_SistersVeil</li>
 		</apparelRequired>
+		<modExtensions>
+			<li Class="NewRatkin.PawnKindDefExtension_WanderingCaravanJoin">
+				<conditions>
+					<li Class="NewRatkin.JoinCondition_InjuredPatientCount">
+						<weight>3</weight>
+						<countRange>3~5</countRange>
+						<descShort>RK_JoinReq_Injured_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_Priest_Injured_Desc1</li>
+							<li>RK_JoinReq_Priest_Injured_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_MedicineQuantity">
+						<weight>3</weight>
+						<countRange>10~20</countRange>
+						<descShort>RK_JoinReq_Medicine_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_Priest_Medicine_Desc1</li>
+							<li>RK_JoinReq_Priest_Medicine_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_AlwaysMet">
+						<weight>5</weight>
+						<descShort>RK_JoinReq_JoinHope_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_JoinHope_Desc1</li>
+							<li>RK_JoinReq_JoinHope_Desc2</li>
+						</desc>
+					</li>
+				</conditions>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 
 
@@ -404,7 +494,29 @@
 				<range>6~12</range>
 			</li>
 		</skills>
-
+		<modExtensions>
+			<li Class="NewRatkin.PawnKindDefExtension_WanderingCaravanJoin">
+				<conditions>
+					<li Class="NewRatkin.JoinCondition_ColonyWealth">
+						<weight>10</weight>
+						<countRange>81000~308000</countRange>
+						<descShort>RK_JoinReq_StableLife_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_StableLife_Desc1</li>
+							<li>RK_JoinReq_StableLife_Desc2</li>
+						</desc>
+					</li>
+					<li Class="NewRatkin.JoinCondition_AlwaysMet">
+						<weight>5</weight>
+						<descShort>RK_JoinReq_JoinHope_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_JoinHope_Desc1</li>
+							<li>RK_JoinReq_JoinHope_Desc2</li>
+						</desc>
+					</li>
+				</conditions>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<!-- 랫킨 기사(근접 중보병) -->
 	<PawnKindDef ParentName="RKCombatantBase">
