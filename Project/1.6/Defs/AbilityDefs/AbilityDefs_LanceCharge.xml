@@ -121,7 +121,7 @@
 		<stages>
 			<li>
 				<statOffsets>
-					<MeleeHitChance>0.4</MeleeHitChance>
+					<MeleeHitChance>4</MeleeHitChance>
 				</statOffsets>
 			</li>
 		</stages>
