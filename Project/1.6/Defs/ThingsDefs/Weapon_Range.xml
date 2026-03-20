@@ -1100,7 +1100,7 @@
 			<li>
 				<verbClass>NewRatkin.Verb_BFRShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<soundCast>PrototypePulse</soundCast>
+				<soundCast>RK_Sound_BFRFire</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<defaultProjectile>Bullet_BFR_AP</defaultProjectile>
 				<muzzleFlashScale>12</muzzleFlashScale>
