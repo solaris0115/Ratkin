@@ -301,7 +301,6 @@
 				<guards>
 					<RatkinMercenaryLight>15</RatkinMercenaryLight>
 					<RatkinSoldier>20</RatkinSoldier>
-					<RatkinEliteGuardener>10</RatkinEliteGuardener>
 					<RatkinDefender>10</RatkinDefender>
 				</guards>
 			</li>
