@@ -7,6 +7,15 @@ using Verse.Sound;
 namespace NewRatkin
 {
     /// <summary>
+    /// BFR 토글 사용 가능 여부: 분리 역학 연구 필요
+    /// </summary>
+    public static class BFRResearchDefs
+    {
+        public static bool SeparationMechanicsResearched =>
+            DefDatabase<ResearchProjectDef>.GetNamedSilentFail("RK_Research_SeparationMechanics")?.IsFinished ?? true;
+    }
+
+    /// <summary>
     /// BFR 3000 탄종 토글 Comp 속성
     /// </summary>
     public class CompProperties_BFRAmmoToggle : CompProperties
@@ -33,9 +42,10 @@ namespace NewRatkin
         public CompProperties_BFRAmmoToggle Props => (CompProperties_BFRAmmoToggle)props;
 
         /// <summary>
-        /// 현재 선택된 발사체 ThingDef
+        /// 현재 선택된 발사체 ThingDef. 분리 역학 미연구 시 AP 고정.
         /// </summary>
-        public ThingDef CurrentProjectile => isHEMode ? Props.projectileHE : Props.projectileAP;
+        public ThingDef CurrentProjectile =>
+            BFRResearchDefs.SeparationMechanicsResearched && isHEMode ? Props.projectileHE : Props.projectileAP;
 
         public override void PostExposeData()
         {
@@ -45,20 +55,22 @@ namespace NewRatkin
 
         /// <summary>
         /// 탄종 토글 Gizmo 반환. 장비 시 CompGetEquippedGizmosExtra 패치에서 호출됨.
+        /// 분리 역학 미연구 시 비활성화, 호버 시 "분리 역학 연구 필요" 표시.
         /// </summary>
         public IEnumerable<Gizmo> GetToggleGizmos()
         {
+            bool canToggle = BFRResearchDefs.SeparationMechanicsResearched;
             string label = isHEMode ? "HE" : "AP";
             string iconPath = isHEMode ? Props.iconPathHE : Props.iconPathAP;
             Texture2D icon = ContentFinder<Texture2D>.Get(iconPath, false);
 
-            yield return new Command_Action
+            var cmd = new Command_Action
             {
                 defaultLabel = label,
-                defaultDesc = isHEMode ? "BFR: Switch to AP round" : "BFR: Switch to HE round",
                 icon = icon,
                 action = () =>
                 {
+                    if (!canToggle) return;
                     isHEMode = !isHEMode;
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera(null);
                     // 발사 직전 토글 시 잘못된 탄종 발사 방지: 조준 초기화
@@ -69,6 +81,17 @@ namespace NewRatkin
                     }
                 }
             };
+            if (canToggle)
+            {
+                cmd.defaultDesc = isHEMode ? "BFR: Switch to AP round" : "BFR: Switch to HE round";
+            }
+            else
+            {
+                cmd.defaultDesc = "RK_BFR_Toggle_RequiresSeparationMechanics".Translate().ToString();
+                cmd.Disabled = true;
+                cmd.disabledReason = "RK_BFR_Toggle_RequiresSeparationMechanics".Translate().ToString();
+            }
+            yield return cmd;
         }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
