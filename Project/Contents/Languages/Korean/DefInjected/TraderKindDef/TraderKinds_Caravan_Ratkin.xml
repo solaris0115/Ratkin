@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- 랫킨 물자상단 -->
@@ -19,6 +19,11 @@
   <!-- 랫킨 용병단 -->
 
   <Caravan_Ratkin_Free_company.label>랫킨 용병단</Caravan_Ratkin_Free_company.label>
+
+
+  <!-- 랫킨 유랑 상인 -->
+
+  <RK_TraderKind_WanderingTrader.label>랫킨 유랑 상인</RK_TraderKind_WanderingTrader.label>
 
 
 </LanguageData>

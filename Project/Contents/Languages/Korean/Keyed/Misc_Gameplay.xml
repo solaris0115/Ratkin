@@ -26,7 +26,7 @@
   <RK_WanderingCaravan_Commission>물건 의뢰</RK_WanderingCaravan_Commission>
   <RK_WanderingCaravan_SettleProposal>합류 제안</RK_WanderingCaravan_SettleProposal>
   <RK_WanderingCaravan_EndDialog>대화 마치기</RK_WanderingCaravan_EndDialog>
-  <RK_WanderingCaravan_LeaderGreeting>{0}이(가) 따뜻하게 인사합니다.</RK_WanderingCaravan_LeaderGreeting>
+  <RK_WanderingCaravan_LeaderGreeting>세상 방방 곡곡 여행하는 {0} 상단! 무엇을 찾고 있나요? 진귀한 큐브? 기계장치? 말만 하세요! 유랑민들도 함께 만나보시고요. </RK_WanderingCaravan_LeaderGreeting>
   <RK_WanderingCaravan_LeaderTitle>유랑단 리더</RK_WanderingCaravan_LeaderTitle>
   <RK_WanderingCaravan_ArrivalLetterLabel>유랑단 도착</RK_WanderingCaravan_ArrivalLetterLabel>
   <RK_WanderingCaravan_ArrivalLetter>랫킨 유랑단이 도착했습니다. 리더에게 말을 걸어 거래하거나 정착민을 영입하세요.</RK_WanderingCaravan_ArrivalLetter>
