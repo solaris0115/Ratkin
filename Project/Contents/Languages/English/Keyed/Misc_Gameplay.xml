@@ -37,4 +37,7 @@
   <RK_WanderingCaravan_CommissionPlaceholder>Commission feature is under development.</RK_WanderingCaravan_CommissionPlaceholder>
   <RK_WanderingCaravan_AlreadySpawned>The caravan is already on the map.</RK_WanderingCaravan_AlreadySpawned>
   <RK_WanderingCaravan_AttackedPenalty>The caravan will avoid this settlement for a long time after being attacked.</RK_WanderingCaravan_AttackedPenalty>
+
+  <!-- BFR toggle -->
+  <RK_BFR_Toggle_RequiresSeparationMechanics>Separation Mechanics research required.</RK_BFR_Toggle_RequiresSeparationMechanics>
 </LanguageData>

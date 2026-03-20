@@ -6,4 +6,7 @@
   <AbilityPrayerServiceDisabledDrafted>徴兵時には行えません。</AbilityPrayerServiceDisabledDrafted>
   <AbilityPrayerServiceDisabledNoPulpit>説教壇や祈祷会を行うための適切な場所がありません。</AbilityPrayerServiceDisabledNoPulpit>
 
+  <!-- BFR トグル -->
+  <RK_BFR_Toggle_RequiresSeparationMechanics>分離力学の研究が必要です。</RK_BFR_Toggle_RequiresSeparationMechanics>
+
 </LanguageData>

@@ -106,7 +106,8 @@
 		</tags>
 	</ResearchProjectDef>
 
-	<!-- 방직 -->
+	<!-- 방직 (주석처리) -->
+	<!--
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_Weaving</defName>
 		<label>방직</label>
@@ -114,6 +115,7 @@
 		<researchViewX>0</researchViewX>
 		<researchViewY>5</researchViewY>
 	</ResearchProjectDef>
+	-->
 
 	<!-- 2티어 연구 -->
 	<!-- 식품 보존 -->
@@ -221,7 +223,7 @@
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_GearMechanics</defName>
 		<label>챗바퀴 역학</label>
-		<baseCost>1800</baseCost>
+		<baseCost>1000</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>0</researchViewY>
 		<prerequisites>
@@ -233,7 +235,7 @@
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_ObservationAndSurveying</defName>
 		<label>관측과 측량</label>
-		<baseCost>1600</baseCost>
+		<baseCost>1200</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>2</researchViewY>
 		<prerequisites>
@@ -245,7 +247,7 @@
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_SeparationMechanics</defName>
 		<label>분리 역학</label>
-		<baseCost>1200</baseCost>
+		<baseCost>800</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>3</researchViewY>
 		<prerequisites>
@@ -257,7 +259,7 @@
 	<ResearchProjectDef ParentName="RK_ResearchAttr_Base">
 		<defName>RK_Research_DragonFlame</defName>
 		<label>용의 화염</label>
-		<baseCost>1600</baseCost>
+		<baseCost>1200</baseCost>
 		<researchViewX>4</researchViewX>
 		<researchViewY>1</researchViewY>
 		<prerequisites>
