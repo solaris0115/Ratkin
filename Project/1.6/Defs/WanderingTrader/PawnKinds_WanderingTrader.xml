@@ -174,7 +174,7 @@
 				</categoriesAdulthood>
 			</li>
 		</backstoryFiltersOverride>
-		<apparelMoney>600~1200</apparelMoney>
+		<apparelMoney>1500~3000</apparelMoney>
 		<weaponMoney>1500~3000</weaponMoney>
 		<weaponTags>
 			<li>RK_WeaponTag_Wanderer</li>
@@ -203,7 +203,7 @@
 				</exclude>
 			</li>
 		</backstoryFiltersOverride>
-		<apparelMoney>300~800</apparelMoney>
+		<apparelMoney>1500~3000</apparelMoney>
 		<weaponMoney>1500~3000</weaponMoney>
 		<weaponTags>
 			<li>RK_WeaponTag_Wanderer</li>
