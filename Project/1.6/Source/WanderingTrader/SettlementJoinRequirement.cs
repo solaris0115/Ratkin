@@ -245,12 +245,12 @@ namespace NewRatkin
 					categoryCounts.Add(new ThingCategoryCountEntry { group = grp, requiredCount = Rand.RangeInclusive(p.countRange.min, p.countRange.max) });
 			}
 			modeOr = string.IsNullOrEmpty(mode) || mode.ToUpperInvariant() == "OR";
-			string summary = BuildItemSummary();
+			string summary = BuildItemSummary(modeOr);
 			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(summary).RawText : "";
 			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
 		}
 
-		private string BuildItemSummary()
+		private string BuildItemSummary(bool orMode)
 		{
 			var parts = new List<string>();
 			foreach (var tc in thingCounts ?? new List<ThingDefCountClass>())
@@ -260,7 +260,8 @@ namespace NewRatkin
 			}
 			foreach (var cc in categoryCounts ?? new List<ThingCategoryCountEntry>())
 				parts.Add(cc.group.ToString() + " x" + cc.requiredCount);
-			return string.Join(", ", parts);
+			string sep = orMode ? "RK_JoinReq_ItemSeparatorOr".Translate().RawText : ", ";
+			return string.Join(sep, parts);
 		}
 
 		public override bool IsMet(Map map)
@@ -269,23 +270,96 @@ namespace NewRatkin
 			foreach (var tc in thingCounts ?? new List<ThingDefCountClass>())
 			{
 				if (tc?.thingDef == null) continue;
-				int total = 0;
-				foreach (Thing t in map.listerThings.ThingsOfDef(tc.thingDef))
-					total += t.stackCount;
+				int total = CountThingsOnMapForDef(map, tc.thingDef);
 				bool met = total >= tc.count;
 				if (modeOr && met) return true;
 				if (!modeOr && !met) return false;
 			}
 			foreach (var cc in categoryCounts ?? new List<ThingCategoryCountEntry>())
 			{
-				int total = 0;
-				foreach (Thing t in map.listerThings.ThingsInGroup(cc.group))
-					total += t.stackCount;
+				int total = CountThingsInGroupForColony(map, cc.group);
 				bool met = total >= cc.requiredCount;
 				if (modeOr && met) return true;
 				if (!modeOr && !met) return false;
 			}
 			return !modeOr && (thingCounts?.Count ?? 0) == 0 && (categoryCounts?.Count ?? 0) == 0 ? false : !modeOr;
+		}
+
+		/// <summary>맵+창고+정착민 소유 물건만 카운트. 캐러반/방문자 소유 제외.</summary>
+		private static int CountThingsOnMapForDef(Map map, ThingDef def)
+		{
+			int total = 0;
+			foreach (Thing t in map.listerThings.ThingsOfDef(def))
+			{
+				if (IsColonyOwned(map, t)) total += t.stackCount;
+			}
+			if (map.haulDestinationManager != null)
+			{
+				foreach (var hs in map.haulDestinationManager.AllHaulSourcesListForReading)
+				{
+					if (hs == null || hs is Pawn) continue;
+					foreach (Thing t in hs.GetDirectlyHeldThings())
+					{
+						if (t?.def == def) total += t.stackCount;
+					}
+				}
+			}
+			foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+			{
+				if (p == null || p.Dead) continue;
+				if (p.inventory != null)
+					foreach (Thing t in p.inventory.innerContainer)
+						if (t?.def == def) total += t.stackCount;
+				if (p.equipment != null)
+					foreach (ThingWithComps eq in p.equipment.AllEquipmentListForReading)
+						if (eq?.def == def) total += eq.stackCount;
+			}
+			return total;
+		}
+
+		/// <summary>맵+창고+정착민 소유 물건만 카운트. 캐러반/방문자 소유 제외.</summary>
+		private static int CountThingsInGroupForColony(Map map, ThingRequestGroup group)
+		{
+			int total = 0;
+			var tmp = new List<Thing>();
+			map.listerThings.GetAllThings(tmp, group, null, true);
+			foreach (Thing t in tmp)
+			{
+				if (t == null) continue;
+				if (IsHeldByNonColonistPawn(map, t)) continue;
+				total += t.stackCount;
+			}
+			foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+			{
+				if (p == null || p.Dead) continue;
+				if (p.inventory != null)
+					foreach (Thing t in p.inventory.innerContainer)
+						if (t != null && group.Includes(t.def)) total += t.stackCount;
+				if (p.equipment != null)
+					foreach (ThingWithComps eq in p.equipment.AllEquipmentListForReading)
+						if (eq != null && group.Includes(eq.def)) total += eq.stackCount;
+			}
+			return total;
+		}
+
+		private static bool IsColonyOwned(Map map, Thing t)
+		{
+			if (t == null) return false;
+			return !IsHeldByNonColonistPawn(map, t);
+		}
+
+		private static bool IsHeldByNonColonistPawn(Map map, Thing t)
+		{
+			for (IThingHolder h = t.ParentHolder; h != null; h = h.ParentHolder)
+			{
+				Pawn p = null;
+				if (h is Pawn_InventoryTracker inv) p = inv.pawn;
+				else if (h is Pawn_EquipmentTracker eq) p = eq.pawn;
+				else if (h is Pawn pawn) p = pawn;
+				if (p != null)
+					return !map.mapPawns.FreeColonistsSpawned.Contains(p);
+			}
+			return false;
 		}
 
 		public override void ExposeData()

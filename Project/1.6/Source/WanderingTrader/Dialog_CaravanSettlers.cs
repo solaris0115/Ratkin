@@ -45,7 +45,7 @@ namespace NewRatkin
 
 			float leftPadding = 5f;
 			float portraitSize = 140f;
-			float rowHeight = 155f;
+			float rowHeight = 185f;
 
 			foreach (Pawn pawn in settlers)
 			{
@@ -85,11 +85,13 @@ namespace NewRatkin
 					string line1 = req.Desc;
 					string line2 = !string.IsNullOrEmpty(details) ? details : req.DescShort;
 					string displayText = line1 + "\n" + line2;
-					Rect reqRect = new Rect(infoX, infoY, infoWidth, 58f);
+					float reqHeight = Text.CalcHeight(displayText, infoWidth);
+					reqHeight = Mathf.Min(Mathf.Max(reqHeight, 36f), 120f);
+					Rect reqRect = new Rect(infoX, infoY, infoWidth, reqHeight);
 					GUI.color = reqColor;
 					Widgets.Label(reqRect, displayText);
 					GUI.color = Color.white;
-					infoY += 60f;
+					infoY += reqHeight + 4f;
 				}
 
 				// 성인기 Backstory (일단 비표시)
@@ -126,7 +128,7 @@ namespace NewRatkin
 					Find.WindowStack.Add(new Dialog_InfoCard(pawn));
 				}
 
-				y += rowHeight + 2f;
+				y += rowHeight + 4f;
 			}
 
 			foreach (Pawn p in toRemove)

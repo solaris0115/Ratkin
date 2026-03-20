@@ -56,7 +56,7 @@
 				<conditions>
 					<li Class="NewRatkin.JoinCondition_ColonyWealth">
 						<weight>2</weight>
-						<countRange>15000~81000</countRange>
+						<countRange>15000~51000</countRange>
 						<descShort>RK_JoinReq_NewLife_DescShort</descShort>
 						<desc>
 							<li>RK_JoinReq_NewLife_Desc1</li>
@@ -145,7 +145,7 @@
 				<conditions>
 					<li Class="NewRatkin.JoinCondition_ColonyWealth">
 						<weight>3</weight>
-						<countRange>15000~81000</countRange>
+						<countRange>15000~51000</countRange>
 						<descShort>RK_JoinReq_StableLife_DescShort</descShort>
 						<desc>
 							<li>RK_JoinReq_StableLife_Desc1</li>
@@ -508,7 +508,7 @@
 				<conditions>
 					<li Class="NewRatkin.JoinCondition_ColonyWealth">
 						<weight>10</weight>
-						<countRange>81000~308000</countRange>
+						<countRange>45000~108000</countRange>
 						<descShort>RK_JoinReq_StableLife_DescShort</descShort>
 						<desc>
 							<li>RK_JoinReq_StableLife_Desc1</li>

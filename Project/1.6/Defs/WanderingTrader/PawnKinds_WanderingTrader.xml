@@ -159,6 +159,7 @@
 	<PawnKindDef ParentName="RKBasePawnKind">
 		<defName>RK_PawnKind_CaravanLeader</defName>
 		<label>ratkin caravan leader</label>
+		<minGenerationAge>19</minGenerationAge>
 		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
 		<combatPower>30</combatPower>
 		<isFighter>false</isFighter>
@@ -188,6 +189,7 @@
 	<PawnKindDef ParentName="RKCombatantBase">
 		<defName>RK_PawnKind_CaravanGuard</defName>
 		<label>ratkin caravan guard</label>
+		<minGenerationAge>19</minGenerationAge>
 		<defaultFactionDef>RK_Faction_Caravan</defaultFactionDef>
 		<combatPower>45</combatPower>
 		<isFighter>true</isFighter>

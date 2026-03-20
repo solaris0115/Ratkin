@@ -31,16 +31,17 @@
   <RK_JoinReq_ServantRoyalTitle_Desc2>섬길 사람은 내가 정해요.</RK_JoinReq_ServantRoyalTitle_Desc2>
 
   <!-- ThingQuantity / 물건 -->
+  <RK_JoinReq_ItemSeparatorOr> 또는 </RK_JoinReq_ItemSeparatorOr>
   <RK_JoinReq_WindFreedom_DescShort>필요: {0}</RK_JoinReq_WindFreedom_DescShort>
   <RK_JoinReq_WindFreedom_Desc1>길 위의 삶도 좋지만, 한동안 머무르는것도 좋아.</RK_JoinReq_WindFreedom_Desc1>
   <RK_JoinReq_WindFreedom_Desc2>떠돌이라도 취향은 있어. 내가 쓸 만한 물건쯤은 있어야지.</RK_JoinReq_WindFreedom_Desc2>
 
   <!-- SkillMentorMulti / 스킬 -->
-  <RK_JoinReq_SeekingMentor_DescShort>정착민 중 {0} 스킬 모두 갖춘 자 필요</RK_JoinReq_SeekingMentor_DescShort>
+  <RK_JoinReq_SeekingMentor_DescShort>{0} 스킬 모두를 충족하는 정착민 필요</RK_JoinReq_SeekingMentor_DescShort>
   <RK_JoinReq_SeekingMentor_Desc1>나보다 강한 자의 명령만을 듣는다.</RK_JoinReq_SeekingMentor_Desc1>
   <RK_JoinReq_SeekingMentor_Desc2>강자를 찾고 있다. 이곳에는 싸움좀 하는 놈이 있나?</RK_JoinReq_SeekingMentor_Desc2>
-  <RK_JoinReq_Prepared_DescShort>정착민 중 {0} 스킬 1개 이상 갖춘 자 필요</RK_JoinReq_Prepared_DescShort>
-  <RK_JoinReq_Prepared_Desc1>몸 하나로 버티는 삶은 지겹다. 제대로 배울 곳을 찾고 있어.</RK_JoinReq_Prepared_Desc1>
+  <RK_JoinReq_Prepared_DescShort>{0} 하나라도 해당되는 정착민 필요</RK_JoinReq_Prepared_DescShort>
+  <RK_JoinReq_Prepared_Desc1>내 몸정도는 지킬 힘을 얻고 싶어.</RK_JoinReq_Prepared_Desc1>
   <RK_JoinReq_Prepared_Desc2>싸우든 만들든, 하나쯤은 제대로 아는 놈이 있는 곳이어야 해.</RK_JoinReq_Prepared_Desc2>
 
   <!-- AlwaysMet / JoinHope -->

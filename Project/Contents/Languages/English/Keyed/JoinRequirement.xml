@@ -31,6 +31,7 @@
   <RK_JoinReq_ServantRoyalTitle_Desc2>If I must serve, I shall choose my own master.</RK_JoinReq_ServantRoyalTitle_Desc2>
 
   <!-- ThingQuantity -->
+  <RK_JoinReq_ItemSeparatorOr> or </RK_JoinReq_ItemSeparatorOr>
   <RK_JoinReq_WindFreedom_DescShort>Required: {0}</RK_JoinReq_WindFreedom_DescShort>
   <RK_JoinReq_WindFreedom_Desc1>Life on the road has its charms, yet a spell of rest does too.</RK_JoinReq_WindFreedom_Desc1>
   <RK_JoinReq_WindFreedom_Desc2>Even a wanderer has tastes. I would need gear worth using.</RK_JoinReq_WindFreedom_Desc2>
