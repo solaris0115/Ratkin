@@ -6,52 +6,42 @@
   <RK_JoinReq_Injured_DescShort>At least {0} injured colonists required.</RK_JoinReq_Injured_DescShort>
   <RK_JoinReq_Priest_Injured_Desc1>I need a place with wounded to tend.</RK_JoinReq_Priest_Injured_Desc1>
   <RK_JoinReq_Priest_Injured_Desc2>Where there are wounded, my hands have purpose.</RK_JoinReq_Priest_Injured_Desc2>
-  <RK_JoinReq_InjuredPatient_Desc1>I need a place with wounded to tend.</RK_JoinReq_InjuredPatient_Desc1>
 
   <!-- MedicineQuantity -->
   <RK_JoinReq_Medicine_DescShort>At least {0} medicine required.</RK_JoinReq_Medicine_DescShort>
   <RK_JoinReq_Priest_Medicine_Desc1>With medicine, I can save more lives.</RK_JoinReq_Priest_Medicine_Desc1>
   <RK_JoinReq_Priest_Medicine_Desc2>Where there is medicine, there is still work for me.</RK_JoinReq_Priest_Medicine_Desc2>
-  <RK_JoinReq_Medicine_Desc1>Where there is medicine, I can help.</RK_JoinReq_Medicine_Desc1>
 
   <!-- ColonyWealth -->
-  <RK_JoinReq_Wealth_DescShort>Colony wealth: {0}+</RK_JoinReq_Wealth_DescShort>
   <RK_JoinReq_StableLife_DescShort>Colony wealth must be at least {0}.</RK_JoinReq_StableLife_DescShort>
   <RK_JoinReq_StableLife_Desc1>TODO</RK_JoinReq_StableLife_Desc1>
   <RK_JoinReq_StableLife_Desc2>TODO</RK_JoinReq_StableLife_Desc2>
   <RK_JoinReq_NewLife_DescShort>Colony wealth must be at least {0}.</RK_JoinReq_NewLife_DescShort>
   <RK_JoinReq_NewLife_Desc1>TODO</RK_JoinReq_NewLife_Desc1>
   <RK_JoinReq_NewLife_Desc2>TODO</RK_JoinReq_NewLife_Desc2>
-  <RK_JoinReq_ColonyWealth_DescShort>Colony wealth must be at least {0}.</RK_JoinReq_ColonyWealth_DescShort>
-  <RK_JoinReq_ColonyWealth_Desc1>Needs to be a place where I won't starve.</RK_JoinReq_ColonyWealth_Desc1>
 
   <!-- ColonistBackstory -->
-  <RK_JoinReq_Backstory_DescShort>No colonists with these backgrounds: {0}</RK_JoinReq_Backstory_DescShort>
   <RK_JoinReq_NobleTired_DescShort>No colonists with these backgrounds: {0}</RK_JoinReq_NobleTired_DescShort>
   <RK_JoinReq_NobleTired_Desc1>Done serving the high and mighty.</RK_JoinReq_NobleTired_Desc1>
   <RK_JoinReq_NobleTired_Desc2>I want to live like a person, not a servant.</RK_JoinReq_NobleTired_Desc2>
-  <RK_JoinReq_Backstory_Desc1>I don't want to see that kind of life again.</RK_JoinReq_Backstory_Desc1>
+
+  <!-- ColonistRoyalTitle / Empire title (Ratkin Servant) -->
+  <RK_JoinReq_ServantRoyalTitle_DescShort>Highest Empire title among colonists must be {0} or lower.</RK_JoinReq_ServantRoyalTitle_DescShort>
+  <RK_JoinReq_ServantRoyalTitle_Desc1>Done serving the high and mighty.</RK_JoinReq_ServantRoyalTitle_Desc1>
+  <RK_JoinReq_ServantRoyalTitle_Desc2>I choose who I serve.</RK_JoinReq_ServantRoyalTitle_Desc2>
 
   <!-- ThingQuantity -->
-  <RK_JoinReq_Items_DescShort>Required: {0}</RK_JoinReq_Items_DescShort>
   <RK_JoinReq_WindFreedom_DescShort>The settlement must have: {0}</RK_JoinReq_WindFreedom_DescShort>
   <RK_JoinReq_WindFreedom_Desc1>Freedom's nice, but not without the right gear.</RK_JoinReq_WindFreedom_Desc1>
   <RK_JoinReq_WindFreedom_Desc2>Even a drifter has standards. Got anything worth using?</RK_JoinReq_WindFreedom_Desc2>
-  <RK_JoinReq_ThingQuantity_DescShort>The settlement must have: {0}</RK_JoinReq_ThingQuantity_DescShort>
-  <RK_JoinReq_ThingQuantity_Desc1>Can't start fresh empty-handed.</RK_JoinReq_ThingQuantity_Desc1>
 
   <!-- SkillMentorMulti -->
-  <RK_JoinReq_Skills_DescShort>Skills needed: {0}</RK_JoinReq_Skills_DescShort>
   <RK_JoinReq_SeekingMentor_DescShort>Need a colonist with all of: {0}</RK_JoinReq_SeekingMentor_DescShort>
   <RK_JoinReq_SeekingMentor_Desc1>I only follow those stronger than me.</RK_JoinReq_SeekingMentor_Desc1>
   <RK_JoinReq_SeekingMentor_Desc2>Looking for a real fighter. Got any here?</RK_JoinReq_SeekingMentor_Desc2>
   <RK_JoinReq_Prepared_DescShort>Need a colonist with at least one of: {0}</RK_JoinReq_Prepared_DescShort>
   <RK_JoinReq_Prepared_Desc1>Tired of scraping by alone. Looking for a proper teacher.</RK_JoinReq_Prepared_Desc1>
   <RK_JoinReq_Prepared_Desc2>Fight or craft, someone here better know their stuff.</RK_JoinReq_Prepared_Desc2>
-  <RK_JoinReq_SkillMentorMulti_Or_DescShort>Need a colonist with at least one of: {0}</RK_JoinReq_SkillMentorMulti_Or_DescShort>
-  <RK_JoinReq_SkillMentorMulti_Or_Desc1>At least one skill worth learning here.</RK_JoinReq_SkillMentorMulti_Or_Desc1>
-  <RK_JoinReq_SkillMentorMulti_And_DescShort>Need a colonist with all of: {0}</RK_JoinReq_SkillMentorMulti_And_DescShort>
-  <RK_JoinReq_SkillMentorMulti_And_Desc1>I need a proper mentor, not just anyone.</RK_JoinReq_SkillMentorMulti_And_Desc1>
 
   <!-- AlwaysMet / JoinHope -->
   <RK_JoinReq_JoinHope_DescShort>No special requirements.</RK_JoinReq_JoinHope_DescShort>

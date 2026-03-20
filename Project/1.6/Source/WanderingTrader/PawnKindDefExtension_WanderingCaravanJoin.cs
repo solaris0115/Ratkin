@@ -128,6 +128,18 @@ namespace NewRatkin
 		public IntRange levelRange = new IntRange(5, 8);
 	}
 
+	/// <summary>정착지 식민지원 중 제국 작위 최고 랭크가 maxTitle 이하여야 하는 조건. (하인 등: 높은 작위 있는 곳엔 안 감)</summary>
+	public class JoinCondition_ServantRoyalTitle : JoinConditionBase
+	{
+		/// <summary>이 작위 이하여야 합류. 예: Acolyte = 수련사 이하.</summary>
+		public RoyalTitleDef maxTitle;
+
+		public override SettlementJoinRequirement CreateRequirement()
+		{
+			return new ColonistRoyalTitleJoinRequirement(maxTitle, descShort, PickDesc());
+		}
+	}
+
 	/// <summary>
 	/// PawnKindDef별 유랑민 합류 조건 오버라이드.
 	/// conditions가 비어있으면 무조건 영입 가능.

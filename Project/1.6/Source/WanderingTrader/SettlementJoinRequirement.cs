@@ -388,6 +388,49 @@ namespace NewRatkin
 		}
 	}
 
+	/// <summary>정착지 식민지원 중 제국 작위 최고 랭크가 maxTitle 이하여야 하는 조건. (귀족/높은 작위 있는 곳엔 안 감)</summary>
+	public class ColonistRoyalTitleJoinRequirement : SettlementJoinRequirement
+	{
+		private RoyalTitleDef maxTitle;
+		private int maxSeniority;
+
+		public ColonistRoyalTitleJoinRequirement() { }
+
+		public ColonistRoyalTitleJoinRequirement(RoyalTitleDef title, string descShortOverride = null, string descOverride = null)
+		{
+			maxTitle = title;
+			maxSeniority = title != null ? title.seniority : 0;
+			string label = title != null ? title.GetLabelCapForBothGenders() : "";
+			descShort = !string.IsNullOrEmpty(descShortOverride) ? descShortOverride.Translate(label).RawText : "";
+			desc = !string.IsNullOrEmpty(descOverride) ? descOverride.Translate().RawText : "";
+		}
+
+		public override bool IsMet(Map map)
+		{
+			if (map == null) return true;
+			var empire = Faction.OfEmpire;
+			if (empire == null || !ModsConfig.RoyaltyActive) return true;
+
+			int highestSeniority = 0;
+			foreach (Pawn p in map.mapPawns.FreeColonistsSpawned)
+			{
+				if (p == null || p.Dead || p.royalty == null) continue;
+				int sen = p.GetCurrentTitleSeniorityIn(empire);
+				if (sen > highestSeniority) highestSeniority = sen;
+			}
+			return highestSeniority <= maxSeniority;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Defs.Look(ref maxTitle, "maxTitle");
+			Scribe_Values.Look(ref maxSeniority, "maxSeniority", 0);
+			if (Scribe.mode == LoadSaveMode.PostLoadInit && maxTitle != null)
+				maxSeniority = maxTitle.seniority;
+		}
+	}
+
 	internal class SkillLevelEntry : IExposable
 	{
 		public SkillDef skillDef;

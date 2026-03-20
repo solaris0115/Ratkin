@@ -172,6 +172,15 @@
 							<li>RK_JoinReq_NobleTired_Desc2</li>
 						</desc>
 					</li>
+					<li Class="NewRatkin.JoinCondition_ServantRoyalTitle">
+						<weight>3</weight>
+						<maxTitle>Acolyte</maxTitle>
+						<descShort>RK_JoinReq_ServantRoyalTitle_DescShort</descShort>
+						<desc>
+							<li>RK_JoinReq_ServantRoyalTitle_Desc1</li>
+							<li>RK_JoinReq_ServantRoyalTitle_Desc2</li>
+						</desc>
+					</li>
 				</conditions>
 			</li>
 		</modExtensions>
