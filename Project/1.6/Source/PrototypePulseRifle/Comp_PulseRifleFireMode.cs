@@ -41,6 +41,13 @@ namespace NewRatkin
         {
             base.PostExposeData();
             Scribe_Values.Look(ref isBurstMode, "isBurstMode", true);
+            // 불러오기 시 VerbTracker.InitVerbs가 Def의 verbProps로 덮어써서 range가 1.42로 됨.
+            // 로드 직후 재적용하여 rangeBurst/rangeSingle 복구.
+            if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs || Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                EnsureVerbPropsBuilt();
+                ApplyVerbProps();
+            }
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
