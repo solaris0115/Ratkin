@@ -108,6 +108,7 @@ namespace NewRatkin
 
     public class Projectile_BallistaBoltAP : Projectile
     {
+        public override int UpdateRateTicks => 1;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -127,180 +128,11 @@ namespace NewRatkin
 
         protected override void Tick()
         {
-            if (AllComps != null)
-            {
-                int i = 0;
-                int count = AllComps.Count;
-                while (i < count)
-                {
-                    AllComps[i].CompTick();
-                    i++;
-                }
-            }
-            if (landed)
-            {
-                return;
-            }
-            Vector3 exactPosition = ExactPosition;
-            ticksToImpact--;
-            if (!ExactPosition.InBounds(Map))
-            {
-                ticksToImpact++;
-                Position = ExactPosition.ToIntVec3();
-                Destroy(DestroyMode.Vanish);
-                return;
-            }
-            Vector3 exactPosition2 = ExactPosition;
-            if (CheckForFreeInterceptBetween(exactPosition, exactPosition2))
-            {
-                return;
-            }
-            Position = ExactPosition.ToIntVec3();
-            if (ticksToImpact == 60 && Find.TickManager.CurTimeSpeed == TimeSpeed.Normal && this.def.projectile.soundImpactAnticipate != null)
-            {
-                def.projectile.soundImpactAnticipate.PlayOneShot(this);
-            }
-            if (ticksToImpact <= 0)
-            {
-                if (DestinationCell.InBounds(Map))
-                {
-                    Position = DestinationCell;
-                }
-                ImpactSomething();
-                return;
-            }
+            base.Tick();
             if (ambientSustainer != null && !ambientSustainer.Ended)
             {
                 ambientSustainer.Maintain();
             }
-        }
-
-        private bool CheckForFreeInterceptBetween(Vector3 lastExactPos, Vector3 newExactPos)
-        {
-            IntVec3 intVec = lastExactPos.ToIntVec3();
-            IntVec3 intVec2 = newExactPos.ToIntVec3();
-            if (intVec2 == intVec)
-            {
-                return false;
-            }
-            if (!intVec.InBounds(Map) || !intVec2.InBounds(Map))
-            {
-                return false;
-            }
-            if (intVec2.AdjacentToCardinal(intVec))
-            {
-                return CheckForFreeIntercept(intVec2);
-            }
-            if (VerbUtility.InterceptChanceFactorFromDistance(this.origin, intVec2) <= 0f)
-            {
-                return false;
-            }
-            Vector3 vector = lastExactPos;
-            Vector3 v = newExactPos - lastExactPos;
-            Vector3 b = v.normalized * 0.2f;
-            int num = (int)(v.MagnitudeHorizontal() / 0.2f);
-            checkedCells.Clear();
-            int num2 = 0;
-            for (; ; )
-            {
-                vector += b;
-                IntVec3 intVec3 = vector.ToIntVec3();
-                if (!checkedCells.Contains(intVec3))
-                {
-                    if (CheckForFreeIntercept(intVec3))
-                    {
-                        break;
-                    }
-                    checkedCells.Add(intVec3);
-                }
-                num2++;
-                if (num2 > num)
-                {
-                    return false;
-                }
-                if (intVec3 == intVec2)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private bool CheckForFreeIntercept(IntVec3 c)
-        {
-            
-            if (destination.ToIntVec3() == c)
-            {
-                return false;
-            }
-            float num = VerbUtility.InterceptChanceFactorFromDistance(origin, c);
-            bool flag = false;
-            List<Thing> thingList = c.GetThingList(Map);
-            for (int i = 0; i < thingList.Count; i++)
-            {
-                Thing thing = thingList[i];
-                if (CanHit(thing))
-                {
-                    bool flag2 = false;
-                    if (thing.def.Fillage == FillCategory.Full)
-                    {
-                        Building_Door building_Door = thing as Building_Door;
-                        if (building_Door == null || !building_Door.Open)
-                        {
-                            ThrowDebugText("int-wall", c);
-                            Impact(thing);
-                            return true;
-                        }
-                        flag2 = true;
-                    }
-                    float num2 = 0f;
-                    Pawn pawn = thing as Pawn;
-                    if (pawn != null)
-                    {
-                        num2 = 0.8f * Mathf.Clamp(pawn.BodySize, 0.1f, 2f);
-                        if (pawn.GetPosture() != PawnPosture.Standing)
-                        {
-                            num2 *= 0.1f;
-                        }
-                        if (launcher != null && pawn.Faction != null && launcher.Faction != null && !pawn.Faction.HostileTo(launcher.Faction))//아군 적중률
-                        {
-                            num2 *= 0.4f;
-                        }
-                    }
-                    else if (thing.def.fillPercent > 0.2f)
-                    {
-                        if (flag2)
-                        {
-                            num2 = 0.05f;
-                        }
-                        else if (DestinationCell.AdjacentTo8Way(c))
-                        {
-                            num2 = thing.def.fillPercent * 1f;
-                        }
-                        else
-                        {
-                            num2 = thing.def.fillPercent * 0.15f;
-                        }
-                    }
-                    num2 *= num;
-                    if (num2 > 1E-05f)
-                    {
-                        if (Rand.Chance(num2))
-                        {
-                            ThrowDebugText("int-" + num2.ToStringPercent(), c);
-                            Impact(thing);
-                            return true;
-                        }
-                        flag = true;
-                        ThrowDebugText(num2.ToStringPercent(), c);
-                    }
-                }
-            }
-            if (!flag)
-            {
-                ThrowDebugText("o", c);
-            }
-            return false;
         }
 
         private void ThrowDebugText(string text, IntVec3 c)
@@ -451,6 +283,12 @@ namespace NewRatkin
 
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
+            if (blockedByShield)
+            {
+                Destroy(DestroyMode.Vanish);
+                return;
+            }
+
             Map map = Map;
             BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(this.launcher, hitThing, intendedTarget.Thing, this.equipmentDef, this.def, this.targetCoverDef);
             Find.BattleLog.Add(battleLogEntry_RangedImpact);
@@ -486,7 +324,7 @@ namespace NewRatkin
             }
             if (currentPenetrationCount < ((ProjectileProperties_BallistaBoltAP)def.projectile).maxPenetrationCount)
             {
-                if (hitThing != null && hitThing.def.category == ThingCategory.Building || ticksToImpact <= 0)
+                if ((hitThing != null && hitThing.def.category == ThingCategory.Building) || ticksToImpact <= 0)
                 {
                     Explode();
                 }

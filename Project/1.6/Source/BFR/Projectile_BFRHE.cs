@@ -37,6 +37,15 @@ namespace NewRatkin
     {
         private ProjectileProperties_BFRHE BFRProps => def.projectile as ProjectileProperties_BFRHE;
         private bool reachedDetonationPoint;
+        private bool wasBlockedByShield;
+
+        protected override int MaxTickIntervalRate => 1;
+
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
+            wasBlockedByShield = blockedByShield;
+            base.Impact(hitThing, blockedByShield);
+        }
 
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
@@ -79,6 +88,12 @@ namespace NewRatkin
                 return;
             }
 
+            if (wasBlockedByShield)
+            {
+                Destroy(DestroyMode.Vanish);
+                return;
+            }
+
             // 가로막힌 경우: 직격 데미지만 (폭발 없음). damageAmountDirect는 가로막힐 때만 적용.
             if (!reachedDetonationPoint && props.preDetonationDistance > 0f)
             {
@@ -87,18 +102,17 @@ namespace NewRatkin
                 return;
             }
 
-            // 기폭 시에는 damageAmountDirect 없음. 부채꼴 폭발만.
-            List<IntVec3> sectorCells = GetSectorCells(impactPos, map, props);
+            List<IntVec3> shieldedCells;
+            HashSet<CompProjectileInterceptor> hitShields;
+            List<IntVec3> sectorCells = GetSectorCells(impactPos, map, props, out shieldedCells, out hitShields);
             if (sectorCells.Count > 0)
             {
                 DoSectorExplosion(impactPos, map, sectorCells, props);
             }
 
-            // 기폭점: Do Explosion 디버그와 동일한 폭발 이펙트 (Explosion Thing + DamageWorker)
             SpawnCenterExplosionVisual(impactPos, map);
-
-            // 부채꼴 셀: 총탄 지면 착탄 이펙트 (ShotHit_Dirt, 0.3 이내 무작위)
             SpawnSectorCellEffects(map, sectorCells);
+            SpawnShieldBlockEffects(map, shieldedCells, hitShields);
 
             Destroy(DestroyMode.Vanish);
         }
@@ -138,20 +152,20 @@ namespace NewRatkin
             }
         }
 
-        /// <summary>
-        /// 적중 지점 기준 후면 부채꼴 셀 목록 (적중 셀 제외).
-        /// wallBreachRadius 이내: 벽 무시(최초 후폭발). 초과 시: GenSight.LineOfSight로 벽 차단 확인.
-        /// </summary>
-        private List<IntVec3> GetSectorCells(IntVec3 center, Map map, ProjectileProperties_BFRHE props)
+        private List<IntVec3> GetSectorCells(IntVec3 center, Map map, ProjectileProperties_BFRHE props,
+            out List<IntVec3> shieldedCells, out HashSet<CompProjectileInterceptor> hitShields)
         {
             List<IntVec3> result = new List<IntVec3>();
+            shieldedCells = new List<IntVec3>();
+            hitShields = new HashSet<CompProjectileInterceptor>();
             float sectorRadius = props.sectorRadius > 0f ? props.sectorRadius : props.explosionRadius;
             float halfAngle = (props.sectorAngle > 0f ? props.sectorAngle : 90f) * 0.5f;
             float wallBreachRadius = props.wallBreachRadius > 0f ? props.wallBreachRadius : 1.7f;
             float wallBreachRadiusSq = wallBreachRadius * wallBreachRadius;
 
+            var shieldZones = GetHostileShieldZones(map, center);
+
             Vector3 centerVec = center.ToVector3Shifted().Yto0();
-            // 후면 = 대상 뒷편 = 탄이 날아가는 방향(destination - origin). 공격자 방향(origin - destination)이 아님.
             Vector3 dirToBack = (destination - origin).Yto0();
             if (dirToBack.sqrMagnitude < 1E-06f)
                 return result;
@@ -173,7 +187,14 @@ namespace NewRatkin
                 if (Mathf.Abs(Mathf.DeltaAngle(cellAngle, centerAngle)) > halfAngle)
                     continue;
 
-                // wallBreachRadius 이내: 벽 무시. 초과: 벽에 막히면 제외.
+                int shieldIdx = GetBlockingShieldIndex(cell, shieldZones);
+                if (shieldIdx >= 0)
+                {
+                    shieldedCells.Add(cell);
+                    hitShields.Add(shieldZones[shieldIdx].comp);
+                    continue;
+                }
+
                 float distSq = (cell - center).LengthHorizontalSquared;
                 if (distSq <= wallBreachRadiusSq)
                 {
@@ -185,11 +206,61 @@ namespace NewRatkin
                 }
             }
 
-            // DamageWorker와 동일: LOS가 나오는 셀에 인접한 벽 셀 추가. 벽은 피해를 받되, 벽 너머는 피해 없음.
             AddAdjacentWallCells(center, map, sectorRadius, result);
 
             return result;
         }
+
+        private static int GetBlockingShieldIndex(IntVec3 cell, List<ShieldZone> zones)
+        {
+            Vector3 cellVec = cell.ToVector3Shifted();
+            Vector2 cellPos = new Vector2(cellVec.x, cellVec.z);
+            for (int i = 0; i < zones.Count; i++)
+            {
+                float dx = cellPos.x - zones[i].center.x;
+                float dy = cellPos.y - zones[i].center.y;
+                if (dx * dx + dy * dy <= zones[i].radiusSq)
+                    return i;
+            }
+            return -1;
+        }
+
+        private struct ShieldZone
+        {
+            public Vector2 center;
+            public float radiusSq;
+            public CompProjectileInterceptor comp;
+            public Thing parent;
+        }
+
+        private List<ShieldZone> GetHostileShieldZones(Map map, IntVec3 explosionCenter)
+        {
+            var zones = new List<ShieldZone>();
+            Vector3 expVec = explosionCenter.ToVector3Shifted();
+            Vector2 expPos = new Vector2(expVec.x, expVec.z);
+            List<Thing> interceptors = map.listerThings.ThingsInGroup(ThingRequestGroup.ProjectileInterceptor);
+            for (int i = 0; i < interceptors.Count; i++)
+            {
+                var comp = interceptors[i].TryGetComp<CompProjectileInterceptor>();
+                if (comp == null || !comp.Active)
+                    continue;
+                if (!comp.Props.interceptGroundProjectiles)
+                    continue;
+                Thing shieldThing = interceptors[i];
+                if (launcher != null && shieldThing.Faction != null && !launcher.HostileTo(shieldThing))
+                    continue;
+                Vector3 pos = shieldThing.Position.ToVector3Shifted();
+                float r = comp.Props.radius;
+                float rSq = r * r;
+                float dx = expPos.x - pos.x;
+                float dz = expPos.y - pos.z;
+                if (dx * dx + dz * dz <= rSq)
+                    continue;
+                zones.Add(new ShieldZone { center = new Vector2(pos.x, pos.z), radiusSq = rSq, comp = comp, parent = shieldThing });
+            }
+            return zones;
+        }
+
 
         /// <summary>
         /// LOS 셀에 인접한 벽 셀을 result에 추가. 일반 폭발(ExplosionCellsToHit)과 동일한 로직.
@@ -279,7 +350,6 @@ namespace NewRatkin
             }
         }
 
-        /// <summary>부채꼴 셀: 총탄 지면 착탄 이펙트 (ShotHit_Dirt, 0.3 이내 무작위).</summary>
         private void SpawnSectorCellEffects(Map map, List<IntVec3> sectorCells)
         {
             const int effectsPerCell = 2;
@@ -296,6 +366,48 @@ namespace NewRatkin
                     {
                         FleckMaker.Static(spawnPos, map, FleckDefOf.ShotHit_Dirt, 1f);
                     }
+                }
+            }
+        }
+
+        private void SpawnShieldBlockEffects(Map map, List<IntVec3> shieldedCells, HashSet<CompProjectileInterceptor> hitShields)
+        {
+            if (shieldedCells.Count == 0)
+                return;
+
+            foreach (var comp in hitShields)
+            {
+                Vector3 shieldPos = comp.parent.Position.ToVector3Shifted();
+                Vector2 shieldCenter = new Vector2(shieldPos.x, shieldPos.z);
+                float radius = comp.Props.radius;
+                float radiusSq = radius * radius;
+                float innerThreshold = (radius - 1.5f) * (radius - 1.5f);
+
+                EffecterDef effecterDef = comp.Props.interceptEffect ?? EffecterDefOf.Interceptor_BlockedProjectile;
+                HashSet<IntVec3> usedCells = new HashSet<IntVec3>();
+
+                for (int i = 0; i < shieldedCells.Count; i++)
+                {
+                    Vector3 cv = shieldedCells[i].ToVector3Shifted();
+                    Vector2 cp = new Vector2(cv.x, cv.z);
+                    float dx = cp.x - shieldCenter.x;
+                    float dy = cp.y - shieldCenter.y;
+                    float dSq = dx * dx + dy * dy;
+                    if (dSq >= innerThreshold && dSq <= radiusSq && !usedCells.Contains(shieldedCells[i]))
+                    {
+                        usedCells.Add(shieldedCells[i]);
+                        Effecter effecter = new Effecter(effecterDef);
+                        effecter.Trigger(new TargetInfo(shieldedCells[i], map, false), TargetInfo.Invalid);
+                        effecter.Cleanup();
+                    }
+                }
+
+                if (usedCells.Count == 0 && shieldedCells.Count > 0)
+                {
+                    IntVec3 fallback = shieldedCells[0];
+                    Effecter effecter = new Effecter(effecterDef);
+                    effecter.Trigger(new TargetInfo(fallback, map, false), TargetInfo.Invalid);
+                    effecter.Cleanup();
                 }
             }
         }

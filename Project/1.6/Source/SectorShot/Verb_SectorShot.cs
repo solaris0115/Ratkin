@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -18,6 +19,10 @@ namespace NewRatkin
     public class Verb_SectorShot : Verb_LaunchProjectile
     {
         private VerbProperties_SectorShot SP => verbProps as VerbProperties_SectorShot;
+
+        private static readonly FieldInfo _lastInterceptAngle = typeof(CompProjectileInterceptor).GetField("lastInterceptAngle", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo _lastInterceptTicks = typeof(CompProjectileInterceptor).GetField("lastInterceptTicks", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo _drawInterceptCone = typeof(CompProjectileInterceptor).GetField("drawInterceptCone", BindingFlags.Instance | BindingFlags.NonPublic);
 
         /// <summary>
         /// 투사체 없이 즉시 피해 적용하므로 Verb_LaunchProjectile.Available()의
@@ -147,16 +152,18 @@ namespace NewRatkin
             IntVec3 targetCell = currentTarget.Cell;
             IntVec3 vertexCell = GetVertexCell(targetCell, sp.vertexOffset);
 
-            // LOS 기반 실제 피해 대상 수집 (중첩 수 포함)
-            Dictionary<Pawn, SectorShotTargetInfo> damageTargets = CollectDamageTargetsWithOverlap(map, sectorCells);
+            List<IntVec3> shieldedCells;
+            HashSet<CompProjectileInterceptor> hitShields;
+            List<ShieldZoneInfo> shieldZones;
+            FilterShieldedCells(map, sectorCells, vertexCell, out shieldedCells, out hitShields, out shieldZones);
 
-            // 피해량·관통력 계산 (품질 반영)
+            Dictionary<Pawn, SectorShotTargetInfo> damageTargets = CollectDamageTargetsWithOverlap(map, sectorCells, shieldZones);
+
             Thing weapon = EquipmentSource;
             float damageMultiplier = weapon != null ? weapon.GetStatValue(StatDefOf.RangedWeapon_DamageMultiplier, true, -1) : 1f;
             int baseDamage = GenMath.RoundRandom(sp.sectorDamageAmount * damageMultiplier);
             DamageDef damageDef = sp.sectorDamageDef ?? DamageDefOf.Bullet;
 
-            // 각 피해 대상에 대해 명중률 기반 반복 피해 적용. 중첩 시 1회씩만 추가, 최대 hitRepeatOverlapCap
             foreach (var kv in damageTargets)
             {
                 Pawn pawn = kv.Key;
@@ -175,16 +182,14 @@ namespace NewRatkin
                 }
             }
 
-            // 사운드
             if (verbProps.soundCast != null)
                 verbProps.soundCast.PlayOneShot(SoundInfo.InMap(new TargetInfo(caster.Position, map, false)));
 
-            // 총구 이펙트
             SpawnWyvernFireExplosion(map, caster, vertexCell, sp.muzzleEffectOffset);
 
-            // 지면 착탄 이펙트: LOS로 가려진 경우 실제 총탄이 맞는 위치(첫 Pawn 셀)에 스폰
-            HashSet<IntVec3> effectCells = CollectEffectCells(map, sectorCells);
+            HashSet<IntVec3> effectCells = CollectEffectCells(map, sectorCells, shieldZones);
             SpawnSectorCellEffects(map, effectCells, sp);
+            SpawnShieldBlockEffects(map, shieldedCells, hitShields);
 
             if (CasterIsPawn)
                 CasterPawn.records.Increment(RecordDefOf.ShotsFired);
@@ -192,39 +197,42 @@ namespace NewRatkin
             return true;
         }
 
-        /// <summary>지면 착탄 이펙트 셀 수집. LOS로 가려진 경우 첫 Pawn 셀, 아니면 부채꼴 셀.</summary>
-        private HashSet<IntVec3> CollectEffectCells(Map map, List<IntVec3> sectorCells)
+        private HashSet<IntVec3> CollectEffectCells(Map map, List<IntVec3> sectorCells, List<ShieldZoneInfo> shieldZones)
         {
             var cells = new HashSet<IntVec3>();
             IntVec3 casterPos = caster.Position;
 
             foreach (IntVec3 sectorCell in sectorCells)
             {
-                bool foundPawnOnThisLine = false;
+                bool blocked = false;
                 foreach (IntVec3 pathCell in GenSight.PointsOnLineOfSight(casterPos, sectorCell))
                 {
-                    if (foundPawnOnThisLine)
+                    if (blocked)
                         break;
                     if (!pathCell.InBounds(map))
                         continue;
+                    if (shieldZones.Count > 0 && GetBlockingShieldIndex(pathCell, shieldZones) >= 0)
+                    {
+                        blocked = true;
+                        break;
+                    }
                     foreach (Thing t in pathCell.GetThingList(map))
                     {
                         if (t is Pawn p && p != caster)
                         {
                             cells.Add(pathCell);
-                            foundPawnOnThisLine = true;
+                            blocked = true;
                             break;
                         }
                     }
                 }
-                if (!foundPawnOnThisLine)
+                if (!blocked)
                     cells.Add(sectorCell);
             }
             return cells;
         }
 
-        /// <summary>부채꼴 내 각 셀에 대해 사수->셀 LOS 경로상의 첫 번째 Pawn 수집. LOS로 다른 Pawn을 가리는(뒤에 Pawn이 있는) 경우에만 중첩 수 카운트.</summary>
-        private Dictionary<Pawn, SectorShotTargetInfo> CollectDamageTargetsWithOverlap(Map map, List<IntVec3> sectorCells)
+        private Dictionary<Pawn, SectorShotTargetInfo> CollectDamageTargetsWithOverlap(Map map, List<IntVec3> sectorCells, List<ShieldZoneInfo> shieldZones)
         {
             var result = new Dictionary<Pawn, SectorShotTargetInfo>();
             IntVec3 casterPos = caster.Position;
@@ -233,10 +241,18 @@ namespace NewRatkin
             {
                 Pawn firstPawn = null;
                 bool hasPawnBehind = false;
+                bool hitShield = false;
                 foreach (IntVec3 pathCell in GenSight.PointsOnLineOfSight(casterPos, sectorCell))
                 {
+                    if (hitShield)
+                        break;
                     if (!pathCell.InBounds(map))
                         continue;
+                    if (shieldZones.Count > 0 && GetBlockingShieldIndex(pathCell, shieldZones) >= 0)
+                    {
+                        hitShield = true;
+                        break;
+                    }
                     foreach (Thing t in pathCell.GetThingList(map))
                     {
                         if (t is Pawn p && p != caster)
@@ -323,6 +339,155 @@ namespace NewRatkin
             data.rotation = rot;
             data.instanceColor = new Color(0.75f, 0.55f, 0.55f, 0.7f);
             map.flecks.CreateFleck(data);
+        }
+
+        private void FilterShieldedCells(Map map, List<IntVec3> sectorCells, IntVec3 explosionCenter,
+            out List<IntVec3> shieldedCells, out HashSet<CompProjectileInterceptor> hitShields,
+            out List<ShieldZoneInfo> outZones)
+        {
+            shieldedCells = new List<IntVec3>();
+            hitShields = new HashSet<CompProjectileInterceptor>();
+
+            Vector3 casterVec = caster.Position.ToVector3Shifted();
+            Vector2 casterPos = new Vector2(casterVec.x, casterVec.z);
+
+            var zones = new List<ShieldZoneInfo>();
+            List<Thing> interceptors = map.listerThings.ThingsInGroup(ThingRequestGroup.ProjectileInterceptor);
+            for (int i = 0; i < interceptors.Count; i++)
+            {
+                var comp = interceptors[i].TryGetComp<CompProjectileInterceptor>();
+                if (comp == null || !comp.Active)
+                    continue;
+                if (!comp.Props.interceptGroundProjectiles)
+                    continue;
+                Thing shieldThing = interceptors[i];
+                if (caster != null && shieldThing.Faction != null && !caster.HostileTo(shieldThing))
+                    continue;
+                Vector3 pos = shieldThing.Position.ToVector3Shifted();
+                float r = comp.Props.radius;
+                float rSq = r * r;
+                float dx = casterPos.x - pos.x;
+                float dz = casterPos.y - pos.z;
+                if (dx * dx + dz * dz <= rSq)
+                    continue;
+                zones.Add(new ShieldZoneInfo { center = new Vector2(pos.x, pos.z), radiusSq = rSq, comp = comp });
+            }
+            outZones = zones;
+
+            if (zones.Count == 0)
+                return;
+
+            for (int i = sectorCells.Count - 1; i >= 0; i--)
+            {
+                IntVec3 cell = sectorCells[i];
+                int idx = GetBlockingShieldIndex(cell, zones);
+                if (idx >= 0)
+                {
+                    shieldedCells.Add(cell);
+                    hitShields.Add(zones[idx].comp);
+                    sectorCells.RemoveAt(i);
+                }
+            }
+        }
+
+        private struct ShieldZoneInfo
+        {
+            public Vector2 center;
+            public float radiusSq;
+            public CompProjectileInterceptor comp;
+        }
+
+        private static int GetBlockingShieldIndex(IntVec3 cell, List<ShieldZoneInfo> zones)
+        {
+            Vector3 cellVec = cell.ToVector3Shifted();
+            Vector2 cellPos = new Vector2(cellVec.x, cellVec.z);
+            for (int i = 0; i < zones.Count; i++)
+            {
+                float dx = cellPos.x - zones[i].center.x;
+                float dy = cellPos.y - zones[i].center.y;
+                if (dx * dx + dy * dy <= zones[i].radiusSq)
+                    return i;
+            }
+            return -1;
+        }
+
+        private void SpawnShieldBlockEffects(Map map, List<IntVec3> shieldedCells, HashSet<CompProjectileInterceptor> hitShields)
+        {
+            if (shieldedCells.Count == 0)
+                return;
+
+            Vector2 casterPos2 = new Vector2(caster.Position.ToVector3Shifted().x, caster.Position.ToVector3Shifted().z);
+
+            foreach (var comp in hitShields)
+            {
+                Vector3 shieldPos = comp.parent.Position.ToVector3Shifted();
+                Vector2 shieldCenter = new Vector2(shieldPos.x, shieldPos.z);
+                float radius = comp.Props.radius;
+                float radiusSq = radius * radius;
+                float innerThreshold = (radius - 1.5f) * (radius - 1.5f);
+
+                Vector2 toCaster = casterPos2 - shieldCenter;
+
+                EffecterDef effecterDef = comp.Props.interceptEffect ?? EffecterDefOf.Interceptor_BlockedProjectile;
+                HashSet<IntVec3> usedCells = new HashSet<IntVec3>();
+
+                for (int i = 0; i < shieldedCells.Count; i++)
+                {
+                    IntVec3 cell = shieldedCells[i];
+                    Vector3 cv = cell.ToVector3Shifted();
+                    Vector2 cp = new Vector2(cv.x, cv.z);
+                    float dx = cp.x - shieldCenter.x;
+                    float dy = cp.y - shieldCenter.y;
+                    float dSq = dx * dx + dy * dy;
+
+                    float dot = dx * toCaster.x + dy * toCaster.y;
+                    bool casterFacing = dot > 0f;
+
+                    if (dSq >= innerThreshold && dSq <= radiusSq && casterFacing && !usedCells.Contains(cell))
+                    {
+                        usedCells.Add(cell);
+                        Effecter effecter = new Effecter(effecterDef);
+                        effecter.Trigger(new TargetInfo(cell, map, false), TargetInfo.Invalid);
+                        effecter.Cleanup();
+                    }
+                }
+
+                if (usedCells.Count == 0)
+                {
+                    IntVec3 fallback = shieldedCells[0];
+                    Vector2 fp = new Vector2(fallback.ToVector3Shifted().x, fallback.ToVector3Shifted().z);
+                    float fdx = fp.x - shieldCenter.x;
+                    float fdy = fp.y - shieldCenter.y;
+                    float fDot = fdx * toCaster.x + fdy * toCaster.y;
+                    if (fDot > 0f)
+                    {
+                        Effecter effecter = new Effecter(effecterDef);
+                        effecter.Trigger(new TargetInfo(fallback, map, false), TargetInfo.Invalid);
+                        effecter.Cleanup();
+                    }
+                }
+
+                if (usedCells.Count > 0)
+                {
+                    Vector3 avg = Vector3.zero;
+                    foreach (IntVec3 c in usedCells)
+                        avg += c.ToVector3Shifted();
+                    avg /= usedCells.Count;
+                    TriggerForceFieldCone(comp, avg);
+                }
+            }
+        }
+
+        private static void TriggerForceFieldCone(CompProjectileInterceptor comp, Vector3 hitPos)
+        {
+            if (_lastInterceptAngle == null || _lastInterceptTicks == null || _drawInterceptCone == null)
+                return;
+
+            float angle = hitPos.AngleToFlat(comp.parent.TrueCenter());
+
+            _lastInterceptAngle.SetValue(comp, angle);
+            _lastInterceptTicks.SetValue(comp, Find.TickManager.TicksGame);
+            _drawInterceptCone.SetValue(comp, true);
         }
 
         private void SpawnSectorCellEffects(Map map, IEnumerable<IntVec3> effectCells, VerbProperties_SectorShot sp)
