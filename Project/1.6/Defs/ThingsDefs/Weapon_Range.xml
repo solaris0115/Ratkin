@@ -987,6 +987,7 @@
 				<verbClass>NewRatkin.Verb_PulseRifleShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<!-- defaultProjectile, warmupTime, range, burstShotCount, ticksBetweenBurstShots → Comp_PulseRifleFireMode에서 모드별로 덮어씀 -->
+				<range>27</range>
 				<soundCast>PrototypePulse</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
