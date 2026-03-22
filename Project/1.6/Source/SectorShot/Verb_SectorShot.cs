@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -19,10 +18,6 @@ namespace NewRatkin
     public class Verb_SectorShot : Verb_LaunchProjectile
     {
         private VerbProperties_SectorShot SP => verbProps as VerbProperties_SectorShot;
-
-        private static readonly FieldInfo _lastInterceptAngle = typeof(CompProjectileInterceptor).GetField("lastInterceptAngle", BindingFlags.Instance | BindingFlags.NonPublic);
-        private static readonly FieldInfo _lastInterceptTicks = typeof(CompProjectileInterceptor).GetField("lastInterceptTicks", BindingFlags.Instance | BindingFlags.NonPublic);
-        private static readonly FieldInfo _drawInterceptCone = typeof(CompProjectileInterceptor).GetField("drawInterceptCone", BindingFlags.Instance | BindingFlags.NonPublic);
 
         /// <summary>
         /// 투사체 없이 즉시 피해 적용하므로 Verb_LaunchProjectile.Available()의
@@ -185,7 +180,7 @@ namespace NewRatkin
             if (verbProps.soundCast != null)
                 verbProps.soundCast.PlayOneShot(SoundInfo.InMap(new TargetInfo(caster.Position, map, false)));
 
-            SpawnWyvernFireExplosion(map, caster, vertexCell, sp.muzzleEffectOffset);
+            SpawnWyvernFireExplosion(map, caster, currentTarget.Cell, sp.muzzleEffectOffset);
 
             HashSet<IntVec3> effectCells = CollectEffectCells(map, sectorCells, shieldZones);
             SpawnSectorCellEffects(map, effectCells, sp);
@@ -416,78 +411,45 @@ namespace NewRatkin
             if (shieldedCells.Count == 0)
                 return;
 
-            Vector2 casterPos2 = new Vector2(caster.Position.ToVector3Shifted().x, caster.Position.ToVector3Shifted().z);
+            ThingDef dummyDef = ThingDef.Named("RK_Bullet_SectorShot_Dummy");
+            Vector3 origin = caster.DrawPos;
 
             foreach (var comp in hitShields)
             {
                 Vector3 shieldPos = comp.parent.Position.ToVector3Shifted();
                 Vector2 shieldCenter = new Vector2(shieldPos.x, shieldPos.z);
-                float radius = comp.Props.radius;
-                float radiusSq = radius * radius;
-                float innerThreshold = (radius - 1.5f) * (radius - 1.5f);
+                float radiusSq = comp.Props.radius * comp.Props.radius;
 
-                Vector2 toCaster = casterPos2 - shieldCenter;
-
-                EffecterDef effecterDef = comp.Props.interceptEffect ?? EffecterDefOf.Interceptor_BlockedProjectile;
-                HashSet<IntVec3> usedCells = new HashSet<IntVec3>();
-
+                Vector2 avg = Vector2.zero;
+                int count = 0;
                 for (int i = 0; i < shieldedCells.Count; i++)
                 {
-                    IntVec3 cell = shieldedCells[i];
-                    Vector3 cv = cell.ToVector3Shifted();
+                    Vector3 cv = shieldedCells[i].ToVector3Shifted();
                     Vector2 cp = new Vector2(cv.x, cv.z);
                     float dx = cp.x - shieldCenter.x;
                     float dy = cp.y - shieldCenter.y;
-                    float dSq = dx * dx + dy * dy;
-
-                    float dot = dx * toCaster.x + dy * toCaster.y;
-                    bool casterFacing = dot > 0f;
-
-                    if (dSq >= innerThreshold && dSq <= radiusSq && casterFacing && !usedCells.Contains(cell))
+                    if (dx * dx + dy * dy <= radiusSq)
                     {
-                        usedCells.Add(cell);
-                        Effecter effecter = new Effecter(effecterDef);
-                        effecter.Trigger(new TargetInfo(cell, map, false), TargetInfo.Invalid);
-                        effecter.Cleanup();
+                        avg += cp;
+                        count++;
                     }
                 }
+                if (count == 0)
+                    continue;
 
-                if (usedCells.Count == 0)
-                {
-                    IntVec3 fallback = shieldedCells[0];
-                    Vector2 fp = new Vector2(fallback.ToVector3Shifted().x, fallback.ToVector3Shifted().z);
-                    float fdx = fp.x - shieldCenter.x;
-                    float fdy = fp.y - shieldCenter.y;
-                    float fDot = fdx * toCaster.x + fdy * toCaster.y;
-                    if (fDot > 0f)
-                    {
-                        Effecter effecter = new Effecter(effecterDef);
-                        effecter.Trigger(new TargetInfo(fallback, map, false), TargetInfo.Invalid);
-                        effecter.Cleanup();
-                    }
-                }
+                avg /= count;
+                IntVec3 targetCell = new IntVec3(Mathf.RoundToInt(avg.x), 0, Mathf.RoundToInt(avg.y));
+                if (!targetCell.InBounds(map))
+                    continue;
 
-                if (usedCells.Count > 0)
-                {
-                    Vector3 avg = Vector3.zero;
-                    foreach (IntVec3 c in usedCells)
-                        avg += c.ToVector3Shifted();
-                    avg /= usedCells.Count;
-                    TriggerForceFieldCone(comp, avg);
-                }
+                Projectile dummy = (Projectile)GenSpawn.Spawn(dummyDef, caster.Position, map);
+                dummy.Launch(
+                    caster,
+                    origin,
+                    new LocalTargetInfo(targetCell),
+                    new LocalTargetInfo(targetCell),
+                    ProjectileHitFlags.None);
             }
-        }
-
-        private static void TriggerForceFieldCone(CompProjectileInterceptor comp, Vector3 hitPos)
-        {
-            if (_lastInterceptAngle == null || _lastInterceptTicks == null || _drawInterceptCone == null)
-                return;
-
-            float angle = hitPos.AngleToFlat(comp.parent.TrueCenter());
-
-            _lastInterceptAngle.SetValue(comp, angle);
-            _lastInterceptTicks.SetValue(comp, Find.TickManager.TicksGame);
-            _drawInterceptCone.SetValue(comp, true);
         }
 
         private void SpawnSectorCellEffects(Map map, IEnumerable<IntVec3> effectCells, VerbProperties_SectorShot sp)

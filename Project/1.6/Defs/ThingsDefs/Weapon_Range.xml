@@ -800,6 +800,23 @@
 		</tradeTags>
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>RK_Bullet_SectorShot_Dummy</defName>
+		<label>sector shot tracer</label>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawSize>0.001</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>0</damageAmountBase>
+			<armorPenetrationBase>0</armorPenetrationBase>
+			<speed>160</speed>
+		</projectile>
+	</ThingDef>
 	
 	<!-- <ThingDef ParentName="BaseBullet">
 		<defName>Bullet_RK_Buck</defName>
