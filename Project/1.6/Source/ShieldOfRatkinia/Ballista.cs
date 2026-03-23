@@ -30,11 +30,8 @@ namespace NewRatkin
                 hitThing.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
                 Pawn pawn = hitThing as Pawn;
                 if (pawn != null && pawn.stances != null && pawn.BodySize <= def.projectile.stoppingPower + 0.001f)
-                {
                     pawn.stances.stagger.StaggerFor(95);
-                }
                 RKSoundDefOf.Ballista_Impact.PlayOneShot(new TargetInfo(hitThing.Position, map, false));
-                FilthMaker.TryMakeFilth(Position, map, ThingDefOf.Filth_Blood, 4);
             }
             else
             {
@@ -303,15 +300,9 @@ namespace NewRatkin
                 DamageInfo dinfo = new DamageInfo(damageDef, amount, armorPenetration, y, launcher, null, equipmentDef, DamageInfo.SourceCategory.ThingOrUnknown, intendedTarget.Thing);
                 hitThing.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
                 Pawn pawn = hitThing as Pawn;
-                if(pawn!=null)
-                {
-                    FilthMaker.TryMakeFilth(Position, map, ThingDefOf.Filth_Blood, 4);
-                    RKSoundDefOf.Ballista_Impact.PlayOneShot(new TargetInfo(Position, map, false));
-                    if (pawn.stances != null && pawn.BodySize <= def.projectile.stoppingPower + 0.001f)
-                    {
-                        pawn.stances.stagger.StaggerFor(95);
-                    }
-                }
+                if (pawn != null && pawn.stances != null && pawn.BodySize <= def.projectile.stoppingPower + 0.001f)
+                    pawn.stances.stagger.StaggerFor(95);
+                RKSoundDefOf.Ballista_Impact.PlayOneShot(new TargetInfo(Position, map, false));
                 currentPenetrationCount++;
             }
             else
