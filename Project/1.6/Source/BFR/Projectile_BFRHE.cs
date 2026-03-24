@@ -117,11 +117,29 @@ namespace NewRatkin
             Destroy(DestroyMode.Vanish);
         }
 
+        /// <summary>바닐라 Bullet과 동일: 무기의 원거리 피해 배율(품질 등) 적용.</summary>
+        private int ScaledRangedDamageFromBase(int baseAmount)
+        {
+            if (baseAmount <= 0)
+                return 0;
+            float mult = equipment != null ? equipment.GetStatValue(StatDefOf.RangedWeapon_DamageMultiplier, true, -1) : 1f;
+            return Mathf.RoundToInt(baseAmount * mult);
+        }
+
+        /// <summary>ProjectileProperties.GetArmorPenetration과 동일: 명시 관통에 원거리 관통 배율만 곱함.</summary>
+        private float ScaledExplicitArmorPen(float explicitBase, DamageDef dmgDef)
+        {
+            if (dmgDef == null || dmgDef.armorCategory == null)
+                return 0f;
+            float mult = equipment != null ? equipment.GetStatValue(StatDefOf.RangedWeapon_ArmorPenetrationMultiplier, true, -1) : 1f;
+            return explicitBase * mult;
+        }
+
         private void ApplyDirectHitDamage(Map map, IntVec3 impactPos, ProjectileProperties_BFRHE props)
         {
-            int damAmount = props.damageAmountDirect > 0 ? props.damageAmountDirect : DamageAmount;
+            int damAmount = props.damageAmountDirect > 0 ? ScaledRangedDamageFromBase(props.damageAmountDirect) : DamageAmount;
             DamageDef damageDef = props.damageDefDirect ?? DamageDef;
-            float armorPen = props.armorPenetrationDirect >= 0f ? props.armorPenetrationDirect : ArmorPenetration;
+            float armorPen = props.armorPenetrationDirect >= 0f ? ScaledExplicitArmorPen(props.armorPenetrationDirect, damageDef) : ArmorPenetration;
 
             foreach (Thing thing in impactPos.GetThingList(map).ToList())
             {
@@ -415,8 +433,8 @@ namespace NewRatkin
         private void DoSectorExplosion(IntVec3 center, Map map, List<IntVec3> sectorCells, ProjectileProperties_BFRHE props)
         {
             DamageDef damageDef = props.damageDefExplosion ?? DamageDef;
-            int damAmount = props.damageAmountExplosion > 0 ? props.damageAmountExplosion : DamageAmount;
-            float armorPen = props.armorPenetrationExplosion >= 0f ? props.armorPenetrationExplosion : ArmorPenetration;
+            int damAmount = props.damageAmountExplosion > 0 ? ScaledRangedDamageFromBase(props.damageAmountExplosion) : DamageAmount;
+            float armorPen = props.armorPenetrationExplosion >= 0f ? ScaledExplicitArmorPen(props.armorPenetrationExplosion, damageDef) : ArmorPenetration;
 
             GenExplosion.DoExplosion(
                 center,
