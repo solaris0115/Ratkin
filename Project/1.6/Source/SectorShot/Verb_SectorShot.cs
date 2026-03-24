@@ -54,6 +54,27 @@ namespace NewRatkin
             return true;
         }
 
+        /// <summary>
+        /// 바닐라 <see cref="Verb.CanHitTarget"/>는 <c>targ == caster</c>일 때 <c>canTargetSelf</c>를 검사하지 않아
+        /// 다중 선택 후 자기 폰을 타겟으로 잡으면 조준만 하고 사격이 실패하는 상태가 난다.
+        /// <see cref="Thing"/>이 사수 본인이면 항상 막는다.
+        /// 바닥 칸만 타겟일 때 &quot;내가 서 있는 칸&quot; 금지는 <b>단일 선택</b>에서만 적용한다.
+        /// (다중 선택 시 <c>Targeter</c>가 추가 폰만 <c>CanHitTarget</c>으로 검사하는데, 그 칸이 그 폰의 발밑이면
+        /// 여기서 막아버리면 다른 폰이 그곳을 쏠 수 있어도 전체가 조준 불가로 나온다.)
+        /// </summary>
+        public override bool CanHitTarget(LocalTargetInfo targ)
+        {
+            if (caster != null && targ.IsValid && !verbProps.targetParams.canTargetSelf)
+            {
+                if (targ.HasThing && targ.Thing == caster)
+                    return false;
+                if (!targ.HasThing && targ.Cell == caster.Position
+                    && (Find.Selector == null || Find.Selector.NumSelected <= 1))
+                    return false;
+            }
+            return base.CanHitTarget(targ);
+        }
+
         /// <summary>부채꼴이므로 기본 원형 하이라이트 비활성화.</summary>
         public override float HighlightFieldRadiusAroundTarget(out bool needLOSToCenter)
         {
