@@ -12,7 +12,7 @@ namespace NewRatkin
     /// sectorAngle: 부채꼴 각도(도), sectorRadius: 반지름, damageAmountDirect/Explosion: 적중/폭발 피해.
     /// wallBreachRadius: 이 거리 이내는 벽 무시(최초 후폭발), 초과 시 벽에 막힘.
     /// </summary>
-    public class ProjectileProperties_BFRHE : ProjectileProperties
+    public class ProjectileProperties_ProximityBurst : ProjectileProperties
     {
         public float preDetonationDistance = 0f;
         public float sectorAngle = 90f;
@@ -24,32 +24,25 @@ namespace NewRatkin
         public DamageDef damageDefExplosion;
         public float armorPenetrationDirect = -1f;
         public float armorPenetrationExplosion = -1f;
-        /// <summary>부채꼴 셀당 총탄 이펙트. null이면 ImpactSmallDustCloud 사용.</summary>
         public EffecterDef sectorCellEffecterDef;
     }
 
     /// <summary>
-    /// BFR HE탄 - 적중 시 후면 부채꼴로 폭발.
-    /// 부채꼴 각도·반지름, 적중 피해·폭발 피해 별도 설정 가능.
-    /// wallBreachRadius 이내는 벽 무시, 초과 시 벽에 막혀 관통하지 않음.
+    /// BFR HE탄 - Bullet 기반 부채꼴 폭발 투사체.
+    /// Projectile_Explosive를 상속하지 않아 CausesExplosion == false.
+    /// Impact()에서 직접 부채꼴 셀 판정 → 폭발 처리.
     /// </summary>
-    public class Projectile_BFRHE : Projectile_Explosive
+    public class Projectile_ProximityBurst : Bullet
     {
-        private ProjectileProperties_BFRHE BFRProps => def.projectile as ProjectileProperties_BFRHE;
+        private ProjectileProperties_ProximityBurst ProximityProps => def.projectile as ProjectileProperties_ProximityBurst;
         private bool reachedDetonationPoint;
         private bool wasBlockedByShield;
 
         protected override int MaxTickIntervalRate => 1;
 
-        protected override void Impact(Thing hitThing, bool blockedByShield = false)
-        {
-            wasBlockedByShield = blockedByShield;
-            base.Impact(hitThing, blockedByShield);
-        }
-
         public override void Launch(Thing launcher, Vector3 origin, LocalTargetInfo usedTarget, LocalTargetInfo intendedTarget, ProjectileHitFlags hitFlags, bool preventFriendlyFire = false, Thing equipment = null, ThingDef targetCoverDef = null)
         {
-            float preDet = BFRProps?.preDetonationDistance ?? 0f;
+            float preDet = ProximityProps?.preDetonationDistance ?? 0f;
             if (preDet > 0f)
             {
                 Vector3 targetVec = usedTarget.Cell.ToVector3Shifted();
@@ -71,20 +64,18 @@ namespace NewRatkin
             base.ImpactSomething();
         }
 
-        protected override void Explode()
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
+            wasBlockedByShield = blockedByShield;
             Map map = Map;
             IntVec3 impactPos = Position;
-            if (map == null)
-            {
-                base.Explode();
-                return;
-            }
 
-            ProjectileProperties_BFRHE props = BFRProps;
-            if (props == null)
+            GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
+
+            ProjectileProperties_ProximityBurst props = ProximityProps;
+            if (map == null || props == null)
             {
-                base.Explode();
+                base.Impact(hitThing, blockedByShield);
                 return;
             }
 
@@ -94,7 +85,6 @@ namespace NewRatkin
                 return;
             }
 
-            // 가로막힌 경우: 직격 데미지만 (폭발 없음). damageAmountDirect는 가로막힐 때만 적용.
             if (!reachedDetonationPoint && props.preDetonationDistance > 0f)
             {
                 ApplyDirectHitDamage(map, impactPos, props);
@@ -117,7 +107,6 @@ namespace NewRatkin
             Destroy(DestroyMode.Vanish);
         }
 
-        /// <summary>바닐라 Bullet과 동일: 무기의 원거리 피해 배율(품질 등) 적용.</summary>
         private int ScaledRangedDamageFromBase(int baseAmount)
         {
             if (baseAmount <= 0)
@@ -126,7 +115,6 @@ namespace NewRatkin
             return Mathf.RoundToInt(baseAmount * mult);
         }
 
-        /// <summary>ProjectileProperties.GetArmorPenetration과 동일: 명시 관통에 원거리 관통 배율만 곱함.</summary>
         private float ScaledExplicitArmorPen(float explicitBase, DamageDef dmgDef)
         {
             if (dmgDef == null || dmgDef.armorCategory == null)
@@ -135,7 +123,7 @@ namespace NewRatkin
             return explicitBase * mult;
         }
 
-        private void ApplyDirectHitDamage(Map map, IntVec3 impactPos, ProjectileProperties_BFRHE props)
+        private void ApplyDirectHitDamage(Map map, IntVec3 impactPos, ProjectileProperties_ProximityBurst props)
         {
             int damAmount = props.damageAmountDirect > 0 ? ScaledRangedDamageFromBase(props.damageAmountDirect) : DamageAmount;
             DamageDef damageDef = props.damageDefDirect ?? DamageDef;
@@ -170,7 +158,7 @@ namespace NewRatkin
             }
         }
 
-        private List<IntVec3> GetSectorCells(IntVec3 center, Map map, ProjectileProperties_BFRHE props,
+        private List<IntVec3> GetSectorCells(IntVec3 center, Map map, ProjectileProperties_ProximityBurst props,
             out List<IntVec3> shieldedCells, out HashSet<CompProjectileInterceptor> hitShields)
         {
             List<IntVec3> result = new List<IntVec3>();
@@ -225,7 +213,6 @@ namespace NewRatkin
             }
 
             AddAdjacentWallCells(center, map, sectorRadius, result);
-
             return result;
         }
 
@@ -279,10 +266,6 @@ namespace NewRatkin
             return zones;
         }
 
-
-        /// <summary>
-        /// LOS 셀에 인접한 벽 셀을 result에 추가. 일반 폭발(ExplosionCellsToHit)과 동일한 로직.
-        /// </summary>
         private void AddAdjacentWallCells(IntVec3 center, Map map, float radius, List<IntVec3> result)
         {
             HashSet<IntVec3> resultSet = new HashSet<IntVec3>(result);
@@ -312,48 +295,17 @@ namespace NewRatkin
             result.AddRange(adjWalls);
         }
 
-        /// <summary>기폭점: WyvernFire 이펙트 (잿빛, 알파 0.7, 1.2배 스케일, 0.7배 재생시간). 부채꼴은 폭발 방향을 향함. 사운드 Shockwave.</summary>
         private void SpawnCenterExplosionVisual(IntVec3 center, Map map)
         {
             List<IntVec3> overrideCells = new List<IntVec3> { center };
             SoundDef explosionSound = def.projectile.soundExplode;
             GenExplosion.DoExplosion(
-                center,
-                map,
-                1f,
-                DamageDefOf.Bomb,
-                null,
-                0,
-                -1f,
-                explosionSound,
-                null,
-                null,
-                null,
-                null,
-                0f,
-                1,
-                null,
-                null,
-                255,
-                false,
-                null,
-                0f,
-                1,
-                0f,
-                false,
-                null,
-                null,
-                null,
-                false,
-                1f,
-                0f,
-                true,
-                null,
-                1f,
-                null,
-                overrideCells,
-                null,
-                null);
+                center, map, 1f, DamageDefOf.Bomb, null,
+                0, -1f, explosionSound,
+                null, null, null, null,
+                0f, 1, null, null, 255, false,
+                null, 0f, 1, 0f, false, null, null, null, false,
+                1f, 0f, true, null, 1f, null, overrideCells, null, null);
 
             FleckDef wyvernFleck = DefDatabase<FleckDef>.GetNamedSilentFail("RK_WyvernFireExplosion");
             if (wyvernFleck != null)
@@ -361,7 +313,7 @@ namespace NewRatkin
                 Vector3 dir = (destination - origin).Yto0();
                 float rot = dir.sqrMagnitude > 1E-06f ? dir.AngleFlat() : 0f;
                 var data = FleckMaker.GetDataStatic(center.ToVector3Shifted(), map, wyvernFleck, 1f);
-                data.exactScale = new Vector3?(new Vector3(3f, 1f, 2f)); // 가로 3배, 세로 2배
+                data.exactScale = new Vector3?(new Vector3(3f, 1f, 2f));
                 data.rotation = rot;
                 data.instanceColor = new Color(0.75f, 0.55f, 0.55f, 0.7f);
                 map.flecks.CreateFleck(data);
@@ -430,49 +382,32 @@ namespace NewRatkin
             }
         }
 
-        private void DoSectorExplosion(IntVec3 center, Map map, List<IntVec3> sectorCells, ProjectileProperties_BFRHE props)
+        private void DoSectorExplosion(IntVec3 center, Map map, List<IntVec3> sectorCells, ProjectileProperties_ProximityBurst props)
         {
             DamageDef damageDef = props.damageDefExplosion ?? DamageDef;
             int damAmount = props.damageAmountExplosion > 0 ? ScaledRangedDamageFromBase(props.damageAmountExplosion) : DamageAmount;
             float armorPen = props.armorPenetrationExplosion >= 0f ? ScaledExplicitArmorPen(props.armorPenetrationExplosion, damageDef) : ArmorPenetration;
 
             GenExplosion.DoExplosion(
-                center,
-                map,
-                0f,
-                damageDef,
-                launcher,
-                damAmount,
-                armorPen,
-                def.projectile.soundExplode,
-                equipmentDef,
-                def,
-                intendedTarget.Thing,
+                center, map, 0f, damageDef, launcher,
+                damAmount, armorPen, def.projectile.soundExplode,
+                equipmentDef, def, intendedTarget.Thing,
                 def.projectile.postExplosionSpawnThingDef,
                 def.projectile.postExplosionSpawnChance,
                 def.projectile.postExplosionSpawnThingCount,
-                null,
-                null,
-                255,
+                null, null, 255,
                 def.projectile.applyDamageToExplosionCellsNeighbors,
                 def.projectile.preExplosionSpawnThingDef,
                 def.projectile.preExplosionSpawnChance,
                 def.projectile.preExplosionSpawnThingCount,
                 def.projectile.explosionChanceToStartFire,
                 def.projectile.explosionDamageFalloff,
-                null,
-                null,
-                null,
-                false,
+                null, null, null, false,
                 damageDef.expolosionPropagationSpeed,
-                0f,
-                true,
+                0f, true,
                 def.projectile.postExplosionSpawnThingDefWater,
                 def.projectile.screenShakeFactor,
-                null,
-                sectorCells,
-                null,
-                null);
+                null, sectorCells, null, null);
         }
     }
 }

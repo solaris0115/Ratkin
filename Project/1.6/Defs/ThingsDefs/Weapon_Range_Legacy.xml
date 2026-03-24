@@ -6,6 +6,11 @@
 		<label>ratkin shotgun</label>
 		<description>소드오프 샷건입니다. 랫킨 왕국에서는 샷건이 랫킨을 쏩니다.</description>
 		<recipeMaker Inherit="False" IsNull="True" />
+		<costList>
+			<WoodLog>30</WoodLog>
+			<Steel>55</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
 		<graphicData>
 			<texPath>Weapon/RK_Shotgun</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
