@@ -7,27 +7,6 @@ using Verse;
 namespace NewRatkin
 {
     /// <summary>
-    /// BFR HE탄 전용 Projectile 속성.
-    /// preDetonationDistance: 목표로부터 기폭점까지 거리(0이면 적중 시 폭발).
-    /// sectorAngle: 부채꼴 각도(도), sectorRadius: 반지름, damageAmountDirect/Explosion: 적중/폭발 피해.
-    /// wallBreachRadius: 이 거리 이내는 벽 무시(최초 후폭발), 초과 시 벽에 막힘.
-    /// </summary>
-    public class ProjectileProperties_ProximityBurst : ProjectileProperties
-    {
-        public float preDetonationDistance = 0f;
-        public float sectorAngle = 90f;
-        public float sectorRadius = 1.7f;
-        public float wallBreachRadius = 1.7f;
-        public int damageAmountDirect = 40;
-        public int damageAmountExplosion = 25;
-        public DamageDef damageDefDirect;
-        public DamageDef damageDefExplosion;
-        public float armorPenetrationDirect = -1f;
-        public float armorPenetrationExplosion = -1f;
-        public EffecterDef sectorCellEffecterDef;
-    }
-
-    /// <summary>
     /// BFR HE탄 - Bullet 기반 부채꼴 폭발 투사체.
     /// Projectile_Explosive를 상속하지 않아 CausesExplosion == false.
     /// Impact()에서 직접 부채꼴 셀 판정 → 폭발 처리.
@@ -36,7 +15,6 @@ namespace NewRatkin
     {
         private ProjectileProperties_ProximityBurst ProximityProps => def.projectile as ProjectileProperties_ProximityBurst;
         private bool reachedDetonationPoint;
-        private bool wasBlockedByShield;
 
         protected override int MaxTickIntervalRate => 1;
 
@@ -66,7 +44,6 @@ namespace NewRatkin
 
         protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
-            wasBlockedByShield = blockedByShield;
             Map map = Map;
             IntVec3 impactPos = Position;
 
@@ -79,7 +56,7 @@ namespace NewRatkin
                 return;
             }
 
-            if (wasBlockedByShield)
+            if (blockedByShield)
             {
                 Destroy(DestroyMode.Vanish);
                 return;
@@ -100,8 +77,8 @@ namespace NewRatkin
                 DoSectorExplosion(impactPos, map, sectorCells, props);
             }
 
-            SpawnCenterExplosionVisual(impactPos, map);
-            SpawnSectorCellEffects(map, sectorCells);
+            SpawnCenterExplosionVisual(impactPos, map, props);
+            SpawnSectorCellEffects(map, sectorCells, props);
             SpawnShieldBlockEffects(map, shieldedCells, hitShields);
 
             Destroy(DestroyMode.Vanish);
@@ -235,7 +212,6 @@ namespace NewRatkin
             public Vector2 center;
             public float radiusSq;
             public CompProjectileInterceptor comp;
-            public Thing parent;
         }
 
         private List<ShieldZone> GetHostileShieldZones(Map map, IntVec3 explosionCenter)
@@ -261,7 +237,7 @@ namespace NewRatkin
                 float dz = expPos.y - pos.z;
                 if (dx * dx + dz * dz <= rSq)
                     continue;
-                zones.Add(new ShieldZone { center = new Vector2(pos.x, pos.z), radiusSq = rSq, comp = comp, parent = shieldThing });
+                zones.Add(new ShieldZone { center = new Vector2(pos.x, pos.z), radiusSq = rSq, comp = comp });
             }
             return zones;
         }
@@ -295,35 +271,37 @@ namespace NewRatkin
             result.AddRange(adjWalls);
         }
 
-        private void SpawnCenterExplosionVisual(IntVec3 center, Map map)
+        private void SpawnCenterExplosionVisual(IntVec3 center, Map map, ProjectileProperties_ProximityBurst props)
         {
             List<IntVec3> overrideCells = new List<IntVec3> { center };
             SoundDef explosionSound = def.projectile.soundExplode;
+            float visualRadius = props.centerExplosionVisualRadius > 0f ? props.centerExplosionVisualRadius : 1f;
             GenExplosion.DoExplosion(
-                center, map, 1f, DamageDefOf.Bomb, null,
+                center, map, visualRadius, DamageDefOf.Bomb, null,
                 0, -1f, explosionSound,
                 null, null, null, null,
                 0f, 1, null, null, 255, false,
                 null, 0f, 1, 0f, false, null, null, null, false,
                 1f, 0f, true, null, 1f, null, overrideCells, null, null);
 
-            FleckDef wyvernFleck = DefDatabase<FleckDef>.GetNamedSilentFail("RK_WyvernFireExplosion");
+            FleckDef wyvernFleck = props.centerExplosionFleckDef ?? DefDatabase<FleckDef>.GetNamedSilentFail("RK_WyvernFireExplosion");
             if (wyvernFleck != null)
             {
                 Vector3 dir = (destination - origin).Yto0();
                 float rot = dir.sqrMagnitude > 1E-06f ? dir.AngleFlat() : 0f;
                 var data = FleckMaker.GetDataStatic(center.ToVector3Shifted(), map, wyvernFleck, 1f);
-                data.exactScale = new Vector3?(new Vector3(3f, 1f, 2f));
+                data.exactScale = new Vector3?(props.centerExplosionFleckScale);
                 data.rotation = rot;
-                data.instanceColor = new Color(0.75f, 0.55f, 0.55f, 0.7f);
+                data.instanceColor = props.centerExplosionFleckColor;
                 map.flecks.CreateFleck(data);
             }
         }
 
-        private void SpawnSectorCellEffects(Map map, List<IntVec3> sectorCells)
+        private void SpawnSectorCellEffects(Map map, List<IntVec3> sectorCells, ProjectileProperties_ProximityBurst props)
         {
-            const int effectsPerCell = 2;
-            const float noiseRange = 0.3f;
+            int effectsPerCell = props.sectorEffectsPerCell > 0 ? props.sectorEffectsPerCell : 2;
+            float noiseRange = props.sectorEffectNoiseRange >= 0f ? props.sectorEffectNoiseRange : 0.3f;
+            FleckDef fleck = props.sectorCellFleckDef ?? FleckDefOf.ShotHit_Dirt;
 
             foreach (IntVec3 cell in sectorCells)
             {
@@ -334,7 +312,7 @@ namespace NewRatkin
                     Vector3 spawnPos = basePos + noise;
                     if (spawnPos.InBounds(map))
                     {
-                        FleckMaker.Static(spawnPos, map, FleckDefOf.ShotHit_Dirt, 1f);
+                        FleckMaker.Static(spawnPos, map, fleck, 1f);
                     }
                 }
             }
