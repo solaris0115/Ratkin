@@ -10,6 +10,21 @@
 		</value>
 	</Operation>
 
+	<!-- Royalty 단분자검·결속 단분자검: 방패(allowedWeaponTags: RK_WeaponTag_OneHand) 동시 착용 -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ludeon.RimWorld.Royalty</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='MeleeWeapon_MonoSword' or defName='MeleeWeapon_MonoSwordBladelink']/weaponTags</xpath>
+			<value>
+				<li>RK_WeaponTag_OneHand</li>
+				<li>RK_WeaponTag_OneHandMelee</li>
+				<li>RK_WeaponTag_OneHandMeleeAttack</li>
+			</value>
+		</match>
+	</Operation>
+
 	<!-- Core 한손 원거리 무기: Pila, 권총류, 수류탄 - RK_WeaponTag_OneHand, RK_WeaponTag_OneHandRange, RK_WeaponTag_OneHandRangeAttack -->
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName='Pila' or defName='Gun_Revolver' or defName='Gun_Autopistol' or defName='Gun_MachinePistol' or defName='Weapon_GrenadeFrag' or defName='Weapon_GrenadeMolotov' or defName='Weapon_GrenadeEMP']/weaponTags</xpath>
