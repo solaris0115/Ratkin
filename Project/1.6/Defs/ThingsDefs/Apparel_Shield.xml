@@ -51,7 +51,14 @@
 			<MeleeHitChance>-0.2</MeleeHitChance>
 			<MoveSpeed>-0.8</MoveSpeed>
 		</equippedStatOffsets>
-		<comps>
+		<comps Inherit="false">
+			<li Class="CompProperties_Forbiddable" />
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<!-- 방패 조건부 드로잉 Comp -->
 				<drawSize>(1.0, 1.0)</drawSize>
