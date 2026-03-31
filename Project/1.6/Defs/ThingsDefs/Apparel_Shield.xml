@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- 타워 쉴드 v2 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_TowerShield_Second">
+	<!-- 타워 쉴드 v2 계열 공통: 조리법·재료(stuff)·가연/착용 지연·그래픽·드로잉·방패-무기 호환·착용 태그 -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_TowerShield_Second_Base" Abstract="True">
 		<thingClass>NewRatkin.ApparelShieldTowerSecond</thingClass>
-		<defName>RK_TowerShield_Second</defName>
-		<label>ratkin Tower Shield v2</label>
-		<description>금속 대방패.</description>
 		<graphicData>
 			<texPath>Apparel/Util/RK_TowerShield</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -29,36 +26,21 @@
 			</defaultIngredientFilter>
 			<displayPriority>47350</displayPriority>
 		</recipeMaker>
+		<!-- 1.5 RK_HeavyShield_Big와 동일: Metallic stuff + 고정 재료(v2). -->
 		<costList>
-			<Steel>200</Steel>
+			<Steel>70</Steel>
 			<Plasteel>30</Plasteel>
 			<Uranium>20</Uranium>
 		</costList>
+		<costStuffCount>165</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
 		<statBases>
-			<MaxHitPoints>300</MaxHitPoints>
-			<WorkToMake>40000</WorkToMake>
-			<Mass>10</Mass>
-			<StuffEffectMultiplierArmor>0.4</StuffEffectMultiplierArmor>
-			<!-- <StuffEffectMultiplierInsulation_Cold>0.0</StuffEffectMultiplierInsulation_Cold> -->
-			<!-- <StuffEffectMultiplierInsulation_Heat>0.0</StuffEffectMultiplierInsulation_Heat> -->
-			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
 			<Flammability>0.2</Flammability>
 			<EquipDelay>1</EquipDelay>
 		</statBases>
-		<equippedStatOffsets>
-			<MeleeDodgeChance>-0.2</MeleeDodgeChance>
-			<MeleeHitChance>-0.2</MeleeHitChance>
-			<MoveSpeed>-0.8</MoveSpeed>
-		</equippedStatOffsets>
-		<comps Inherit="false">
-			<li Class="CompProperties_Forbiddable" />
-			<li>
-				<compClass>CompColorable</compClass>
-			</li>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
+		<comps>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<!-- 방패 조건부 드로잉 Comp -->
 				<drawSize>(1.0, 1.0)</drawSize>
@@ -95,11 +77,6 @@
 				</allowedWeaponTags>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
-			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
-				<cooldownTicks>300</cooldownTicks>
-				<deflectAngleHalf>45</deflectAngleHalf>
-				<deflectChance>1.0</deflectChance>
-			</li>
 		</comps>
 		<apparel>
 			<bodyPartGroups>
@@ -110,5 +87,32 @@
 				<li>RK_ApparelTag_Shield</li>
 			</tags>
 		</apparel>
+	</ThingDef>
+
+	<!-- 타워 쉴드 v2 (밸런스: 비용·스탯·방패 각도 컴프만 여기서 조정) -->
+	<ThingDef ParentName="RK_ApparelAttr_TowerShield_Second_Base" Name="RK_ApparelAttr_TowerShield_Second">
+		<defName>RK_TowerShield_Second</defName>
+		<label>ratkin Tower Shield v2</label>
+		<description>금속 대방패.</description>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>10</Mass>
+			<StuffEffectMultiplierArmor>0.85</StuffEffectMultiplierArmor>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.15</ArmorRating_Heat>
+			<RK_Stat_DeflectAngle>45</RK_Stat_DeflectAngle>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.5</MoveSpeed>
+		</equippedStatOffsets>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
+				<cooldownTicks>300</cooldownTicks>
+				<deflectChance>1.0</deflectChance>
+			</li>
+		</comps>
+		<followStuffColor>true</followStuffColor>
 	</ThingDef>
 </Defs>
