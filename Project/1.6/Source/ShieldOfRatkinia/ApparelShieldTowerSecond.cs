@@ -6,7 +6,7 @@ namespace NewRatkin
 {
     /// <summary>
     /// RK_TowerShield_Second 전용. deflect와 방향 고정은 별개 기능.
-    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 70도 이내 원거리 공격을 확률적으로 튕겨냄.
+    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(반각, 도) 이내 원거리 공격을 확률적으로 튕겨냄.
     /// 방향 고정(RK_Job_ShieldFaceDirection): 별도 기능 (대기 방향 지정 등).
     /// 통제 불가(기절/사망/불붙음/정신붕괴) 시 deflect 불가.
     /// </summary>
@@ -65,7 +65,11 @@ namespace NewRatkin
             while (angleDiff > 180f) angleDiff -= 360f;
             while (angleDiff < -180f) angleDiff += 360f;
 
-            float deflectAngleHalf = FaceDirectionProps?.deflectAngleHalf ?? 70f;
+            float deflectAngleHalf = this.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
+            if (deflectAngleHalf <= 0f)
+            {
+                deflectAngleHalf = FaceDirectionProps?.deflectAngleHalf ?? 70f;
+            }
             if (angleDiff < -deflectAngleHalf || angleDiff > deflectAngleHalf)
             {
                 return false;
