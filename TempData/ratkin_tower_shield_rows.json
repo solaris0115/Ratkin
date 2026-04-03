@@ -1,0 +1,164 @@
+[
+  {
+    "defName": "RK_HeavyShield",
+    "sourceFile": "Project\\1.6\\Defs\\ThingsDefs\\Apparel_Util.xml",
+    "label": "ratkin heavy Shield",
+    "thingClass": "Apparel",
+    "hasFullArmor": false,
+    "armorKeysPresent": [],
+    "stats_merged": {
+      "Beauty": -2.0,
+      "DeteriorationRate": 2.0,
+      "EquipDelay": 1.0,
+      "Flammability": 0.3,
+      "Mass": 7.0,
+      "MaxHitPoints": 240.0,
+      "RK_Stat_ShieldReduceDamageExplosive": 0.5,
+      "RK_Stat_ShieldReduceDamageMelee": 0.7,
+      "RK_Stat_ShieldReduceDamageRanged": 0.8,
+      "RK_Stat_ShieldStamina": 1.0,
+      "RK_Stat_ShieldStaminaLossExplosive": 0.1,
+      "RK_Stat_ShieldStaminaLossMelee": 0.066,
+      "RK_Stat_ShieldStaminaLossRanged": 0.045,
+      "RK_Stat_ShieldStaminaOnReset": 0.3,
+      "RK_Stat_ShieldStaminaRechargeRate": 0.16,
+      "WorkToMake": 35000.0
+    },
+    "stuffMult": 0.0
+  },
+  {
+    "defName": "RK_MediumShield_Second",
+    "sourceFile": "Project\\1.6\\Defs\\ThingsDefs\\Apparel_Shield.xml",
+    "label": "ratkin Medium Shield v2",
+    "thingClass": "NewRatkin.ApparelShieldTowerSecond",
+    "hasFullArmor": true,
+    "armorKeysPresent": [
+      "ArmorRating_Sharp",
+      "ArmorRating_Blunt",
+      "ArmorRating_Heat"
+    ],
+    "stats_merged": {
+      "ArmorRating_Blunt": 0.22,
+      "ArmorRating_Heat": 0.22,
+      "ArmorRating_Sharp": 0.15,
+      "Beauty": -2.0,
+      "DeteriorationRate": 2.0,
+      "EquipDelay": 1.0,
+      "Flammability": 0.2,
+      "Mass": 6.0,
+      "MaxHitPoints": 250.0,
+      "RK_Stat_DeflectAngle": 50.0,
+      "StuffEffectMultiplierArmor": 0.15,
+      "WorkToMake": 25000.0
+    },
+    "stuffMult": 0.15
+  },
+  {
+    "defName": "RK_SmallShield_Second",
+    "sourceFile": "Project\\1.6\\Defs\\ThingsDefs\\Apparel_Shield.xml",
+    "label": "ratkin Small Shield v2",
+    "thingClass": "NewRatkin.ApparelShieldTowerSecond",
+    "hasFullArmor": true,
+    "armorKeysPresent": [
+      "ArmorRating_Sharp",
+      "ArmorRating_Blunt",
+      "ArmorRating_Heat"
+    ],
+    "stats_merged": {
+      "ArmorRating_Blunt": 0.1,
+      "ArmorRating_Heat": 0.05,
+      "ArmorRating_Sharp": 0.1,
+      "Beauty": -2.0,
+      "DeteriorationRate": 2.0,
+      "EquipDelay": 1.0,
+      "Flammability": 0.2,
+      "Mass": 3.0,
+      "MaxHitPoints": 150.0,
+      "RK_Stat_DeflectAngle": 70.0,
+      "StuffEffectMultiplierArmor": 0.1,
+      "WorkToMake": 15000.0
+    },
+    "stuffMult": 0.1
+  },
+  {
+    "defName": "RK_TowerShield",
+    "sourceFile": "Project\\1.6\\Defs\\ThingsDefs\\Apparel_Util.xml",
+    "label": "ratkin Tower Shield",
+    "thingClass": "Apparel",
+    "hasFullArmor": false,
+    "armorKeysPresent": [],
+    "stats_merged": {
+      "Beauty": -2.0,
+      "DeteriorationRate": 2.0,
+      "EquipDelay": 1.0,
+      "Flammability": 0.2,
+      "Mass": 10.0,
+      "MaxHitPoints": 400.0,
+      "RK_Stat_ShieldReduceDamageExplosive": 0.6,
+      "RK_Stat_ShieldReduceDamageMelee": 0.8,
+      "RK_Stat_ShieldReduceDamageRanged": 0.9,
+      "RK_Stat_ShieldStamina": 1.9,
+      "RK_Stat_ShieldStaminaLossExplosive": 0.1,
+      "RK_Stat_ShieldStaminaLossMelee": 0.045,
+      "RK_Stat_ShieldStaminaLossRanged": 0.033,
+      "RK_Stat_ShieldStaminaOnReset": 0.4,
+      "RK_Stat_ShieldStaminaRechargeRate": 0.13,
+      "WorkToMake": 40000.0
+    },
+    "stuffMult": 0.0
+  },
+  {
+    "defName": "RK_TowerShield_Second",
+    "sourceFile": "Project\\1.6\\Defs\\ThingsDefs\\Apparel_Shield.xml",
+    "label": "ratkin Tower Shield v2",
+    "thingClass": "NewRatkin.ApparelShieldTowerSecond",
+    "hasFullArmor": true,
+    "armorKeysPresent": [
+      "ArmorRating_Sharp",
+      "ArmorRating_Blunt",
+      "ArmorRating_Heat"
+    ],
+    "stats_merged": {
+      "ArmorRating_Blunt": 0.45,
+      "ArmorRating_Heat": 0.45,
+      "ArmorRating_Sharp": 0.3,
+      "Beauty": -2.0,
+      "DeteriorationRate": 2.0,
+      "EquipDelay": 1.0,
+      "Flammability": 0.2,
+      "Mass": 10.0,
+      "MaxHitPoints": 400.0,
+      "RK_Stat_DeflectAngle": 45.0,
+      "StuffEffectMultiplierArmor": 0.3,
+      "WorkToMake": 40000.0
+    },
+    "stuffMult": 0.3
+  },
+  {
+    "defName": "RK_WoodenShield",
+    "sourceFile": "Project\\1.6\\Defs\\ThingsDefs\\Apparel_Util.xml",
+    "label": "ratkin wooden Shield",
+    "thingClass": "Apparel",
+    "hasFullArmor": false,
+    "armorKeysPresent": [],
+    "stats_merged": {
+      "Beauty": -2.0,
+      "DeteriorationRate": 2.0,
+      "EquipDelay": 1.0,
+      "Flammability": 0.8,
+      "Mass": 3.0,
+      "MaxHitPoints": 120.0,
+      "RK_Stat_ShieldReduceDamageExplosive": 0.25,
+      "RK_Stat_ShieldReduceDamageMelee": 0.5,
+      "RK_Stat_ShieldReduceDamageRanged": 0.5,
+      "RK_Stat_ShieldStamina": 0.6,
+      "RK_Stat_ShieldStaminaLossExplosive": 0.1,
+      "RK_Stat_ShieldStaminaLossMelee": 0.066,
+      "RK_Stat_ShieldStaminaLossRanged": 0.045,
+      "RK_Stat_ShieldStaminaOnReset": 0.2,
+      "RK_Stat_ShieldStaminaRechargeRate": 0.16,
+      "WorkToMake": 12500.0
+    },
+    "stuffMult": 0.0
+  }
+]
