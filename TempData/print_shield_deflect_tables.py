@@ -16,12 +16,14 @@ from pathlib import Path
 #              예) f(0)=0.7, f(cap)=1.3  →  0스킬 ×70%, cap스킬 ×130%
 #   "add"      — 유효 방어도에 가산(비율):  final = base + g(melee)
 #              예) g(0)=0, g(cap)=0.3  →  0%~+30%p (0.30 = +30퍼센트 포인트)
+#   "none"     — 근접 반영 없음:  final = base (순수 방패·재료·품질만)
 #
 # 스킬은 0 ~ MELEE_DEFLECT_SKILL_CAP 구간에서 선형 진행(t=melee/cap) 후,
 # 곱 모드만 지수 보간: f = MULT_MIN * (MULT_MAX/MULT_MIN)^t  (log 스케일 곡선)
 # 덧셈 모드는 선형: g = ADD_MIN + (ADD_MAX - ADD_MIN) * t
+# none 모드는 위 곡선을 적용하지 않음.
 #
-MELEE_DEFLECT_MODE = "add"  # "multiply" | "add"
+MELEE_DEFLECT_MODE = "none"  # "multiply" | "add" | "none"
 
 MELEE_DEFLECT_SKILL_CAP = 20.0
 
@@ -38,6 +40,10 @@ DEFS_DIR = ROOT / "Project" / "1.6" / "Defs"
 _DATA_DIR = Path(__file__).resolve().parent
 OUT_JSON = _DATA_DIR / "ratkin_tower_shield_rows.json"
 OUT_TABLE = _DATA_DIR / "shield_deflect_tables.md"
+OUT_HTML_SAMPLE = _DATA_DIR / "쉴드_방어도_샘플.html"
+
+HTML_SHIELD_MARK_START = "<!-- RATKIN_AUTO_SHIELD_ARMOR_START -->"
+HTML_SHIELD_MARK_END = "<!-- RATKIN_AUTO_SHIELD_ARMOR_END -->"
 
 SHIELD_DEFNAME = re.compile(r"shield", re.IGNORECASE)
 ARMOR_KEYS = ("ArmorRating_Sharp", "ArmorRating_Blunt", "ArmorRating_Heat")
@@ -56,7 +62,8 @@ STUFF = {
     "Leather_Thrumbo": {"ArmorRating_Sharp": 2.08, "ArmorRating_Blunt": 0.36, "ArmorRating_Heat": 1.5},
 }
 
-QUALITY_FACTOR = {"Normal": 1.0, "Legendary": 1.8}
+# Core Stats_Apparel.xml ArmorRating_* — StatPart_Quality (Masterwork=완벽, Legendary=전설)
+QUALITY_FACTOR = {"Normal": 1.0, "Masterwork": 1.45, "Legendary": 1.8}
 
 # 근접 무기 품질 → MeleeWeapon_DamageMultiplier (Core Defs/Stats/Stats_Weapons_Melee.xml StatPart_Quality)
 MELEE_DMG_MULT_BY_QUALITY = {
@@ -173,6 +180,8 @@ def melee_deflect_add_curve(t: float) -> float:
 
 def apply_melee_to_deflect_rate(base_rate: float, melee_level: float | int) -> float:
     """근접 스킬 반영 후 도탄 Rand 임계값."""
+    if MELEE_DEFLECT_MODE == "none":
+        return base_rate
     t = _melee_skill_t(melee_level)
     if MELEE_DEFLECT_MODE == "add":
         return base_rate + melee_deflect_add_curve(t)
@@ -180,7 +189,9 @@ def apply_melee_to_deflect_rate(base_rate: float, melee_level: float | int) -> f
 
 
 def melee_deflect_legend_suffix(melee_level: float | int) -> str:
-    """표 소제목용: 곱이면 배율, 덧셈이면 가산 %p."""
+    """표 소제목용: 곱이면 배율, 덧셈이면 가산 %p, none이면 순수 방패."""
+    if MELEE_DEFLECT_MODE == "none":
+        return "(근접 반영 없음 · 순수 방패)"
     t = _melee_skill_t(melee_level)
     if MELEE_DEFLECT_MODE == "add":
         b = melee_deflect_add_curve(t)
@@ -192,6 +203,11 @@ def melee_deflect_legend_suffix(melee_level: float | int) -> str:
 def shield_table_header_line() -> str:
     """README 한 줄 — 현재 MODE에 맞게."""
     cap = int(MELEE_DEFLECT_SKILL_CAP) if MELEE_DEFLECT_SKILL_CAP == int(MELEE_DEFLECT_SKILL_CAP) else MELEE_DEFLECT_SKILL_CAP
+    if MELEE_DEFLECT_MODE == "none":
+        return (
+            "ThingsDefs·shield defName 도탄 확률 (병합 statBases, 날/둔/열 모두 있을 때만 표 행; AP0, "
+            "Rand≤방어도, 근접 가산/배율 없음 — 순수 방패·재료·품질만)"
+        )
     if MELEE_DEFLECT_MODE == "add":
         return (
             f"ThingsDefs·shield defName 도탄 확률 (병합 statBases, 날/둔/열 모두 있을 때만 표 행; AP0, "
@@ -204,6 +220,8 @@ def shield_table_header_line() -> str:
 
 
 def ref_penetration_caption() -> str:
+    if MELEE_DEFLECT_MODE == "none":
+        return "참고·상대 근접 관통 (도탄식 `Rand ≤ 방어도 − AP` 에서 차감되는 AP; 전설·평범·플라스틸 등 예시)"
     if MELEE_DEFLECT_MODE == "add":
         return "참고·상대 근접 관통 (도탄식 `Rand ≤ 방어도 + 근접가산 − AP` 에서 차감되는 AP; 전설·평범·플라스틸 등 예시)"
     return "참고·상대 근접 관통 (도탄식 `Rand ≤ 방어도×근접배율 − AP` 에서 차감되는 AP; 전설·평범·플라스틸 등 예시)"
@@ -365,6 +383,77 @@ def sort_rows_for_deflect_table(rows: list[dict]) -> list[dict]:
     return sorted(rows, key=lambda r: (pri.get(r["defName"], 10_000), r["defName"].lower()))
 
 
+def _rows_by_defname(calc_rows: list[dict]) -> dict[str, dict]:
+    return {r["defName"]: r for r in calc_rows}
+
+
+def build_shield_sharp_html_payload(calc_rows: list[dict]) -> tuple[dict, dict]:
+    """방패 Sharp% (품질 반영) 및 고정/소재 분해. STUFF 테이블의 재료 날 방어력은 그대로 사용."""
+    lu = _rows_by_defname(calc_rows)
+    size_keys = ("small", "medium", "large")
+    sharp_pct: dict = {
+        "steel": {"normal": {}, "masterwork": {}, "legendary": {}},
+        "plasteel": {"normal": {}, "masterwork": {}, "legendary": {}},
+    }
+    breakdown: dict = {
+        "steel": {"normal": {}, "masterwork": {}, "legendary": {}},
+        "plasteel": {"normal": {}, "masterwork": {}, "legendary": {}},
+    }
+    for stuff_xml, mat_js in (("Steel", "steel"), ("Plasteel", "plasteel")):
+        sp = STUFF[stuff_xml]["ArmorRating_Sharp"]
+        for grade_js, qkey in (("normal", "Normal"), ("masterwork", "Masterwork"), ("legendary", "Legendary")):
+            qfac = QUALITY_FACTOR[qkey]
+            for size_key, def_name in zip(size_keys, SHIELD_TABLE_DEF_ORDER):
+                row = lu.get(def_name)
+                if row is None:
+                    continue
+                st = row["stats_merged"]
+                base = float(st["ArmorRating_Sharp"])
+                mult = float(row["stuffMult"])
+                base_pct = round(base * qfac * 100.0, 2)
+                stuff_pct = round(mult * sp * qfac * 100.0, 2)
+                total_pct = round(base_pct + stuff_pct, 2)
+                sharp_pct[mat_js][grade_js][size_key] = total_pct
+                breakdown[mat_js][grade_js][size_key] = {
+                    "basePct": base_pct,
+                    "stuffPct": stuff_pct,
+                    "totalPct": total_pct,
+                }
+    return sharp_pct, breakdown
+
+
+def render_shield_armor_js_block(sharp_pct: dict, breakdown: dict) -> str:
+    """HTML에 삽입할 JS 조각 (주석 마커 바깥에 두지 말 것)."""
+    j_sharp = json.dumps(sharp_pct, ensure_ascii=False, indent=4)
+    j_br = json.dumps(breakdown, ensure_ascii=False, indent=4)
+    lines = [
+        "    const SHIELD_SHARP_PCT = ",
+        j_sharp,
+        ";",
+        "",
+        "    const SHIELD_SHARP_BREAKDOWN = ",
+        j_br,
+        ";",
+    ]
+    return "\n".join(lines)
+
+
+def patch_shield_sample_html(calc_rows: list[dict], html_path: Path) -> bool:
+    """쉴드_방어도_샘플.html 내 방패 Sharp 표·고정/소재 분해만 갱신."""
+    if not html_path.is_file():
+        return False
+    text = html_path.read_text(encoding="utf-8")
+    if HTML_SHIELD_MARK_START not in text or HTML_SHIELD_MARK_END not in text:
+        return False
+    sharp_pct, breakdown = build_shield_sharp_html_payload(calc_rows)
+    inner = render_shield_armor_js_block(sharp_pct, breakdown)
+    pre, rest = text.split(HTML_SHIELD_MARK_START, 1)
+    _mid, post = rest.split(HTML_SHIELD_MARK_END, 1)
+    new_text = pre + HTML_SHIELD_MARK_START + "\n" + inner + "\n    " + HTML_SHIELD_MARK_END + post
+    html_path.write_text(new_text, encoding="utf-8")
+    return True
+
+
 def main() -> None:
     nodes = load_thing_nodes()
     rows = collect_shield_rows_from_things_defs(nodes)
@@ -377,13 +466,21 @@ def main() -> None:
 
     scenarios = [
         ("강철 평범", "Steel", "Normal"),
+        ("강철 완벽", "Steel", "Masterwork"),
+        ("강철 전설", "Steel", "Legendary"),
+        ("플라스틸 평범", "Plasteel", "Normal"),
+        ("플라스틸 완벽", "Plasteel", "Masterwork"),
         ("플라스틸 전설", "Plasteel", "Legendary"),
     ]
+    melee_levels: tuple[int, ...] = (0,) if MELEE_DEFLECT_MODE == "none" else (0, 20)
     for title_stuff, stuff_key, qkey in scenarios:
         qfac = QUALITY_FACTOR[qkey]
-        for melee in (0, 20):
+        for melee in melee_levels:
             suf = melee_deflect_legend_suffix(melee)
-            lines.append(f"{title_stuff} 근접{melee} {suf}")
+            if MELEE_DEFLECT_MODE == "none":
+                lines.append(f"{title_stuff} {suf}")
+            else:
+                lines.append(f"{title_stuff} 근접{melee} {suf}")
             lines.append("")
             lines.append("|ThingDef|Sharp|Blunt|Heat|")
             lines.append("|--------|-----|-----|----|")
@@ -438,6 +535,15 @@ def main() -> None:
     text = "\n".join(lines).rstrip() + "\n"
     OUT_TABLE.write_text(text, encoding="utf-8")
     print(str(OUT_TABLE))
+
+    if patch_shield_sample_html(calc_rows, OUT_HTML_SAMPLE):
+        print(str(OUT_HTML_SAMPLE))
+    else:
+        print(
+            f"(HTML 미갱신: {OUT_HTML_SAMPLE.name} 없거나 "
+            f"{HTML_SHIELD_MARK_START!r} … {HTML_SHIELD_MARK_END!r} 마커 없음)",
+            flush=True,
+        )
 
 
 if __name__ == "__main__":

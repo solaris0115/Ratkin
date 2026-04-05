@@ -1,40 +1,56 @@
-ThingsDefs·shield defName 도탄 확률 (병합 statBases, 날/둔/열 모두 있을 때만 표 행; AP0, Rand≤방어도+근접가산, 가산:0→+0%p·20→+30%p 선형)
+ThingsDefs·shield defName 도탄 확률 (병합 statBases, 날/둔/열 모두 있을 때만 표 행; AP0, Rand≤방어도, 근접 가산/배율 없음 — 순수 방패·재료·품질만)
 
-강철 평범 근접0 (가산 +0.00%p)
-
-|ThingDef|Sharp|Blunt|Heat|
-|--------|-----|-----|----|
-|RK_SmallShield_Second|19.00%|14.50%|11.00%|
-|RK_MediumShield_Second|28.50%|28.75%|31.00%|
-|RK_TowerShield_Second|57.00%|58.50%|63.00%|
-
-강철 평범 근접20 (가산 +30.00%p)
+강철 평범 (근접 반영 없음 · 순수 방패)
 
 |ThingDef|Sharp|Blunt|Heat|
 |--------|-----|-----|----|
-|RK_SmallShield_Second|49.00%|44.50%|41.00%|
-|RK_MediumShield_Second|58.50%|58.75%|61.00%|
-|RK_TowerShield_Second|87.00%|88.50%|93.00%|
+|RK_SmallShield_Second|20.00%|20.00%|5.00%|
+|RK_MediumShield_Second|46.30%|31.65%|37.20%|
+|RK_TowerShield_Second|64.50%|44.75%|53.00%|
 
-플라스틸 전설 근접0 (가산 +0.00%p)
-
-|ThingDef|Sharp|Blunt|Heat|
-|--------|-----|-----|----|
-|RK_SmallShield_Second|38.52%|27.90%|20.70%|
-|RK_MediumShield_Second|57.78%|54.45%|57.15%|
-|RK_TowerShield_Second|115.56%|110.70%|116.10%|
-
-플라스틸 전설 근접20 (가산 +30.00%p)
+강철 완벽 (근접 반영 없음 · 순수 방패)
 
 |ThingDef|Sharp|Blunt|Heat|
 |--------|-----|-----|----|
-|RK_SmallShield_Second|68.52%|57.90%|50.70%|
-|RK_MediumShield_Second|87.78%|84.45%|87.15%|
-|RK_TowerShield_Second|145.56%|140.70%|146.10%|
+|RK_SmallShield_Second|29.00%|29.00%|7.25%|
+|RK_MediumShield_Second|67.14%|45.89%|53.94%|
+|RK_TowerShield_Second|93.53%|64.89%|76.85%|
+
+강철 전설 (근접 반영 없음 · 순수 방패)
+
+|ThingDef|Sharp|Blunt|Heat|
+|--------|-----|-----|----|
+|RK_SmallShield_Second|36.00%|36.00%|9.00%|
+|RK_MediumShield_Second|83.34%|56.97%|66.96%|
+|RK_TowerShield_Second|116.10%|80.55%|95.40%|
+
+플라스틸 평범 (근접 반영 없음 · 순수 방패)
+
+|ThingDef|Sharp|Blunt|Heat|
+|--------|-----|-----|----|
+|RK_SmallShield_Second|20.00%|20.00%|5.00%|
+|RK_MediumShield_Second|55.18%|35.35%|39.05%|
+|RK_TowerShield_Second|77.70%|50.25%|55.75%|
+
+플라스틸 완벽 (근접 반영 없음 · 순수 방패)
+
+|ThingDef|Sharp|Blunt|Heat|
+|--------|-----|-----|----|
+|RK_SmallShield_Second|29.00%|29.00%|7.25%|
+|RK_MediumShield_Second|80.01%|51.26%|56.62%|
+|RK_TowerShield_Second|112.66%|72.86%|80.84%|
+
+플라스틸 전설 (근접 반영 없음 · 순수 방패)
+
+|ThingDef|Sharp|Blunt|Heat|
+|--------|-----|-----|----|
+|RK_SmallShield_Second|36.00%|36.00%|9.00%|
+|RK_MediumShield_Second|99.32%|63.63%|70.29%|
+|RK_TowerShield_Second|139.86%|90.45%|100.35%|
 
 ---
 
-참고·상대 근접 관통 (도탄식 `Rand ≤ 방어도 + 근접가산 − AP` 에서 차감되는 AP; 전설·평범·플라스틸 등 예시)
+참고·상대 근접 관통 (도탄식 `Rand ≤ 방어도 − AP` 에서 차감되는 AP; 전설·평범·플라스틸 등 예시)
 
 |기준|관통|
 |---|---|

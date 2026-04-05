@@ -1,6 +1,6 @@
 ---
 category: apparel-armor-face
-last_updated: 2026-03-12
+last_updated: 2026-04-04
 sources: RimworldData (Core, Royalty, Ideology, Biotech, Anomaly, Odyssey), Project/1.6/Defs
 scope: 얼굴/눈 착용 방어구 (bodyPartGroups: FullHead, Eyes) - 헬멧, 마스크, 고글 등
 fields: defName, stuffCategory, StuffEffectMultiplierArmor, BaseArmor, LowEnd, HighEnd (Sharp/Blunt/Heat)
@@ -73,10 +73,10 @@ bodyPartGroups가 FullHead 또는 Eyes인 아이템 (헬멧, 마스크, 고글 �
 | defName | stuffCategory | StuffEffectMult | Base_S | Base_B | Base_H | Low_S | Low_B | Low_H | High_S | High_B | High_H |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | RK_PlateHelm | Metallic | 0.35 | 0.4 | 0.2 | 0.0 | 0.72 | 0.36 | 0.21 | 1.44 | 0.71 | 0.41 |
-| RK_Apparel_VacsuitHelmet | Fixed | 0.0 | 0.52 | 0.24 | 0.66 | 0.52 | 0.24 | 0.66 | 0.94 | 0.43 | 1.19 |
-| RK_Apparel_SpaceArmorHelmet | Fixed | 0.0 | 1.0 | 0.8 | 1.0 | 1.0 | 0.8 | 1.0 | 1.8 | 1.44 | 1.8 |
-| RK_BulletProofHelmet | Metallic | 0.5 | 0.3 | 0.4 | 0.0 | 0.75 | 0.62 | 0.3 | 1.57 | 1.22 | 0.59 |
-| RK_Apparel_GasMask | Metallic | 0.6 | 0.45 | 0.25 | 0.5 | 0.99 | 0.52 | 0.86 | 2.04 | 1.04 | 1.6 |
+| RK_Apparel_VacsuitHelmet | Fixed | 0.0 | 0.4 | 0.2 | 0.7 | 0.4 | 0.2 | 0.7 | 0.72 | 0.36 | 1.26 |
+| RK_Apparel_SpaceArmorHelmet | Fixed | 0.0 | 1.0 | 0.7 | 1.0 | 1.0 | 0.7 | 1.0 | 1.8 | 1.26 | 1.8 |
+| RK_BulletProofHelmet | Metallic | 0.3 | 0.3 | 0.2 | 0.0 | 0.57 | 0.34 | 0.18 | 1.16 | 0.66 | 0.35 |
+| RK_Apparel_GasMask | Metallic | 0.45 | 0.3 | 0.3 | 0.3 | 0.71 | 0.5 | 0.57 | 1.46 | 0.99 | 1.07 |
 | RK_PlateHelmA | Metallic | 0.35 | 0.4 | 0.2 | 0.0 | 0.72 | 0.36 | 0.21 | 1.44 | 0.71 | 0.41 |
 | RK_PlateHelmB | Metallic | 0.35 | 0.4 | 0.2 | 0.0 | 0.72 | 0.36 | 0.21 | 1.44 | 0.71 | 0.41 |
 | RK_PlateHelmC | Metallic | 0.35 | 0.4 | 0.2 | 0.0 | 0.72 | 0.36 | 0.21 | 1.44 | 0.71 | 0.41 |

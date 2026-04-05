@@ -1,6 +1,6 @@
 ---
 category: apparel-armor
-last_updated: 2026-03-12
+last_updated: 2026-04-04
 sources: RimworldData (Core, Royalty, Ideology, Biotech, Anomaly, Odyssey), Project/1.6/Defs
 scope: 방어구(Apparel) 방어력 Sharp/Blunt/Heat, 전설 품질 기준. belt/utility 제외, 얼굴착용은 별도파일
 fields: defName, stuffCategory, StuffEffectMultiplierArmor, BaseArmor, LowEnd, HighEnd (Sharp/Blunt/Heat)
@@ -140,9 +140,9 @@ keywords: Apparel Armor Sharp Blunt Heat Legendary Steel Plasteel Leather_Plain 
 | RK_Sack | Leathery,Fabric | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | RK_RoyalRobe | Fabric,Leathery | 0.36 | 0.0 | 0.0 | 0.0 | 0.29 | 0.09 | 0.54 | 1.35 | 0.23 | 0.97 |
 | RK_RoyalCrown | Metallic | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| RK_Apparel_Vacsuit | Fixed | 0.0 | 0.52 | 0.25 | 0.66 | 0.52 | 0.25 | 0.66 | 0.94 | 0.45 | 1.19 |
+| RK_Apparel_Vacsuit | Fixed | 0.0 | 0.4 | 0.2 | 0.8 | 0.4 | 0.2 | 0.8 | 0.72 | 0.36 | 1.44 |
 | RK_Apparel_VacsuitChildren | Fixed | 0.0 | 0.52 | 0.2 | 0.66 | 0.52 | 0.2 | 0.66 | 0.94 | 0.36 | 1.19 |
-| RK_Apparel_SpaceArmor | Fixed | 0.0 | 1.0 | 0.5 | 1.0 | 1.0 | 0.5 | 1.0 | 1.8 | 0.9 | 1.8 |
+| RK_Apparel_SpaceArmor | Fixed | 0.0 | 1.1 | 0.8 | 1.0 | 1.1 | 0.8 | 1.0 | 1.98 | 1.44 | 1.8 |
 | RK_CrossBack | Fabric,Leathery | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | RK_Backpack | Fabric,Leathery | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | RK_OutdoorBackpack | Fabric,Leathery | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
@@ -163,12 +163,12 @@ keywords: Apparel Armor Sharp Blunt Heat Legendary Steel Plasteel Leather_Plain 
 | RK_ChefHat | Fabric,Leathery | 0.15 | 0.0 | 0.0 | 0.0 | 0.12 | 0.04 | 0.22 | 0.56 | 0.1 | 0.4 |
 | RK_GaurdenUniform | Fabric,Leathery | 0.25 | 0.0 | 0.4 | 0.0 | 0.2 | 0.46 | 0.38 | 0.94 | 0.88 | 0.68 |
 | RK_WinterRobe | Fabric,Leathery | 0.32 | 0.0 | 0.0 | 0.0 | 0.26 | 0.08 | 0.48 | 1.2 | 0.21 | 0.86 |
-| RK_OrderUniform | Fabric,Leathery | 0.15 | 0.8 | 0.15 | 0.0 | 0.92 | 0.19 | 0.22 | 2.0 | 0.37 | 0.4 |
+| RK_OrderUniform | Fabric,Leathery | 0.15 | 0.3 | 0.2 | 0.0 | 0.42 | 0.24 | 0.22 | 1.1 | 0.46 | 0.4 |
 | RK_FlatColorCoat | Fabric,Leathery | 0.15 | 0.0 | 0.0 | 0.0 | 0.12 | 0.04 | 0.22 | 0.56 | 0.1 | 0.4 |
 | RK_FrillOnepiece | Fabric,Leathery | 0.15 | 0.0 | 0.0 | 0.0 | 0.12 | 0.04 | 0.22 | 0.56 | 0.1 | 0.4 |
 | RK_HairCorsage | Fabric | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | RK_RibbonHairBand | Leathery | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 | RK_SistersDerss | Fabric,Leathery | 0.15 | 0.0 | 0.0 | 0.0 | 0.12 | 0.04 | 0.22 | 0.56 | 0.1 | 0.4 |
 | RK_SistersVeil | Leathery,Fabric | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| RK_BattleSuit | Leathery | 0.35 | 0.45 | 0.25 | 0.6 | 0.73 | 0.33 | 1.12 | 2.12 | 0.68 | 2.02 |
+| RK_BattleSuit | Leathery | 0.3 | 0.35 | 0.25 | 0.6 | 0.59 | 0.32 | 1.05 | 1.75 | 0.64 | 1.89 |
 | RK_HeadBand | Fixed | 0.0 | 0.0 | 0.0 | 0.8 | 0.0 | 0.0 | 0.8 | 0.0 | 0.0 | 1.44 |

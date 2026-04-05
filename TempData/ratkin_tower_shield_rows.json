@@ -38,9 +38,9 @@
       "ArmorRating_Heat"
     ],
     "stats_merged": {
-      "ArmorRating_Blunt": 0.22,
-      "ArmorRating_Heat": 0.22,
-      "ArmorRating_Sharp": 0.15,
+      "ArmorRating_Blunt": 0.15,
+      "ArmorRating_Heat": 0.15,
+      "ArmorRating_Sharp": 0.13,
       "Beauty": -2.0,
       "DeteriorationRate": 2.0,
       "EquipDelay": 1.0,
@@ -48,10 +48,10 @@
       "Mass": 6.0,
       "MaxHitPoints": 250.0,
       "RK_Stat_DeflectAngle": 50.0,
-      "StuffEffectMultiplierArmor": 0.15,
+      "StuffEffectMultiplierArmor": 0.37,
       "WorkToMake": 25000.0
     },
-    "stuffMult": 0.15
+    "stuffMult": 0.37
   },
   {
     "defName": "RK_SmallShield_Second",
@@ -65,20 +65,19 @@
       "ArmorRating_Heat"
     ],
     "stats_merged": {
-      "ArmorRating_Blunt": 0.1,
+      "ArmorRating_Blunt": 0.2,
       "ArmorRating_Heat": 0.05,
-      "ArmorRating_Sharp": 0.1,
+      "ArmorRating_Sharp": 0.2,
       "Beauty": -2.0,
       "DeteriorationRate": 2.0,
       "EquipDelay": 1.0,
-      "Flammability": 0.2,
+      "Flammability": 0.8,
       "Mass": 3.0,
       "MaxHitPoints": 150.0,
       "RK_Stat_DeflectAngle": 70.0,
-      "StuffEffectMultiplierArmor": 0.1,
       "WorkToMake": 15000.0
     },
-    "stuffMult": 0.1
+    "stuffMult": 0.0
   },
   {
     "defName": "RK_TowerShield",
@@ -119,9 +118,9 @@
       "ArmorRating_Heat"
     ],
     "stats_merged": {
-      "ArmorRating_Blunt": 0.45,
-      "ArmorRating_Heat": 0.45,
-      "ArmorRating_Sharp": 0.3,
+      "ArmorRating_Blunt": 0.2,
+      "ArmorRating_Heat": 0.2,
+      "ArmorRating_Sharp": 0.15,
       "Beauty": -2.0,
       "DeteriorationRate": 2.0,
       "EquipDelay": 1.0,
@@ -129,10 +128,10 @@
       "Mass": 10.0,
       "MaxHitPoints": 400.0,
       "RK_Stat_DeflectAngle": 45.0,
-      "StuffEffectMultiplierArmor": 0.3,
+      "StuffEffectMultiplierArmor": 0.55,
       "WorkToMake": 40000.0
     },
-    "stuffMult": 0.3
+    "stuffMult": 0.55
   },
   {
     "defName": "RK_WoodenShield",

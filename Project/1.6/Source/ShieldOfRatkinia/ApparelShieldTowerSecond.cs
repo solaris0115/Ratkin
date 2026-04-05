@@ -1,4 +1,3 @@
-using UnityEngine;
 using Verse;
 using RimWorld;
 
@@ -6,9 +5,12 @@ namespace NewRatkin
 {
     /// <summary>
     /// RK_TowerShield_Second 전용. deflect와 방향 고정은 별개 기능.
-    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(반각, 도) 이내 원거리 공격을 확률적으로 튕겨냄.
+    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(반각, 도) 이내 근·원거리 공격을 동일 수치로 확률적으로 튕겨냄.
     /// 방향 고정(RK_Job_ShieldFaceDirection): 별도 기능 (대기 방향 지정 등).
     /// 통제 불가(기절/사망/불붙음/정신붕괴) 시 deflect 불가.
+    /// 도탄 판정값 = 방패 방어(Rating)+ RK_Stat_ShieldHandling, 도탄률 = 판정값 − 관통. Rand.Value ≤ 도탄률이면 도탄.
+    /// 방패 다루기 StatDef는 코어 MeleeHitChance와 같은 XML 구조(skill/capacity/postProcessCurve/StatPart_Age).
+    /// DeflectAngle은 품질 무관, 폰의 melee 스킬로 반각에 배율 적용(0레벨 0.5× ~ 20레벨 1.2×, ShieldDeflectAngleMeleeCurve).
     /// </summary>
     public class ApparelShieldTowerSecond : Apparel
     {
@@ -41,13 +43,7 @@ namespace NewRatkin
                 return false;
             }
 
-            // 원거리 공격만 대상
-            if (!dinfo.Def.isRanged)
-            {
-                return false;
-            }
-
-            // 입사각 ±70도 이내인지 확인 (ApparelShield와 동일한 계산)
+            // 입사/타격 방향이 허용 각도 안인지 확인 (근접·원거리 동일)
             float attackerAngle = dinfo.Angle + 180f;
             if (attackerAngle >= 360f)
             {
@@ -70,22 +66,57 @@ namespace NewRatkin
             {
                 deflectAngleHalf = FaceDirectionProps?.deflectAngleHalf ?? 70f;
             }
+            float meleeLevel = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
+            deflectAngleHalf *= ShieldDeflectAngleMeleeCurve.Evaluate(meleeLevel);
             if (angleDiff < -deflectAngleHalf || angleDiff > deflectAngleHalf)
             {
                 return false;
             }
 
-            // 흡수 확률 체크 (XML deflectChance, 기본 100%)
-            float deflectChance = FaceDirectionProps?.deflectChance ?? 1f;
-            if (Rand.Value > deflectChance)
+            float armorRating = GetArmorRatingForDamage(dinfo);
+            string armorType = dinfo.Def.armorCategory?.defName ?? "None";
+            float shieldHandling = pawn.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldHandling);
+            float deflectPower = armorRating + shieldHandling;
+            float penetration = dinfo.ArmorPenetrationInt;
+            float deflectRate = deflectPower - penetration;
+
+            float roll = Rand.Value;
+            bool deflected = roll <= deflectRate;
+
+            if (Prefs.DevMode)
+            {
+                string attacker = dinfo.Instigator?.LabelShort ?? "?";
+                Log.Message(
+                    $"[RK-TowerShield2] {pawn.LabelShort} ← {attacker} ({dinfo.Def.defName}, {(dinfo.Def.isRanged ? "ranged" : "melee")})\n" +
+                    $"  angle: diff={angleDiff:F1}° half={deflectAngleHalf:F1}° | dmgType={armorType}\n" +
+                    $"  armor={armorRating:P0} + handling={shieldHandling:P0} = power={deflectPower:P0}\n" +
+                    $"  power={deflectPower:P0} - AP={penetration:P0} = rate={deflectRate:P0}\n" +
+                    $"  roll={roll:F3} {(deflected ? "<=" : ">")} rate={deflectRate:F3} → {(deflected ? "DEFLECT" : "HIT")}");
+            }
+
+            if (!deflected)
             {
                 return false;
             }
 
-            // 차단: Deflect 텍스트 모트 + 이펙트
             MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "ShieldBlock".Translate(), 1.9f);
             EffecterDefOf.Deflect_Metal.Spawn().Trigger(pawn, dinfo.Instigator ?? pawn);
             return true;
+        }
+
+        private float GetArmorRatingForDamage(DamageInfo dinfo)
+        {
+            switch (dinfo.Def.armorCategory)
+            {
+                case DamageArmorCategoryDef d when d == DamageArmorCategoryDefOf.Sharp:
+                    return this.GetStatValue(StatDefOf.ArmorRating_Sharp);
+                case DamageArmorCategoryDef d when d == DamageArmorCategoryDefOf.Blunt:
+                    return this.GetStatValue(StatDefOf.ArmorRating_Blunt);
+                case DamageArmorCategoryDef d when d == DamageArmorCategoryDefOf.Heat:
+                    return this.GetStatValue(StatDefOf.ArmorRating_Heat);
+                default:
+                    return 0f;
+            }
         }
 
         /// <summary>

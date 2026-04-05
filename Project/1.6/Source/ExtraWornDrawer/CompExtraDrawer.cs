@@ -210,13 +210,8 @@ namespace NewRatkin
                     }
                 }
 
-                // 염색 색상 가져오기 (CompColorable의 Color 속성 사용)
+                // ThingWithComps.DrawColor가 stuff 색상 / CompColorable(Active) / graphicData.color 순서로 처리
                 Color drawColor = parent.DrawColor;
-                CompColorable compColorable = parent.GetComp<CompColorable>();
-                if (compColorable != null)
-                {
-                    drawColor = compColorable.Color;
-                }
 
                 // 소집 시 그래픽 로딩
                 string graphicPathDrafted = Props.draftedDrawData?.graphicPath;
@@ -340,20 +335,14 @@ namespace NewRatkin
         /// <param name="angle">회전 각도</param>
         private void DrawExtra(Material mat, Vector3 drawLoc, float angle)
         {
-            // 염색 색상을 실시간으로 가져오기
             Color drawColor = parent.DrawColor;
-            CompColorable compColorable = parent.GetComp<CompColorable>();
-            if (compColorable != null)
-            {
-                drawColor = compColorable.Color;
-            }
 
-            // MaterialPropertyBlock을 사용하여 색상 적용
             MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
             matPropertyBlock.SetColor(ShaderPropertyIDs.Color, drawColor);
 
-            Mesh mesh = MeshPool.plane10;
-            Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(angle, Vector3.up), mat, 0, null, 0, matPropertyBlock);
+            Vector2 size = Props.drawSize;
+            Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, Quaternion.AngleAxis(angle, Vector3.up), new Vector3(size.x, 1f, size.y));
+            Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0, null, 0, matPropertyBlock);
         }
 
         /// <summary>
