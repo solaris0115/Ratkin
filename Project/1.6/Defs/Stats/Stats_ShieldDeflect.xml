@@ -1,99 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- 타워실드 등 정면 도탄: 입사 허용 각도(좌우 반각, 도). statBases=기본 반각, 실전·폰 스탯은 근접 0레벨 0.5× ~ 20레벨 1.2× (StatWorker + 도탄 판정). -->
-	<StatDef>
-		<defName>RK_Stat_DeflectAngle</defName>
-		<label>Shield deflect angle</label>
-		<labelForFullStatList>Shield deflect arc (half-angle, deg)</labelForFullStatList>
-		<description>When drafted, attacks from within this angle (left and right of facing) can be deflected by the shield. Base value is from the shield; effective arc scales with melee skill (0.5× at skill 0 to 1.2× at skill 20).</description>
-		<category>Apparel</category>
-		<workerClass>NewRatkin.StatWorker_ShieldDeflectAngle</workerClass>
-		<defaultBaseValue>45</defaultBaseValue>
-		<minValue>0</minValue>
-		<maxValue>180</maxValue>
-		<toStringStyle>FloatOne</toStringStyle>
-		<formatString>{0}°</formatString>
-		<showIfUndefined>true</showIfUndefined>
-		<displayPriorityInCategory>66</displayPriorityInCategory>
-	</StatDef>
+	<!-- 방어 핸들링
+		이건 pawn에게 추가되야할 값임.
+		방패를 미착용시 보여줄 필요 없는 값임.
+		시야, 조작 영향 받어야함
+		기본값 4
+		melee hit 참고하면됨
+		melee 레벨에 따라서 1점씩 오름 (보너스 점수)
 
-	<!-- 관통 0 기준: Sharp/Blunt/Heat 각각 v2 Gumbel BlockChance의 평균 (근접 스킬 M 커브 적용). -->
-	<StatDef>
-		<defName>RK_Stat_ShieldDeflectChance</defName>
-		<label>방패 방어 확률</label>
-		<labelForFullStatList>Tower shield block chance (avg Sharp/Blunt/Heat, AP 0)</labelForFullStatList>
-		<description>At zero armor penetration, the listed value is the average of three block chances (Sharp, Blunt, Heat) computed with the v2 formula: D = S − P, z = D + a·M − b, BlockChance = Cmin + (Cmax − Cmin)·exp(−exp(−k·z)), where M comes from melee skill (linear–exponential blend). Actual combat uses the same formula per damage type with that type’s shield armor rating and the attack’s armor penetration.</description>
-		<category>PawnCombat</category>
-		<workerClass>NewRatkin.StatWorker_ShieldDeflectChance</workerClass>
-		<defaultBaseValue>0</defaultBaseValue>
-		<minValue>0</minValue>
-		<!-- maxValue 생략: StatDef 기본(9999999) — 100% 표시 상한 제거, FinalizeValue 클램프에 걸리지 않음 -->
-		<showOnPawns>true</showOnPawns>
-		<hideAtValue>0</hideAtValue>
-		<toStringStyle>PercentZero</toStringStyle>
-		<displayPriorityInCategory>4100</displayPriorityInCategory>
-	</StatDef>
+		포스트 커브 - 로그로 그려져야함 사이값
+		최소 0,0
+		최대 30,0.9
+	 -->
 
-	<!-- 방패 다루기: 레거시 StatDef(세이브 호환). v2 타워실드 도탄은 근접 M 커브 사용 — 폰 패널 비표시. -->
-	<StatDef>
-		<defName>RK_Stat_ShieldHandling</defName>
-		<label>방패 다루기</label>
-		<labelForFullStatList>Shield handling (tower shield)</labelForFullStatList>
-		<description>Legacy stat kept for save compatibility. Tower shield v2 deflection uses melee-skill M curve instead of this value.</description>
-		<category>PawnCombat</category>
-		<workerClass>NewRatkin.StatWorker_ShieldHandling</workerClass>
-		<neverDisabled>true</neverDisabled>
-		<defaultBaseValue>0</defaultBaseValue>
-		<minValue>0</minValue>
-		<maxValue>2</maxValue>
-		<showOnPawns>false</showOnPawns>
-		<hideAtValue>0</hideAtValue>
-		<toStringStyle>PercentZero</toStringStyle>
-		<finalizeEquippedStatOffset>false</finalizeEquippedStatOffset>
-		<noSkillOffset>0</noSkillOffset>
-		<!-- 격투 레벨당 +1 pre (SkillNeed_BaseBonus: 0 + 1×level). 최종 값은 postProcessCurve. v2 도탄에서는 미사용(호환용 StatDef 유지). -->
-		<skillNeedOffsets>
-			<li Class="SkillNeed_BaseBonus">
-				<skill>Melee</skill>
-				<baseValue>0</baseValue>
-				<bonusPerLevel>1</bonusPerLevel>
-			</li>
-		</skillNeedOffsets>
-		<capacityOffsets>
-			<li>
-				<capacity>Manipulation</capacity>
-				<scale>12</scale>
-				<max>1.5</max>
-			</li>
-			<li>
-				<capacity>Sight</capacity>
-				<scale>12</scale>
-				<max>1.5</max>
-			</li>
-		</capacityOffsets>
-		<!-- pre→최종: 0.3×log10(1+x)/log10(21). 5레벨마다 샘플(점 사이는 선형 보간=곡선 근사). -->
-		<postProcessCurve>
-			<points>
-				<li>(0, 0)</li>
-				<li>(5, 0.1765)</li>
-				<li>(10, 0.2363)</li>
-				<li>(15, 0.2733)</li>
-				<li>(20, 0.3)</li>
-			</points>
-		</postProcessCurve>
-		<parts>
-			<li Class="StatPart_Age" MayRequire="Ludeon.RimWorld.Biotech">
-				<useBiologicalYears>true</useBiologicalYears>
-				<humanlikeOnly>true</humanlikeOnly>
-				<curve>
-					<points>
-						<li>(4, 0.05)</li>
-						<li>(12, 0.8)</li>
-						<li>(13, 1)</li>
-					</points>
-				</curve>
-			</li>
-		</parts>
-		<displayPriorityInCategory>4099</displayPriorityInCategory>
-	</StatDef>
+	 <!-- 방패 각도
+	 	고정값임
+		방패에 stats에 추가할거야
+	 -->
+
+	 <!-- 방패용 방어력 3종세트
+	 	기존 방어력하고 같은 것들이 잇어야함
+		stuff 기반 
+		고정 방어력 3종 
+	 		<RK_Stat_ShieldSutffBase>0.55</StuffEffectMultiplierArmor>
+			<RK_Stat_Shield_Sharp>0.15</ArmorRating_Sharp>
+			<RK_Stat_Shield_Blunt>0.2</ArmorRating_Blunt>
+			<RK_Stat_Shield_Heat>0.2</ArmorRating_Heat>
+			이 3가지의 방패버전이라 생각하면됨
+			걍 복사한다 생각해	 
+	  -->
 </Defs>

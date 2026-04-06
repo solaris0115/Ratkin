@@ -13,7 +13,6 @@
       --accent: #58a6ff;
       --grid: #30363d;
       --c-def: #3fb950;
-      --c-half: #d29922;
       --c-full: #f85149;
       font-family: "Segoe UI", system-ui, sans-serif;
     }
@@ -143,25 +142,27 @@
 </head>
 <body>
   <h1>쉴드 방어도 (심플) — 바닐라 방어 + 근접 가산</h1>
-  <p class="tag">eff = max((S − P) + M, 0) · M은 근접 커브(L→[0,Mmax]) · 그래프 Y = 관통실패 확률</p>
+  <p class="tag">근접 L=0…Lcap · Mmax=만기 M · 하이브리드3: p블록=M→eff₂=max(S−P,0) · 곱/하이브리드2: S×(1+M)−P</p>
 
   <div class="plot-wrap">
-    <h2 id="plotTitle">D = S − P 에 따른 관통실패 확률 (바닐라)</h2>
+    <h2 id="plotTitle">P(R&lt;eff) vs D</h2>
     <canvas id="plot" width="880" height="360"></canvas>
-    <p class="plot-legend-note">곡선: L=0/5/10/15/20 별 M 적용 · 세로선: 현재 D = S−P · 아래 표에 준관통·완전관통 포함</p>
+    <p class="plot-legend-note" id="plotLegendNote"></p>
   </div>
 
   <div class="readout-wrap">
     <h3>참조 D = S − P 일 때 (세로선)</h3>
+    <p class="hint" id="readoutNote" style="margin:0 0 0.5rem"></p>
     <table class="readout" aria-label="근접 스킬별 유효방어와 확률">
       <thead>
         <tr>
           <th>L</th>
-          <th>M</th>
-          <th>eff</th>
-          <th><span class="sw" style="background:var(--c-def)"></span>관통실패</th>
-          <th><span class="sw" style="background:var(--c-half)"></span>준관통</th>
+          <th>M<br /><span style="font-weight:400;font-size:0.72rem">0→Mmax</span></th>
+          <th>eff 원시</th>
+          <th>eff 적용</th>
+          <th><span class="sw" style="background:var(--c-def)"></span>관통실패(준관통 포함)</th>
           <th><span class="sw" style="background:var(--c-full)"></span>완전관통</th>
+          <th>완전관통 피해유지</th>
         </tr>
       </thead>
       <tbody id="readoutBody"></tbody>
@@ -169,22 +170,36 @@
   </div>
 
   <div class="curve-row">
-    <label for="meleeCurveModeSelect">근접 M 커브</label>
+    <label for="meleeCurveModeSelect">근접 M 커브 (핸들링 성장)</label>
     <select id="meleeCurveModeSelect" aria-label="근접 M 커브"></select>
+    <label for="handlingModeSelect">핸들링 방법</label>
+    <select id="handlingModeSelect" aria-label="핸들링 방법"></select>
   </div>
 
   <div class="controls" id="controls"></div>
 
-  <div class="eq">유효 방어(바닐라와 동일 입력값):
-eff = max((S − P) + M, 0)     … M = f(L), 0 ≤ M ≤ Mmax
+  <div class="eq" id="eqBlock">유효 방어(바닐라 롤에 넣기 직전 eff에 상·하한 적용 가능):
 
-R ~ Uniform(0, 1)
-R &lt; eff×0.5           → 관통실패 (피해 0)
-eff×0.5 ≤ R &lt; eff     → 준관통 (50% 둔탁)
-R ≥ eff                 → 완전 관통
+Mmax = 근접 L=lCap(예: 20)일 때의 M 최종값(슬라이더). L=0…lCap, 그 사이 M은 「근접 M 커브」(로그/지수/선형)로 채움. 만기 L=lCap이면 M=Mmax.
 
-※ 방어·관통은 그대로 빼고, 근접 보너스 M만 더함.</div>
-  <p class="hint">Gumbel·튜닝 파라미터는 <code>쉴드_방어도_샘플.html</code> · 바닐라 3구간은 코어 ArmorUtility와 동일</p>
+effRaw (핸들링 방법, M은 커브 결과값 0~Mmax):
+  합연산:       max((S − P) + M, 0)
+  하이브리드:   max(max(S − P, 0) + M, 0)
+  하이브리드2:  max(S×(1+M) − P, M)
+  하이브리드3:  ① p블록 = M (0~1) · ② 블록 성공 시에만 effRaw = max(S−P, 0) → R&lt;eff
+              병합 관통실패 확률 = p블록 × min(eff, 1)
+  곱:           max(S×(1+M) − P, 0)
+
+eff = clamp(effRaw, effMin, effMax)
+※ 바닐라 ArmorUtility.ApplyArmor는 effRaw만 쓰고 eff 상한은 없음(참고: MaxArmorRating=2는 별도).
+
+R ~ Uniform(0, 1)  — 2분기(준관통 구간을 관통실패로 편입)
+R &lt; eff           → 관통실패 (구 바닐라의 관통실패+준관통 확률 합 = min(eff,1))
+R ≥ eff             → 완전 관통 · 기대 피해율 = (1−M) × (기준 피해)
+
+그래프 가로축 D = S − P · 곱/하이브리드2는 동일 P에서 S = D + P 로 맞춤.
+예: Mmax=0.4, L=20(만기) → M=0.4 · S=0.28, P=0.68 → max(0.28×1.4−0.68, 0.4) = max(−0.288, 0.4) = 0.4</div>
+  <p class="hint">Gumbel·튜닝 파라미터는 <code>쉴드_방어도_샘플.html</code> · 완전관통 피해유지 = 1−M</p>
 
   <script>
     const L_SAMPLES = [0, 5, 10, 15, 20];
@@ -198,11 +213,21 @@ R ≥ eff                 → 완전 관통
       exp: "지수",
     };
 
+    const HANDLING_MODE_LABELS = {
+      sum: "합연산 (S−P+M)",
+      hybrid: "하이브리드 (max(S−P,0)+M)",
+      hybrid2: "하이브리드2 max(S×(1+M)−P, M)",
+      hybrid3: "하이브리드3 블록→바닐라eff",
+      multiply: "곱 max(S×(1+M)−P, 0)",
+    };
+
     const params = [
-      { id: "mMax", label: "Mmax (근접 만기 M 상한)", min: 0, max: 2, step: 0.02, value: 0.4 },
+      { id: "mMax", label: "Mmax (L=lCap 만기 시 M 최종값)", min: 0, max: 2, step: 0.02, value: 0.4 },
       { id: "lCap", label: "Lcap", min: 1, max: 30, step: 1, value: 20 },
       { id: "S", label: "S 방패", min: 0, max: 4, step: 0.02, value: 0.28 },
       { id: "P", label: "P 관통", min: 0, max: 4, step: 0.02, value: 0.68 },
+      { id: "effMin", label: "eff 하한 (effMin)", min: 0, max: 4, step: 0.02, value: 0 },
+      { id: "effMax", label: "eff 상한 (effMax)", min: 0, max: 20, step: 0.05, value: 20 },
       { id: "dMin", label: "D 축 최소", min: -3, max: 3, step: 0.05, value: -2 },
       { id: "dMax", label: "D 축 최대", min: -3, max: 3, step: 0.05, value: 2 },
     ];
@@ -210,32 +235,108 @@ R ≥ eff                 → 완전 관통
     const state = {};
     params.forEach((p) => { state[p.id] = p.value; });
     state.meleeCurveMode = "log";
+    state.handlingMode = "sum";
 
     const MELEE_EXP_KAPPA = 2.5;
     function meleeMNormLog(Lc, lCap) { return Math.log(1 + Lc) / Math.log(1 + lCap); }
     function meleeMNormExp(t) { const k = MELEE_EXP_KAPPA; return (Math.exp(k * t) - 1) / (Math.exp(k) - 1); }
 
-    function meleeMFromSkill(L, mMax, lCap) {
-      if (mMax <= 0 || lCap <= 0) return 0;
+    /** 근접 M 커브: L∈[0,lCap] → M=mMax×비율. 만기 L=lCap이면 비율=1 → M=mMax */
+    function meleeCurveNorm(L, lCap) {
+      if (lCap <= 0) return 0;
       const Lc = Math.min(Math.max(L, 0), lCap);
       const t = Lc / lCap;
       const mode = state.meleeCurveMode || "log";
-      let n;
-      if (mode === "linear") n = t;
-      else if (mode === "exp") n = meleeMNormExp(t);
-      else if (mode === "log_linear") n = 0.5 * (meleeMNormLog(Lc, lCap) + t);
-      else if (mode === "linear_exp") n = 0.5 * (t + meleeMNormExp(t));
-      else n = meleeMNormLog(Lc, lCap);
-      return mMax * n;
+      if (mode === "linear") return t;
+      if (mode === "exp") return meleeMNormExp(t);
+      if (mode === "log_linear") return 0.5 * (meleeMNormLog(Lc, lCap) + t);
+      if (mode === "linear_exp") return 0.5 * (t + meleeMNormExp(t));
+      return meleeMNormLog(Lc, lCap);
     }
 
-    /** 림월드 ArmorUtility: effectiveArmor = eff */
-    function effArmorFromDP(D, M) {
+    function meleeMFromSkill(L, mMax, lCap) {
+      if (mMax <= 0) return 0;
+      return mMax * meleeCurveNorm(L, lCap);
+    }
+
+    /**
+     * M = 커브 결과값 (0~Mmax). 곱/하이브리드2는 M을 그대로 씀.
+     * 하이브리드3: 2단계만 effRaw = max(D,0) (블록 성공 시 관통 판정)
+     */
+    function effRawCore(D, M, S, P) {
+      const mode = state.handlingMode || "sum";
+      if (mode === "multiply") {
+        return Math.max(S * (1 + M) - P, 0);
+      }
+      if (mode === "hybrid2") {
+        return Math.max(S * (1 + M) - P, M);
+      }
+      if (mode === "hybrid3") {
+        return Math.max(D, 0);
+      }
+      if (mode === "hybrid") {
+        return Math.max(Math.max(D, 0) + M, 0);
+      }
       return Math.max(D + M, 0);
     }
-    function pDeflect(eff) { return Math.min(eff * 0.5, 1); }
-    function pHalf(eff) { return Math.min(eff, 1) - Math.min(eff * 0.5, 1); }
+
+    /** 1단계 블록 확률 = M(커브값), [0,1] */
+    function blockProbFromM(M) {
+      return Math.min(1, Math.max(0, M));
+    }
+    /** 하이브리드3: 2단계 eff 적용 후 P(R<eff)₂ */
+    function hybrid3ArmorPenFailFromD(D) {
+      const eff2 = effClamp(Math.max(D, 0));
+      return pFailMerged(eff2);
+    }
+    /** 병합 관통실패(준관통 포함) = p블록 × P₂ */
+    function hybrid3MergedPenFail(D, M) {
+      return blockProbFromM(M) * hybrid3ArmorPenFailFromD(D);
+    }
+    /** 완전관통 확률 = (1−p블록) + p블록×P(R≥eff₂) */
+    function hybrid3FullPenProb(D, M) {
+      const pb = blockProbFromM(M);
+      const eff2 = effClamp(Math.max(D, 0));
+      return (1 - pb) + pb * pFull(eff2);
+    }
+    /** 그래프 Y: 다른 모드는 P(R<eff), 하이브리드3은 병합 */
+    function plotOutcomePenFail(D, M) {
+      if (state.handlingMode === "hybrid3") {
+        return hybrid3MergedPenFail(D, M);
+      }
+      const eff = effArmorFromPlotD(D, M);
+      return pFailMerged(eff);
+    }
+    function effRawFromSkill(M) {
+      const S = state.S, P = state.P;
+      const D = S - P;
+      return effRawCore(D, M, S, P);
+    }
+    /** 가로축 D, 동일 P(state)에서 S = D+P */
+    function effRawFromPlotD(D, M) {
+      const P = state.P;
+      const S = D + P;
+      return effRawCore(D, M, S, P);
+    }
+    function effClamp(effRaw) {
+      let lo = state.effMin;
+      let hi = state.effMax;
+      if (hi < lo) hi = lo;
+      return Math.min(Math.max(effRaw, lo), hi);
+    }
+    function effArmorFromSkill(M) {
+      return effClamp(effRawFromSkill(M));
+    }
+    function effArmorFromPlotD(D, M) {
+      return effClamp(effRawFromPlotD(D, M));
+    }
+    /** 구 관통실패+준관통 합 = P(R < eff) */
+    function pFailMerged(eff) { return Math.min(eff, 1); }
     function pFull(eff) { return Math.max(1 - eff, 0); }
+    /** 완전관통 시 남는 피해 비율 = 1−M (M은 커브 결과값 0~Mmax) */
+    function fullPenDamageRetain(M) {
+      return Math.max(0, Math.min(1, 1 - M));
+    }
 
     function formatNum(x) { return Number(x).toFixed(2); }
     function formatPct01(x) { return (x * 100).toFixed(1) + "%"; }
@@ -250,6 +351,19 @@ R ≥ eff                 → 완전 관통
     curveSelect.value = state.meleeCurveMode;
     curveSelect.addEventListener("change", () => {
       state.meleeCurveMode = curveSelect.value;
+      draw();
+    });
+
+    const handlingSelect = document.getElementById("handlingModeSelect");
+    Object.keys(HANDLING_MODE_LABELS).forEach((key) => {
+      const opt = document.createElement("option");
+      opt.value = key;
+      opt.textContent = HANDLING_MODE_LABELS[key];
+      handlingSelect.appendChild(opt);
+    });
+    handlingSelect.value = state.handlingMode;
+    handlingSelect.addEventListener("change", () => {
+      state.handlingMode = handlingSelect.value;
       draw();
     });
 
@@ -277,11 +391,48 @@ R ≥ eff                 → 완전 관통
     const ctx = canvas.getContext("2d");
     const plotTitleEl = document.getElementById("plotTitle");
     const readoutBody = document.getElementById("readoutBody");
+    const readoutNoteEl = document.getElementById("readoutNote");
+    const plotLegendNoteEl = document.getElementById("plotLegendNote");
 
     function draw() {
       const curveLab = MELEE_CURVE_LABELS[state.meleeCurveMode] || "로그";
+      const handLab = HANDLING_MODE_LABELS[state.handlingMode] || HANDLING_MODE_LABELS.sum;
+      if (readoutNoteEl) {
+        if (state.handlingMode === "hybrid2") {
+          readoutNoteEl.textContent =
+            "하이브리드2: eff원시 = max(S×(1+M)−P, M). M은 커브 결과값(0~Mmax). 만기 L=lCap이면 M=Mmax.";
+        } else if (state.handlingMode === "hybrid3") {
+          readoutNoteEl.textContent =
+            "하이브리드3: ①블록 확률 p블록=M(0~1) ②블록 성공 시에만 eff₂=max(S−P,0)로 R<eff₂. 병합 관통실패=p블록×min(eff₂,1). 표 eff·관통열은 2단계 기준.";
+        } else {
+          readoutNoteEl.textContent = "";
+        }
+      }
+      if (plotLegendNoteEl) {
+        const Ls = L_SAMPLES.join(", ");
+        let txt =
+          "곡선 " + L_SAMPLES.length + "개(L=" + Ls + "): L마다 M 다름 · ";
+        if (state.handlingMode === "hybrid3") {
+          txt += "Y = p블록(M)×P(R<eff₂), eff₂=max(S−P,0) · 피해유지(2단계)=1−min(eff₂,1)";
+        } else {
+          txt += "Y=P(R<eff)=min(eff,1) · 피해유지=1−M";
+        }
+        if (state.handlingMode === "hybrid2") {
+          txt +=
+            " · 하이브리드2: max(S×(1+M)−P, M). 만기 M=Mmax="+formatNum(state.mMax)+" → max(S×"+formatNum(1+state.mMax)+"−P, "+formatNum(state.mMax)+")";
+        }
+        plotLegendNoteEl.textContent = txt;
+      }
       if (plotTitleEl) {
-        plotTitleEl.textContent = "관통실패 확률 vs D — " + curveLab + " · eff=max(D+M,0)";
+        if (state.handlingMode === "hybrid3") {
+          plotTitleEl.textContent =
+            "병합 관통실패 = p블록(M)×P(R<eff₂) vs D — " + curveLab + " · " + handLab +
+            " · eff₂=clamp(max(D,0))";
+        } else {
+          plotTitleEl.textContent =
+            "P(R<eff)=관통실패(준관통 포함) vs D — " + curveLab + " · " + handLab +
+            " · eff=clamp(effRaw, " + formatNum(state.effMin) + ", " + formatNum(state.effMax) + ")";
+        }
       }
 
       const mMax = state.mMax, lCap = state.lCap, S = state.S, P = state.P;
@@ -339,7 +490,7 @@ R ≥ eff                 → 완전 관통
       ctx.save();
       ctx.translate(12, pad.t + plotH / 2);
       ctx.rotate(-Math.PI / 2);
-      ctx.fillText("P(관통실패)", -48, 0);
+      ctx.fillText(state.handlingMode === "hybrid3" ? "p블록×P₂" : "P(R<eff)", -40, 0);
       ctx.restore();
 
       ctx.setLineDash([4, 4]);
@@ -364,8 +515,7 @@ R ≥ eff                 → 완전 관통
         for (let i = 0; i <= steps; i++) {
           const t = i / steps;
           const D = dMin + t * (dMax - dMin);
-          const eff = effArmorFromDP(D, Mv);
-          const bc = pDeflect(eff);
+          const bc = plotOutcomePenFail(D, Mv);
           const x = xScale(D);
           const y = yScale(Math.min(bc, yMax));
           if (i === 0) ctx.moveTo(x, y);
@@ -423,8 +573,7 @@ R ≥ eff                 → 완전 관통
         const rawRows = [];
         for (let mi = 0; mi < L_SAMPLES.length; mi++) {
           const Mv = meleeMFromSkill(L_SAMPLES[mi], mMax, lCap);
-          const eff = effArmorFromDP(dRef, Mv);
-          const bcr = pDeflect(eff);
+          const bcr = plotOutcomePenFail(dRef, Mv);
           const yr = yScale(Math.min(bcr, yMax));
           const label = bcr.toFixed(2);
           rawRows.push({ mi, yr, bcr, label, tw: ctx.measureText(label).width });
@@ -462,8 +611,7 @@ R ≥ eff                 → 완전 관통
 
         for (let i = 0; i < L_SAMPLES.length; i++) {
           const Mv = meleeMFromSkill(L_SAMPLES[i], mMax, lCap);
-          const eff = effArmorFromDP(dRef, Mv);
-          const bcr = pDeflect(eff);
+          const bcr = plotOutcomePenFail(dRef, Mv);
           const yr = yScale(Math.min(bcr, yMax));
           ctx.fillStyle = CURVE_COLORS[i];
           ctx.strokeStyle = "#0d1117";
@@ -523,13 +671,24 @@ R ≥ eff                 → 완전 관통
       for (let mi = 0; mi < L_SAMPLES.length; mi++) {
         const Lv = L_SAMPLES[mi];
         const Mv = meleeMFromSkill(Lv, mMax, lCap);
-        const eff = effArmorFromDP(dRef, Mv);
-        const pd = pDeflect(eff);
-        const ph = pHalf(eff);
-        const pf = pFull(eff);
+        let raw, eff, pFail, pf, retain;
+        if (state.handlingMode === "hybrid3") {
+          raw = hybrid3MergedPenFail(dRef, Mv);
+          eff = effClamp(Math.max(dRef, 0));
+          pFail = raw;
+          pf = hybrid3FullPenProb(dRef, Mv);
+          const eff2 = effClamp(Math.max(dRef, 0));
+          retain = pFull(eff2);
+        } else {
+          raw = effRawFromSkill(Mv);
+          eff = effArmorFromSkill(Mv);
+          pFail = pFailMerged(eff);
+          pf = pFull(eff);
+          retain = fullPenDamageRetain(Mv);
+        }
         tableHtml +=
-          "<tr><td>L=" + Lv + "</td><td>" + Mv.toFixed(2) + "</td><td>" + eff.toFixed(2) + "</td>" +
-          "<td>" + formatPct01(pd) + "</td><td>" + formatPct01(ph) + "</td><td>" + formatPct01(pf) + "</td></tr>";
+          "<tr><td>L=" + Lv + "</td><td>" + Mv.toFixed(2) + "</td><td>" + raw.toFixed(2) + "</td><td>" + eff.toFixed(2) + "</td>" +
+          "<td>" + formatPct01(pFail) + "</td><td>" + formatPct01(pf) + "</td><td>" + formatPct01(retain) + "</td></tr>";
       }
       readoutBody.innerHTML = tableHtml;
     }

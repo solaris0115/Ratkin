@@ -6,7 +6,8 @@ using Verse;
 namespace NewRatkin
 {
     /// <summary>
-    /// 방패 statBases 반각 × 근접 스킬 배율. 폰 창에만 타워실드 착용 시 표시 (방패 미착용 폰은 숨김).
+    /// 방패 statBases 반각 × 근접 스킬 배율을 내부에서 계산한 뒤, UI에는 좌·우 합산 호(정면 기준 총 각도)로 노출.
+    /// 실제 판정(ApparelShieldTowerSecond)은 반각을 그대로 사용.
     /// </summary>
     public class StatWorker_ShieldDeflectAngle : StatWorker
     {
@@ -31,10 +32,12 @@ namespace NewRatkin
 
                 float baseHalf = base.GetBaseValueFor(StatRequest.For(shield));
                 float melee = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
-                return baseHalf * ShieldDeflectAngleMeleeCurve.Evaluate(melee);
+                float halfEffective = baseHalf * ShieldDeflectAngleMeleeCurve.Evaluate(melee);
+                return 2f * halfEffective;
             }
 
-            return base.GetValueUnfinalized(req, applyPostProcess);
+            float half = base.GetValueUnfinalized(req, applyPostProcess);
+            return 2f * half;
         }
 
         public override string GetExplanationUnfinalized(StatRequest req, ToStringNumberSense numberSense)
@@ -48,12 +51,14 @@ namespace NewRatkin
                 float baseHalf = base.GetBaseValueFor(StatRequest.For(shield));
                 float melee = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
                 float mult = ShieldDeflectAngleMeleeCurve.Evaluate(melee);
+                float halfEffective = baseHalf * mult;
 
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("shield: " + shield.LabelCap);
                 sb.AppendLine("Base half-angle (item): " + baseHalf.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
                 sb.AppendLine(string.Format("Melee ({0}): ×{1:F2}", melee, mult));
-                sb.AppendLine("= " + (baseHalf * mult).ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
+                sb.AppendLine("Effective half-angle (±): " + halfEffective.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
+                sb.AppendLine("Total frontal arc (left+right): " + (2f * halfEffective).ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
                 return sb.ToString();
             }
 
