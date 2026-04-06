@@ -1,3 +1,4 @@
+using UnityEngine;
 using Verse;
 using RimWorld;
 
@@ -5,17 +6,55 @@ namespace NewRatkin
 {
     /// <summary>
     /// RK_TowerShield_Second 전용. deflect와 방향 고정은 별개 기능.
-    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(반각, 도) 이내 근·원거리 공격을 동일 수치로 확률적으로 튕겨냄.
+    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(반각, 도) 이내 근·원거리 공격을 Gumbel형 도탄 확률로 튕겨냄.
     /// 방향 고정(RK_Job_ShieldFaceDirection): 별도 기능 (대기 방향 지정 등).
     /// 통제 불가(기절/사망/불붙음/정신붕괴) 시 deflect 불가.
-    /// 도탄 판정값 = 방패 방어(Rating)+ RK_Stat_ShieldHandling, 도탄률 = 판정값 − 관통. Rand.Value ≤ 도탄률이면 도탄.
-    /// 방패 다루기 StatDef는 코어 MeleeHitChance와 같은 XML 구조(skill/capacity/postProcessCurve/StatPart_Age).
+    /// 도탄: D = S − P, z = D + a·M − b, BlockChance = Cmin + (Cmax − Cmin)·exp(−exp(−k·z)); M은 근접 스킬 선형·지수 블렌드. Rand.Value &lt; BlockChance 이면 도탄.
     /// DeflectAngle은 품질 무관, 폰의 melee 스킬로 반각에 배율 적용(0레벨 0.5× ~ 20레벨 1.2×, ShieldDeflectAngleMeleeCurve).
     /// </summary>
     public class ApparelShieldTowerSecond : Apparel
     {
+        /// <summary>v2 도탄 고정 상수 (TempData 쉴드 샘플 HTML과 동일).</summary>
+        public const float DeflectV2_Mmax = 0.40f;
+        public const float DeflectV2_Lcap = 20f;
+        public const float DeflectV2_Cmin = 0.05f;
+        public const float DeflectV2_Cmax = 0.90f;
+        public const float DeflectV2_k = 1.50f;
+        public const float DeflectV2_a = 2.10f;
+        public const float DeflectV2_b = 0.47f;
+        public const float DeflectV2_Kappa = 2.5f;
+
         private CompProperties_ShieldFaceDirection FaceDirectionProps =>
             this.GetComp<CompShieldFaceDirection>()?.Props as CompProperties_ShieldFaceDirection;
+
+        /// <summary>근접 스킬 L → M (선형·지수 중간 블렌드). L은 0~Lcap로 클램프.</summary>
+        public static float ComputeM(float meleeLevel)
+        {
+            float Lc = Mathf.Clamp(meleeLevel, 0f, DeflectV2_Lcap);
+            float t = Lc / DeflectV2_Lcap;
+            float mLinear = t;
+            float denom = Mathf.Exp(DeflectV2_Kappa) - 1f;
+            float mExp = denom > 0f
+                ? (Mathf.Exp(DeflectV2_Kappa * t) - 1f) / denom
+                : 0f;
+            return DeflectV2_Mmax * (mLinear + mExp) * 0.5f;
+        }
+
+        /// <summary>Gumbel형 이중 지수: z = D + a·M − b, BlockChance = Cmin + (Cmax − Cmin)·exp(−exp(−k·z)).</summary>
+        public static float ComputeBlockChance(float D, float M)
+        {
+            float z = D + DeflectV2_a * M - DeflectV2_b;
+            float gumbel = Mathf.Exp(-Mathf.Exp(-DeflectV2_k * z));
+            return DeflectV2_Cmin + (DeflectV2_Cmax - DeflectV2_Cmin) * gumbel;
+        }
+
+        /// <summary>AP·방어력·근접 레벨로 도탄 확률 (UI·실전 공통).</summary>
+        public static float ComputeBlockChanceForArmorAndMelee(float armorRating, float meleeLevel, float armorPenetration)
+        {
+            float D = armorRating - armorPenetration;
+            float M = ComputeM(meleeLevel);
+            return ComputeBlockChance(D, M);
+        }
 
         public override bool CheckPreAbsorbDamage(DamageInfo dinfo)
         {
@@ -75,13 +114,14 @@ namespace NewRatkin
 
             float armorRating = GetArmorRatingForDamage(dinfo);
             string armorType = dinfo.Def.armorCategory?.defName ?? "None";
-            float shieldHandling = pawn.GetStatValue(RatkinStatDefOf.RK_Stat_ShieldHandling);
-            float deflectPower = armorRating + shieldHandling;
             float penetration = dinfo.ArmorPenetrationInt;
-            float deflectRate = deflectPower - penetration;
+            float D = armorRating - penetration;
+            float M = ComputeM(meleeLevel);
+            float z = D + DeflectV2_a * M - DeflectV2_b;
+            float blockChance = ComputeBlockChance(D, M);
 
             float roll = Rand.Value;
-            bool deflected = roll <= deflectRate;
+            bool deflected = roll < blockChance;
 
             if (Prefs.DevMode)
             {
@@ -89,9 +129,9 @@ namespace NewRatkin
                 Log.Message(
                     $"[RK-TowerShield2] {pawn.LabelShort} ← {attacker} ({dinfo.Def.defName}, {(dinfo.Def.isRanged ? "ranged" : "melee")})\n" +
                     $"  angle: diff={angleDiff:F1}° half={deflectAngleHalf:F1}° | dmgType={armorType}\n" +
-                    $"  armor={armorRating:P0} + handling={shieldHandling:P0} = power={deflectPower:P0}\n" +
-                    $"  power={deflectPower:P0} - AP={penetration:P0} = rate={deflectRate:P0}\n" +
-                    $"  roll={roll:F3} {(deflected ? "<=" : ">")} rate={deflectRate:F3} → {(deflected ? "DEFLECT" : "HIT")}");
+                    $"  S={armorRating:F3} P={penetration:F3} → D=S-P={D:F3} | melee L={meleeLevel:F0} → M={M:F3}\n" +
+                    $"  z=D+a·M-b={z:F3} → BlockChance={blockChance:P1}\n" +
+                    $"  roll={roll:F3} {(deflected ? "<" : ">=")} {blockChance:F3} → {(deflected ? "DEFLECT" : "HIT")}");
             }
 
             if (!deflected)

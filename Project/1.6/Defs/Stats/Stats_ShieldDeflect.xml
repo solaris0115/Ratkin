@@ -17,12 +17,12 @@
 		<displayPriorityInCategory>66</displayPriorityInCategory>
 	</StatDef>
 
-	<!-- 관통 0 기준 표시값 = (날카로움+숙련)+(둔탁+숙련)+(열기+숙련) 의 평균(합 그대로, 유형별 Clamp 없음). -->
+	<!-- 관통 0 기준: Sharp/Blunt/Heat 각각 v2 Gumbel BlockChance의 평균 (근접 스킬 M 커브 적용). -->
 	<StatDef>
 		<defName>RK_Stat_ShieldDeflectChance</defName>
 		<label>방패 방어 확률</label>
 		<labelForFullStatList>Tower shield block chance (avg Sharp/Blunt/Heat, AP 0)</labelForFullStatList>
-		<description>At zero armor penetration, the listed value is the average of three sums: shield Sharp armor plus proficiency, same for Blunt and Heat (sums are not clamped per type before averaging).\n\nActual combat rolls use the shield’s armor for the incoming damage type, plus shield handling, minus the attack’s armor penetration.</description>
+		<description>At zero armor penetration, the listed value is the average of three block chances (Sharp, Blunt, Heat) computed with the v2 formula: D = S − P, z = D + a·M − b, BlockChance = Cmin + (Cmax − Cmin)·exp(−exp(−k·z)), where M comes from melee skill (linear–exponential blend). Actual combat uses the same formula per damage type with that type’s shield armor rating and the attack’s armor penetration.</description>
 		<category>PawnCombat</category>
 		<workerClass>NewRatkin.StatWorker_ShieldDeflectChance</workerClass>
 		<defaultBaseValue>0</defaultBaseValue>
@@ -34,24 +34,24 @@
 		<displayPriorityInCategory>4100</displayPriorityInCategory>
 	</StatDef>
 
-	<!-- 방패 다루기: 근접·조작·시야·나이 → 후처리 곡선으로 0~0.3 등 스케일. 도탄 판정에 더해지는 보너스. -->
+	<!-- 방패 다루기: 레거시 StatDef(세이브 호환). v2 타워실드 도탄은 근접 M 커브 사용 — 폰 패널 비표시. -->
 	<StatDef>
 		<defName>RK_Stat_ShieldHandling</defName>
 		<label>방패 다루기</label>
 		<labelForFullStatList>Shield handling (tower shield)</labelForFullStatList>
-		<description>How effectively this pawn uses a shield in combat. Affected by melee skill, manipulation, sight, and age.\n\nAdded to the shield’s armor rating against the incoming damage type; the total minus armor penetration is compared to a random roll to resolve deflection.</description>
+		<description>Legacy stat kept for save compatibility. Tower shield v2 deflection uses melee-skill M curve instead of this value.</description>
 		<category>PawnCombat</category>
 		<workerClass>NewRatkin.StatWorker_ShieldHandling</workerClass>
 		<neverDisabled>true</neverDisabled>
 		<defaultBaseValue>0</defaultBaseValue>
 		<minValue>0</minValue>
 		<maxValue>2</maxValue>
-		<showOnPawns>true</showOnPawns>
+		<showOnPawns>false</showOnPawns>
 		<hideAtValue>0</hideAtValue>
 		<toStringStyle>PercentZero</toStringStyle>
 		<finalizeEquippedStatOffset>false</finalizeEquippedStatOffset>
 		<noSkillOffset>0</noSkillOffset>
-		<!-- 격투 레벨당 +1 pre (SkillNeed_BaseBonus: 0 + 1×level). 최종 값은 postProcessCurve. -->
+		<!-- 격투 레벨당 +1 pre (SkillNeed_BaseBonus: 0 + 1×level). 최종 값은 postProcessCurve. v2 도탄에서는 미사용(호환용 StatDef 유지). -->
 		<skillNeedOffsets>
 			<li Class="SkillNeed_BaseBonus">
 				<skill>Melee</skill>

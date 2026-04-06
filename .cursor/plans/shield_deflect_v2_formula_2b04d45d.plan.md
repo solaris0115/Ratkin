@@ -4,19 +4,19 @@ overview: v2 방패 도탄 공식을 기존 선형(deflectRate = S + H - P)에�
 todos:
   - id: const-and-methods
     content: "ApparelShieldTowerSecond.cs: 상수 7개 + ComputeM + ComputeBlockChance 메서드 추가"
-    status: pending
+    status: completed
   - id: deflect-logic
     content: "ApparelShieldTowerSecond.cs: CheckPreAbsorbDamage 도탄 판정을 Gumbel 공식으로 교체, 디버그 로그 갱신"
-    status: pending
+    status: completed
   - id: statworker-update
     content: "StatWorker_ShieldDeflectChance.cs: ShieldHandling 제거, 새 공식 기반 표시값/설명 교체"
-    status: pending
+    status: completed
   - id: xml-update
     content: "Stats_ShieldDeflect.xml: DeflectChance description 갱신, ShieldHandling showOnPawns=false"
-    status: pending
+    status: completed
   - id: build-verify
     content: 빌드 확인
-    status: pending
+    status: completed
 isProject: false
 ---
 

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>쉴드 방어도 (심플) — 바닐라 방어 + 근접 가산</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --text: #e6edf3;
+      --muted: #8b9cb3;
+      --accent: #58a6ff;
+      --grid: #30363d;
+      --c-def: #3fb950;
+      --c-half: #d29922;
+      --c-full: #f85149;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1.25rem;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      max-width: 960px;
+      margin-inline: auto;
+    }
+    h1 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.35rem; }
+    .tag { color: var(--muted); font-size: 0.8rem; margin-bottom: 1rem; }
+    .plot-wrap {
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .plot-wrap h2 { font-size: 0.95rem; margin: 0 0 0.75rem; font-weight: 600; }
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      border-radius: 4px;
+      background: #0d1117;
+    }
+    .plot-legend-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 0.5rem 0 0;
+    }
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem 1rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    label span.val {
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .curve-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+    .curve-row label { flex-direction: row; align-items: center; gap: 0.5rem; color: var(--text); }
+    select {
+      min-width: 12rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--grid);
+      background: #21262d;
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    .eq {
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+      font-size: 0.82rem;
+      white-space: pre-wrap;
+      color: var(--muted);
+    }
+    .hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
+    .readout-wrap {
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .readout-wrap h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+    table.readout {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+    }
+    table.readout th,
+    table.readout td {
+      padding: 0.35rem 0.45rem;
+      text-align: right;
+      border-bottom: 1px solid var(--grid);
+    }
+    table.readout th:first-child,
+    table.readout td:first-child {
+      text-align: left;
+    }
+    table.readout th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.72rem;
+    }
+    table.readout tbody tr:hover {
+      background: rgba(88, 166, 255, 0.06);
+    }
+    table.readout .sw {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      margin-right: 0.3rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <h1>쉴드 방어도 (심플) — 바닐라 방어 + 근접 가산</h1>
+  <p class="tag">eff = max((S − P) + M, 0) · M은 근접 커브(L→[0,Mmax]) · 그래프 Y = 관통실패 확률</p>
+
+  <div class="plot-wrap">
+    <h2 id="plotTitle">D = S − P 에 따른 관통실패 확률 (바닐라)</h2>
+    <canvas id="plot" width="880" height="360"></canvas>
+    <p class="plot-legend-note">곡선: L=0/5/10/15/20 별 M 적용 · 세로선: 현재 D = S−P · 아래 표에 준관통·완전관통 포함</p>
+  </div>
+
+  <div class="readout-wrap">
+    <h3>참조 D = S − P 일 때 (세로선)</h3>
+    <table class="readout" aria-label="근접 스킬별 유효방어와 확률">
+      <thead>
+        <tr>
+          <th>L</th>
+          <th>M</th>
+          <th>eff</th>
+          <th><span class="sw" style="background:var(--c-def)"></span>관통실패</th>
+          <th><span class="sw" style="background:var(--c-half)"></span>준관통</th>
+          <th><span class="sw" style="background:var(--c-full)"></span>완전관통</th>
+        </tr>
+      </thead>
+      <tbody id="readoutBody"></tbody>
+    </table>
+  </div>
+
+  <div class="curve-row">
+    <label for="meleeCurveModeSelect">근접 M 커브</label>
+    <select id="meleeCurveModeSelect" aria-label="근접 M 커브"></select>
+  </div>
+
+  <div class="controls" id="controls"></div>
+
+  <div class="eq">유효 방어(바닐라와 동일 입력값):
+eff = max((S − P) + M, 0)     … M = f(L), 0 ≤ M ≤ Mmax
+
+R ~ Uniform(0, 1)
+R &lt; eff×0.5           → 관통실패 (피해 0)
+eff×0.5 ≤ R &lt; eff     → 준관통 (50% 둔탁)
+R ≥ eff                 → 완전 관통
+
+※ 방어·관통은 그대로 빼고, 근접 보너스 M만 더함.</div>
+  <p class="hint">Gumbel·튜닝 파라미터는 <code>쉴드_방어도_샘플.html</code> · 바닐라 3구간은 코어 ArmorUtility와 동일</p>
+
+  <script>
+    const L_SAMPLES = [0, 5, 10, 15, 20];
+    const CURVE_COLORS = ["#58a6ff", "#3fb950", "#d29922", "#a371f7", "#f85149"];
+
+    const MELEE_CURVE_LABELS = {
+      log: "로그",
+      log_linear: "로그·선형 중간",
+      linear: "선형",
+      linear_exp: "선형·지수 중간",
+      exp: "지수",
+    };
+
+    const params = [
+      { id: "mMax", label: "Mmax (근접 만기 M 상한)", min: 0, max: 2, step: 0.02, value: 0.4 },
+      { id: "lCap", label: "Lcap", min: 1, max: 30, step: 1, value: 20 },
+      { id: "S", label: "S 방패", min: 0, max: 4, step: 0.02, value: 0.28 },
+      { id: "P", label: "P 관통", min: 0, max: 4, step: 0.02, value: 0.68 },
+      { id: "dMin", label: "D 축 최소", min: -3, max: 3, step: 0.05, value: -2 },
+      { id: "dMax", label: "D 축 최대", min: -3, max: 3, step: 0.05, value: 2 },
+    ];
+
+    const state = {};
+    params.forEach((p) => { state[p.id] = p.value; });
+    state.meleeCurveMode = "log";
+
+    const MELEE_EXP_KAPPA = 2.5;
+    function meleeMNormLog(Lc, lCap) { return Math.log(1 + Lc) / Math.log(1 + lCap); }
+    function meleeMNormExp(t) { const k = MELEE_EXP_KAPPA; return (Math.exp(k * t) - 1) / (Math.exp(k) - 1); }
+
+    function meleeMFromSkill(L, mMax, lCap) {
+      if (mMax <= 0 || lCap <= 0) return 0;
+      const Lc = Math.min(Math.max(L, 0), lCap);
+      const t = Lc / lCap;
+      const mode = state.meleeCurveMode || "log";
+      let n;
+      if (mode === "linear") n = t;
+      else if (mode === "exp") n = meleeMNormExp(t);
+      else if (mode === "log_linear") n = 0.5 * (meleeMNormLog(Lc, lCap) + t);
+      else if (mode === "linear_exp") n = 0.5 * (t + meleeMNormExp(t));
+      else n = meleeMNormLog(Lc, lCap);
+      return mMax * n;
+    }
+
+    /** 림월드 ArmorUtility: effectiveArmor = eff */
+    function effArmorFromDP(D, M) {
+      return Math.max(D + M, 0);
+    }
+    function pDeflect(eff) { return Math.min(eff * 0.5, 1); }
+    function pHalf(eff) { return Math.min(eff, 1) - Math.min(eff * 0.5, 1); }
+    function pFull(eff) { return Math.max(1 - eff, 0); }
+
+    function formatNum(x) { return Number(x).toFixed(2); }
+    function formatPct01(x) { return (x * 100).toFixed(1) + "%"; }
+
+    const curveSelect = document.getElementById("meleeCurveModeSelect");
+    Object.keys(MELEE_CURVE_LABELS).forEach((key) => {
+      const opt = document.createElement("option");
+      opt.value = key;
+      opt.textContent = MELEE_CURVE_LABELS[key];
+      curveSelect.appendChild(opt);
+    });
+    curveSelect.value = state.meleeCurveMode;
+    curveSelect.addEventListener("change", () => {
+      state.meleeCurveMode = curveSelect.value;
+      draw();
+    });
+
+    const controlsEl = document.getElementById("controls");
+    params.forEach((p) => {
+      const lab = document.createElement("label");
+      lab.innerHTML = `${p.label} <span class="val">${formatNum(state[p.id])}</span>`;
+      const rng = document.createElement("input");
+      rng.type = "range";
+      rng.min = p.min;
+      rng.max = p.max;
+      rng.step = p.step;
+      rng.value = state[p.id];
+      rng.addEventListener("input", () => {
+        const v = parseFloat(rng.value);
+        state[p.id] = v;
+        lab.querySelector(".val").textContent = formatNum(v);
+        draw();
+      });
+      lab.appendChild(rng);
+      controlsEl.appendChild(lab);
+    });
+
+    const canvas = document.getElementById("plot");
+    const ctx = canvas.getContext("2d");
+    const plotTitleEl = document.getElementById("plotTitle");
+    const readoutBody = document.getElementById("readoutBody");
+
+    function draw() {
+      const curveLab = MELEE_CURVE_LABELS[state.meleeCurveMode] || "로그";
+      if (plotTitleEl) {
+        plotTitleEl.textContent = "관통실패 확률 vs D — " + curveLab + " · eff=max(D+M,0)";
+      }
+
+      const mMax = state.mMax, lCap = state.lCap, S = state.S, P = state.P;
+      const dRef = S - P;
+      let dMin = state.dMin, dMax = state.dMax;
+      if (dMin >= dMax) dMax = dMin + 0.01;
+
+      const W = canvas.width, H = canvas.height;
+      const pad = { l: 48, r: 148, t: 16, b: 40 };
+      const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
+
+      const yMin = 0;
+      const yMax = 1;
+
+      ctx.fillStyle = "#0d1117";
+      ctx.fillRect(0, 0, W, H);
+
+      function xScale(d) { return pad.l + ((d - dMin) / (dMax - dMin)) * plotW; }
+      function yScale(y) { return pad.t + (1 - (y - yMin) / (yMax - yMin)) * plotH; }
+
+      ctx.strokeStyle = "#30363d";
+      ctx.lineWidth = 1;
+      ctx.font = "11px Segoe UI, sans-serif";
+      ctx.fillStyle = "#8b9cb3";
+      const xTicks = 6;
+      for (let i = 0; i <= xTicks; i++) {
+        const d = dMin + (i / xTicks) * (dMax - dMin);
+        const x = xScale(d);
+        ctx.beginPath();
+        ctx.moveTo(x, pad.t);
+        ctx.lineTo(x, pad.t + plotH);
+        ctx.stroke();
+        ctx.fillText(d.toFixed(2), x - 14, H - 12);
+      }
+      const yTicks = 5;
+      for (let i = 0; i <= yTicks; i++) {
+        const yv = yMin + (i / yTicks) * (yMax - yMin);
+        const y = yScale(yv);
+        ctx.beginPath();
+        ctx.moveTo(pad.l, y);
+        ctx.lineTo(pad.l + plotW, y);
+        ctx.stroke();
+        ctx.fillText(yv.toFixed(2), 4, y + 4);
+      }
+
+      ctx.strokeStyle = "#58a6ff";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(pad.l, pad.t);
+      ctx.lineTo(pad.l, pad.t + plotH);
+      ctx.lineTo(pad.l + plotW, pad.t + plotH);
+      ctx.stroke();
+      ctx.fillStyle = "#8b9cb3";
+      ctx.fillText("D = S − P", W / 2 - 30, H - 4);
+      ctx.save();
+      ctx.translate(12, pad.t + plotH / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText("P(관통실패)", -48, 0);
+      ctx.restore();
+
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = "#6e7681";
+      ctx.lineWidth = 1;
+      const yHalf = yScale(0.5);
+      ctx.beginPath();
+      ctx.moveTo(pad.l, yHalf);
+      ctx.lineTo(pad.l + plotW, yHalf);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = "#6e7681";
+      ctx.font = "10px Segoe UI, sans-serif";
+      ctx.fillText("50%", pad.l + plotW - 28, yHalf - 4);
+
+      const steps = 200;
+      for (let mi = 0; mi < L_SAMPLES.length; mi++) {
+        const Mv = meleeMFromSkill(L_SAMPLES[mi], mMax, lCap);
+        ctx.strokeStyle = CURVE_COLORS[mi];
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (let i = 0; i <= steps; i++) {
+          const t = i / steps;
+          const D = dMin + t * (dMax - dMin);
+          const eff = effArmorFromDP(D, Mv);
+          const bc = pDeflect(eff);
+          const x = xScale(D);
+          const y = yScale(Math.min(bc, yMax));
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      ctx.font = "11px Segoe UI, sans-serif";
+      const legX = pad.l + plotW + 8;
+      let legY = pad.t + 12;
+      for (let mi = 0; mi < L_SAMPLES.length; mi++) {
+        const Lv = L_SAMPLES[mi];
+        const Mv = meleeMFromSkill(Lv, mMax, lCap);
+        ctx.fillStyle = CURVE_COLORS[mi];
+        ctx.fillRect(legX, legY - 8, 18, 3);
+        ctx.fillStyle = "#c9d1d9";
+        ctx.fillText("L=" + Lv + " M=" + Mv.toFixed(2), legX + 22, legY - 4);
+        legY += 18;
+      }
+
+      if (dRef >= dMin && dRef <= dMax) {
+        const xr = xScale(dRef);
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = "#6e7681";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(xr, pad.t);
+        ctx.lineTo(xr, pad.t + plotH);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        const dotR = 4.5;
+        const hArm = 26;
+        const fontPx = 11;
+        ctx.font = fontPx + "px ui-monospace, Consolas, monospace";
+        const padX = 5, padY = 3;
+
+        function geomForLabel(side, yrDot, textY, tw) {
+          const boxW = tw + padX * 2, boxH = fontPx + padY * 2;
+          if (side === "right") {
+            const bx = xr + dotR + 4 + hArm + 6 - 2;
+            return { side, bx, boxW, boxH, lineEndX: bx - 6, x0: xr + dotR + 3, x1: xr + dotR + 3 + hArm };
+          }
+          const br = xr - dotR - 4 - hArm - 6 + 2;
+          const bx = br - boxW;
+          return { side, bx, boxW, boxH, lineEndX: br + 6, x0: xr - dotR - 3, x1: xr - dotR - 3 - hArm };
+        }
+        function rectForLayout(g, textY) {
+          const by = textY - g.boxH / 2;
+          return { left: g.bx, right: g.bx + g.boxW, top: by, bottom: by + g.boxH, by };
+        }
+        function overlaps(a, b) { return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom); }
+
+        const rawRows = [];
+        for (let mi = 0; mi < L_SAMPLES.length; mi++) {
+          const Mv = meleeMFromSkill(L_SAMPLES[mi], mMax, lCap);
+          const eff = effArmorFromDP(dRef, Mv);
+          const bcr = pDeflect(eff);
+          const yr = yScale(Math.min(bcr, yMax));
+          const label = bcr.toFixed(2);
+          rawRows.push({ mi, yr, bcr, label, tw: ctx.measureText(label).width });
+        }
+        rawRows.sort((a, b) => a.yr - b.yr);
+
+        const labelLayouts = [];
+        const placedRects = [];
+        for (let i = 0; i < rawRows.length; i++) {
+          const row = rawRows[i];
+          const preferFirst = i % 2 === 0 ? "right" : "left";
+          const orderSides = preferFirst === "right" ? ["right", "left"] : ["left", "right"];
+          let textY = row.yr;
+          let placed = false;
+          for (let bump = 0; bump < 120 && !placed; bump++) {
+            for (let s = 0; s < orderSides.length && !placed; s++) {
+              const g = geomForLabel(orderSides[s], row.yr, textY, row.tw);
+              const r = rectForLayout(g, textY);
+              const test = { left: r.left - 2, right: r.right + 2, top: r.top - 2, bottom: r.bottom + 2 };
+              if (!placedRects.some((pr) => overlaps(test, pr))) {
+                placedRects.push(test);
+                labelLayouts.push({ mi: row.mi, yr: row.yr, textY, label: row.label, tw: row.tw, bcr: row.bcr, side: orderSides[s], ...g, by: r.by });
+                placed = true;
+              }
+            }
+            if (!placed) textY += 2;
+          }
+          if (!placed) {
+            const g = geomForLabel(preferFirst, row.yr, textY, row.tw);
+            const r = rectForLayout(g, textY);
+            placedRects.push({ left: r.left - 2, right: r.right + 2, top: r.top - 2, bottom: r.bottom + 2 });
+            labelLayouts.push({ mi: row.mi, yr: row.yr, textY, label: row.label, tw: row.tw, bcr: row.bcr, side: preferFirst, ...g, by: r.by });
+          }
+        }
+
+        for (let i = 0; i < L_SAMPLES.length; i++) {
+          const Mv = meleeMFromSkill(L_SAMPLES[i], mMax, lCap);
+          const eff = effArmorFromDP(dRef, Mv);
+          const bcr = pDeflect(eff);
+          const yr = yScale(Math.min(bcr, yMax));
+          ctx.fillStyle = CURVE_COLORS[i];
+          ctx.strokeStyle = "#0d1117";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(xr, yr, dotR, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+        }
+
+        for (let i = 0; i < labelLayouts.length; i++) {
+          const L = labelLayouts[i];
+          const col = CURVE_COLORS[L.mi];
+          ctx.strokeStyle = col;
+          ctx.lineWidth = 1.5;
+          ctx.globalAlpha = 0.9;
+          ctx.beginPath();
+          ctx.moveTo(L.x0, L.yr);
+          ctx.lineTo(L.x1, L.yr);
+          if (Math.abs(L.textY - L.yr) > 0.5) {
+            ctx.lineTo(L.x1, L.textY);
+            ctx.lineTo(L.lineEndX, L.textY);
+          } else {
+            ctx.lineTo(L.lineEndX, L.textY);
+          }
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = "rgba(13, 17, 23, 0.92)";
+          ctx.strokeStyle = col;
+          ctx.lineWidth = 1;
+          const rr = 4;
+          ctx.beginPath();
+          if (ctx.roundRect) {
+            ctx.roundRect(L.bx, L.by, L.boxW, L.boxH, rr);
+          } else {
+            ctx.moveTo(L.bx + rr, L.by);
+            ctx.lineTo(L.bx + L.boxW - rr, L.by);
+            ctx.quadraticCurveTo(L.bx + L.boxW, L.by, L.bx + L.boxW, L.by + rr);
+            ctx.lineTo(L.bx + L.boxW, L.by + L.boxH - rr);
+            ctx.quadraticCurveTo(L.bx + L.boxW, L.by + L.boxH, L.bx + L.boxW - rr, L.by + L.boxH);
+            ctx.lineTo(L.bx + rr, L.by + L.boxH);
+            ctx.quadraticCurveTo(L.bx, L.by + L.boxH, L.bx, L.by + L.boxH - rr);
+            ctx.lineTo(L.bx, L.by + rr);
+            ctx.quadraticCurveTo(L.bx, L.by, L.bx + rr, L.by);
+            ctx.closePath();
+          }
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#f0f6fc";
+          ctx.textAlign = "left";
+          ctx.textBaseline = "middle";
+          ctx.fillText(L.label, L.bx + padX, L.textY);
+        }
+      }
+
+      let tableHtml = "";
+      for (let mi = 0; mi < L_SAMPLES.length; mi++) {
+        const Lv = L_SAMPLES[mi];
+        const Mv = meleeMFromSkill(Lv, mMax, lCap);
+        const eff = effArmorFromDP(dRef, Mv);
+        const pd = pDeflect(eff);
+        const ph = pHalf(eff);
+        const pf = pFull(eff);
+        tableHtml +=
+          "<tr><td>L=" + Lv + "</td><td>" + Mv.toFixed(2) + "</td><td>" + eff.toFixed(2) + "</td>" +
+          "<td>" + formatPct01(pd) + "</td><td>" + formatPct01(ph) + "</td><td>" + formatPct01(pf) + "</td></tr>";
+      }
+      readoutBody.innerHTML = tableHtml;
+    }
+
+    draw();
+  </script>
+</body>
+</html>
