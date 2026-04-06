@@ -2,6 +2,59 @@
 <Defs>
 
 	<!-- ═══════════════════════════════════════════════════════════
+		 방패 블록 찬스 (ShieldBlockChance) — Pawn 스탯 (1단계 게이트)
+		 MeleeHitChance와 동일 구조: 근접 스킬 + 조작 + 시야 → 0~1.
+		 이 값으로 블락 시도 성공 여부만 판정. 아머와 무관.
+		 성공 시 2단계: RK_Stat_Shield_Sharp/Blunt/Heat vs AP 아머 롤.
+	     ═══════════════════════════════════════════════════════════ -->
+	<StatDef>
+		<defName>RK_Stat_ShieldBlockChance</defName>
+		<label>shield block chance</label>
+		<description>Chance to attempt blocking an incoming attack with this shield.\n\nIf the attempt succeeds, a second armor roll (shield armor vs attacker AP) determines whether the attack is fully deflected.\n\nAffected by melee skill, manipulation, and sight — identical modifiers to melee hit chance.</description>
+		<workerClass>NewRatkin.StatWorker_ShieldBlockChance</workerClass>
+		<category>PawnCombat</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>1</maxValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>PercentOne</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<noSkillOffset>4</noSkillOffset>
+		<skillNeedOffsets>
+			<li Class="SkillNeed_BaseBonus">
+				<skill>Melee</skill>
+				<baseValue>0</baseValue>
+				<bonusPerLevel>1</bonusPerLevel>
+			</li>
+		</skillNeedOffsets>
+		<capacityOffsets>
+			<li>
+				<capacity>Manipulation</capacity>
+				<scale>12</scale>
+				<max>1.5</max>
+			</li>
+			<li>
+				<capacity>Sight</capacity>
+				<scale>12</scale>
+				<max>1.5</max>
+			</li>
+		</capacityOffsets>
+		<postProcessCurve>
+			<points>
+				<li>(-20, 0.05)</li>
+				<li>(-10, 0.10)</li>
+				<li>(0.0, 0.50)</li>
+				<li>(10, 0.80)</li>
+				<li>(20, 0.90)</li>
+				<li>(40, 0.96)</li>
+				<li>(60, 0.98)</li>
+			</points>
+		</postProcessCurve>
+		<displayPriorityInCategory>1410</displayPriorityInCategory>
+	</StatDef>
+
+
+	<!-- ═══════════════════════════════════════════════════════════
 		 방패 각도 (DeflectAngle)
 		 방패 statBases에 풀각(좌+우 합산, 도)으로 설정.
 		 내부 판정 시 /2 하여 반각으로 변환.
@@ -22,80 +75,6 @@
 		<displayPriorityInCategory>80</displayPriorityInCategory>
 	</StatDef>
 
-	<!-- ═══════════════════════════════════════════════════════════
-		 방어 핸들링 (ShieldHandling) — DEPRECATED (v2에서 제거)
-		 세이브 호환을 위해 StatDef 유지. showOnPawns=false로 숨김 처리.
-		 MeleeHitChance 구조 참고:
-		   기본값 4, melee +1/level, 시야·조작 영향
-		   postProcessCurve: 로그형, (0,0) ~ (30,0.9)
-	     ═══════════════════════════════════════════════════════════ -->
-	<StatDef>
-		<defName>RK_Stat_ShieldHandling</defName>
-		<label>shield handling</label>
-		<description>How well this pawn handles a shield. Affects deflect chance.\n\nBased on melee skill and affected by sight and manipulation.</description>
-		<workerClass>NewRatkin.StatWorker_ShieldHandling</workerClass>
-		<category>PawnCombat</category>
-		<defaultBaseValue>0</defaultBaseValue>
-		<minValue>0</minValue>
-		<showOnPawns>false</showOnPawns>
-		<toStringStyle>PercentZero</toStringStyle>
-		<toStringStyleUnfinalized>FloatOne</toStringStyleUnfinalized>
-		<finalizeEquippedStatOffset>false</finalizeEquippedStatOffset>
-		<noSkillOffset>2</noSkillOffset>
-		<skillNeedOffsets>
-			<li Class="SkillNeed_BaseBonus">
-				<skill>Melee</skill>
-				<baseValue>0</baseValue>
-				<bonusPerLevel>1</bonusPerLevel>
-			</li>
-		</skillNeedOffsets>
-		<capacityOffsets>
-			<li>
-				<capacity>Sight</capacity>
-				<scale>12</scale>
-				<max>1.5</max>
-			</li>
-			<li>
-				<capacity>Manipulation</capacity>
-				<scale>12</scale>
-				<max>1.5</max>
-			</li>
-		</capacityOffsets>
-		<postProcessCurve>
-			<points>
-				<li>(-10, 0)</li>
-				<li>(0, 0)</li>
-				<li>(2, 0.29)</li>
-				<li>(5, 0.47)</li>
-				<li>(10, 0.63)</li>
-				<li>(15, 0.73)</li>
-				<li>(20, 0.80)</li>
-				<li>(25, 0.85)</li>
-				<li>(30, 0.90)</li>
-			</points>
-		</postProcessCurve>
-		<displayPriorityInCategory>81</displayPriorityInCategory>
-	</StatDef>
-
-	<!-- ═══════════════════════════════════════════════════════════
-		 방패 도탄 확률 (ShieldDeflectChance)
-		 Pawn 스탯. 방패 착용 시에만 표시.
-		 StatWorker가 Gumbel형 도탄 공식(v2) 기반으로
-		 Sharp/Blunt/Heat 3종 BlockChance 평균을 AP=0 기준으로 계산.
-	     ═══════════════════════════════════════════════════════════ -->
-	<StatDef>
-		<defName>RK_Stat_ShieldDeflectChance</defName>
-		<label>shield deflect chance</label>
-		<description>Estimated chance for the shield to deflect an incoming attack (averaged across damage types, at zero armor penetration).\n\nActual chance depends on attack armor penetration vs. shield armor rating and melee skill (Gumbel curve).</description>
-		<workerClass>NewRatkin.StatWorker_ShieldDeflectChance</workerClass>
-		<category>PawnCombat</category>
-		<defaultBaseValue>0</defaultBaseValue>
-		<minValue>0</minValue>
-		<maxValue>1</maxValue>
-		<toStringStyle>PercentZero</toStringStyle>
-		<showIfUndefined>false</showIfUndefined>
-		<displayPriorityInCategory>82</displayPriorityInCategory>
-	</StatDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 		 방패 전용 방어력 (Shield Armor)

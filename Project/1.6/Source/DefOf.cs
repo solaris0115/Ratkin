@@ -170,9 +170,8 @@ namespace NewRatkin
         public static StatDef RK_Stat_ShieldStaminaLossMelee;
         public static StatDef RK_Stat_ShieldStaminaLossRanged;
         public static StatDef RK_Stat_ShieldStaminaLossExplosive;
+        public static StatDef RK_Stat_ShieldBlockChance;
         public static StatDef RK_Stat_DeflectAngle;
-        public static StatDef RK_Stat_ShieldHandling;
-        public static StatDef RK_Stat_ShieldDeflectChance;
         public static StatDef RK_Stat_ShieldStuffBase;
         public static StatDef RK_Stat_Shield_Sharp;
         public static StatDef RK_Stat_Shield_Blunt;

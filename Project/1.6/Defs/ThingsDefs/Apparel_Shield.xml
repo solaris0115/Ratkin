@@ -36,6 +36,7 @@
 			<RK_Stat_DeflectAngle>140</RK_Stat_DeflectAngle>
 		</statBases>
 		<comps>
+			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<drawSize>(1.0, 1.0)</drawSize>
 				<draftedDrawData>
@@ -132,6 +133,7 @@
 			<MoveSpeed>-0.2</MoveSpeed>
 		</equippedStatOffsets>
 		<comps>
+			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<drawSize>(1.0, 1.0)</drawSize>
 				<draftedDrawData>
@@ -233,6 +235,7 @@
 			<MoveSpeed>-0.5</MoveSpeed>
 		</equippedStatOffsets>
 		<comps>
+			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<drawSize>(0.9, 0.9)</drawSize>
 				<draftedDrawData>
