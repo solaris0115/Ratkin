@@ -335,6 +335,8 @@
 		<graphicData>
 			<texPath>Apparel/RK_Muffler</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<!-- RK_ApparelBase는 ignoreThingDrawColor=true라 Thing.Graphic이 DrawColor(염색/CompColorable)를 무시함. 머플러만 염색 표시되게 끔 -->
+			<ignoreThingDrawColor>false</ignoreThingDrawColor>
 		</graphicData>
 		<costStuffCount>35</costStuffCount>
 		<stuffCategories>

@@ -49,9 +49,9 @@ namespace NewRatkin
             float meleeLevel = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
             float M = ApparelShieldTowerSecond.ComputeM(meleeLevel);
 
-            float armorSharp = shield.GetStatValue(StatDefOf.ArmorRating_Sharp);
-            float armorBlunt = shield.GetStatValue(StatDefOf.ArmorRating_Blunt);
-            float armorHeat = shield.GetStatValue(StatDefOf.ArmorRating_Heat);
+            float armorSharp = shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Sharp);
+            float armorBlunt = shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Blunt);
+            float armorHeat = shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Heat);
 
             float bcSharp = ApparelShieldTowerSecond.ComputeBlockChanceForArmorAndMelee(
                 armorSharp, meleeLevel, ReferenceArmorPenetration);
@@ -114,9 +114,9 @@ namespace NewRatkin
         private static float AverageBlockChanceAtApZero(ApparelShieldTowerSecond shield, Pawn pawn)
         {
             float meleeLevel = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
-            float aS = shield.GetStatValue(StatDefOf.ArmorRating_Sharp);
-            float aB = shield.GetStatValue(StatDefOf.ArmorRating_Blunt);
-            float aH = shield.GetStatValue(StatDefOf.ArmorRating_Heat);
+            float aS = shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Sharp);
+            float aB = shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Blunt);
+            float aH = shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Heat);
             float bcS = ApparelShieldTowerSecond.ComputeBlockChanceForArmorAndMelee(aS, meleeLevel, ReferenceArmorPenetration);
             float bcB = ApparelShieldTowerSecond.ComputeBlockChanceForArmorAndMelee(aB, meleeLevel, ReferenceArmorPenetration);
             float bcH = ApparelShieldTowerSecond.ComputeBlockChanceForArmorAndMelee(aH, meleeLevel, ReferenceArmorPenetration);

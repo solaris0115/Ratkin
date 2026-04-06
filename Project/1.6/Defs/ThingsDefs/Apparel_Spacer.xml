@@ -60,6 +60,7 @@
 				<li>Spacefarer</li>
 			</defaultOutfitTags>
 		</apparel>
+		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<tradeTags>
 			<li>RK_Apparel_Rare</li>
 		</tradeTags>
@@ -146,6 +147,7 @@
 			<soundWear>Wear_PowerArmor</soundWear>
 			<soundRemove>Remove_PowerArmor</soundRemove>
 		</apparel>
+		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<costList>
 			<DevilstrandCloth>15</DevilstrandCloth>
 			<ComponentIndustrial>3</ComponentIndustrial>
@@ -234,6 +236,7 @@
 				<childScale>0.7</childScale>
 			</drawData>
 		</apparel>
+		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<costList>
 			<DevilstrandCloth>15</DevilstrandCloth>
 			<ComponentIndustrial>3</ComponentIndustrial>
@@ -301,6 +304,7 @@
 				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 		</apparel>
+		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_CrusaderArmor</researchPrerequisite>
 			<displayPriority>47125</displayPriority>
@@ -354,6 +358,7 @@
 				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 		</apparel>
+		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_CrusaderArmor</researchPrerequisite>
 			<displayPriority>47120</displayPriority>

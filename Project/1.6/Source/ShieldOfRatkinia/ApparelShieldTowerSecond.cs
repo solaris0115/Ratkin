@@ -6,11 +6,11 @@ namespace NewRatkin
 {
     /// <summary>
     /// RK_TowerShield_Second 전용. deflect와 방향 고정은 별개 기능.
-    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(반각, 도) 이내 근·원거리 공격을 Gumbel형 도탄 확률로 튕겨냄.
+    /// deflect: 소집 상태 + 통제 가능 시, 바라보는 방향 기준 좌우 RK_Stat_DeflectAngle(풀각, 도)/2 이내 근·원거리 공격을 Gumbel형 도탄 확률로 튕겨냄.
     /// 방향 고정(RK_Job_ShieldFaceDirection): 별도 기능 (대기 방향 지정 등).
     /// 통제 불가(기절/사망/불붙음/정신붕괴) 시 deflect 불가.
     /// 도탄: D = S − P, z = D + a·M − b, BlockChance = Cmin + (Cmax − Cmin)·exp(−exp(−k·z)); M은 근접 스킬 선형·지수 블렌드. Rand.Value &lt; BlockChance 이면 도탄.
-    /// DeflectAngle은 품질 무관, 폰의 melee 스킬로 반각에 배율 적용(0레벨 0.5× ~ 20레벨 1.2×, ShieldDeflectAngleMeleeCurve).
+    /// DeflectAngle은 풀각(좌+우) 기준 세팅. 내부에서 /2 하여 반각으로 변환 후 melee 스킬 배율 적용(0레벨 0.5× ~ 20레벨 1.2×, ShieldDeflectAngleMeleeCurve).
     /// </summary>
     public class ApparelShieldTowerSecond : Apparel
     {
@@ -100,11 +100,12 @@ namespace NewRatkin
             while (angleDiff > 180f) angleDiff -= 360f;
             while (angleDiff < -180f) angleDiff += 360f;
 
-            float deflectAngleHalf = this.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
-            if (deflectAngleHalf <= 0f)
+            float deflectAngleFull = this.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
+            if (deflectAngleFull <= 0f)
             {
-                deflectAngleHalf = FaceDirectionProps?.deflectAngleHalf ?? 70f;
+                deflectAngleFull = FaceDirectionProps?.deflectAngleHalf ?? 140f;
             }
+            float deflectAngleHalf = deflectAngleFull * 0.5f;
             float meleeLevel = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
             deflectAngleHalf *= ShieldDeflectAngleMeleeCurve.Evaluate(meleeLevel);
             if (angleDiff < -deflectAngleHalf || angleDiff > deflectAngleHalf)
@@ -149,11 +150,11 @@ namespace NewRatkin
             switch (dinfo.Def.armorCategory)
             {
                 case DamageArmorCategoryDef d when d == DamageArmorCategoryDefOf.Sharp:
-                    return this.GetStatValue(StatDefOf.ArmorRating_Sharp);
+                    return this.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Sharp);
                 case DamageArmorCategoryDef d when d == DamageArmorCategoryDefOf.Blunt:
-                    return this.GetStatValue(StatDefOf.ArmorRating_Blunt);
+                    return this.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Blunt);
                 case DamageArmorCategoryDef d when d == DamageArmorCategoryDefOf.Heat:
-                    return this.GetStatValue(StatDefOf.ArmorRating_Heat);
+                    return this.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Heat);
                 default:
                     return 0f;
             }

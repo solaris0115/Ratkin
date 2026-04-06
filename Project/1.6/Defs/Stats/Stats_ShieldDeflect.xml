@@ -1,32 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<!-- 방어 핸들링
-		이건 pawn에게 추가되야할 값임.
-		방패를 미착용시 보여줄 필요 없는 값임.
-		시야, 조작 영향 받어야함
-		기본값 4
-		melee hit 참고하면됨
-		melee 레벨에 따라서 1점씩 오름 (보너스 점수)
 
-		포스트 커브 - 로그로 그려져야함 사이값
-		최소 0,0
-		최대 30,0.9
-	 -->
+	<!-- ═══════════════════════════════════════════════════════════
+		 방패 각도 (DeflectAngle)
+		 방패 statBases에 풀각(좌+우 합산, 도)으로 설정.
+		 내부 판정 시 /2 하여 반각으로 변환.
+		 StatWorker가 pawn 조회 시 근접 스킬 배율 적용 후 유효 풀각을 표시.
+	     ═══════════════════════════════════════════════════════════ -->
+	<StatDef>
+		<defName>RK_Stat_DeflectAngle</defName>
+		<label>shield deflect angle</label>
+		<description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.\n\nThe effective angle is modified by melee skill level.</description>
+		<workerClass>NewRatkin.StatWorker_ShieldDeflectAngle</workerClass>
+		<category>Apparel</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>FloatOne</toStringStyle>
+		<formatString>{0}°</formatString>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>80</displayPriorityInCategory>
+	</StatDef>
 
-	 <!-- 방패 각도
-	 	고정값임
-		방패에 stats에 추가할거야
-	 -->
+	<!-- ═══════════════════════════════════════════════════════════
+		 방어 핸들링 (ShieldHandling) — DEPRECATED (v2에서 제거)
+		 세이브 호환을 위해 StatDef 유지. showOnPawns=false로 숨김 처리.
+		 MeleeHitChance 구조 참고:
+		   기본값 4, melee +1/level, 시야·조작 영향
+		   postProcessCurve: 로그형, (0,0) ~ (30,0.9)
+	     ═══════════════════════════════════════════════════════════ -->
+	<StatDef>
+		<defName>RK_Stat_ShieldHandling</defName>
+		<label>shield handling</label>
+		<description>How well this pawn handles a shield. Affects deflect chance.\n\nBased on melee skill and affected by sight and manipulation.</description>
+		<workerClass>NewRatkin.StatWorker_ShieldHandling</workerClass>
+		<category>PawnCombat</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<showOnPawns>false</showOnPawns>
+		<toStringStyle>PercentZero</toStringStyle>
+		<toStringStyleUnfinalized>FloatOne</toStringStyleUnfinalized>
+		<finalizeEquippedStatOffset>false</finalizeEquippedStatOffset>
+		<noSkillOffset>2</noSkillOffset>
+		<skillNeedOffsets>
+			<li Class="SkillNeed_BaseBonus">
+				<skill>Melee</skill>
+				<baseValue>0</baseValue>
+				<bonusPerLevel>1</bonusPerLevel>
+			</li>
+		</skillNeedOffsets>
+		<capacityOffsets>
+			<li>
+				<capacity>Sight</capacity>
+				<scale>12</scale>
+				<max>1.5</max>
+			</li>
+			<li>
+				<capacity>Manipulation</capacity>
+				<scale>12</scale>
+				<max>1.5</max>
+			</li>
+		</capacityOffsets>
+		<postProcessCurve>
+			<points>
+				<li>(-10, 0)</li>
+				<li>(0, 0)</li>
+				<li>(2, 0.29)</li>
+				<li>(5, 0.47)</li>
+				<li>(10, 0.63)</li>
+				<li>(15, 0.73)</li>
+				<li>(20, 0.80)</li>
+				<li>(25, 0.85)</li>
+				<li>(30, 0.90)</li>
+			</points>
+		</postProcessCurve>
+		<displayPriorityInCategory>81</displayPriorityInCategory>
+	</StatDef>
 
-	 <!-- 방패용 방어력 3종세트
-	 	기존 방어력하고 같은 것들이 잇어야함
-		stuff 기반 
-		고정 방어력 3종 
-	 		<RK_Stat_ShieldSutffBase>0.55</StuffEffectMultiplierArmor>
-			<RK_Stat_Shield_Sharp>0.15</ArmorRating_Sharp>
-			<RK_Stat_Shield_Blunt>0.2</ArmorRating_Blunt>
-			<RK_Stat_Shield_Heat>0.2</ArmorRating_Heat>
-			이 3가지의 방패버전이라 생각하면됨
-			걍 복사한다 생각해	 
-	  -->
+	<!-- ═══════════════════════════════════════════════════════════
+		 방패 도탄 확률 (ShieldDeflectChance)
+		 Pawn 스탯. 방패 착용 시에만 표시.
+		 StatWorker가 Gumbel형 도탄 공식(v2) 기반으로
+		 Sharp/Blunt/Heat 3종 BlockChance 평균을 AP=0 기준으로 계산.
+	     ═══════════════════════════════════════════════════════════ -->
+	<StatDef>
+		<defName>RK_Stat_ShieldDeflectChance</defName>
+		<label>shield deflect chance</label>
+		<description>Estimated chance for the shield to deflect an incoming attack (averaged across damage types, at zero armor penetration).\n\nActual chance depends on attack armor penetration vs. shield armor rating and melee skill (Gumbel curve).</description>
+		<workerClass>NewRatkin.StatWorker_ShieldDeflectChance</workerClass>
+		<category>PawnCombat</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>1</maxValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>82</displayPriorityInCategory>
+	</StatDef>
+
+	<!-- ═══════════════════════════════════════════════════════════
+		 방패 전용 방어력 (Shield Armor)
+		 바닐라 StuffEffectMultiplierArmor + ArmorRating 3종의 방패 전용 버전.
+		 방패별로 독립적으로 stuff 배율·품질 계수·기본 방어력을 튜닝 가능.
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- 방패 stuff 배율 (hidden) — 바닐라 StuffEffectMultiplierArmor 대응 -->
+	<StatDef>
+		<defName>RK_Stat_ShieldStuffBase</defName>
+		<label>Shield Armor - Material effect multiplier</label>
+		<category>Apparel</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<alwaysHide>true</alwaysHide>
+		<displayPriorityInCategory>83</displayPriorityInCategory>
+	</StatDef>
+
+	<!-- 방패 방어력 공통 부모 (Abstract) -->
+	<StatDef Name="RK_ShieldArmorBase" Abstract="True">
+		<category>Apparel</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<maxValue>2</maxValue>
+		<toStringStyle>PercentOne</toStringStyle>
+		<parts>
+			<li Class="StatPart_Quality">
+				<factorAwful>0.60</factorAwful>
+				<factorPoor>0.80</factorPoor>
+				<factorNormal>1.00</factorNormal>
+				<factorGood>1.15</factorGood>
+				<factorExcellent>1.30</factorExcellent>
+				<factorMasterwork>1.45</factorMasterwork>
+				<factorLegendary>1.80</factorLegendary>
+			</li>
+		</parts>
+	</StatDef>
+
+	<!-- 방패 방어도 - 날카로움 -->
+	<StatDef ParentName="RK_ShieldArmorBase">
+		<defName>RK_Stat_Shield_Sharp</defName>
+		<label>Shield Armor - Sharp</label>
+		<description>Shield protection against sharp damage like bullets, knife stabs, and animal bites.\n\nUsed in the shield deflect formula: higher values increase block chance against sharp attacks.</description>
+		<displayPriorityInCategory>87</displayPriorityInCategory>
+		<parts>
+			<li Class="StatPart_Stuff">
+				<priority>100</priority>
+				<stuffPowerStat>StuffPower_Armor_Sharp</stuffPowerStat>
+				<multiplierStat>RK_Stat_ShieldStuffBase</multiplierStat>
+			</li>
+		</parts>
+	</StatDef>
+
+	<!-- 방패 방어도 - 둔탁함 -->
+	<StatDef ParentName="RK_ShieldArmorBase">
+		<defName>RK_Stat_Shield_Blunt</defName>
+		<label>Shield Armor - Blunt</label>
+		<description>Shield protection against blunt damage like fists, club impacts and rock falls.\n\nUsed in the shield deflect formula: higher values increase block chance against blunt attacks.</description>
+		<displayPriorityInCategory>86</displayPriorityInCategory>
+		<parts>
+			<li Class="StatPart_Stuff">
+				<priority>100</priority>
+				<stuffPowerStat>StuffPower_Armor_Blunt</stuffPowerStat>
+				<multiplierStat>RK_Stat_ShieldStuffBase</multiplierStat>
+			</li>
+		</parts>
+	</StatDef>
+
+	<!-- 방패 방어도 - 열기 -->
+	<StatDef ParentName="RK_ShieldArmorBase">
+		<defName>RK_Stat_Shield_Heat</defName>
+		<label>Shield Armor - Heat</label>
+		<description>Shield protection against temperature-related damage like burns.\n\nUsed in the shield deflect formula: higher values increase block chance against heat attacks.</description>
+		<displayPriorityInCategory>85</displayPriorityInCategory>
+		<parts>
+			<li Class="StatPart_Stuff">
+				<priority>100</priority>
+				<stuffPowerStat>StuffPower_Armor_Heat</stuffPowerStat>
+				<multiplierStat>RK_Stat_ShieldStuffBase</multiplierStat>
+			</li>
+		</parts>
+	</StatDef>
+
 </Defs>

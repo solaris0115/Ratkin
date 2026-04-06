@@ -6,8 +6,9 @@ using Verse;
 namespace NewRatkin
 {
     /// <summary>
-    /// 방패 statBases 반각 × 근접 스킬 배율을 내부에서 계산한 뒤, UI에는 좌·우 합산 호(정면 기준 총 각도)로 노출.
-    /// 실제 판정(ApparelShieldTowerSecond)은 반각을 그대로 사용.
+    /// statBases에 풀각(좌+우 합산, 도)으로 세팅.
+    /// 내부 판정(ApparelShieldTowerSecond)은 /2 하여 반각 사용.
+    /// UI에는 풀각을 그대로 표시하고, 근접 스킬 배율을 적용한 유효 풀각을 보여줌.
     /// </summary>
     public class StatWorker_ShieldDeflectAngle : StatWorker
     {
@@ -30,14 +31,13 @@ namespace NewRatkin
                 if (shield == null)
                     return 0f;
 
-                float baseHalf = base.GetBaseValueFor(StatRequest.For(shield));
+                float baseFull = base.GetBaseValueFor(StatRequest.For(shield));
                 float melee = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
-                float halfEffective = baseHalf * ShieldDeflectAngleMeleeCurve.Evaluate(melee);
-                return 2f * halfEffective;
+                float effectiveFull = baseFull * ShieldDeflectAngleMeleeCurve.Evaluate(melee);
+                return effectiveFull;
             }
 
-            float half = base.GetValueUnfinalized(req, applyPostProcess);
-            return 2f * half;
+            return base.GetValueUnfinalized(req, applyPostProcess);
         }
 
         public override string GetExplanationUnfinalized(StatRequest req, ToStringNumberSense numberSense)
@@ -48,17 +48,18 @@ namespace NewRatkin
                 if (shield == null)
                     return base.GetExplanationUnfinalized(req, numberSense);
 
-                float baseHalf = base.GetBaseValueFor(StatRequest.For(shield));
+                float baseFull = base.GetBaseValueFor(StatRequest.For(shield));
                 float melee = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
                 float mult = ShieldDeflectAngleMeleeCurve.Evaluate(melee);
-                float halfEffective = baseHalf * mult;
+                float effectiveFull = baseFull * mult;
+                float effectiveHalf = effectiveFull * 0.5f;
 
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("shield: " + shield.LabelCap);
-                sb.AppendLine("Base half-angle (item): " + baseHalf.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
+                sb.AppendLine("Base deflect angle: " + baseFull.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense) + "°");
                 sb.AppendLine(string.Format("Melee ({0}): ×{1:F2}", melee, mult));
-                sb.AppendLine("Effective half-angle (±): " + halfEffective.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
-                sb.AppendLine("Total frontal arc (left+right): " + (2f * halfEffective).ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense));
+                sb.AppendLine("Effective deflect angle: " + effectiveFull.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense) + "°");
+                sb.AppendLine("(±" + effectiveHalf.ToStringByStyle(stat.ToStringStyleUnfinalized, numberSense) + "° each side)");
                 return sb.ToString();
             }
 

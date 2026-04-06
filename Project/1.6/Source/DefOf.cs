@@ -173,5 +173,9 @@ namespace NewRatkin
         public static StatDef RK_Stat_DeflectAngle;
         public static StatDef RK_Stat_ShieldHandling;
         public static StatDef RK_Stat_ShieldDeflectChance;
+        public static StatDef RK_Stat_ShieldStuffBase;
+        public static StatDef RK_Stat_Shield_Sharp;
+        public static StatDef RK_Stat_Shield_Blunt;
+        public static StatDef RK_Stat_Shield_Heat;
     }
 }
