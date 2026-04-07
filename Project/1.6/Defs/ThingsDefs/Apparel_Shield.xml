@@ -22,7 +22,6 @@
 			<Steel>25</Steel>
 			<WoodLog>120</WoodLog>
 		</costList>
-		<costStuffCount>0</costStuffCount>
 		<stuffCategories Inherit="False" />
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
@@ -30,9 +29,9 @@
 			<Mass>3</Mass>
 			<Flammability>0.8</Flammability>
 			<EquipDelay>1</EquipDelay>
-			<RK_Stat_Shield_Sharp>0.2</RK_Stat_Shield_Sharp>
-			<RK_Stat_Shield_Blunt>0.2</RK_Stat_Shield_Blunt>
-			<RK_Stat_Shield_Heat>0.05</RK_Stat_Shield_Heat>
+			<RK_Stat_Shield_Sharp>0.3</RK_Stat_Shield_Sharp>
+			<RK_Stat_Shield_Blunt>0.3</RK_Stat_Shield_Blunt>
+			<RK_Stat_Shield_Heat>0.1</RK_Stat_Shield_Heat>
 			<RK_Stat_DeflectAngle>140</RK_Stat_DeflectAngle>
 		</statBases>
 		<comps>
