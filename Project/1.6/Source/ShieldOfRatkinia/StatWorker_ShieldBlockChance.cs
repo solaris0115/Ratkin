@@ -34,6 +34,13 @@ namespace NewRatkin
             return base.GetValueUnfinalized(req, applyPostProcess);
         }
 
+        public override string ValueToString(float val, bool finalized, ToStringNumberSense numberSense = ToStringNumberSense.Absolute)
+        {
+            if (numberSense == ToStringNumberSense.Offset)
+                return val.ToStringByStyle(ToStringStyle.FloatOne, numberSense);
+            return base.ValueToString(val, finalized, numberSense);
+        }
+
         private static ApparelShieldTowerSecond GetShield(Pawn pawn)
         {
             if (pawn?.apparel == null) return null;

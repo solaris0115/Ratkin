@@ -292,6 +292,7 @@
 		<equippedStatOffsets>
 			<MoveSpeed>-0.5</MoveSpeed>
 			<RK_Stat_ShieldBlockChance>4</RK_Stat_ShieldBlockChance>
+			<MeleeHitChance>-0.2</MeleeHitChance>
 		</equippedStatOffsets>
 	</ThingDef>
 </Defs>

@@ -17,8 +17,9 @@
 		<minValue>0</minValue>
 		<maxValue>1</maxValue>
 		<hideAtValue>0</hideAtValue>
-		<toStringStyle>PercentOne</toStringStyle>
+		<toStringStyle>PercentZero</toStringStyle>
 		<toStringStyleUnfinalized>FloatOne</toStringStyleUnfinalized>
+		<finalizeEquippedStatOffset>false</finalizeEquippedStatOffset>
 		<showIfUndefined>true</showIfUndefined>
 		<noSkillOffset>4</noSkillOffset>
 		<skillNeedOffsets>
@@ -56,22 +57,21 @@
 
 
 	<!-- ═══════════════════════════════════════════════════════════
-		 방패 각도 (DeflectAngle) — Pawn 스탯
-		 방패는 equippedStatOffsets으로 풀각(도)을 제공.
-		 근접 스킬이 offset으로 영향을 주며, postProcessCurve로 로그형 감소 적용.
+		 방패 각도 (DeflectAngle) — Thing 스탯 (방패 statBases 고정값)
+		 스킬 보정 없음. 방패 아이템에서 직접 읽음.
 		 내부 판정(ApparelShieldTowerSecond)은 /2 하여 반각 사용.
 	     ═══════════════════════════════════════════════════════════ -->
 	<StatDef>
 		<defName>RK_Stat_DeflectAngle</defName>
 		<label>shield deflect angle</label>
-		<description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.\n\nAffected by melee skill: low skill reduces the arc, high skill widens it (with diminishing returns).</description>
+		<description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.</description>
 		<workerClass>NewRatkin.StatWorker_ShieldDeflectAngle</workerClass>
 		<category>Apparel</category>
 		<defaultBaseValue>0</defaultBaseValue>
 		<minValue>0</minValue>
 		<toStringStyle>FloatOne</toStringStyle>
 		<formatString>{0}°</formatString>
-		<showIfUndefined>true</showIfUndefined>
+		<hideAtValue>0</hideAtValue>
 		<displayPriorityInCategory>88</displayPriorityInCategory>
 	</StatDef>
 

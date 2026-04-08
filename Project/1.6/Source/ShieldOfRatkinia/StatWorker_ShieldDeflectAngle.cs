@@ -1,36 +1,37 @@
-using System.Linq;
 using RimWorld;
 using Verse;
 
 namespace NewRatkin
 {
     /// <summary>
-    /// DeflectAngle 표시 Worker.
-    /// - 방패 아이템 창: equippedStatOffsets 원본 값(°) 표시
-    /// - 폰 스탯 창: 방패 착용 시 표시 (pawn 계산값)
+    /// DeflectAngle — Apparel statBases 고정값 읽기.
+    /// statBases에 값이 있는 방패 아이템에서만 표시.
+    /// 스킬/재질/품질 보정 없음.
     /// </summary>
     public class StatWorker_ShieldDeflectAngle : StatWorker
     {
         public override bool ShouldShowFor(StatRequest req)
         {
-            if (req.Thing is ApparelShieldTowerSecond)
-                return true;
-
-            if (!base.ShouldShowFor(req))
-                return false;
-
-            if (req.Thing is Pawn pawn)
-                return pawn.apparel?.WornApparel.OfType<ApparelShieldTowerSecond>().Any() == true;
-
-            return false;
+            ThingDef def = (req.Thing?.def ?? req.Def) as ThingDef;
+            if (def == null || !def.IsApparel) return false;
+            return ReadStatBase(def) > 0f;
         }
 
         public override float GetValueUnfinalized(StatRequest req, bool applyPostProcess = true)
         {
-            if (req.Thing is ApparelShieldTowerSecond shield)
-                return shield.def.equippedStatOffsets?.GetStatOffsetFromList(stat) ?? 0f;
+            ThingDef def = (req.Thing?.def ?? req.Def) as ThingDef;
+            if (def != null)
+                return ReadStatBase(def);
+            return stat.defaultBaseValue;
+        }
 
-            return base.GetValueUnfinalized(req, applyPostProcess);
+        private float ReadStatBase(ThingDef def)
+        {
+            if (def.statBases == null) return 0f;
+            for (int i = 0; i < def.statBases.Count; i++)
+                if (def.statBases[i].stat == stat)
+                    return def.statBases[i].value;
+            return 0f;
         }
     }
 }
