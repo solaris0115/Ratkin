@@ -1012,7 +1012,7 @@
 			<StuffEffectMultiplierInsulation_Cold>0.4</StuffEffectMultiplierInsulation_Cold>
 			<StuffEffectMultiplierInsulation_Heat>0.25</StuffEffectMultiplierInsulation_Heat>
 			<ArmorRating_Sharp>0.0</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
 			<EquipDelay>1.8</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>

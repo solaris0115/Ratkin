@@ -22,9 +22,12 @@ namespace NewRatkin
     {
         public CompProperties_ShieldDeflect Props => (CompProperties_ShieldDeflect)props;
 
+        private bool _processingDamage = false;
+
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
+            if (_processingDamage) return;
 
             Pawn pawn = (parent as Apparel)?.Wearer;
             if (pawn == null) return;
@@ -55,21 +58,29 @@ namespace NewRatkin
             float num = Mathf.Max(armorRating - dinfo.ArmorPenetrationInt, 0f);
             bool blocked = Rand.Value < num;
 
-            // 4. 방패 내구도 손상
+            // 4. 방패 내구도 손상 (재진입 방지로 재귀 PostPreApplyDamage 차단)
             float durabilityRatio = blocked ? Props.durabilityDamageOnBlock : Props.durabilityDamageOnPenetrate;
             float durabilityDamage = dinfo.Amount * durabilityRatio;
             if (durabilityDamage > 0f)
             {
-                parent.TakeDamage(new DamageInfo(
-                    dinfo.Def,
-                    durabilityDamage,
-                    dinfo.ArmorPenetrationInt,
-                    dinfo.Angle,
-                    dinfo.Instigator,
-                    null,
-                    dinfo.Weapon,
-                    dinfo.Category,
-                    dinfo.IntendedTarget));
+                _processingDamage = true;
+                try
+                {
+                    parent.TakeDamage(new DamageInfo(
+                        dinfo.Def,
+                        durabilityDamage,
+                        dinfo.ArmorPenetrationInt,
+                        dinfo.Angle,
+                        dinfo.Instigator,
+                        null,
+                        dinfo.Weapon,
+                        dinfo.Category,
+                        dinfo.IntendedTarget));
+                }
+                finally
+                {
+                    _processingDamage = false;
+                }
             }
 
             if (blocked)
@@ -82,10 +93,12 @@ namespace NewRatkin
             if (Prefs.DevMode)
             {
                 string attacker = dinfo.Instigator?.LabelShort ?? "?";
+                string result = blocked ? "✔ 관통실패 (블록)" : "✘ 관통성공 (피해 통과)";
                 Log.Message(
-                    $"[RK-Shield] {pawn.LabelShort} ← {attacker} ({dinfo.Def.defName})\n" +
-                    $"  [1] blockChance={blockChance:F3} → attempt OK\n" +
-                    $"  [2] armor={armorRating:F3} AP={dinfo.ArmorPenetrationInt:F3} num={num:F3} → {(blocked ? "DEFLECT" : "PENETRATED")}");
+                    $"[RK-Shield] {pawn.LabelShort} ← {attacker} | {dinfo.Def.defName} {dinfo.Amount:F1}dmg\n" +
+                    $"  [1] blockChance={blockChance:F3} → 시도 성공\n" +
+                    $"  [2] armor={armorRating:F3}  AP={dinfo.ArmorPenetrationInt:F3}  threshold={num:F3}\n" +
+                    $"  → {result}  내구도손상={durabilityDamage:F2}");
             }
         }
     }

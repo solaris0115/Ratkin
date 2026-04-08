@@ -24,30 +24,10 @@
       font-family: 'Segoe UI', sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding: 24px;
+      padding: 12px 18px;
       min-height: 100vh;
     }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    h1 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
 
     #status {
       font-size: 0.82rem;
@@ -227,12 +207,12 @@
     .q-legendary { background: rgba(255,165,0,0.2); color: var(--heat); }
 
     .section-title {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       padding-left: 2px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 6px;
@@ -298,13 +278,7 @@
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>방패 · 갑옷 방어도 계산기</h1>
-    <div class="subtitle">XML 기반 자동 계산 · 1초마다 갱신</div>
-  </div>
-  <div id="status">로딩 중...</div>
-</header>
+<span id="status" style="display:none;"></span>
 
 <div id="error-area"></div>
 <div id="ap-tooltip"></div>
@@ -312,39 +286,35 @@
 <div class="section-title">방패</div>
 <div id="tables" class="tables-wrapper"></div>
 
-<div class="section-title" style="margin-top:32px;">갑옷 비교</div>
+<div class="section-title" style="margin-top:16px;">갑옷 비교</div>
 <div id="armor-table-wrap" class="tables-wrapper"></div>
 
-<div class="legend-box">
-  <div class="legend-item">
-    <div class="legend-dot" style="background:var(--sharp)"></div> 관통(Sharp)
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background:var(--blunt)"></div> 둔탁(Blunt)
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background:var(--heat)"></div> 열기(Heat)
-  </div>
-  <div class="legend-item" style="margin-left:auto; color:#666; font-size:0.72rem;">
-    공식: (기본값 + 재질파워 × StuffBase) × 품질계수
-  </div>
-</div>
 
 <script>
   // ─── 경로 설정 ─────────────────────────────────────────────────
   const PATHS = {
-    shield       : '../Project/1.6/Defs/ThingsDefs/Apparel_Shield.xml',
-    stats        : '../Project/1.6/Defs/Stats/Stats_ShieldDeflect.xml',
-    stuff        : '../RimworldData/Core/Defs/ThingDefs_Items/Items_Resource_Stuff.xml',
-    leather      : '../RimworldData/Core/Defs/ThingDefs_Items/Items_Resource_Stuff_Leather.xml',
-    armorVarious : '../Project/1.6/Defs/ThingsDefs/Apparel_Various.xml',
-    armorArmor   : '../Project/1.6/Defs/ThingsDefs/Apparel_Armor.xml',
-    armorSpacer  : '../Project/1.6/Defs/ThingsDefs/Apparel_Spacer.xml',
+    shield          : '../Project/1.6/Defs/ThingsDefs/Apparel_Shield.xml',
+    stats           : '../Project/1.6/Defs/Stats/Stats_ShieldDeflect.xml',
+    stuff           : '../RimworldData/Core/Defs/ThingDefs_Items/Items_Resource_Stuff.xml',
+    leather         : '../RimworldData/Core/Defs/ThingDefs_Items/Items_Resource_Stuff_Leather.xml',
+    armorVarious    : '../Project/1.6/Defs/ThingsDefs/Apparel_Various.xml',
+    armorArmor      : '../Project/1.6/Defs/ThingsDefs/Apparel_Armor.xml',
+    armorSpacer     : '../Project/1.6/Defs/ThingsDefs/Apparel_Spacer.xml',
+    vanillaArmor    : '../RimworldData/Core/Defs/ThingDefs_Misc/Apparel_Various.xml',
+    royaltyArmor    : '../RimworldData/Royalty/Defs/ThingDefs_Misc/Apparel_Various.xml',
+    vanillaStats    : '../RimworldData/Core/Defs/Stats/Stats_Apparel.xml',
   };
 
 
-  // ─── 품질 계수 (Stats_ShieldDeflect.xml 에서 읽음, 아래가 폴백값) ─
+  // ─── 품질 계수 폴백 ────────────────────────────────────────────
+  // 방패용 (RK_ShieldArmorBase): legendary 1.60
   const QUALITY_FALLBACK = {
+    normal    : 1.00,
+    masterwork: 1.45,
+    legendary : 1.60,
+  };
+  // 바닐라 갑옷용 (ArmorRatingBase): legendary 1.80
+  const ARMOR_QUALITY_FALLBACK = {
     normal    : 1.00,
     masterwork: 1.45,
     legendary : 1.80,
@@ -389,7 +359,23 @@
       label        : '랫킨 우주 갑옷',
       sourceKey    : 'armorSpacer',
       stuffMultStat: null,
-      stuffTier    : 'fixed',     // 재질 없음
+      stuffTier    : 'fixed',
+    },
+    {
+      defName      : 'Apparel_PlateArmor',
+      label        : '판금 갑옷 (바닐라)',
+      sourceKey    : 'vanillaArmor',
+      stuffMultStat: 'StuffEffectMultiplierArmor',
+      stuffTier    : 'metal',
+    },
+    {
+      defName      : 'Apparel_ArmorCataphract',
+      label        : '카타프락트 아머 (로열티)',
+      sourceKey    : 'royaltyArmor',
+      stuffMultStat: null,
+      stuffTier    : 'fixed',
+      // 부모(ApparelArmorCataphractBase)에서 상속 — HTML은 XML 상속 미지원이라 직접 지정
+      overrideStats: { ArmorRating_Sharp: 1.2, ArmorRating_Blunt: 0.5, ArmorRating_Heat: 0.6 },
     },
   ];
 
@@ -606,9 +592,10 @@
 
       for (const q of QUALITY_LIST) {
         const qf = qualityFactors[q.key];
-        const sharpVal = calcArmor(getStatVal(armor, 'ArmorRating_Sharp'), sp.sharp, stuffBase, qf);
-        const bluntVal = calcArmor(getStatVal(armor, 'ArmorRating_Blunt'), sp.blunt, stuffBase, qf);
-        const heatVal  = calcArmor(getStatVal(armor, 'ArmorRating_Heat'),  sp.heat,  stuffBase, qf);
+        const ov = armorInfo.overrideStats || {};
+        const sharpVal = calcArmor(ov.ArmorRating_Sharp ?? getStatVal(armor, 'ArmorRating_Sharp'), sp.sharp, stuffBase, qf);
+        const bluntVal = calcArmor(ov.ArmorRating_Blunt ?? getStatVal(armor, 'ArmorRating_Blunt'), sp.blunt, stuffBase, qf);
+        const heatVal  = calcArmor(ov.ArmorRating_Heat  ?? getStatVal(armor, 'ArmorRating_Heat'),  sp.heat,  stuffBase, qf);
 
         const td = document.createElement('td');
         td.innerHTML = makeArmorCell(sharpVal, bluntVal, heatVal);
@@ -646,7 +633,7 @@
         return doc;
       };
 
-      const [shieldDoc, statsDoc, stuffDoc, leatherDoc, variousDoc, armorDoc, spacerDoc] = await Promise.all([
+      const [shieldDoc, statsDoc, stuffDoc, leatherDoc, variousDoc, armorDoc, spacerDoc, vanillaArmorDoc, royaltyArmorDoc, vanillaStatsDoc] = await Promise.all([
         fetchXml(PATHS.shield),
         fetchXml(PATHS.stats),
         fetchXml(PATHS.stuff),
@@ -654,11 +641,15 @@
         fetchXml(PATHS.armorVarious),
         fetchXml(PATHS.armorArmor),
         fetchXml(PATHS.armorSpacer),
+        fetchXml(PATHS.vanillaArmor),
+        fetchXml(PATHS.royaltyArmor),
+        fetchXml(PATHS.vanillaStats),
       ]);
 
       // 품질 계수 파싱
+      // XML에서 <li Class="StatPart_Quality"> 속성 선택자로 찾아야 함
       const qf = { ...QUALITY_FALLBACK };
-      const qPart = statsDoc.querySelector('StatPart_Quality');
+      const qPart = statsDoc.querySelector('[Class="StatPart_Quality"]');
       if (qPart) {
         const r = (name, fallback) => {
           const el = qPart.querySelector(name);
@@ -696,13 +687,28 @@
         armorVarious : variousDoc,
         armorArmor   : armorDoc,
         armorSpacer  : spacerDoc,
+        vanillaArmor : vanillaArmorDoc,
+        royaltyArmor : royaltyArmorDoc,
       };
+      // 바닐라 갑옷 품질 계수 파싱 (ArmorRatingBase)
+      const armorQf = { ...ARMOR_QUALITY_FALLBACK };
+      const armorQPart = vanillaStatsDoc.querySelector('[Class="StatPart_Quality"]');
+      if (armorQPart) {
+        const r = (name, fallback) => {
+          const el = armorQPart.querySelector(name);
+          return el ? parseFloat(el.textContent.trim()) : fallback;
+        };
+        armorQf.normal     = r('factorNormal',    ARMOR_QUALITY_FALLBACK.normal);
+        armorQf.masterwork = r('factorMasterwork', ARMOR_QUALITY_FALLBACK.masterwork);
+        armorQf.legendary  = r('factorLegendary',  ARMOR_QUALITY_FALLBACK.legendary);
+      }
+
       const armorItems = ARMOR_COMPARE_ORDER.map(info => ({
         ...info,
         def: findDefByName(sourceDocMap[info.sourceKey], 'ThingDef', info.defName),
       }));
       for (const tierSet of ARMOR_TIER_SETS) {
-        armorWrap.appendChild(buildArmorCompareTable(armorItems, qf, tierSet, stuffDoc, leatherDoc));
+        armorWrap.appendChild(buildArmorCompareTable(armorItems, armorQf, tierSet, stuffDoc, leatherDoc));
       }
 
       const now = new Date().toLocaleTimeString('ko-KR');

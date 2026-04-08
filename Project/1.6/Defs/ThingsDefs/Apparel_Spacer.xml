@@ -149,7 +149,7 @@
 		</apparel>
 		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<costList>
-			<DevilstrandCloth>15</DevilstrandCloth>
+			<!-- <DevilstrandCloth>15</DevilstrandCloth> -->
 			<ComponentIndustrial>3</ComponentIndustrial>
 			<Steel>90</Steel>
 			<Plasteel>20</Plasteel>
@@ -238,7 +238,7 @@
 		</apparel>
 		<colorGenerator Class="ColorGenerator_White" Inherit="False" />
 		<costList>
-			<DevilstrandCloth>15</DevilstrandCloth>
+			<!-- <DevilstrandCloth>15</DevilstrandCloth> -->
 			<ComponentIndustrial>3</ComponentIndustrial>
 			<Steel>45</Steel>
 			<Plasteel>10</Plasteel>
@@ -272,10 +272,10 @@
 			<MaxHitPoints>400</MaxHitPoints>
 			<Mass>10.5</Mass>
 			<ArmorRating_Sharp>1.1</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
-			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.6</ArmorRating_Heat>
 			<Insulation_Cold>70</Insulation_Cold>
-			<Insulation_Heat>70</Insulation_Heat>
+			<Insulation_Heat>45</Insulation_Heat>
 			<EquipDelay>10</EquipDelay>
 			<Flammability>0.1</Flammability>
 		</statBases>
@@ -334,7 +334,7 @@
 			<Flammability>0.1</Flammability>
 			<ArmorRating_Sharp>1.0</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.7</ArmorRating_Blunt>
-			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<ArmorRating_Heat>0.7</ArmorRating_Heat>
 			<Insulation_Cold>10</Insulation_Cold>
 			<Insulation_Heat>50</Insulation_Heat>
 			<EquipDelay>6</EquipDelay>

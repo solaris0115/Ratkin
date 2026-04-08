@@ -55,24 +55,41 @@
 
 
 	<!-- ═══════════════════════════════════════════════════════════
-		 방패 각도 (DeflectAngle)
-		 방패 statBases에 풀각(좌+우 합산, 도)으로 설정.
-		 내부 판정 시 /2 하여 반각으로 변환.
-		 StatWorker가 pawn 조회 시 근접 스킬 배율 적용 후 유효 풀각을 표시.
+		 방패 각도 (DeflectAngle) — Pawn 스탯
+		 방패는 equippedStatOffsets으로 풀각(도)을 제공.
+		 근접 스킬이 offset으로 영향을 주며, postProcessCurve로 로그형 감소 적용.
+		 내부 판정(ApparelShieldTowerSecond)은 /2 하여 반각 사용.
 	     ═══════════════════════════════════════════════════════════ -->
 	<StatDef>
 		<defName>RK_Stat_DeflectAngle</defName>
 		<label>shield deflect angle</label>
-		<description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.\n\nThe effective angle is modified by melee skill level.</description>
+		<description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.\n\nAffected by melee skill: low skill reduces the arc, high skill widens it (with diminishing returns).</description>
 		<workerClass>NewRatkin.StatWorker_ShieldDeflectAngle</workerClass>
-		<category>Apparel</category>
+		<category>PawnCombat</category>
 		<defaultBaseValue>0</defaultBaseValue>
 		<minValue>0</minValue>
 		<hideAtValue>0</hideAtValue>
 		<toStringStyle>FloatOne</toStringStyle>
 		<formatString>{0}°</formatString>
 		<showIfUndefined>false</showIfUndefined>
-		<displayPriorityInCategory>80</displayPriorityInCategory>
+		<skillNeedOffsets>
+			<li Class="SkillNeed_BaseBonus">
+				<skill>Melee</skill>
+				<baseValue>-40</baseValue>
+				<bonusPerLevel>4</bonusPerLevel>
+			</li>
+		</skillNeedOffsets>
+		<postProcessCurve>
+			<points>
+				<li>(0, 0)</li>
+				<li>(50, 48)</li>
+				<li>(90, 90)</li>
+				<li>(140, 138)</li>
+				<li>(180, 162)</li>
+				<li>(220, 180)</li>
+			</points>
+		</postProcessCurve>
+		<displayPriorityInCategory>1400</displayPriorityInCategory>
 	</StatDef>
 
 
@@ -103,13 +120,13 @@
 		<toStringStyle>PercentOne</toStringStyle>
 		<parts>
 			<li Class="StatPart_Quality">
-				<factorAwful>0.60</factorAwful>
-				<factorPoor>0.80</factorPoor>
+				<factorAwful>0.70</factorAwful>
+				<factorPoor>0.85</factorPoor>
 				<factorNormal>1.00</factorNormal>
-				<factorGood>1.15</factorGood>
-				<factorExcellent>1.30</factorExcellent>
-				<factorMasterwork>1.45</factorMasterwork>
-				<factorLegendary>1.80</factorLegendary>
+				<factorGood>1.10</factorGood>
+				<factorExcellent>1.20</factorExcellent>
+				<factorMasterwork>1.35</factorMasterwork>
+				<factorLegendary>1.60</factorLegendary>
 			</li>
 		</parts>
 	</StatDef>

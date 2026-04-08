@@ -1,4 +1,3 @@
-using UnityEngine;
 using Verse;
 using RimWorld;
 
@@ -42,13 +41,11 @@ namespace NewRatkin
             while (angleDiff > 180f) angleDiff -= 360f;
             while (angleDiff < -180f) angleDiff += 360f;
 
-            float deflectAngleFull = shield.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
+            float deflectAngleFull = pawn.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
             if (deflectAngleFull <= 0f)
                 deflectAngleFull = shield.FaceDirectionProps?.deflectAngleHalf ?? 140f;
 
             float deflectAngleHalf = deflectAngleFull * 0.5f;
-            float meleeLevel = pawn.skills?.GetSkill(SkillDefOf.Melee)?.Level ?? 0f;
-            deflectAngleHalf *= ShieldDeflectAngleMeleeCurve.Evaluate(meleeLevel);
 
             return angleDiff >= -deflectAngleHalf && angleDiff <= deflectAngleHalf;
         }

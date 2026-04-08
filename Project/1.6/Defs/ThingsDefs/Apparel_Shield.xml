@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!-- 1. 완전 공통 (완전 부모) -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_ShieldDeflect_Abstract" Abstract="True">
 		<thingClass>NewRatkin.ApparelShieldTowerSecond</thingClass>
 	</ThingDef>
 
-	<!-- 소방패 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Abstract">
-		<defName>RK_WoodenShield</defName>
+	<!-- 2. 정적 데이터 부모 — 소방패 (밸런스·재료 제외) -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Abstract" Name="RK_ApparelAttr_ShieldDeflect_Wooden_Static" Abstract="True">
 		<label>ratkin Wooden Shield</label>
 		<description>소형 목재 방패. 가볍고 기동성이 좋지만 방어력이 낮다.</description>
 		<graphicData>
@@ -18,22 +18,6 @@
 			<researchPrerequisite>RK_Research_Carpentry</researchPrerequisite>
 			<displayPriority>47340</displayPriority>
 		</recipeMaker>
-		<costList>
-			<Steel>25</Steel>
-			<WoodLog>120</WoodLog>
-		</costList>
-		<stuffCategories Inherit="False" />
-		<statBases>
-			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToMake>15000</WorkToMake>
-			<Mass>3</Mass>
-			<Flammability>0.8</Flammability>
-			<EquipDelay>1</EquipDelay>
-			<RK_Stat_Shield_Sharp>0.3</RK_Stat_Shield_Sharp>
-			<RK_Stat_Shield_Blunt>0.3</RK_Stat_Shield_Blunt>
-			<RK_Stat_Shield_Heat>0.1</RK_Stat_Shield_Heat>
-			<RK_Stat_DeflectAngle>140</RK_Stat_DeflectAngle>
-		</statBases>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
@@ -84,9 +68,8 @@
 		</apparel>
 	</ThingDef>
 
-	<!-- 중방패 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Abstract">
-		<defName>RK_HeavyShield</defName>
+	<!-- 2. 정적 데이터 부모 — 중방패 (밸런스·재료 제외) -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Abstract" Name="RK_ApparelAttr_ShieldDeflect_Heavy_Static" Abstract="True">
 		<label>ratkin Heavy Shield</label>
 		<description>중형 금속 방패. 방어력과 기동성의 균형.</description>
 		<graphicData>
@@ -108,29 +91,6 @@
 			</defaultIngredientFilter>
 			<displayPriority>47345</displayPriority>
 		</recipeMaker>
-		<costList>
-			<Steel>50</Steel>
-			<Plasteel>15</Plasteel>
-		</costList>
-		<costStuffCount>120</costStuffCount>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
-		<statBases>
-			<MaxHitPoints>250</MaxHitPoints>
-			<WorkToMake>25000</WorkToMake>
-			<Mass>6</Mass>
-			<Flammability>0.2</Flammability>
-			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStuffBase>0.37</RK_Stat_ShieldStuffBase>
-			<RK_Stat_Shield_Sharp>0.13</RK_Stat_Shield_Sharp>
-			<RK_Stat_Shield_Blunt>0.15</RK_Stat_Shield_Blunt>
-			<RK_Stat_Shield_Heat>0.15</RK_Stat_Shield_Heat>
-			<RK_Stat_DeflectAngle>100</RK_Stat_DeflectAngle>
-		</statBases>
-		<equippedStatOffsets>
-			<MoveSpeed>-0.2</MoveSpeed>
-		</equippedStatOffsets>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
@@ -180,9 +140,8 @@
 		</apparel>
 	</ThingDef>
 
-	<!-- 타워 쉴드 -->
-	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Abstract" Name="RK_ApparelAttr_TowerShield">
-		<defName>RK_TowerShield</defName>
+	<!-- 2. 정적 데이터 부모 — 타워 방패 (밸런스·재료 제외) -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Abstract" Name="RK_ApparelAttr_ShieldDeflect_Tower_Static" Abstract="True">
 		<label>ratkin Tower Shield</label>
 		<description>금속 대방패.</description>
 		<graphicData>
@@ -209,30 +168,6 @@
 			</defaultIngredientFilter>
 			<displayPriority>47350</displayPriority>
 		</recipeMaker>
-		<costList>
-			<Steel>70</Steel>
-			<Plasteel>30</Plasteel>
-			<Uranium>20</Uranium>
-		</costList>
-		<costStuffCount>165</costStuffCount>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
-		<statBases>
-			<MaxHitPoints>400</MaxHitPoints>
-			<WorkToMake>40000</WorkToMake>
-			<Mass>10</Mass>
-			<Flammability>0.2</Flammability>
-			<EquipDelay>1</EquipDelay>
-			<RK_Stat_ShieldStuffBase>0.55</RK_Stat_ShieldStuffBase>
-			<RK_Stat_Shield_Sharp>0.15</RK_Stat_Shield_Sharp>
-			<RK_Stat_Shield_Blunt>0.2</RK_Stat_Shield_Blunt>
-			<RK_Stat_Shield_Heat>0.2</RK_Stat_Shield_Heat>
-			<RK_Stat_DeflectAngle>90</RK_Stat_DeflectAngle>
-		</statBases>
-		<equippedStatOffsets>
-			<MoveSpeed>-0.5</MoveSpeed>
-		</equippedStatOffsets>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
@@ -279,5 +214,86 @@
 				<li>RK_ApparelTag_Shield</li>
 			</tags>
 		</apparel>
+	</ThingDef>
+
+	<!-- 3. 밸런싱 실데이터 — 소방패 -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Wooden_Static">
+		<defName>RK_WoodenShield</defName>
+		<costList>
+			<Steel>25</Steel>
+			<WoodLog>120</WoodLog>
+		</costList>
+		<stuffCategories Inherit="False" />
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>3</Mass>
+			<Flammability>0.8</Flammability>
+			<EquipDelay>1</EquipDelay>
+			<RK_Stat_Shield_Sharp>0.35</RK_Stat_Shield_Sharp>
+			<RK_Stat_Shield_Blunt>0.25</RK_Stat_Shield_Blunt>
+			<RK_Stat_Shield_Heat>0.10</RK_Stat_Shield_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<RK_Stat_DeflectAngle>140</RK_Stat_DeflectAngle>
+		</equippedStatOffsets>
+	</ThingDef>
+
+	<!-- 3. 밸런싱 실데이터 — 중방패 -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Heavy_Static">
+		<defName>RK_HeavyShield</defName>
+		<costList>
+			<Steel>50</Steel>
+			<Plasteel>15</Plasteel>
+		</costList>
+		<costStuffCount>120</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToMake>25000</WorkToMake>
+			<Mass>6</Mass>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>1</EquipDelay>
+			<RK_Stat_ShieldStuffBase>0.45</RK_Stat_ShieldStuffBase>
+			<RK_Stat_Shield_Sharp>0.15</RK_Stat_Shield_Sharp>
+			<RK_Stat_Shield_Blunt>0.30</RK_Stat_Shield_Blunt>
+			<RK_Stat_Shield_Heat>0.15</RK_Stat_Shield_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.2</MoveSpeed>
+			<RK_Stat_ShieldBlockChance>2</RK_Stat_ShieldBlockChance>
+			<RK_Stat_DeflectAngle>100</RK_Stat_DeflectAngle>
+		</equippedStatOffsets>
+	</ThingDef>
+
+	<!-- 3. 밸런싱 실데이터 — 타워 방패 (Odyssey: ParentName=RK_ApparelAttr_TowerShield) -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldDeflect_Tower_Static" Name="RK_ApparelAttr_TowerShield">
+		<defName>RK_TowerShield</defName>
+		<costList>
+			<Steel>70</Steel>
+			<Plasteel>30</Plasteel>
+		</costList>
+		<costStuffCount>160</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>10</Mass>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>1</EquipDelay>
+			<RK_Stat_ShieldStuffBase>0.65</RK_Stat_ShieldStuffBase>
+			<RK_Stat_Shield_Sharp>0.20</RK_Stat_Shield_Sharp>
+			<RK_Stat_Shield_Blunt>0.45</RK_Stat_Shield_Blunt>
+			<RK_Stat_Shield_Heat>0.15</RK_Stat_Shield_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.5</MoveSpeed>
+			<RK_Stat_ShieldBlockChance>4</RK_Stat_ShieldBlockChance>
+			<RK_Stat_DeflectAngle>90</RK_Stat_DeflectAngle>
+		</equippedStatOffsets>
 	</ThingDef>
 </Defs>
