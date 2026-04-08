@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <RK_Ability_LanceCharge.label>돌진</RK_Ability_LanceCharge.label>
-  <RK_Ability_LanceCharge.description>Short-range charge toward a hostile target. After landing, movement speed is reduced but melee hit chance increases.</RK_Ability_LanceCharge.description>
-  <RK_Ability_LanceChargeV2.label>charge</RK_Ability_LanceChargeV2.label>
-  <RK_Ability_LanceChargeV2.description>Short-range charge toward a hostile target (3-5 tiles). Stops at the last clear tile before obstacles. After landing, movement speed is reduced but melee hit chance increases.</RK_Ability_LanceChargeV2.description>
-  <RK_PrayerService.label>prayer service</RK_PrayerService.label>
-  <RK_PrayerService.description>hosting prayer service that makes people calm and peaceful.</RK_PrayerService.description>
+  <RK_Ability_LanceCharge.description>적을 향해 짧은 거리를 돌진합니다. 착지 후 이속이 감소하지만 근접 명중률이 상승합니다.</RK_Ability_LanceCharge.description>
+  <RK_Ability_LanceChargeV2.label>돌진 (v2)</RK_Ability_LanceChargeV2.label>
+  <RK_Ability_LanceChargeV2.description>3~5칸 거리의 적을 향해 돌진합니다. 장애물 직전까지 직선으로 이동합니다. 착지 후 이속이 감소하지만 근접 명중률이 상승합니다.</RK_Ability_LanceChargeV2.description>
+  <RK_PrayerService.label>기도회</RK_PrayerService.label>
+  <RK_PrayerService.description>사람들의 불안을 잠재우고 평화롭게 하는 기도회를 엽니다.</RK_PrayerService.description>
   <RK_Ability_MeleeMoraleBooster.label>morale booster</RK_Ability_MeleeMoraleBooster.label>
   <RK_Ability_MeleeMoraleBooster.description>Boost the morale of everyone nearby.</RK_Ability_MeleeMoraleBooster.description>
   <RK_WyvernFire_Ability.label>wyvern fire</RK_WyvernFire_Ability.label>

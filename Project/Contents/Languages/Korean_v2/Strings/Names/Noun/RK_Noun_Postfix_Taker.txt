@@ -1,2 +1,2 @@
-bringer
-caller
+브링어
+콜러

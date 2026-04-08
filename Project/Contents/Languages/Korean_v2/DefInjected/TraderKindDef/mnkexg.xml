@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <RK_TraderKind_KingdomBulkGoods.label>bulk goods trader</RK_TraderKind_KingdomBulkGoods.label>
   <RK_TraderKind_KingdomDressMerchant.label>dress merchant</RK_TraderKind_KingdomDressMerchant.label>
@@ -6,5 +6,5 @@
   <RK_TraderKind_KingdomExotic.label>exotic goods trader</RK_TraderKind_KingdomExotic.label>
   <RK_TraderKind_KingdomFoodMerchant.label>food merchant</RK_TraderKind_KingdomFoodMerchant.label>
   <RK_TraderKind_KingdomTextileMerchant.label>textile merchant</RK_TraderKind_KingdomTextileMerchant.label>
-  <RK_TraderKind_WanderingTrader.label>ratkin wandering trader</RK_TraderKind_WanderingTrader.label>
+  <RK_TraderKind_WanderingTrader.label>랫킨 유랑 상인</RK_TraderKind_WanderingTrader.label>
 </LanguageData>

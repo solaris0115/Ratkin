@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RK_Hediff_LanceChargeExhaustion.label>lance charge exhaustion</RK_Hediff_LanceChargeExhaustion.label>
-  <RK_Hediff_LanceChargeExhaustion.description>Exhausted from the lance charge. Movement speed reduced.</RK_Hediff_LanceChargeExhaustion.description>
-  <RK_Hediff_LanceChargeFocus.label>lance charge focus</RK_Hediff_LanceChargeFocus.label>
-  <RK_Hediff_LanceChargeFocus.description>Focused from the lance charge. Melee hit chance increased.</RK_Hediff_LanceChargeFocus.description>
-  <RK_Hediff_LanceChargeMomentum.label>lance charge momentum</RK_Hediff_LanceChargeMomentum.label>
-  <RK_Hediff_LanceChargeMomentum.description>Momentum from the lance charge. First melee attack deals 25% more damage, then this effect is consumed.</RK_Hediff_LanceChargeMomentum.description>
+  <RK_Hediff_LanceChargeExhaustion.label>돌진 피로</RK_Hediff_LanceChargeExhaustion.label>
+  <RK_Hediff_LanceChargeExhaustion.description>돌진으로 인한 피로. 이동 속도가 감소합니다.</RK_Hediff_LanceChargeExhaustion.description>
+  <RK_Hediff_LanceChargeFocus.label>돌진 집중</RK_Hediff_LanceChargeFocus.label>
+  <RK_Hediff_LanceChargeFocus.description>돌진으로 인한 집중. 근접 명중률이 상승합니다.</RK_Hediff_LanceChargeFocus.description>
+  <RK_Hediff_LanceChargeMomentum.label>돌진 모멘텀</RK_Hediff_LanceChargeMomentum.label>
+  <RK_Hediff_LanceChargeMomentum.description>돌진으로 얻은 관성. 최초 근접 공격 시 피해량이 25% 증가하며, 공격 후 소멸합니다.</RK_Hediff_LanceChargeMomentum.description>
   <RK_Hediff_MoraleBoosterCaster.label>morale booster</RK_Hediff_MoraleBoosterCaster.label>
   <RK_Hediff_MoraleBoosterCaster.description>This person is using a special ability to boost the morale of everyone nearby. Everyone within an effect radius gains combat bonuses.</RK_Hediff_MoraleBoosterCaster.description>
   <RK_Hediff_MoraleBoosterBuffDefault.label>morale booster</RK_Hediff_MoraleBoosterBuffDefault.label>

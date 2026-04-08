@@ -1,2 +1,2 @@
-sword
-shield
+소드
+실드

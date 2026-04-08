@@ -1,3 +1,3 @@
-Walker
-Strider
-Runner
+워커
+스트라이더
+러너
