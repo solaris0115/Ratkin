@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ReliquaryPilgrims_Ratkin.questContentRules.rulesStrings>
+    <li>pilgrimsArrivedLetterLabel-&gt;[factionAdj] [pilgrimSingularOrPlural] arrived</li>
+    <li>pilgrimsArrivedLetterText-&gt;[questDescription]</li>
+    <li>delayedRewardLetterText-&gt;[pawns0_nameDef] thanks you for letting [pawns0_objective] [andFollowers] venerate [relic_name] on the [venerateDate]. As a reward, [pawns0_nameDef] is sending you the following via drop pod (total value [rewardsMarketValue_money]):\n\n[rewards].</li>
+    <li>pilgrimsLeavingMessage-&gt;[pilgrimsLabelSingularOrPlural] [hasHave] finished venerating [relic_name] and [areIs] now leaving.</li>
+    <li>pilgrimsLeftMessage-&gt;[pilgrimsLabelSingularOrPlural] [hasHave] left the map.</li>
+    <li>areIs(pilgrimCount==1)-&gt;is</li>
+    <li>areIs(pilgrimCount&gt;=2)-&gt;are</li>
+    <li>andFollowers(pilgrimCount==1)-&gt;</li>
+    <li>andFollowers(pilgrimCount==2)-&gt;and the other [faction_pawnSingular]</li>
+    <li>andFollowers(pilgrimCount&gt;=3)-&gt;and the other [faction_pawnsPlural]</li>
+    <li>pilgrimSingularOrPlural(pilgrimCount==1)-&gt;pilgrim</li>
+    <li>pilgrimSingularOrPlural(pilgrimCount&gt;=2)-&gt;pilgrims</li>
+    <li>factionAdj(pilgrimFaction==true)-&gt;</li>
+    <li>factionAdj(pilgrimFaction==false)-&gt;[faction_pawnSingular]</li>
+  </ReliquaryPilgrims_Ratkin.questContentRules.rulesStrings>
+</LanguageData>

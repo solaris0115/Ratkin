@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NamerSettlement_RatkinKingdom.rulePack.rulesStrings>
+    <li>r_name-&gt;[townname_wordgen]</li>
+    <li>r_name-&gt;[townname_fixed]</li>
+    <li>townname_wordgen-&gt;[WordImperial]</li>
+    <li>townname_wordgen-&gt;[WordImperial][townend]</li>
+    <li>townend(p=3)-&gt;ium</li>
+    <li>townend(p=3)-&gt;ior</li>
+    <li>townend(p=3)-&gt;polis</li>
+    <li>townend-&gt;nor</li>
+    <li>townend-&gt;lan</li>
+    <li>townend-&gt;lax</li>
+    <li>townend-&gt;lix</li>
+    <li>townend-&gt;lin</li>
+    <li>townend-&gt;lian</li>
+    <li>townend-&gt;phrum</li>
+    <li>townend-&gt;phor</li>
+    <li>townend-&gt;teor</li>
+    <li>townend-&gt;ople</li>
+    <li>townend-&gt;opium</li>
+    <li>townend-&gt;or</li>
+    <li>townend-&gt;aetor</li>
+    <li>townend-&gt;aeum</li>
+    <li>townend-&gt;aetium</li>
+    <li>townend-&gt;am</li>
+    <li>townend-&gt;aeum</li>
+  </NamerSettlement_RatkinKingdom.rulePack.rulesStrings>
+</LanguageData>

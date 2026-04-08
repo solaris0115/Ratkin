@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LeaderTitleMaker_RatkinKingdom.rulePack.rulesStrings>
+    <li>memeLeaderNoun(priority=1)-&gt;[cultureLeaderNoun]</li>
+    <li>cultureLeaderTitle-&gt;[cultureLeaderAdjective] [cultureLeaderNoun]</li>
+    <li>cultureLeaderTitle(p=3)-&gt;[cultureLeaderNoun]</li>
+    <li>cultureLeaderAdjective-&gt;high</li>
+    <li>cultureLeaderAdjective-&gt;great</li>
+    <li>cultureLeaderAdjective-&gt;noble</li>
+    <li>cultureLeaderAdjective-&gt;royal</li>
+    <li>cultureLeaderAdjective-&gt;grand</li>
+    <li>cultureLeaderAdjective-&gt;first</li>
+    <li>cultureLeaderAdjective-&gt;prime</li>
+    <li>cultureLeaderNoun(p=8)-&gt;King</li>
+    <li>cultureLeaderNoun(p=6)-&gt;Queen</li>
+    <li>cultureLeaderNoun(p=5)-&gt;Duke</li>
+    <li>cultureLeaderNoun(p=5)-&gt;Duchess</li>
+    <li>cultureLeaderNoun(p=4)-&gt;Count</li>
+    <li>cultureLeaderNoun(p=4)-&gt;Countess</li>
+    <li>cultureLeaderNoun(p=3)-&gt;Baron</li>
+    <li>cultureLeaderNoun(p=3)-&gt;Baroness</li>
+    <li>cultureLeaderNoun(p=2)-&gt;Knight</li>
+    <li>cultureLeaderNoun(p=2)-&gt;Lord</li>
+    <li>cultureLeaderNoun(p=2)-&gt;Lady</li>
+    <li>cultureLeaderNoun(p=1)-&gt;Earl</li>
+    <li>cultureLeaderNoun(p=1)-&gt;Marquis</li>
+  </LeaderTitleMaker_RatkinKingdom.rulePack.rulesStrings>
+</LanguageData>

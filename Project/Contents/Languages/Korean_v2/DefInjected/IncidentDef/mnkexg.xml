@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RatkinTunnel_Guerrilla.label>ratkin tunnel guerrilla</RatkinTunnel_Guerrilla.label>
+  <RatkinTunnel_Guerrilla.letterLabel>Commando</RatkinTunnel_Guerrilla.letterLabel>
+  <RatkinTunnel_Guerrilla.letterText>땅속에서 지진파가 감지되었습니다.\n\n고도로 훈련된 랫킨 특수부대가 곧 땅 아래서 올라올것입니다. 그들이 시설을 마비시키기 전에 막어야합니다.</RatkinTunnel_Guerrilla.letterText>
+  <RatkinFollowUpTroops.label>후속 부대</RatkinFollowUpTroops.label>
+  <RatkinFollowUpTroops.letterLabel>후속 부대</RatkinFollowUpTroops.letterLabel>
+  <RatkinFollowUpTroops.letterText>EMP폭발과 함께 외곽에서 대기중이던 후속부대가 진입하였습니다.\n\n방어를 준비해야합니다.</RatkinFollowUpTroops.letterText>
+  <GiveQuest_ReliquaryPilgrims_Ratkin.label>pilgrims arrive</GiveQuest_ReliquaryPilgrims_Ratkin.label>
+  <GiveQuest_ReliquaryPilgrims_Ratkin.letterLabel>pilgrims arrive</GiveQuest_ReliquaryPilgrims_Ratkin.letterLabel>
+  <RK_Incident_VagabondJoin.label>vagabond join</RK_Incident_VagabondJoin.label>
+  <RK_Incident_VagabondJoin.letterLabel>Vagabond</RK_Incident_VagabondJoin.letterLabel>
+  <RK_Incident_VagabondJoin.letterText>위기의 순간, 두 방랑자가 나타났습니다. 그들이 운명을 바꿀 수 있을까요?</RK_Incident_VagabondJoin.letterText>
+  <RK_Incident_PriestJoin.label>ratkin priest join</RK_Incident_PriestJoin.label>
+  <RK_Incident_PriestJoin.letterLabel>랫킨 사제 합류</RK_Incident_PriestJoin.letterLabel>
+  <RK_Incident_PriestJoin.letterText>랫킨 사제 [PAWN_nameDef]이(가) 당신의 정착지에 합류하고자 합니다.\n\n[PAWN_pronoun]은(는) 신앙심이 깊고 치유의 손길을 가진 자입니다.</RK_Incident_PriestJoin.letterText>
+  <RK_Incident_WanderingTrader.label>ratkin wandering trader arrival</RK_Incident_WanderingTrader.label>
+</LanguageData>

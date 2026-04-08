@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ReliquaryPilgrims_Ratkin.questDescriptionRules.rulesStrings>
+    <li>questDescription-&gt;[pilgrimsLabelSingularOrPlural] [hasHave] arrived to venerate the [relic_name].\n\nIf you ensure [pronounSingularOrPlural] [isAre] safe and respected while [pronounSingularOrPlural] [visitSingularOrPlural] the ancient relic, [pronounSingularOrPlural] may offer you a reward.</li>
+    <li>questDescription(pilgrimCount==1,childCount==1,priority=1)-&gt;[pilgrimsLabelSingularOrPlural], a child, [hasHave] arrived to venerate the [relic_name].\n\nIf you ensure [pronounSingularOrPlural] [isAre] safe and respected while [pronounSingularOrPlural] [visitSingularOrPlural] the ancient relic, [pronounSingularOrPlural] may offer you a reward.</li>
+    <li>questDescription(pilgrimCount&gt;=2,childCount==1,priority=1)-&gt;A group of [pilgrimsLabelSingularOrPlural] including a child has arrived to venerate the [relic_name].\n\nIf you ensure [pronounSingularOrPlural] [isAre] safe and respected while [pronounSingularOrPlural] [visitSingularOrPlural] the ancient relic, [pronounSingularOrPlural] may offer you a reward.</li>
+    <li>questDescription(pilgrimCount&gt;=2,childCount&gt;=2,allChildren==false,priority=1)-&gt;A group of [pilgrimsLabelSingularOrPlural] including some children has arrived to venerate the [relic_name].\n\nIf you ensure [pronounSingularOrPlural] [isAre] safe and respected while [pronounSingularOrPlural] [visitSingularOrPlural] the ancient relic, [pronounSingularOrPlural] may offer you a reward.</li>
+    <li>questDescription(pilgrimCount&gt;=2,allChildren==true,priority=1)-&gt;A group of child [pilgrimsLabelSingularOrPlural] has arrived to venerate the [relic_name].\n\nIf you ensure [pronounSingularOrPlural] [isAre] safe and respected while [pronounSingularOrPlural] [visitSingularOrPlural] the ancient relic, [pronounSingularOrPlural] may offer you a reward.</li>
+    <li>isAre(pilgrimCount==1)-&gt;is</li>
+    <li>isAre(pilgrimCount&gt;=2)-&gt;are</li>
+    <li>pronounSingularOrPlural(pilgrimCount==1)-&gt;[pawns0_pronoun]</li>
+    <li>pronounSingularOrPlural(pilgrimCount&gt;=2)-&gt;they</li>
+    <li>visitSingularOrPlural(pilgrimCount==1)-&gt;visits</li>
+    <li>visitSingularOrPlural(pilgrimCount&gt;=2)-&gt;visit</li>
+  </ReliquaryPilgrims_Ratkin.questDescriptionRules.rulesStrings>
+</LanguageData>

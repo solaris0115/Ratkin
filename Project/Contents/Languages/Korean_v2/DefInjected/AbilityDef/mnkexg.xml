@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Ability_LanceCharge.label>돌진</RK_Ability_LanceCharge.label>
+  <RK_Ability_LanceCharge.description>Short-range charge toward a hostile target. After landing, movement speed is reduced but melee hit chance increases.</RK_Ability_LanceCharge.description>
+  <RK_Ability_LanceChargeV2.label>charge</RK_Ability_LanceChargeV2.label>
+  <RK_Ability_LanceChargeV2.description>Short-range charge toward a hostile target (3-5 tiles). Stops at the last clear tile before obstacles. After landing, movement speed is reduced but melee hit chance increases.</RK_Ability_LanceChargeV2.description>
+  <RK_PrayerService.label>prayer service</RK_PrayerService.label>
+  <RK_PrayerService.description>hosting prayer service that makes people calm and peaceful.</RK_PrayerService.description>
+  <RK_Ability_MeleeMoraleBooster.label>morale booster</RK_Ability_MeleeMoraleBooster.label>
+  <RK_Ability_MeleeMoraleBooster.description>Boost the morale of everyone nearby.</RK_Ability_MeleeMoraleBooster.description>
+  <RK_WyvernFire_Ability.label>wyvern fire</RK_WyvernFire_Ability.label>
+  <RK_WyvernFire_Ability.description>Unleash a devastating cone of explosive force.</RK_WyvernFire_Ability.description>
+</LanguageData>

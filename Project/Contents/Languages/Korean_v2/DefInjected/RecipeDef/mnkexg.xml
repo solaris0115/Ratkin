@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Recipe_InstallFakeEar.label>install fake ear</RK_Recipe_InstallFakeEar.label>
+  <RK_Recipe_InstallFakeEar.description>Install a fake ear.</RK_Recipe_InstallFakeEar.description>
+  <RK_Recipe_InstallFakeEar.jobString>Installing fake ear.</RK_Recipe_InstallFakeEar.jobString>
+  <RK_Recipe_InstallFakeTail.label>install fake tail</RK_Recipe_InstallFakeTail.label>
+  <RK_Recipe_InstallFakeTail.description>Install a fake tail.</RK_Recipe_InstallFakeTail.description>
+  <RK_Recipe_InstallFakeTail.jobString>Installing fake tail.</RK_Recipe_InstallFakeTail.jobString>
+  <RK_Recipe_InstallBionicTail.label>install bionic tail</RK_Recipe_InstallBionicTail.label>
+  <RK_Recipe_InstallBionicTail.description>Install a bionic tail.</RK_Recipe_InstallBionicTail.description>
+  <RK_Recipe_InstallBionicTail.jobString>Installing bionic tail.</RK_Recipe_InstallBionicTail.jobString>
+  <Make_RK_Ammo_CannonBall.label>make Ratkin Cannon Shell</Make_RK_Ammo_CannonBall.label>
+  <Make_RK_Ammo_CannonBall.description>Make Ratkin Cannon Shell.</Make_RK_Ammo_CannonBall.description>
+  <Make_RK_Ammo_CannonBall.jobString>Making Ratkin Cannon Shell.</Make_RK_Ammo_CannonBall.jobString>
+  <Make_RK_StrawberryBeer.label>make StrawberryBeer</Make_RK_StrawberryBeer.label>
+  <Make_RK_StrawberryBeer.description>Make StrawberryBeer.</Make_RK_StrawberryBeer.description>
+  <Make_RK_StrawberryBeer.jobString>Making StrawberryBeer.</Make_RK_StrawberryBeer.jobString>
+  <Make_RK_StrawberryBeer_Bulk.label>make StrawberryBeer x4</Make_RK_StrawberryBeer_Bulk.label>
+  <Make_RK_StrawberryBeer_Bulk.description>Make StrawberryBeer.</Make_RK_StrawberryBeer_Bulk.description>
+  <Make_RK_StrawberryBeer_Bulk.jobString>Making StrawberryBeer x4</Make_RK_StrawberryBeer_Bulk.jobString>
+  <RK_Recipe_Hardtack.label>make hardtack</RK_Recipe_Hardtack.label>
+  <RK_Recipe_Hardtack.description>Make hardtack from corn and plant ingredients. A long-lasting food that can be stored for a long time. It is a good food for traveling.</RK_Recipe_Hardtack.description>
+  <RK_Recipe_Hardtack.jobString>Making hardtack.</RK_Recipe_Hardtack.jobString>
+  <RK_Recipe_HardtackBulk.label>make hardtack x4</RK_Recipe_HardtackBulk.label>
+  <RK_Recipe_HardtackBulk.description>Make bulk hardtack from corn and plant ingredients. A long-lasting food that can be stored for a long time. It is a good food for traveling.</RK_Recipe_HardtackBulk.description>
+  <RK_Recipe_HardtackBulk.jobString>Making bulk hardtack.</RK_Recipe_HardtackBulk.jobString>
+</LanguageData>

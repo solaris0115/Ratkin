@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Rakinia.pawnSingular>ratkin</Rakinia.pawnSingular>
+  <Rakinia.pawnsPlural>Ratkins</Rakinia.pawnsPlural>
+  <Rakinia.leaderTitle>monarch</Rakinia.leaderTitle>
+  <Rakinia.label>ratkin kingdom</Rakinia.label>
+  <Rakinia.description>랫킨 왕국입니다. 인간들 눈에 띄지 않도록 숨어서 살고 있으며 농경생활을 위주로 생활하는 비 침략적인 종족입니다.</Rakinia.description>
+  <RK_Faction_Pilgrims.label>pilgrims</RK_Faction_Pilgrims.label>
+  <RK_Faction_Pilgrims.pawnSingular>pilgrim</RK_Faction_Pilgrims.pawnSingular>
+  <RK_Faction_Pilgrims.pawnsPlural>pilgrims</RK_Faction_Pilgrims.pawnsPlural>
+  <RK_Faction_Pilgrims.description>A group of pilgrims seeking to venerate an ancient relic.</RK_Faction_Pilgrims.description>
+  <RK_Faction_Pilgrims.leaderTitle>leader</RK_Faction_Pilgrims.leaderTitle>
+  <RK_Faction_Caravan.label>ratkin caravan</RK_Faction_Caravan.label>
+  <RK_Faction_Caravan.pawnSingular>ratkin trader</RK_Faction_Caravan.pawnSingular>
+  <RK_Faction_Caravan.pawnsPlural>ratkin traders</RK_Faction_Caravan.pawnsPlural>
+  <RK_Faction_Caravan.description>A traveling ratkin merchant caravan trading exotic goods.</RK_Faction_Caravan.description>
+  <RK_Faction_Caravan.leaderTitle>caravan master</RK_Faction_Caravan.leaderTitle>
+  <RK_PlayerFaction.label>New Beginning</RK_PlayerFaction.label>
+  <RK_PlayerFaction.description>당신의 랫킨 정착지입니다. 각자의 사연과 운명이 이곳에 모이게 했습니다.</RK_PlayerFaction.description>
+  <RK_PlayerFaction.pawnSingular>Ratkin</RK_PlayerFaction.pawnSingular>
+  <RK_PlayerFaction.pawnsPlural>colonists</RK_PlayerFaction.pawnsPlural>
+  <RK_PlayerFaction.leaderTitle>leader</RK_PlayerFaction.leaderTitle>
+</LanguageData>

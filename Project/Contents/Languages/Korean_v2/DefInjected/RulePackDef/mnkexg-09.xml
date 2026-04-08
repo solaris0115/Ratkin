@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NamerIdeo_RatkinKingdom.rulePack.rulesStrings>
+    <li>globalAdjective(p=10)-&gt;Chivalrous</li>
+    <li>globalAdjective(p=8)-&gt;Feudal</li>
+    <li>globalAdjective(p=6)-&gt;Noble</li>
+    <li>globalAdjective(p=5)-&gt;Royal</li>
+    <li>globalAdjective(p=4)-&gt;Knightly</li>
+    <li>globalAdjective(p=3)-&gt;Honorable</li>
+  </NamerIdeo_RatkinKingdom.rulePack.rulesStrings>
+</LanguageData>

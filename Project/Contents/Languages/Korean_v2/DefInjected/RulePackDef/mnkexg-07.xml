@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DeityTypeMaker_RatkinKingdom.rulePack.rulesStrings>
+    <li>god(p=3)-&gt;God of Honor</li>
+    <li>god(p=3, gender==Female)-&gt;Goddess of Honor</li>
+    <li>god(p=2)-&gt;God of Chivalry</li>
+    <li>god(p=2, gender==Female)-&gt;Goddess of Chivalry</li>
+    <li>god(p=2)-&gt;God of Valor</li>
+    <li>god(p=2, gender==Female)-&gt;Goddess of Valor</li>
+    <li>god(p=1)-&gt;God of Nobility</li>
+    <li>god(p=1, gender==Female)-&gt;Goddess of Nobility</li>
+  </DeityTypeMaker_RatkinKingdom.rulePack.rulesStrings>
+</LanguageData>

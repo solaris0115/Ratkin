@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ReliquaryPilgrims_Ratkin.questNameRules.rulesStrings>
+    <li>questName(pilgrimCount==1)-&gt;[pilgrimsLabelSingularOrPlural]'s [visitAdj] [visit]</li>
+    <li>questName(pilgrimCount&gt;=2)-&gt;[pilgrimsLabelSingularOrPlural] [visitAdj] [visit]</li>
+    <li>visitAdj(p=6)-&gt;</li>
+    <li>visitAdj-&gt;holy</li>
+    <li>visitAdj-&gt;sacred</li>
+    <li>visitAdj-&gt;spiritual</li>
+    <li>visitAdj-&gt;divine</li>
+    <li>visitAdj-&gt;hallowed</li>
+    <li>visitAdj-&gt;solemn</li>
+    <li>visitAdj-&gt;sacramental</li>
+    <li>visitAdj-&gt;sanctified</li>
+    <li>visit-&gt;visit</li>
+    <li>visit-&gt;pilgrimage</li>
+    <li>visit-&gt;mission</li>
+    <li>visit-&gt;expedition</li>
+    <li>visit-&gt;excursion</li>
+    <li>visit-&gt;tour</li>
+    <li>visit-&gt;veneration</li>
+  </ReliquaryPilgrims_Ratkin.questNameRules.rulesStrings>
+</LanguageData>

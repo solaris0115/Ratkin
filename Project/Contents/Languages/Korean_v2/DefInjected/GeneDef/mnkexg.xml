@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Gene_SmallBody.label>small body</RK_Gene_SmallBody.label>
+  <RK_Gene_SmallBody.labelShortAdj>small-bodied</RK_Gene_SmallBody.labelShortAdj>
+  <RK_Gene_SmallBody.description>Small, compact body that dodges better but hits weaker and carries less.</RK_Gene_SmallBody.description>
+  <RK_Gene_Nimble.label>nimble</RK_Gene_Nimble.label>
+  <RK_Gene_Nimble.labelShortAdj>nimble</RK_Gene_Nimble.labelShortAdj>
+  <RK_Gene_Nimble.description>Carriers of this gene have heightened sensory receptor sensitivity, allowing them to better detect nearby threats and evade close-range attacks more effectively.</RK_Gene_Nimble.description>
+  <RK_Gene_PoorEyesight.label>poor eyesight</RK_Gene_PoorEyesight.label>
+  <RK_Gene_PoorEyesight.labelShortAdj>poor eyesight</RK_Gene_PoorEyesight.labelShortAdj>
+  <RK_Gene_PoorEyesight.description>Carriers of this gene have difficulty with precision aiming, resulting in slower aim time and research speed.</RK_Gene_PoorEyesight.description>
+  <RK_Gene_FragilePain.label>fragile pain threshold</RK_Gene_FragilePain.label>
+  <RK_Gene_FragilePain.labelShortAdj>fragile</RK_Gene_FragilePain.labelShortAdj>
+  <RK_Gene_FragilePain.description>Carriers of this gene have a lower pain shock threshold and go down more easily from injuries.</RK_Gene_FragilePain.description>
+  <RK_Gene_GoodGardening.label>good gardening</RK_Gene_GoodGardening.label>
+  <RK_Gene_GoodGardening.labelShortAdj>green thumb</RK_Gene_GoodGardening.labelShortAdj>
+  <RK_Gene_GoodGardening.description>Carriers of this gene work more efficiently with plants.</RK_Gene_GoodGardening.description>
+  <RK_Skin_PureWhite.label>pure white skin</RK_Skin_PureWhite.label>
+  <RK_Skin_PureWhite.labelShortAdj>snow-white</RK_Skin_PureWhite.labelShortAdj>
+  <RK_Skin_PureWhite.description>Carriers of this gene have pure white skin characteristic of ratkin.</RK_Skin_PureWhite.description>
+  <RK_Gene_LargeEars.label>large round ears</RK_Gene_LargeEars.label>
+  <RK_Gene_LargeEars.labelShortAdj>big-eared</RK_Gene_LargeEars.labelShortAdj>
+  <RK_Gene_LargeEars.description>Carriers of this gene have distinctively large, round ears that give them enhanced hearing and an unmistakably ratkin appearance.</RK_Gene_LargeEars.description>
+  <RK_Gene_LargeEars.symbolPack.prefixSymbols.0.symbol>rat</RK_Gene_LargeEars.symbolPack.prefixSymbols.0.symbol>
+  <RK_Gene_LargeEars.symbolPack.prefixSymbols.1.symbol>squeak</RK_Gene_LargeEars.symbolPack.prefixSymbols.1.symbol>
+  <RK_Gene_LargeEars.symbolPack.prefixSymbols.2.symbol>whisk</RK_Gene_LargeEars.symbolPack.prefixSymbols.2.symbol>
+  <RK_Gene_LargeEars.symbolPack.suffixSymbols.0.symbol>rat</RK_Gene_LargeEars.symbolPack.suffixSymbols.0.symbol>
+  <RK_Gene_LargeEars.symbolPack.suffixSymbols.1.symbol>ear</RK_Gene_LargeEars.symbolPack.suffixSymbols.1.symbol>
+  <RK_Gene_LargeEars.symbolPack.suffixSymbols.2.symbol>squeak</RK_Gene_LargeEars.symbolPack.suffixSymbols.2.symbol>
+  <RK_Gene_ThinTail.label>thin tail</RK_Gene_ThinTail.label>
+  <RK_Gene_ThinTail.labelShortAdj>thin-tailed</RK_Gene_ThinTail.labelShortAdj>
+  <RK_Gene_ThinTail.description>Carriers of this gene have a long, thin, hairless tail that helps with balance and is a signature feature of ratkin anatomy.</RK_Gene_ThinTail.description>
+  <RK_Gene_ThinTail.symbolPack.prefixSymbols.0.symbol>tail</RK_Gene_ThinTail.symbolPack.prefixSymbols.0.symbol>
+  <RK_Gene_ThinTail.symbolPack.prefixSymbols.1.symbol>rat</RK_Gene_ThinTail.symbolPack.prefixSymbols.1.symbol>
+  <RK_Gene_ThinTail.symbolPack.suffixSymbols.0.symbol>tail</RK_Gene_ThinTail.symbolPack.suffixSymbols.0.symbol>
+  <RK_Gene_ThinTail.symbolPack.suffixSymbols.1.symbol>rat</RK_Gene_ThinTail.symbolPack.suffixSymbols.1.symbol>
+  <RK_Gene_CuteFace.label>cute face</RK_Gene_CuteFace.label>
+  <RK_Gene_CuteFace.labelShortAdj>cute-faced</RK_Gene_CuteFace.labelShortAdj>
+  <RK_Gene_CuteFace.description>Carriers of this gene have an adorable facial structure with rounded features, button nose, and expressive eyes that make them appear endearing and approachable.</RK_Gene_CuteFace.description>
+  <RK_Gene_CuteFace.symbolPack.prefixSymbols.0.symbol>cute</RK_Gene_CuteFace.symbolPack.prefixSymbols.0.symbol>
+  <RK_Gene_CuteFace.symbolPack.prefixSymbols.1.symbol>sweet</RK_Gene_CuteFace.symbolPack.prefixSymbols.1.symbol>
+  <RK_Gene_CuteFace.symbolPack.prefixSymbols.2.symbol>charm</RK_Gene_CuteFace.symbolPack.prefixSymbols.2.symbol>
+  <RK_Gene_CuteFace.symbolPack.suffixSymbols.0.symbol>charm</RK_Gene_CuteFace.symbolPack.suffixSymbols.0.symbol>
+  <RK_Gene_CuteFace.symbolPack.suffixSymbols.1.symbol>cute</RK_Gene_CuteFace.symbolPack.suffixSymbols.1.symbol>
+</LanguageData>

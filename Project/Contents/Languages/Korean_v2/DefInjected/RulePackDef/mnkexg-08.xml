@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NamerFestival_RatkinKingdom.rulePack.rulesStrings>
+    <li>festivalName(p=3)-&gt;[chivalryFestival]</li>
+    <li>festivalName(p=2)-&gt;[royalFestival]</li>
+    <li>festivalName(p=1)-&gt;[knightFestival]</li>
+    <li>chivalryFestival-&gt;Festival of Chivalry</li>
+    <li>chivalryFestival-&gt;Chivalry Celebration</li>
+    <li>chivalryFestival-&gt;Honor Festival</li>
+    <li>chivalryFestival-&gt;Valor Jubilee</li>
+    <li>royalFestival-&gt;Royal Festival</li>
+    <li>royalFestival-&gt;Crown Celebration</li>
+    <li>royalFestival-&gt;Noble Fiesta</li>
+    <li>royalFestival-&gt;Court Fair</li>
+    <li>knightFestival-&gt;Knight's Tournament</li>
+    <li>knightFestival-&gt;Knight Festival</li>
+    <li>knightFestival-&gt;Tournament Celebration</li>
+    <li>knightFestival-&gt;Jousting Fair</li>
+  </NamerFestival_RatkinKingdom.rulePack.rulesStrings>
+</LanguageData>

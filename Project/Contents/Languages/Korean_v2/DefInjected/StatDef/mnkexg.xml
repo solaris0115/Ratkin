@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Stat_RangeCoolDown.label>ranged cooldown reduction</RK_Stat_RangeCoolDown.label>
+  <RK_Stat_RangeCoolDown.description>Reduces the cooldown time of ranged weapons. This stat is used by RatHolic Gun spooling effect.</RK_Stat_RangeCoolDown.description>
+  <RK_Stat_RangeCoolDown.formatString>{0} s</RK_Stat_RangeCoolDown.formatString>
+  <RK_Stat_RangeCoolDownMultiplier.label>ranged cooldown multiplier</RK_Stat_RangeCoolDownMultiplier.label>
+  <RK_Stat_RangeCoolDownMultiplier.description>Multiplies the cooldown time of ranged weapons. This stat is used by RatHolic Gun spooling effect with statFactors.</RK_Stat_RangeCoolDownMultiplier.description>
+  <RK_Stat_RangeCoolDownMultiplier.formatString>{0}×</RK_Stat_RangeCoolDownMultiplier.formatString>
+  <RK_Stat_ShieldBlockChance.label>shield block chance</RK_Stat_ShieldBlockChance.label>
+  <RK_Stat_ShieldBlockChance.description>Chance to attempt blocking an incoming attack with this shield.\n\nIf the attempt succeeds, a second armor roll (shield armor vs attacker AP) determines whether the attack is fully deflected.\n\nAffected by melee skill, manipulation, and sight — identical modifiers to melee hit chance.</RK_Stat_ShieldBlockChance.description>
+  <RK_Stat_DeflectAngle.label>shield deflect angle</RK_Stat_DeflectAngle.label>
+  <RK_Stat_DeflectAngle.description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.\n\nAffected by melee skill: low skill reduces the arc, high skill widens it (with diminishing returns).</RK_Stat_DeflectAngle.description>
+  <RK_Stat_DeflectAngle.formatString>{0}°</RK_Stat_DeflectAngle.formatString>
+  <RK_Stat_ShieldStuffBase.label>Shield Armor - Material effect multiplier</RK_Stat_ShieldStuffBase.label>
+  <RK_Stat_Shield_Sharp.label>Shield Armor - Sharp</RK_Stat_Shield_Sharp.label>
+  <RK_Stat_Shield_Sharp.description>Shield protection against sharp damage like bullets, knife stabs, and animal bites.\n\nUsed in the shield deflect formula: higher values increase block chance against sharp attacks.</RK_Stat_Shield_Sharp.description>
+  <RK_Stat_Shield_Blunt.label>Shield Armor - Blunt</RK_Stat_Shield_Blunt.label>
+  <RK_Stat_Shield_Blunt.description>Shield protection against blunt damage like fists, club impacts and rock falls.\n\nUsed in the shield deflect formula: higher values increase block chance against blunt attacks.</RK_Stat_Shield_Blunt.description>
+  <RK_Stat_Shield_Heat.label>Shield Armor - Heat</RK_Stat_Shield_Heat.label>
+  <RK_Stat_Shield_Heat.description>Shield protection against temperature-related damage like burns.\n\nUsed in the shield deflect formula: higher values increase block chance against heat attacks.</RK_Stat_Shield_Heat.description>
+  <RK_Stat_ShieldStamina.label>Shield max stamina</RK_Stat_ShieldStamina.label>
+  <RK_Stat_ShieldStamina.description>The maximum stamina a shield can have at one time.\n\nMore stamina absorbs more damage.</RK_Stat_ShieldStamina.description>
+  <RK_Stat_ShieldStaminaRechargeRate.label>Shield stamina recharge rate</RK_Stat_ShieldStaminaRechargeRate.label>
+  <RK_Stat_ShieldStaminaRechargeRate.description>The rate at which a shield gains stamina as long as it is not broken.</RK_Stat_ShieldStaminaRechargeRate.description>
+  <RK_Stat_ShieldStaminaRechargeRate.formatString>{0}/s</RK_Stat_ShieldStaminaRechargeRate.formatString>
+  <RK_Stat_ShieldReduceDamageMelee.label>Shield melee damage reduction</RK_Stat_ShieldReduceDamageMelee.label>
+  <RK_Stat_ShieldReduceDamageMelee.description>The percentage of melee damage blocked by the shield.</RK_Stat_ShieldReduceDamageMelee.description>
+  <RK_Stat_ShieldReduceDamageRanged.label>Shield ranged damage reduction</RK_Stat_ShieldReduceDamageRanged.label>
+  <RK_Stat_ShieldReduceDamageRanged.description>The percentage of ranged damage blocked by the shield.</RK_Stat_ShieldReduceDamageRanged.description>
+  <RK_Stat_ShieldReduceDamageExplosive.label>Shield explosive damage reduction</RK_Stat_ShieldReduceDamageExplosive.label>
+  <RK_Stat_ShieldReduceDamageExplosive.description>The percentage of explosive damage blocked by the shield.</RK_Stat_ShieldReduceDamageExplosive.description>
+  <RK_Stat_ShieldStaminaOnReset.label>Shield stamina on reset</RK_Stat_ShieldStaminaOnReset.label>
+  <RK_Stat_ShieldStaminaOnReset.description>The amount of stamina restored when the shield recovers from being broken.</RK_Stat_ShieldStaminaOnReset.description>
+  <RK_Stat_ShieldStaminaLossMelee.label>Shield stamina loss per melee damage</RK_Stat_ShieldStaminaLossMelee.label>
+  <RK_Stat_ShieldStaminaLossMelee.description>The amount of shield stamina lost per point of melee damage received.</RK_Stat_ShieldStaminaLossMelee.description>
+  <RK_Stat_ShieldStaminaLossRanged.label>Shield stamina loss per ranged damage</RK_Stat_ShieldStaminaLossRanged.label>
+  <RK_Stat_ShieldStaminaLossRanged.description>The amount of shield stamina lost per point of ranged damage received.</RK_Stat_ShieldStaminaLossRanged.description>
+  <RK_Stat_ShieldStaminaLossExplosive.label>Shield stamina loss per explosive damage</RK_Stat_ShieldStaminaLossExplosive.label>
+  <RK_Stat_ShieldStaminaLossExplosive.description>The amount of shield stamina lost per point of explosive damage received.</RK_Stat_ShieldStaminaLossExplosive.description>
+</LanguageData>
