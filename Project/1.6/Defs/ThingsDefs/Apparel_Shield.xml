@@ -233,10 +233,8 @@
 			<RK_Stat_Shield_Sharp>0.35</RK_Stat_Shield_Sharp>
 			<RK_Stat_Shield_Blunt>0.25</RK_Stat_Shield_Blunt>
 			<RK_Stat_Shield_Heat>0.10</RK_Stat_Shield_Heat>
-		</statBases>
-		<equippedStatOffsets>
 			<RK_Stat_DeflectAngle>140</RK_Stat_DeflectAngle>
-		</equippedStatOffsets>
+		</statBases>
 	</ThingDef>
 
 	<!-- 3. 밸런싱 실데이터 — 중방패 -->
@@ -260,11 +258,11 @@
 			<RK_Stat_Shield_Sharp>0.15</RK_Stat_Shield_Sharp>
 			<RK_Stat_Shield_Blunt>0.30</RK_Stat_Shield_Blunt>
 			<RK_Stat_Shield_Heat>0.15</RK_Stat_Shield_Heat>
+			<RK_Stat_DeflectAngle>100</RK_Stat_DeflectAngle>
 		</statBases>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.2</MoveSpeed>
 			<RK_Stat_ShieldBlockChance>2</RK_Stat_ShieldBlockChance>
-			<RK_Stat_DeflectAngle>100</RK_Stat_DeflectAngle>
 		</equippedStatOffsets>
 	</ThingDef>
 
@@ -289,11 +287,11 @@
 			<RK_Stat_Shield_Sharp>0.20</RK_Stat_Shield_Sharp>
 			<RK_Stat_Shield_Blunt>0.45</RK_Stat_Shield_Blunt>
 			<RK_Stat_Shield_Heat>0.15</RK_Stat_Shield_Heat>
+			<RK_Stat_DeflectAngle>90</RK_Stat_DeflectAngle>
 		</statBases>
 		<equippedStatOffsets>
 			<MoveSpeed>-0.5</MoveSpeed>
 			<RK_Stat_ShieldBlockChance>4</RK_Stat_ShieldBlockChance>
-			<RK_Stat_DeflectAngle>90</RK_Stat_DeflectAngle>
 		</equippedStatOffsets>
 	</ThingDef>
 </Defs>

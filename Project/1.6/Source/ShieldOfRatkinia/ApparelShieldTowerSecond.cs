@@ -41,7 +41,7 @@ namespace NewRatkin
             while (angleDiff > 180f) angleDiff -= 360f;
             while (angleDiff < -180f) angleDiff += 360f;
 
-            float deflectAngleFull = pawn.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
+            float deflectAngleFull = shield.GetStatValue(RatkinStatDefOf.RK_Stat_DeflectAngle);
             if (deflectAngleFull <= 0f)
                 deflectAngleFull = shield.FaceDirectionProps?.deflectAngleHalf ?? 140f;
 

@@ -5,13 +5,17 @@ using Verse;
 namespace NewRatkin
 {
     /// <summary>
-    /// DeflectAngle은 Pawn 스탯. 방패 착용 시에만 표시.
-    /// 실제 값 계산(skillNeedOffsets + postProcessCurve)은 기본 StatWorker가 처리.
+    /// DeflectAngle 표시 Worker.
+    /// - 방패 아이템 창: equippedStatOffsets 원본 값(°) 표시
+    /// - 폰 스탯 창: 방패 착용 시 표시 (pawn 계산값)
     /// </summary>
     public class StatWorker_ShieldDeflectAngle : StatWorker
     {
         public override bool ShouldShowFor(StatRequest req)
         {
+            if (req.Thing is ApparelShieldTowerSecond)
+                return true;
+
             if (!base.ShouldShowFor(req))
                 return false;
 
@@ -19,6 +23,14 @@ namespace NewRatkin
                 return pawn.apparel?.WornApparel.OfType<ApparelShieldTowerSecond>().Any() == true;
 
             return false;
+        }
+
+        public override float GetValueUnfinalized(StatRequest req, bool applyPostProcess = true)
+        {
+            if (req.Thing is ApparelShieldTowerSecond shield)
+                return shield.def.equippedStatOffsets?.GetStatOffsetFromList(stat) ?? 0f;
+
+            return base.GetValueUnfinalized(req, applyPostProcess);
         }
     }
 }
