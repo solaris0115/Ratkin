@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Text;
 using RimWorld;
 using Verse;
 
@@ -33,28 +32,6 @@ namespace NewRatkin
             }
 
             return base.GetValueUnfinalized(req, applyPostProcess);
-        }
-
-        public override string GetExplanationUnfinalized(StatRequest req, ToStringNumberSense numberSense)
-        {
-            if (req.Thing is Pawn pawn)
-            {
-                var shield = GetShield(pawn);
-                if (shield == null)
-                    return base.GetExplanationUnfinalized(req, numberSense);
-
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(base.GetExplanationUnfinalized(req, numberSense).TrimEnd());
-                sb.AppendLine("---");
-                sb.AppendLine("Shield: " + shield.LabelCap);
-                sb.AppendLine($"  Sharp  armor: {shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Sharp).ToStringPercent()}");
-                sb.AppendLine($"  Blunt  armor: {shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Blunt).ToStringPercent()}");
-                sb.AppendLine($"  Heat   armor: {shield.GetStatValue(RatkinStatDefOf.RK_Stat_Shield_Heat).ToStringPercent()}");
-                sb.Append("(Shield armor used in stage-2 armor roll, not here)");
-                return sb.ToString();
-            }
-
-            return base.GetExplanationUnfinalized(req, numberSense);
         }
 
         private static ApparelShieldTowerSecond GetShield(Pawn pawn)

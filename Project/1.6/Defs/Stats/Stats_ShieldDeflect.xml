@@ -17,7 +17,7 @@
 		<minValue>0</minValue>
 		<maxValue>1</maxValue>
 		<hideAtValue>0</hideAtValue>
-		<toStringStyle>PercentZero</toStringStyle>
+		<toStringStyle>PercentOne</toStringStyle>
 		<toStringStyleUnfinalized>FloatOne</toStringStyleUnfinalized>
 		<showIfUndefined>true</showIfUndefined>
 		<noSkillOffset>4</noSkillOffset>
@@ -118,7 +118,21 @@
 	<StatDef ParentName="RK_ShieldArmorBase">
 		<defName>RK_Stat_Shield_Sharp</defName>
 		<label>Shield Armor - Sharp</label>
-		<description>Shield protection against sharp damage like bullets, knife stabs, and animal bites.\n\nUsed in the shield deflect formula: higher values increase block chance against sharp attacks.</description>
+		<description>The protection this shield provides against sharp damage, such as bullets, knife stabs, explosions, and animal bites.
+
+Unlike body armor, a shield either blocks an attack entirely or lets it through completely — there is no partial mitigation or blunt conversion.
+
+When an attack lands within the shield's deflect arc and the block attempt succeeds, the shield's sharp armor rating is compared against the attacker's armor penetration:
+
+    threshold = max(Shield Armor - Attacker AP, 0)
+
+A random roll from 0 to 1 is then made:
+    - If the roll is below the threshold, the attack is fully blocked and deals no damage.
+    - If the roll meets or exceeds the threshold, the attack fully penetrates — the shield has no effect.
+
+For example, with 50% shield armor against an attack with 20% armor penetration, the threshold is 30%. There is a 30% chance of a full block, and a 70% chance of full penetration.
+
+The shield's armor is applied only once, and only when a block attempt has already been triggered.</description>
 		<displayPriorityInCategory>87</displayPriorityInCategory>
 		<parts>
 			<li Class="StatPart_Stuff">
@@ -133,7 +147,21 @@
 	<StatDef ParentName="RK_ShieldArmorBase">
 		<defName>RK_Stat_Shield_Blunt</defName>
 		<label>Shield Armor - Blunt</label>
-		<description>Shield protection against blunt damage like fists, club impacts and rock falls.\n\nUsed in the shield deflect formula: higher values increase block chance against blunt attacks.</description>
+		<description>The protection this shield provides against blunt damage, such as fists, club impacts, and falling rocks.
+
+Unlike body armor, a shield either blocks an attack entirely or lets it through completely — there is no partial mitigation or damage type conversion.
+
+When an attack lands within the shield's deflect arc and the block attempt succeeds, the shield's blunt armor rating is compared against the attacker's armor penetration:
+
+    threshold = max(Shield Armor - Attacker AP, 0)
+
+A random roll from 0 to 1 is then made:
+    - If the roll is below the threshold, the attack is fully blocked and deals no damage.
+    - If the roll meets or exceeds the threshold, the attack fully penetrates — the shield has no effect.
+
+For example, with 40% shield armor against an attack with 10% armor penetration, the threshold is 30%. There is a 30% chance of a full block, and a 70% chance of full penetration.
+
+The shield's armor is applied only once, and only when a block attempt has already been triggered.</description>
 		<displayPriorityInCategory>86</displayPriorityInCategory>
 		<parts>
 			<li Class="StatPart_Stuff">
@@ -148,7 +176,21 @@
 	<StatDef ParentName="RK_ShieldArmorBase">
 		<defName>RK_Stat_Shield_Heat</defName>
 		<label>Shield Armor - Heat</label>
-		<description>Shield protection against temperature-related damage like burns.\n\nUsed in the shield deflect formula: higher values increase block chance against heat attacks.</description>
+		<description>The protection this shield provides against temperature-related damage, such as burns, fire, and heat-based attacks.
+
+Unlike body armor, a shield either blocks an attack entirely or lets it through completely — there is no partial mitigation.
+
+When an attack lands within the shield's deflect arc and the block attempt succeeds, the shield's heat armor rating is compared against the attacker's armor penetration:
+
+    threshold = max(Shield Armor - Attacker AP, 0)
+
+A random roll from 0 to 1 is then made:
+    - If the roll is below the threshold, the attack is fully blocked and deals no damage.
+    - If the roll meets or exceeds the threshold, the attack fully penetrates — the shield has no effect.
+
+For example, with 30% shield armor against an attack with 10% armor penetration, the threshold is 20%. There is a 20% chance of a full block, and an 80% chance of full penetration.
+
+The shield's armor is applied only once, and only when a block attempt has already been triggered.</description>
 		<displayPriorityInCategory>85</displayPriorityInCategory>
 		<parts>
 			<li Class="StatPart_Stuff">
