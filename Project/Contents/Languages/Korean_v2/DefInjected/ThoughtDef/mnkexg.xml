@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RK_PriestPray.stages.0.label>blessed by priest</RK_PriestPray.stages.0.label>
-  <RK_PriestPrayMood.stages.0.label>blessed by priest</RK_PriestPrayMood.stages.0.label>
-  <RK_PriestPrayMood.stages.0.description>I got a blessing, I feel more at ease.</RK_PriestPrayMood.stages.0.description>
-  <RK_AttendPrayerMeetingMood.stages.0.label>attends prayer meeting</RK_AttendPrayerMeetingMood.stages.0.label>
-  <RK_AttendPrayerMeetingMood.stages.0.description>I got a blessing, I feel more at ease.</RK_AttendPrayerMeetingMood.stages.0.description>
+  <RK_PriestPray.stages.0.label>축복 받음</RK_PriestPray.stages.0.label>
+  <RK_PriestPrayMood.stages.0.label>축복 받음</RK_PriestPrayMood.stages.0.label>
+  <RK_PriestPrayMood.stages.0.description>축복기도를 받았어, 마음이 한결 편해지는것 같아.</RK_PriestPrayMood.stages.0.description>
+  <RK_AttendPrayerMeetingMood.stages.0.label>기도회에 참석</RK_AttendPrayerMeetingMood.stages.0.label>
+  <RK_AttendPrayerMeetingMood.stages.0.description>축복기도를 받았어, 마음이 한결 편해지는것 같아.</RK_AttendPrayerMeetingMood.stages.0.description>
 </LanguageData>

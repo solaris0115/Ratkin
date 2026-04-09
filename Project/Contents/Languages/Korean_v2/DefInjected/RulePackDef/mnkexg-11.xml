@@ -5,8 +5,8 @@
     <li>RK_FirstName-&gt;[RK_First_ElfStyle]</li>
     <li>RK_LastName(p=3)-&gt;[RK_Noun_Prefix_Nut]</li>
     <li>RK_LastName(p=2)-&gt;[RK_Noun_Prefix_Iron][RK_Noun_Postfix_Ironlike]</li>
-    <li>RK_LastName-&gt;Royal[RK_Noun_Postfix_BodyPart]</li>
-    <li>RK_LastName-&gt;Wild[RK_Noun_Postfix_BodyPart]</li>
+    <li>RK_LastName-&gt;로열[RK_Noun_Postfix_BodyPart]</li>
+    <li>RK_LastName-&gt;와일드[RK_Noun_Postfix_BodyPart]</li>
     <li>RK_LastName-&gt;[RK_Noun_Prefix_Nature][RK_Noun_Postfix_Mover]</li>
     <li>RK_LastName-&gt;[RK_Last_Single]</li>
   </RatkinKingdomNameUtility.rulePack.rulesStrings>

@@ -5,7 +5,7 @@
   <RK_PrayerService.label>기도회</RK_PrayerService.label>
   <RK_PrayerService.description>사람들의 불안을 잠재우고 평화롭게 하는 기도회를 엽니다.</RK_PrayerService.description>
   <RK_Ability_MeleeMoraleBooster.label>사기 진작</RK_Ability_MeleeMoraleBooster.label>
-  <RK_Ability_MeleeMoraleBooster.description>사기를 복돋아 Boost the morale of everyone nearby.</RK_Ability_MeleeMoraleBooster.description>
+  <RK_Ability_MeleeMoraleBooster.description>주변 모두의 사기를 북돋웁니다.</RK_Ability_MeleeMoraleBooster.description>
   <RK_WyvernFire_Ability.label>용격포</RK_WyvernFire_Ability.label>
   <RK_WyvernFire_Ability.description>부채꼴 범위에 강력한 포격을 가합니다. 탄환을 한발 소모합니다.</RK_WyvernFire_Ability.description>
 </LanguageData>

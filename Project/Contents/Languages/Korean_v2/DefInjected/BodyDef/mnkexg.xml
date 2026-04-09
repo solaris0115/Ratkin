@@ -1,53 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RK_Body_Ratkin.label>ratkin</RK_Body_Ratkin.label>
-  <RK_Body_Ratkin.corePart.parts.6.customLabel>left lung</RK_Body_Ratkin.corePart.parts.6.customLabel>
-  <RK_Body_Ratkin.corePart.parts.7.customLabel>right lung</RK_Body_Ratkin.corePart.parts.7.customLabel>
-  <RK_Body_Ratkin.corePart.parts.8.customLabel>left kidney</RK_Body_Ratkin.corePart.parts.8.customLabel>
-  <RK_Body_Ratkin.corePart.parts.9.customLabel>right kidney</RK_Body_Ratkin.corePart.parts.9.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.customLabel>left shoulder</RK_Body_Ratkin.corePart.parts.12.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.customLabel>right shoulder</RK_Body_Ratkin.corePart.parts.13.customLabel>
-  <RK_Body_Ratkin.corePart.parts.15.customLabel>tail</RK_Body_Ratkin.corePart.parts.15.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.customLabel>left leg</RK_Body_Ratkin.corePart.parts.16.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.customLabel>right leg</RK_Body_Ratkin.corePart.parts.17.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.0.customLabel>left clavicle</RK_Body_Ratkin.corePart.parts.12.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.customLabel>left arm</RK_Body_Ratkin.corePart.parts.12.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.0.customLabel>right clavicle</RK_Body_Ratkin.corePart.parts.13.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.customLabel>right arm</RK_Body_Ratkin.corePart.parts.13.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.0.customLabel>left femur</RK_Body_Ratkin.corePart.parts.16.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.1.customLabel>left tibia</RK_Body_Ratkin.corePart.parts.16.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.2.customLabel>left foot</RK_Body_Ratkin.corePart.parts.16.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.0.customLabel>right femur</RK_Body_Ratkin.corePart.parts.17.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.1.customLabel>right tibia</RK_Body_Ratkin.corePart.parts.17.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.2.customLabel>right foot</RK_Body_Ratkin.corePart.parts.17.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.1.customLabel>left eye</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.2.customLabel>right eye</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.3.customLabel>left ear</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.3.customLabel>
-  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.4.customLabel>right ear</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.4.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.0.customLabel>left humerus</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.1.customLabel>left radius</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.customLabel>left hand</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.0.customLabel>right humerus</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.1.customLabel>right radius</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.customLabel>right hand</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.0.customLabel>left little toe</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.1.customLabel>left fourth toe</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.2.customLabel>left middle toe</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.3.customLabel>left second toe</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.3.customLabel>
-  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.4.customLabel>left big toe</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.4.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.0.customLabel>right little toe</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.1.customLabel>right fourth toe</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.2.customLabel>right middle toe</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.3.customLabel>right second toe</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.3.customLabel>
-  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.4.customLabel>right big toe</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.4.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.0.customLabel>left pinky</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.1.customLabel>left ring finger</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.2.customLabel>left middle finger</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.3.customLabel>left index finger</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.3.customLabel>
-  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.4.customLabel>left thumb</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.4.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.0.customLabel>right pinky</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.0.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.1.customLabel>right ring finger</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.1.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.2.customLabel>right middle finger</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.2.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.3.customLabel>right index finger</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.3.customLabel>
-  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.4.customLabel>right thumb</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.4.customLabel>
+  <RK_Body_Ratkin.label>랫킨</RK_Body_Ratkin.label>
+  <RK_Body_Ratkin.corePart.parts.6.customLabel>왼쪽 폐</RK_Body_Ratkin.corePart.parts.6.customLabel>
+  <RK_Body_Ratkin.corePart.parts.7.customLabel>오른쪽 폐</RK_Body_Ratkin.corePart.parts.7.customLabel>
+  <RK_Body_Ratkin.corePart.parts.8.customLabel>왼쪽 신장</RK_Body_Ratkin.corePart.parts.8.customLabel>
+  <RK_Body_Ratkin.corePart.parts.9.customLabel>오른쪽 신장</RK_Body_Ratkin.corePart.parts.9.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.customLabel>왼쪽 어깨</RK_Body_Ratkin.corePart.parts.12.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.customLabel>오른쪽 어깨</RK_Body_Ratkin.corePart.parts.13.customLabel>
+  <RK_Body_Ratkin.corePart.parts.15.customLabel>꼬리</RK_Body_Ratkin.corePart.parts.15.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.customLabel>왼 다리</RK_Body_Ratkin.corePart.parts.16.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.customLabel>오른 다리</RK_Body_Ratkin.corePart.parts.17.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.0.customLabel>왼쪽 쇄골</RK_Body_Ratkin.corePart.parts.12.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.customLabel>왼팔</RK_Body_Ratkin.corePart.parts.12.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.0.customLabel>오른쪽 쇄골</RK_Body_Ratkin.corePart.parts.13.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.customLabel>오른팔</RK_Body_Ratkin.corePart.parts.13.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.0.customLabel>왼쪽 대퇴골</RK_Body_Ratkin.corePart.parts.16.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.1.customLabel>왼쪽 경골</RK_Body_Ratkin.corePart.parts.16.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.2.customLabel>왼발</RK_Body_Ratkin.corePart.parts.16.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.0.customLabel>오른쪽 대퇴골</RK_Body_Ratkin.corePart.parts.17.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.1.customLabel>오른쪽 경골</RK_Body_Ratkin.corePart.parts.17.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.2.customLabel>오른발</RK_Body_Ratkin.corePart.parts.17.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.1.customLabel>왼쪽 눈</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.2.customLabel>오른쪽 눈</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.3.customLabel>왼쪽 귀</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.3.customLabel>
+  <RK_Body_Ratkin.corePart.parts.11.parts.0.parts.4.customLabel>오른쪽 귀</RK_Body_Ratkin.corePart.parts.11.parts.0.parts.4.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.0.customLabel>왼쪽 상완골</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.1.customLabel>왼쪽 요골</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.customLabel>왼손</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.0.customLabel>오른쪽 상완골</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.1.customLabel>오른쪽 요골</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.customLabel>오른손</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.0.customLabel>왼쪽 새끼발가락</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.1.customLabel>왼쪽 넷째 발가락</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.2.customLabel>왼쪽 가운뎃발가락</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.3.customLabel>왼쪽 둘째 발가락</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.3.customLabel>
+  <RK_Body_Ratkin.corePart.parts.16.parts.2.parts.4.customLabel>왼쪽 엄지발가락</RK_Body_Ratkin.corePart.parts.16.parts.2.parts.4.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.0.customLabel>오른쪽 새끼발가락</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.1.customLabel>오른쪽 넷째 발가락</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.2.customLabel>오른쪽 가운뎃발가락</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.3.customLabel>오른쪽 둘째 발가락</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.3.customLabel>
+  <RK_Body_Ratkin.corePart.parts.17.parts.2.parts.4.customLabel>오른쪽 엄지발가락</RK_Body_Ratkin.corePart.parts.17.parts.2.parts.4.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.0.customLabel>왼쪽 새끼손가락</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.1.customLabel>왼쪽 넷째 손가락</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.2.customLabel>왼쪽 가운뎃손가락</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.3.customLabel>왼쪽 집게손가락</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.3.customLabel>
+  <RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.4.customLabel>왼쪽 엄지손가락</RK_Body_Ratkin.corePart.parts.12.parts.1.parts.2.parts.4.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.0.customLabel>오른쪽 새끼손가락</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.0.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.1.customLabel>오른쪽 넷째 손가락</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.1.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.2.customLabel>오른쪽 가운뎃손가락</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.2.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.3.customLabel>오른쪽 집게손가락</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.3.customLabel>
+  <RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.4.customLabel>오른쪽 엄지손가락</RK_Body_Ratkin.corePart.parts.13.parts.1.parts.2.parts.4.customLabel>
 </LanguageData>

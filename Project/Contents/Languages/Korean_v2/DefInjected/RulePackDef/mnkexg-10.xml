@@ -4,25 +4,25 @@
     <li>memeLeaderNoun(priority=1)-&gt;[cultureLeaderNoun]</li>
     <li>cultureLeaderTitle-&gt;[cultureLeaderAdjective] [cultureLeaderNoun]</li>
     <li>cultureLeaderTitle(p=3)-&gt;[cultureLeaderNoun]</li>
-    <li>cultureLeaderAdjective-&gt;high</li>
-    <li>cultureLeaderAdjective-&gt;great</li>
-    <li>cultureLeaderAdjective-&gt;noble</li>
-    <li>cultureLeaderAdjective-&gt;royal</li>
-    <li>cultureLeaderAdjective-&gt;grand</li>
-    <li>cultureLeaderAdjective-&gt;first</li>
-    <li>cultureLeaderAdjective-&gt;prime</li>
-    <li>cultureLeaderNoun(p=8)-&gt;King</li>
-    <li>cultureLeaderNoun(p=6)-&gt;Queen</li>
-    <li>cultureLeaderNoun(p=5)-&gt;Duke</li>
-    <li>cultureLeaderNoun(p=5)-&gt;Duchess</li>
-    <li>cultureLeaderNoun(p=4)-&gt;Count</li>
-    <li>cultureLeaderNoun(p=4)-&gt;Countess</li>
-    <li>cultureLeaderNoun(p=3)-&gt;Baron</li>
-    <li>cultureLeaderNoun(p=3)-&gt;Baroness</li>
-    <li>cultureLeaderNoun(p=2)-&gt;Knight</li>
-    <li>cultureLeaderNoun(p=2)-&gt;Lord</li>
-    <li>cultureLeaderNoun(p=2)-&gt;Lady</li>
-    <li>cultureLeaderNoun(p=1)-&gt;Earl</li>
-    <li>cultureLeaderNoun(p=1)-&gt;Marquis</li>
+    <li>cultureLeaderAdjective-&gt;고위</li>
+    <li>cultureLeaderAdjective-&gt;위대한</li>
+    <li>cultureLeaderAdjective-&gt;고귀한</li>
+    <li>cultureLeaderAdjective-&gt;왕실의</li>
+    <li>cultureLeaderAdjective-&gt;장엄한</li>
+    <li>cultureLeaderAdjective-&gt;제1</li>
+    <li>cultureLeaderAdjective-&gt;으뜸</li>
+    <li>cultureLeaderNoun(p=8)-&gt;왕</li>
+    <li>cultureLeaderNoun(p=6)-&gt;여왕</li>
+    <li>cultureLeaderNoun(p=5)-&gt;공작</li>
+    <li>cultureLeaderNoun(p=5)-&gt;공작부인</li>
+    <li>cultureLeaderNoun(p=4)-&gt;백작</li>
+    <li>cultureLeaderNoun(p=4)-&gt;백작부인</li>
+    <li>cultureLeaderNoun(p=3)-&gt;남작</li>
+    <li>cultureLeaderNoun(p=3)-&gt;남작부인</li>
+    <li>cultureLeaderNoun(p=2)-&gt;기사</li>
+    <li>cultureLeaderNoun(p=2)-&gt;영주</li>
+    <li>cultureLeaderNoun(p=2)-&gt;귀부인</li>
+    <li>cultureLeaderNoun(p=1)-&gt;백작</li>
+    <li>cultureLeaderNoun(p=1)-&gt;후작</li>
   </LeaderTitleMaker_RatkinKingdom.rulePack.rulesStrings>
 </LanguageData>

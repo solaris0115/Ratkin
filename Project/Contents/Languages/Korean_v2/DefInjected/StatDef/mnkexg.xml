@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RK_Stat_RangeCoolDown.label>ranged cooldown reduction</RK_Stat_RangeCoolDown.label>
-  <RK_Stat_RangeCoolDown.description>Reduces the cooldown time of ranged weapons. This stat is used by RatHolic Gun spooling effect.</RK_Stat_RangeCoolDown.description>
-  <RK_Stat_RangeCoolDown.formatString>{0} s</RK_Stat_RangeCoolDown.formatString>
-  <RK_Stat_RangeCoolDownMultiplier.label>ranged cooldown multiplier</RK_Stat_RangeCoolDownMultiplier.label>
-  <RK_Stat_RangeCoolDownMultiplier.description>Multiplies the cooldown time of ranged weapons. This stat is used by RatHolic Gun spooling effect with statFactors.</RK_Stat_RangeCoolDownMultiplier.description>
+  <RK_Stat_RangeCoolDown.label>원거리 재사용 대기시간 감소</RK_Stat_RangeCoolDown.label>
+  <RK_Stat_RangeCoolDown.description>원거리 무기의 재사용 대기시간을 줄입니다. 이 스탯은 랫홀릭 건의 가열 효과에 사용됩니다.</RK_Stat_RangeCoolDown.description>
+  <RK_Stat_RangeCoolDown.formatString>{0}초</RK_Stat_RangeCoolDown.formatString>
+  <RK_Stat_RangeCoolDownMultiplier.label>원거리 재사용 대기시간 배수</RK_Stat_RangeCoolDownMultiplier.label>
+  <RK_Stat_RangeCoolDownMultiplier.description>원거리 무기의 재사용 대기시간에 배율을 적용합니다. 이 스탯은 랫홀릭 건의 가열 효과에서 스탯 계수와 함께 사용됩니다.</RK_Stat_RangeCoolDownMultiplier.description>
   <RK_Stat_RangeCoolDownMultiplier.formatString>{0}×</RK_Stat_RangeCoolDownMultiplier.formatString>
-  <RK_Stat_ShieldBlockChance.label>shield block chance</RK_Stat_ShieldBlockChance.label>
-  <RK_Stat_ShieldBlockChance.description>Chance to attempt blocking an incoming attack with this shield.\n\nIf the attempt succeeds, a second armor roll (shield armor vs attacker AP) determines whether the attack is fully deflected.\n\nAffected by melee skill, manipulation, and sight — identical modifiers to melee hit chance.</RK_Stat_ShieldBlockChance.description>
-  <RK_Stat_DeflectAngle.label>shield deflect angle</RK_Stat_DeflectAngle.label>
-  <RK_Stat_DeflectAngle.description>The total frontal arc (in degrees) within which this shield can deflect incoming attacks. For example, 90° means ±45° to each side.\n\nAffected by melee skill: low skill reduces the arc, high skill widens it (with diminishing returns).</RK_Stat_DeflectAngle.description>
+  <RK_Stat_ShieldBlockChance.label>방패 방어 시도 확률</RK_Stat_ShieldBlockChance.label>
+  <RK_Stat_ShieldBlockChance.description>이 방패로 들어오는 공격을 막아내려 시도할 확률입니다.\n\n방어 시도가 성공하면, 두 번째 방어 판정(방패 방어도 대 공격자의 방어 관통력)으로 공격을 완전히 튕겨냈는지 결정합니다.\n\n근접 스킬, 조작, 시야의 영향을 받으며, 보정 방식은 근접 명중률과 동일합니다.</RK_Stat_ShieldBlockChance.description>
+  <RK_Stat_DeflectAngle.label>방패 방어 각도</RK_Stat_DeflectAngle.label>
+  <RK_Stat_DeflectAngle.description>이 방패가 들어오는 공격을 막아낼 수 있는 전방 부채꼴 총각도(도 단위)입니다. 예를 들어 90°라면 좌우 각각 45° 범위를 뜻합니다.</RK_Stat_DeflectAngle.description>
   <RK_Stat_DeflectAngle.formatString>{0}°</RK_Stat_DeflectAngle.formatString>
-  <RK_Stat_ShieldStuffBase.label>Shield Armor - Material effect multiplier</RK_Stat_ShieldStuffBase.label>
-  <RK_Stat_Shield_Sharp.label>Shield Armor - Sharp</RK_Stat_Shield_Sharp.label>
-  <RK_Stat_Shield_Sharp.description>Shield protection against sharp damage like bullets, knife stabs, and animal bites.\n\nUsed in the shield deflect formula: higher values increase block chance against sharp attacks.</RK_Stat_Shield_Sharp.description>
-  <RK_Stat_Shield_Blunt.label>Shield Armor - Blunt</RK_Stat_Shield_Blunt.label>
-  <RK_Stat_Shield_Blunt.description>Shield protection against blunt damage like fists, club impacts and rock falls.\n\nUsed in the shield deflect formula: higher values increase block chance against blunt attacks.</RK_Stat_Shield_Blunt.description>
-  <RK_Stat_Shield_Heat.label>Shield Armor - Heat</RK_Stat_Shield_Heat.label>
-  <RK_Stat_Shield_Heat.description>Shield protection against temperature-related damage like burns.\n\nUsed in the shield deflect formula: higher values increase block chance against heat attacks.</RK_Stat_Shield_Heat.description>
-  <RK_Stat_ShieldStamina.label>Shield max stamina</RK_Stat_ShieldStamina.label>
-  <RK_Stat_ShieldStamina.description>The maximum stamina a shield can have at one time.\n\nMore stamina absorbs more damage.</RK_Stat_ShieldStamina.description>
-  <RK_Stat_ShieldStaminaRechargeRate.label>Shield stamina recharge rate</RK_Stat_ShieldStaminaRechargeRate.label>
-  <RK_Stat_ShieldStaminaRechargeRate.description>The rate at which a shield gains stamina as long as it is not broken.</RK_Stat_ShieldStaminaRechargeRate.description>
-  <RK_Stat_ShieldStaminaRechargeRate.formatString>{0}/s</RK_Stat_ShieldStaminaRechargeRate.formatString>
-  <RK_Stat_ShieldReduceDamageMelee.label>Shield melee damage reduction</RK_Stat_ShieldReduceDamageMelee.label>
-  <RK_Stat_ShieldReduceDamageMelee.description>The percentage of melee damage blocked by the shield.</RK_Stat_ShieldReduceDamageMelee.description>
-  <RK_Stat_ShieldReduceDamageRanged.label>Shield ranged damage reduction</RK_Stat_ShieldReduceDamageRanged.label>
-  <RK_Stat_ShieldReduceDamageRanged.description>The percentage of ranged damage blocked by the shield.</RK_Stat_ShieldReduceDamageRanged.description>
-  <RK_Stat_ShieldReduceDamageExplosive.label>Shield explosive damage reduction</RK_Stat_ShieldReduceDamageExplosive.label>
-  <RK_Stat_ShieldReduceDamageExplosive.description>The percentage of explosive damage blocked by the shield.</RK_Stat_ShieldReduceDamageExplosive.description>
-  <RK_Stat_ShieldStaminaOnReset.label>Shield stamina on reset</RK_Stat_ShieldStaminaOnReset.label>
-  <RK_Stat_ShieldStaminaOnReset.description>The amount of stamina restored when the shield recovers from being broken.</RK_Stat_ShieldStaminaOnReset.description>
-  <RK_Stat_ShieldStaminaLossMelee.label>Shield stamina loss per melee damage</RK_Stat_ShieldStaminaLossMelee.label>
-  <RK_Stat_ShieldStaminaLossMelee.description>The amount of shield stamina lost per point of melee damage received.</RK_Stat_ShieldStaminaLossMelee.description>
-  <RK_Stat_ShieldStaminaLossRanged.label>Shield stamina loss per ranged damage</RK_Stat_ShieldStaminaLossRanged.label>
-  <RK_Stat_ShieldStaminaLossRanged.description>The amount of shield stamina lost per point of ranged damage received.</RK_Stat_ShieldStaminaLossRanged.description>
-  <RK_Stat_ShieldStaminaLossExplosive.label>Shield stamina loss per explosive damage</RK_Stat_ShieldStaminaLossExplosive.label>
-  <RK_Stat_ShieldStaminaLossExplosive.description>The amount of shield stamina lost per point of explosive damage received.</RK_Stat_ShieldStaminaLossExplosive.description>
+  <RK_Stat_ShieldStuffBase.label>방패 방어도 - 재료효과 계수</RK_Stat_ShieldStuffBase.label>
+  <RK_Stat_Shield_Sharp.label>방패 방어도 - 날카로움</RK_Stat_Shield_Sharp.label>
+  <RK_Stat_Shield_Sharp.description>총알, 자상, 폭발, 동물에게 물리는 것과 같은 날카로운 피해에 대한 이 방패의 방어력입니다.\n\n신체 방어구와 달리 방패는 공격을 완전히 막아내거나 그대로 통과시키며, 부분 경감이나 둔탁함 피해 전환은 일어나지 않습니다.\n\n공격이 방패의 방어 각도 안으로 들어오고 방어 시도에 성공하면, 방패의 날카로움 방어도를 공격자의 방어 관통력과 비교합니다:\n\n    threshold = max(Shield Armor - Attacker AP, 0)\n\n그 후 0~1 사이의 무작위 판정을 실시합니다:\n    - 결과가 기준값보다 낮으면, 공격은 완전히 막혀 피해를 주지 못합니다.\n    - 결과가 기준값 이상이면, 공격은 완전히 관통하며 방패는 아무 효과가 없습니다.\n\n예를 들어 방패 방어도 50%, 공격자 방어 관통력 20%라면 기준값은 30%입니다. 완전 방어 확률은 30%, 완전 관통 확률은 70%입니다.\n\n방패의 방어도는 방어 시도가 이미 발동된 경우에만 한 번 적용됩니다.</RK_Stat_Shield_Sharp.description>
+  <RK_Stat_Shield_Blunt.label>방패 방어도 - 둔탁함</RK_Stat_Shield_Blunt.label>
+  <RK_Stat_Shield_Blunt.description>주먹, 둔기 타격, 낙석과 같은 둔탁한 피해에 대한 이 방패의 방어력입니다.\n\n신체 방어구와 달리 방패는 공격을 완전히 막아내거나 그대로 통과시키며, 부분 경감이나 피해 유형 전환은 일어나지 않습니다.\n\n공격이 방패의 방어 각도 안으로 들어오고 방어 시도에 성공하면, 방패의 둔탁함 방어도를 공격자의 방어 관통력과 비교합니다:\n\n    threshold = max(Shield Armor - Attacker AP, 0)\n\n그 후 0~1 사이의 무작위 판정을 실시합니다:\n    - 결과가 기준값보다 낮으면, 공격은 완전히 막혀 피해를 주지 못합니다.\n    - 결과가 기준값 이상이면, 공격은 완전히 관통하며 방패는 아무 효과가 없습니다.\n\n예를 들어 방패 방어도 40%, 공격자 방어 관통력 10%라면 기준값은 30%입니다. 완전 방어 확률은 30%, 완전 관통 확률은 70%입니다.\n\n방패의 방어도는 방어 시도가 이미 발동된 경우에만 한 번 적용됩니다.</RK_Stat_Shield_Blunt.description>
+  <RK_Stat_Shield_Heat.label>방패 방어도 - 열기</RK_Stat_Shield_Heat.label>
+  <RK_Stat_Shield_Heat.description>화상, 불, 기타 열 기반 공격과 같은 온도 관련 피해에 대한 이 방패의 방어력입니다.\n\n신체 방어구와 달리 방패는 공격을 완전히 막아내거나 그대로 통과시키며, 부분 경감은 일어나지 않습니다.\n\n공격이 방패의 방어 각도 안으로 들어오고 방어 시도에 성공하면, 방패의 열기 방어도를 공격자의 방어 관통력과 비교합니다:\n\n    threshold = max(Shield Armor - Attacker AP, 0)\n\n그 후 0~1 사이의 무작위 판정을 실시합니다:\n    - 결과가 기준값보다 낮으면, 공격은 완전히 막혀 피해를 주지 못합니다.\n    - 결과가 기준값 이상이면, 공격은 완전히 관통하며 방패는 아무 효과가 없습니다.\n\n예를 들어 방패 방어도 30%, 공격자 방어 관통력 10%라면 기준값은 20%입니다. 완전 방어 확률은 20%, 완전 관통 확률은 80%입니다.\n\n방패의 방어도는 방어 시도가 이미 발동된 경우에만 한 번 적용됩니다.</RK_Stat_Shield_Heat.description>
+  <RK_Stat_ShieldStamina.label>방패 최대 스태미나</RK_Stat_ShieldStamina.label>
+  <RK_Stat_ShieldStamina.description>방패가 한 번에 지닐 수 있는 최대 스태미나입니다.\n\n스태미나가 많을수록 더 많은 피해를 흡수합니다.</RK_Stat_ShieldStamina.description>
+  <RK_Stat_ShieldStaminaRechargeRate.label>방패 스태미나 재충전 속도</RK_Stat_ShieldStaminaRechargeRate.label>
+  <RK_Stat_ShieldStaminaRechargeRate.description>방패가 파손되지 않았을 때 스태미나를 회복하는 속도입니다.</RK_Stat_ShieldStaminaRechargeRate.description>
+  <RK_Stat_ShieldStaminaRechargeRate.formatString>{0}/초</RK_Stat_ShieldStaminaRechargeRate.formatString>
+  <RK_Stat_ShieldReduceDamageMelee.label>방패 근접 피해 감소율</RK_Stat_ShieldReduceDamageMelee.label>
+  <RK_Stat_ShieldReduceDamageMelee.description>방패가 막아내는 근접 피해의 비율입니다.</RK_Stat_ShieldReduceDamageMelee.description>
+  <RK_Stat_ShieldReduceDamageRanged.label>방패 원거리 피해 감소율</RK_Stat_ShieldReduceDamageRanged.label>
+  <RK_Stat_ShieldReduceDamageRanged.description>방패가 막아내는 원거리 피해의 비율입니다.</RK_Stat_ShieldReduceDamageRanged.description>
+  <RK_Stat_ShieldReduceDamageExplosive.label>방패 폭발 피해 감소율</RK_Stat_ShieldReduceDamageExplosive.label>
+  <RK_Stat_ShieldReduceDamageExplosive.description>방패가 막아내는 폭발 피해의 비율입니다.</RK_Stat_ShieldReduceDamageExplosive.description>
+  <RK_Stat_ShieldStaminaOnReset.label>방패 초기 스태미나</RK_Stat_ShieldStaminaOnReset.label>
+  <RK_Stat_ShieldStaminaOnReset.description>방패가 파손 상태에서 회복될 때 복원되는 스태미나량입니다.</RK_Stat_ShieldStaminaOnReset.description>
+  <RK_Stat_ShieldStaminaLossMelee.label>근접 피해당 방패 스태미나 손실</RK_Stat_ShieldStaminaLossMelee.label>
+  <RK_Stat_ShieldStaminaLossMelee.description>근접 피해를 1포인트 받을 때마다 감소하는 방패 스태미나량입니다.</RK_Stat_ShieldStaminaLossMelee.description>
+  <RK_Stat_ShieldStaminaLossRanged.label>원거리 피해당 방패 스태미나 손실</RK_Stat_ShieldStaminaLossRanged.label>
+  <RK_Stat_ShieldStaminaLossRanged.description>원거리 피해를 1포인트 받을 때마다 감소하는 방패 스태미나량입니다.</RK_Stat_ShieldStaminaLossRanged.description>
+  <RK_Stat_ShieldStaminaLossExplosive.label>폭발 피해당 방패 스태미나 손실</RK_Stat_ShieldStaminaLossExplosive.label>
+  <RK_Stat_ShieldStaminaLossExplosive.description>폭발 피해를 1포인트 받을 때마다 감소하는 방패 스태미나량입니다.</RK_Stat_ShieldStaminaLossExplosive.description>
 </LanguageData>
