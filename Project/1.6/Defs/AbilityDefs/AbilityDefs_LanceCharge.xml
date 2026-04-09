@@ -105,6 +105,7 @@
 		</comps>
 		<stages>
 			<li>
+				<becomeVisible>false</becomeVisible>
 				<statOffsets>
 					<MeleeDamageFactor>0.25</MeleeDamageFactor>
 				</statOffsets>
