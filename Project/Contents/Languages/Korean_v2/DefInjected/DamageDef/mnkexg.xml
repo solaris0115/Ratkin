@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RK_EMP.label>전자기 화상</RK_EMP.label>
-  <RK_EMP.deathMessage>{0}(은)는 전기적 화상으로 인해 죽었습니다.</RK_EMP.deathMessage>
-  <RK_Damage_PickaxeStab.label>pickaxe stab</RK_Damage_PickaxeStab.label>
-  <RK_Damage_PickaxeStab.deathMessage>{0} has been stabbed to death.</RK_Damage_PickaxeStab.deathMessage>
+  <RK_EMP.label>EMP</RK_EMP.label>
+  <RK_EMP.deathMessage>{0}(이)가 EMP 폭발에 휩쓸려 죽었습니다.</RK_EMP.deathMessage>
+  <RK_Damage_PickaxeStab.label>곡괭이 찌르기</RK_Damage_PickaxeStab.label>
+  <RK_Damage_PickaxeStab.deathMessage>{0}(이)가 찔려 죽었습니다.</RK_Damage_PickaxeStab.deathMessage>
   <ShockWaveLight.label>충격파</ShockWaveLight.label>
-  <ShockWaveLight.deathMessage>{0} 는 충격파로 박살나버렸습니다.</ShockWaveLight.deathMessage>
+  <ShockWaveLight.deathMessage>{0}(이)가 충격파에 휘말려 죽었습니다.</ShockWaveLight.deathMessage>
   <ShockWaveHeavy.label>충격파</ShockWaveHeavy.label>
-  <ShockWaveHeavy.deathMessage>{0} 는 충격파로 박살나버렸습니다</ShockWaveHeavy.deathMessage>
+  <ShockWaveHeavy.deathMessage>{0}(이)가 충격파에 휘말려 죽었습니다.</ShockWaveHeavy.deathMessage>
   <DemoBomb.label>폭발</DemoBomb.label>
-  <DemoBomb.deathMessage>{0}(은)는 폭발로 인해 죽었습니다.</DemoBomb.deathMessage>
-  <RK_Damage_Torn.label>torn</RK_Damage_Torn.label>
-  <RK_Damage_Torn.deathMessage>{0} has been cut to death.</RK_Damage_Torn.deathMessage>
-  <RK_Damage_BurnTorn.label>torn</RK_Damage_BurnTorn.label>
-  <RK_Damage_BurnTorn.deathMessage>{0} has been cut to death.</RK_Damage_BurnTorn.deathMessage>
-  <RK_Damage_BonusCut.label>bonus cut</RK_Damage_BonusCut.label>
+  <DemoBomb.deathMessage>{0}(이)가 폭발에 휘말려 죽었습니다.</DemoBomb.deathMessage>
+  <RK_Damage_Torn.label>잘림</RK_Damage_Torn.label>
+  <RK_Damage_Torn.deathMessage>{0}(이)가 잘려 죽었습니다.</RK_Damage_Torn.deathMessage>
+  <RK_Damage_BurnTorn.label>잘림</RK_Damage_BurnTorn.label>
+  <RK_Damage_BurnTorn.deathMessage>{0}(이)가 잘려 죽었습니다.</RK_Damage_BurnTorn.deathMessage>
+  <RK_Damage_BonusCut.label>부가 베기</RK_Damage_BonusCut.label>
 </LanguageData>
