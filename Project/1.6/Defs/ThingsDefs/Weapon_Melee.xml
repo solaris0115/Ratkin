@@ -627,7 +627,7 @@
 				<minQualityForArtistic>Excellent</minQualityForArtistic>
 			</li>
 			<li Class="CompProperties_EquippableAbility">
-				<abilityDef>RK_Ability_LanceChargeV2</abilityDef>
+				<abilityDef>RK_Ability_LanceCharge</abilityDef>
 			</li>
 			<li Class="SYS.CompProperties_WeaponExtention">
 				<littleDown>True</littleDown>
