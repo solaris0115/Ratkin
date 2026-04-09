@@ -187,22 +187,22 @@
   <Ratkin_PettyTheft.title>랫킨 좀도둑</Ratkin_PettyTheft.title>
   <Ratkin_PettyTheft.titleShort>좀도둑</Ratkin_PettyTheft.titleShort>
   <Ratkin_PettyTheft.description>[PAWN_nameDef]에게 도둑질은 잠깐 빌리는 것이였습니다. [PAWN_pronoun]의 잦은 도둑질은 결국 꼬리를 밟히게 되었고 노예로 잡혀가던중 습격을 받아 가까스로 탈출할 수 있었습니다.</Ratkin_PettyTheft.description>
-  <RK_Backstory_Gypsy.title>Ratkin gypsy</RK_Backstory_Gypsy.title>
-  <RK_Backstory_Gypsy.titleShort>gypsy</RK_Backstory_Gypsy.titleShort>
+  <RK_Backstory_Gypsy.title>랫킨 집시</RK_Backstory_Gypsy.title>
+  <RK_Backstory_Gypsy.titleShort>집시</RK_Backstory_Gypsy.titleShort>
   <RK_Backstory_Gypsy.description>[PAWN_nameDef]은 유랑 예능인으로 여러 마을을 돌아다니며 노래와 춤으로 생계를 이어왔습니다. [PAWN_pronoun]은 사람들과 어울리는 데 능숙합니다.</RK_Backstory_Gypsy.description>
-  <RK_Backstory_RefugeeSlave.title>Ratkin refugee slave</RK_Backstory_RefugeeSlave.title>
-  <RK_Backstory_RefugeeSlave.titleShort>refugee slave</RK_Backstory_RefugeeSlave.titleShort>
+  <RK_Backstory_RefugeeSlave.title>랫킨 도망친 노예</RK_Backstory_RefugeeSlave.title>
+  <RK_Backstory_RefugeeSlave.titleShort>노예</RK_Backstory_RefugeeSlave.titleShort>
   <RK_Backstory_RefugeeSlave.description>[PAWN_nameDef]은 노예로 지내다가 가까스로 탈출한 피난민입니다. [PAWN_pronoun]은 힘든 노동을 견뎌내며 살아남았습니다.</RK_Backstory_RefugeeSlave.description>
-  <RK_Backstory_WanderingRefugee.title>Ratkin wandering refugee</RK_Backstory_WanderingRefugee.title>
-  <RK_Backstory_WanderingRefugee.titleShort>wandering refugee</RK_Backstory_WanderingRefugee.titleShort>
+  <RK_Backstory_WanderingRefugee.title>랫킨 떠돌이 난민</RK_Backstory_WanderingRefugee.title>
+  <RK_Backstory_WanderingRefugee.titleShort>떠돌이 난민</RK_Backstory_WanderingRefugee.titleShort>
   <RK_Backstory_WanderingRefugee.description>[PAWN_nameDef]은 전쟁으로 고향을 잃고 떠돌아다니는 피난민입니다. [PAWN_pronoun]은 새로운 삶을 위해 정착할 곳을 찾고 있습니다.</RK_Backstory_WanderingRefugee.description>
-  <RK_Backstory_CaravanLeader.title>Ratkin caravan leader</RK_Backstory_CaravanLeader.title>
-  <RK_Backstory_CaravanLeader.titleShort>caravan leader</RK_Backstory_CaravanLeader.titleShort>
-  <RK_Backstory_CaravanLeader.description>[PAWN_nameDef]은 유랑단을 이끄는 상인입니다. [PAWN_pronoun]은 여러 마을을 돌아다니며 물자를 거래하고, 정착을 원하는 이들을 연결해줍니다.</RK_Backstory_CaravanLeader.description>
-  <RK_Backstory_WanderingMercenary.title>Ratkin wandering mercenary</RK_Backstory_WanderingMercenary.title>
-  <RK_Backstory_WanderingMercenary.titleShort>wandering mercenary</RK_Backstory_WanderingMercenary.titleShort>
+  <RK_Backstory_CaravanLeader.title>랫킨 캐러반 상인</RK_Backstory_CaravanLeader.title>
+  <RK_Backstory_CaravanLeader.titleShort>캐러반 상인</RK_Backstory_CaravanLeader.titleShort>
+  <RK_Backstory_CaravanLeader.description>[PAWN_nameDef]은 유랑 상인입니다. [PAWN_pronoun]은 여러 마을을 돌아다니며 물자를 거래하고, 정착을 원하는 이들을 연결해줍니다.</RK_Backstory_CaravanLeader.description>
+  <RK_Backstory_WanderingMercenary.title>랫킨 고용된 용병</RK_Backstory_WanderingMercenary.title>
+  <RK_Backstory_WanderingMercenary.titleShort>고용된 용병</RK_Backstory_WanderingMercenary.titleShort>
   <RK_Backstory_WanderingMercenary.description>[PAWN_nameDef]은 떠돌이 용병으로 여러 전장을 전전해왔습니다. [PAWN_pronoun]은 전투에 능숙하며 새로운 고용주를 찾고 있습니다.</RK_Backstory_WanderingMercenary.description>
-  <RK_Backstory_WandererChild.title>Ratkin wanderer child</RK_Backstory_WandererChild.title>
-  <RK_Backstory_WandererChild.titleShort>wanderer child</RK_Backstory_WandererChild.titleShort>
-  <RK_Backstory_WandererChild.description>[PAWN_nameDef]은 어려서부터 유랑 생활을 해왔습니다. [PAWN_pronoun]은 한곳에 머무르지 못하고 떠돌아다니며 살아남는 법을 배웠습니다.</RK_Backstory_WandererChild.description>
+  <RK_Backstory_WandererChild.title>방랑하는 아이</RK_Backstory_WandererChild.title>
+  <RK_Backstory_WandererChild.titleShort>떠돌이 아이</RK_Backstory_WandererChild.titleShort>
+  <RK_Backstory_WandererChild.description>[PAWN_nameDef]은 어려서부터 정처없는 생활을 해왔습니다. [PAWN_pronoun]은 한곳에 머무르지 못하고 떠돌아다니며 살아남는 법을 배웠습니다.</RK_Backstory_WandererChild.description>
 </LanguageData>
