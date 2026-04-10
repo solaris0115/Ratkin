@@ -177,4 +177,10 @@ namespace NewRatkin
         public static StatDef RK_Stat_Shield_Blunt;
         public static StatDef RK_Stat_Shield_Heat;
     }
+
+    [DefOf]
+    public static class RatkinKeyBindingDefOf
+    {
+        public static KeyBindingDef RK_OpenInfoCard;
+    }
 }
