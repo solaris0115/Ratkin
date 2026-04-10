@@ -30,6 +30,8 @@
 		</statBases>
 		<equippedStatOffsets>
 			<SocialImpact>0.2</SocialImpact>
+			<SlaveSuppressionOffset>-0.3</SlaveSuppressionOffset>
+			<NegotiationAbility>0.3</NegotiationAbility>
 		</equippedStatOffsets>
 		<apparel>
 			<bodyPartGroups>
@@ -85,6 +87,8 @@
 		</statBases>
 		<equippedStatOffsets>
 			<SocialImpact>0.2</SocialImpact>
+			<SlaveSuppressionOffset>-0.3</SlaveSuppressionOffset>
+			<NegotiationAbility>0.3</NegotiationAbility>
 		</equippedStatOffsets>
 		<apparel>
 			<bodyPartGroups>
