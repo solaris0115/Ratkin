@@ -18,6 +18,79 @@ namespace NewRatkin
 			}
 		}
 
+		private HediffDef ResolveBuffHediffForCaster(Pawn caster)
+		{
+			List<MoraleBoosterSocialSkillTier> tiers = this.Props.socialSkillHediffTiers;
+			if (tiers != null && tiers.Count > 0)
+			{
+				int social = caster.skills?.GetSkill(SkillDefOf.Social)?.Level ?? 0;
+				HediffDef best = null;
+				int bestMin = int.MinValue;
+				for (int i = 0; i < tiers.Count; i++)
+				{
+					MoraleBoosterSocialSkillTier tier = tiers[i];
+					if (tier.hediff == null)
+					{
+						continue;
+					}
+					if (tier.minLevel <= social && tier.minLevel > bestMin)
+					{
+						bestMin = tier.minLevel;
+						best = tier.hediff;
+					}
+				}
+				if (best != null)
+				{
+					return best;
+				}
+			}
+			return this.Props.hediff;
+		}
+
+		private bool IsConfiguredBuffDef(HediffDef def)
+		{
+			if (def == null)
+			{
+				return false;
+			}
+			if (this.Props.hediff == def)
+			{
+				return true;
+			}
+			List<MoraleBoosterSocialSkillTier> tiers = this.Props.socialSkillHediffTiers;
+			if (tiers == null)
+			{
+				return false;
+			}
+			for (int i = 0; i < tiers.Count; i++)
+			{
+				if (tiers[i].hediff == def)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		private Hediff FindMoraleBuffFromCaster(Pawn target, Pawn caster)
+		{
+			List<Hediff> hediffs = target.health.hediffSet.hediffs;
+			for (int i = 0; i < hediffs.Count; i++)
+			{
+				Hediff h = hediffs[i];
+				if (!this.IsConfiguredBuffDef(h.def))
+				{
+					continue;
+				}
+				HediffComp_Link link = h.TryGetComp<HediffComp_Link>();
+				if (link != null && link.other == caster)
+				{
+					return h;
+				}
+			}
+			return null;
+		}
+
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			Pawn caster = this.parent.pawn;
@@ -60,10 +133,20 @@ namespace NewRatkin
 				{
 					continue;
 				}
-				Hediff hediff = pawn.health.hediffSet.GetFirstHediffOfDef(this.Props.hediff, false);
+				HediffDef buffDef = this.ResolveBuffHediffForCaster(caster);
+				if (buffDef == null)
+				{
+					continue;
+				}
+				Hediff hediff = this.FindMoraleBuffFromCaster(pawn, caster);
+				if (hediff != null && hediff.def != buffDef)
+				{
+					pawn.health.RemoveHediff(hediff);
+					hediff = null;
+				}
 				if (hediff == null)
 				{
-					hediff = pawn.health.AddHediff(this.Props.hediff, pawn.health.hediffSet.GetBrain(), null, null);
+					hediff = pawn.health.AddHediff(buffDef, pawn.health.hediffSet.GetBrain(), null, null);
 					hediff.Severity = this.Props.initialSeverity;
 					
 					// HediffComp_Link의 other 설정 (필수: other가 null이면 CompShouldRemove가 true가 되어 Hediff가 즉시 제거됨)

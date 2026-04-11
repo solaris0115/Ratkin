@@ -120,17 +120,63 @@
 					<canTargetAnimals>false</canTargetAnimals>
 					<canTargetMechs>false</canTargetMechs>
 				</targetingParameters>
-				<hediff>RK_Hediff_MoraleBoosterBuffDefault</hediff>
+				<!-- 시전자 Social: 0~7 약함, 8~14 보통, 15+ 강함 -->
+				<socialSkillHediffTiers>
+					<li>
+						<minLevel>0</minLevel>
+						<hediff>RK_Hediff_MoraleBoosterBuffWeak</hediff>
+					</li>
+					<li>
+						<minLevel>5</minLevel>
+						<hediff>RK_Hediff_MoraleBoosterBuffDefault</hediff>
+					</li>
+					<li>
+						<minLevel>10</minLevel>
+						<hediff>RK_Hediff_MoraleBoosterBuffStrong</hediff>
+					</li>
+				</socialSkillHediffTiers>
 			</li>
 		</comps>
 		<isBad>false</isBad>
 	</HediffDef>
 
-	<!-- 사기 진작 버프 헤딥 -->
+	<!-- 사기 진작 버프: 시전자 Social 0~7 -->
+	<HediffDef ParentName="CombatRoleAuraBuffHediffBase">
+		<defName>RK_Hediff_MoraleBoosterBuffWeak</defName>
+		<label>morale booster (minor)</label>
+		<description>Someone with limited social presence is using the morale booster ability nearby. This person's combat effectiveness is boosted slightly.</description>
+		<debugLabelExtra>other</debugLabelExtra>
+		<stages>
+			<li>
+				<statOffsets>
+					<PainShockThreshold>0.15</PainShockThreshold>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<!-- 사기 진작 버프: 시전자 Social 8~14 -->
 	<HediffDef ParentName="CombatRoleAuraBuffHediffBase">
 		<defName>RK_Hediff_MoraleBoosterBuffDefault</defName>
 		<label>morale booster</label>
 		<description>Someone is using the morale booster ability nearby, boosting this person's combat effectiveness.</description>
+		<debugLabelExtra>other</debugLabelExtra>
+		<stages>
+			<li>
+				<statOffsets>
+					<MeleeDodgeChance>0.15</MeleeDodgeChance>
+					<MoveSpeed>0.10</MoveSpeed>
+					<PainShockThreshold>0.15</PainShockThreshold>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<!-- 사기 진작 버프: 시전자 Social 15+ -->
+	<HediffDef ParentName="CombatRoleAuraBuffHediffBase">
+		<defName>RK_Hediff_MoraleBoosterBuffStrong</defName>
+		<label>morale booster (major)</label>
+		<description>An inspiring leader is using the morale booster ability nearby, greatly boosting this person's combat effectiveness.</description>
 		<debugLabelExtra>other</debugLabelExtra>
 		<stages>
 			<li>
