@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <RK_Culture_Kingdom.label>왕정</RK_Culture_Kingdom.label>
-  <RK_Culture_Kingdom.description>기사도와 봉건 질서를 중시하는 랫킨 왕국의 문화로, 명예와 귀족적 품격이 크게 존중된다. 기술 수준은 중세에 머물러 있으나, 무역과 고대 유물을 통해 일부 울트라테크 장비에도 손댈 수 있다.</RK_Culture_Kingdom.description>
+  <!-- EN: Virtian -->
+  <RK_Culture_Virtuard.label>버튜어드</RK_Culture_Virtuard.label>
+  <RK_Culture_Virtuard.description>미덕을 중시하는 가치관을 모은 문화입니다.</RK_Culture_Virtuard.description>
 </LanguageData>

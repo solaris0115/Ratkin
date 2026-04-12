@@ -166,7 +166,7 @@
 			</stuffCategoriesToAllow>
 		</apparelStuffFilter>
 		<allowedCultures>
-			<li>RK_Culture_Kingdom</li>
+			<li>RK_Culture_Virtuard</li>
 		</allowedCultures>
 		<xenotypeSet>
 			<xenotypeChances>
@@ -307,7 +307,7 @@
 		</pawnGroupMakers>
 		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
 		<allowedCultures>
-			<li>RK_Culture_Kingdom</li>
+			<li>RK_Culture_Virtuard</li>
 		</allowedCultures>
 	</FactionDef>
 </Defs>

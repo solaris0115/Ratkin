@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<CultureDef>
-		<defName>RK_Culture_Kingdom</defName>
+		<defName>RK_Culture_Virtuard</defName>
 		<label>kingdom</label>
 		<description>A chivalrous feudal kingdom culture of the Ratkin, where honor and nobility are held in high regard. While their technology remains medieval, they have access to some ultratech equipment through trade and ancient relics.</description>
 		<pawnNameMaker>NamerPerson_RatkinKingdom</pawnNameMaker>
