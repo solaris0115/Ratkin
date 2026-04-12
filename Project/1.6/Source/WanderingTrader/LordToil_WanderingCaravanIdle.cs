@@ -17,6 +17,11 @@ namespace NewRatkin
 		{
 		}
 
+		/// <summary>바닐라 LordToil_DefendTraderCaravan과 동일: 대기 중 수면·장기 욕구 충족 비활성.</summary>
+		public override bool AllowSatisfyLongNeeds => false;
+
+		public override float? CustomWakeThreshold => 0.5f;
+
 		public override IEnumerable<FloatMenuOption> ExtraFloatMenuOptions(Pawn clickedPawn, Pawn forPawn)
 		{
 			return GetFloatMenuOptionsForLeader(lord, clickedPawn, forPawn);
