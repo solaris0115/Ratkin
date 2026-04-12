@@ -40,6 +40,8 @@
 			<li Class="NewRatkin.CompProperties_PowerHamsterWheel">
 				<basePowerConsumption>-1</basePowerConsumption>
 				<transmitsPower>true</transmitsPower>
+				<maxPowerOutputWatts>1000</maxPowerOutputWatts>
+				<referenceMoveSpeedForFullOutput>5</referenceMoveSpeedForFullOutput>
 				<!-- 드로잉 오프셋 및 스케일 설정 -->
 				<centerOffset>(0, 0, 0.15)</centerOffset>
 				<centerFacingOffset>0</centerFacingOffset>

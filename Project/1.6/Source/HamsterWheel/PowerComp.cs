@@ -31,6 +31,12 @@ namespace NewRatkin
         public float bladeYOffset = 0.086875f;
         public float bladeZOffset = 0.9f;
         public int bladeCount = 16;
+
+        /// <summary>최대 전력(W). <c>basePowerConsumption</c>의 절댓값(기준 W/스핀 단위)과 곱해져 상한이 된다.</summary>
+        public float maxPowerOutputWatts = 1000f;
+
+        /// <summary>이 <see cref="StatDefOf.MoveSpeed"/> 값일 때 <see cref="maxPowerOutputWatts"/>까지 스핀 상한에 도달한다.</summary>
+        public float referenceMoveSpeedForFullOutput = 4f;
     }
 
     [StaticConstructorOnStartup]
@@ -51,9 +57,6 @@ namespace NewRatkin
 
         private const int BladeCount = 9;
 
-        // 최대 전력 생산량 제한 (W 단위)
-        private const float MaxPowerOutput = 500f;
-
         public bool isUsingNow=false;
         public int currentSpinPower = 0;
         
@@ -65,6 +68,11 @@ namespace NewRatkin
 
         public new CompProperties_PowerHamsterWheel Props => (CompProperties_PowerHamsterWheel)this.props;
 
+        private float EffectiveMaxPowerOutputWatts => Mathf.Max(0f, Props.maxPowerOutputWatts);
+
+        private float EffectiveReferenceMoveSpeed =>
+            Mathf.Max(0.01f, Props.referenceMoveSpeedForFullOutput);
+
         
         protected override float DesiredPowerOutput
         {
@@ -74,7 +82,7 @@ namespace NewRatkin
                 {
                     float powerOutput = base.DesiredPowerOutput * currentSpinPower;
                     // 최대 전력 생산량 제한 적용
-                    return Mathf.Min(powerOutput, MaxPowerOutput);
+                    return Mathf.Min(powerOutput, EffectiveMaxPowerOutputWatts);
                 }
                 else
                 {
@@ -168,11 +176,12 @@ namespace NewRatkin
         public void StartTurnning(float Speed,Pawn user)
         {
             // 최대 전력 생산량 제한을 고려하여 maxSpinPower 계산
-            // MaxPowerOutput = base.DesiredPowerOutput * maxSpinPower
-            // 따라서 maxSpinPower = MaxPowerOutput / base.DesiredPowerOutput
-            float calculatedMaxSpinPower = Speed * 100;
-            float limitedMaxSpinPower = MaxPowerOutput / base.DesiredPowerOutput;
-            maxSpinPower = Mathf.Min(calculatedMaxSpinPower, limitedMaxSpinPower);
+            // maxPowerOutputWatts = base.DesiredPowerOutput * maxSpinPower
+            // 따라서 maxSpinPower = maxPowerOutputWatts / base.DesiredPowerOutput
+            float capWatts = EffectiveMaxPowerOutputWatts;
+            float spinPowerAtFullOutput = capWatts / base.DesiredPowerOutput;
+            float calculatedMaxSpinPower = Speed / EffectiveReferenceMoveSpeed * spinPowerAtFullOutput;
+            maxSpinPower = Mathf.Min(calculatedMaxSpinPower, spinPowerAtFullOutput);
             isUsingNow = true;
             this.user = user;
             //spinPower = 100;
