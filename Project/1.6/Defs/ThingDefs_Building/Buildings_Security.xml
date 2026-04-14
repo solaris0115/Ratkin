@@ -225,8 +225,8 @@
 		</graphicData>
 		<projectileWhenLoaded>RK_Projectile_BallistaBoltNormal</projectileWhenLoaded>
 		<costList>
-			<Steel>15</Steel>
-			<WoodLog>10</WoodLog>
+			<Steel>10</Steel>
+			<WoodLog>20</WoodLog>
 		</costList>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
@@ -271,8 +271,8 @@
 		</graphicData>
 		<projectileWhenLoaded>RK_Projectile_BallistaBoltAP</projectileWhenLoaded>
 		<costList>
-			<Steel>30</Steel>
-			<WoodLog>30</WoodLog>
+			<Steel>20</Steel>
+			<WoodLog>20</WoodLog>
 		</costList>
 		<recipeMaker>
 			<researchPrerequisites>
