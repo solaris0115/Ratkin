@@ -241,7 +241,8 @@
 					<li>RK_HairCorsage</li>
 					<li>RK_HeadBand</li>
 					<li>RK_HeavyShield</li>
-					<li>RK_Apparel_GasMask</li>
+					<li>RK_Mask</li>
+					<li>RK_MaskB</li>
 					<li>RK_Muffler</li>
 					<li>RK_OrderUniform</li>
 					<li>RK_OutdoorBackpack</li>
@@ -279,33 +280,28 @@
 					<li>RK_Cleaver</li>
 					<li>RK_Crossbow</li>
 					<li>RK_Dagger</li>
-					<li>RK_FlechetteRifle</li>
-					<li>RK_FlechetteSniperRifle</li>
 					<li>RK_Fork</li>
-					<li>RK_Halberd</li>
-					<li>RK_HeavyLance</li>
 					<li>RK_Hockey</li>
 					<li>RK_LightLance</li>
 					<li>RK_LongSword</li>
+					<li>RK_Spear</li>
 					<li>RK_Mace</li>
 					<li>RK_MagicWand</li>
 					<li>RK_OneHanded</li>
 					<li>RK_Pickaxe</li>
-					<li>RK_PrototypePulseRifle</li>
+					<li>RK_Weapon_Gunlance</li>
 					<li>RK_Rifle</li>
-					<li>RK_Rifle_line</li>
-					<li>RK_Spear</li>
 					<li>RK_SniperRifle</li>
 					<li>RK_TwoHanded</li>
 					<li>RK_Weapon_Arbalest</li>
 					<li>RK_Weapon_BFR</li>
+					<li>RK_PrototypePulseRifle</li>
 					<li>RK_Weapon_Bolter</li>
-					<li>RK_Weapon_Gunlance</li>
 					<li>RK_Weapon_ProtoChainSword</li>
 					<li>RK_Weapon_ProtoFlameChainSword</li>
 					<li>RK_Weapon_RatHolicGun</li>
-					<li>GunlanceAfterIgnition</li>
-					<li>GunlancePreIgnition</li>
+					<li>RK_Halberd</li>
+					<li>RK_HeavyLance</li>
 				</weaponList>
 				<!-- 종족 연구 제한 제거 - 모든 종족이 랫킨 연구 가능 -->
 				<blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">

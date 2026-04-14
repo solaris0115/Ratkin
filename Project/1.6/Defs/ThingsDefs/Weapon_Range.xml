@@ -308,201 +308,11 @@
 		</projectile>
 	</ThingDef>
 
-	<!-- 라이플 -->
+	<!-- 라이플 (구 플레셰트 라이플 수치·탄 통합) -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_Rifle">
 		<defName>RK_Rifle</defName>
 		<label>ratkin rifle</label>
-		<description>인간의 라이플을 흉내내 만든 라이플입니다. 석궁보다 사거리가 길고 작은 검을 달아두어 유사시 창처럼 사용할 수 있습니다.</description>
-		<graphicData>
-			<texPath>Weapon/RK_Rifle</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<soundInteract>Interact_Rifle</soundInteract>
-		<statBases>
-			<WorkToMake>12000</WorkToMake>
-			<Mass>2</Mass>
-			<AccuracyTouch>0.65</AccuracyTouch>
-			<AccuracyShort>0.85</AccuracyShort>
-			<AccuracyMedium>0.75</AccuracyMedium>
-			<AccuracyLong>0.65</AccuracyLong>
-			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
-		</statBases>
-		<costList>
-			<WoodLog>30</WoodLog>
-			<Steel>55</Steel>
-			<ComponentIndustrial>3</ComponentIndustrial>
-		</costList>
-		<recipeMaker>
-			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
-			<recipeUsers Inherit="false">
-				<li>TableMachining</li>
-			</recipeUsers>
-			<skillRequirements>
-				<Crafting>5</Crafting>
-			</skillRequirements>
-			<displayPriority>78300</displayPriority>
-		</recipeMaker>
-		<verbs>
-			<li>
-				<verbClass>Verb_Shoot</verbClass>
-				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Bullet_RK_Rifle</defaultProjectile>
-				<warmupTime>1.6</warmupTime>
-				<range>33.9</range>
-				<soundCast>Rifle</soundCast>
-				<soundCastTail>GunTail_Heavy</soundCastTail>
-				<muzzleFlashScale>9</muzzleFlashScale>
-			</li>
-		</verbs>
-		<tools>
-			<li>
-				<label>stock</label>
-				<capacities>
-					<li>Blunt</li>
-				</capacities>
-				<power>7</power>
-				<cooldownTime>2</cooldownTime>
-			</li>
-			<li>
-				<label>bayonet</label>
-				<capacities>
-					<li>Cut</li>
-					<li>Stab</li>
-				</capacities>
-				<power>17</power>
-				<cooldownTime>2.3</cooldownTime>
-			</li>
-		</tools>
-		<weaponTags Inherit="false">
-			<li>RK_2TierWeapon</li>
-			<li>RK_Rifle</li>
-			<li>RK_Weapon</li>
-			<li>RK_RangeWeapon</li>
-			<li>RK_LightWeapon</li>
-			<li>RK_Combatant</li>
-			<li>RK_WeaponTag_TwoHand</li>
-			<li>RK_WeaponTag_TwoHandRange</li>
-			<li>RK_WeaponTag_TwoHandRangeAttack</li>
-		</weaponTags>
-		<tradeTags>
-			<li>RK_TradeTag_3TierWeapon</li>
-		</tradeTags>
-		<equippedAngleOffset>45</equippedAngleOffset>
-	</ThingDef>
-	<ThingDef ParentName="BaseBullet">
-		<defName>Bullet_RK_Rifle</defName>
-		<label>rifle bullet</label>
-		<projectile>
-			<damageDef>Bullet</damageDef>
-			<damageAmountBase>16</damageAmountBase>
-			<stoppingPower>1</stoppingPower>
-			<armorPenetrationBase>0.28</armorPenetrationBase>
-			<speed>75</speed>
-		</projectile>
-		<graphicData>
-			<texPath>Things/Projectile/Bullet_small</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-	</ThingDef>
-	<!-- 저격 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_SniperRifle">
-		<defName>RK_SniperRifle</defName>
-		<label>ratkin sniper rifle</label>
-		<description>랫킨식 망원렌즈가 달린 소총입니다. 망원장비덕분에 더 먼곳까지 조준할 수 있지만 가까운 곳을 조준하기 힘듭니다.</description>
-		<graphicData>
-			<texPath>Weapon/RK_SniperRifle</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<soundInteract>Interact_Rifle</soundInteract>
-		<statBases>
-			<WorkToMake>12000</WorkToMake>
-			<Mass>2</Mass>
-			<AccuracyTouch>0.60</AccuracyTouch>
-			<AccuracyShort>0.70</AccuracyShort>
-			<AccuracyMedium>0.85</AccuracyMedium>
-			<AccuracyLong>0.85</AccuracyLong>
-			<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
-		</statBases>
-		<costList>
-			<WoodLog>30</WoodLog>
-			<Steel>60</Steel>
-			<ComponentIndustrial>5</ComponentIndustrial>
-		</costList>
-		<recipeMaker>
-			<researchPrerequisite>RK_Research_ObservationAndSurveying</researchPrerequisite>
-			<recipeUsers Inherit="false">
-				<li>TableMachining</li>
-			</recipeUsers>
-			<skillRequirements>
-				<Crafting>7</Crafting>
-			</skillRequirements>
-			<displayPriority>78310</displayPriority>
-		</recipeMaker>
-		<verbs>
-			<li>
-				<verbClass>Verb_Shoot</verbClass>
-				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Bullet_RK_SniperRifle</defaultProjectile>
-				<warmupTime>1.8</warmupTime>
-				<range>42</range>
-				<soundCast>Rifle</soundCast>
-				<soundCastTail>GunTail_Heavy</soundCastTail>
-				<muzzleFlashScale>9</muzzleFlashScale>
-			</li>
-		</verbs>
-		<tools>
-			<li>
-				<label>stock</label>
-				<capacities>
-					<li>Blunt</li>
-				</capacities>
-				<power>7</power>
-				<cooldownTime>2</cooldownTime>
-			</li>
-			<li>
-				<label>bayonet</label>
-				<capacities>
-					<li>Cut</li>
-					<li>Stab</li>
-				</capacities>
-				<power>17</power>
-				<cooldownTime>2.3</cooldownTime>
-			</li>
-		</tools>
-		<weaponTags Inherit="false">
-			<li>RK_2TierWeapon</li>
-			<li>RK_Rifle</li>
-			<li>RK_Weapon</li>
-			<li>RK_RangeWeapon</li>
-			<li>RK_WeaponTag_TwoHand</li>
-			<li>RK_WeaponTag_TwoHandRange</li>
-			<li>RK_WeaponTag_TwoHandRangeAttack</li>
-		</weaponTags>
-		<tradeTags>
-			<li>RK_TradeTag_3TierWeapon</li>
-		</tradeTags>
-		<equippedAngleOffset>45</equippedAngleOffset>
-	</ThingDef>
-	<ThingDef ParentName="BaseBullet">
-		<defName>Bullet_RK_SniperRifle</defName>
-		<label>rifle bullet</label>
-		<projectile>
-			<damageDef>Bullet</damageDef>
-			<damageAmountBase>18</damageAmountBase>
-			<stoppingPower>1</stoppingPower>
-			<armorPenetrationBase>0.32</armorPenetrationBase>
-			<speed>85</speed>
-		</projectile>
-		<graphicData>
-			<texPath>Things/Projectile/Bullet_small</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-	</ThingDef>
-	<!-- 플레셰트 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_FlechetteRifle">
-		<defName>RK_FlechetteRifle</defName>
-		<label>flechette rifle</label>
-		<description>플레셰트탄을 사용하는 소총입니다. 랫킨식 플레셰트 탄환을 사용하여 사거리를 조금 희생해 관통력을 높였습니다. 유사시 근접전을 할 수 있도록 작은 검 달아두었습니다.</description>
+		<description>인간의 라이플을 흉내내 랫킨식 플레셰트 탄환을 쓰는 소총입니다. 관통력이 높고 석궁보다 사거리가 길며, 작은 검을 달아 유사시 창처럼 사용할 수 있습니다.</description>
 		<graphicData>
 			<texPath>Weapon/RK_Rifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -523,22 +333,22 @@
 			<ComponentIndustrial>5</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>TableMachining</li>
 			</recipeUsers>
 			<skillRequirements>
-				<Crafting>6</Crafting>
+				<Crafting>8</Crafting>
 			</skillRequirements>
-			<displayPriority>78400</displayPriority>
+			<displayPriority>78300</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Bullet_RK_FlechetteRifle</defaultProjectile>
+				<defaultProjectile>Bullet_RK_Rifle</defaultProjectile>
 				<warmupTime>1.6</warmupTime>
-				<range>31</range>
+				<range>33.9</range>
 				<soundCast>FlechetteRifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
@@ -576,6 +386,8 @@
 			<li>RK_Rifle</li>
 			<li>RK_Weapon</li>
 			<li>RK_RangeWeapon</li>
+			<li>RK_LightWeapon</li>
+			<li>RK_Combatant</li>
 			<li>RK_WeaponTag_TwoHand</li>
 			<li>RK_WeaponTag_TwoHandRange</li>
 			<li>RK_WeaponTag_TwoHandRangeAttack</li>
@@ -586,25 +398,25 @@
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
-		<defName>Bullet_RK_FlechetteRifle</defName>
-		<label>flechette</label>
+		<defName>Bullet_RK_Rifle</defName>
+		<label>rifle bullet</label>
 		<projectile>
 			<damageDef>ArrowHighVelocity</damageDef>
-			<damageAmountBase>18</damageAmountBase>
+			<damageAmountBase>17</damageAmountBase>
 			<stoppingPower>1.5</stoppingPower>
 			<armorPenetrationBase>0.38</armorPenetrationBase>
-			<speed>65</speed>
+			<speed>75</speed>
 		</projectile>
 		<graphicData>
 			<texPath>Weapon/RK_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
-	<!-- 플레셰트 저격 라이플 -->
-	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_FlechetteSniperRifle">
-		<defName>RK_FlechetteSniperRifle</defName>
-		<label>flechette sniper rifle</label>
-		<description>플레셰트탄을 사용하는 망원렌즈가 달린 소총입니다. 두꺼운 장갑을 갖춘 적도 확실하게 제압할 수 있습니다. 유사시 근접전을 위해 작은 검을 달아두었습니다.</description>
+	<!-- 저격 라이플 (구 플레셰트 저격 라이플 수치·탄 통합) -->
+	<ThingDef ParentName="RK_IndustrialRangeWeapon" Name="RK_WeaponAttr_SniperRifle">
+		<defName>RK_SniperRifle</defName>
+		<label>ratkin sniper rifle</label>
+		<description>플레셰트 탄환을 쓰는 랫킨식 망원 소총입니다. 두꺼운 장갑을 갖춘 적도 먼 거리에서 제압할 수 있으며, 가까운 거리는 상대적으로 조준하기 어렵습니다. 유사시 근접을 위해 작은 검을 달았습니다.</description>
 		<graphicData>
 			<texPath>Weapon/RK_SniperRifle</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -614,9 +426,9 @@
 			<WorkToMake>12000</WorkToMake>
 			<Mass>2</Mass>
 			<AccuracyTouch>0.60</AccuracyTouch>
-			<AccuracyShort>0.65</AccuracyShort>
-			<AccuracyMedium>0.80</AccuracyMedium>
-			<AccuracyLong>0.80</AccuracyLong>
+			<AccuracyShort>0.70</AccuracyShort>
+			<AccuracyMedium>0.85</AccuracyMedium>
+			<AccuracyLong>0.85</AccuracyLong>
 			<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
 		</statBases>
 		<costList>
@@ -625,22 +437,22 @@
 			<ComponentIndustrial>7</ComponentIndustrial>
 		</costList>
 		<recipeMaker>
-			<!-- <researchPrerequisite>FlechetteBullet</researchPrerequisite> -->
+			<researchPrerequisite>RK_Research_RatkinEngineering</researchPrerequisite>
 			<recipeUsers Inherit="false">
 				<li>TableMachining</li>
 			</recipeUsers>
 			<skillRequirements>
 				<Crafting>8</Crafting>
 			</skillRequirements>
-			<displayPriority>78410</displayPriority>
+			<displayPriority>78310</displayPriority>
 		</recipeMaker>
 		<verbs>
 			<li>
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<defaultProjectile>Bullet_RK_FlechetteSniperRifle</defaultProjectile>
+				<defaultProjectile>Bullet_RK_SniperRifle</defaultProjectile>
 				<warmupTime>1.8</warmupTime>
-				<range>39</range>
+				<range>42</range>
 				<soundCast>FlechetteRifle</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
@@ -688,21 +500,20 @@
 		<equippedAngleOffset>45</equippedAngleOffset>
 	</ThingDef>
 	<ThingDef ParentName="BaseBullet">
-		<defName>Bullet_RK_FlechetteSniperRifle</defName>
-		<label>flechette</label>
+		<defName>Bullet_RK_SniperRifle</defName>
+		<label>rifle bullet</label>
 		<projectile>
 			<damageDef>ArrowHighVelocity</damageDef>
-			<damageAmountBase>20</damageAmountBase>
+			<damageAmountBase>23</damageAmountBase>
 			<stoppingPower>1.5</stoppingPower>
 			<armorPenetrationBase>0.42</armorPenetrationBase>
-			<speed>75</speed>
+			<speed>85</speed>
 		</projectile>
 		<graphicData>
 			<texPath>Weapon/RK_Bolt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
-	<!-- 2티어 샷건: RK_Rifle_line·RK_Bullet_SectorShot_Dummy 레거시는 ThingsDefs/Weapon_Range_Legacy.xml -->
 	<!-- 소드오프: HE 탄 복제 Bullet_RK_Weapon_SawedOff_HE (값 커스터용) -->
 	<ThingDef ParentName="RK_IndustrialRangeWeapon">
 		<defName>RK_Weapon_SawedOff</defName>
