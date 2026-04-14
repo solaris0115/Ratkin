@@ -135,18 +135,30 @@ namespace NewRatkin
             {
                 bomb.TryGetComp<Comp_Emp>().eventPoint = Data.eventPoint;
             }
-            MinifiedThing minified = bomb.MakeMinified();
-            data.minifiedEmpBomb = minified;
-            IntVec3 intVec3 = CellFinder.RandomClosewalkCellNear(Data.defendCenter, Map, 1);
-            GenSpawn.Spawn(minified, intVec3, Map);
-            IntVec3 bluePrintPosition = CellFinder.RandomClosewalkCellNear(intVec3, Map, 5);
-            Blueprint b =  GenConstruct.PlaceBlueprintForInstall(minified, bluePrintPosition, Map,Rot4.North, Find.FactionManager.FirstFactionOfDef(RatkinFactionDefOf.Rakinia));
-            data.blueprint= b;
+            IntVec3 spawnPos = CellFinder.RandomClosewalkCellNear(Data.defendCenter, Map, 5);
+            GenSpawn.Spawn(bomb, spawnPos, Map, Rot4.North);
+            data.minifiedEmpBomb = null;
+            data.blueprint = null;
+            data.empIsSpawned = true;
             data.desiredBuilderFraction = BuilderCountFraction.RandomInRange;
         }
         public override void UpdateAllDuties()
         {
             LordToilData_DefendBomb data = Data;
+            if (data.EmpBomb != null && data.EmpBomb.Spawned)
+            {
+                bool waitingForInstall = (data.minifiedEmpBomb != null && !data.minifiedEmpBomb.Destroyed)
+                    || (data.blueprint != null && !data.blueprint.Destroyed);
+                if (!waitingForInstall)
+                {
+                    rememberedDuties.Clear();
+                    for (int i = 0; i < lord.ownedPawns.Count; i++)
+                    {
+                        SetAsDefender(lord.ownedPawns[i]);
+                    }
+                    return;
+                }
+            }
             if (lord.ticksInToil < 450)
             {
                 for (int i = 0; i < lord.ownedPawns.Count; i++)
