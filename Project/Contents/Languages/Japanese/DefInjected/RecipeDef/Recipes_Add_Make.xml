@@ -124,9 +124,13 @@
   <Make_RK_BulletProofHelmet.description>ラットキン軍用ヘルメットを作る。</Make_RK_BulletProofHelmet.description>
   <Make_RK_BulletProofHelmet.jobString>ラットキン軍用ヘルメットを作成中</Make_RK_BulletProofHelmet.jobString>
 
-  <Make_RK_Apparel_GasMask.label>RK ガスマスクを作る</Make_RK_Apparel_GasMask.label>
-  <Make_RK_Apparel_GasMask.description>RK ガスマスクを作る。</Make_RK_Apparel_GasMask.description>
-  <Make_RK_Apparel_GasMask.jobString>RK ガスマスクを作成中</Make_RK_Apparel_GasMask.jobString>
+  <Make_RK_Mask.label>RK ガスマスクを作る</Make_RK_Mask.label>
+  <Make_RK_Mask.description>RK ガスマスクを作る。</Make_RK_Mask.description>
+  <Make_RK_Mask.jobString>RK ガスマスクを作成中</Make_RK_Mask.jobString>
+
+  <Make_RK_MaskB.label>RK ガスマスクを作る</Make_RK_MaskB.label>
+  <Make_RK_MaskB.description>RK ガスマスクを作る。</Make_RK_MaskB.description>
+  <Make_RK_MaskB.jobString>RK ガスマスクを作成中</Make_RK_MaskB.jobString>
 
   <Make_RK_FlatColorCoat.label>フラットカラーコートを作る</Make_RK_FlatColorCoat.label>
   <Make_RK_FlatColorCoat.description>フラットカラーコートを作る。</Make_RK_FlatColorCoat.description>
@@ -306,14 +310,6 @@
   <Make_RK_SniperRifle.label>ラットキンスナイパーライフルを作る</Make_RK_SniperRifle.label>
   <Make_RK_SniperRifle.description>ラットキンスナイパーライフルを作る。</Make_RK_SniperRifle.description>
   <Make_RK_SniperRifle.jobString>ラットキンスナイパーライフルを作成中</Make_RK_SniperRifle.jobString>
-
-  <Make_RK_FlechetteRifle.label>フレシェットライフルを作る</Make_RK_FlechetteRifle.label>
-  <Make_RK_FlechetteRifle.description>フレシェットライフルを作る。</Make_RK_FlechetteRifle.description>
-  <Make_RK_FlechetteRifle.jobString>フレシェットライフルを作成中</Make_RK_FlechetteRifle.jobString>
-
-  <Make_RK_FlechetteSniperRifle.label>フレシェットスナイパーライフルを作る</Make_RK_FlechetteSniperRifle.label>
-  <Make_RK_FlechetteSniperRifle.description>フレシェットスナイパーライフルを作る。</Make_RK_FlechetteSniperRifle.description>
-  <Make_RK_FlechetteSniperRifle.jobString>フレシェットスナイパーライフルを作成中</Make_RK_FlechetteSniperRifle.jobString>
 
   <Make_RK_Rifle_line.label>ラットキンショットガンを作る</Make_RK_Rifle_line.label>
   <Make_RK_Rifle_line.description>ラットキンショットガンを作る。</Make_RK_Rifle_line.description>

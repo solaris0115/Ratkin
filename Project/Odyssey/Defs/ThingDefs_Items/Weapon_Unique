@@ -480,7 +480,7 @@
 	</ThingDef>
 
 	<!-- 플레셰트 라이플 -->
-	<ThingDef ParentName="RK_WeaponAttr_FlechetteRifle">
+	<ThingDef ParentName="RK_WeaponAttr_Rifle">
 		<defName>RK_FlechetteRifle_Unique</defName>
 		<label>unique flechette rifle</label>
 		<description>A unique flechette rifle with enhanced capabilities.</description>
@@ -524,7 +524,7 @@
 	</ThingDef>
 
 	<!-- 플레셰트 저격 라이플 -->
-	<ThingDef ParentName="RK_WeaponAttr_FlechetteSniperRifle">
+	<ThingDef ParentName="RK_WeaponAttr_SniperRifle">
 		<defName>RK_FlechetteSniperRifle_Unique</defName>
 		<label>unique flechette sniper rifle</label>
 		<description>A unique flechette sniper rifle with enhanced capabilities.</description>

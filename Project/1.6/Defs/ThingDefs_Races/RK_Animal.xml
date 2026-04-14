@@ -4,9 +4,7 @@
 	<ThingDef ParentName="AnimalThingBase">
 		<defName>RK_KingHamster</defName>
 		<label>Hamstrox</label>
-		<description>무리 생활을 하는 거대한 초식 동물로, 햄스터의 후손이 춥거나 따뜻한 환경에 잘 적응한 결과입니다. 분노한 햄스트록스는 매우 위험하지만, 길들이면 얌전한 동물이며 짐꾼으로 쓸 수 있습니다.
-
-햄스트록스가 이렇게 커진 이유는 아무도 알지 못합니다. 어쩌면 초기 유전자 조작 실험의 흔적일지도 모릅니다.</description>
+		<description>무리 생활을 하는 거대한 초식 동물로, 햄스터의 후손이 춥거나 따뜻한 환경에 잘 적응한 결과입니다. 분노한 햄스트록스는 매우 위험하지만, 길들이면 얌전한 동물이며 짐꾼으로 쓸 수 있습니다. 햄스트록스가 이렇게 커진 이유는 아무도 알지 못합니다. 어쩌면 초기 유전자 조작 실험의 흔적일지도 모릅니다.</description>
 		<statBases>
 			<MoveSpeed>4.5</MoveSpeed>
 			<MarketValue>450</MarketValue>

@@ -2,25 +2,25 @@
 <LanguageData>
   <RK_Gene_SmallBody.label>작은 체구</RK_Gene_SmallBody.label>
   <RK_Gene_SmallBody.labelShortAdj>소형 체구</RK_Gene_SmallBody.labelShortAdj>
-  <RK_Gene_SmallBody.description>이 유전자의 보유자는 작고 알찬 체구를 지니며, 회피에는 유리하지만 타격력이 약하고 짐도 적게 들 수 있습니다.</RK_Gene_SmallBody.description>
+  <RK_Gene_SmallBody.description>이 유전자의 보유자는 작은 체구를 지닙니다. 운반량이 다소 감소합니다.</RK_Gene_SmallBody.description>
   <RK_Gene_Nimble.label>민첩함</RK_Gene_Nimble.label>
   <RK_Gene_Nimble.labelShortAdj>날렵함</RK_Gene_Nimble.labelShortAdj>
-  <RK_Gene_Nimble.description>이 유전자의 보유자는 감각 수용체가 예민해 근처의 위협을 더 잘 알아채고, 근접 공격을 더 효과적으로 피할 수 있습니다.</RK_Gene_Nimble.description>
+  <RK_Gene_Nimble.description>이 유전자 보유자는 감각 수용체가 예민해져 근처 위협에 더 빠르게 대처합니다.</RK_Gene_Nimble.description>
   <RK_Gene_PoorEyesight.label>나쁜 시력</RK_Gene_PoorEyesight.label>
   <RK_Gene_PoorEyesight.labelShortAdj>흐릿한 시력</RK_Gene_PoorEyesight.labelShortAdj>
-  <RK_Gene_PoorEyesight.description>이 유전자의 보유자는 정밀한 조준이 어려워 조준에 더 오랜 시간이 걸리고, 연구 속도도 느려집니다.</RK_Gene_PoorEyesight.description>
-  <RK_Gene_FragilePain.label>연약한 통증 감내</RK_Gene_FragilePain.label>
-  <RK_Gene_FragilePain.labelShortAdj>연약함</RK_Gene_FragilePain.labelShortAdj>
+  <RK_Gene_PoorEyesight.description>이 유전자의 보유자는 시력이 좋지 않습니다. 조준 속도가 느려지고 정확도가 낮아집니다.</RK_Gene_PoorEyesight.description>
+  <RK_Gene_FragilePain.label>민감한 통증</RK_Gene_FragilePain.label>
+  <RK_Gene_FragilePain.labelShortAdj>예민함</RK_Gene_FragilePain.labelShortAdj>
   <RK_Gene_FragilePain.description>이 유전자의 보유자는 통증 쇼크 역치가 낮아 상처만 입어도 쉽게 쓰러집니다.</RK_Gene_FragilePain.description>
   <RK_Gene_GoodGardening.label>원예 재능</RK_Gene_GoodGardening.label>
   <RK_Gene_GoodGardening.labelShortAdj>재배에 능함</RK_Gene_GoodGardening.labelShortAdj>
   <RK_Gene_GoodGardening.description>이 유전자의 보유자는 식물을 돌보는 일을 더 능숙하게 해냅니다.</RK_Gene_GoodGardening.description>
   <RK_Skin_PureWhite.label>순백색 피부</RK_Skin_PureWhite.label>
   <RK_Skin_PureWhite.labelShortAdj>순백색 피부</RK_Skin_PureWhite.labelShortAdj>
-  <RK_Skin_PureWhite.description>이 유전자의 보유자는 랫킨 특유의 순백색 피부를 가집니다.</RK_Skin_PureWhite.description>
+  <RK_Skin_PureWhite.description>이 유전자의 보유자는 순백색 피부를 가집니다.</RK_Skin_PureWhite.description>
   <RK_Gene_LargeEars.label>큰 동그란 귀</RK_Gene_LargeEars.label>
   <RK_Gene_LargeEars.labelShortAdj>큰 귀</RK_Gene_LargeEars.labelShortAdj>
-  <RK_Gene_LargeEars.description>이 유전자의 보유자는 크고 동그란 귀를 가져 청각이 좋아지며, 한눈에 알아볼 만큼 랫킨다운 외형을 드러냅니다.</RK_Gene_LargeEars.description>
+  <RK_Gene_LargeEars.description>이 유전자의 보유자는 크고 동그란 귀를 갖게 됩니다.</RK_Gene_LargeEars.description>
   <RK_Gene_LargeEars.symbolPack.prefixSymbols.0.symbol>쥐</RK_Gene_LargeEars.symbolPack.prefixSymbols.0.symbol>
   <RK_Gene_LargeEars.symbolPack.prefixSymbols.1.symbol>찍찍</RK_Gene_LargeEars.symbolPack.prefixSymbols.1.symbol>
   <RK_Gene_LargeEars.symbolPack.prefixSymbols.2.symbol>수염</RK_Gene_LargeEars.symbolPack.prefixSymbols.2.symbol>
@@ -29,14 +29,14 @@
   <RK_Gene_LargeEars.symbolPack.suffixSymbols.2.symbol>찍찍</RK_Gene_LargeEars.symbolPack.suffixSymbols.2.symbol>
   <RK_Gene_ThinTail.label>가는 꼬리</RK_Gene_ThinTail.label>
   <RK_Gene_ThinTail.labelShortAdj>가는 꼬리</RK_Gene_ThinTail.labelShortAdj>
-  <RK_Gene_ThinTail.description>이 유전자의 보유자는 길고 가늘며 털이 없는 꼬리를 가져 균형에 도움이 되며, 랫킨 해부학의 특징이기도 합니다.</RK_Gene_ThinTail.description>
+  <RK_Gene_ThinTail.description>이 유전자의 보유자는 매끄럽고 가느다란 꼬리가 자랍니다.</RK_Gene_ThinTail.description>
   <RK_Gene_ThinTail.symbolPack.prefixSymbols.0.symbol>꼬리</RK_Gene_ThinTail.symbolPack.prefixSymbols.0.symbol>
   <RK_Gene_ThinTail.symbolPack.prefixSymbols.1.symbol>쥐</RK_Gene_ThinTail.symbolPack.prefixSymbols.1.symbol>
   <RK_Gene_ThinTail.symbolPack.suffixSymbols.0.symbol>꼬리</RK_Gene_ThinTail.symbolPack.suffixSymbols.0.symbol>
   <RK_Gene_ThinTail.symbolPack.suffixSymbols.1.symbol>쥐</RK_Gene_ThinTail.symbolPack.suffixSymbols.1.symbol>
   <RK_Gene_CuteFace.label>귀여운 얼굴</RK_Gene_CuteFace.label>
   <RK_Gene_CuteFace.labelShortAdj>귀여움</RK_Gene_CuteFace.labelShortAdj>
-  <RK_Gene_CuteFace.description>이 유전자의 보유자는 둥근 윤곽과 작은 코, 표정이 살아 있는 눈을 가진 사랑스러운 안면 구조로, 호감이 가고 다가가기 쉬운 인상을 줍니다.</RK_Gene_CuteFace.description>
+  <RK_Gene_CuteFace.description>이 유전자의 보유자는 어리고 귀여운 인상을 줍니다. 사회적 관계 형성에는 도움이 되지만, 집단을 대표하는 상황에서는 가볍게 보일 수 있습니다.</RK_Gene_CuteFace.description>
   <RK_Gene_CuteFace.symbolPack.prefixSymbols.0.symbol>귀여운</RK_Gene_CuteFace.symbolPack.prefixSymbols.0.symbol>
   <RK_Gene_CuteFace.symbolPack.prefixSymbols.1.symbol>달콤한</RK_Gene_CuteFace.symbolPack.prefixSymbols.1.symbol>
   <RK_Gene_CuteFace.symbolPack.prefixSymbols.2.symbol>매력</RK_Gene_CuteFace.symbolPack.prefixSymbols.2.symbol>

@@ -90,9 +90,13 @@
   <Make_RK_BulletProofHelmet.description>Make Ratkin military helmet.</Make_RK_BulletProofHelmet.description>
   <Make_RK_BulletProofHelmet.jobString>Making Ratkin military helmet.</Make_RK_BulletProofHelmet.jobString>
 
-  <Make_RK_Apparel_GasMask.label>make Ratkin mask helmet</Make_RK_Apparel_GasMask.label>
-  <Make_RK_Apparel_GasMask.description>Make Ratkin mask helmet.</Make_RK_Apparel_GasMask.description>
-  <Make_RK_Apparel_GasMask.jobString>Making Ratkin mask helmet.</Make_RK_Apparel_GasMask.jobString>
+  <Make_RK_Mask.label>make Ratkin mask helmet</Make_RK_Mask.label>
+  <Make_RK_Mask.description>Make Ratkin mask helmet.</Make_RK_Mask.description>
+  <Make_RK_Mask.jobString>Making Ratkin mask helmet.</Make_RK_Mask.jobString>
+
+  <Make_RK_MaskB.label>make Ratkin mask helmet</Make_RK_MaskB.label>
+  <Make_RK_MaskB.description>Make Ratkin mask helmet.</Make_RK_MaskB.description>
+  <Make_RK_MaskB.jobString>Making Ratkin mask helmet.</Make_RK_MaskB.jobString>
 
   <Make_RK_FlatColorCoat.label>make flatcolor coat</Make_RK_FlatColorCoat.label>
   <Make_RK_FlatColorCoat.description>Make flatcolor coat.</Make_RK_FlatColorCoat.description>

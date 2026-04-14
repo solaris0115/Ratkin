@@ -74,43 +74,23 @@
   <!-- 라이플 -->
 
   <RK_Rifle.label>Ratkin rifle</RK_Rifle.label>
-  <RK_Rifle.description>It is a rifle imitating a human rifle. It is longer than the crossbow. There is a bayonet, so you can have close combat.</RK_Rifle.description>
+  <RK_Rifle.description>A human-style rifle built for Ratkin flechette rounds. High penetration and longer reach than a crossbow, with a small blade for emergency melee.</RK_Rifle.description>
   <RK_Rifle.tools.0.label>stock</RK_Rifle.tools.0.label>
   <RK_Rifle.tools.1.label>bayonet</RK_Rifle.tools.1.label>
+  <RK_Rifle.tools.2.label>flechette</RK_Rifle.tools.2.label>
 
-  <Bullet_RK_Rifle.label>rifle bullet</Bullet_RK_Rifle.label>
+  <Bullet_RK_Rifle.label>flechette rifle round</Bullet_RK_Rifle.label>
 
 
   <!-- 저격 라이플 -->
 
   <RK_SniperRifle.label>Ratkin sniper rifle</RK_SniperRifle.label>
-  <RK_SniperRifle.description>It is a rifle with a ratkin style telescopic sight. Can aim farther, but it is harder to aim nearby.</RK_SniperRifle.description>
+  <RK_SniperRifle.description>A Ratkin telescopic rifle firing flechettes. Excels at dropping armored targets at long range; close-range aiming is harder. Includes a small blade for melee.</RK_SniperRifle.description>
   <RK_SniperRifle.tools.0.label>stock</RK_SniperRifle.tools.0.label>
   <RK_SniperRifle.tools.1.label>bayonet</RK_SniperRifle.tools.1.label>
+  <RK_SniperRifle.tools.2.label>flechette</RK_SniperRifle.tools.2.label>
 
-  <Bullet_RK_SniperRifle.label>rifle bullet</Bullet_RK_SniperRifle.label>
-
-
-  <!-- 플레셰트 라이플 -->
-
-  <RK_FlechetteRifle.label>Ratkin flechette rifle</RK_FlechetteRifle.label>
-  <RK_FlechetteRifle.description>It is a rifle using Flechette. It increased penetration by sacrificing range. It have bayonets for melee combat.</RK_FlechetteRifle.description>
-  <RK_FlechetteRifle.tools.0.label>stock</RK_FlechetteRifle.tools.0.label>
-  <RK_FlechetteRifle.tools.1.label>bayonet</RK_FlechetteRifle.tools.1.label>
-  <RK_FlechetteRifle.tools.2.label>flechette</RK_FlechetteRifle.tools.2.label>
-
-  <Bullet_RK_FlechetteRifle.label>flechette</Bullet_RK_FlechetteRifle.label>
-
-
-  <!-- 플레셰트 저격 라이플 -->
-
-  <RK_FlechetteSniperRifle.label>Ratkin flechette sniper rifle</RK_FlechetteSniperRifle.label>
-  <RK_FlechetteSniperRifle.description>It is a rifle with a telescopic sight using Flechette. It can penetrate a long armor in a long distance. It have bayonets for melee combat.</RK_FlechetteSniperRifle.description>
-  <RK_FlechetteSniperRifle.tools.0.label>stock</RK_FlechetteSniperRifle.tools.0.label>
-  <RK_FlechetteSniperRifle.tools.1.label>bayonet</RK_FlechetteSniperRifle.tools.1.label>
-  <RK_FlechetteSniperRifle.tools.2.label>flechette</RK_FlechetteSniperRifle.tools.2.label>
-
-  <Bullet_RK_FlechetteSniperRifle.label>flechette</Bullet_RK_FlechetteSniperRifle.label>
+  <Bullet_RK_SniperRifle.label>flechette sniper round</Bullet_RK_SniperRifle.label>
 
 
   <!-- 랫킨용 실험용총 2연발 -->

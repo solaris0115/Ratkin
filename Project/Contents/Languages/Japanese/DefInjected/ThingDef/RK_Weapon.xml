@@ -62,45 +62,25 @@
 
   <!-- Rifle -->
 
-  <Bullet_RK_Rifle.label>ライフル弾丸</Bullet_RK_Rifle.label>
+  <Bullet_RK_Rifle.label>フレシェット弾</Bullet_RK_Rifle.label>
 
   <RK_Rifle.label>RK ラットキンライフル</RK_Rifle.label>
-  <RK_Rifle.description>人間のライフルを真似て作ったライフルです。石弓より射程距離が長く、小さな剣つけておいて、有事の際のウィンドウのように使用することができます。</RK_Rifle.description>
+  <RK_Rifle.description>人間のライフルを模し、ラットキン式フレシェット弾を撃つライフルです。貫通力が高く石弓より射程が長く、有事の際は小さな剣で近接戦もできます。</RK_Rifle.description>
   <RK_Rifle.tools.stock.label>ストック</RK_Rifle.tools.stock.label>
   <RK_Rifle.tools.bayonet.label>バヨネット</RK_Rifle.tools.bayonet.label>
-  <RK_Rifle.verbs.Verb_Shoot.label>ライフル弾丸</RK_Rifle.verbs.Verb_Shoot.label>
+  <RK_Rifle.tools.flechette.label>フレシェット</RK_Rifle.tools.flechette.label>
+  <RK_Rifle.verbs.Verb_Shoot.label>フレシェット弾</RK_Rifle.verbs.Verb_Shoot.label>
 
   <!-- SniperRifle -->
 
-  <Bullet_RK_SniperRifle.label>ライフル弾丸</Bullet_RK_SniperRifle.label>
+  <Bullet_RK_SniperRifle.label>フレシェット狙撃弾</Bullet_RK_SniperRifle.label>
 
   <RK_SniperRifle.label>RK ラットキンスナイパーライフル</RK_SniperRifle.label>
-  <RK_SniperRifle.description>ラットキンシク望遠レンズが付いたライフルです。望遠装置のおかげで、より遠くまで向けることができるが近くを向けるいたしかねます。</RK_SniperRifle.description>
+  <RK_SniperRifle.description>フレシェット弾を撃つラットキン式望遠ライフルです。厚い装甲の敵も遠距離で制圧できますが、近距離の照準は難しく、有事の際は小さな剣で近接戦もできます。</RK_SniperRifle.description>
   <RK_SniperRifle.tools.stock.label>ストック</RK_SniperRifle.tools.stock.label>
   <RK_SniperRifle.tools.bayonet.label>バヨネット</RK_SniperRifle.tools.bayonet.label>
-  <RK_SniperRifle.verbs.Verb_Shoot.label>ライフル弾丸</RK_SniperRifle.verbs.Verb_Shoot.label>
-
-  <!-- Flechette Rifle -->
-
-  <Bullet_RK_FlechetteRifle.label>フレシェット弾</Bullet_RK_FlechetteRifle.label>
-
-  <RK_FlechetteRifle.label>RK フレシェットライフル</RK_FlechetteRifle.label>
-  <RK_FlechetteRifle.description>プレイシェトゥタンを使用するライフルです。ラットキンシクプレイポシェット弾丸を使用して交差点を少し犠牲にして貫通力を高めました。有事の際近接戦を行うことができるよう、小さな剣つけておきました。</RK_FlechetteRifle.description>
-  <RK_FlechetteRifle.tools.stock.label>ストック</RK_FlechetteRifle.tools.stock.label>
-  <RK_FlechetteRifle.tools.bayonet.label>バヨネット</RK_FlechetteRifle.tools.bayonet.label>
-  <RK_FlechetteRifle.tools.flechette.label>フレシェット</RK_FlechetteRifle.tools.flechette.label>
-  <RK_FlechetteRifle.verbs.Verb_Shoot.label>フレシェット弾</RK_FlechetteRifle.verbs.Verb_Shoot.label>
-
-  <!-- Flechette Sniper Rifle -->
-
-  <Bullet_RK_FlechetteSniperRifle.label>フレシェット弾</Bullet_RK_FlechetteSniperRifle.label>
-
-  <RK_FlechetteSniperRifle.label>RK フレシェットスナイパーライフル</RK_FlechetteSniperRifle.label>
-  <RK_FlechetteSniperRifle.description>プレイシェトゥタンを使用する望遠レンズが付いたライフルです。厚手の手袋を備えたこと確実に制圧することができます。有事の際近接戦のために小さな剣つけておきました。</RK_FlechetteSniperRifle.description>
-  <RK_FlechetteSniperRifle.tools.stock.label>ストック</RK_FlechetteSniperRifle.tools.stock.label>
-  <RK_FlechetteSniperRifle.tools.bayonet.label>バヨネット</RK_FlechetteSniperRifle.tools.bayonet.label>
-  <RK_FlechetteSniperRifle.tools.flechette.label>フレシェット</RK_FlechetteSniperRifle.tools.flechette.label>
-  <RK_FlechetteSniperRifle.verbs.Verb_Shoot.label>フレシェット弾</RK_FlechetteSniperRifle.verbs.Verb_Shoot.label>
+  <RK_SniperRifle.tools.flechette.label>フレシェット</RK_SniperRifle.tools.flechette.label>
+  <RK_SniperRifle.verbs.Verb_Shoot.label>フレシェット弾</RK_SniperRifle.verbs.Verb_Shoot.label>
 
   <!-- for the Ratkin Experimental gun 2rounds -->
 

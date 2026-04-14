@@ -188,9 +188,6 @@
   <RK_MaskB.label>Ratkin mask helmet</RK_MaskB.label>
   <RK_MaskB.description>A helmet with a mask. It is designed to be active for long periods of time even in toxic environments.</RK_MaskB.description>
 
-  <RK_Apparel_GasMask.label>Ratkin mask helmet</RK_Apparel_GasMask.label>
-  <RK_Apparel_GasMask.description>A helmet with a mask. It is designed to be active for long periods of time even in toxic environments.</RK_Apparel_GasMask.description>
-
   <!-- 특공 머리띠 -->
 
   <RK_HeadBand.label>Ratkin head band</RK_HeadBand.label>

@@ -8,8 +8,12 @@
   <RK_Hediff_LanceChargeMomentum.description>최초 근접 공격 시 피해량이 25% 증가하며, 공격 후 소멸합니다.</RK_Hediff_LanceChargeMomentum.description>
   <RK_Hediff_MoraleBoosterCaster.label>사기 북돋움 (시전)</RK_Hediff_MoraleBoosterCaster.label>
   <RK_Hediff_MoraleBoosterCaster.description>이 사람은 특수 능력으로 주변 동료의 사기를 끌어올리고 있습니다. 효과 범위 안에 있는 모든 이가 전투 보조 효과를 얻습니다.</RK_Hediff_MoraleBoosterCaster.description>
+  <RK_Hediff_MoraleBoosterBuffWeak.label>사기 북돋움 (약함)</RK_Hediff_MoraleBoosterBuffWeak.label>
+  <RK_Hediff_MoraleBoosterBuffWeak.description>사교 능력이 아직 부족한 이가 근처에서 사기 북돋움을 쓰고 있어, 전투 효율이 약간 오릅니다.</RK_Hediff_MoraleBoosterBuffWeak.description>
   <RK_Hediff_MoraleBoosterBuffDefault.label>사기 북돋움</RK_Hediff_MoraleBoosterBuffDefault.label>
   <RK_Hediff_MoraleBoosterBuffDefault.description>누군가 근처에서 사기 북돋움 능력을 쓰고 있어, 이 사람의 전투 효율이 높아집니다.</RK_Hediff_MoraleBoosterBuffDefault.description>
+  <RK_Hediff_MoraleBoosterBuffStrong.label>사기 북돋움 (강함)</RK_Hediff_MoraleBoosterBuffStrong.label>
+  <RK_Hediff_MoraleBoosterBuffStrong.description>사교에 능한 지휘자가 근처에서 사기 북돋움을 쓰고 있어, 전투 효율이 크게 오릅니다.</RK_Hediff_MoraleBoosterBuffStrong.description>
   <RK_Hediff_FakeEar.label>가짜 귀</RK_Hediff_FakeEar.label>
   <RK_Hediff_FakeEar.labelNoun>가짜 귀</RK_Hediff_FakeEar.labelNoun>
   <RK_Hediff_FakeEar.description>이식된 가짜 귀입니다.</RK_Hediff_FakeEar.description>
