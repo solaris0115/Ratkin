@@ -242,12 +242,21 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<projectile>
+		<thingClass>NewRatkin.Projectile_BallistaBoltAP</thingClass>
+		<projectile Class="NewRatkin.ProjectileProperties_BallistaBoltAP">
+			<maxPenetrationCount>2</maxPenetrationCount>
+			<damageReduceRate>0.2</damageReduceRate>
 			<damageDef>RangedStab</damageDef>
 			<damageAmountBase>40</damageAmountBase>
-			<armorPenetrationBase>0.40</armorPenetrationBase>
+			<armorPenetrationBase>0.5</armorPenetrationBase>
 			<stoppingPower>4</stoppingPower>
 			<speed>61</speed>
+			<alwaysFreeIntercept>true</alwaysFreeIntercept>
+			<flyOverhead>false</flyOverhead>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundExplode>Shockwave</soundExplode>
+			<soundImpactAnticipate>Flying</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
 		</projectile>
 	</ThingDef>
 
@@ -289,7 +298,7 @@
 			<damageReduceRate>0.2</damageReduceRate>
 			<damageDef>RangedStab</damageDef>
 			<damageAmountBase>50</damageAmountBase>
-			<armorPenetrationBase>0.70</armorPenetrationBase>
+			<armorPenetrationBase>0.7</armorPenetrationBase>
 			<stoppingPower>4</stoppingPower>
 			<speed>70</speed>
 			<alwaysFreeIntercept>true</alwaysFreeIntercept>
