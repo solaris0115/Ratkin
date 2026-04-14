@@ -1678,11 +1678,11 @@
 		</tradeTags>
 	</ThingDef>
 
-	<!-- 마스크 헬멧 (텍스처 2종 바리에이션, 신규) -->
+	<!-- 가스마스크 A/B (별도 아이템 — 제작 시 외형 선택) -->
 	<ThingDef ParentName="RK_HatMakeableBase">
-		<defName>RK_Apparel_GasMask</defName>
-		<label>mask helmet</label>
-		<description>여과 필터가 있는 헬멧 입니다. 유독성 환경에서 활동할 수 있도록 고안되었습니다.</description>
+		<defName>RK_Mask</defName>
+		<label>Ratkin mask helmet</label>
+		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_Mask</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1703,7 +1703,6 @@
 			<displayPriority>47375</displayPriority>
 		</recipeMaker>
 		<costList>
-			<!-- <DevilstrandCloth>35</DevilstrandCloth> -->
 			<ComponentIndustrial>4</ComponentIndustrial>
 			<Plasteel>20</Plasteel>
 		</costList>
@@ -1736,10 +1735,80 @@
 				<li>Eyes</li>
 				<li>Teeth</li>
 			</bodyPartGroups>
-			<wornGraphicPaths>
-				<li>Apparel/RK_Mask</li>
-				<li>Apparel/RK_MaskB</li>
-			</wornGraphicPaths>
+			<wornGraphicPath>Apparel/RK_Mask</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<tags>
+				<li>RK_EliteSoldier</li>
+				<li>RoyalCombatGear</li>
+			</tags>
+		</apparel>
+		<tradeability>Sellable</tradeability>
+		<tradeTags Inherit="false">
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef ParentName="RK_HatMakeableBase">
+		<defName>RK_MaskB</defName>
+		<label>Ratkin mask helmet</label>
+		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
+		<graphicData>
+			<texPath>Apparel/RK_MaskB</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<recipeMaker Inherit="false">
+			<researchPrerequisites>
+				<li>RK_Research_AdvancedApparel</li>
+			</researchPrerequisites>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>
+			<displayPriority>47376</displayPriority>
+		</recipeMaker>
+		<costList>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Plasteel>20</Plasteel>
+		</costList>
+		<costStuffCount>45</costStuffCount>
+		<techLevel>Industrial</techLevel>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>240</MaxHitPoints>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>2</Mass>
+			<StuffEffectMultiplierArmor>0.45</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.55</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.45</StuffEffectMultiplierInsulation_Heat>
+			<ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.3</ArmorRating_Heat>
+			<EquipDelay>1.5</EquipDelay>
+		</statBases>
+		<equippedStatOffsets>
+			<ToxicEnvironmentResistance>0.1</ToxicEnvironmentResistance>
+			<PainShockThreshold>0.05</PainShockThreshold>
+			<Flammability>-0.1</Flammability>
+		</equippedStatOffsets>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+				<li>Eyes</li>
+				<li>Teeth</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Apparel/RK_MaskB</wornGraphicPath>
 			<layers>
 				<li>Overhead</li>
 			</layers>
