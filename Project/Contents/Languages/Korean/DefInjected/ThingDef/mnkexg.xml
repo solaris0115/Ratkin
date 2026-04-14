@@ -24,7 +24,7 @@
   <RK_Weapon_Ballista.description>거대한 화살을 발사할 수 있는 장치입니다. 재장전 시간이 오래 걸리지만 높은 명중률과 뛰어난 관통력을 갖고 있습니다.</RK_Weapon_Ballista.description>
   <RK_Weapon_Ballista.verbs.Verb_Shoot.label>노포</RK_Weapon_Ballista.verbs.Verb_Shoot.label>
   <RK_Ammo_BallistaBoltNormal.label>거대한 화살</RK_Ammo_BallistaBoltNormal.label>
-  <RK_Ammo_BallistaBoltNormal.description>거대한 화살입니다. </RK_Ammo_BallistaBoltNormal.description>
+  <RK_Ammo_BallistaBoltNormal.description>거대한 화살입니다.</RK_Ammo_BallistaBoltNormal.description>
   <RK_Projectile_BallistaBoltNormal.label>거대한 화살</RK_Projectile_BallistaBoltNormal.label>
   <RK_Ammo_BallistaBoltAP.label>거대한 화살(관통)</RK_Ammo_BallistaBoltAP.label>
   <RK_Ammo_BallistaBoltAP.description>거대한 화살입니다. 더 많은 대상을 관통할 수 있습니다.</RK_Ammo_BallistaBoltAP.description>
@@ -255,7 +255,7 @@
   <RK_Weapon_Arbalest.tools.1.label>볼트</RK_Weapon_Arbalest.tools.1.label>
   <RK_Projectile_Arbalest.label>대형 석궁 볼트</RK_Projectile_Arbalest.label>
   <RK_Rifle.label>소총</RK_Rifle.label>
-  <RK_Rifle.description>반자동 소총입니다. 탄환은 가늘고 예리하여 관통력은 높으나 피해량이 조금 낮습니다. 착검되어 있어 근접전에 유리합니다. </RK_Rifle.description>
+  <RK_Rifle.description>반자동 소총입니다. 탄환은 가늘고 예리하여 관통력은 높으나 피해량이 조금 낮습니다. 착검되어 있어 근접전에 유리합니다.</RK_Rifle.description>
   <RK_Rifle.verbs.Verb_Shoot.label>소총</RK_Rifle.verbs.Verb_Shoot.label>
   <RK_Rifle.tools.0.label>개머리판</RK_Rifle.tools.0.label>
   <RK_Rifle.tools.1.label>총검</RK_Rifle.tools.1.label>
