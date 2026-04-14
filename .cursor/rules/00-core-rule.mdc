@@ -21,3 +21,4 @@ alwaysApply: true
 - 시각화 요청시 mermaid 활용
 !빌드: [02-csharp-manage-rule.mdc](02-csharp-manage-rule.mdc)를 참고
 !구현: [03-def-structure-guide.mdc](03-def-structure-guide.mdc)과 Report 폴더에서 관련 내용을 확인 후 진행
+!커밋: [05-git-workflow.mdc](05-git-workflow.mdc)의 **!커밋** 절차 — 세션에서 에이전트가 바꾼 파일만 스테이징, 제목 `[AI]` + 요약, 본문은 의도·이슈 중심
