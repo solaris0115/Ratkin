@@ -18,23 +18,4 @@
   <RK_Stat_Shield_Blunt.description>주먹과 둔기, 낙석과 같은 둔탁한 원인에 의한 손상에 대한 이 방패의 방어도입니다.\n\n공격을 받았을 때 방어력은 공격하는 무기의 관통값만큼 감소합니다.\n\n이 방패에 한해, 남은 방어도는 무작위 판정 한 번과 비교됩니다.\n\n    - 무작위 값이 남은 방어도보다 낮으면 공격은 무효화됩니다.\n    - 그렇지 않으면 방어는 아무런 효과가 없습니다.\n\n예를 들어 방어도 90%, 관통값 10%의 공격이면 남은 방어도는 80%이고, 공격이 막힐 확률은 약 80%입니다.</RK_Stat_Shield_Blunt.description>
   <RK_Stat_Shield_Heat.label>방패 방어도 - 열기</RK_Stat_Shield_Heat.label>
   <RK_Stat_Shield_Heat.description>화상, 불, 기타 열 기반 공격 등 온도에 의한 손상에 대한 이 방패의 방어도입니다.\n\n공격을 받았을 때 방어력은 공격하는 무기의 관통값만큼 감소합니다.\n\n이 방패에 한해, 남은 방어도는 무작위 판정 한 번과 비교됩니다.\n\n    - 무작위 값이 남은 방어도보다 낮으면 공격은 무효화됩니다.\n    - 그렇지 않으면 방어는 아무런 효과가 없습니다.\n\n예를 들어 방어도 90%, 관통값 10%의 공격이면 남은 방어도는 80%이고, 공격이 막힐 확률은 약 80%입니다.</RK_Stat_Shield_Heat.description>
-  <RK_Stat_ShieldStamina.label>방패 최대 스태미나</RK_Stat_ShieldStamina.label>
-  <RK_Stat_ShieldStamina.description>방패가 한 번에 지닐 수 있는 최대 스태미나입니다.\n\n스태미나가 많을수록 더 많은 피해를 흡수합니다.</RK_Stat_ShieldStamina.description>
-  <RK_Stat_ShieldStaminaRechargeRate.label>방패 스태미나 재충전 속도</RK_Stat_ShieldStaminaRechargeRate.label>
-  <RK_Stat_ShieldStaminaRechargeRate.description>방패가 파손되지 않았을 때 스태미나를 회복하는 속도입니다.</RK_Stat_ShieldStaminaRechargeRate.description>
-  <RK_Stat_ShieldStaminaRechargeRate.formatString>{0}/초</RK_Stat_ShieldStaminaRechargeRate.formatString>
-  <RK_Stat_ShieldReduceDamageMelee.label>방패 근접 피해 감소율</RK_Stat_ShieldReduceDamageMelee.label>
-  <RK_Stat_ShieldReduceDamageMelee.description>방패가 막아내는 근접 피해의 비율입니다.</RK_Stat_ShieldReduceDamageMelee.description>
-  <RK_Stat_ShieldReduceDamageRanged.label>방패 원거리 피해 감소율</RK_Stat_ShieldReduceDamageRanged.label>
-  <RK_Stat_ShieldReduceDamageRanged.description>방패가 막아내는 원거리 피해의 비율입니다.</RK_Stat_ShieldReduceDamageRanged.description>
-  <RK_Stat_ShieldReduceDamageExplosive.label>방패 폭발 피해 감소율</RK_Stat_ShieldReduceDamageExplosive.label>
-  <RK_Stat_ShieldReduceDamageExplosive.description>방패가 막아내는 폭발 피해의 비율입니다.</RK_Stat_ShieldReduceDamageExplosive.description>
-  <RK_Stat_ShieldStaminaOnReset.label>방패 초기 스태미나</RK_Stat_ShieldStaminaOnReset.label>
-  <RK_Stat_ShieldStaminaOnReset.description>방패가 파손 상태에서 회복될 때 복원되는 스태미나량입니다.</RK_Stat_ShieldStaminaOnReset.description>
-  <RK_Stat_ShieldStaminaLossMelee.label>근접 피해당 방패 스태미나 손실</RK_Stat_ShieldStaminaLossMelee.label>
-  <RK_Stat_ShieldStaminaLossMelee.description>근접 피해를 1포인트 받을 때마다 감소하는 방패 스태미나량입니다.</RK_Stat_ShieldStaminaLossMelee.description>
-  <RK_Stat_ShieldStaminaLossRanged.label>원거리 피해당 방패 스태미나 손실</RK_Stat_ShieldStaminaLossRanged.label>
-  <RK_Stat_ShieldStaminaLossRanged.description>원거리 피해를 1포인트 받을 때마다 감소하는 방패 스태미나량입니다.</RK_Stat_ShieldStaminaLossRanged.description>
-  <RK_Stat_ShieldStaminaLossExplosive.label>폭발 피해당 방패 스태미나 손실</RK_Stat_ShieldStaminaLossExplosive.label>
-  <RK_Stat_ShieldStaminaLossExplosive.description>폭발 피해를 1포인트 받을 때마다 감소하는 방패 스태미나량입니다.</RK_Stat_ShieldStaminaLossExplosive.description>
 </LanguageData>

@@ -13,15 +13,6 @@
       "Flammability": 0.3,
       "Mass": 7.0,
       "MaxHitPoints": 240.0,
-      "RK_Stat_ShieldReduceDamageExplosive": 0.5,
-      "RK_Stat_ShieldReduceDamageMelee": 0.7,
-      "RK_Stat_ShieldReduceDamageRanged": 0.8,
-      "RK_Stat_ShieldStamina": 1.0,
-      "RK_Stat_ShieldStaminaLossExplosive": 0.1,
-      "RK_Stat_ShieldStaminaLossMelee": 0.066,
-      "RK_Stat_ShieldStaminaLossRanged": 0.045,
-      "RK_Stat_ShieldStaminaOnReset": 0.3,
-      "RK_Stat_ShieldStaminaRechargeRate": 0.16,
       "WorkToMake": 35000.0
     },
     "stuffMult": 0.0
@@ -93,15 +84,6 @@
       "Flammability": 0.2,
       "Mass": 10.0,
       "MaxHitPoints": 400.0,
-      "RK_Stat_ShieldReduceDamageExplosive": 0.6,
-      "RK_Stat_ShieldReduceDamageMelee": 0.8,
-      "RK_Stat_ShieldReduceDamageRanged": 0.9,
-      "RK_Stat_ShieldStamina": 1.9,
-      "RK_Stat_ShieldStaminaLossExplosive": 0.1,
-      "RK_Stat_ShieldStaminaLossMelee": 0.045,
-      "RK_Stat_ShieldStaminaLossRanged": 0.033,
-      "RK_Stat_ShieldStaminaOnReset": 0.4,
-      "RK_Stat_ShieldStaminaRechargeRate": 0.13,
       "WorkToMake": 40000.0
     },
     "stuffMult": 0.0
@@ -147,15 +129,6 @@
       "Flammability": 0.8,
       "Mass": 3.0,
       "MaxHitPoints": 120.0,
-      "RK_Stat_ShieldReduceDamageExplosive": 0.25,
-      "RK_Stat_ShieldReduceDamageMelee": 0.5,
-      "RK_Stat_ShieldReduceDamageRanged": 0.5,
-      "RK_Stat_ShieldStamina": 0.6,
-      "RK_Stat_ShieldStaminaLossExplosive": 0.1,
-      "RK_Stat_ShieldStaminaLossMelee": 0.066,
-      "RK_Stat_ShieldStaminaLossRanged": 0.045,
-      "RK_Stat_ShieldStaminaOnReset": 0.2,
-      "RK_Stat_ShieldStaminaRechargeRate": 0.16,
       "WorkToMake": 12500.0
     },
     "stuffMult": 0.0

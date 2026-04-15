@@ -161,15 +161,6 @@ namespace NewRatkin
     {
         public static StatDef RK_Stat_RangeCoolDown;
         public static StatDef RK_Stat_RangeCoolDownMultiplier;
-        public static StatDef RK_Stat_ShieldStamina;
-        public static StatDef RK_Stat_ShieldStaminaRechargeRate;
-        public static StatDef RK_Stat_ShieldReduceDamageMelee;
-        public static StatDef RK_Stat_ShieldReduceDamageRanged;
-        public static StatDef RK_Stat_ShieldReduceDamageExplosive;
-        public static StatDef RK_Stat_ShieldStaminaOnReset;
-        public static StatDef RK_Stat_ShieldStaminaLossMelee;
-        public static StatDef RK_Stat_ShieldStaminaLossRanged;
-        public static StatDef RK_Stat_ShieldStaminaLossExplosive;
         public static StatDef RK_Stat_ShieldBlockChance;
         public static StatDef RK_Stat_DeflectAngle;
         public static StatDef RK_Stat_ShieldStuffBase;
