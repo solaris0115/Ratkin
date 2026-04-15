@@ -12,7 +12,16 @@
   <AbilityPrayerServiceCooldown>Next Prayer meeting ready in</AbilityPrayerServiceCooldown>
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>already giving a prayer meeting.</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>can't use when drafted.</AbilityPrayerServiceDisabledDrafted>
-  <AbilityPrayerServiceDisabledNoPulpit>no pulpit or proper place for prayer meeting.</AbilityPrayerServiceDisabledNoPulpit>
+  <AbilityPrayerServiceDisabledNoPulpitBuilding>No colonist-built pulpit.</AbilityPrayerServiceDisabledNoPulpitBuilding>
+  <AbilityPrayerServiceDisabledCannotReachPulpit>Cannot path to the pulpit interaction cell.</AbilityPrayerServiceDisabledCannotReachPulpit>
+  <AbilityPrayerServiceDisabledCannotReservePulpit>The pulpit cannot be reserved (in use or blocked).</AbilityPrayerServiceDisabledCannotReservePulpit>
+  <AbilityPrayerServiceDisabledInteractionCellOutOfBounds>Pulpit interaction cell is out of bounds.</AbilityPrayerServiceDisabledInteractionCellOutOfBounds>
+  <AbilityPrayerServiceDisabledInteractionCellForbidden>Pulpit interaction cell is in a forbidden area.</AbilityPrayerServiceDisabledInteractionCellForbidden>
+  <AbilityPrayerServiceDisabledInteractionCellNotStandable>Pulpit interaction cell is not standable.</AbilityPrayerServiceDisabledInteractionCellNotStandable>
+  <AbilityPrayerServiceDisabledPulpitForbidden>The pulpit is forbidden to this pawn.</AbilityPrayerServiceDisabledPulpitForbidden>
+  <AbilityPrayerServiceDisabledPulpitBurning>The pulpit is on fire.</AbilityPrayerServiceDisabledPulpitBurning>
+  <AbilityPrayerServiceDisabledPulpitDangerous>The pulpit area is too dangerous.</AbilityPrayerServiceDisabledPulpitDangerous>
+  <AbilityPrayerServiceDisabledRoomTooSmall>Worship space is too small (room must be larger than 25 cells).</AbilityPrayerServiceDisabledRoomTooSmall>
 
   <!-- Wandering Trader -->
   <RK_WanderingTrader_Info>Info</RK_WanderingTrader_Info>

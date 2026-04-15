@@ -4,7 +4,16 @@
   <AbilityPrayerServiceCooldown>次回の祈祷会の準備:</AbilityPrayerServiceCooldown>
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>すでに祈祷会を行っています。</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>徴兵時には行えません。</AbilityPrayerServiceDisabledDrafted>
-  <AbilityPrayerServiceDisabledNoPulpit>説教壇や祈祷会を行うための適切な場所がありません。</AbilityPrayerServiceDisabledNoPulpit>
+  <AbilityPrayerServiceDisabledNoPulpitBuilding>入植地に説教壇がありません。</AbilityPrayerServiceDisabledNoPulpitBuilding>
+  <AbilityPrayerServiceDisabledCannotReachPulpit>説教壇の操作マスまで経路がありません。</AbilityPrayerServiceDisabledCannotReachPulpit>
+  <AbilityPrayerServiceDisabledCannotReservePulpit>説教壇を予約できません（使用中かブロックされています）。</AbilityPrayerServiceDisabledCannotReservePulpit>
+  <AbilityPrayerServiceDisabledInteractionCellOutOfBounds>説教壇の操作マスがマップ外です。</AbilityPrayerServiceDisabledInteractionCellOutOfBounds>
+  <AbilityPrayerServiceDisabledInteractionCellForbidden>祈祷の立ち位置が立入禁止区域にあります。</AbilityPrayerServiceDisabledInteractionCellForbidden>
+  <AbilityPrayerServiceDisabledInteractionCellNotStandable>祈祷の立ち位置に立てません。</AbilityPrayerServiceDisabledInteractionCellNotStandable>
+  <AbilityPrayerServiceDisabledPulpitForbidden>説教壇が立入禁止になっています。</AbilityPrayerServiceDisabledPulpitForbidden>
+  <AbilityPrayerServiceDisabledPulpitBurning>説教壇が炎上しており祈祷会を開けません。</AbilityPrayerServiceDisabledPulpitBurning>
+  <AbilityPrayerServiceDisabledPulpitDangerous>説教壇周辺が危険すぎて祈祷会を開けません。</AbilityPrayerServiceDisabledPulpitDangerous>
+  <AbilityPrayerServiceDisabledRoomTooSmall>祈祷の空間が狭すぎます（部屋は25マスより大きい必要があります）。</AbilityPrayerServiceDisabledRoomTooSmall>
 
   <!-- BFR トグル -->
   <RK_BFR_Toggle_RequiresSeparationMechanics>分離力学の研究が必要です。</RK_BFR_Toggle_RequiresSeparationMechanics>

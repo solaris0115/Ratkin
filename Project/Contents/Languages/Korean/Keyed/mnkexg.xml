@@ -66,7 +66,16 @@
   <RK_ShieldFaceDirection_Cooldown>재사용 대기: {0}</RK_ShieldFaceDirection_Cooldown>
   <AbilityPrayerServiceDisabledAlreadyGivingPrayerService>이미 기도회가 진행 중입니다.</AbilityPrayerServiceDisabledAlreadyGivingPrayerService>
   <AbilityPrayerServiceDisabledDrafted>소집된 상태에서는 사용할 수 없습니다.</AbilityPrayerServiceDisabledDrafted>
-  <AbilityPrayerServiceDisabledNoPulpit>예배를 위한 연단 또는 공간이 부족합니다.</AbilityPrayerServiceDisabledNoPulpit>
+  <AbilityPrayerServiceDisabledNoPulpitBuilding>정착지에 예배용 연단이 없습니다.</AbilityPrayerServiceDisabledNoPulpitBuilding>
+  <AbilityPrayerServiceDisabledCannotReachPulpit>연단의 상호작용 칸까지 길이 이어지지 않아 도달할 수 없습니다.</AbilityPrayerServiceDisabledCannotReachPulpit>
+  <AbilityPrayerServiceDisabledCannotReservePulpit>연단이 다른 작업으로 사용 중이거나 예약할 수 없습니다.</AbilityPrayerServiceDisabledCannotReservePulpit>
+  <AbilityPrayerServiceDisabledInteractionCellOutOfBounds>연단의 상호작용 칸이 맵 밖에 있습니다.</AbilityPrayerServiceDisabledInteractionCellOutOfBounds>
+  <AbilityPrayerServiceDisabledInteractionCellForbidden>예배할 자리가 출입 금지 구역에 있습니다.</AbilityPrayerServiceDisabledInteractionCellForbidden>
+  <AbilityPrayerServiceDisabledInteractionCellNotStandable>예배할 자리에 설 수 없습니다.</AbilityPrayerServiceDisabledInteractionCellNotStandable>
+  <AbilityPrayerServiceDisabledPulpitForbidden>연단이 출입 금지로 설정되어 있습니다.</AbilityPrayerServiceDisabledPulpitForbidden>
+  <AbilityPrayerServiceDisabledPulpitBurning>연단이 불타고 있어 예배를 열 수 없습니다.</AbilityPrayerServiceDisabledPulpitBurning>
+  <AbilityPrayerServiceDisabledPulpitDangerous>연단 주변이 위험해 예배를 열 수 없습니다.</AbilityPrayerServiceDisabledPulpitDangerous>
+  <AbilityPrayerServiceDisabledRoomTooSmall>예배 공간이 너무 좁습니다. (예배할 방은 25칸보다 넓어야 합니다.)</AbilityPrayerServiceDisabledRoomTooSmall>
   <RK_WanderingTrader_Info>정보</RK_WanderingTrader_Info>
   <RK_WanderingTrader_ViewSettlers>정착 희망 유랑민 보기</RK_WanderingTrader_ViewSettlers>
   <RK_WanderingTrader_MercenarySearch>용병 물색</RK_WanderingTrader_MercenarySearch>
