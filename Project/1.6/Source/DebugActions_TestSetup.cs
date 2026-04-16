@@ -104,7 +104,7 @@ namespace NewRatkin
                 {
                     table.BillStack.AddBill(recipe.MakeNewBill());
                 }
-                Log.Message($"[Test1] {table.def.defName}: 레시피 {recipes.Count}개 추가됨");
+                // Log.Message($"[Test1] {table.def.defName}: 레시피 {recipes.Count}개 추가됨");
             }
 
             // --- 4. 모든 랫킨 무기 아이템 생성 ---
@@ -160,7 +160,7 @@ namespace NewRatkin
                 .OrderBy(d => d.defName)
                 .ToList();
 
-            Log.Message($"[Test2] 발동 시도할 랫킨 인시던트: {ratkinIncidents.Count}개");
+            // Log.Message($"[Test2] 발동 시도할 랫킨 인시던트: {ratkinIncidents.Count}개");
 
             int fired = 0;
             int skipped = 0;
@@ -177,18 +177,18 @@ namespace NewRatkin
                     if (incident.Worker.CanFireNow(parms))
                     {
                         incident.Worker.TryExecute(parms);
-                        Log.Message($"[Test2] 발동 성공: {incident.defName}");
+                        // Log.Message($"[Test2] 발동 성공: {incident.defName}");
                         fired++;
                     }
                     else
                     {
-                        Log.Warning($"[Test2] CanFireNow=false, 건너뜀: {incident.defName}");
+                        RatkinLimitedLog.Warning(RatkinLogKeys.DebugTestSetup_CanFireNowSkipped, $"[Test2] CanFireNow=false, 건너뜀: {incident.defName}");
                         skipped++;
                     }
                 }
                 catch (Exception e)
                 {
-                    Log.Error($"[Test2] 예외 발생 - {incident.defName}: {e.Message}");
+                    RatkinLimitedLog.Error(RatkinLogKeys.DebugTestSetup_IncidentException, $"[Test2] 예외 발생 - {incident.defName}: {e.Message}");
                     skipped++;
                 }
             }

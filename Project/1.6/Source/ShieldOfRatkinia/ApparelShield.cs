@@ -46,7 +46,7 @@ namespace NewRatkin
 
                     if (Rand.Value <= totalDeflectChance)
                     {
-                        if (Prefs.DevMode) { Log.Message(pawn + "ShieldBlockChance".Translate() + totalDeflectChance.ToStringPercent()); }
+                        // if (Prefs.DevMode) Log.Message(pawn + "ShieldBlockChance".Translate() + totalDeflectChance.ToStringPercent());
 
                         //튕겨냄 TxtMote
                         MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "ShieldBlock".Translate(), 1.9f);

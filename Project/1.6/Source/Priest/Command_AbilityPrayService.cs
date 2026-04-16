@@ -109,7 +109,7 @@ namespace NewRatkin
 			var allBuildings = organizer.Map.listerBuildings.AllBuildingsColonistOfDef(RatkinBuildingDefOf.RK_Pulpit).Where(x => IsPrayerServiceAvailableSpot(organizer, x));
 			if (allBuildings.EnumerableNullOrEmpty())
 			{
-				Log.Warning($"there is no PrayerService spot.");
+				RatkinLimitedLog.Warning(RatkinLogKeys.Priest_NoPrayerServiceSpot, "there is no PrayerService spot.");
 				pulpit = null;
 				spot = IntVec3.Invalid;
 				return false;
@@ -229,7 +229,7 @@ namespace NewRatkin
 				PrayerServiceSpotBlockReason r = GetPrayerServiceSpotBlockReason(organizer, b);
 				if (r == PrayerServiceSpotBlockReason.None)
 				{
-					Log.Warning("GetPrayerServiceSpotDisabledReason: valid pulpit exists; UI should not query disabled text.");
+					RatkinLimitedLog.Warning(RatkinLogKeys.Priest_PulpitUiMismatch, "GetPrayerServiceSpotDisabledReason: valid pulpit exists; UI should not query disabled text.");
 					return string.Empty;
 				}
 

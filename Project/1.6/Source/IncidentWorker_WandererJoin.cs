@@ -106,7 +106,7 @@ namespace NewRatkin
 						Pawn pawn = this.GeneratePawn(pawnKindCount.pawnKind, pawnKindCount.mustBeCapableOfViolence);
 						if (pawn == null)
 						{
-							Log.Warning($"Failed to generate pawn of kind {pawnKindCount.pawnKind?.defName ?? "null"} after multiple attempts. Skipping.");
+							RatkinLimitedLog.Warning(RatkinLogKeys.WandererJoin_GenerateFailedKinds, $"Failed to generate pawn of kind {pawnKindCount.pawnKind?.defName ?? "null"} after multiple attempts. Skipping.");
 							continue;
 						}
 						this.SpawnJoiner(map, pawn, spawnCell);
@@ -124,7 +124,7 @@ namespace NewRatkin
 				Pawn pawn = this.GeneratePawn(this.def.pawnKind);
 				if (pawn == null)
 				{
-					Log.Warning($"Failed to generate pawn of kind {this.def.pawnKind.defName} after multiple attempts.");
+					RatkinLimitedLog.Warning(RatkinLogKeys.WandererJoin_GenerateFailedSingle, $"Failed to generate pawn of kind {this.def.pawnKind.defName} after multiple attempts.");
 					return false;
 				}
 				this.SpawnJoiner(map, pawn, spawnCell);

@@ -169,7 +169,7 @@ namespace NewRatkin
 				HediffComp_Disappears hediffComp_Disappears = hediff.TryGetComp<HediffComp_Disappears>();
 				if (hediffComp_Disappears == null)
 				{
-					Log.Error("HediffComp_GiveHediffsInRange has a hediff in props which does not have a HediffComp_Disappears");
+					RatkinLimitedLog.Error(RatkinLogKeys.Hediff_GiveHediffsMissingDisappears, "HediffComp_GiveHediffsInRange has a hediff in props which does not have a HediffComp_Disappears");
 				}
 				else
 				{

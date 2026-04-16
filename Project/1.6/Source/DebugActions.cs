@@ -22,7 +22,7 @@ namespace NewRatkin
 
             if (ratkinMod == null)
             {
-                Log.Error("랫킨 모드 ModContentPack을 찾을 수 없습니다.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_RatkinModMissing, "랫킨 모드 ModContentPack을 찾을 수 없습니다.");
                 Messages.Message("랫킨 모드 출처를 찾을 수 없음", MessageTypeDefOf.RejectInput);
                 return;
             }
@@ -35,22 +35,17 @@ namespace NewRatkin
                 .ThenBy(def => def.defName)
                 .ToList();
 
-            Log.Message("=== 랫킨 장비 중 판매 불가(Not Sellable) 목록 ===");
-            Log.Message($"  [출처: {ratkinMod.Name} | Apparel 또는 Equipable(Weapon)]");
+            // Log.Message("=== 랫킨 장비 중 판매 불가(Not Sellable) 목록 ===");
+            // Log.Message($"  [출처: {ratkinMod.Name} | Apparel 또는 Equipable(Weapon)]");
             if (nonSellable.Count == 0)
             {
-                Log.Message("(없음)");
+                // Log.Message("(없음)");
             }
             else
             {
-                foreach (var def in nonSellable)
-                {
-                    string type = def.IsApparel ? "Apparel" : "Weapon";
-                    Log.Message($"  [{type}] {def.defName} - {def.label}");
-                }
-                Log.Message($"총 {nonSellable.Count}개");
+                // 장비별 상세 Log.Message 비활성화 (이전: foreach nonSellable …)
             }
-            Log.Message("==========================================");
+            // Log.Message("==========================================");
 
             Messages.Message($"판매 불가 랫킨 장비 {nonSellable.Count}개 - 로그 확인", MessageTypeDefOf.NeutralEvent);
         }
@@ -62,7 +57,7 @@ namespace NewRatkin
         {
             if (Find.CurrentMap == null)
             {
-                Log.Error("No current map found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoMapAllApparel, "No current map found.");
                 return;
             }
 
@@ -77,7 +72,7 @@ namespace NewRatkin
 
             if (allApparels.Count == 0)
             {
-                Log.Error("No RK_ apparel found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoRKApparel, "No RK_ apparel found.");
                 return;
             }
 
@@ -85,7 +80,7 @@ namespace NewRatkin
             PawnKindDef ratkinKind = DefDatabase<PawnKindDef>.GetNamedSilentFail("RatkinColonist");
             if (ratkinKind == null)
             {
-                Log.Error("RatkinColonist PawnKindDef not found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_RatkinColonistMissing, "RatkinColonist PawnKindDef not found.");
                 return;
             }
 
@@ -210,7 +205,7 @@ namespace NewRatkin
             
             if (removedRoofs > 0)
             {
-                Log.Message($"Removed {removedRoofs} overhead mountain roofs.");
+                // Log.Message($"Removed {removedRoofs} overhead mountain roofs.");
             }
 
             // 2. Remove all pawns
@@ -247,7 +242,7 @@ namespace NewRatkin
         {
             if (Find.CurrentMap == null)
             {
-                Log.Error("No current map found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoMapFillNeeds, "No current map found.");
                 return;
             }
 
@@ -303,7 +298,7 @@ namespace NewRatkin
         {
             if (p == null)
             {
-                Log.Error("RemoveBodyPart: Pawn is null.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_RemoveBodyPawnNull, "RemoveBodyPart: Pawn is null.");
                 return;
             }
 
@@ -348,7 +343,7 @@ namespace NewRatkin
         {
             if (Find.CurrentMap == null)
             {
-                Log.Error("No current map found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoMapBaby, "No current map found.");
                 return;
             }
 
@@ -399,13 +394,13 @@ namespace NewRatkin
                                 resultCounts[createdCount]++;
                             }
                             
-                            // 결과 요약 출력
-                            Log.Message("=== Create Baby Test Results (1000 trials) ===");
-                            foreach (var kvp in resultCounts.OrderBy(x => x.Key))
-                            {
-                                double percentage = (kvp.Value / 1000.0) * 100.0;
-                                Log.Message($"{kvp.Key}명: {kvp.Value}회 ({percentage:F2}%)");
-                            }
+                            // 결과 요약 출력 (일반 로그 비활성화)
+                            // Log.Message("=== Create Baby Test Results (1000 trials) ===");
+                            // foreach (var kvp in resultCounts.OrderBy(x => x.Key))
+                            // {
+                            //     double percentage = (kvp.Value / 1000.0) * 100.0;
+                            //     Log.Message($"{kvp.Key}명: {kvp.Value}회 ({percentage:F2}%)");
+                            // }
                             
                             Messages.Message("Created babies 1000 times. Check logs for probability summary.", MessageTypeDefOf.TaskCompletion);
                         }
@@ -452,7 +447,7 @@ namespace NewRatkin
         {
             if (Find.CurrentMap == null)
             {
-                Log.Error("No current map found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoMapSpawnKinds, "No current map found.");
                 return;
             }
 
@@ -462,7 +457,7 @@ namespace NewRatkin
             if (map.Size.x < 225 || map.Size.z < 225)
             {
                 Messages.Message($"Map size ({map.Size.x}x{map.Size.z}) is too small. Minimum required: 225x225", MessageTypeDefOf.RejectInput);
-                Log.Warning($"Map size ({map.Size.x}x{map.Size.z}) is too small. Minimum required: 225x225");
+                RatkinLimitedLog.Warning(RatkinLogKeys.DebugActions_MapTooSmall, $"Map size ({map.Size.x}x{map.Size.z}) is too small. Minimum required: 225x225");
                 return;
             }
 
@@ -477,7 +472,7 @@ namespace NewRatkin
 
             if (ratkinPawnKinds.Count == 0)
             {
-                Log.Error("No Ratkin PawnKindDef found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoRatkinPawnKind, "No Ratkin PawnKindDef found.");
                 return;
             }
 
@@ -496,7 +491,7 @@ namespace NewRatkin
 
             if (maxPawnsPerRow <= 0)
             {
-                Log.Error($"Cannot fit any pawns in a row. Map width: {map.Size.x}, Start: {startX}, Margin: {margin}, Spacing: {spacing}");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_CannotFitPawnsRow, $"Cannot fit any pawns in a row. Map width: {map.Size.x}, Start: {startX}, Margin: {margin}, Spacing: {spacing}");
                 return;
             }
 
@@ -531,7 +526,7 @@ namespace NewRatkin
                             spawnPos = CellFinder.RandomSpawnCellForPawnNear(spawnPos, map, 10);
                             if (!spawnPos.InBounds(map))
                             {
-                                Log.Warning($"Could not find valid spawn position for {pawnKind.defName} at ({currentX}, {currentZ})");
+                                RatkinLimitedLog.Warning(RatkinLogKeys.DebugActions_SpawnPositionInvalid, $"Could not find valid spawn position for {pawnKind.defName} at ({currentX}, {currentZ})");
                                 break; // 이 pawnkind는 더 이상 생성 불가
                             }
                         }
@@ -569,7 +564,7 @@ namespace NewRatkin
                     }
                     catch (Exception ex)
                     {
-                        Log.Error($"Failed to spawn pawn {i + 1} of {pawnKind.defName}: {ex.Message}");
+                        RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_SpawnPawnFailed, $"Failed to spawn pawn {i + 1} of {pawnKind.defName}: {ex.Message}");
                         // Continue to next pawn
                     }
                     finally
@@ -579,7 +574,7 @@ namespace NewRatkin
                     }
                 }
 
-                Log.Message($"Spawned {spawnedForThisKind} pawns of {pawnKind.defName}");
+                // Log.Message($"Spawned {spawnedForThisKind} pawns of {pawnKind.defName}");
             }
 
             // Draft all spawned pawns

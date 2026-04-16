@@ -37,7 +37,7 @@ namespace NewRatkin
 			Thing thing = currentTarget.Thing;
 			if (!CanHitTarget(thing))
 			{
-				Log.Warning(string.Concat(new object[]
+				RatkinLimitedLog.Warning(RatkinLogKeys.MeleeExplosion_OutOfPosition, string.Concat(new object[]
 				{
 					casterPawn,
 					" meleed ",

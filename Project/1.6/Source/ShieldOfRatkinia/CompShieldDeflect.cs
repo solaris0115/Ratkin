@@ -90,16 +90,7 @@ namespace NewRatkin
                 EffecterDefOf.Deflect_Metal.Spawn().Trigger(pawn, dinfo.Instigator ?? pawn);
             }
 
-            if (Prefs.DevMode)
-            {
-                string attacker = dinfo.Instigator?.LabelShort ?? "?";
-                string result = blocked ? "✔ 관통실패 (블록)" : "✘ 관통성공 (피해 통과)";
-                Log.Message(
-                    $"[RK-Shield] {pawn.LabelShort} ← {attacker} | {dinfo.Def.defName} {dinfo.Amount:F1}dmg\n" +
-                    $"  [1] blockChance={blockChance:F3} → 시도 성공\n" +
-                    $"  [2] armor={armorRating:F3}  AP={dinfo.ArmorPenetrationInt:F3}  threshold={num:F3}\n" +
-                    $"  → {result}  내구도손상={durabilityDamage:F2}");
-            }
+            // DevMode 상세 로그 비활성화 (이전: blockChance/armor/AP/관통 결과 Log.Message)
         }
     }
 }

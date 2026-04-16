@@ -116,7 +116,7 @@ namespace NewRatkin
                 num++;
                 if (num > 1000)
                 {
-                    Log.Error("Too many iterations.");
+                    RatkinLimitedLog.Error(RatkinLogKeys.Tunnel_TooManyIterations, "Too many iterations.");
                     break;
                 }
                 Pawn pawn;

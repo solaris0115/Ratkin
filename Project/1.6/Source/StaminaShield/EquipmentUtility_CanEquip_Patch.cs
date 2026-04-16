@@ -48,7 +48,7 @@ namespace NewRatkin
             }
             else
             {
-                Log.Error("[EquipmentUtility_CanEquip_Patch] Failed to find EquipmentUtility.CanEquip method");
+                RatkinLimitedLog.Error(RatkinLogKeys.Equipment_CanEquipPatchMissingMethod, "[EquipmentUtility_CanEquip_Patch] Failed to find EquipmentUtility.CanEquip method");
             }
         }
 

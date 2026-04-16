@@ -56,7 +56,7 @@ namespace NewRatkin
             }
             catch (Exception ex)
             {
-                Log.Warning($"[Ratkin] Failed to load debug spawn config: {ex.Message}");
+                RatkinLimitedLog.Warning(RatkinLogKeys.RKSpawnConfig_LoadFailed, $"[Ratkin] Failed to load debug spawn config: {ex.Message}");
                 config = new RKSpawnEquipmentConfig();
             }
 
@@ -85,7 +85,7 @@ namespace NewRatkin
             }
             catch (Exception ex)
             {
-                Log.Warning($"[Ratkin] Failed to save debug spawn config: {ex.Message}");
+                RatkinLimitedLog.Warning(RatkinLogKeys.RKSpawnConfig_SaveFailed, $"[Ratkin] Failed to save debug spawn config: {ex.Message}");
             }
         }
     }

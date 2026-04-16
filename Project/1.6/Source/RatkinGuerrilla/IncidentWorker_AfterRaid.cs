@@ -42,7 +42,7 @@ namespace NewRatkin
         {
             if (parms.points <= 0f)
             {
-                Log.Error("RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
+                RatkinLimitedLog.Error(RatkinLogKeys.AfterRaid_ResolveRaidPointsZero, "RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
                 parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
             }
         }
@@ -58,7 +58,7 @@ namespace NewRatkin
                   where d.Worker.CanUseWith(parms, groupKind) && (parms.raidArrivalMode != null || (d.arriveModes != null && d.arriveModes.Any((PawnsArrivalModeDef x) => x.Worker.CanUseWith(parms))))
                   select d).TryRandomElementByWeight((RaidStrategyDef d) => d.Worker.SelectionWeight(map, parms.points), out parms.raidStrategy))
             {
-                Log.Error(string.Concat(new object[]
+                RatkinLimitedLog.Error(RatkinLogKeys.AfterRaid_NoRaidStrategy, string.Concat(new object[]
                 {
                     "No raid stategy for ",
                     parms.faction,

@@ -36,7 +36,7 @@ namespace NewRatkin
 			int count = (from pawnKindDef in DefDatabase<PawnKindDef>.AllDefs where pawnKindDef.defaultFactionDef == RatkinFactionDefOf.Rakinia select pawnKindDef).Count();
 			if (count == 0)
 			{
-				Log.Warning("No Ratkin PawnKindDef found!");
+				RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NoPawnKindFull, "No Ratkin PawnKindDef found!");
 				return;
 			}
 			
@@ -54,7 +54,7 @@ namespace NewRatkin
 			Faction ratkinFaction = Find.FactionManager.AllFactions.FirstOrDefault(faction => faction.def == RatkinFactionDefOf.Rakinia);
 			if (ratkinFaction == null)
 			{
-				Log.Warning("Ratkin faction not found!");
+				RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NoFactionFull, "Ratkin faction not found!");
 				return;
 			}
 			foreach (PawnKindDef pawnKindDef in (from def in DefDatabase<PawnKindDef>.AllDefs where def.defaultFactionDef == RatkinFactionDefOf.Rakinia select def) )
@@ -69,7 +69,7 @@ namespace NewRatkin
 						y += interval;
 						if (y >= Map.Size.z - 5)
 						{
-							Log.Warning("Not enough space on map! Stopping at " + pawnKindDef.defName + " (n=" + n + ")");
+							RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NotEnoughSpaceFull, "Not enough space on map! Stopping at " + pawnKindDef.defName + " (n=" + n + ")");
 							break;
 						}
 					}
@@ -77,7 +77,7 @@ namespace NewRatkin
 					// 위치가 맵 경계 내인지 확인
 					if (!new IntVec3(x, 0, y).InBounds(Map))
 					{
-						Log.Warning("Position out of bounds! Stopping at " + pawnKindDef.defName + " (n=" + n + ", x=" + x + ", y=" + y + ")");
+						RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_PositionOobFull, "Position out of bounds! Stopping at " + pawnKindDef.defName + " (n=" + n + ", x=" + x + ", y=" + y + ")");
 						break;
 					}
 					
@@ -97,7 +97,7 @@ namespace NewRatkin
 				y += interval;
 				if (y >= Map.Size.z - 5)
 				{
-					Log.Warning("Not enough space on map! Stopping at " + pawnKindDef.defName);
+					RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NotEnoughSpaceFullEnd, "Not enough space on map! Stopping at " + pawnKindDef.defName);
 					break;
 				}
 			}
@@ -120,7 +120,7 @@ namespace NewRatkin
 			int count = (from def in DefDatabase<PawnKindDef>.AllDefs where def.defaultFactionDef == RatkinFactionDefOf.Rakinia select def).Count();
 			if (count == 0)
 			{
-				Log.Warning("No Ratkin PawnKindDef found!");
+				RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NoPawnKindForEach, "No Ratkin PawnKindDef found!");
 				return;
 			}
 			int interval = 2;
@@ -133,7 +133,7 @@ namespace NewRatkin
 			Faction ratkinFaction = Find.FactionManager.AllFactions.FirstOrDefault(faction => faction.def == RatkinFactionDefOf.Rakinia);
 			if (ratkinFaction == null)
 			{
-				Log.Warning("Ratkin faction not found!");
+				RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NoFactionForEach, "Ratkin faction not found!");
 				return;
 			}
 			foreach (PawnKindDef pawnKindDef in (from def in DefDatabase<PawnKindDef>.AllDefs where def.defaultFactionDef == RatkinFactionDefOf.Rakinia select def))
@@ -145,7 +145,7 @@ namespace NewRatkin
 					y += interval;
 					if (y >= Map.Size.z - 5)
 					{
-						Log.Warning("Not enough space on map! Stopping at " + pawnKindDef.defName);
+						RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_NotEnoughSpaceForEach, "Not enough space on map! Stopping at " + pawnKindDef.defName);
 						break;
 					}
 				}
@@ -153,7 +153,7 @@ namespace NewRatkin
 				// 위치가 맵 경계 내인지 확인
 				if (!new IntVec3(x, 0, y).InBounds(Map))
 				{
-					Log.Warning("Position out of bounds! Stopping at " + pawnKindDef.defName + " (x=" + x + ", y=" + y + ")");
+					RatkinLimitedLog.Warning(RatkinLogKeys.AutoTests_PositionOobForEach, "Position out of bounds! Stopping at " + pawnKindDef.defName + " (x=" + x + ", y=" + y + ")");
 					break;
 				}
 				
