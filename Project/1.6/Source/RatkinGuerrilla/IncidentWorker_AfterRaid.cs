@@ -69,7 +69,9 @@ namespace NewRatkin
                     "\nparms=",
                     parms
                 }));
+#if RATKIN_DEV_FEATURES
                 if (!Prefs.DevMode)
+#endif
                 {
                     parms.raidStrategy = RaidStrategyDefOf.ImmediateAttack;
                 }

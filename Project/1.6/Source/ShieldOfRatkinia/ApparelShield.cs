@@ -79,6 +79,7 @@ namespace NewRatkin
             heat.AppendLine("BlockChanceDefualtDesc".Translate());
             var deflectChanceByMeleeSkill = 0f;
 
+#if RATKIN_DEV_FEATURES
             if (Prefs.DevMode)
             {
                 if (Wearer != null)
@@ -105,6 +106,7 @@ namespace NewRatkin
                     heat.AppendLine($"\n{StatDefOf.ArmorRating_Heat.LabelCap}: {this.GetStatValue(StatDefOf.ArmorRating_Heat).ToStringPercent()}\n{"StatsReport_FinalValue".Translate()}: {deflectChanceHeat.ToStringPercent()}({"CanLow".Translate()})");
                 }
             }
+#endif
             yield return new StatDrawEntry(StatCategoryDefOf.Apparel, "BlockChance_Heat".Translate(), (deflectChanceHeat + deflectChanceByMeleeSkill).ToStringPercent(), heat.ToString(), 20);
             yield return new StatDrawEntry(StatCategoryDefOf.Apparel, "BlockChance_Blunt".Translate(), (deflectChanceBlunt + deflectChanceByMeleeSkill).ToStringPercent(), blunt.ToString(), 20);
             yield return new StatDrawEntry(StatCategoryDefOf.Apparel, "BlockChance_Sharp".Translate(), (delfectChanceSharp + deflectChanceByMeleeSkill).ToStringPercent(), sharp.ToString(), 20);

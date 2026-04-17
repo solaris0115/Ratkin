@@ -4,16 +4,36 @@
 
 테스트 빌드 패키징 후 **solaris0115/NewRatkin** GitHub Pre-release로 배포합니다.
 
+배포용 프리릴리스 ZIP에는 **`RATKIN_DEV_FEATURES` 없음**(디버그 액션·InfoCard 갓모드 패치 등 제외). 내부 테스트용으로 dev DLL을 넣으려면 아래 **모드 B**를 쓴다.
+
 ## 참조 규칙
 
 - [07-testbuild-packaging.mdc](../rules/07-testbuild-packaging.mdc)
+- [NewRatkin.csproj](../../Project/1.6/Source/NewRatkin.csproj): `RatkinDevFeatures`, `RATKIN_DEV_FEATURES`
 
 ## 실행 순서
 
 1. **버전 확인**: `Build/TestBuild/` 폴더에서 기존 ZIP 목록 조회
 2. **버전 결정**: 최신 패치 버전 +1 (예: 0.0.6 → 0.0.7). 폴더가 비어 있으면 사용자에게 시작 버전 확인
-3. **ZIP 패키징**: `Project/` 전체 압축, `Project/1.5/` 제외 → **파일 1개만** 생성
-4. **GitHub Release**: 기존 Dev1.6 삭제 후 최신 파일로 Pre-release 재생성
+3. **C# 빌드 → Assemblies 반영** (아래 **모드 A** 또는 **모드 B** 중 하나)
+4. **ZIP 패키징**: `Project/` 전체 압축, `Project/1.5/` 제외 → **파일 1개만** 생성
+5. **GitHub Release**: 기존 Dev1.6 삭제 후 최신 파일로 Pre-release 재생성
+
+### 모드 A — 배포용 프리릴리스 (기본, dev 기능 제외)
+
+`Configuration=Release`이면 `RatkinDevFeatures`는 기본 `false`이며 `RATKIN_DEV_FEATURES`가 정의되지 않는다. Assemblies에 넣기 위해 Release 산출물을 복사한다.
+
+```powershell
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; Copy-Item -Path "bin\Release\NewRatkin.dll" -Destination "..\Assemblies\NewRatkin.dll" -Force; cd ..\..\..
+```
+
+### 모드 B — 프리릴리스이지만 내부용(dev DLL 유지)
+
+ZIP만 프리릴리스로 올리고 DLL은 디버그 액션 등 포함(로컬·내부 테스트). `Project/1.6/Assemblies/`에 Debug(+기본 `RatkinDevFeatures=true`) 산출물이 들어가게 한다.
+
+```powershell
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Debug /restore:false; cd ..\..\..
+```
 
 > **파일명**: `Ratkin_TestBuild_YYMMDD_버전.zip` (대괄호 없음 → gh glob 오류 방지, 복사 단계 불필요)
 
@@ -33,10 +53,13 @@ if (-not (Test-Path "Build/TestBuild")) {
     New-Item -ItemType Directory -Path "Build/TestBuild" -Force 
 }
 
-# 3. 압축 (파일 1개만 생성)
+# 3. C# — 모드 A(배포용): 아래 한 줄 실행 후 4번으로 진행
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; Copy-Item -Path "bin\Release\NewRatkin.dll" -Destination "..\Assemblies\NewRatkin.dll" -Force; cd ..\..\..
+
+# 4. 압축 (파일 1개만 생성)
 7z a -tzip $output "./Project/*" -xr!"Project/1.5"
 
-# 4. GitHub Pre-release 업로드 (NewRatkin)
+# 5. GitHub Pre-release 업로드 (NewRatkin)
 gh -R solaris0115/NewRatkin release delete Dev1.6 --yes
 gh -R solaris0115/NewRatkin release create Dev1.6 $output --title "[1.6]TestBuild" --prerelease -n " "
 ```

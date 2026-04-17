@@ -83,9 +83,12 @@ Get-ChildItem "Build/TestBuild" -Filter "*.zip" | Sort-Object Name -Descending |
 
 테스트 빌드 배포 시 순서:
 
-1. **압축**: `Project/` 폴더를 ZIP으로 패키징
-2. **1.5 제외**: `Project/1.5/` 폴더는 불필요하므로 압축에서 제외
-3. **웹 배포**: GitHub Release에 업로드 (기본: **NewRatkin** 저장소)
+1. **(프리릴리스·배포용)** C# **Release** + `RatkinDevFeatures=false` → `bin\Release\NewRatkin.dll`을 `Project/1.6/Assemblies/NewRatkin.dll`로 복사 (`RATKIN_DEV_FEATURES` 미포함). `!prerelease` 커맨드는 이 단계를 포함한다.
+2. **압축**: `Project/` 폴더를 ZIP으로 패키징
+3. **1.5 제외**: `Project/1.5/` 폴더는 불필요하므로 압축에서 제외
+4. **웹 배포**: GitHub Release에 업로드 (기본: **NewRatkin** 저장소)
+
+내부용(dev DLL 포함) ZIP이 필요하면 Debug 빌드로 `Assemblies`를 덮어쓴 뒤 동일하게 압축한다. (`!prerelease` 문서 모드 B)
 
 > **저장소 구분**: 배포 대상은 **solaris0115/NewRatkin** (Ratkin 아님). Ratkin과 별도 리포지토리.
 

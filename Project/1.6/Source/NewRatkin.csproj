@@ -13,6 +13,11 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
+  <!-- Dev 전용 코드: 기본 Debug=포함, Release=제외. Release에서 켜려면 /p:RatkinDevFeatures=true -->
+  <PropertyGroup>
+    <RatkinDevFeatures Condition="'$(RatkinDevFeatures)' == '' And '$(Configuration)' == 'Debug'">true</RatkinDevFeatures>
+    <RatkinDevFeatures Condition="'$(RatkinDevFeatures)' == ''">false</RatkinDevFeatures>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
@@ -31,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(RatkinDevFeatures)' == 'true'">
+    <DefineConstants>$(DefineConstants);RATKIN_DEV_FEATURES</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -70,7 +78,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**\*.cs" Exclude="bin\**\*.cs;obj\**\*.cs" />
+    <Compile Include="**\*.cs" Exclude="
+      bin\**\*.cs;
+      obj\**\*.cs;
+      DebugActions.cs;
+      DebugActions_TestSetup.cs;
+      Dialog_RKSpawnEquipmentConfig.cs;
+      RKSpawnEquipmentConfig.cs;
+      AutoTests\AutoTests.cs;
+      Patch_InfoCard_OpenHotkey.cs;
+      Patch_InfoCard_HotSwap.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(RatkinDevFeatures)' == 'true'">
+    <Compile Include="DebugActions.cs" />
+    <Compile Include="DebugActions_TestSetup.cs" />
+    <Compile Include="Dialog_RKSpawnEquipmentConfig.cs" />
+    <Compile Include="RKSpawnEquipmentConfig.cs" />
+    <Compile Include="AutoTests\AutoTests.cs" />
+    <Compile Include="Patch_InfoCard_OpenHotkey.cs" />
+    <Compile Include="Patch_InfoCard_HotSwap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

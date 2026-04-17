@@ -22,6 +22,16 @@ cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Communit
 - **출력 DLL**: `Project/1.6/Assemblies/NewRatkin.dll` (자동 복사)
 - **성공 메시지**: `Build succeeded.`
 
+### 프리릴리스·릴리스용 (dev 기능 제외)
+
+`RATKIN_DEV_FEATURES` 없이 빌드: **Release** + 명시적으로 `RatkinDevFeatures=false`. 산출물은 `bin\Release\`이므로 Assemblies에 복사한다.
+
+```powershell
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; Copy-Item -Path "bin\Release\NewRatkin.dll" -Destination "..\Assemblies\NewRatkin.dll" -Force; cd ..\..\..
+```
+
+`!prerelease` / `!프리릴리스` 커맨드는 위 순서를 패키징 전에 실행한다.
+
 ### C# 파일 관리
 - **새 파일 생성 시**: `NewRatkin.csproj`의 `<ItemGroup>`에 `<Compile Include="폴더\파일명.cs" />` 추가
 - **파일 삭제 시**: 해당 `<Compile Include="..."/>` 항목 제거

@@ -134,10 +134,12 @@ namespace NewRatkin
 
         private void ThrowDebugText(string text, IntVec3 c)
         {
+#if RATKIN_DEV_FEATURES
             if (DebugViewSettings.drawShooting)
             {
                 MoteMaker.ThrowText(c.ToVector3Shifted(), base.Map, text, -1f);
             }
+#endif
         }
 
         protected new bool CanHit(Thing thing)

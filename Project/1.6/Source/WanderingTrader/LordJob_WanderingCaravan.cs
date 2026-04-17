@@ -55,7 +55,11 @@ namespace NewRatkin
 
 			// Idle: TicksPassed → Exit (리더 따라 한곳으로 퇴장)
 			Transition toExitTime = new Transition(idle, exitCaravan, false, true);
+#if RATKIN_DEV_FEATURES
 			toExitTime.AddTrigger(new Trigger_TicksPassed(DebugSettings.instantVisitorsGift ? 0 : Rand.Range(27000, 45000)));
+#else
+			toExitTime.AddTrigger(new Trigger_TicksPassed(Rand.Range(27000, 45000)));
+#endif
 			toExitTime.AddPreAction(new TransitionAction_Custom(() => SaveCaravanToWorldPawns()));
 			toExitTime.AddPreAction(new TransitionAction_Message("MessageTraderCaravanLeaving".Translate(faction.Name), null, 1f));
 			toExitTime.AddPostAction(new TransitionAction_WakeAll());
