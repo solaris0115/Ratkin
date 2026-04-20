@@ -20,7 +20,7 @@
 			<Flammability>0.4</Flammability>
 			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.7</ArmorRating_Heat>
+			<ArmorRating_Heat>0.4</ArmorRating_Heat>
 			<Insulation_Cold>10</Insulation_Cold>
 			<Insulation_Heat>20</Insulation_Heat>
 			<EquipDelay>4</EquipDelay>
@@ -28,6 +28,8 @@
 		<equippedStatOffsets>
 			<ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
 			<VacuumResistance>0.69</VacuumResistance>
+			<AimingDelayFactor>-0.12</AimingDelayFactor>
+			<ShootingAccuracyPawn>4</ShootingAccuracyPawn>
 		</equippedStatOffsets>
 		<smeltable>true</smeltable>
 		<thingCategories>
@@ -101,9 +103,9 @@
 			<Flammability>0.4</Flammability>
 			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.8</ArmorRating_Heat>
+			<ArmorRating_Heat>0.4</ArmorRating_Heat>
 			<Insulation_Cold>70</Insulation_Cold>
-			<Insulation_Heat>70</Insulation_Heat>
+			<Insulation_Heat>30</Insulation_Heat>
 			<EquipDelay>14</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
@@ -183,11 +185,11 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<Mass>8</Mass>
 			<Flammability>0.4</Flammability>
-			<ArmorRating_Sharp>0.52</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.66</ArmorRating_Heat>
-			<Insulation_Cold>90</Insulation_Cold>
-			<Insulation_Heat>15</Insulation_Heat>
+			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.4</ArmorRating_Heat>
+			<Insulation_Cold>70</Insulation_Cold>
+			<Insulation_Heat>30</Insulation_Heat>
 			<EquipDelay>14</EquipDelay>
 		</statBases>
 		<equippedStatOffsets>
@@ -272,7 +274,7 @@
 			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.6</ArmorRating_Heat>
 			<Insulation_Cold>70</Insulation_Cold>
-			<Insulation_Heat>45</Insulation_Heat>
+			<Insulation_Heat>70</Insulation_Heat>
 			<EquipDelay>10</EquipDelay>
 			<Flammability>0.1</Flammability>
 		</statBases>
