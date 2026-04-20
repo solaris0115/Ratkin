@@ -188,6 +188,11 @@
 					</bodytypeGraphics>
 				</body>
 				<head>Things/Ratkin/Head/</head>
+				<!-- RK 착용 그래픽은 Thin 접미사만 존재. Female/Fat 등别的 바디로 조회될 때 경로만 Thin으로 대체(HAR는 story.bodyType 자체를 바꾸지 않음). -->
+				<apparel>
+					<bodyTypeFallback>Thin</bodyTypeFallback>
+					<femaleBodyTypeFallback>Thin</femaleBodyTypeFallback>
+				</apparel>
 			</graphicPaths>
 			<styleSettings>
 				<li>
