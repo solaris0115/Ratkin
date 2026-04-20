@@ -51,7 +51,7 @@
 						<thingCounts>
 							<!-- ThingDefCountClass: 요소명=Def이름, 내용=수량 (li+thingDef+count 형식은 InnerText가 합쳐져 Telescope1 오류 발생) -->
 							<Telescope>1</Telescope>
-							<Harp>1</Harp>
+							<Harp MayRequire="Ludeon.RimWorld.Royalty">1</Harp>
 						</thingCounts>
 						<descShort>RK_JoinReq_WindFreedom_DescShort</descShort>
 						<desc>
