@@ -22,11 +22,12 @@
 		<!-- TODO: RulePackDef 파일에 NamerFestival_RatkinKingdom 생성 필요 -->
 		<festivalNameMaker MayRequire="Ludeon.RimWorld.Ideology">NamerFestival_RatkinKingdom</festivalNameMaker>
 		<!-- allowedPlaceTags: 허용된 장소 태그. 봉건주의 왕국이므로 OriginTechnoFeudal 또는 OriginSpacer 사용 -->
-		<!-- OriginTechnoFeudal: 기술-봉건주의 기원 (Sophian과 동일) -->
-		<!-- OriginSpacer: 우주 시대 기원 (일부 울트라테크 장비 취급 가능) -->
+		<!-- OriginTechnoFeudal: 기술-봉건주의 기원 (Royalty Sophiamunda PlaceDef만 해당; Royalty 비활성 시 후보 0개가 되어 place_foeSoldiers 문법 오류 발생) -->
+		<!-- OriginSpacer: Ideology PlaceDef 다수와 매칭 — Royalty 없이도 이데올로기 서사 문법이 정상 동작하도록 필수 -->
 		<!-- OriginTribal: 부족 기원 (부적합, 봉건주의와 맞지 않음) -->
 		<allowedPlaceTags>
 			<li>OriginTechnoFeudal</li>
+			<li>OriginSpacer</li>
 		</allowedPlaceTags>
 		<!-- iconPath: 아이콘 경로. 랫킨 전용 아이콘 사용 -->
 		<iconPath>UI/Cultures/RK_icon</iconPath>
