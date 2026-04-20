@@ -86,6 +86,7 @@
 			<li>
 				<statOffsets>
 					<MeleeHitChance>4</MeleeHitChance>
+					<MeleeDodgeChance>-4</MeleeDodgeChance>
 				</statOffsets>
 			</li>
 		</stages>
