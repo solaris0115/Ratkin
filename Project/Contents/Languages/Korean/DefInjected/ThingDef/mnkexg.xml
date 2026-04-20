@@ -184,8 +184,8 @@
   <GunlanceAfterIgnition.label>점화</GunlanceAfterIgnition.label>
   <RK_Weapon_ProtoChainSword.label>체인소드</RK_Weapon_ProtoChainSword.label>
   <RK_Weapon_ProtoChainSword.description>날에 달린 회전 사슬로 대상을 찢어발기는 무기입니다.</RK_Weapon_ProtoChainSword.description>
-  <RK_Weapon_ProtoChainSword.tools.0.label>날끝</RK_Weapon_ProtoChainSword.tools.0.label>
-  <RK_Weapon_ProtoChainSword.tools.1.label>날</RK_Weapon_ProtoChainSword.tools.1.label>
+  <RK_Weapon_ProtoChainSword.tools.0.label>전기톱날 (</RK_Weapon_ProtoChainSword.tools.0.label>
+  <RK_Weapon_ProtoChainSword.tools.1.label>전기톱날 (베기)</RK_Weapon_ProtoChainSword.tools.1.label>
   <RK_Weapon_ProtoFlameChainSword.label>화염 체인소드</RK_Weapon_ProtoFlameChainSword.label>
   <RK_Weapon_ProtoFlameChainSword.description>불꽃을 두른 회전 사슬로 대상을 찢어발기는 무기입니다.</RK_Weapon_ProtoFlameChainSword.description>
   <RK_Weapon_ProtoFlameChainSword.tools.0.label>날끝</RK_Weapon_ProtoFlameChainSword.tools.0.label>

@@ -468,16 +468,6 @@
 		</costList>
 		<tools>
 			<li>
-				<label>point</label>
-				<capacities>
-					<li>RK_ToolCapacity_ChainSword</li>
-				</capacities>
-				<power>20</power>
-				<armorPenetration>0.7</armorPenetration>
-				<cooldownTime>2</cooldownTime>
-				<chanceFactor>5.0</chanceFactor>
-			</li>
-			<li>
 				<label>edge</label>
 				<capacities>
 					<li>RK_ToolCapacity_ChainSword</li>
@@ -506,23 +496,6 @@
 			<Uranium>50</Uranium>
 		</costList>
 		<tools>
-			<li>
-				<label>point</label>
-				<capacities>
-					<li>RK_ToolCapacity_ChainSword</li>
-				</capacities>
-				<power>20</power>
-				<armorPenetration>0.7</armorPenetration>
-				<cooldownTime>2</cooldownTime>
-				<chanceFactor>5.0</chanceFactor>
-				<extraMeleeDamages>
-					<li>
-						<def>Burn</def>
-						<amount>5</amount>
-						<chance>0.5</chance>
-					</li>
-				</extraMeleeDamages>
-			</li>
 			<li>
 				<label>edge</label>
 				<capacities>
@@ -653,6 +626,7 @@
 	<!-- 신규 데미지 유형 -->
 	<ToolCapacityDef>
 		<defName>RK_ToolCapacity_ChainSword</defName>
+		<label>saw</label>
 	</ToolCapacityDef>
 
 	<ManeuverDef>
