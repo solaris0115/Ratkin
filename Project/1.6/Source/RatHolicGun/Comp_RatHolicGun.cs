@@ -154,6 +154,23 @@ namespace NewRatkin
             (HediffCompProperties_RatHolicGun)this.props;
 
         /// <summary>
+        /// 관리자 Hediff(RK_Hediff_RatHolicGun)가 제거될 때(무기 해제 등) 회전 축적·조준 동조도 함께 제거.
+        /// 해제 시 Comp_EquipableHediff가 관리자만 지우므로, 자식 Hediff는 이 훅에서 정리한다.
+        /// </summary>
+        public override void CompPostPostRemoved()
+        {
+            base.CompPostPostRemoved();
+            Pawn pawn = this.Pawn;
+            if (pawn?.health?.hediffSet == null)
+            {
+                return;
+            }
+
+            RemoveHediffs(pawn, Props?.targetChangeRemoveHediffs);
+            RemoveHediffs(pawn, Props?.notFiringRemoveHediffs);
+        }
+
+        /// <summary>
         /// 매 프레임마다 호출 - 타겟 변경/삭제 체크
         /// </summary>
         public override void CompPostTick(ref float severityAdjustment)
