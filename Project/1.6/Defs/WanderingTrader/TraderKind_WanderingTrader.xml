@@ -41,7 +41,7 @@
 			</li>
 
 			<!-- Techprints -->
-			<li Class="StockGenerator_Techprints">
+			<li Class="StockGenerator_Techprints" MayRequire="Ludeon.RimWorld.Royalty">
 				<countChances>
 					<li>
 						<count>3</count>

@@ -382,7 +382,50 @@
 		</children>
 	</EffecterDef>
 
-	<ThingDef ParentName="MeleeWeaponUltratech" Name="RK_WeaponAttr_UltratechBase" Abstract="True">
+	<!--
+		Royalty MeleeWeaponUltratech 와 동일(품질·예술·바이오코딩 등). Royalty 비활성 시 부모 없음 오류 방지 — 코어 BaseWeapon 상속.
+	-->
+	<ThingDef Name="RK_WeaponAttr_UltratechBase" ParentName="BaseWeapon" Abstract="True">
+		<techLevel>Ultra</techLevel>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<statBases>
+			<MarketValue>2000</MarketValue>
+			<WorkToMake>60000</WorkToMake>
+			<Mass>10</Mass>
+		</statBases>
+		<comps>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerArtWeaponMelee</nameMaker>
+				<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+			<li Class="CompProperties_Biocodable"/>
+			<li Class="SYS.CompProperties_WeaponExtention">
+				<northOffset>
+					<position>(0.20,-1,-0.3)</position>
+					<angle>70</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.22,1,-0.3)</position>
+					<angle>-60</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(-0.15,0.3,-0.25)</position>
+					<angle>195</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(0.15,-0.3,-0.25)</position>
+					<angle>-195</angle>
+				</westOffset>
+			</li>
+		</comps>
+		<smeltable>true</smeltable>
+		<burnableByRecipe>true</burnableByRecipe>
 		<equippedAngleOffset>-15</equippedAngleOffset>
 		<weaponTags Inherit="false">
 			<li>RK_WeaponTag_All</li>
@@ -410,30 +453,6 @@
 		<thingSetMakerTags>
 			<li>RewardStandardMidFreq</li>
 		</thingSetMakerTags>
-		<comps>
-			<li Class="SYS.CompProperties_WeaponExtention">
-				<northOffset>
-					<position>(0.20,-1,-0.3)</position>
-					<angle>70</angle>
-				</northOffset>
-				<southOffset>
-					<position>(-0.22,1,-0.3)</position>
-					<angle>-60</angle>
-				</southOffset>
-				<eastOffset>
-					<position>(-0.15,0.3,-0.25)</position>
-					<angle>195</angle>
-				</eastOffset>
-				<westOffset>
-					<position>(0.15,-0.3,-0.25)</position>
-					<angle>-195</angle>
-				</westOffset>
-			</li>
-		</comps>
-		<statBases>
-			<WorkToMake>60000</WorkToMake>
-			<Mass>10</Mass>
-		</statBases>
 		<recipeMaker>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 			<workSkill>Crafting</workSkill>

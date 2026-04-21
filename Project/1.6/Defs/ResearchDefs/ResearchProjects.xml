@@ -298,10 +298,10 @@
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
-		<techprintCount>2</techprintCount>
-		<techprintCommonality>3</techprintCommonality>
-		<techprintMarketValue>3000</techprintMarketValue>
-		<heldByFactionCategoryTags>
+		<techprintCount MayRequire="Ludeon.RimWorld.Royalty">2</techprintCount>
+		<techprintCommonality MayRequire="Ludeon.RimWorld.Royalty">3</techprintCommonality>
+		<techprintMarketValue MayRequire="Ludeon.RimWorld.Royalty">3000</techprintMarketValue>
+		<heldByFactionCategoryTags MayRequire="Ludeon.RimWorld.Royalty">
 			<li>Empire</li>
 		</heldByFactionCategoryTags>
 	</ResearchProjectDef>
@@ -319,10 +319,10 @@
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
-		<techprintCount>2</techprintCount>
-		<techprintCommonality>3</techprintCommonality>
-		<techprintMarketValue>3000</techprintMarketValue>
-		<heldByFactionCategoryTags>
+		<techprintCount MayRequire="Ludeon.RimWorld.Royalty">2</techprintCount>
+		<techprintCommonality MayRequire="Ludeon.RimWorld.Royalty">3</techprintCommonality>
+		<techprintMarketValue MayRequire="Ludeon.RimWorld.Royalty">3000</techprintMarketValue>
+		<heldByFactionCategoryTags MayRequire="Ludeon.RimWorld.Royalty">
 			<li>Empire</li>
 		</heldByFactionCategoryTags>
 		<prerequisites>

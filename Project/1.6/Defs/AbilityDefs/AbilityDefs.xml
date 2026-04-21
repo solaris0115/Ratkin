@@ -29,8 +29,61 @@
 		<cooldownTicks>60000</cooldownTicks>
 	</AbilityGroupDef>
 
+	<!--
+		Ideology RoleStatBuff / RoleAuraBuffBase / CombatRoleAuraBuffHediffBase 대응.
+		Ideology 비활성 시 부모 Def 없음 오류 방지. DLC 켜면 바닐라 동일 메커닉(오라·헤딥 단계) 유지.
+		CombatRoleAuraBuff 의 Link+Mote 는 Ideology 전용 에셋(Mote_CombatCommandLinkLine) 의존이라 제외 — 버프 수치만 동일.
+	-->
+	<HediffDef Abstract="True" Name="RK_HediffAttr_RoleStatBuff">
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+	</HediffDef>
+
+	<HediffDef Abstract="True" Name="RK_HediffAttr_CombatRoleAuraBuff" ParentName="RK_HediffAttr_RoleStatBuff">
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<AbilityDef Abstract="True" Name="RK_AbilityAttr_RoleAuraBuffBase">
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<groupDef>RK_AbilityGroup_MoraleBoost</groupDef>
+		<hotKey>Misc12</hotKey>
+		<warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
+			<Ability_EffectRadius>9.9</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>9.9</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+
 	<!-- 시전자 사기스킬과 기타 레벨에 따라서 능력 추가 -->
-	<AbilityDef ParentName="RoleAuraBuffBase">
+	<AbilityDef ParentName="RK_AbilityAttr_RoleAuraBuffBase">
 		<defName>RK_Ability_MeleeMoraleBooster</defName>
 		<label>morale booster</label>
 		<description>Boost the morale of everyone nearby.</description>
@@ -101,7 +154,7 @@
 	</ThingDef>
 
 	<!-- 사기 진작 시전자 헤딥 -->
-	<HediffDef ParentName="RoleStatBuff">
+	<HediffDef ParentName="RK_HediffAttr_RoleStatBuff">
 		<defName>RK_Hediff_MoraleBoosterCaster</defName>
 		<label>morale booster</label>
 		<description>This person is using a special ability to boost the morale of everyone nearby. Everyone within an effect radius gains combat bonuses.</description>
@@ -141,7 +194,7 @@
 	</HediffDef>
 
 	<!-- 사기 진작 버프: 시전자 Social 0~7 -->
-	<HediffDef ParentName="CombatRoleAuraBuffHediffBase">
+	<HediffDef ParentName="RK_HediffAttr_CombatRoleAuraBuff">
 		<defName>RK_Hediff_MoraleBoosterBuffWeak</defName>
 		<label>morale booster (minor)</label>
 		<description>Someone with limited social presence is using the morale booster ability nearby. This person's combat effectiveness is boosted slightly.</description>
@@ -156,7 +209,7 @@
 	</HediffDef>
 
 	<!-- 사기 진작 버프: 시전자 Social 8~14 -->
-	<HediffDef ParentName="CombatRoleAuraBuffHediffBase">
+	<HediffDef ParentName="RK_HediffAttr_CombatRoleAuraBuff">
 		<defName>RK_Hediff_MoraleBoosterBuffDefault</defName>
 		<label>morale booster</label>
 		<description>Someone is using the morale booster ability nearby, boosting this person's combat effectiveness.</description>
@@ -173,7 +226,7 @@
 	</HediffDef>
 
 	<!-- 사기 진작 버프: 시전자 Social 15+ -->
-	<HediffDef ParentName="CombatRoleAuraBuffHediffBase">
+	<HediffDef ParentName="RK_HediffAttr_CombatRoleAuraBuff">
 		<defName>RK_Hediff_MoraleBoosterBuffStrong</defName>
 		<label>morale booster (major)</label>
 		<description>An inspiring leader is using the morale booster ability nearby, greatly boosting this person's combat effectiveness.</description>
