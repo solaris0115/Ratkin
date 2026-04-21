@@ -146,7 +146,8 @@
 		</mote>
 		<graphicData>
 			<graphicClass>Graphic_Mote</graphicClass>
-			<texPath>Things/Mote/CombatCommandMask</texPath>
+			<!-- CombatCommandMask is Ideology-only; BrightFlash is Core + MoteGlow -->
+			<texPath>Things/Mote/BrightFlash</texPath>
 			<shaderType>MoteGlow</shaderType>
 			<color>(0, 200, 150, 50)</color>
 			<drawSize>20</drawSize>
