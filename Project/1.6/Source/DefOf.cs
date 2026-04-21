@@ -99,6 +99,7 @@ namespace NewRatkin
     public static class RatkinIncidentDefOf
     {
         public static IncidentDef RatkinFollowUpTroops;
+        [MayRequire("Ludeon.RimWorld.Ideology")]
         public static IncidentDef GiveQuest_ReliquaryPilgrims_Ratkin;
         public static IncidentDef RK_Incident_WanderingTrader;
     }
