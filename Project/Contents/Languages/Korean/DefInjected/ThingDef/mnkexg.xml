@@ -184,27 +184,27 @@
   <GunlanceAfterIgnition.label>점화</GunlanceAfterIgnition.label>
   <RK_Weapon_ProtoChainSword.label>체인소드</RK_Weapon_ProtoChainSword.label>
   <RK_Weapon_ProtoChainSword.description>날에 달린 회전 사슬로 대상을 찢어발기는 무기입니다.</RK_Weapon_ProtoChainSword.description>
-  <RK_Weapon_ProtoChainSword.tools.0.label>전기톱날 (</RK_Weapon_ProtoChainSword.tools.0.label>
-  <RK_Weapon_ProtoChainSword.tools.1.label>전기톱날 (베기)</RK_Weapon_ProtoChainSword.tools.1.label>
+  <RK_Weapon_ProtoChainSword.tools.0.label>전기 톱날</RK_Weapon_ProtoChainSword.tools.0.label>
+  <RK_Weapon_ProtoChainSword.tools.1.label>전기 톱날</RK_Weapon_ProtoChainSword.tools.1.label>
   <RK_Weapon_ProtoFlameChainSword.label>화염 체인소드</RK_Weapon_ProtoFlameChainSword.label>
   <RK_Weapon_ProtoFlameChainSword.description>불꽃을 두른 회전 사슬로 대상을 찢어발기는 무기입니다.</RK_Weapon_ProtoFlameChainSword.description>
   <RK_Weapon_ProtoFlameChainSword.tools.0.label>날끝</RK_Weapon_ProtoFlameChainSword.tools.0.label>
   <RK_Weapon_ProtoFlameChainSword.tools.1.label>날</RK_Weapon_ProtoFlameChainSword.tools.1.label>
-  <RK_Dagger.label>대거</RK_Dagger.label>
-  <RK_Dagger.description>작고 깜찍한 단검입니다. 가벼운만큼 빠르게 찌를 수 있습니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</RK_Dagger.description>
+  <RK_Dagger.label>단검</RK_Dagger.label>
+  <RK_Dagger.description>작고 예리한 단검입니다. 가벼운만큼 빠르게 찌를 수 있습니다.</RK_Dagger.description>
   <RK_Dagger.tools.0.label>칼끝</RK_Dagger.tools.0.label>
   <RK_Dagger.tools.1.label>칼날</RK_Dagger.tools.1.label>
   <RK_OneHanded.label>한손검</RK_OneHanded.label>
-  <RK_OneHanded.description>한손에 들 수 있는 검입니다. 완벽한 무게 밸런스를 이루고 있습니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</RK_OneHanded.description>
+  <RK_OneHanded.description>한손에 들 수 있는 검입니다. 완벽한 무게 밸런스를 이루고 있습니다.</RK_OneHanded.description>
   <RK_OneHanded.tools.0.label>칼끝</RK_OneHanded.tools.0.label>
   <RK_OneHanded.tools.1.label>칼날</RK_OneHanded.tools.1.label>
   <RK_OneHanded.tools.2.label>자루</RK_OneHanded.tools.2.label>
   <RK_Mace.label>철퇴</RK_Mace.label>
-  <RK_Mace.description>한손에 들 수 있는 철퇴입니다. 완벽한 무게 밸런스를 이루고 있습니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</RK_Mace.description>
+  <RK_Mace.description>한손에 들 수 있는 철퇴입니다. 완벽한 무게 밸런스를 이루고 있습니다.</RK_Mace.description>
   <RK_Mace.tools.0.label>머리</RK_Mace.tools.0.label>
   <RK_Mace.tools.1.label>자루</RK_Mace.tools.1.label>
   <RK_LightLance.label>우든 랜스</RK_LightLance.label>
-  <RK_LightLance.description>철을 덧대어 파괴력을 높인 목재 랜스입니다. 무게 때문에 숙달되지 않으면 명중시키기 힘들어 보입니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</RK_LightLance.description>
+  <RK_LightLance.description>철을 덧대어 파괴력을 높인 목재 랜스입니다. 무게 때문에 숙달되지 않으면 명중시키기 힘들어 보입니다.</RK_LightLance.description>
   <RK_LightLance.tools.0.label>창끝</RK_LightLance.tools.0.label>
   <RK_LightLance.tools.1.label>창끝</RK_LightLance.tools.1.label>
   <RK_LightLance.tools.2.label>창대</RK_LightLance.tools.2.label>
@@ -214,7 +214,7 @@
   <RK_TwoHanded.tools.1.label>칼끝</RK_TwoHanded.tools.1.label>
   <RK_TwoHanded.tools.2.label>칼날</RK_TwoHanded.tools.2.label>
   <RK_HeavyLance.label>헤비 랜스</RK_HeavyLance.label>
-  <RK_HeavyLance.description>크고 무거운 금속 랜스입니다. 육중한 무게로 대상의 장갑을 확실하게 뚫을 수 있습니다. 무게 때문에 숙달되지 않으면 명중시키기 힘들어 보입니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</RK_HeavyLance.description>
+  <RK_HeavyLance.description>크고 무거운 금속 랜스입니다. 육중한 무게로 대상의 장갑을 확실하게 뚫을 수 있습니다. 적을 향해 짧은거리를 돌진하여 큰 피해를 줄 수 있습니다.</RK_HeavyLance.description>
   <RK_HeavyLance.tools.0.label>창끝</RK_HeavyLance.tools.0.label>
   <RK_HeavyLance.tools.1.label>창끝</RK_HeavyLance.tools.1.label>
   <RK_HeavyLance.tools.2.label>창대</RK_HeavyLance.tools.2.label>
@@ -225,17 +225,17 @@
   <RK_LongSword.tools.2.label>자루</RK_LongSword.tools.2.label>
   <RK_Spear.label>창</RK_Spear.label>
   <RK_Spear.description>간단하게 만든 창입니다. 길이가 짧아서 인간이 보기에는 단창처럼 보입니다.</RK_Spear.description>
-  <RK_Spear.tools.0.label>창 날끝</RK_Spear.tools.0.label>
+  <RK_Spear.tools.0.label>창 끝</RK_Spear.tools.0.label>
   <RK_Spear.tools.1.label>창 날</RK_Spear.tools.1.label>
   <RK_Halberd.label>할버드</RK_Halberd.label>
-  <RK_Halberd.description>장대에 단검과 도끼와 끌개가 함께 부착된 무기입니다. 험난한 전장에서 유용한 무기입니다.</RK_Halberd.description>
-  <RK_Halberd.tools.0.label>할버드 날끝</RK_Halberd.tools.0.label>
-  <RK_Halberd.tools.1.label>할버드 날</RK_Halberd.tools.1.label>
+  <RK_Halberd.description>창과 도끼가 합쳐진 무기입니다. 주변의 대상을 함께 베어넘길 수 있습니다.</RK_Halberd.description>
+  <RK_Halberd.tools.0.label>창 끝</RK_Halberd.tools.0.label>
+  <RK_Halberd.tools.1.label>도끼날</RK_Halberd.tools.1.label>
   <RK_Rifle_line.label>산탄총</RK_Rifle_line.label>
-  <RK_Rifle_line.description>소드오프 샷건입니다. 랫킨 왕국에서는 샷건이 랫킨을 쏩니다.</RK_Rifle_line.description>
+  <RK_Rifle_line.description>소드오프 샷건입니다. 적의 근처에서 폭발하여 탄환을 흩뿌립니다.</RK_Rifle_line.description>
   <RK_Rifle_line.tools.0.label>개머리판</RK_Rifle_line.tools.0.label>
   <RK_Rifle_line.tools.1.label>총열</RK_Rifle_line.tools.1.label>
-  <RK_Bullet_SectorShot_Dummy.label>산탄 궤적탄</RK_Bullet_SectorShot_Dummy.label>
+  <RK_Bullet_SectorShot_Dummy.label>산탄</RK_Bullet_SectorShot_Dummy.label>
   <RK_Crossbow.label>석궁</RK_Crossbow.label>
   <RK_Crossbow.description>간단한 석궁입니다. 사냥을 할때 쓰입니다.</RK_Crossbow.description>
   <RK_Crossbow.verbs.Verb_Shoot.label>석궁</RK_Crossbow.verbs.Verb_Shoot.label>
@@ -249,7 +249,7 @@
   <RK_AutoCrossBow.tools.1.label>볼트촉</RK_AutoCrossBow.tools.1.label>
   <Bolt_RK_AutoCrossBow.label>석궁 볼트</Bolt_RK_AutoCrossBow.label>
   <RK_Weapon_Arbalest.label>대형 석궁</RK_Weapon_Arbalest.label>
-  <RK_Weapon_Arbalest.description>대형석궁입니다. 큰 힘에는 큰 파괴력이 따릅니다.</RK_Weapon_Arbalest.description>
+  <RK_Weapon_Arbalest.description>대형 석궁입니다. 장전속도가 느리지만 뛰어난 저지력을 갖고 있습니다.</RK_Weapon_Arbalest.description>
   <RK_Weapon_Arbalest.verbs.Verb_Shoot.label>대형 석궁</RK_Weapon_Arbalest.verbs.Verb_Shoot.label>
   <RK_Weapon_Arbalest.tools.0.label>활대</RK_Weapon_Arbalest.tools.0.label>
   <RK_Weapon_Arbalest.tools.1.label>볼트</RK_Weapon_Arbalest.tools.1.label>
@@ -281,7 +281,7 @@
   <RK_Weapon_Bolter.tools.1.label>총열</RK_Weapon_Bolter.tools.1.label>
   <RK_Bullet_Bolter.label>대구경 탄환</RK_Bullet_Bolter.label>
   <RK_PrototypePulseRifle.label>파동 소총</RK_PrototypePulseRifle.label>
-  <RK_PrototypePulseRifle.description>에너지 탄환을 쏘는 파동 소총입니다. 실험용 랫킨들을 위해 제작되어 특수망원렌즈가 근거리 원거리 모두 정밀하게 조준해줍니다. 랫킨식 플레셰트탄환에서 아이디어를 얻어 제작한 이 무기는 쇄기모양의 고관통 에너지탄을 빠르게 발사합니다.속사와 정밀사격 모드를 통해 상황에 따라 유동적으로 선택이 가능합니다.</RK_PrototypePulseRifle.description>
+  <RK_PrototypePulseRifle.description>에너지 탄환을 쏘는 소총입니다. 발사 모드가 있어 중거리와 원거리 교전에 모두 유리합니다.</RK_PrototypePulseRifle.description>
   <RK_PrototypePulseRifle.verbs.Verb_PulseRifleShoot.label>속사</RK_PrototypePulseRifle.verbs.Verb_PulseRifleShoot.label>
   <RK_PrototypePulseRifle.tools.0.label>개머리판</RK_PrototypePulseRifle.tools.0.label>
   <RK_PrototypePulseRifle.tools.1.label>총열</RK_PrototypePulseRifle.tools.1.label>
@@ -292,12 +292,12 @@
   <RK_Weapon_BFR.verbs.Verb_BFRShoot.label>AP 사격</RK_Weapon_BFR.verbs.Verb_BFRShoot.label>
   <RK_Weapon_BFR.tools.0.label>개머리판</RK_Weapon_BFR.tools.0.label>
   <RK_Weapon_BFR.tools.1.label>총열</RK_Weapon_BFR.tools.1.label>
-  <Bullet_BFR_AP.label>쐐기탄(AP)</Bullet_BFR_AP.label>
-  <Bullet_BFR_HE.label>쐐기탄(HE)</Bullet_BFR_HE.label>
-  <RK_Weapon_RatHolicGun.label>랫홀릭 건</RK_Weapon_RatHolicGun.label>
+  <Bullet_BFR_AP.label>쐐기탄</Bullet_BFR_AP.label>
+  <Bullet_BFR_HE.label>쐐기탄</Bullet_BFR_HE.label>
+  <RK_Weapon_RatHolicGun.label>쥑이는 총</RK_Weapon_RatHolicGun.label>
   <RK_Weapon_RatHolicGun.description>수동식 다총열 기관총입니다. 손으로 돌려 발사하기 때문에 초기 발사속도가 느리지만 속도가 붙은 후 빠르게 연사합니다.</RK_Weapon_RatHolicGun.description>
   <RK_Weapon_RatHolicGun.tools.0.label>총열</RK_Weapon_RatHolicGun.tools.0.label>
-  <RK_Bullet_RatHolicGun.label>소총 탄환</RK_Bullet_RatHolicGun.label>
+  <RK_Bullet_RatHolicGun.label>탄환</RK_Bullet_RatHolicGun.label>
   <RK_Axe.label>도끼</RK_Axe.label>
   <RK_Axe.description>나무를 벨 때 쓰는 도끼입니다. 벌목에 용이합니다.</RK_Axe.description>
   <RK_Axe.tools.0.label>자루</RK_Axe.tools.0.label>
