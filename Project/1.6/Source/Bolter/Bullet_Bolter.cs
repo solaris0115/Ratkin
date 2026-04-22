@@ -5,15 +5,16 @@ using Verse;
 namespace NewRatkin
 {
 	/// <summary>
-	/// 볼터 대구경 탄환: 직접 적중 시 30% 확률로 짧은 스턴.
-	/// 기계(메카노이드) 직격 또는 실드(투사체 방어)에 막힌 경우 추가 EMP.
+	/// 볼터 대구경 탄환: <see cref="ProjectileProperties_Bolter"/>에 스턴·EMP 확률·보너스 수치.
 	/// </summary>
 	public class Bullet_Bolter : Bullet
 	{
-		private const float StunOnHitChance = 0.3f;
-		private const float StunDurationSeconds = 2f;
-		/// <summary>물리 피해와 별도의 보너스 EMP 수치(기계·실드에 동일 적용).</summary>
-		private const float ExtraEmpDamage = 6f;
+		private static readonly float DefaultStunChance = 0.3f;
+		private static readonly float DefaultStunSec = 2f;
+		private static readonly float DefaultEmpChance = 1f;
+		private static readonly float DefaultEmpDamage = 6f;
+
+		private ProjectileProperties_Bolter BolterProps => def.projectile as ProjectileProperties_Bolter;
 
 		protected override void Impact(Thing hitThing, bool blockedByShield = false)
 		{
@@ -52,7 +53,9 @@ namespace NewRatkin
 				return;
 			}
 
-			if (!Rand.Chance(StunOnHitChance))
+			ProjectileProperties_Bolter p = BolterProps;
+			float stunCh = p != null ? p.stunOnHitChance : DefaultStunChance;
+			if (!Rand.Chance(stunCh))
 			{
 				return;
 			}
@@ -68,7 +71,8 @@ namespace NewRatkin
 				return;
 			}
 
-			int ticks = StunDurationSeconds.SecondsToTicks();
+			float stunSec = p != null ? p.stunDurationSeconds : DefaultStunSec;
+			int ticks = stunSec.SecondsToTicks();
 			stunner.StunFor(ticks, launcher, addBattleLog: true, showMote: true, disableRotation: false);
 		}
 
@@ -79,11 +83,20 @@ namespace NewRatkin
 				return;
 			}
 
+			ProjectileProperties_Bolter p = BolterProps;
+			float empCh = p != null ? p.extraEmpChance : DefaultEmpChance;
+			if (!Rand.Chance(empCh))
+			{
+				return;
+			}
+
+			float empAmt = p != null ? p.extraEmpDamage : DefaultEmpDamage;
+
 			Pawn instigatorPawn = launcher as Pawn;
 			bool instigatorGuilty = instigatorPawn == null || !instigatorPawn.Drafted;
 			DamageInfo dinfo = new DamageInfo(
 				DamageDefOf.EMP,
-				ExtraEmpDamage,
+				empAmt,
 				0.5f,
 				-1f,
 				launcher,

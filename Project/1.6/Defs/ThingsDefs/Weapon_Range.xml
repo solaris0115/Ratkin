@@ -714,12 +714,16 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>1.3</drawSize>
 		</graphicData>
-		<projectile>
+		<projectile Class="NewRatkin.ProjectileProperties_Bolter">
 			<damageDef>Bullet</damageDef>
 			<damageAmountBase>20</damageAmountBase>
 			<speed>85</speed>
 			<armorPenetrationBase>0.5</armorPenetrationBase>
-			<stoppingPower>3</stoppingPower>
+			<stoppingPower>4</stoppingPower>
+			<stunOnHitChance>0.2</stunOnHitChance>
+			<stunDurationSeconds>1</stunDurationSeconds>
+			<extraEmpChance>0.3</extraEmpChance>
+			<extraEmpDamage>6</extraEmpDamage>
 		</projectile>
 	</ThingDef>
 
