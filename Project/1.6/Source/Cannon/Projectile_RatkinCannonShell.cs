@@ -9,8 +9,8 @@ namespace NewRatkin
 {
 	/// <summary>
 	/// 랫킨 포탄: 직격 시 폭발. 빈 지면 첫 착탄 시 <see cref="ProjectileProperties_RatkinCannonShell"/>의 반경·피해로 폭발 후 같은 방향으로 비행 거리 절반만 비행.
-	/// 그 잔여 비행 구간은 가로채기(실드·벽·폰 등) 없이 관통하며, 목적지 도달 시 항상 최종 폭발한다.
-	/// 비고스트 비행 중 가로채기·착탄 판정은 <see cref="ThingCategory.Building"/>과 <see cref="Pawn"/>만 대상으로 한다.
+	/// 지면 도탄 전·후 모두 동일하게 가로채기(실드·벽·폰 등)를 적용하며, 가로채기 후보는 <see cref="ThingCategory.Building"/>과 <see cref="Pawn"/>만이다.
+	/// 지면 도탄 이후 구간은 가로채기·착탄에서 <c>Rand.Chance</c> 없이, 바닐라와 동일한 가중치가 양수이면 첫 후보에 히트한다.
 	/// </summary>
 	public class Projectile_RatkinCannonShell : Projectile_Explosive
 	{
@@ -29,17 +29,28 @@ namespace NewRatkin
 
 		private bool didGroundBounce;
 
-		/// <summary>지면 도탄 직후 짧은 구간: 충돌 검사 없이 목적지까지 비행.</summary>
-		private bool postBounceNoIntercept;
-
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref didGroundBounce, "rkCannonShellGroundBounce", false);
-			Scribe_Values.Look(ref postBounceNoIntercept, "rkCannonShellNoIntercept", false);
 		}
 
 		/// <summary>가로채기·착탄: 폰과 건물(ThingCategory.Building)만 림 기본 <see cref="Projectile.CanHit"/>와 함께 허용.</summary>
+		/// <summary>
+		/// 바닐라 <see cref="VerbUtility.InterceptChanceFactorFromDistance"/>는 발사점에서 5칸 이내면 0을 줘 가로채기가 통째로 스킵된다.
+		/// 지면 도탄 직후 짧은 잔여 구간은 <c>origin</c>이 튀긴 지점이라 그대로 두면 로그처럼 연속 <c>distFactor=0</c>이 나온다.
+		/// </summary>
+		private float ShellInterceptDistanceFactor(IntVec3 cell)
+		{
+			float raw = VerbUtility.InterceptChanceFactorFromDistance(origin, cell);
+			if (!didGroundBounce)
+			{
+				return raw;
+			}
+
+			return Mathf.Max(raw, 1f);
+		}
+
 		private bool ShellCanHit(Thing thing)
 		{
 			if (thing == null || thing.def == null)
@@ -62,60 +73,11 @@ namespace NewRatkin
 
 		protected override void TickInterval(int delta)
 		{
-			if (!postBounceNoIntercept)
-			{
-				RunTickIntervalInitialFlight(delta);
-				return;
-			}
-
-			// ThingWithComps.TickInterval: 컴프만 (Projectile.base와 동일 첫 단계)
-			if (AllComps != null)
-			{
-				for (int i = 0; i < AllComps.Count; i++)
-				{
-					AllComps[i].CompTickInterval(delta);
-				}
-			}
-
-			lifetime -= delta;
-			if (landed)
-			{
-				return;
-			}
-
-			ticksToImpact -= delta;
-			if (!ExactPosition.InBounds(Map))
-			{
-				ticksToImpact += delta;
-				Position = ExactPosition.ToIntVec3();
-				Destroy(DestroyMode.Vanish);
-				return;
-			}
-
-			// 가로채기(CheckForFreeInterceptBetween) 생략 — 실드·벽·폰 등 전부 관통
-			Position = ExactPosition.ToIntVec3();
-			if (ticksToImpact <= 0)
-			{
-				if (DestinationCell.InBounds(Map))
-				{
-					Position = DestinationCell;
-				}
-
-				ImpactSomething();
-				return;
-			}
-
-			TickExplosiveDetonationOnly(delta);
+			RunTickIntervalShellProjectile(delta);
 		}
 
 		protected override void ImpactSomething()
 		{
-			if (postBounceNoIntercept)
-			{
-				DetonateFromImpact();
-				return;
-			}
-
 			if (def.projectile.flyOverhead)
 			{
 				RoofDef roofDef = Map.roofGrid.RoofAt(Position);
@@ -142,7 +104,11 @@ namespace NewRatkin
 			if (!usedTarget.HasThing || !ShellCanHit(usedTarget.Thing))
 			{
 				List<Thing> list = VerbUtility.ThingsToHit(Position, Map, ShellCanHit);
-				list.Shuffle();
+				if (!didGroundBounce)
+				{
+					list.Shuffle();
+				}
+
 				for (int i = 0; i < list.Count; i++)
 				{
 					Thing thing = list[i];
@@ -158,7 +124,7 @@ namespace NewRatkin
 
 						if (launcher != null && pawn.Faction != null && launcher.Faction != null && !pawn.Faction.HostileTo(launcher.Faction))
 						{
-							num *= VerbUtility.InterceptChanceFactorFromDistance(origin, Position);
+							num *= ShellInterceptDistanceFactor(Position);
 						}
 					}
 					else
@@ -166,7 +132,8 @@ namespace NewRatkin
 						num = 1.5f * thing.def.fillPercent;
 					}
 
-					if (Rand.Chance(num))
+					bool hit = didGroundBounce ? num > 1E-05f : Rand.Chance(num);
+					if (hit)
 					{
 						Impact(thing, false);
 						return;
@@ -178,7 +145,8 @@ namespace NewRatkin
 			}
 
 			Pawn pawn2 = usedTarget.Thing as Pawn;
-			if (pawn2 != null && pawn2.GetPosture() != PawnPosture.Standing && (origin - destination).MagnitudeHorizontalSquared() >= 20.25f && !Rand.Chance(0.5f))
+			if (!didGroundBounce && pawn2 != null && pawn2.GetPosture() != PawnPosture.Standing
+				&& (origin - destination).MagnitudeHorizontalSquared() >= 20.25f && !Rand.Chance(0.5f))
 			{
 				Impact(null, false);
 				return;
@@ -187,8 +155,8 @@ namespace NewRatkin
 			Impact(usedTarget.Thing, false);
 		}
 
-		/// <summary>도탄 전 비행: Projectile.TickInterval과 동일하되 가로채기만 <see cref="ShellCanHit"/> 사용.</summary>
-		private void RunTickIntervalInitialFlight(int delta)
+		/// <summary>Projectile.TickInterval과 동일하되 가로채기만 <see cref="ShellCanHit"/> 사용(지면 도탄 후에도 동일).</summary>
+		private void RunTickIntervalShellProjectile(int delta)
 		{
 			if (AllComps != null)
 			{
@@ -215,12 +183,19 @@ namespace NewRatkin
 			}
 
 			Vector3 exactPosition2 = ExactPosition;
-			if (ShellCheckForFreeInterceptBetween(exactPosition, exactPosition2))
+			bool intercepted = ShellCheckForFreeInterceptBetween(exactPosition, exactPosition2);
+			if (intercepted)
 			{
 				return;
 			}
 
 			Position = ExactPosition.ToIntVec3();
+			// 세그먼트 샘플링이 건너뛴 칸(한 틱에 여러 칸 등) 보완: 현재 격자에 있는 히트 대상 매 틱 검사
+			if (Position.InBounds(Map) && ShellTryInterceptCell(Position, skipIfDestinationCell: false))
+			{
+				return;
+			}
+
 			if (ticksToImpact <= 0)
 			{
 				if (DestinationCell.InBounds(Map))
@@ -288,10 +263,11 @@ namespace NewRatkin
 
 			if (intVec2.AdjacentToCardinal(intVec))
 			{
-				return ShellCheckForFreeIntercept(intVec2);
+				return ShellTryInterceptCell(intVec2, skipIfDestinationCell: true);
 			}
 
-			if (VerbUtility.InterceptChanceFactorFromDistance(origin, intVec2) <= 0f)
+			float distF = ShellInterceptDistanceFactor(intVec2);
+			if (distF <= 0f)
 			{
 				return false;
 			}
@@ -308,7 +284,7 @@ namespace NewRatkin
 				IntVec3 intVec3 = vector.ToIntVec3();
 				if (!ShellInterceptCheckedCells.Contains(intVec3))
 				{
-					if (ShellCheckForFreeIntercept(intVec3))
+					if (ShellTryInterceptCell(intVec3, skipIfDestinationCell: true))
 					{
 						break;
 					}
@@ -331,14 +307,15 @@ namespace NewRatkin
 			return true;
 		}
 
-		private bool ShellCheckForFreeIntercept(IntVec3 c)
+		/// <param name="skipIfDestinationCell">바닐라 가로채기: 목적지 칸은 최종 <see cref="ImpactSomething"/>에 맡김.</param>
+		private bool ShellTryInterceptCell(IntVec3 c, bool skipIfDestinationCell)
 		{
-			if (destination.ToIntVec3() == c)
+			if (skipIfDestinationCell && destination.ToIntVec3() == c)
 			{
 				return false;
 			}
 
-			float num = VerbUtility.InterceptChanceFactorFromDistance(origin, c);
+			float num = ShellInterceptDistanceFactor(c);
 			if (num <= 0f)
 			{
 				return false;
@@ -402,7 +379,8 @@ namespace NewRatkin
 					}
 
 					num2 *= num;
-					if (num2 > 1E-05f && Rand.Chance(num2))
+					bool rollHit = didGroundBounce ? num2 > 1E-05f : num2 > 1E-05f && Rand.Chance(num2);
+					if (rollHit)
 					{
 						Impact(thing, false);
 						return true;
@@ -593,7 +571,6 @@ namespace NewRatkin
 			origin = pos + dir * 0.06f;
 			destination = origin + dir * Mathf.Max(0.25f, leg);
 			ResetFlightAfterRedirect();
-			postBounceNoIntercept = true;
 		}
 
 		private void ResetFlightAfterRedirect()
