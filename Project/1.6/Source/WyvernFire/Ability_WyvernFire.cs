@@ -15,6 +15,8 @@ namespace NewRatkin
 	{
 		private bool shouldApplyCooldown = false;
 		private bool wasOnCooldown = false;
+		/// <summary>직전 틱 말미 기준 이 어빌리티 시전 잡 활성 여부. 워밍업 취소 시 PreCast가 안 돌아 잔류하는 PreIgnition 정리용.</summary>
+		private bool prevAbilityCastingJob = false;
 		public Ability_WyvernFire()
 		{
 		}
@@ -94,11 +96,19 @@ namespace NewRatkin
 		/// </summary>
 		public override void AbilityTick()
 		{
+			bool wasCastingThisAbility = this.prevAbilityCastingJob;
 			bool shouldPreventAutoRecharge = ShouldPreventAutoRecharge();
 			int chargeBefore = this.RemainingCharges;
 
 			// 기본 AbilityTick 호출
 			base.AbilityTick();
+
+			// 워밍업 중단·잡 종료 등으로 시전이 끊기면 vanilla는 preCast만 비우고 부착물은 남길 수 있음 → PreIgnition 전부 제거
+			if (wasCastingThisAbility && !this.Casting)
+			{
+				CompAbilityEffect_WyvernFire.DestroyAllGunlancePreIgnitionOn(this.pawn);
+			}
+			this.prevAbilityCastingJob = this.Casting;
 
 			// cooldownPerCharge: False일 때 StartCooldown()에서 charges = maxCharges로 회복하는 걸 방지
 			if (shouldPreventAutoRecharge)

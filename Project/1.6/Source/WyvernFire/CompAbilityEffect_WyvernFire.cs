@@ -7,6 +7,32 @@ namespace NewRatkin
 {
 	public class CompAbilityEffect_WyvernFire : CompAbilityEffect
 	{
+		/// <summary>
+		/// 동일 def 부착물이 여러 개 붙는 경우(GetAttachment는 첫 개만 반환)까지 제거.
+		/// 워밍업 취소·재시전 시 잔류 방지.
+		/// </summary>
+		public static void DestroyAllGunlancePreIgnitionOn(Pawn pawn)
+		{
+			if (pawn == null || !pawn.Spawned || GunlanceDefOf.GunlancePreIgnition == null)
+			{
+				return;
+			}
+			CompAttachBase compAttach = pawn.TryGetComp<CompAttachBase>();
+			if (compAttach?.attachments == null)
+			{
+				return;
+			}
+			ThingDef def = GunlanceDefOf.GunlancePreIgnition;
+			for (int i = compAttach.attachments.Count - 1; i >= 0; i--)
+			{
+				AttachableThing t = compAttach.attachments[i];
+				if (t != null && !t.Destroyed && t.def == def)
+				{
+					t.Destroy();
+				}
+			}
+		}
+
 		private readonly List<IntVec3> tmpCells = new List<IntVec3>();
 
 		private new CompProperties_AbilityWyvernFire Props
@@ -48,12 +74,7 @@ namespace NewRatkin
 			// 발사 전 효과(PreIgnition) 제거
 			if (pawn != null && pawn.Spawned)
 			{
-				// 기존 PreIgnition 제거
-				AttachableThing existingPreIgnition = pawn.GetAttachment(GunlanceDefOf.GunlancePreIgnition) as AttachableThing;
-				if (existingPreIgnition != null)
-				{
-					existingPreIgnition.Destroy();
-				}
+				DestroyAllGunlancePreIgnitionOn(pawn);
 
 				// AfterIgnition 스폰 제거 (발사시에는 표시하지 않음)
 				// AttachableThing_AfterIgnition afterIgnition = ThingMaker.MakeThing(GunlanceDefOf.GunlanceAfterIgnition, null) as AttachableThing_AfterIgnition;
@@ -133,12 +154,7 @@ namespace NewRatkin
 					Pawn pawn = this.Pawn;
 					if (pawn != null && pawn.Spawned)
 					{
-						// 기존 PreIgnition이 있으면 제거
-						AttachableThing existingPreIgnition = pawn.GetAttachment(GunlanceDefOf.GunlancePreIgnition) as AttachableThing;
-						if (existingPreIgnition != null)
-						{
-							existingPreIgnition.Destroy();
-						}
+						DestroyAllGunlancePreIgnitionOn(pawn);
 
 						// 새로운 PreIgnition 스폰
 						AttachableThing_GunlanceIgnition ignition = ThingMaker.MakeThing(GunlanceDefOf.GunlancePreIgnition, null) as AttachableThing_GunlanceIgnition;

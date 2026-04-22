@@ -7,6 +7,19 @@ using Verse.Sound;
 
 namespace NewRatkin
 {
+	/// <summary>
+	/// positionOffset XZ는 조준 방향 기준(수평면에서 angle만큼 회전), Y는 월드 상승.
+	/// </summary>
+	internal static class GunlanceIgnitionOffsets
+	{
+		internal static Vector3 RotatedPositionOffset(Vector3 positionOffset, float aimAngleDegrees)
+		{
+			Quaternion q = Quaternion.AngleAxis(aimAngleDegrees, Vector3.up);
+			Vector3 xz = q * new Vector3(positionOffset.x, 0f, positionOffset.z);
+			return xz + new Vector3(0f, positionOffset.y, 0f);
+		}
+	}
+
 	[StaticConstructorOnStartup]
 	public class AttachableThing_GunlanceIgnition : AttachableThing
 	{
@@ -14,6 +27,7 @@ namespace NewRatkin
 		private float currentPower = 0;
 		private Graphic currentGraphic;
 		private CompAttachableIgnition compIgnition;
+		private CompProperties_AttachableIgnition ignitionProps;
 
 		public static Graphic[] graphics = new Graphic[] { GraphicDatabase.Get<Graphic_Single>("Things/Special/PreIgnitionA"), GraphicDatabase.Get<Graphic_Single>("Things/Special/PreIgnitionB") };
 		private bool swap = false;
@@ -22,7 +36,11 @@ namespace NewRatkin
 		{
 			get
 			{
-				return compIgnition?.Props ?? new CompProperties_AttachableIgnition();
+				if (this.ignitionProps == null)
+				{
+					this.CacheIgnitionProps();
+				}
+				return this.ignitionProps;
 			}
 		}
 
@@ -34,11 +52,37 @@ namespace NewRatkin
 			}
 		}
 
+		private void CacheIgnitionProps()
+		{
+			this.compIgnition = this.TryGetComp<CompAttachableIgnition>();
+			if (this.compIgnition != null)
+			{
+				this.ignitionProps = this.compIgnition.Props;
+				return;
+			}
+			this.ignitionProps = null;
+			if (this.def != null && this.def.comps != null)
+			{
+				for (int i = 0; i < this.def.comps.Count; i++)
+				{
+					if (this.def.comps[i] is CompProperties_AttachableIgnition p)
+					{
+						this.ignitionProps = p;
+						return;
+					}
+				}
+			}
+			if (this.ignitionProps == null)
+			{
+				this.ignitionProps = new CompProperties_AttachableIgnition();
+			}
+		}
+
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
 			parentPawn = parent as Pawn;
-			compIgnition = this.TryGetComp<CompAttachableIgnition>();
+			this.CacheIgnitionProps();
 		}
 		public override void ExposeData()
 		{
@@ -56,6 +100,7 @@ namespace NewRatkin
 					currentGraphic = graphics[1];
 				}
 				parentPawn = parent as Pawn;
+				this.CacheIgnitionProps();
 			}
 		}
 		protected override void Tick()
@@ -118,7 +163,7 @@ namespace NewRatkin
 						Mathf.Cos(angle * Mathf.Deg2Rad) * offsetDistance
 					);
 
-					Vector3 finalPosition = parent.TrueCenter() + PositionOffset + directionOffset;
+					Vector3 finalPosition = parent.TrueCenter() + GunlanceIgnitionOffsets.RotatedPositionOffset(PositionOffset, angle) + directionOffset;
 					Graphics.DrawMesh(
 						MeshPool.GridPlane(new Vector2(meshWidth, meshHeight)),
 						finalPosition,
@@ -144,12 +189,17 @@ namespace NewRatkin
 		private Pawn parentPawn;
 		private float currentPower = 1f;
 		private CompAttachableIgnition compIgnition;
+		private CompProperties_AttachableIgnition ignitionProps;
 
 		private CompProperties_AttachableIgnition Props
 		{
 			get
 			{
-				return compIgnition?.Props ?? new CompProperties_AttachableIgnition();
+				if (this.ignitionProps == null)
+				{
+					this.CacheIgnitionProps();
+				}
+				return this.ignitionProps;
 			}
 		}
 
@@ -161,12 +211,38 @@ namespace NewRatkin
 			}
 		}
 
+		private void CacheIgnitionProps()
+		{
+			this.compIgnition = this.TryGetComp<CompAttachableIgnition>();
+			if (this.compIgnition != null)
+			{
+				this.ignitionProps = this.compIgnition.Props;
+				return;
+			}
+			this.ignitionProps = null;
+			if (this.def != null && this.def.comps != null)
+			{
+				for (int i = 0; i < this.def.comps.Count; i++)
+				{
+					if (this.def.comps[i] is CompProperties_AttachableIgnition p)
+					{
+						this.ignitionProps = p;
+						return;
+					}
+				}
+			}
+			if (this.ignitionProps == null)
+			{
+				this.ignitionProps = new CompProperties_AttachableIgnition();
+			}
+		}
+
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
 			parentPawn = parent as Pawn;
-			compIgnition = this.TryGetComp<CompAttachableIgnition>();
-			currentPower = Props.initialPower;
+			this.CacheIgnitionProps();
+			currentPower = this.ignitionProps.initialPower;
 		}
 		public override void ExposeData()
 		{
@@ -175,6 +251,7 @@ namespace NewRatkin
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
 				parentPawn = parent as Pawn;
+				this.CacheIgnitionProps();
 			}
 		}
 		protected override void Tick()
@@ -229,7 +306,7 @@ namespace NewRatkin
 						Mathf.Cos(angle * Mathf.Deg2Rad) * offsetDistance
 					);
 
-					Vector3 finalPosition = parent.TrueCenter() + PositionOffset + directionOffset;
+					Vector3 finalPosition = parent.TrueCenter() + GunlanceIgnitionOffsets.RotatedPositionOffset(PositionOffset, angle) + directionOffset;
 					Graphics.DrawMesh(
 						MeshPool.GridPlane(new Vector2(meshWidth, meshHeight)),
 						finalPosition,
