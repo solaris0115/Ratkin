@@ -207,7 +207,7 @@
 		<useHitPoints>false</useHitPoints>
 		<comps>
 			<li Class="NewRatkin.CompProperties_AttachableIgnition">
-				<positionOffset>(0, 0, 0)</positionOffset>
+				<positionOffset>(0.15, 0, 0.15)</positionOffset>
 				<powerIncreasePerTick>0.02</powerIncreasePerTick>
 				<maxPower>1</maxPower>
 				<directionOffsetDistance>1.1</directionOffsetDistance>
