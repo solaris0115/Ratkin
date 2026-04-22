@@ -555,8 +555,8 @@
 				<defaultProjectile>RK_Bullet_SawedOff</defaultProjectile>
 				<warmupTime>0.9</warmupTime>
 				<range>10.9</range>
-				<soundCast>RK_Sound_BFRFire</soundCast>
-				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
 				<muzzleFlashScale>8</muzzleFlashScale>
 			</li>
 		</verbs>
@@ -595,7 +595,7 @@
 		<defName>RK_Bullet_SawedOff</defName>
 		<label>sawedoff bullet</label>
 		<graphicData>
-			<texPath>Things/Projectile/Ballista_Bolt_HE</texPath>
+			<texPath>Things/Projectile/RK_Texutre_ShotgunProjtile</texPath>
 			<drawSize>(1.6, 1)</drawSize>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
