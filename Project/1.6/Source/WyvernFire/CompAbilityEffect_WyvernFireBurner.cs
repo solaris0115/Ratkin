@@ -18,6 +18,10 @@ namespace NewRatkin
 
         public override IEnumerable<PreCastAction> GetPreCastActions()
         {
+            if (!ModsConfig.AnomalyActive || ThingDefOf.IncineratorSpray == null)
+            {
+                yield break;
+            }
             yield return new PreCastAction
             {
                 action = delegate (LocalTargetInfo a, LocalTargetInfo _)
@@ -26,6 +30,10 @@ namespace NewRatkin
                     IntVec3 intVec = drawPos.Yto0().ToIntVec3();
                     Map map = this.parent.pawn.Map;
                     IncineratorSpray incineratorSpray = GenSpawn.Spawn(ThingDefOf.IncineratorSpray, intVec, map, WipeMode.Vanish) as IncineratorSpray;
+                    if (incineratorSpray == null)
+                    {
+                        return;
+                    }
                     int numStreams = this.Props.numStreams;
                     Vector3 normalized = (a.CenterVector3 - drawPos).normalized;
                     Func<IntVec3, bool> losValidator = (IntVec3 c) => c.CanBeSeenOverFast(map);
@@ -59,7 +67,10 @@ namespace NewRatkin
                                 endScale = (1f + Rand.Range(0.1f, 0.4f)) * num2,
                                 lifespanTicks = Mathf.FloorToInt(num * 5f) + Rand.Range(-this.Props.lifespanNoise, this.Props.lifespanNoise)
                             });
-                            map.effecterMaintainer.AddEffecterToMaintain(this.Props.effecterDef.Spawn(intVec2, map, 1f), intVec2, 15);
+                            if (this.Props.effecterDef != null)
+                            {
+                                map.effecterMaintainer.AddEffecterToMaintain(this.Props.effecterDef.Spawn(intVec2, map, 1f), intVec2, 15);
+                            }
                         }
                     }
                 },

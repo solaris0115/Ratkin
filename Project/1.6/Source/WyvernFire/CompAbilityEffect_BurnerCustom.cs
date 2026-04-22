@@ -18,6 +18,10 @@ namespace NewRatkin
 
 		public override IEnumerable<PreCastAction> GetPreCastActions()
 		{
+			if (!ModsConfig.AnomalyActive || ThingDefOf.IncineratorSpray == null)
+			{
+				yield break;
+			}
 			yield return new PreCastAction
 			{
 				action = delegate (LocalTargetInfo targetInfo, LocalTargetInfo _)

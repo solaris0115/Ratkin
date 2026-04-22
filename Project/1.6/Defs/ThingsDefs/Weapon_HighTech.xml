@@ -253,7 +253,7 @@
 		<defName>RK_WyvernFire_Ability</defName>
 		<label>wyvern fire</label>
 		<description>Unleash a devastating cone of explosive force.</description>
-		<iconPath>UI/Abilities/Burner</iconPath>
+		<iconPath>Things/Mote/FireGlow</iconPath>
 		<abilityClass>NewRatkin.Ability_WyvernFire</abilityClass>
 		<cooldownTicksRange>2400</cooldownTicksRange>
 		<cooldownPerCharge>False</cooldownPerCharge>
@@ -283,7 +283,7 @@
 				<meleeCooldownTime>0.5</meleeCooldownTime>
 				<cooldownEndSound>RK_Sound_WyvernFireOverheat</cooldownEndSound>
 			</li>
-			<li Class="NewRatkin.CompProperties_AbilityBurnerCustom">
+			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="NewRatkin.CompProperties_AbilityBurnerCustom">
 				<numStreams>8</numStreams>
 				<range>5.5</range>
 				<coneSizeDegrees>18.2</coneSizeDegrees>
@@ -299,7 +299,7 @@
 		</comps>
 	</AbilityDef>
 
-	<ThingDef ParentName="MoteBase">
+	<ThingDef ParentName="MoteBase" MayRequire="Ludeon.RimWorld.Anomaly">
 		<defName>RK_Mote_IncineratorBurst</defName>
 		<thingClass>MoteDualAttached</thingClass>
 		<altitudeLayer>MoteOverhead</altitudeLayer>
@@ -331,7 +331,7 @@
 		</graphicData>
 	</ThingDef>
 
-	<EffecterDef>
+	<EffecterDef MayRequire="Ludeon.RimWorld.Anomaly">
 		<defName>RK_Effecter_BurnerUsed</defName>
 		<children>
 			<li>

@@ -102,6 +102,12 @@ namespace NewRatkin
 				null, null, null, false, 0f, 0f, false,
 				null, 1f, flammabilityAttachFireChanceCurve, overrideCells, null, null);
 
+			// Anomaly 없음: 1.5 건랜스와 동일하게 GunlanceExplosion이 셀 목록을 틱마다 밟으며 폭발 텍스처(피해는 위에서 이미 적용, 여기서 damAmount 0)
+			if (!ModsConfig.AnomalyActive && pawn != null && pawn.Spawned && overrideCells != null && overrideCells.Count > 0)
+			{
+				this.TrySpawnGunlanceStyleVisualCone(pawn, mapHeld, damageDef, pawn.equipment?.Primary?.def, overrideCells);
+			}
+
 			base.Apply(target, dest);
 
 			// WyvernFire 발사 후 후딜레이(cooldown) 적용
@@ -232,6 +238,52 @@ namespace NewRatkin
 				(this.Props.canHitFilledCells || !c.Filled(this.Pawn.Map)) &&
 				c.InHorDistOf(this.Pawn.Position, this.Props.range) &&
 				this.parent.verb.TryFindShootLineFromTo(this.parent.pawn.Position, c, out shootLine, false);
+		}
+
+		/// <summary>
+		/// 1.5 GunlanceExplosion과 같이 overrideCells를 틱마다 처리하는 코어 Explosion. 피해는 0(연출만).
+		/// </summary>
+		private void TrySpawnGunlanceStyleVisualCone(Pawn pawn, Map map, DamageDef damageDef, ThingDef weaponDef, List<IntVec3> coneCells)
+		{
+			List<IntVec3> cellCopy = new List<IntVec3>(coneCells);
+			Explosion explosion = GenSpawn.Spawn(ThingDefOf.Explosion, pawn.Position, map, WipeMode.Vanish) as Explosion;
+			if (explosion == null)
+			{
+				return;
+			}
+			explosion.radius = this.Props.range;
+			explosion.damType = damageDef;
+			explosion.damAmount = 0;
+			explosion.armorPenetration = 0f;
+			explosion.instigator = pawn;
+			explosion.weapon = weaponDef;
+			explosion.projectile = null;
+			explosion.intendedTarget = null;
+			explosion.preExplosionSpawnThingDef = null;
+			explosion.preExplosionSpawnChance = 0f;
+			explosion.preExplosionSpawnThingCount = 1;
+			explosion.postExplosionSpawnThingDef = null;
+			explosion.postExplosionSpawnChance = 0f;
+			explosion.postExplosionSpawnThingCount = 1;
+			explosion.postExplosionGasType = null;
+			explosion.postExplosionGasRadiusOverride = null;
+			explosion.postExplosionGasAmount = 255;
+			explosion.applyDamageToExplosionCellsNeighbors = false;
+			explosion.chanceToStartFire = 0f;
+			explosion.damageFalloff = false;
+			explosion.needLOSToCell1 = null;
+			explosion.needLOSToCell2 = null;
+			explosion.excludeRadius = 0f;
+			explosion.affectedAngle = null;
+			explosion.doVisualEffects = true;
+			explosion.propagationSpeed = 1f;
+			explosion.doSoundEffects = false;
+			explosion.screenShakeFactor = 0f;
+			explosion.flammabilityChanceCurve = null;
+			explosion.overrideCells = cellCopy;
+			explosion.postExplosionSpawnSingleThingDef = null;
+			explosion.preExplosionSpawnSingleThingDef = null;
+			explosion.StartExplosion(null, null);
 		}
 	}
 }
