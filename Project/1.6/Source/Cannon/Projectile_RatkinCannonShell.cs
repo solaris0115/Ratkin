@@ -9,7 +9,7 @@ namespace NewRatkin
 {
 	/// <summary>
 	/// 랫킨 포탄: 직격 시 폭발. 빈 지면 첫 착탄 시 <see cref="ProjectileProperties_RatkinCannonShell"/>의 반경·피해로 폭발 후 같은 방향으로 비행 거리 절반만 비행.
-	/// 그 잔여 비행 구간은 지형·폰·실드 가로채기 없이 관통하며, 목적지 도달 시 항상 최종 폭발한다.
+	/// 그 잔여 비행 구간은 가로채기(실드·벽·폰 등) 없이 관통하며, 목적지 도달 시 항상 최종 폭발한다.
 	/// 비고스트 비행 중 가로채기·착탄 판정은 <see cref="ThingCategory.Building"/>과 <see cref="Pawn"/>만 대상으로 한다.
 	/// </summary>
 	public class Projectile_RatkinCannonShell : Projectile_Explosive
@@ -42,6 +42,11 @@ namespace NewRatkin
 		/// <summary>가로채기·착탄: 폰과 건물(ThingCategory.Building)만 림 기본 <see cref="Projectile.CanHit"/>와 함께 허용.</summary>
 		private bool ShellCanHit(Thing thing)
 		{
+			if (thing == null || thing.def == null)
+			{
+				return false;
+			}
+
 			if (thing is Pawn)
 			{
 				return base.CanHit(thing);
@@ -87,7 +92,7 @@ namespace NewRatkin
 				return;
 			}
 
-			// 가로채기(CheckForFreeInterceptBetween) 생략 — 폰·벽·실드 관통
+			// 가로채기(CheckForFreeInterceptBetween) 생략 — 실드·벽·폰 등 전부 관통
 			Position = ExactPosition.ToIntVec3();
 			if (ticksToImpact <= 0)
 			{
@@ -97,7 +102,10 @@ namespace NewRatkin
 				}
 
 				ImpactSomething();
+				return;
 			}
+
+			TickExplosiveDetonationOnly(delta);
 		}
 
 		protected override void ImpactSomething()
@@ -224,18 +232,28 @@ namespace NewRatkin
 				return;
 			}
 
-			if (ExplosiveTicksToDetonationField != null)
+			TickExplosiveDetonationOnly(delta);
+		}
+
+		/// <summary><see cref="Projectile_Explosive"/> 지연 기폭 필드만 바닐라 순서에 맞춰 처리.</summary>
+		private void TickExplosiveDetonationOnly(int delta)
+		{
+			if (ExplosiveTicksToDetonationField == null)
 			{
-				int td = (int)ExplosiveTicksToDetonationField.GetValue(this);
-				if (td > 0)
-				{
-					td -= delta;
-					ExplosiveTicksToDetonationField.SetValue(this, td);
-					if (td <= 0)
-					{
-						Explode();
-					}
-				}
+				return;
+			}
+
+			int td = (int)ExplosiveTicksToDetonationField.GetValue(this);
+			if (td <= 0)
+			{
+				return;
+			}
+
+			td -= delta;
+			ExplosiveTicksToDetonationField.SetValue(this, td);
+			if (td <= 0)
+			{
+				Explode();
 			}
 		}
 
