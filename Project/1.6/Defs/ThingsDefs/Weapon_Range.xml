@@ -553,7 +553,7 @@
 				<verbClass>Verb_Shoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>RK_Bullet_SawedOff</defaultProjectile>
-				<warmupTime>2.5</warmupTime>
+				<warmupTime>0.9</warmupTime>
 				<range>10.9</range>
 				<soundCast>RK_Sound_BFRFire</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
