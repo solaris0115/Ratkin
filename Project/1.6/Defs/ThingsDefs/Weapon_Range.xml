@@ -707,6 +707,7 @@
 	</ThingDef>
 	<ThingDef ParentName="RK_BaseBullet">
 		<defName>RK_Bullet_Bolter</defName>
+		<thingClass>NewRatkin.Bullet_Bolter</thingClass>
 		<label>bolter bullet</label>
 		<graphicData>
 			<texPath>Things/Projectile/launchershot</texPath>
