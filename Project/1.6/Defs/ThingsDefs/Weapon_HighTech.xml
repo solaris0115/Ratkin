@@ -253,7 +253,7 @@
 		<defName>RK_WyvernFire_Ability</defName>
 		<label>wyvern fire</label>
 		<description>Unleash a devastating cone of explosive force.</description>
-		<iconPath>Things/Mote/FireGlow</iconPath>
+		<iconPath>Things/Item/Resource/WyvernAmmo_Normal</iconPath>
 		<abilityClass>NewRatkin.Ability_WyvernFire</abilityClass>
 		<cooldownTicksRange>2400</cooldownTicksRange>
 		<cooldownPerCharge>False</cooldownPerCharge>
