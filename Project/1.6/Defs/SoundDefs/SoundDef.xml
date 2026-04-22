@@ -97,6 +97,28 @@
 		</subSounds>
 	</SoundDef>
 
+	<!-- 소드오프 발포: 코어 Shot_Shotgun 메인 레이어 수치 + A/B 클립 무작위 -->
+	<SoundDef>
+		<defName>RK_Sound_ShotgunSawedOff</defName>
+		<eventNames />
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Weapon/RK_Sound_ShotgunA</clipPath>
+					</li>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Weapon/RK_Sound_ShotgunB</clipPath>
+					</li>
+				</grains>
+				<volumeRange>94.70588~94.70588</volumeRange>
+				<distRange>39.11765~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
 
 	<!-- 건랜스 사운드 정의 (HellcatBurner 및 코어 사운드 참고) -->
 	<SoundDef>

@@ -555,9 +555,9 @@
 				<defaultProjectile>RK_Bullet_SawedOff</defaultProjectile>
 				<warmupTime>0.9</warmupTime>
 				<range>10.9</range>
-				<soundCast>Shot_AssaultRifle</soundCast>
-				<soundCastTail>GunTail_Medium</soundCastTail>
-				<muzzleFlashScale>8</muzzleFlashScale>
+				<soundCast>RK_Sound_ShotgunSawedOff</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>
 		</verbs>
 		<tools>
