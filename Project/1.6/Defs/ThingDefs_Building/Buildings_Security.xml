@@ -500,19 +500,22 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<thingClass>Projectile_Explosive</thingClass>
-		<projectile>
+		<thingClass>NewRatkin.Projectile_RatkinCannonShell</thingClass>
+		<projectile Class="NewRatkin.ProjectileProperties_RatkinCannonShell">
 			<damageDef>ShockWaveLight</damageDef>
-			<damageAmountBase>35</damageAmountBase>
-			<armorPenetrationBase>0.5</armorPenetrationBase>
+			<damageAmountBase>20</damageAmountBase>
+			<armorPenetrationBase>0.7</armorPenetrationBase>
 			<stoppingPower>4</stoppingPower>
-			<speed>70</speed>
 			<explosionRadius>1.9</explosionRadius>
+			<speed>70</speed>
 			<flyOverhead>false</flyOverhead>
 			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
 			<soundExplode>Shockwave</soundExplode>
+			<soundImpact>BulletImpact_Ground</soundImpact>
 			<soundImpactAnticipate>Flying</soundImpactAnticipate>
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<groundTouchExplosionRadiusFactor>1.5</groundTouchExplosionRadiusFactor>
+			<groundTouchDamageAmount>10</groundTouchDamageAmount>
 		</projectile>
 	</ThingDef>
 
