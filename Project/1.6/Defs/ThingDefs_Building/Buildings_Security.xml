@@ -489,70 +489,8 @@
 			<drawSize>(0.6,0.6)</drawSize>
 		</graphicData>
 		<projectileWhenLoaded>RK_Projectile_CannonBall</projectileWhenLoaded>
-		<stuffCategories>
-			<li>Stony</li>
-		</stuffCategories>
-		<costStuffCount>30</costStuffCount>
-		<costList>
-			<Steel>5</Steel>
-		</costList>
+		<madeFromStuff>false</madeFromStuff>
 	</ThingDef>
-
-	<!-- 포탄 제작 레시피 -->
-	<RecipeDef>
-		<defName>Make_RK_Ammo_CannonBall</defName>
-		<label>make Ratkin Cannon Shell</label>
-		<description>Make Ratkin Cannon Shell.</description>
-		<jobString>Making Ratkin Cannon Shell.</jobString>
-		<workAmount>250</workAmount>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workSkill>Crafting</workSkill>
-		<effectWorking>Smith</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<targetCountAdjustment>5</targetCountAdjustment>
-		<researchPrerequisite>RK_Research_Fortification</researchPrerequisite>
-		<recipeUsers>
-			<li>RK_FueledSmithy</li>
-			<li>RK_ElectricSmithy</li>
-		</recipeUsers>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>StoneChunks</li>
-					</categories>
-				</filter>
-				<count>1</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Steel</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<products>
-			<RK_Ammo_CannonBall>1</RK_Ammo_CannonBall>
-		</products>
-		<fixedIngredientFilter>
-			<categories>
-				<li>StoneChunks</li>
-			</categories>
-			<thingDefs>
-				<li>Steel</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<defaultIngredientFilter>
-			<categories>
-				<li>StoneChunks</li>
-			</categories>
-		</defaultIngredientFilter>
-	</RecipeDef>
 
 	<ThingDef ParentName="BaseBullet">
 		<defName>RK_Projectile_CannonBall</defName>
