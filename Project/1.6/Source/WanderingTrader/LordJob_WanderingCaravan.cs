@@ -161,6 +161,8 @@ namespace NewRatkin
 			{
 				Current.Game.GetComponent<GameComponent_WanderingCaravan>()?.OnCaravanPawnExitedMap(p);
 			}
+			// BecamePlayerEnemy 등으로 팩션이 적대로 바뀐 뒤, 맵에 유랑단 맴버가 모두 사라지면 다시 중립(팩션 관계만; 공격 패널티는 유지)
+			WanderingCaravanUtility.TryResetCaravanFactionToNeutralIfCleared();
 		}
 
 		public override void ExposeData()

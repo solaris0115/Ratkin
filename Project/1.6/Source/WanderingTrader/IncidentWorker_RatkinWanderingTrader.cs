@@ -37,7 +37,7 @@ namespace NewRatkin
 			if (comp != null && comp.IsAttackPenaltyActive)
 				return false;
 			// 유랑단이 이미 어딘가에 존재하면 트리거 안 함 (다중 맵, 디버그 강제 호출 대비)
-			if (HasWanderingCaravanActiveAnywhere())
+			if (WanderingCaravanUtility.HasWanderingCaravanActiveAnywhere())
 				return false;
 			return true;
 		}
@@ -73,49 +73,11 @@ namespace NewRatkin
 			return false;
 		}
 
-		/// <summary>
-		/// 유랑단 캐러반이 어느 맵에서든 활성 상태인지 확인.
-		/// 다중 맵 시 다른 맵에 캐러반이 있어도, 또는 roster/풀 pawn이 이미 스폰되어 있어도 중복 호출 방지.
-		/// </summary>
-		private static bool HasWanderingCaravanActiveAnywhere()
-		{
-			FactionDef caravanFaction = RatkinFactionDefOf.RK_Faction_Caravan;
-			if (caravanFaction == null) return false;
-
-			// 모든 맵에서 LordJob_WanderingCaravan 또는 유랑단 멤버 검사
-			foreach (Map m in Find.Maps)
-			{
-				if (m == null) continue;
-				foreach (Lord lord in m.lordManager.lords)
-				{
-					if (lord?.LordJob is LordJob_WanderingCaravan)
-						return true;
-				}
-				foreach (Pawn p in m.mapPawns.AllPawnsSpawned)
-				{
-					if (p == null || p.DestroyedOrNull() || p.Dead) continue;
-					if (p.Faction?.def != caravanFaction) continue;
-					if (p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader
-						|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_CaravanGuard
-						|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Nomad
-						|| p.kindDef == RatkinPawnKindDefOf.RK_PawnKind_Wanderer)
-						return true;
-				}
-			}
-
-			// GameComponent roster/풀에 스폰된 pawn이 있으면 아직 캐러반 활동 중
-			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
-			if (comp != null && comp.HasRosterOrPoolPawnsSpawned())
-				return true;
-
-			return false;
-		}
-
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
 			Map map = (Map)parms.target;
 			// 디버그 수동 호출 등 CanFireNow를 우회하는 경우 대비: 캐러반이 이미 어딘가에 있으면 경고 후 중단
-			if (HasWanderingCaravanActiveAnywhere())
+			if (WanderingCaravanUtility.HasWanderingCaravanActiveAnywhere())
 			{
 				Messages.Message("RK_WanderingCaravan_AlreadySpawned".Translate(), MessageTypeDefOf.NeutralEvent, false);
 				return false;
