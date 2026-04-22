@@ -143,10 +143,14 @@ namespace NewRatkin
 
 		public override IEnumerable<PreCastAction> GetPreCastActions()
 		{
-			// 발사 전 충전 효과 (PreIgnition) - warmup 시작 시점에 스폰
-			// warmupTime이 2초(120틱)이므로, warmup 시작 시점에 실행되도록 설정
-			// RimWorld에서 1초 = 60틱
-			int warmupTicks = Mathf.RoundToInt(this.parent.verb.verbProps.warmupTime * 60f);
+			// 발사 전 충전 효과 (PreIgnition) — 워밍업 첫 틱에 실행되려면 ticksAwayFromCast가
+			// Verb.TryStartCastOn과 동일한 초기 ticksLeft와 맞아야 함 (AimingDelayFactor·SecondsToTicks).
+			// Round(warmupTime*60)만 쓰면 스탠스보다 짧아져 첫 틱에 조건이 false → 1틱 이상 늦게 붙음.
+			Pawn caster = this.Pawn;
+			float aimDelay = caster != null
+				? caster.GetStatValue(StatDefOf.AimingDelayFactor, true, -1)
+				: 1f;
+			int warmupTicks = (this.parent.verb.WarmupTime * aimDelay).SecondsToTicks();
 			yield return new PreCastAction
 			{
 				action = delegate (LocalTargetInfo a, LocalTargetInfo b)
