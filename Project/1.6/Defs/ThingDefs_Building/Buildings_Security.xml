@@ -514,7 +514,7 @@
 			<soundImpact>BulletImpact_Ground</soundImpact>
 			<soundImpactAnticipate>Flying</soundImpactAnticipate>
 			<soundAmbient>MortarRound_Ambient</soundAmbient>
-			<groundTouchExplosionRadiusFactor>1.5</groundTouchExplosionRadiusFactor>
+			<groundTouchExplosionRadius>1.5</groundTouchExplosionRadius>
 			<groundTouchDamageAmount>10</groundTouchDamageAmount>
 		</projectile>
 	</ThingDef>
