@@ -100,4 +100,11 @@
     <Compile Include="Patch_InfoCard_HotSwap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- OutputPath는 항상 ..\Assemblies\ 이다. 예전 bin\Release 잔재를 수동 복사하면 def는 최신인데 DLL만 구버전이 되어 타입 누락 오류가 난다. -->
+  <Target Name="DeleteStaleBinNewRatkinDll" AfterTargets="Build">
+    <ItemGroup>
+      <_StaleBinNewRatkinDll Include="$(MSBuildProjectDirectory)\bin\**\NewRatkin.dll" />
+    </ItemGroup>
+    <Delete Files="@(_StaleBinNewRatkinDll)" ContinueOnError="true" />
+  </Target>
 </Project>

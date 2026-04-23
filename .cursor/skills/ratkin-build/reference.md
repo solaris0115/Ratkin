@@ -19,7 +19,7 @@
 
 ## 배포 워크플로우
 
-1. **(프리릴리스)** Release C# 빌드 + `RatkinDevFeatures=false` → `bin/Release/NewRatkin.dll`을 `Project/1.6/Assemblies/`에 복사
+1. **(프리릴리스)** Release C# 빌드 + `RatkinDevFeatures=false` → `Project/1.6/Assemblies/NewRatkin.dll`에 직접 출력(`OutputPath`; `bin/Release` 복사 금지)
 2. **압축**: Project/ 폴더를 ZIP으로 패키징
 3. **1.5 제외**: Project/1.5/ 압축에서 제외
 4. **웹 배포**: GitHub Release 업로드 (기본: solaris0115/NewRatkin)
@@ -35,8 +35,8 @@
 |------|------|
 | 소스 | Project/1.6/Source |
 | 출력 DLL (로컬 Debug) | Project/1.6/Assemblies/NewRatkin.dll |
-| Release 산출 DLL | Project/1.6/Source/bin/Release/NewRatkin.dll |
+| Release 산출 DLL | Project/1.6/Assemblies/NewRatkin.dll (`Source/bin/Release`는 미사용·잔재 가능) |
 | 중간 출력 | Project/1.6/Source/obj/Debug/ 또는 obj/Release/ |
 | csproj | Project/1.6/Source/NewRatkin.csproj |
 
-**프리릴리스·배포 ZIP**: Release + `/p:RatkinDevFeatures=false` 빌드 후 `bin/Release/NewRatkin.dll` → `Project/1.6/Assemblies/` 복사. (`RATKIN_DEV_FEATURES` 없음)
+**프리릴리스·배포 ZIP**: Release + `/p:RatkinDevFeatures=false` Rebuild 한 번이면 Assemblies에 반영됨. (`RATKIN_DEV_FEATURES` 없음)

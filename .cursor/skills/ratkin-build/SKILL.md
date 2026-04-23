@@ -24,10 +24,10 @@ cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Communit
 
 ### 프리릴리스·릴리스용 (dev 기능 제외)
 
-`RATKIN_DEV_FEATURES` 없이 빌드: **Release** + 명시적으로 `RatkinDevFeatures=false`. 산출물은 `bin\Release\`이므로 Assemblies에 복사한다.
+`RATKIN_DEV_FEATURES` 없이 빌드: **Release** + 명시적으로 `RatkinDevFeatures=false`. 산출 DLL은 **`Project/1.6/Assemblies/NewRatkin.dll`**로 바로 나간다(`OutputPath`). `bin\Release\NewRatkin.dll`은 예전 설정 잔재일 수 있으니 Assemblies로 복사하지 않는다.
 
 ```powershell
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; Copy-Item -Path "bin\Release\NewRatkin.dll" -Destination "..\Assemblies\NewRatkin.dll" -Force; cd ..\..\..
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; cd ..\..\..
 ```
 
 `!prerelease` / `!프리릴리스` 커맨드는 위 순서를 패키징 전에 실행한다.

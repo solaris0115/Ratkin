@@ -21,10 +21,10 @@
 
 ### 모드 A — 배포용 프리릴리스 (기본, dev 기능 제외)
 
-`Configuration=Release`이면 `RatkinDevFeatures`는 기본 `false`이며 `RATKIN_DEV_FEATURES`가 정의되지 않는다. Assemblies에 넣기 위해 Release 산출물을 복사한다.
+`Configuration=Release`이면 `RatkinDevFeatures`는 기본 `false`이며 `RATKIN_DEV_FEATURES`가 정의되지 않는다. `NewRatkin.csproj`의 `OutputPath`가 `..\Assemblies\`이므로 Rebuild만 하면 `Project/1.6/Assemblies/NewRatkin.dll`에 반영된다. **`bin\Release\NewRatkin.dll`은 더 이상 갱신되지 않으므로 Assemblies로 복사하면 안 된다**(오래된 DLL로 덮여 타입 누락 오류가 난다).
 
 ```powershell
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; Copy-Item -Path "bin\Release\NewRatkin.dll" -Destination "..\Assemblies\NewRatkin.dll" -Force; cd ..\..\..
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; cd ..\..\..
 ```
 
 ### 모드 B — 프리릴리스이지만 내부용(dev DLL 유지)
@@ -54,7 +54,7 @@ if (-not (Test-Path "Build/TestBuild")) {
 }
 
 # 3. C# — 모드 A(배포용): 아래 한 줄 실행 후 4번으로 진행
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; Copy-Item -Path "bin\Release\NewRatkin.dll" -Destination "..\Assemblies\NewRatkin.dll" -Force; cd ..\..\..
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; cd ..\..\..
 
 # 4. 압축 (파일 1개만 생성)
 7z a -tzip $output "./Project/*" -xr!"Project/1.5"

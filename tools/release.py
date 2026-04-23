@@ -34,10 +34,17 @@ def run(cmd: list[str], *, cwd: Path | None = None) -> None:
 
 
 def run_out(cmd: list[str], *, cwd: Path | None = None) -> str:
-    r = subprocess.run(cmd, cwd=cwd or ROOT, capture_output=True, text=True)
+    r = subprocess.run(
+        cmd,
+        cwd=cwd or ROOT,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
     if r.returncode != 0:
-        die(r.stderr.strip() or f"명령 실패: {cmd}")
-    return r.stdout
+        die((r.stderr or "").strip() or f"명령 실패: {cmd}")
+    return r.stdout or ""
 
 
 def need_exe(name: str) -> str:
@@ -67,6 +74,8 @@ def find_msbuild() -> Path:
             ],
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
         )
         line = (r.stdout or "").strip().splitlines()
         if r.returncode == 0 and line:
@@ -134,10 +143,10 @@ def main() -> None:
         ],
         cwd=CSPROJ_DIR,
     )
-    dll = CSPROJ_DIR / "bin" / "Release" / "NewRatkin.dll"
+    # NewRatkin.csproj OutputPath → Project/1.6/Assemblies (bin/Release 미사용)
+    dll = CSPROJ_DIR.parent / "Assemblies" / "NewRatkin.dll"
     if not dll.is_file():
         die(f"빌드 산출 없음: {dll}")
-    shutil.copy2(dll, CSPROJ_DIR.parent / "Assemblies" / "NewRatkin.dll")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     run(
