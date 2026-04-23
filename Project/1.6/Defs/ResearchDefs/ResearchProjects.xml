@@ -38,10 +38,10 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<!-- 테크 프린트 -->
-		<techprintCount>1</techprintCount>
-		<techprintCommonality>1.0</techprintCommonality>
-		<techprintMarketValue>1000</techprintMarketValue>
-		<heldByFactionCategoryTags>
+		<techprintCount MayRequire="Ludeon.RimWorld.Royalty">1</techprintCount>
+		<techprintCommonality MayRequire="Ludeon.RimWorld.Royalty">1.0</techprintCommonality>
+		<techprintMarketValue MayRequire="Ludeon.RimWorld.Royalty">1000</techprintMarketValue>
+		<heldByFactionCategoryTags MayRequire="Ludeon.RimWorld.Royalty">
 			<li>Empire</li>
 		</heldByFactionCategoryTags>
 		<!-- Biotech 메카나이터 여부와 분석물건 -->
