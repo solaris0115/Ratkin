@@ -60,13 +60,12 @@ namespace NewRatkin
         public IEnumerable<Gizmo> GetToggleGizmos()
         {
             bool canToggle = BFRResearchDefs.SeparationMechanicsResearched;
-            string label = isHEMode ? "HE" : "AP";
             string iconPath = isHEMode ? Props.iconPathHE : Props.iconPathAP;
             Texture2D icon = ContentFinder<Texture2D>.Get(iconPath, false);
 
             var cmd = new Command_Action
             {
-                defaultLabel = label,
+                defaultLabel = (isHEMode ? "RK_BFR_Ammo_LabelHE" : "RK_BFR_Ammo_LabelAP").Translate().ToString(),
                 icon = icon,
                 action = () =>
                 {
@@ -83,7 +82,7 @@ namespace NewRatkin
             };
             if (canToggle)
             {
-                cmd.defaultDesc = isHEMode ? "BFR: Switch to AP round" : "BFR: Switch to HE round";
+                cmd.defaultDesc = (isHEMode ? "RK_BFR_Ammo_DescToAP" : "RK_BFR_Ammo_DescToHE").Translate().ToString();
             }
             else
             {

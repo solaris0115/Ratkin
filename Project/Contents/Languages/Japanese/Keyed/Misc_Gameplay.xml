@@ -17,5 +17,15 @@
 
   <!-- BFR トグル -->
   <RK_BFR_Toggle_RequiresSeparationMechanics>分離力学の研究が必要です。</RK_BFR_Toggle_RequiresSeparationMechanics>
+  <RK_BFR_Ammo_LabelAP>徹甲弾 (AP)</RK_BFR_Ammo_LabelAP>
+  <RK_BFR_Ammo_LabelHE>榴弾 (HE)</RK_BFR_Ammo_LabelHE>
+  <RK_BFR_Ammo_DescToHE>榴弾 (HE) に切り替えます。目標に近づくと広い扇状で炸裂し、密集した敵に有効です。</RK_BFR_Ammo_DescToHE>
+  <RK_BFR_Ammo_DescToAP>徹甲弾 (AP) に切り替えます。一直線上の複数目標を貫通し、高い刺突ダメージを与えます。</RK_BFR_Ammo_DescToAP>
+
+  <!-- 試作パルスライフル 射撃モード -->
+  <RK_PulseRifleFireMode_LabelBurst>バースト</RK_PulseRifleFireMode_LabelBurst>
+  <RK_PulseRifleFireMode_LabelSingle>単発</RK_PulseRifleFireMode_LabelSingle>
+  <RK_PulseRifleFireMode_DescToSingle>単発射撃に切り替えます。重いエネルギー弾を2発連射し、射程が長く中・遠距離の命中に有利です。</RK_PulseRifleFireMode_DescToSingle>
+  <RK_PulseRifleFireMode_DescToBurst>バースト射撃に切り替えます。軽い弾を4発素早く撃ち、射程は短いが近・中距離の戦い向きです。</RK_PulseRifleFireMode_DescToBurst>
 
 </LanguageData>

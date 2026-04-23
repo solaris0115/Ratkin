@@ -79,14 +79,13 @@ namespace NewRatkin
         /// </summary>
         public IEnumerable<Gizmo> GetToggleGizmos()
         {
-            string label = isBurstMode ? "Burst" : "Single";
             string iconPath = isBurstMode ? Props.iconPathBurst : Props.iconPathSingle;
             Texture2D icon = ContentFinder<Texture2D>.Get(iconPath, false);
 
             yield return new Command_Action
             {
-                defaultLabel = label,
-                defaultDesc = isBurstMode ? "Prototype Pulse Rifle: Switch to single fire" : "Prototype Pulse Rifle: Switch to burst fire",
+                defaultLabel = (isBurstMode ? "RK_PulseRifleFireMode_LabelBurst" : "RK_PulseRifleFireMode_LabelSingle").Translate().ToString(),
+                defaultDesc = (isBurstMode ? "RK_PulseRifleFireMode_DescToSingle" : "RK_PulseRifleFireMode_DescToBurst").Translate().ToString(),
                 icon = icon,
                 action = () =>
                 {

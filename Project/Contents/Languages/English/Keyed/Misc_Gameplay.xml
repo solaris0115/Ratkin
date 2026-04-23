@@ -49,4 +49,14 @@
 
   <!-- BFR toggle -->
   <RK_BFR_Toggle_RequiresSeparationMechanics>Separation Mechanics research required.</RK_BFR_Toggle_RequiresSeparationMechanics>
+  <RK_BFR_Ammo_LabelAP>AP</RK_BFR_Ammo_LabelAP>
+  <RK_BFR_Ammo_LabelHE>HE</RK_BFR_Ammo_LabelHE>
+  <RK_BFR_Ammo_DescToHE>Switch to high-explosive rounds. The round can detonate in a wide cone when it gets close to targets, which helps against tight groups.</RK_BFR_Ammo_DescToHE>
+  <RK_BFR_Ammo_DescToAP>Switch to armor-piercing rounds. The bolt can punch through several targets in a line with strong stab damage.</RK_BFR_Ammo_DescToAP>
+
+  <!-- Prototype pulse rifle fire mode gizmo -->
+  <RK_PulseRifleFireMode_LabelBurst>Burst</RK_PulseRifleFireMode_LabelBurst>
+  <RK_PulseRifleFireMode_LabelSingle>Single</RK_PulseRifleFireMode_LabelSingle>
+  <RK_PulseRifleFireMode_DescToSingle>Switch to single fire. Fires two heavy energy bolts with longer range and better accuracy at medium and long range.</RK_PulseRifleFireMode_DescToSingle>
+  <RK_PulseRifleFireMode_DescToBurst>Switch to burst fire. Fires four lighter bolts in quick succession at shorter effective range, suited to close and mid-range fights.</RK_PulseRifleFireMode_DescToBurst>
 </LanguageData>

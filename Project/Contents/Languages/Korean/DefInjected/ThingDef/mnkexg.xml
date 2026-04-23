@@ -259,15 +259,13 @@
   <RK_Rifle.verbs.Verb_Shoot.label>소총</RK_Rifle.verbs.Verb_Shoot.label>
   <RK_Rifle.tools.0.label>개머리판</RK_Rifle.tools.0.label>
   <RK_Rifle.tools.1.label>총검</RK_Rifle.tools.1.label>
-  <RK_Rifle.tools.2.label>플레셰트 촉</RK_Rifle.tools.2.label>
-  <Bullet_RK_Rifle.label>플레셰트 소총탄</Bullet_RK_Rifle.label>
+  <Bullet_RK_Rifle.label>화살촉탄</Bullet_RK_Rifle.label>
   <RK_SniperRifle.label>망원 소총</RK_SniperRifle.label>
   <RK_SniperRifle.description>망원 렌즈가 달린 반자동 소총입니다. 망원 렌즈를 통해 조금 더 조준하고 쏠 수 있습니다. 탄환은 가늘고 예리하여 관통력은 높으나 피해량이 조금 낮습니다. 착검되어 있어 근접전에 유리합니다.</RK_SniperRifle.description>
   <RK_SniperRifle.verbs.Verb_Shoot.label>저격 소총</RK_SniperRifle.verbs.Verb_Shoot.label>
   <RK_SniperRifle.tools.0.label>개머리판</RK_SniperRifle.tools.0.label>
   <RK_SniperRifle.tools.1.label>총검</RK_SniperRifle.tools.1.label>
-  <RK_SniperRifle.tools.2.label>플레셰트 촉</RK_SniperRifle.tools.2.label>
-  <Bullet_RK_SniperRifle.label>플레셰트 저격탄</Bullet_RK_SniperRifle.label>
+  <Bullet_RK_SniperRifle.label>화살촉탄</Bullet_RK_SniperRifle.label>
   <RK_Weapon_SawedOff.label>소드오프 샷건</RK_Weapon_SawedOff.label>
   <RK_Weapon_SawedOff.description>한손으로 들 수 있는 샷건입니다. 발사된 투사체가 일정 거리 앞에서 분사됩니다.</RK_Weapon_SawedOff.description>
   <RK_Weapon_SawedOff.verbs.Verb_Shoot.label>소드오프 샷건</RK_Weapon_SawedOff.verbs.Verb_Shoot.label>
@@ -275,25 +273,25 @@
   <RK_Weapon_SawedOff.tools.1.label>총열</RK_Weapon_SawedOff.tools.1.label>
   <RK_Bullet_SawedOff.label>산탄</RK_Bullet_SawedOff.label>
   <RK_Weapon_Bolter.label>핸드캐넌</RK_Weapon_Bolter.label>
-  <RK_Weapon_Bolter.description>대구경 탄환을 쏘는 핸드캐넌 입니다. 대구경 탄환을 발사하는 이무기는 뛰어난 피해량과 저지력을 갖고 있습니다.</RK_Weapon_Bolter.description>
+  <RK_Weapon_Bolter.description>대구경 탄환을 쏘는 핸드캐넌 입니다. 대구경 탄환을 발사하여 뛰어난 피해량과 저지력을 갖고 있습니다. 탄환에 코팅된 에너지 장으로 인해 이따금 에너지 장을 무력화 할 수 있으며, 대상을 기절 시킬 수도 있습니다.</RK_Weapon_Bolter.description>
   <RK_Weapon_Bolter.verbs.Verb_Shoot.label>핸드캐넌 사격</RK_Weapon_Bolter.verbs.Verb_Shoot.label>
   <RK_Weapon_Bolter.tools.0.label>손잡이</RK_Weapon_Bolter.tools.0.label>
   <RK_Weapon_Bolter.tools.1.label>총열</RK_Weapon_Bolter.tools.1.label>
   <RK_Bullet_Bolter.label>대구경 탄환</RK_Bullet_Bolter.label>
   <RK_PrototypePulseRifle.label>파동 소총</RK_PrototypePulseRifle.label>
-  <RK_PrototypePulseRifle.description>에너지 탄환을 쏘는 소총입니다. 발사 모드가 있어 중거리와 원거리 교전에 모두 유리합니다.</RK_PrototypePulseRifle.description>
+  <RK_PrototypePulseRifle.description>에너지 탄환을 쏘는 소총입니다. 내장된 유동 콘덴서를 통해 발사할 에너지량을 빠르게 조절하여 발사 상황에 맞게 대응할 수 있습니다. 근·중거리 교전시 빠르게 4발을 속사 하며, 원거리 교전시 고밀도 쐐기탄을 2발을 정밀 발사합니다.</RK_PrototypePulseRifle.description>
   <RK_PrototypePulseRifle.verbs.Verb_PulseRifleShoot.label>속사</RK_PrototypePulseRifle.verbs.Verb_PulseRifleShoot.label>
   <RK_PrototypePulseRifle.tools.0.label>개머리판</RK_PrototypePulseRifle.tools.0.label>
   <RK_PrototypePulseRifle.tools.1.label>총열</RK_PrototypePulseRifle.tools.1.label>
   <Bullet_RK_PrototypePulseRifleLight.label>쐐기탄</Bullet_RK_PrototypePulseRifleLight.label>
-  <Bullet_RK_PrototypePulseRifleHeavy.label>쐐기탄</Bullet_RK_PrototypePulseRifleHeavy.label>
+  <Bullet_RK_PrototypePulseRifleHeavy.label>고밀도 쐐기탄</Bullet_RK_PrototypePulseRifleHeavy.label>
   <RK_Weapon_BFR.label>다목적 저격 소총</RK_Weapon_BFR.label>
-  <RK_Weapon_BFR.description>다목적 용도로 사용되는 저격 소총입니다. 상황에 맞는 탄환을 선택하여 발사할 수 있습니다.</RK_Weapon_BFR.description>
+  <RK_Weapon_BFR.description>대구경 저격 소총입니다. 다목적 상황을 가정하여 개발되었으며 연구를 통해 여러 탄환 사용이 가능합니다.</RK_Weapon_BFR.description>
   <RK_Weapon_BFR.verbs.Verb_BFRShoot.label>AP 사격</RK_Weapon_BFR.verbs.Verb_BFRShoot.label>
   <RK_Weapon_BFR.tools.0.label>개머리판</RK_Weapon_BFR.tools.0.label>
   <RK_Weapon_BFR.tools.1.label>총열</RK_Weapon_BFR.tools.1.label>
-  <Bullet_BFR_AP.label>쐐기탄</Bullet_BFR_AP.label>
-  <Bullet_BFR_HE.label>쐐기탄</Bullet_BFR_HE.label>
+  <Bullet_BFR_AP.label>관통탄</Bullet_BFR_AP.label>
+  <Bullet_BFR_HE.label>공중폭발탄</Bullet_BFR_HE.label>
   <RK_Weapon_RatHolicGun.label>쥑이는 총</RK_Weapon_RatHolicGun.label>
   <RK_Weapon_RatHolicGun.description>수동식 다총열 기관총입니다. 손으로 돌려 발사하기 때문에 초기 발사속도가 느리지만 속도가 붙은 후 빠르게 연사합니다.</RK_Weapon_RatHolicGun.description>
   <RK_Weapon_RatHolicGun.tools.0.label>총열</RK_Weapon_RatHolicGun.tools.0.label>
