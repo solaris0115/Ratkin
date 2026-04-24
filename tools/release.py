@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Release: prerelease와 동일한 Release 빌드·ZIP 후 GitHub 태그 1.6 에셋 교체.
-저장소 루트에서: python tools/release.py
+정식 릴리스 배포: MSBuild `/t:Build`(Rebuild 아님), Release, RatkinDevFeatures=false → ZIP → GitHub 태그 에셋 교체.
+프리릴리스 기본(모드 A)과 컴파일 속성은 동일; 프리릴리스는 `/prerelease` 문서의 ZIP·`gh` 단계를 따른다.
+
+저장소 루트: python tools/release.py
 """
 from __future__ import annotations
 
@@ -136,7 +138,7 @@ def main() -> None:
         [
             str(msbuild),
             str(CSPROJ_DIR / "NewRatkin.csproj"),
-            "/t:Rebuild",
+            "/t:Build",
             "/p:Configuration=Release",
             "/p:RatkinDevFeatures=false",
             "/restore:false",
