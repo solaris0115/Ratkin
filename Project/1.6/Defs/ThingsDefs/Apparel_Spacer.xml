@@ -485,6 +485,8 @@
 				<li>BackPack</li>
 			</layers>
 			<tags>
+				<!-- RoyalTitles_Empire requiredApparel: PrestigeCombatGear (vanilla prestige cataphract). 없으면 작위 의류 요구 미충족 무드 발생. -->
+				<li>PrestigeCombatGear</li>
 				<li>RK_ApparelTag_HideTail</li>
 				<li>RK_ApparelTag_HighTech</li>
 			</tags>
@@ -538,6 +540,7 @@
 			<wornGraphicPath>Apparel/SpaceArmor/RK_Apparel_SpaceArmorHelmet</wornGraphicPath>
 			<useWornGraphicMask>true</useWornGraphicMask>
 			<tags>
+				<li>PrestigeCombatGear</li>
 				<li>RK_ApparelTag_HideEar</li>
 				<li>RK_ApparelTag_HighTech</li>
 			</tags>
