@@ -174,12 +174,12 @@
   <RK_MagicWand.tools.0.label>머리</RK_MagicWand.tools.0.label>
   <RK_MagicWand.tools.1.label>끝</RK_MagicWand.tools.1.label>
   <RK_Weapon_Gunlance.label>랫킨 건랜스</RK_Weapon_Gunlance.label>
-  <RK_Weapon_Gunlance.description>포격이 가능한 무거운 기계식 랜스입니다. 포격 시 전방으로 화염을 방사합니다.\n전용 탄환을 이용하여 용격포를 쏠 수 있습니다. 용격포는 전방 원뿔 범위에 폭발 피해를 가하며, 2발까지 사용 가능하고 각 발 사용 후 2시간의 재사용 대기시간이 있습니다.\n\n일반 포격형: 짧은 거리에서 포격할 수 있습니다.</RK_Weapon_Gunlance.description>
+  <RK_Weapon_Gunlance.description>포격이 가능한 무거운 기계식 랜스입니다. 근접 공격 시 전방으로 포격을 가할 수 있습니다.\n장전된 특수 탄약을 소모하여 전방에 큰 피해를 줄 수 있는 용격포를 사용할 수 있습니다. 용격포 사용 후 약간의 냉각 시간이 필요합니다.</RK_Weapon_Gunlance.description>
   <RK_Weapon_Gunlance.tools.0.label>날끝</RK_Weapon_Gunlance.tools.0.label>
   <RK_Weapon_Gunlance.tools.1.label>날</RK_Weapon_Gunlance.tools.1.label>
   <RK_Weapon_Gunlance.comps.1.chargeNoun>용격포 장약</RK_Weapon_Gunlance.comps.1.chargeNoun>
   <RK_Ammo_WyvernFire.label>용격포 탄환</RK_Ammo_WyvernFire.label>
-  <RK_Ammo_WyvernFire.description> 고성능 폭약이 채워진 탄환입니다. 박격포로 발사하거나 함정에 장착할 수 있으며, 손상되면 폭발합니다.</RK_Ammo_WyvernFire.description>
+  <RK_Ammo_WyvernFire.description>건랜스 용격포를 쏠 수 있는 탄약입니다. 손상되면 폭발할 수 있습니다. 탄약은 2단으로 구성되어 있어 1차 연료로 예열 후 2차 화약을 분사하여 큰 폭발을 만들어 냅니다.</RK_Ammo_WyvernFire.description>
   <GunlancePreIgnition.label>점화</GunlancePreIgnition.label>
   <GunlanceAfterIgnition.label>점화</GunlanceAfterIgnition.label>
   <RK_Weapon_ProtoChainSword.label>랫킨 체인소드</RK_Weapon_ProtoChainSword.label>
