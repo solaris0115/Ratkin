@@ -456,23 +456,24 @@
 			<MaxHitPoints>400</MaxHitPoints>
 			<Mass>10.5</Mass>
 			<ArmorRating_Sharp>1.1</ArmorRating_Sharp>
-			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
-			<ArmorRating_Heat>0.6</ArmorRating_Heat>
+			<ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.8</ArmorRating_Heat>
 			<Insulation_Cold>70</Insulation_Cold>
 			<Insulation_Heat>70</Insulation_Heat>
 			<EquipDelay>10</EquipDelay>
 			<Flammability>0.1</Flammability>
 		</statBases>
 		<equippedStatOffsets>
-			<MoveSpeed>-0.2</MoveSpeed>
+			<MoveSpeed>-0.5</MoveSpeed>
+			<MeleeDodgeChance>4</MeleeDodgeChance>
 			<Flammability>-0.68</Flammability>
 			<SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.3</VacuumResistance>
 		</equippedStatOffsets>
 		<costList>
-			<DevilstrandCloth>35</DevilstrandCloth>
+			<Steel>100</Steel>
 			<ComponentSpacer>6</ComponentSpacer>
-			<Plasteel>150</Plasteel>
+			<Plasteel>120</Plasteel>
 			<Uranium>50</Uranium>
 		</costList>
 		<apparel>
@@ -529,7 +530,7 @@
 			<VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.68</VacuumResistance>
 		</equippedStatOffsets>
 		<costList>
-			<DevilstrandCloth>20</DevilstrandCloth>
+			<Steel>50</Steel>
 			<ComponentSpacer>1</ComponentSpacer>
 			<Plasteel>50</Plasteel>
 		</costList>
