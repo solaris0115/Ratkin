@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Verse;
 using LudeonTK;
+using NewRatkin.AlienRaceCompat;
 using RimWorld;
+using Verse;
 
 namespace NewRatkin
 {
@@ -348,6 +349,20 @@ namespace NewRatkin
             }
 
             Messages.Message("Map cleared (terrain preserved).", MessageTypeDefOf.TaskCompletion);
+        }
+
+        /// <summary>
+        /// DefDatabase의 <c>AlienRace.RaceSettings</c> 인스턴스(들)와 <c>Utilities.UniversalBodyAddons</c> 캐시를 Player.log에 출력합니다.
+        /// </summary>
+        // allowedGameStates에 Entry를 비트로 넣으면 IsAllowedInCurrentGameState에서
+        // 맵 플레이 중 flag가 항상 false가 되어 메뉴에 안 나온다(바닐라 DebugActionAttribute 로직).
+        [DebugAction("Ratkin", "Log RaceSettings (HAR) state",
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            displayPriority = 993)]
+        private static void LogRaceSettingsHarState()
+        {
+            RaceSettingsDebugDumper.DumpToPlayerLog();
+            Messages.Message("RaceSettings(HAR) 덤프를 Player.log에 출력했습니다.", MessageTypeDefOf.TaskCompletion);
         }
 
         [DebugAction("Ratkin", "Fill All Needs", 
