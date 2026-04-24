@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <!-- Dev 전용 코드: 기본 Debug=포함, Release=제외. Release에서 켜려면 /p:RatkinDevFeatures=true -->
+  <!-- RatkinDevFeatures: AutoTests·InfoCard 패치 등 선택 포함 + RATKIN_DEV_FEATURES(발리스타 등 Tick 경로 디버그 드로우 전처리 제거). DebugActions·랫킨 Dev 메뉴는 Release에도 항상 포함. -->
   <PropertyGroup>
     <RatkinDevFeatures Condition="'$(RatkinDevFeatures)' == '' And '$(Configuration)' == 'Debug'">true</RatkinDevFeatures>
     <RatkinDevFeatures Condition="'$(RatkinDevFeatures)' == ''">false</RatkinDevFeatures>
@@ -82,19 +82,11 @@
     <Compile Include="**\*.cs" Exclude="
       bin\**\*.cs;
       obj\**\*.cs;
-      DebugActions.cs;
-      DebugActions_TestSetup.cs;
-      Dialog_RKSpawnEquipmentConfig.cs;
-      RKSpawnEquipmentConfig.cs;
       AutoTests\AutoTests.cs;
       Patch_InfoCard_OpenHotkey.cs;
       Patch_InfoCard_HotSwap.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(RatkinDevFeatures)' == 'true'">
-    <Compile Include="DebugActions.cs" />
-    <Compile Include="DebugActions_TestSetup.cs" />
-    <Compile Include="Dialog_RKSpawnEquipmentConfig.cs" />
-    <Compile Include="RKSpawnEquipmentConfig.cs" />
     <Compile Include="AutoTests\AutoTests.cs" />
     <Compile Include="Patch_InfoCard_OpenHotkey.cs" />
     <Compile Include="Patch_InfoCard_HotSwap.cs" />
