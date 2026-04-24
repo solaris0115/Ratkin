@@ -90,13 +90,13 @@
   <Make_RK_BulletProofHelmet.description>랫킨 방탄 헬멧 제작합니다.</Make_RK_BulletProofHelmet.description>
   <Make_RK_BulletProofHelmet.jobString>랫킨 방탄 헬멧 제작 중.</Make_RK_BulletProofHelmet.jobString>
 
-  <Make_RK_Mask.label>랫킨 마스크 핼멧 제작</Make_RK_Mask.label>
-  <Make_RK_Mask.description>랫킨 마스크 핼멧을 제작합니다.</Make_RK_Mask.description>
-  <Make_RK_Mask.jobString>랫킨 마스크 핼멧 제작 중.</Make_RK_Mask.jobString>
+  <Make_RK_Mask.label>랫킨 마스크 헬멧 제작</Make_RK_Mask.label>
+  <Make_RK_Mask.description>랫킨 마스크 헬멧을 제작합니다.</Make_RK_Mask.description>
+  <Make_RK_Mask.jobString>랫킨 마스크 헬멧 제작 중.</Make_RK_Mask.jobString>
 
-  <Make_RK_MaskB.label>랫킨 마스크 핼멧 제작</Make_RK_MaskB.label>
-  <Make_RK_MaskB.description>랫킨 마스크 핼멧을 제작합니다.</Make_RK_MaskB.description>
-  <Make_RK_MaskB.jobString>랫킨 마스크 핼멧 제작 중.</Make_RK_MaskB.jobString>
+  <Make_RK_MaskB.label>랫킨 마스크 헬멧 제작</Make_RK_MaskB.label>
+  <Make_RK_MaskB.description>랫킨 마스크 헬멧을 제작합니다.</Make_RK_MaskB.description>
+  <Make_RK_MaskB.jobString>랫킨 마스크 헬멧 제작 중.</Make_RK_MaskB.jobString>
 
   <Make_RK_FlatColorCoat.label>랫킨 플랫 칼라 드레스 제작</Make_RK_FlatColorCoat.label>
   <Make_RK_FlatColorCoat.description>랫킨 플랫 칼라 드레스 제작합니다.</Make_RK_FlatColorCoat.description>
