@@ -25,18 +25,9 @@
 		</value>
 	</Operation>
 
-	<!-- Add Hardtack recipes to Electric Stove -->
+	<!-- Hardtack recipes: any ThingDef whose defName contains "Stove" and has a recipes list (vanilla + modded cook stoves). Put Ratkin after furniture/cooking mods in the mod list so their defs exist when this runs. -->
 	<Operation Class="PatchOperationAdd">
-		<xpath>*/ThingDef[defName = "ElectricStove"]/recipes</xpath>
-		<value>
-			<li>RK_Recipe_Hardtack</li>
-			<li>RK_Recipe_HardtackBulk</li>
-		</value>
-	</Operation>
-	
-	<!-- Add Hardtack recipes to Fueled Stove -->
-	<Operation Class="PatchOperationAdd">
-		<xpath>*/ThingDef[defName = "FueledStove"]/recipes</xpath>
+		<xpath>*/ThingDef[contains(defName,'Stove')]/recipes</xpath>
 		<value>
 			<li>RK_Recipe_Hardtack</li>
 			<li>RK_Recipe_HardtackBulk</li>
