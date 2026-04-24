@@ -61,22 +61,149 @@ namespace NewRatkin
                 return;
             }
 
-            // 1. Clear all things on map except terrain
-            ClearMapExceptTerrain();
-
-            // 2. Get all RK_ apparel
-            var allApparels = DefDatabase<ThingDef>.AllDefs
-                .Where(def => def.defName.StartsWith("RK_") && def.IsApparel)
-                .OrderBy(def => def.defName)
-                .ToList();
-
-            if (allApparels.Count == 0)
+            if (DefDatabase<PawnKindDef>.GetNamedSilentFail("RatkinColonist") == null)
             {
-                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoRKApparel, "No RK_ apparel found.");
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_RatkinColonistMissing, "RatkinColonist PawnKindDef not found.");
                 return;
             }
 
-            // 3. Get Ratkin PawnKindDef and XenotypeDef
+            List<ThingDef> allApparelDefs = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.IsApparel && def.apparel != null)
+                .OrderBy(def => def.defName)
+                .ToList();
+
+            if (allApparelDefs.Count == 0)
+            {
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoRKApparel, "No apparel ThingDefs found.");
+                return;
+            }
+
+            Map map = Find.CurrentMap;
+            const int originX = 10;
+            const int originZ = 10;
+            IntVec3 origin = new IntVec3(originX, 0, originZ);
+            if (!origin.InBounds(map))
+            {
+                Messages.Message($"시작 칸이 맵 밖입니다. ({originX},{originZ}, 맵 {map.Size.x}x{map.Size.z})", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            List<DebugMenuOption> options = new List<DebugMenuOption>();
+            Rot4[] dirs = { Rot4.North, Rot4.East, Rot4.South, Rot4.West };
+            foreach (Rot4 d in dirs)
+            {
+                Rot4 dirCaptured = d;
+                options.Add(new DebugMenuOption(dirCaptured.ToStringHuman(), DebugMenuOptionMode.Action, delegate()
+                {
+                    AllApparelTestRun(allApparelDefs, dirCaptured, 20f, DevelopmentalStage.Adult, false);
+                }));
+            }
+
+            Find.WindowStack.Add(new Dialog_DebugOptionListLister(options, "All Apparel Test — 젠 방향"));
+        }
+
+        [DebugAction("Ratkin", "All Apparel Test (8yo, child apparel only)",
+            allowedGameStates = AllowedGameStates.PlayingOnMap,
+            displayPriority = 998,
+            requiresBiotech = true)]
+        private static void AllApparelTestEightYearChild()
+        {
+            if (Find.CurrentMap == null)
+            {
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoMapAllApparel, "No current map found.");
+                return;
+            }
+
+            if (DefDatabase<PawnKindDef>.GetNamedSilentFail("RatkinColonist") == null)
+            {
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_RatkinColonistMissing, "RatkinColonist PawnKindDef not found.");
+                return;
+            }
+
+            List<ThingDef> childApparelDefs = DefDatabase<ThingDef>.AllDefs
+                .Where(def => def.IsApparel && def.apparel != null
+                    && def.apparel.developmentalStageFilter.Has(DevelopmentalStage.Child))
+                .OrderBy(def => def.defName)
+                .ToList();
+
+            if (childApparelDefs.Count == 0)
+            {
+                Messages.Message("developmentalStageFilter에 Child가 포함된 의류 Def가 없습니다.", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            Map map = Find.CurrentMap;
+            const int originX = 10;
+            const int originZ = 10;
+            IntVec3 origin = new IntVec3(originX, 0, originZ);
+            if (!origin.InBounds(map))
+            {
+                Messages.Message($"시작 칸이 맵 밖입니다. ({originX},{originZ}, 맵 {map.Size.x}x{map.Size.z})", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            List<DebugMenuOption> options = new List<DebugMenuOption>();
+            Rot4[] dirs = { Rot4.North, Rot4.East, Rot4.South, Rot4.West };
+            foreach (Rot4 d in dirs)
+            {
+                Rot4 dirCaptured = d;
+                options.Add(new DebugMenuOption(dirCaptured.ToStringHuman(), DebugMenuOptionMode.Action, delegate()
+                {
+                    AllApparelTestRun(childApparelDefs, dirCaptured, 8f, DevelopmentalStage.Child, true);
+                }));
+            }
+
+            Find.WindowStack.Add(new Dialog_DebugOptionListLister(options, "All Apparel Test (8세·어린이 장비) — 젠 방향"));
+        }
+
+        private static int AllApparelTest_CountSlotsAlongPrimary(IntVec3 origin, Rot4 genDir, Map map)
+        {
+            IntVec3 step = genDir.FacingCell;
+            int count = 0;
+            for (IntVec3 c = origin; c.InBounds(map); c += step)
+            {
+                count++;
+            }
+            return count;
+        }
+
+        private static IntVec3 AllApparelTest_CellForSlot(IntVec3 origin, Rot4 genDir, int rowLength, int slot)
+        {
+            int row = slot / rowLength;
+            int col = slot % rowLength;
+            return origin + genDir.FacingCell * col + genDir.RighthandCell * row;
+        }
+
+        private static PawnGenerationRequest AllApparelTest_MakeRequest(PawnKindDef ratkinKind, XenotypeDef ratkinXenotype, float fixedAge, DevelopmentalStage developmentalStages)
+        {
+            PawnGenerationRequest request = new PawnGenerationRequest(
+                kind: ratkinKind,
+                faction: Faction.OfPlayer,
+                forceGenerateNewPawn: true,
+                allowFood: false,
+                allowAddictions: false,
+                relationWithExtraPawnChanceFactor: 0f,
+                fixedBiologicalAge: fixedAge,
+                fixedChronologicalAge: fixedAge,
+                developmentalStages: developmentalStages
+            );
+            if (ratkinXenotype != null && ModsConfig.BiotechActive)
+            {
+                request.ForcedXenotype = ratkinXenotype;
+            }
+
+            return request;
+        }
+
+        private static void AllApparelTestRun(List<ThingDef> allApparelDefs, Rot4 genDir, float fixedAge, DevelopmentalStage developmentalStages, bool childApparelListOnly)
+        {
+            Map map = Find.CurrentMap;
+            if (map == null)
+            {
+                RatkinLimitedLog.Error(RatkinLogKeys.DebugActions_NoMapAllApparel, "No current map found.");
+                return;
+            }
+
             PawnKindDef ratkinKind = DefDatabase<PawnKindDef>.GetNamedSilentFail("RatkinColonist");
             if (ratkinKind == null)
             {
@@ -86,96 +213,81 @@ namespace NewRatkin
 
             XenotypeDef ratkinXenotype = DefDatabase<XenotypeDef>.GetNamedSilentFail("RK_XenoType_Ratkin");
 
-            // 4. Spawn pawns with apparel
-            Map map = Find.CurrentMap;
-            IntVec3 startPos = new IntVec3(30, 0, map.Size.z - 30); // Top-right offset by 30,30
-            int gridX = 0;
-            int gridZ = 0;
-            int spawnedCount = 0;
-            
-            // Calculate grid size for square layout (each apparel spawns twice, so double the count)
-            int gridSize = (int)System.Math.Ceiling(System.Math.Sqrt(allApparels.Count * 2));
-
-            List<Pawn> spawnedPawns = new List<Pawn>();
-
-            foreach (ThingDef apparelDef in allApparels)
+            const int originX = 10;
+            const int originZ = 10;
+            IntVec3 origin = new IntVec3(originX, 0, originZ);
+            if (!origin.InBounds(map))
             {
-                // Spawn twice: once for age 10, once for age 20
-                int[] ages = { 10, 20 };
-                
-                foreach (int age in ages)
-                {
-                    // Calculate spawn position (1 cell spacing)
-                    IntVec3 spawnPos = new IntVec3(
-                        startPos.x + gridX,
-                        0,
-                        startPos.z - gridZ
-                    );
-
-                    // Find valid spawn position
-                    if (!spawnPos.InBounds(map) || !spawnPos.Standable(map))
-                    {
-                        spawnPos = CellFinder.RandomSpawnCellForPawnNear(spawnPos, map);
-                    }
-
-                    // Generate Ratkin pawn
-                    PawnGenerationRequest request = new PawnGenerationRequest(
-                        kind: ratkinKind,
-                        faction: Faction.OfPlayer,
-                        forceGenerateNewPawn: true,
-                        allowFood: false,
-                        allowAddictions: false,
-                        relationWithExtraPawnChanceFactor: 0f,
-                        fixedBiologicalAge: age,
-                        fixedChronologicalAge: age
-                    );
-
-                    // Set Ratkin xenotype if available
-                    if (ratkinXenotype != null && ModsConfig.BiotechActive)
-                    {
-                        request.ForcedXenotype = ratkinXenotype;
-                    }
-
-                    Pawn pawn = PawnGenerator.GeneratePawn(request);
-
-                    // Spawn pawn
-                    GenSpawn.Spawn(pawn, spawnPos, map);
-
-                    // Make colonist
-                    if (pawn.Faction != Faction.OfPlayer)
-                    {
-                        pawn.SetFaction(Faction.OfPlayer);
-                    }
-
-                    // Strip all existing apparel after spawn
-                    if (pawn.apparel != null)
-                    {
-                        List<Apparel> wornApparel = pawn.apparel.WornApparel.ToList();
-                        foreach (Apparel app in wornApparel)
-                        {
-                            pawn.apparel.Remove(app);
-                            app.Destroy();
-                        }
-                    }
-
-                    // Wear only the target apparel
-                    Apparel apparel = (Apparel)ThingMaker.MakeThing(apparelDef, GenStuff.DefaultStuffFor(apparelDef));
-                    pawn.apparel.Wear(apparel, false);
-
-                    spawnedPawns.Add(pawn);
-                    spawnedCount++;
-
-                    // Update grid position (square layout)
-                    gridX++;
-                    if (gridX >= gridSize)
-                    {
-                        gridX = 0;
-                        gridZ++;
-                    }
-                }
+                Messages.Message($"시작 칸이 맵 밖입니다. ({originX},{originZ})", MessageTypeDefOf.RejectInput);
+                return;
             }
 
-            // Draft all spawned pawns
+            int rowLength = AllApparelTest_CountSlotsAlongPrimary(origin, genDir, map);
+            if (rowLength <= 0)
+            {
+                Messages.Message("선택한 방향으로 맵 안에 한 칸도 없습니다.", MessageTypeDefOf.RejectInput);
+                return;
+            }
+
+            PawnGenerationRequest probeRequest = AllApparelTest_MakeRequest(ratkinKind, ratkinXenotype, fixedAge, developmentalStages);
+            Pawn probePawn = PawnGenerator.GeneratePawn(probeRequest);
+            List<Pawn> spawnedPawns = new List<Pawn>();
+            int slot = 0;
+            int excludedNotWearable = 0;
+            int excludedNoStandableCell = 0;
+
+            foreach (ThingDef apparelDef in allApparelDefs)
+            {
+                if (!ApparelUtility.HasPartsToWear(probePawn, apparelDef) || !apparelDef.apparel.PawnCanWear(probePawn, false))
+                {
+                    excludedNotWearable++;
+                    continue;
+                }
+
+                IntVec3 spawnPos = AllApparelTest_CellForSlot(origin, genDir, rowLength, slot);
+                slot++;
+                if (!spawnPos.InBounds(map))
+                {
+                    Messages.Message($"배치 영역이 맵을 벗어났습니다. ({spawnedPawns.Count}명까지 배치, 방향 {genDir.ToStringHuman()})", MessageTypeDefOf.RejectInput);
+                    break;
+                }
+
+                if (!spawnPos.Standable(map))
+                {
+                    IntVec3 near = CellFinder.RandomSpawnCellForPawnNear(spawnPos, map, 4);
+                    if (!near.InBounds(map) || !near.Standable(map))
+                    {
+                        excludedNoStandableCell++;
+                        continue;
+                    }
+                    spawnPos = near;
+                }
+
+                PawnGenerationRequest request = AllApparelTest_MakeRequest(ratkinKind, ratkinXenotype, fixedAge, developmentalStages);
+                Pawn pawn = PawnGenerator.GeneratePawn(request);
+                GenSpawn.Spawn(pawn, spawnPos, map);
+                if (pawn.Faction != Faction.OfPlayer)
+                {
+                    pawn.SetFaction(Faction.OfPlayer);
+                }
+
+                if (pawn.apparel != null)
+                {
+                    List<Apparel> wornApparel = pawn.apparel.WornApparel.ToList();
+                    foreach (Apparel app in wornApparel)
+                    {
+                        pawn.apparel.Remove(app);
+                        app.Destroy();
+                    }
+                }
+
+                Apparel apparel = (Apparel)ThingMaker.MakeThing(apparelDef, GenStuff.DefaultStuffFor(apparelDef));
+                pawn.apparel.Wear(apparel, false);
+                spawnedPawns.Add(pawn);
+            }
+
+            probePawn.Destroy();
+
             foreach (Pawn pawn in spawnedPawns)
             {
                 if (pawn.drafter != null)
@@ -184,7 +296,10 @@ namespace NewRatkin
                 }
             }
 
-            Messages.Message($"Spawned {spawnedCount} Ratkin colonists (age 10 & 20) with {allApparels.Count} different RK_ apparels.", MessageTypeDefOf.TaskCompletion);
+            string modeLabel = childApparelListOnly
+                ? $"8세 어린이·어린이 장비 Def만 ({allApparelDefs.Count}종)"
+                : $"성인·전체 의류 후보 ({allApparelDefs.Count}종)";
+            Messages.Message($"랫킨 의류 착용 테스트: {spawnedPawns.Count}명, {modeLabel}, 젠 {genDir.ToStringHuman()} (착용 불가 {excludedNotWearable}, 배치 실패 {excludedNoStandableCell}). ({originX},{originZ}), 한 줄 {rowLength}칸.", MessageTypeDefOf.TaskCompletion);
         }
 
         private static void ClearMapExceptTerrain()
