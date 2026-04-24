@@ -7,9 +7,10 @@ description: C# build and project management
 **csproj**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
 
 ```powershell
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Debug
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Debug
 ```
 
+- `/t:Rebuild`: 증분 건너뜀 없이 매번 전체 빌드.
 - Output: `Project/1.6/Assemblies/NewRatkin.dll`
 - Intermediate: `Project/1.6/Source/obj/Debug/`
 

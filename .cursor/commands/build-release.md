@@ -4,7 +4,7 @@ description: Release 모드로 NewRatkin만 로컬 컴파일 (ZIP·GitHub 배포
 
 # /build-release
 
-**로컬로 MSBuild `Build` 타깃만** 돌린다. `/build-dev`와 **차이는 속성**(구성·`RatkinDevFeatures`·그에 따른 전처리/컴파일 조건만)뿐이다.
+**로컬로 MSBuild `Rebuild` 타깃**을 돌린다(Clean 후 Build — **“모두 최신”으로 건너뛰지 않고** 매번 컴파일·출력 복사). `/build-dev`와 **차이는 속성**(구성·`RatkinDevFeatures`·그에 따른 전처리/컴파일 조건만)뿐이다.
 
 - **속성**: `Configuration=Release`, `RatkinDevFeatures=false` (`RATKIN_DEV_FEATURES` 없음) → `Project/1.6/Assemblies/NewRatkin.dll`
 - **하지 않음**: ZIP, `gh`, GitHub
@@ -16,7 +16,7 @@ description: Release 모드로 NewRatkin만 로컬 컴파일 (ZIP·GitHub 배포
 워크스페이스 **저장소 루트**에서 아래 **한 줄**만 실행한다 (PowerShell에서 `&&` 금지 — `;` 사용).
 
 ```powershell
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Build /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; cd ..\..\..
+cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Release /p:RatkinDevFeatures=false /restore:false; cd ..\..\..
 ```
 
 ## 참조

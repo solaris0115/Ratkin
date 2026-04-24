@@ -39,4 +39,4 @@
 | 중간 출력 | Project/1.6/Source/obj/Debug/ 또는 obj/Release/ |
 | csproj | Project/1.6/Source/NewRatkin.csproj |
 
-**프리릴리스·배포 ZIP**: Release + `/p:RatkinDevFeatures=false`로 **`/t:Build`** 한 번이면 Assemblies에 반영됨. (`RATKIN_DEV_FEATURES` 없음)
+**프리릴리스·배포 ZIP**: Release + `/p:RatkinDevFeatures=false`로 **`/t:Rebuild`** 한 번이면 Assemblies에 반영됨(증분 건너뜀 없음). (`RATKIN_DEV_FEATURES` 없음)
