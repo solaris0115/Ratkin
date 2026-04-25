@@ -47,8 +47,6 @@ namespace NewRatkin
             Map map = Map;
             IntVec3 impactPos = Position;
 
-            GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
-
             ProjectileProperties_ProximityBurst props = ProximityProps;
             if (map == null || props == null)
             {
@@ -58,9 +56,20 @@ namespace NewRatkin
 
             if (blockedByShield)
             {
+                GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
                 Destroy(DestroyMode.Vanish);
                 return;
             }
+
+            // preDet=0(소드오프 등): 비행 중 벽에 막히면 Impact가 곧바로 오는데, 아래 preDet 직격 분기에 들어가지 않아
+            // 부채꼴+wallBreachRadius로 벽 뒤까지 피해가 나가는 문제가 있음 → 벽·암벽·닫힌 문은 일반 탄환만.
+            if (ShouldSuppressSectorBurstOnHit(hitThing))
+            {
+                base.Impact(hitThing, blockedByShield);
+                return;
+            }
+
+            GenClamor.DoClamor(this, 12f, ClamorDefOf.Impact);
 
             if (!reachedDetonationPoint && props.preDetonationDistance > 0f)
             {
@@ -82,6 +91,16 @@ namespace NewRatkin
             SpawnShieldBlockEffects(map, shieldedCells, hitShields);
 
             Destroy(DestroyMode.Vanish);
+        }
+
+        private static bool ShouldSuppressSectorBurstOnHit(Thing hitThing)
+        {
+            if (hitThing is Building b)
+            {
+                if (b.def.IsWall) return true;
+                if (b.def.building != null && b.def.building.isNaturalRock) return true;
+            }
+            return hitThing is Building_Door d && !d.Open;
         }
 
         private int ScaledRangedDamageFromBase(int baseAmount)
