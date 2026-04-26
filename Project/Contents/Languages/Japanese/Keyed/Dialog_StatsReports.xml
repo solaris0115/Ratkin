@@ -14,6 +14,6 @@
   <BlockChanceWear_Heat>装備ブロック率(熱)</BlockChanceWear_Heat>
   <BlockChanceWear_Blunt>装備ブロック率(殴)</BlockChanceWear_Blunt>
   <BlockChanceWear_Sharp>装備ブロック率(突)</BlockChanceWear_Sharp>
-  <BlockChanceDefualtDesc>受け流し\n外からのダメージをブロックする確率です。\n\n正面からの攻撃のみを防げ、有効な前方の角度は盾ごとに異なります。この装備の盾の反射角度を確認してください。\nこの確率は、この装備の装着者の格闘スキルと防御力(%)に基づいて計算されます。</BlockChanceDefualtDesc>
+  <BlockChanceDefualtDesc>受け流し\n外からのダメージをブロックする確率です。\n\n受け流しは正面140度以内の攻撃だけブロック可能です。\nこの確率は、この装備の装着者の格闘スキルと防御力(%)に基づいて計算されます。</BlockChanceDefualtDesc>
 
 </LanguageData>
