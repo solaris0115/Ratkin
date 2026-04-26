@@ -2,13 +2,8 @@
 <LanguageData>
 
   <RK_Apparel.label>鼠族服飾</RK_Apparel.label>
-  <RK_Apparel_Clothing.label>鼠族服裝</RK_Apparel_Clothing.label>
-  <RK_Apparel_Armor.label>鼠族護甲</RK_Apparel_Armor.label>
   <RK_Headgear.label>鼠族頭飾</RK_Headgear.label>
   <RK_ThingCategory_Util.label>鼠族多用途工具</RK_ThingCategory_Util.label>
-  <RK_ThingCategory_Melee.label>鼠族近戰武器</RK_ThingCategory_Melee.label>
-  <RK_ThingCategory_Ranged.label>鼠族遠程武器</RK_ThingCategory_Ranged.label>
-  <RK_ThingCategory_RangedCrossbow.label>鼠族弩類</RK_ThingCategory_RangedCrossbow.label>
-  <RK_ThingCategory_RangedGun.label>鼠族槍械</RK_ThingCategory_RangedGun.label>
+
 
 </LanguageData>

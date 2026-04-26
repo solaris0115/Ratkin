@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <RK_Apparel.label>랫킨 의복</RK_Apparel.label>
-  <RK_Apparel_Clothing.label>랫킨 의상</RK_Apparel_Clothing.label>
-  <RK_Apparel_Armor.label>랫킨 갑옷</RK_Apparel_Armor.label>
+  <RK_Apparel.label>랫킨 의류</RK_Apparel.label>
   <RK_Headgear.label>랫킨 머리 장비</RK_Headgear.label>
   <RK_ThingCategory_Util.label>랫킨 다용도구</RK_ThingCategory_Util.label>
-  <RK_ThingCategory_Melee.label>랫킨 근접무기</RK_ThingCategory_Melee.label>
-  <RK_ThingCategory_Ranged.label>랫킨 원거리 무기</RK_ThingCategory_Ranged.label>
-  <RK_ThingCategory_RangedCrossbow.label>랫킨 석궁류</RK_ThingCategory_RangedCrossbow.label>
-  <RK_ThingCategory_RangedGun.label>랫킨 총기</RK_ThingCategory_RangedGun.label>
+
 
 </LanguageData>
