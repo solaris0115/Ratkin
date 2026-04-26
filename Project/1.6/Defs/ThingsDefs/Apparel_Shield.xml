@@ -84,6 +84,9 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<defaultIngredientFilter>
+				<stuffCategoriesToAllow>
+					<li>Metallic</li>
+				</stuffCategoriesToAllow>
 				<disallowedThingDefs>
 					<li>Gold</li>
 					<li>Silver</li>
@@ -161,6 +164,9 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<defaultIngredientFilter>
+				<stuffCategoriesToAllow>
+					<li>Metallic</li>
+				</stuffCategoriesToAllow>
 				<disallowedThingDefs>
 					<li>Gold</li>
 					<li>Silver</li>

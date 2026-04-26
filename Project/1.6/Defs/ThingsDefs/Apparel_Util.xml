@@ -104,6 +104,17 @@
 				<li>RK_ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
+			<defaultIngredientFilter>
+				<categories>
+					<li>Root</li>
+				</categories>
+				<disallowedThingDefs>
+					<li>DevilstrandCloth</li>
+					<li>Hyperweave</li>
+					<li>Leather_Thrumbo</li>
+					<li MayRequire="Ludeon.RimWorld.Odyssey">Leather_AlphaThrumbo</li>
+				</disallowedThingDefs>
+			</defaultIngredientFilter>
 		</recipeMaker>
 	</ThingDef>
 
