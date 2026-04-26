@@ -73,9 +73,9 @@
 				</draftedIdeoIconData>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
-				<allowedWeaponTags>
-					<li>RK_WeaponTag_OneHand</li>
-				</allowedWeaponTags>
+				<allowedGripTypes>
+					<li>OneHand</li>
+				</allowedGripTypes>
 			</li>
 		</comps>
 		<apparel>

@@ -46,10 +46,10 @@
 				</backDrawData>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
-				<allowedWeaponTags>
-					<li>RK_WeaponTag_OneHand</li>
-					<li>RK_WeaponTag_ShieldCompatible</li>
-				</allowedWeaponTags>
+				<allowedGripTypes>
+					<li>OneHand</li>
+					<li>Special</li>
+				</allowedGripTypes>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
@@ -122,10 +122,10 @@
 				</backDrawData>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
-				<allowedWeaponTags>
-					<li>RK_WeaponTag_OneHand</li>
-					<li>RK_WeaponTag_ShieldCompatible</li>
-				</allowedWeaponTags>
+				<allowedGripTypes>
+					<li>OneHand</li>
+					<li>Special</li>
+				</allowedGripTypes>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
@@ -202,9 +202,9 @@
 				</backDrawData>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
-				<allowedWeaponTags>
-					<li>RK_WeaponTag_OneHand</li>
-				</allowedWeaponTags>
+				<allowedGripTypes>
+					<li>OneHand</li>
+				</allowedGripTypes>
 				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">

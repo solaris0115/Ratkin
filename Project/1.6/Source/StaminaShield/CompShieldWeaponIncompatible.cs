@@ -1,11 +1,14 @@
 using System.Collections.Generic;
-using Verse;
+using System.Text;
 using RimWorld;
+using Verse;
 
 namespace NewRatkin
 {
     /// <summary>
-    /// 방패가 특정 무기 태그를 가진 무기와 함께 사용될 때 발사를 차단하는 컴포넌트 속성
+    /// 방패가 특정 무기와 함께 사용될 때 장착을 차단하는 컴포넌트.
+    /// 우선 <see cref="CompProperties_ShieldWeaponIncompatible.allowedGripTypes"/>로 판정하고,
+    /// 비어 있으면 레거시 <see cref="CompProperties_ShieldWeaponIncompatible.allowedWeaponTags"/>를 사용한다.
     /// </summary>
     public class CompProperties_ShieldWeaponIncompatible : CompProperties
     {
@@ -15,8 +18,12 @@ namespace NewRatkin
         }
 
         /// <summary>
-        /// 허용할 무기의 WeaponTag 리스트 (화이트리스트)
-        /// 이 리스트의 태그가 하나라도 포함된 무기만 허용하고 나머지는 차단
+        /// 허용할 무기 파지 유형(화이트리스트). 설정되어 있으면 태그보다 우선한다.
+        /// </summary>
+        public List<RK_WeaponGripType> allowedGripTypes;
+
+        /// <summary>
+        /// 허용할 무기의 WeaponTag 리스트 (레거시 화이트리스트)
         /// </summary>
         public List<string> allowedWeaponTags;
 
@@ -27,34 +34,50 @@ namespace NewRatkin
         public string blockReasonKey = null;
     }
 
-    /// <summary>
-    /// 방패가 특정 무기 태그를 가진 무기와 함께 사용될 때 발사를 차단하는 컴포넌트
-    /// </summary>
     public class CompShieldWeaponIncompatible : ThingComp
     {
-        public CompProperties_ShieldWeaponIncompatible Props => 
+        public CompProperties_ShieldWeaponIncompatible Props =>
             (CompProperties_ShieldWeaponIncompatible)this.props;
 
-        /// <summary>
-        /// Apparel로 캐스팅 (parent가 Apparel이어야 함)
-        /// </summary>
         private Apparel Apparel => parent as Apparel;
 
-        /// <summary>
-        /// 착용한 Pawn
-        /// </summary>
         private Pawn Wearer => Apparel?.Wearer;
 
-        /// <summary>
-        /// Apparel 착용 시 호출됨 - 호환되지 않는 무기를 자동으로 제거
-        /// </summary>
+        public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+        {
+            if (Props.allowedGripTypes.NullOrEmpty())
+            {
+                yield break;
+            }
+
+            string value = CompWeaponGripType.FormatGripTypesForDisplay(Props.allowedGripTypes);
+            if (value.NullOrEmpty())
+            {
+                yield break;
+            }
+
+            StringBuilder report = new StringBuilder();
+            report.AppendLine("RK_ShieldCompatibleGripType_Report".Translate());
+
+            yield return new StatDrawEntry(
+                StatCategoryDefOf.Apparel,
+                "RK_ShieldCompatibleGripType_Label".Translate(),
+                value,
+                report.ToString().TrimEnd(),
+                82,
+                null,
+                null,
+                false,
+                false);
+        }
+
         public override void Notify_Equipped(Pawn pawn)
         {
             base.Notify_Equipped(pawn);
 
             if (pawn?.equipment?.Primary == null)
             {
-                return; // 착용한 무기가 없으면 OK
+                return;
             }
 
             ThingWithComps primaryWeapon = pawn.equipment.Primary;
@@ -62,39 +85,30 @@ namespace NewRatkin
 
             if (!TryIsWeaponAllowed(primaryWeapon.def, out reason))
             {
-                // 호환되지 않는 무기 제거
                 DropIncompatibleWeapon(pawn, primaryWeapon, reason);
             }
         }
 
-        /// <summary>
-        /// 호환되지 않는 무기를 바닥에 떨어뜨리고 메시지 표시
-        /// </summary>
         private void DropIncompatibleWeapon(Pawn pawn, ThingWithComps weapon, string reason)
         {
             ThingWithComps droppedWeapon;
             if (pawn.equipment.TryDropEquipment(weapon, out droppedWeapon, pawn.Position, false))
             {
-                // 사용자에게 알림 메시지 표시
                 if (PawnUtility.ShouldSendNotificationAbout(pawn))
                 {
                     string message;
                     if (!Props.blockReasonKey.NullOrEmpty())
                     {
-                        // 번역 키가 설정되어 있으면 사용
                         message = "RK_ApparelWeaponIncompatible_Dropped".Translate(
-                            parent.Label, 
-                            weapon.Label, 
-                            Props.blockReasonKey.Translate()
-                        );
+                            parent.Label,
+                            weapon.Label,
+                            Props.blockReasonKey.Translate());
                     }
                     else
                     {
-                        // 기본 메시지
                         message = "RK_ApparelWeaponIncompatible_Dropped_Default".Translate(
-                            parent.Label, 
-                            weapon.Label
-                        );
+                            parent.Label,
+                            weapon.Label);
                     }
 
                     Messages.Message(message, pawn, MessageTypeDefOf.CautionInput, false);
@@ -110,6 +124,44 @@ namespace NewRatkin
                 return false;
             }
 
+            if (!Props.allowedGripTypes.NullOrEmpty())
+            {
+                return TryIsWeaponAllowedByGrip(weaponDef, out reason);
+            }
+
+            return TryIsWeaponAllowedByLegacyTags(weaponDef, out reason);
+        }
+
+        private bool TryIsWeaponAllowedByGrip(ThingDef weaponDef, out string reason)
+        {
+            List<RK_WeaponGripType> weaponGrips = CompWeaponGripType.GripTypesFor(weaponDef);
+            if (weaponGrips == null || weaponGrips.Count == 0)
+            {
+                reason = "weapon_has_no_grip_types";
+                return false;
+            }
+
+            if (CompWeaponGripType.IsCompatibleWithShield(weaponGrips, Props.allowedGripTypes))
+            {
+                reason = "allowed_by_grip_type";
+                return true;
+            }
+
+            string allowedList = CompWeaponGripType.FormatGripTypesForDisplay(Props.allowedGripTypes);
+            if (!Props.blockReasonKey.NullOrEmpty())
+            {
+                reason = Props.blockReasonKey.Translate(weaponDef.label, allowedList);
+            }
+            else
+            {
+                reason = $"blocked_missing_grip:{weaponDef.defName}:{allowedList}";
+            }
+
+            return false;
+        }
+
+        private bool TryIsWeaponAllowedByLegacyTags(ThingDef weaponDef, out string reason)
+        {
             List<string> allowedTags = Props.allowedWeaponTags;
             if (allowedTags == null || allowedTags.Count == 0)
             {
@@ -153,4 +205,3 @@ namespace NewRatkin
         }
     }
 }
-

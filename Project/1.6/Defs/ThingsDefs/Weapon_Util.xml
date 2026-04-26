@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Defs>
 	<ThingDef Name="RK_BaseBullet" Abstract="True">
 		<category>Projectile</category>
@@ -11,7 +11,6 @@
 			<shaderType>Transparent</shaderType>
 		</graphicData>
 	</ThingDef>
-
 	<ThingDef Abstract="True" Name="RK_MeleeWeapon" ParentName="BaseMeleeWeapon_Sharp_Quality">
 		<recipeMaker>
 			<recipeUsers Inherit="false">
@@ -20,8 +19,6 @@
 			</recipeUsers>
 		</recipeMaker>
 	</ThingDef>
-
-	<!-- 도끼: 식물 작업 속도 +20%, 식물 수확량 +20% -->
 	<ThingDef ParentName="RK_MeleeWeapon">
 		<defName>RK_Axe</defName>
 		<label>axe</label>
@@ -82,13 +79,17 @@
 			<displayPriority>78000</displayPriority>
 		</recipeMaker>
 		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>TwoHand</li>
+				</gripTypes>
+			</li>
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
-	<!-- 식칼: 조리 속도 +30%, 육체 도축 속도 +30% -->
 	<ThingDef ParentName="RK_MeleeWeapon">
 		<defName>RK_Cleaver</defName>
 		<label>cleaver</label>
@@ -148,13 +149,17 @@
 			<displayPriority>78005</displayPriority>
 		</recipeMaker>
 		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>OneHand</li>
+				</gripTypes>
+			</li>
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
-	<!-- 쟁기: 식물 작업 속도 +50% -->
 	<ThingDef ParentName="RK_MeleeWeapon">
 		<defName>RK_Hockey</defName>
 		<label>hoe</label>
@@ -213,13 +218,17 @@
 			<displayPriority>78010</displayPriority>
 		</recipeMaker>
 		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>TwoHand</li>
+				</gripTypes>
+			</li>
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
-	<!-- 포크삽: 식물 수확량 +35% -->
 	<ThingDef ParentName="RK_MeleeWeapon">
 		<defName>RK_Fork</defName>
 		<label>fork</label>
@@ -278,14 +287,17 @@
 			<displayPriority>78015</displayPriority>
 		</recipeMaker>
 		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>TwoHand</li>
+				</gripTypes>
+			</li>
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
-	
-	<!-- 곡괭이: 채굴 속도 +40%, 채굴 수확량 +30%, 심층 시추 속도 +20% -->
 	<ThingDef ParentName="RK_MeleeWeapon">
 		<defName>RK_Pickaxe</defName>
 		<label>pickaxe</label>
@@ -355,19 +367,20 @@
 			<displayPriority>78020</displayPriority>
 		</recipeMaker>
 		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>TwoHand</li>
+				</gripTypes>
+			</li>
 			<li>
 				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
-	
-	<!-- 곡괭이 근접: ToolCapacity (찌르기) -->
 	<ToolCapacityDef>
 		<defName>RK_ToolCapacity_PickaxeStab</defName>
 	</ToolCapacityDef>
-
-	<!-- 곡괭이 근접: ManeuverDef (건물 추가 피해) -->
 	<ManeuverDef>
 		<defName>RK_Maneuver_PickaxeStab</defName>
 		<requiredCapacity>RK_ToolCapacity_PickaxeStab</requiredCapacity>
