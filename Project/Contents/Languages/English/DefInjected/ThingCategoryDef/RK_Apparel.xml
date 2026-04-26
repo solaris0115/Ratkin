@@ -2,8 +2,13 @@
 <LanguageData>
 
   <RK_Apparel.label>ratkin apparel</RK_Apparel.label>
+  <RK_Apparel_Clothing.label>ratkin clothing</RK_Apparel_Clothing.label>
+  <RK_Apparel_Armor.label>ratkin armor</RK_Apparel_Armor.label>
   <RK_Headgear.label>ratkin headgear</RK_Headgear.label>
   <RK_ThingCategory_Util.label>ratkin utility</RK_ThingCategory_Util.label>
-
+  <RK_ThingCategory_Melee.label>ratkin melee</RK_ThingCategory_Melee.label>
+  <RK_ThingCategory_Ranged.label>ratkin ranged</RK_ThingCategory_Ranged.label>
+  <RK_ThingCategory_RangedCrossbow.label>ratkin crossbows</RK_ThingCategory_RangedCrossbow.label>
+  <RK_ThingCategory_RangedGun.label>ratkin firearms</RK_ThingCategory_RangedGun.label>
 
 </LanguageData>

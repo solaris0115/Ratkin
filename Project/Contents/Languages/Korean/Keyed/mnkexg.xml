@@ -12,7 +12,7 @@
   <BlockChanceWear_Heat>착용자 방어 확률(열기)</BlockChanceWear_Heat>
   <BlockChanceWear_Blunt>착용자 방어 확률(둔탁함)</BlockChanceWear_Blunt>
   <BlockChanceWear_Sharp>착용자 방어 확률(날카로움)</BlockChanceWear_Sharp>
-  <BlockChanceDefualtDesc>방어 확률\n외적인 원인에 의한 손상을 방어합니다.\n\n정면 140도 이내의 공격만을 방어할 수 있습니다.\n방어 확률은 착용자의 격투 등급과 해당 장비의 기본 방어도에 영향을 받습니다.</BlockChanceDefualtDesc>
+  <BlockChanceDefualtDesc>방어 확률\n들어오는 공격을 막아낼 확률입니다.\n\n방어 확률은 착용자의 격투 등급과 해당 장비의 기본 방어도에 영향을 받습니다.</BlockChanceDefualtDesc>
   <RK_JoinReq_Injured_DescShort>부상자 {0}명 이상</RK_JoinReq_Injured_DescShort>
   <RK_JoinReq_Priest_Injured_Desc1>도움의 손길이 필요한가요?</RK_JoinReq_Priest_Injured_Desc1>
   <RK_JoinReq_Priest_Injured_Desc2>믿음이 있다면 역경을 이겨낼 수 있어요!</RK_JoinReq_Priest_Injured_Desc2>
