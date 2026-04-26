@@ -1441,6 +1441,7 @@
 		<costStuffCount>35</costStuffCount>
 		<stuffCategories>
 			<li>Fabric</li>
+			<li>Leathery</li>
 		</stuffCategories>
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
