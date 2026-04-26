@@ -1092,6 +1092,8 @@
 					<li>RK_Hediff_RatHolicGunSpoolingAim</li>
 				</hediffDefs>
 				<maxStacks>5</maxStacks>
+				<!-- 코어 Gun_Minigun 탄환당과 동일: (170×(2.5+1.5+24×5/60))/25 = 40.8 ≈ (170×(2+1))×factor → factor≈0.08 -->
+				<shootingXpFactor>0.025</shootingXpFactor>
 			</li>
 		</verbs>
 		<tools>
