@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Research_Carpentry.label>Carpentry</RK_Research_Carpentry.label>
+  <RK_Research_Agriculture.label>Agriculture</RK_Research_Agriculture.label>
+  <RK_Research_Smithing.label>Ratkin smithing</RK_Research_Smithing.label>
+  <RK_Research_Tailoring.label>Ratkin apparel</RK_Research_Tailoring.label>
+  <RK_Research_FoodPreservation.label>Food preservation</RK_Research_FoodPreservation.label>
+  <RK_Research_Metallurgy.label>Ratkin metallurgy</RK_Research_Metallurgy.label>
+  <RK_Research_SwordAndShield.label>Sword and shield</RK_Research_SwordAndShield.label>
+  <RK_Research_FunctionalApparel.label>Functional apparel</RK_Research_FunctionalApparel.label>
+  <RK_Research_AdvancedApparel.label>Advanced apparel</RK_Research_AdvancedApparel.label>
+  <RK_Research_Fortification.label>Fortification</RK_Research_Fortification.label>
+  <RK_Research_NobleApparel.label>Noble apparel</RK_Research_NobleApparel.label>
+  <RK_Research_RatkinEngineering.label>Ratkin engineering</RK_Research_RatkinEngineering.label>
+  <RK_Research_GearMechanics.label>Wheel mechanics</RK_Research_GearMechanics.label>
+  <RK_Research_ObservationAndSurveying.label>Observation and surveying</RK_Research_ObservationAndSurveying.label>
+  <RK_Research_SeparationMechanics.label>Separation Mechanics</RK_Research_SeparationMechanics.label>
+  <RK_Research_DragonFlame.label>Dragon flame</RK_Research_DragonFlame.label>
+  <RK_Research_OrbitalEquipment.label>Orbital equipment</RK_Research_OrbitalEquipment.label>
+  <RK_Research_AngryRatProject.label>Angry Rat Project</RK_Research_AngryRatProject.label>
+  <RK_Research_CrusaderArmor.label>Crusader armor</RK_Research_CrusaderArmor.label>
+</LanguageData>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_PriestPray.stages.0.label>blessed</RK_PriestPray.stages.0.label>
+  <RK_PriestPrayMood.stages.0.label>blessed</RK_PriestPrayMood.stages.0.label>
+  <RK_PriestPrayMood.stages.0.description>After the service, my heart feels much lighter.</RK_PriestPrayMood.stages.0.description>
+  <RK_AttendPrayerMeetingMood.stages.0.label>attended service</RK_AttendPrayerMeetingMood.stages.0.label>
+  <RK_AttendPrayerMeetingMood.stages.0.description>After the service, my heart feels much lighter.</RK_AttendPrayerMeetingMood.stages.0.description>
+</LanguageData>

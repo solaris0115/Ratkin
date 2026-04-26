@@ -1,19 +1,20 @@
 Irontrust
-Sivertrust
+Silvertrust
 Ironguard
-Siverguard
+Silverguard
 
 Thunderfury
 Windfury
+Windtalker
 Earthfury
 
 Pathfinder
 Lightbringer
 Lightbloom
+Lightchaser
 
 Thunderclap
 Thunderbolt
-Windtalker
 
 Morningstar
 Shootingstar
@@ -25,9 +26,11 @@ Cavecrawler
 Barricade
 Pinkrat
 Junkrat
+
 Rakitorian
+Silify
 Savior
-Sharphand
+Safhand
 Greatwall
-Sillypie
+Silify
 Woodbug

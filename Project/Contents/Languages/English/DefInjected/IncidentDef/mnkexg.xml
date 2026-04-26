@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RatkinTunnel_Guerrilla.label>tunnel invasion</RatkinTunnel_Guerrilla.label>
+  <RatkinTunnel_Guerrilla.letterLabel>Tunnel invasion</RatkinTunnel_Guerrilla.letterLabel>
+  <RatkinTunnel_Guerrilla.letterText>Earthquake waves were detected.\n\nA special ratkin unit trained by will soon come up from the ground. We have to stop them before they paralyze the facility.</RatkinTunnel_Guerrilla.letterText>
+  <RatkinFollowUpTroops.label>follow-up unit</RatkinFollowUpTroops.label>
+  <RatkinFollowUpTroops.letterLabel>Follow-up unit</RatkinFollowUpTroops.letterLabel>
+  <RatkinFollowUpTroops.letterText>EMP explosion, waiting outside, came in.\n\nWe need to prepare for the defense.</RatkinFollowUpTroops.letterText>
+  <RK_Incident_VagabondJoin.label>wanderers join</RK_Incident_VagabondJoin.label>
+  <RK_Incident_VagabondJoin.letterLabel>Wanderers</RK_Incident_VagabondJoin.letterLabel>
+  <RK_Incident_VagabondJoin.letterText>At a moment of crisis, two wanderers have appeared. Can they change your fate?</RK_Incident_VagabondJoin.letterText>
+  <RK_Incident_PriestJoin.label>priest joins</RK_Incident_PriestJoin.label>
+  <RK_Incident_PriestJoin.letterLabel>Priest joins</RK_Incident_PriestJoin.letterLabel>
+  <RK_Incident_PriestJoin.letterText>Priest [PAWN_nameDef] wants to join your settlement.\n\n[PAWN_pronoun] is deeply faithful and has a healing touch.</RK_Incident_PriestJoin.letterText>
+  <RK_Incident_WanderingTrader.label>wandering trader arrives</RK_Incident_WanderingTrader.label>
+</LanguageData>

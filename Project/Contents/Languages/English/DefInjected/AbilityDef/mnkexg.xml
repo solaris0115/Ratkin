@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Ability_LanceCharge.label>charge</RK_Ability_LanceCharge.label>
+  <RK_Ability_LanceCharge.description>Rush a short distance toward an enemy, moving in a straight line until blocked by an obstacle. After charging, exhaustion reduces movement speed.</RK_Ability_LanceCharge.description>
+  <RK_PrayerService.label>prayer service</RK_PrayerService.label>
+  <RK_PrayerService.description>hosting prayer service that makes people calm and peaceful.</RK_PrayerService.description>
+  <RK_Ability_MeleeMoraleBooster.label>rallying cry</RK_Ability_MeleeMoraleBooster.label>
+  <RK_Ability_MeleeMoraleBooster.description>Bolster nearby allies' morale. The effect improves with the banner carrier's Social skill.</RK_Ability_MeleeMoraleBooster.description>
+  <RK_WyvernFire_Ability.label>wyvern cannon</RK_WyvernFire_Ability.label>
+  <RK_WyvernFire_Ability.description>Unleash a powerful bombardment straight ahead. Consumes one shell.</RK_WyvernFire_Ability.description>
+</LanguageData>
