@@ -496,9 +496,6 @@
 			<researchPrerequisite>RK_Research_CrusaderArmor</researchPrerequisite>
 			<displayPriority>47125</displayPriority>
 		</recipeMaker>
-		<thingCategories>
-			<li>RK_ApparelArmor</li>
-		</thingCategories>
 		<tradeTags>
 			<li>RK_Apparel_Rare</li>
 		</tradeTags>
