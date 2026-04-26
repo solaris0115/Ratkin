@@ -5,10 +5,32 @@
      ============================================================ -->
 <Defs>
 
+	<!-- ================================ -->
+	<!--    유니크 백스토리 추상 베이스    -->
+	<!-- ================================ -->
+	<AlienRace.AlienBackstoryDef Name="RK_Attr_UniqueBackstoryBase" Abstract="True">
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+		<shuffleable>false</shuffleable>
+		<disallowedTraitsChance>
+			<li>
+				<defName Degree="-1">Beauty</defName>
+				<chance>100</chance>
+			</li>
+			<li>
+				<defName Degree="-2">Beauty</defName>
+				<chance>100</chance>
+			</li>
+		</disallowedTraitsChance>
+		<spawnCategories>
+			<li>RatkinViolence</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
 	<!-- ======================== -->
 	<!--    BackstoryDef: 유년기   -->
 	<!-- ======================== -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="RK_Attr_UniqueBackstoryBase">
 		<defName>RK_Unique_Kira_Childhood</defName>
 		<title>orphan of the grey tunnels</title>
 		<titleShort>tunnel orphan</titleShort>
@@ -16,7 +38,6 @@
 		<description>[PAWN_nameDef]은 무너진 터널 속에서 홀로 살아남은 고아입니다. 어둠 속에서 길을 찾는 법을 스스로 익혔고, 위험을 본능적으로 감지하는 감각을 얻었습니다.</description>
 		<bodyTypeMale>Thin</bodyTypeMale>
 		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<shuffleable>false</shuffleable>
 		<skillGains>
 			<Melee>3</Melee>
 			<Mining>2</Mining>
@@ -38,7 +59,7 @@
 	<!-- ======================== -->
 	<!--    BackstoryDef: 성년기   -->
 	<!-- ======================== -->
-	<AlienRace.AlienBackstoryDef ParentName="BaseRatkinBackStory">
+	<AlienRace.AlienBackstoryDef ParentName="RK_Attr_UniqueBackstoryBase">
 		<defName>RK_Unique_Kira_Adulthood</defName>
 		<title>grey claw</title>
 		<titleShort>grey claw</titleShort>
@@ -46,7 +67,6 @@
 		<description>[PAWN_nameDef]은 '잿빛 발톱'이라 불리는 전설적인 전사입니다. 수많은 습격을 혼자 막아내며 그 이름을 얻었고, 동족들 사이에서 두려움과 존경을 동시에 받습니다.</description>
 		<bodyTypeMale>Thin</bodyTypeMale>
 		<bodyTypeFemale>Thin</bodyTypeFemale>
-		<shuffleable>false</shuffleable>
 		<linkedBackstory>RK_Unique_Kira_Childhood</linkedBackstory>
 		<skillGains>
 			<Melee>6</Melee>
