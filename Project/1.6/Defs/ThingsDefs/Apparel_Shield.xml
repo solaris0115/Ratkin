@@ -45,12 +45,12 @@
 					<angleWest>-15</angleWest>
 				</backDrawData>
 			</li>
-			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+			<li Class="NewRatkin.CompProperties_GripTypeFilter">
 				<allowedGripTypes>
 					<li>OneHand</li>
 					<li>Special</li>
 				</allowedGripTypes>
-				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+				<blockReasonKey>RK_GripIncompatible</blockReasonKey>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
 				<cooldownTicks>180</cooldownTicks>
@@ -121,12 +121,12 @@
 					<angleWest>-15</angleWest>
 				</backDrawData>
 			</li>
-			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+			<li Class="NewRatkin.CompProperties_GripTypeFilter">
 				<allowedGripTypes>
 					<li>OneHand</li>
 					<li>Special</li>
 				</allowedGripTypes>
-				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+				<blockReasonKey>RK_GripIncompatible</blockReasonKey>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
 				<cooldownTicks>240</cooldownTicks>
@@ -201,11 +201,11 @@
 					<angleWest>-15</angleWest>
 				</backDrawData>
 			</li>
-			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+			<li Class="NewRatkin.CompProperties_GripTypeFilter">
 				<allowedGripTypes>
 					<li>OneHand</li>
 				</allowedGripTypes>
-				<blockReasonKey>RK_ShieldWeaponIncompatible</blockReasonKey>
+				<blockReasonKey>RK_GripIncompatible</blockReasonKey>
 			</li>
 			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
 				<cooldownTicks>300</cooldownTicks>

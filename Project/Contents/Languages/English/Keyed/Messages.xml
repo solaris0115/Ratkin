@@ -9,18 +9,18 @@
   <!-- Shield-Weapon Compatibility -->
   <RK_ApparelWeaponIncompatible_Dropped>Equipped {0} and dropped {1}. Reason: {2}</RK_ApparelWeaponIncompatible_Dropped>
   <RK_ApparelWeaponIncompatible_Dropped_Default>Equipped {0} and dropped {1}.</RK_ApparelWeaponIncompatible_Dropped_Default>
-  <RK_ShieldWeaponIncompatible>Cannot be worn with shield</RK_ShieldWeaponIncompatible>
+  <RK_GripIncompatible>Incompatible weapon</RK_GripIncompatible>
   
   <!-- FloatMenu Equip Block Messages -->
-  <RK_ShieldWeaponIncompatible_Equip>Cannot equip {0}: incompatible with equipped weapon {1}. {2}</RK_ShieldWeaponIncompatible_Equip>
-  <RK_ShieldWeaponIncompatible_Equip_Default>Cannot equip {0}: incompatible with equipped weapon {1}.</RK_ShieldWeaponIncompatible_Equip_Default>
-  <RK_WeaponShieldIncompatible_Equip>Cannot equip {0}: incompatible with equipped shield {1}. {2}</RK_WeaponShieldIncompatible_Equip>
-  <RK_WeaponShieldIncompatible_Equip_Default>Cannot equip {0}: incompatible with equipped shield {1}.</RK_WeaponShieldIncompatible_Equip_Default>
+  <RK_GripIncompatible_Equip>Cannot equip {0}: incompatible with equipped weapon {1}. {2}</RK_GripIncompatible_Equip>
+  <RK_GripIncompatible_Equip_Default>Cannot equip {0}: incompatible with equipped weapon {1}.</RK_GripIncompatible_Equip_Default>
+  <RK_WeaponGripIncompatible_Equip>Cannot equip {0}: incompatible with worn equipment {1}. {2}</RK_WeaponGripIncompatible_Equip>
+  <RK_WeaponGripIncompatible_Equip_Default>Cannot equip {0}: incompatible with worn equipment {1}.</RK_WeaponGripIncompatible_Equip_Default>
   <RK_GripType_OneHand>One-handed</RK_GripType_OneHand>
   <RK_GripType_TwoHand>Two-handed</RK_GripType_TwoHand>
   <RK_GripType_Special>Special</RK_GripType_Special>
   <RK_WeaponGripType_Label>Weapon grip type</RK_WeaponGripType_Label>
-  <RK_WeaponGripType_Report>How this weapon is classified for grip and shield compatibility. Shields allow only weapons that share at least one listed grip type.</RK_WeaponGripType_Report>
-  <RK_ShieldCompatibleGripType_Label>Compatible weapon types</RK_ShieldCompatibleGripType_Label>
-  <RK_ShieldCompatibleGripType_Report>Weapon grip types that can be wielded as primary weapon together with this shield.</RK_ShieldCompatibleGripType_Report>
+  <RK_WeaponGripType_Report>How this weapon is classified by grip type. Equipment with a grip filter allows only weapons that share at least one listed grip type.</RK_WeaponGripType_Report>
+  <RK_AllowedGripType_Label>Compatible weapon types</RK_AllowedGripType_Label>
+  <RK_AllowedGripType_Report>Weapon grip types that can be wielded as primary weapon together with this equipment.</RK_AllowedGripType_Report>
 </LanguageData>

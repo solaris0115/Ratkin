@@ -6,38 +6,30 @@ using Verse;
 namespace NewRatkin
 {
     /// <summary>
-    /// 방패가 특정 무기와 함께 사용될 때 장착을 차단하는 컴포넌트.
-    /// 우선 <see cref="CompProperties_ShieldWeaponIncompatible.allowedGripTypes"/>로 판정하고,
-    /// 비어 있으면 레거시 <see cref="CompProperties_ShieldWeaponIncompatible.allowedWeaponTags"/>를 사용한다.
+    /// 장비(방패·배너 등)가 허용하는 무기 파지 유형을 정의하고, 비호환 무기 장착을 차단한다.
+    /// <see cref="allowedGripTypes"/>가 설정되면 Enum 판정, 비어 있으면 레거시 <see cref="allowedWeaponTags"/> 폴백.
     /// </summary>
-    public class CompProperties_ShieldWeaponIncompatible : CompProperties
+    public class CompProperties_GripTypeFilter : CompProperties
     {
-        public CompProperties_ShieldWeaponIncompatible()
+        public CompProperties_GripTypeFilter()
         {
-            this.compClass = typeof(CompShieldWeaponIncompatible);
+            this.compClass = typeof(CompGripTypeFilter);
         }
 
-        /// <summary>
-        /// 허용할 무기 파지 유형(화이트리스트). 설정되어 있으면 태그보다 우선한다.
-        /// </summary>
+        /// <summary>허용할 무기 파지 유형(화이트리스트). 설정되어 있으면 태그보다 우선한다.</summary>
         public List<RK_WeaponGripType> allowedGripTypes;
 
-        /// <summary>
-        /// 허용할 무기의 WeaponTag 리스트 (레거시 화이트리스트)
-        /// </summary>
+        /// <summary>허용할 무기의 WeaponTag 리스트 (레거시 화이트리스트)</summary>
         public List<string> allowedWeaponTags;
 
-        /// <summary>
-        /// 경고 메시지 키 (번역 키)
-        /// null이면 기본 메시지 사용
-        /// </summary>
+        /// <summary>차단 시 메시지 번역 키. null이면 기본 메시지 사용.</summary>
         public string blockReasonKey = null;
     }
 
-    public class CompShieldWeaponIncompatible : ThingComp
+    public class CompGripTypeFilter : ThingComp
     {
-        public CompProperties_ShieldWeaponIncompatible Props =>
-            (CompProperties_ShieldWeaponIncompatible)this.props;
+        public CompProperties_GripTypeFilter Props =>
+            (CompProperties_GripTypeFilter)this.props;
 
         private Apparel Apparel => parent as Apparel;
 
@@ -57,11 +49,11 @@ namespace NewRatkin
             }
 
             StringBuilder report = new StringBuilder();
-            report.AppendLine("RK_ShieldCompatibleGripType_Report".Translate());
+            report.AppendLine("RK_AllowedGripType_Report".Translate());
 
             yield return new StatDrawEntry(
                 StatCategoryDefOf.Apparel,
-                "RK_ShieldCompatibleGripType_Label".Translate(),
+                "RK_AllowedGripType_Label".Translate(),
                 value,
                 report.ToString().TrimEnd(),
                 82,
@@ -141,7 +133,7 @@ namespace NewRatkin
                 return false;
             }
 
-            if (CompWeaponGripType.IsCompatibleWithShield(weaponGrips, Props.allowedGripTypes))
+            if (CompWeaponGripType.IsGripCompatible(weaponGrips, Props.allowedGripTypes))
             {
                 reason = "allowed_by_grip_type";
                 return true;

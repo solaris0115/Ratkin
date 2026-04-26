@@ -72,7 +72,7 @@
 					<iconSize>0.2</iconSize>
 				</draftedIdeoIconData>
 			</li>
-			<li Class="NewRatkin.CompProperties_ShieldWeaponIncompatible">
+			<li Class="NewRatkin.CompProperties_GripTypeFilter">
 				<allowedGripTypes>
 					<li>OneHand</li>
 				</allowedGripTypes>

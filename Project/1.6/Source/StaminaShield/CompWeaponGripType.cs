@@ -89,9 +89,9 @@ namespace NewRatkin
         }
 
         /// <summary>교집합이 있으면 호환.</summary>
-        public static bool IsCompatibleWithShield(IList<RK_WeaponGripType> weaponGrips, IList<RK_WeaponGripType> shieldAllowed)
+        public static bool IsGripCompatible(IList<RK_WeaponGripType> weaponGrips, IList<RK_WeaponGripType> allowedGrips)
         {
-            if (weaponGrips == null || shieldAllowed == null)
+            if (weaponGrips == null || allowedGrips == null)
             {
                 return false;
             }
@@ -99,9 +99,9 @@ namespace NewRatkin
             for (int i = 0; i < weaponGrips.Count; i++)
             {
                 RK_WeaponGripType g = weaponGrips[i];
-                for (int j = 0; j < shieldAllowed.Count; j++)
+                for (int j = 0; j < allowedGrips.Count; j++)
                 {
-                    if (g == shieldAllowed[j])
+                    if (g == allowedGrips[j])
                     {
                         return true;
                     }
