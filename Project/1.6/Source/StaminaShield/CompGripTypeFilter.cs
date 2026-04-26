@@ -129,8 +129,8 @@ namespace NewRatkin
             List<RK_WeaponGripType> weaponGrips = CompWeaponGripType.GripTypesFor(weaponDef);
             if (weaponGrips == null || weaponGrips.Count == 0)
             {
-                reason = "weapon_has_no_grip_types";
-                return false;
+                reason = "allowed_no_grip_comp";
+                return true;
             }
 
             if (CompWeaponGripType.IsGripCompatible(weaponGrips, Props.allowedGripTypes))
