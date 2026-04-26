@@ -1,6 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Defs>
 	<ThingDef Abstract="True" Name="RK_NeolithicRangeWeapon" ParentName="BaseWeaponNeolithic">
+		<thingCategories>
+			<li>RK_ThingCategory_Range</li>
+		</thingCategories>
 		<recipeMaker>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
@@ -212,12 +215,9 @@
 		</projectile>
 	</ThingDef>
 	<ThingDef Abstract="True" Name="RK_IndustrialRangeWeapon" ParentName="BaseHumanMakeableGun">
-		
-		
-		
-		
-		
-		
+		<thingCategories>
+			<li>RK_ThingCategory_Range</li>
+		</thingCategories>
 	</ThingDef>
 	<ThingDef ParentName="RK_NeolithicRangeWeapon" Name="RK_WeaponAttr_Arbalest">
 		<defName>RK_Weapon_Arbalest</defName>

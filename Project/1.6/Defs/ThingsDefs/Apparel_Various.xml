@@ -1062,6 +1062,10 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_WinterRobe</defName>
 		<label>winter robe</label>
+		<thingCategories>
+			<li>RK_Apparel</li>
+			<li>RK_ApparelNoble</li>
+		</thingCategories>
 		<description>겨울용 예복입니다. 극지에서 활동할때 입습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_WinterRobe</texPath>
@@ -1126,6 +1130,9 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_OrderUniform</defName>
 		<label>ratkin order uniform</label>
+		<thingCategories>
+			<li>RK_ApparelArmor</li>
+		</thingCategories>
 		<description>랫킨식 제식 전투복입니다. 랫킨식 전투에 유리하도록 디자인된 의류입니다. 착용자에게 약간의 고양감을 주어 강인한 전투원으로 만들어줍니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_OrderUniform</texPath>
@@ -1196,6 +1203,9 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_BulletProofHelmet</defName>
 		<label>Ratkin military helmet</label>
+		<thingCategories>
+			<li>RK_ArmorHeadgear</li>
+		</thingCategories>
 		<description>랫킨용 방탄 모자입니다. 착용자의 공포감을 조금 덜어주고 조준을 수월하게 해줍니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_BulletProofHelmet</texPath>
@@ -1255,6 +1265,10 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_FlatColorCoat</defName>
 		<label>flatcolor coat</label>
+		<thingCategories>
+			<li>RK_Apparel</li>
+			<li>RK_ApparelNoble</li>
+		</thingCategories>
 		<description>단아한 단색 원피스입니다. 편하면서 공식적 자리에 입기 좋아보입니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_FlatColorCoat</texPath>
@@ -1316,6 +1330,10 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_FrillOnepiece</defName>
 		<label>frill onepiece</label>
+		<thingCategories>
+			<li>RK_Apparel</li>
+			<li>RK_ApparelNoble</li>
+		</thingCategories>
 		<description>프릴장식이 있는 귀여운 원피스이빈다. 상류층의 아가씨들에게 인기가 많습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_FrillOnepiece</texPath>
@@ -1376,6 +1394,10 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_HairCorsage</defName>
 		<label>hair corsage</label>
+		<thingCategories>
+			<li>RK_Headgear</li>
+			<li>RK_HeadgearNoble</li>
+		</thingCategories>
 		<description>머리에 쓰는 코사주입니다. 코사주의 우아함은 말 한마디마다 힘을 실어줍니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_HairCorsage</texPath>
@@ -1428,6 +1450,10 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_RibbonHairBand</defName>
 		<label>ribbon hair band</label>
+		<thingCategories>
+			<li>RK_Headgear</li>
+			<li>RK_HeadgearNoble</li>
+		</thingCategories>
 		<description>머리에 착용하는 작고 이쁜 리본입니다. 리본의 귀여움은 사탕하나를 더 주고 싶도록 만들것입니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_RibbonHairBand</texPath>
@@ -1481,6 +1507,10 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_SistersDerss</defName>
 		<label>Sisters Dress</label>
+		<thingCategories>
+			<li>RK_Apparel</li>
+			<li>RK_ApparelNoble</li>
+		</thingCategories>
 		<description>수녀들이 입는 단아한 원피스입니다. 약간의 옆트임이 있어 움직임이 편합니다. 랫킨의 수녀들은 아픈 사람들을 돌보기도 합니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_SistersDerss</texPath>
@@ -1542,6 +1572,10 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_SistersVeil</defName>
 		<label>Veil</label>
+		<thingCategories>
+			<li>RK_Headgear</li>
+			<li>RK_HeadgearNoble</li>
+		</thingCategories>
 		<description>수녀들이 머리에 쓰는 베일입니다. 머리를 단정하게 해줍니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_SistersVeil</texPath>
@@ -1598,6 +1632,9 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_BattleSuit</defName>
 		<label>ratkin battlesuit</label>
+		<thingCategories>
+			<li>RK_ApparelArmor</li>
+		</thingCategories>
 		<description>침투에 유리하도록 디자인된 전투복입니다. 극한의 온도상황에서 활동할 수 있도록 설계되어있습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_BattleSuit</texPath>
@@ -1683,6 +1720,9 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_Mask</defName>
 		<label>Ratkin mask helmet</label>
+		<thingCategories>
+			<li>RK_ArmorHeadgear</li>
+		</thingCategories>
 		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_Mask</texPath>
@@ -1756,6 +1796,9 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_MaskB</defName>
 		<label>Ratkin mask helmet</label>
+		<thingCategories>
+			<li>RK_ArmorHeadgear</li>
+		</thingCategories>
 		<description>마스크가 있는 헬멧입니다. 유독성 환경에서도 장시간 활동할 수 있도록 고안되었습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_MaskB</texPath>

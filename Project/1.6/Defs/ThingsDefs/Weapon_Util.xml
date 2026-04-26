@@ -12,6 +12,9 @@
 		</graphicData>
 	</ThingDef>
 	<ThingDef Abstract="True" Name="RK_MeleeWeapon" ParentName="BaseMeleeWeapon_Sharp_Quality">
+		<thingCategories>
+			<li>RK_ThingCategory_Melee</li>
+		</thingCategories>
 		<recipeMaker>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>

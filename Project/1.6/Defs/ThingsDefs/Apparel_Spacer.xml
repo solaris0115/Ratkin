@@ -301,7 +301,7 @@
 			<li>HiTechArmor</li>
 		</tradeTags>
 		<thingCategories>
-			<li>ApparelArmor</li>
+			<li>RK_ApparelArmor</li>
 		</thingCategories>
 		<costList>
 			<ComponentSpacer>6</ComponentSpacer>
@@ -497,7 +497,7 @@
 			<displayPriority>47125</displayPriority>
 		</recipeMaker>
 		<thingCategories>
-			<li>RK_Apparel</li>
+			<li>RK_ApparelArmor</li>
 		</thingCategories>
 		<tradeTags>
 			<li>RK_Apparel_Rare</li>
@@ -551,8 +551,8 @@
 			<displayPriority>47120</displayPriority>
 		</recipeMaker>
 		<thingCategories>
-			<li>RK_Apparel</li>
-			<li>RK_Headgear</li>
+			<li>RK_ApparelArmor</li>
+			<li>RK_ArmorHeadgear</li>
 		</thingCategories>
 		<tradeTags>
 			<li>RK_Apparel_Rare</li>

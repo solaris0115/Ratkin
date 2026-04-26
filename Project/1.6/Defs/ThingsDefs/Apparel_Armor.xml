@@ -4,6 +4,9 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase" Name="RK_ApparelAttr_Plate">
 		<defName>RK_Plate</defName>
 		<label>ratkin plate armor</label>
+		<thingCategories>
+			<li>RK_ApparelArmor</li>
+		</thingCategories>
 		<description>금속으로 만든 방어구입니다. 덧입을 수 있어 방어력을 한층 더 올릴 수 있습니다.</description>
 		<graphicData>
 			<texPath>Apparel/RK_Plate</texPath>
@@ -81,6 +84,9 @@
 	<!-- 판금 투구 공통 베이스 (텍스처만 상속에서 오버라이드) -->
 	<ThingDef ParentName="RK_HatMakeableBase" Name="RK_ApparelAttr_PlateHelmBase" Abstract="True">
 		<label>Ratkin plate Helm</label>
+		<thingCategories>
+			<li>RK_ArmorHeadgear</li>
+		</thingCategories>
 		<description>금속으로 만든 투구입니다.</description>
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
