@@ -61,8 +61,6 @@ namespace NewRatkin
                 return;
             }
 
-            // preDet=0(소드오프 등): 비행 중 벽에 막히면 Impact가 곧바로 오는데, 아래 preDet 직격 분기에 들어가지 않아
-            // 부채꼴+wallBreachRadius로 벽 뒤까지 피해가 나가는 문제가 있음 → 벽·암벽·닫힌 문은 일반 탄환만.
             if (ShouldSuppressSectorBurstOnHit(hitThing))
             {
                 base.Impact(hitThing, blockedByShield);
@@ -208,6 +206,20 @@ namespace NewRatkin
                 }
             }
 
+            if (center.InBounds(map))
+            {
+                int centerShield = GetBlockingShieldIndex(center, shieldZones);
+                if (centerShield >= 0)
+                {
+                    shieldedCells.Add(center);
+                    hitShields.Add(shieldZones[centerShield].comp);
+                }
+                else if (!result.Contains(center))
+                {
+                    result.Add(center);
+                }
+            }
+
             AddAdjacentWallCells(center, map, sectorRadius, result);
             return result;
         }
@@ -241,12 +253,12 @@ namespace NewRatkin
             List<Thing> interceptors = map.listerThings.ThingsInGroup(ThingRequestGroup.ProjectileInterceptor);
             for (int i = 0; i < interceptors.Count; i++)
             {
-                var comp = interceptors[i].TryGetComp<CompProjectileInterceptor>();
+                Thing shieldThing = interceptors[i];
+                var comp = shieldThing.TryGetComp<CompProjectileInterceptor>();
                 if (comp == null || !comp.Active)
                     continue;
                 if (!comp.Props.interceptGroundProjectiles)
                     continue;
-                Thing shieldThing = interceptors[i];
                 if (launcher != null && shieldThing.Faction != null && !launcher.HostileTo(shieldThing))
                     continue;
                 Vector3 pos = shieldThing.Position.ToVector3Shifted();
@@ -385,26 +397,55 @@ namespace NewRatkin
             int damAmount = props.damageAmountExplosion > 0 ? ScaledRangedDamageFromBase(props.damageAmountExplosion) : DamageAmount;
             float armorPen = props.armorPenetrationExplosion >= 0f ? ScaledExplicitArmorPen(props.armorPenetrationExplosion, damageDef) : ArmorPenetration;
 
-            GenExplosion.DoExplosion(
-                center, map, 0f, damageDef, launcher,
-                damAmount, armorPen, def.projectile.soundExplode,
-                equipmentDef, def, intendedTarget.Thing,
-                def.projectile.postExplosionSpawnThingDef,
-                def.projectile.postExplosionSpawnChance,
-                def.projectile.postExplosionSpawnThingCount,
-                null, null, 255,
-                def.projectile.applyDamageToExplosionCellsNeighbors,
-                def.projectile.preExplosionSpawnThingDef,
-                def.projectile.preExplosionSpawnChance,
-                def.projectile.preExplosionSpawnThingCount,
-                def.projectile.explosionChanceToStartFire,
-                def.projectile.explosionDamageFalloff,
-                null, null, null, false,
-                damageDef.expolosionPropagationSpeed,
-                0f, true,
-                def.projectile.postExplosionSpawnThingDefWater,
-                def.projectile.screenShakeFactor,
-                null, sectorCells, null, null);
+            float launcherAngle = (destination - origin).Yto0().AngleFlat();
+
+            Pawn instigatorPawn = launcher as Pawn;
+            bool instigatorGuilty = instigatorPawn == null || !instigatorPawn.Drafted;
+
+            HashSet<Thing> alreadyDamaged = new HashSet<Thing>();
+
+            foreach (IntVec3 cell in sectorCells)
+            {
+                List<Thing> thingList = cell.GetThingList(map);
+                for (int i = thingList.Count - 1; i >= 0; i--)
+                {
+                    Thing t = thingList[i];
+                    if (t == launcher || t == this) continue;
+                    if (t.Destroyed) continue;
+                    if (t.def.category == ThingCategory.Mote || t.def.category == ThingCategory.Ethereal) continue;
+                    if (alreadyDamaged.Contains(t)) continue;
+
+                    alreadyDamaged.Add(t);
+
+                    float angle;
+                    if (launcher != null && launcher.Spawned && t.Position != launcher.Position)
+                    {
+                        angle = (t.Position - launcher.Position).AngleFlat;
+                    }
+                    else
+                    {
+                        angle = launcherAngle;
+                    }
+
+                    DamageInfo dinfo = new DamageInfo(
+                        damageDef,
+                        damAmount,
+                        armorPen,
+                        angle,
+                        launcher,
+                        null,
+                        equipmentDef,
+                        DamageInfo.SourceCategory.ThingOrUnknown,
+                        intendedTarget.Thing,
+                        instigatorGuilty,
+                        true,
+                        QualityCategory.Normal,
+                        true,
+                        false);
+                    dinfo.SetWeaponQuality(equipmentQuality);
+                    t.TakeDamage(dinfo);
+                }
+            }
         }
     }
 }

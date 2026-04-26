@@ -635,7 +635,7 @@
 		<projectile Class="NewRatkin.ProjectileProperties_ProximityBurst">
 			<damageDef>RangedStab</damageDef>
 			<damageAmountBase>18</damageAmountBase>
-			<speed>75</speed>
+			<speed>60</speed>
 			<alwaysFreeIntercept>true</alwaysFreeIntercept>
 			<flyOverhead>false</flyOverhead>
 			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
