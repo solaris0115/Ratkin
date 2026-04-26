@@ -81,11 +81,11 @@
   <RK_RoyalRobe.description>고풍스러운 귀족을 위한 외투입니다. 직물을 아낌없이 사용하여 아름다운 장식과 화려함이 그 권위를 말해주고 있습니다.</RK_RoyalRobe.description>
   <RK_RoyalCrown.label>랫킨 로열 왕관</RK_RoyalCrown.label>
   <RK_RoyalCrown.description>금속으로 만든 커라단 왕관 입니다. 그 크기가 착용자의 권위를 말해주고 있습니다.</RK_RoyalCrown.description>
-  <RK_WoodenShield.label>랫킨 목재 방패</RK_WoodenShield.label>
-  <RK_WoodenShield.description>적의 공격을 방어할 수 있는 목재 방패입니다. 정면에서 오는 공격을 어느 정도 방어할 수 있습니다. 착용자의 능력에 따라 방어를 더 잘 할 수 있습니다. 한손 무기(원거리포함)와 일부 양손 무기를 함께 사용 할 수 있습니다.</RK_WoodenShield.description>
-  <RK_HeavyShield.label>랫킨 금속 방패</RK_HeavyShield.label>
-  <RK_HeavyShield.description>적의 공격을 방어할 수 있는 금속 방패입니다. 정면에서 오는 공격을 방어할 수 있습니다. 착용자의 능력과 소재에 따라 방어를 더 잘 할 수 있습니다. 한손 무기(원거리포함)와 일부 양손 무기를 함께 사용 할 수 있습니다.</RK_HeavyShield.description>
-  <RK_TowerShield.label>랫킨 대형 금속 방패</RK_TowerShield.label>
+  <RK_WoodenShield.label>랫킨 원형 방패</RK_WoodenShield.label>
+  <RK_WoodenShield.description>적의 공격을 방어할 수 있는 목재 원형 방패입니다. 정면에서 오는 공격을 어느 정도 방어할 수 있습니다. 착용자의 능력에 따라 방어를 더 잘 할 수 있습니다. 한손 무기(원거리포함)와 일부 양손 무기를 함께 사용 할 수 있습니다.</RK_WoodenShield.description>
+  <RK_HeavyShield.label>랫킨 중형 방패</RK_HeavyShield.label>
+  <RK_HeavyShield.description>적의 공격을 방어할 수 있는 금속제 중형 방패입니다. 정면에서 오는 공격을 방어할 수 있습니다. 착용자의 능력과 소재에 따라 방어를 더 잘 할 수 있습니다. 한손 무기(원거리포함)와 일부 양손 무기를 함께 사용 할 수 있습니다.</RK_HeavyShield.description>
+  <RK_TowerShield.label>랫킨 대방패</RK_TowerShield.label>
   <RK_TowerShield.description>적의 공격을 방어할 수 있는 대형 방패입니다. 정면에서 오는 공격을 다수를 방어할 수 있습니다. 착용자의 능력과 소재에 따라 방어를 더 잘 할 수 있습니다.  한손 무기(원거리포함)와 함게 사용 할 수 있습니다.</RK_TowerShield.description>
   <RK_Apparel_VacsuitHelmet.label>랫킨 진공 방호복 헬멧</RK_Apparel_VacsuitHelmet.label>
   <RK_Apparel_VacsuitHelmet.description>사용자의 산소를 효율적으로 재순환하여 진공 상태에서도 몇 시간은 호흡할 수 있게 해주는 헬멧입니다. 완전히 효율적이지는 않으므로, 착용자는 주기적으로 가압 환경으로 돌아와야 합니다.</RK_Apparel_VacsuitHelmet.description>
