@@ -43,8 +43,10 @@
 			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
 			<canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
 			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+			<!-- FullHead 대체: FullHead 수준 방어+UpperHead(헤드기어/교단). FullHead 쓰면 머리 일부가 렌더 스킵(랫킨 귀 사라짐)됨. -->
 			<bodyPartGroups>
-				<li>FullHead</li>
+				<li>UpperHead</li>
+				<li>RK_BodyGroup_FullHead</li>
 			</bodyPartGroups>
 			<wornGraphicPath>Apparel/Vacsuit/RK_Apparel_VacsuitHelmet</wornGraphicPath>
 			<useWornGraphicMask>true</useWornGraphicMask>
@@ -400,8 +402,10 @@
 			<Plasteel>50</Plasteel>
 		</costList>
 		<apparel>
+			<!-- FullHead 대체: FullHead 수준 방어+UpperHead(헤드기어/교단). FullHead 쓰면 머리 일부가 렌더 스킵(랫킨 귀 사라짐)됨. -->
 			<bodyPartGroups>
-				<li>FullHead</li>
+				<li>UpperHead</li>
+				<li>RK_BodyGroup_FullHead</li>
 			</bodyPartGroups>
 			<wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmorHelmet/PowerArmorHelmet</wornGraphicPath>
 			<layers>
