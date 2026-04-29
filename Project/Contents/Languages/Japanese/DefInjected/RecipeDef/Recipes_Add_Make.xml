@@ -280,10 +280,6 @@
   <Make_RK_Mace.description>ラットキンメイスを作る.</Make_RK_Mace.description>
   <Make_RK_Mace.jobString>RK メイスを作成中</Make_RK_Mace.jobString>
 
-  <Make_RK_Weapon_Maul.label>RK 作業用ハンマーを作る</Make_RK_Weapon_Maul.label>
-  <Make_RK_Weapon_Maul.description>ラットキン作業用ハンマーを作る.</Make_RK_Weapon_Maul.description>
-  <Make_RK_Weapon_Maul.jobString>RK 作業用ハンマーを作成中</Make_RK_Weapon_Maul.jobString>
-
   <Make_RK_LightLance.label>RK 木製ランスを作る</Make_RK_LightLance.label>
   <Make_RK_LightLance.description>ラットキン木製ランスを作る.</Make_RK_LightLance.description>
   <Make_RK_LightLance.jobString>RK 木製ランスを作成中</Make_RK_LightLance.jobString>
