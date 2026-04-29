@@ -1,2 +1,2 @@
-silver
-iron
+Sword
+Shield

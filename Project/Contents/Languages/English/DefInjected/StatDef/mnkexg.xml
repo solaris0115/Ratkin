@@ -4,7 +4,7 @@
   <RK_Stat_RangeCoolDown.description>Reduces the cooldown of ranged weapons. This stat is used for the RatHolic gun's spin-up effect.</RK_Stat_RangeCoolDown.description>
   <RK_Stat_RangeCoolDown.formatString>{0}s</RK_Stat_RangeCoolDown.formatString>
   <RK_Stat_RangeCoolDownMultiplier.label>Ranged cooldown multiplier</RK_Stat_RangeCoolDownMultiplier.label>
-  <RK_Stat_RangeCoolDownMultiplier.description>Applies a multiplier to ranged weapon cooldown. This stat is used together with stat factors for the RatHolic gun's spin-up effect.</RK_Stat_RangeCoolDownMultiplier.description>
+  <RK_Stat_RangeCoolDownMultiplier.description>Applies a multiplier to ranged weapon cooldowns. This stat is used together with stat factors for the RatHolic gun's spin-up effect.</RK_Stat_RangeCoolDownMultiplier.description>
   <RK_Stat_RangeCoolDownMultiplier.formatString>{0}×</RK_Stat_RangeCoolDownMultiplier.formatString>
   <RK_Stat_ShieldBlockChance.label>Shield block chance</RK_Stat_ShieldBlockChance.label>
   <RK_Stat_ShieldBlockChance.description>The chance to attempt a block with a shield.\n\nIf the shield block succeeds, the game then determines whether the attack penetrates the shield.\n\nAffected by Melee skill, Manipulation, and Sight.</RK_Stat_ShieldBlockChance.description>

@@ -3,7 +3,7 @@ chaser
 breaker
 shielder
 sword
-gardener
+guardner
 bringer
 runner
 strider
