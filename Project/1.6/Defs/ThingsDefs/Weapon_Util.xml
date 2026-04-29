@@ -401,8 +401,8 @@
 	
 	<ThingDef ParentName="RK_MeleeWeapon" Name="RK_WeaponAttr_Maul">
 		<defName>RK_Weapon_Maul</defName>
-		<label>Maul</label>
-		<description>한손에 들 수 있는 마울입니다. 둔기 무기로 작업하기엔 무겁습니다. 손잡이가 너무 작아 인간이 사용하기 힘들어 보입니다.</description>
+		<label>Work hammer</label>
+		<description>A work hammer. Useful when working with something hard.</description>
 		<graphicData>
 			<texPath>Weapon/RK_Texture_Maul</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

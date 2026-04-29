@@ -317,10 +317,8 @@ The size of the weapon makes it impossible for humans to use it.</RK_Mace.descri
   <RK_Mace.tools.0.label>Head</RK_Mace.tools.0.label>
   <RK_Mace.tools.1.label>handle</RK_Mace.tools.1.label>
 
-  <RK_Weapon_Maul.label>Maul</RK_Weapon_Maul.label>
-  <RK_Weapon_Maul.description>A ratkin maul that can be held in one hand. It is awkwardly heavy for fine work.
-
-The size of the weapon makes it impossible for humans to use it.</RK_Weapon_Maul.description>
+  <RK_Weapon_Maul.label>Work hammer</RK_Weapon_Maul.label>
+  <RK_Weapon_Maul.description>A work hammer. Useful when working with something hard.</RK_Weapon_Maul.description>
   <RK_Weapon_Maul.tools.0.label>Head</RK_Weapon_Maul.tools.0.label>
   <RK_Weapon_Maul.tools.1.label>handle</RK_Weapon_Maul.tools.1.label>
 
