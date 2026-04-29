@@ -25,6 +25,13 @@
   <RK_Mace.tools.Head.label>頭</RK_Mace.tools.Head.label>
   <RK_Mace.tools.handle.label>柄</RK_Mace.tools.handle.label>
 
+  <!-- Ratkin Maul -->
+
+  <RK_Weapon_Maul.label>RK モール</RK_Weapon_Maul.label>
+  <RK_Weapon_Maul.description>片手で持てるモールです.作業用には重すぎます.柄が小さすぎて人間には扱えません.</RK_Weapon_Maul.description>
+  <RK_Weapon_Maul.tools.Head.label>頭</RK_Weapon_Maul.tools.Head.label>
+  <RK_Weapon_Maul.tools.handle.label>柄</RK_Weapon_Maul.tools.handle.label>
+
 
   <!-- Ratkin wooden lance -->
 

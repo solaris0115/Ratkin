@@ -200,9 +200,13 @@
   <RK_OneHanded.tools.1.label>칼날</RK_OneHanded.tools.1.label>
   <RK_OneHanded.tools.2.label>자루</RK_OneHanded.tools.2.label>
   <RK_Mace.label>랫킨 철퇴</RK_Mace.label>
-  <RK_Mace.description>한손에 들 수 있는 철퇴입니다. 완벽한 무게 밸런스를 이루고 있습니다.</RK_Mace.description>
+  <RK_Mace.description>한손에 들 수 있는 철퇴입니다. 단단한 방어구라도 충격을 쉽게 전달 할 수 있습니다.</RK_Mace.description>
   <RK_Mace.tools.0.label>머리</RK_Mace.tools.0.label>
   <RK_Mace.tools.1.label>자루</RK_Mace.tools.1.label>
+  <RK_Weapon_Maul.label>작업용 망치</RK_Weapon_Maul.label>
+  <RK_Weapon_Maul.description>작업용 망치입니다. 단단한 무언가를 다룰 때 유용합니다.</RK_Weapon_Maul.description>
+  <RK_Weapon_Maul.tools.0.label>머리</RK_Weapon_Maul.tools.0.label>
+  <RK_Weapon_Maul.tools.1.label>자루</RK_Weapon_Maul.tools.1.label>
   <RK_LightLance.label>랫킨 목재 랜스</RK_LightLance.label>
   <RK_LightLance.description>목재로 만든 랜스입니다. 끝에 강철을 덧대어 가벼우면서도 파괴력을 높였습니다.</RK_LightLance.description>
   <RK_LightLance.tools.0.label>창끝</RK_LightLance.tools.0.label>
