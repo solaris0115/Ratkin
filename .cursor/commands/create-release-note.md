@@ -1,43 +1,50 @@
 ---
-description: Daily 노트를 모아 실행일 기준 릴리즈 노트 초안 생성
+description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 ---
 
 # /create-release-note
 
-사용자가 `/create-release-note`를 실행했다. `99_ReleaseNote` 아래의 모든 `*_DAILY.md`를 읽고, **커맨드 실행일**(또는 사용자가 지정한 날짜)을 집계일로 하는 릴리즈 노트 **초안**을 만든다.
+사용자가 `/create-release-note`를 실행하면, 에이전트가 `99_ReleaseNote/*_DAILY.md`를 **전부 읽고 요약**하여 릴리즈 노트 초안을 작성한다.
 
-## 참조
+## 핵심 원칙
 
-- [tools/release_notes.py](../../tools/release_notes.py) — 집계 로직
-- [05-git-workflow.mdc](../rules/05-git-workflow.mdc) — PowerShell(`;` 사용, `&&` 금지)
+- 릴리즈 노트는 **모드 사용자**가 읽는 문서다.
+- 커밋 제목, 구현 세부사항, 코드 변경 내역은 **쓰지 않는다**.
+- **무엇이 바뀌었는지 / 무엇이 수정되었는지**만 간결하게 적는다.
 
 ## 에이전트 실행 순서
 
-1. 워크스페이스 **저장소 루트**에서 아래를 실행한다.
+1. `99_ReleaseNote` 폴더의 모든 `*_DAILY.md` 파일을 읽는다.
+2. Daily 내용을 분석하여 다음 카테고리로 분류한다:
+   - **버그 수정** — 고쳐진 문제
+   - **변경** — 밸런스 조정, 동작 변경 등
+   - **추가** — 새로 들어간 기능·콘텐츠
+   - 카테고리가 비어 있으면 해당 섹션은 생략한다.
+3. 각 항목은 **한 줄 요약**(사용자 관점)으로 쓴다.
+   - 좋은 예: `소드오프 산탄총이 벽에 맞았을 때 벽 뒤로 피해가 전달되던 문제 수정`
+   - 나쁜 예: `[AI] 소드오프/근접부채꼴 투사체가 벽 적중 시 부채꼴 폭발을 하지 않도록 수정`
+4. 결과를 `99_ReleaseNote/YY.MM.DD_RELEASE_NOTES_DRAFT.md`에 저장한다.
+   - `YY.MM.DD`는 커맨드 실행일 기준(사용자가 날짜를 지정하면 해당 날짜 사용).
+5. 저장 후 경로를 알린다.
 
-```powershell
-Set-Location "<저장소 루트>"
-python tools/release_notes.py create-release
+## 출력 포맷 예시
+
+```markdown
+# Ratkin 릴리즈 노트 — YY.MM.DD
+
+## 버그 수정
+- 소드오프 산탄총이 벽에 맞았을 때 벽 뒤로 피해가 전달되던 문제 수정
+- 바이오텍 DLC 없이 인간에게 랫킨 귀가 붙는 버그 수정
+
+## 변경
+- 전투복·가스마스크 독성 환경 저항 수치 조정
+- 랫홀릭 건의 사격 경험치를 미니건 수준으로 조정
+
+## 추가
+- 초월공학 꼬리 부위 및 이식 수술 추가
 ```
 
-2. **날짜 지정**(집계일·출력 파일명의 `YY.MM.DD`):
+## 참고
 
-```powershell
-python tools/release_notes.py create-release --date 26.04.24
-```
-
-3. **출력 경로 지정**(기본은 `99_ReleaseNote/YY.MM.DD_RELEASE_NOTES_DRAFT.md` — 수동 작성 `*_RELEASE_NOTES.md`와 구분):
-
-```powershell
-python tools/release_notes.py create-release -o "99_ReleaseNote/26.04.24_RELEASE_NOTES.md"
-```
-
-4. 실패 시(stderr·exit code) 원인만 짧게 전달한다. 성공 시 생성된 **상대 경로**를 알린다.
-
-5. 초안이므로 사용자에게 **문구 정리·섹션 재구성**이 필요할 수 있음을 한 줄로 안내한다.
-
-## 동작 요약
-
-- `99_ReleaseNote/YY.MM.DD_DAILY.md` 전부를 날짜순으로 읽는다.
-- 상단에 Daily에서 수집한 **커밋 제목** 목록, 이어서 **일별 Daily 원문**을 붙인 마크다운을 쓴다.
-- Daily가 하나도 없으면 스크립트가 비정상 종료한다.
+- `tools/release_notes.py`의 `create-release` 서브커맨드는 사용하지 않는다(구형).
+- Daily 파일이 하나도 없으면 작성할 내용이 없다고 알린다.

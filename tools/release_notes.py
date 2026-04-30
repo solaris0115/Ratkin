@@ -4,7 +4,7 @@ Daily / 릴리즈 노트: 99_ReleaseNote 에 일별 커밋 기록 후, Daily 를
 
 저장소 루트에서:
   python tools/release_notes.py append-daily    # HEAD 커밋을 해당 일 Daily 파일에 추가
-  python tools/release_notes.py create-release    # 모든 *_DAILY.md 를 읽어 실행일 기준 *_RELEASE_NOTES_DRAFT.md 작성
+  python tools/release_notes.py create-release    # 모든 *_DAILY.md 를 읽어 실행일 기준 *_RELEASE_NOTES_DRAFT.md 작성 (해시·시각 메타는 초안에 넣지 않음)
 """
 from __future__ import annotations
 
@@ -79,12 +79,9 @@ def append_daily(repo: Path = ROOT) -> Path:
     NOTE_DIR.mkdir(parents=True, exist_ok=True)
     name = daily_filename_for_commit(repo)
     path = NOTE_DIR / name
-    h, ci, subj, body = git_head_commit_lines(repo)
-    short = h[:7]
+    _, _, subj, body = git_head_commit_lines(repo)
     block_lines = [
         "---",
-        "",
-        f"### `{short}` · {ci}",
         "",
         f"**제목:** {subj}",
         "",
@@ -107,6 +104,14 @@ def append_daily(repo: Path = ROOT) -> Path:
 
 
 _DAILY_FILE_RE = re.compile(r"^(\d{2}\.\d{2}\.\d{2})" + re.escape(DAILY_SUFFIX) + r"$")
+# append-daily 가 예전에 쓰던 `### `7자리` · 커미터일시` 줄 — create-release 시 초안에서 제거
+_LEGACY_COMMIT_META_LINE = re.compile(r"^### `[0-9a-f]{7}` · .+$")
+
+
+def filter_daily_for_release(raw: str) -> str:
+    """릴리즈 초안에 붙일 때: 커밋 해시·시각 헤딩 줄만 제거."""
+    lines = [ln for ln in raw.splitlines() if not _LEGACY_COMMIT_META_LINE.match(ln)]
+    return "\n".join(lines).rstrip()
 
 
 def list_daily_files() -> list[Path]:
@@ -137,25 +142,18 @@ def create_release(exec_date: str, repo: Path = ROOT, out_path: Path | None = No
         "",
         "> 이 파일은 `*_DAILY.md` 기록을 바탕으로 `tools/release_notes.py create-release` 로 생성·갱신된 초안입니다. 배포 전 문구·분류를 다듬으세요.",
         "",
-        "### Daily 기록에서 가져온 커밋 제목",
+        "### 일별 상세 (Daily 원문)",
         "",
     ]
-    for dp in dailies:
-        text = dp.read_text(encoding="utf-8", errors="replace")
-        for line in text.splitlines():
-            if line.startswith("**제목:**"):
-                parts.append(f"- {line.replace('**제목:**', '').strip()}")
-        parts.append("")
-    parts.append("---")
-    parts.append("")
-    parts.append("### 일별 상세 (Daily 원문)")
-    parts.append("")
     for dp in dailies:
         day = _DAILY_FILE_RE.match(dp.name)
         label = day.group(1) if day else dp.stem
         parts.append(f"#### {label}")
         parts.append("")
-        parts.append(dp.read_text(encoding="utf-8", errors="replace").rstrip())
+        filtered = filter_daily_for_release(
+            dp.read_text(encoding="utf-8", errors="replace")
+        )
+        parts.append(filtered)
         parts.append("")
         parts.append("---")
         parts.append("")
