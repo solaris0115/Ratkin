@@ -24,7 +24,7 @@
   <RK_Recipe_Hardtack.label>堅パンを作る</RK_Recipe_Hardtack.label>
   <RK_Recipe_Hardtack.description>植物性の食材から堅パンを作ります。長く保存できる携行食で、旅に向いています。</RK_Recipe_Hardtack.description>
   <RK_Recipe_Hardtack.jobString>堅パンを作成中</RK_Recipe_Hardtack.jobString>
-  <RK_Recipe_HardtackBulk.label>堅パンを作る (x4)</RK_Recipe_HardtackBulk.label>
-  <RK_Recipe_HardtackBulk.description>植物性の食材から堅パンをまとめて作ります。長く保存できる携行食で、旅に向いています。</RK_Recipe_HardtackBulk.description>
+  <RK_Recipe_HardtackBulk.label>堅パンを作る (x8)</RK_Recipe_HardtackBulk.label>
+  <RK_Recipe_HardtackBulk.description>植物性の食材から堅パンを8個まとめて作ります。長く保存できる携行食で、旅に向いています。</RK_Recipe_HardtackBulk.description>
   <RK_Recipe_HardtackBulk.jobString>堅パンを大量作成中</RK_Recipe_HardtackBulk.jobString>
 </LanguageData>

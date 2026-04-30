@@ -24,8 +24,8 @@
   <RK_Recipe_Hardtack.label>make hardtack</RK_Recipe_Hardtack.label>
   <RK_Recipe_Hardtack.description>Make hardtack from plant-based ingredients. This long-lasting preserved food lasts for a while without refrigeration. Great for travel.</RK_Recipe_Hardtack.description>
   <RK_Recipe_Hardtack.jobString>Making hardtack.</RK_Recipe_Hardtack.jobString>
-  <RK_Recipe_HardtackBulk.label>make hardtack x4</RK_Recipe_HardtackBulk.label>
-  <RK_Recipe_HardtackBulk.description>Make a large batch of hardtack from plant-based ingredients. This long-lasting preserved food lasts for a while without refrigeration. Great for travel.</RK_Recipe_HardtackBulk.description>
+  <RK_Recipe_HardtackBulk.label>make hardtack x8</RK_Recipe_HardtackBulk.label>
+  <RK_Recipe_HardtackBulk.description>Make eight hardtack at once from plant-based ingredients. This long-lasting preserved food lasts for a while without refrigeration. Great for travel.</RK_Recipe_HardtackBulk.description>
   <RK_Recipe_HardtackBulk.jobString>Making hardtack in bulk.</RK_Recipe_HardtackBulk.jobString>
 
   <!-- Clothing -->
