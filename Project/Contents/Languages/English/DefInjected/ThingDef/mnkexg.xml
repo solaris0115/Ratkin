@@ -79,6 +79,8 @@
   <RK_Wool_KingHamster.description>Soft, light and provides very good insulation. Clothes made from said wool can keep the body warm in even extreme cold.</RK_Wool_KingHamster.description>
   <RK_Thing_BionicTail.label>bionic ratkin tail</RK_Thing_BionicTail.label>
   <RK_Thing_BionicTail.description>An installed bionic ratkin tail. It features an AI that monitors the users movement and moves the tail in response, allowing it to replicate the user's missing tail and balance almost perfectly. It's better than a biological tail in almost every way.</RK_Thing_BionicTail.description>
+  <RK_Thing_ArchotechTail.label>archotech ratkin tail</RK_Thing_ArchotechTail.label>
+  <RK_Thing_ArchotechTail.description>An artificial ratkin tail built by an archotech. It senses posture and micro-movements to keep the bearer perfectly balanced, feels like living flesh, and is harder to damage than plasteel. If harmed, it repairs itself over time. Its inner workings are a mystery.</RK_Thing_ArchotechTail.description>
 
   <RK_StrawberryBeer.label>Strawberry Beer</RK_StrawberryBeer.label>
   <RK_StrawberryBeer.description>A special beer made by mixing strawberries into beer using the traditional ways of ratkin to create a beverage enjoyed by all. Thanks to this process, the alcohol concentration is reduced enough so ratkin can enjoy alcohol.</RK_StrawberryBeer.description>

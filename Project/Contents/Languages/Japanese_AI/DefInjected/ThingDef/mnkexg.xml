@@ -53,6 +53,8 @@
   <RK_Wool_KingHamster.description>柔らかく軽い、良質な断熱材です。ハムストロックスの毛で作った服は通気性と保温性に優れ、極地や砂漠での活動に向いています。</RK_Wool_KingHamster.description>
   <RK_Thing_BionicTail.label>生体工学尻尾</RK_Thing_BionicTail.label>
   <RK_Thing_BionicTail.description>生体工学的な人工尻尾です。使用者のバランスを自動調整する小型AIも搭載されています。</RK_Thing_BionicTail.description>
+  <RK_Thing_ArchotechTail.label>アーキテック尻尾（ラットキン）</RK_Thing_ArchotechTail.label>
+  <RK_Thing_ArchotechTail.description>アーキテックによって作られたラットキン用の人工尻尾です。姿勢と微細な動きを感知し、完璧に近いバランスを保ちます。生身のような感触ですがプラスチールより傷つきにくく、損傷しても時間とともに自己修復します。内部構造は人間の理解を超えています。</RK_Thing_ArchotechTail.description>
   <RK_StrawberryBeer.label>イチゴビール</RK_StrawberryBeer.label>
   <RK_StrawberryBeer.description>伝統的な方法で造られたイチゴビールです。ラットキンが飲むために作られており、度数は少し低めです。</RK_StrawberryBeer.description>
   <RK_StrawberryBeer.ingestible.ingestCommandString>{0}を飲む</RK_StrawberryBeer.ingestible.ingestCommandString>

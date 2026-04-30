@@ -23,6 +23,9 @@
   <RK_Hediff_BionicTail.label>生体工学尻尾</RK_Hediff_BionicTail.label>
   <RK_Hediff_BionicTail.description>移植された先進的な人工尻尾です。小型AIが使用者の体のバランスを自動で整えます。</RK_Hediff_BionicTail.description>
   <RK_Hediff_BionicTail.labelNoun>生体工学尻尾</RK_Hediff_BionicTail.labelNoun>
+  <RK_Hediff_ArchotechTail.label>アーキテック尻尾（ラットキン）</RK_Hediff_ArchotechTail.label>
+  <RK_Hediff_ArchotechTail.description>移植されたアーキテック製のラットキン用人工尻尾です。姿勢と微細な動きを感知し、完璧に近いバランスを保ちます。生身のような感触ですがプラスチールより傷つきにくく、損傷しても時間とともに自己修復します。内部構造は人間の理解を超えています。</RK_Hediff_ArchotechTail.description>
+  <RK_Hediff_ArchotechTail.labelNoun>アーキテック尻尾（ラットキン）</RK_Hediff_ArchotechTail.labelNoun>
   <RK_Hediff_Torn.label>裂傷</RK_Hediff_Torn.label>
   <RK_Hediff_Torn.labelNoun>裂けた傷</RK_Hediff_Torn.labelNoun>
   <RK_Hediff_Torn.description>裂けた傷です。</RK_Hediff_Torn.description>

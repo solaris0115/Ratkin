@@ -53,6 +53,8 @@
   <RK_Wool_KingHamster.description>부드럽고 가벼운 좋은 단열재입니다. 햄스트록스 털옷은 통풍성과 보온성이 뛰어나 극지방이나 사막에서 활동하기 좋습니다.</RK_Wool_KingHamster.description>
   <RK_Thing_BionicTail.label>생체공학 꼬리</RK_Thing_BionicTail.label>
   <RK_Thing_BionicTail.description>생체공학적인 인공 꼬리입니다. 사용자의 균형을 자동으로 조정하는 소형 AI도 탑재되어 있습니다.</RK_Thing_BionicTail.description>
+  <RK_Thing_ArchotechTail.label>초월공학 랫킨 꼬리</RK_Thing_ArchotechTail.label>
+  <RK_Thing_ArchotechTail.description>초월공학이 만든 랫킨용 인공 꼬리입니다. 자세와 미세한 움직임을 감지해 완벽에 가까운 균형을 잡아 주며, 살과 같은 감촉이지만 플라스틸보다 손상되기 어렵습니다. 손상되어도 시간이 지나면 스스로 복구합니다. 내부 구조는 인간의 이해를 벗어납니다.</RK_Thing_ArchotechTail.description>
   <RK_StrawberryBeer.label>딸기맥주</RK_StrawberryBeer.label>
   <RK_StrawberryBeer.description>전통 방식으로 제조 딸기 맥주입니다. 랫킨이 마시기 위해 만들어져 도수가 조금 낮습니다.</RK_StrawberryBeer.description>
   <RK_StrawberryBeer.ingestible.ingestCommandString>{0} 마시기</RK_StrawberryBeer.ingestible.ingestCommandString>

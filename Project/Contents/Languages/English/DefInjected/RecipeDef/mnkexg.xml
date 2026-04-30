@@ -9,6 +9,9 @@
   <RK_Recipe_InstallBionicTail.label>install bionic tail</RK_Recipe_InstallBionicTail.label>
   <RK_Recipe_InstallBionicTail.description>Install a bionic tail.</RK_Recipe_InstallBionicTail.description>
   <RK_Recipe_InstallBionicTail.jobString>Installing bionic tail.</RK_Recipe_InstallBionicTail.jobString>
+  <RK_Recipe_InstallArchotechTail.label>install archotech ratkin tail</RK_Recipe_InstallArchotechTail.label>
+  <RK_Recipe_InstallArchotechTail.description>Install an archotech ratkin tail.</RK_Recipe_InstallArchotechTail.description>
+  <RK_Recipe_InstallArchotechTail.jobString>Installing archotech ratkin tail.</RK_Recipe_InstallArchotechTail.jobString>
   <Make_RK_Ammo_CannonBall.label>make Ratkin cannon shell</Make_RK_Ammo_CannonBall.label>
   <Make_RK_Ammo_CannonBall.description>Make a Ratkin cannon shell.</Make_RK_Ammo_CannonBall.description>
   <Make_RK_Ammo_CannonBall.jobString>Making Ratkin cannon shell.</Make_RK_Ammo_CannonBall.jobString>

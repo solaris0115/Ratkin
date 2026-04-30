@@ -9,6 +9,9 @@
   <RK_Recipe_InstallBionicTail.label>生体工学尻尾を移植</RK_Recipe_InstallBionicTail.label>
   <RK_Recipe_InstallBionicTail.description>生体工学尻尾を移植します。</RK_Recipe_InstallBionicTail.description>
   <RK_Recipe_InstallBionicTail.jobString>生体工学尻尾を移植中</RK_Recipe_InstallBionicTail.jobString>
+  <RK_Recipe_InstallArchotechTail.label>アーキテック尻尾（ラットキン）を移植</RK_Recipe_InstallArchotechTail.label>
+  <RK_Recipe_InstallArchotechTail.description>アーキテック製のラットキン用人工尻尾を移植します。</RK_Recipe_InstallArchotechTail.description>
+  <RK_Recipe_InstallArchotechTail.jobString>アーキテック尻尾（ラットキン）を移植中</RK_Recipe_InstallArchotechTail.jobString>
   <Make_RK_Ammo_CannonBall.label>ラットキン砲弾を作る</Make_RK_Ammo_CannonBall.label>
   <Make_RK_Ammo_CannonBall.description>ラットキン砲弾を作ります。</Make_RK_Ammo_CannonBall.description>
   <Make_RK_Ammo_CannonBall.jobString>ラットキン砲弾を作成中</Make_RK_Ammo_CannonBall.jobString>
