@@ -79,8 +79,6 @@
   <RK_Wool_KingHamster.description>Soft, light and provides very good insulation. Clothes made from said wool can keep the body warm in even extreme cold.</RK_Wool_KingHamster.description>
   <RK_Thing_BionicTail.label>bionic ratkin tail</RK_Thing_BionicTail.label>
   <RK_Thing_BionicTail.description>An installed bionic ratkin tail. It features an AI that monitors the users movement and moves the tail in response, allowing it to replicate the user's missing tail and balance almost perfectly. It's better than a biological tail in almost every way.</RK_Thing_BionicTail.description>
-  <RK_Thing_ArchotechTail.label>archotech ratkin tail</RK_Thing_ArchotechTail.label>
-  <RK_Thing_ArchotechTail.description>An artificial ratkin tail built by an archotech. It senses posture and micro-movements to keep the bearer perfectly balanced, feels like living flesh, and is harder to damage than plasteel. If harmed, it repairs itself over time. Its inner workings are a mystery.</RK_Thing_ArchotechTail.description>
 
   <RK_StrawberryBeer.label>Strawberry Beer</RK_StrawberryBeer.label>
   <RK_StrawberryBeer.description>A special beer made by mixing strawberries into beer using the traditional ways of ratkin to create a beverage enjoyed by all. Thanks to this process, the alcohol concentration is reduced enough so ratkin can enjoy alcohol.</RK_StrawberryBeer.description>
@@ -97,10 +95,7 @@
 <!-- Armor -->
 
   <RK_Plate.label>ratkin plate armor</RK_Plate.label>
-  <RK_Plate.description>>Plate armor fit for Ratkin to wear. Overlapping armor allows for even greater protection against incoming projectiles and attacks.</RK_Plate.description>
-
-  <RK_PlateHelm.label>Ratkin plate helm</RK_PlateHelm.label>
-  <RK_PlateHelm.description>It's a simple plate helm.</RK_PlateHelm.description>
+  <RK_Plate.description>Plate armor fit for Ratkin to wear. Overlapping armor allows for even greater protection against incoming projectiles and attacks.</RK_Plate.description>
 
   <RK_SantaRobe.label>santa robe</RK_SantaRobe.label>
   <RK_SantaRobe.description>Santa Ratkin's red robes.</RK_SantaRobe.description>
@@ -272,12 +267,10 @@ A sober ratkin would throw it...</RK_MagicWand.description>
   <RK_Weapon_Gunlance.label>Ratkin gunlance</RK_Weapon_Gunlance.label>
   <RK_Weapon_Gunlance.description>A heavy, mechanical lance capable of loading special shells into a rotary loading system for combat. By loading special ammunition into its cylinder, it can use Wyvern Fire during melee combat to deal heavy damage in front of the user and setting whoever survived said damage on fire. 
 
-The Gunlance is possibly one of the heaviest weaponry you can still hold in the ratkin arsenal, as its size leaves speed to be desired and the weight of it demands only strong and experienced ratkin for it to be wielded reliably in melee.
-
 A short cooldown is required after using Wyvern Fire to allow the gunlance time to cool.</RK_Weapon_Gunlance.description>
   <RK_Weapon_Gunlance.tools.0.label>point</RK_Weapon_Gunlance.tools.0.label>
   <RK_Weapon_Gunlance.tools.1.label>edge</RK_Weapon_Gunlance.tools.1.label>
-  <RK_Weapon_Gunlance.comps.1.chargeNoun>Wyvern Fire charge</RK_Weapon_Gunlance.comps.1.chargeNoun>
+  <RK_Weapon_Gunlance.comps.0.chargeNoun>Wyvern Fire charge</RK_Weapon_Gunlance.comps.0.chargeNoun>
   <RK_Ammo_WyvernFire.label>Wyvern Fire shell</RK_Ammo_WyvernFire.label>
   <RK_Ammo_WyvernFire.description>Ammunition required for firing a gunlance's Wyvern Fire. The shell uses a two-stage structure, preheating with primary fuel before spraying secondary powder to create a large explosion.
 
@@ -288,14 +281,12 @@ It may explode if damaged.</RK_Ammo_WyvernFire.description>
   <RK_Weapon_ProtoChainSword.label>Ratkin chainsword</RK_Weapon_ProtoChainSword.label>
   <RK_Weapon_ProtoChainSword.description>A weapon that tears targets apart using a chain going across the length of the blade and a powerful motor installed inside to pull said chain.</RK_Weapon_ProtoChainSword.description>
   <RK_Weapon_ProtoChainSword.tools.0.label>chainsaw teeth</RK_Weapon_ProtoChainSword.tools.0.label>
-  <RK_Weapon_ProtoChainSword.tools.1.label>chainsaw teeth</RK_Weapon_ProtoChainSword.tools.1.label>
 
   <RK_Weapon_ProtoFlameChainSword.label>Ratkin flame chainsword</RK_Weapon_ProtoFlameChainSword.label>
   <RK_Weapon_ProtoFlameChainSword.description>A weapon that tears targets apart using a chain going across the length of the blade and a powerful motor installed inside to pull said chain. It has had a modification installed where it adds a highly flammable oil on the chains and an igniter to set it on fire, allowing the chainsword to add burns to an already open wound.
 
 You'd have to be mad to wield this.</RK_Weapon_ProtoFlameChainSword.description>
-  <RK_Weapon_ProtoFlameChainSword.tools.0.label>point</RK_Weapon_ProtoFlameChainSword.tools.0.label>
-  <RK_Weapon_ProtoFlameChainSword.tools.1.label>edge</RK_Weapon_ProtoFlameChainSword.tools.1.label>
+  <RK_Weapon_ProtoFlameChainSword.tools.0.label>chainsaw teeth</RK_Weapon_ProtoFlameChainSword.tools.0.label>
 
   <RK_Dagger.label>ratkin dagger</RK_Dagger.label>
   <RK_Dagger.description>It's a small, cute dagger that's better than nothing. Because it's so light and easy to handle, the user can easily weave through an enemies guard, making it a solid option as a last resort.
@@ -318,11 +309,6 @@ The size of the weapon makes it impossible for humans to use it.</RK_OneHanded.d
 The size of the weapon makes it impossible for humans to use it.</RK_Mace.description>
   <RK_Mace.tools.0.label>Head</RK_Mace.tools.0.label>
   <RK_Mace.tools.1.label>handle</RK_Mace.tools.1.label>
-
-  <RK_Weapon_Maul.label>Work hammer</RK_Weapon_Maul.label>
-  <RK_Weapon_Maul.description>A work hammer. Useful when working with something hard.</RK_Weapon_Maul.description>
-  <RK_Weapon_Maul.tools.0.label>Head</RK_Weapon_Maul.tools.0.label>
-  <RK_Weapon_Maul.tools.1.label>handle</RK_Weapon_Maul.tools.1.label>
 
   <RK_LightLance.label>ratkin wooden lance</RK_LightLance.label>
   <RK_LightLance.description>A lightweight wooden lance tipped with iron at the end to increase its destructive power. while lightweight, its size still makes it hard to use in melee combat. Allows the ability to charge at enemies in close range.
@@ -367,15 +353,6 @@ Because of its length and thin shaft, humans cannot wield this.</RK_Spear.descri
 The size of the weapon makes it impossible for humans to use it.</RK_Halberd.description>
   <RK_Halberd.tools.0.label>Halberd point</RK_Halberd.tools.0.label>
   <RK_Halberd.tools.1.label>Halberd edge</RK_Halberd.tools.1.label>
-
-  <RK_Rifle_line.label>ratkin shotgun</RK_Rifle_line.label>
-  <RK_Rifle_line.description>A simple shotgun used by the Ratkin. It fires a shell that, upon contact with the enemy, explodes to disperse its shrapnel into their body.
-
-The size of the weapon makes it impossible for humans to use it.</RK_Rifle_line.description>
-  <RK_Rifle_line.tools.0.label>stock</RK_Rifle_line.tools.0.label>
-  <RK_Rifle_line.tools.1.label>barrel</RK_Rifle_line.tools.1.label>
-
-  <RK_Bullet_SectorShot_Dummy.label>buckshot</RK_Bullet_SectorShot_Dummy.label>
 
   <RK_Crossbow.label>Ratkin crossbow</RK_Crossbow.label>
   <RK_Crossbow.description>A crossbow made for Ratkin. Its main purpose is hunting, though Ratkin prefer to do no such thing.

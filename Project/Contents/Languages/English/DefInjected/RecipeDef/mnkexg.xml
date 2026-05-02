@@ -9,9 +9,6 @@
   <RK_Recipe_InstallBionicTail.label>install bionic tail</RK_Recipe_InstallBionicTail.label>
   <RK_Recipe_InstallBionicTail.description>Install a bionic tail.</RK_Recipe_InstallBionicTail.description>
   <RK_Recipe_InstallBionicTail.jobString>Installing bionic tail.</RK_Recipe_InstallBionicTail.jobString>
-  <RK_Recipe_InstallArchotechTail.label>install archotech ratkin tail</RK_Recipe_InstallArchotechTail.label>
-  <RK_Recipe_InstallArchotechTail.description>Install an archotech ratkin tail.</RK_Recipe_InstallArchotechTail.description>
-  <RK_Recipe_InstallArchotechTail.jobString>Installing archotech ratkin tail.</RK_Recipe_InstallArchotechTail.jobString>
   <Make_RK_Ammo_CannonBall.label>make Ratkin cannon shell</Make_RK_Ammo_CannonBall.label>
   <Make_RK_Ammo_CannonBall.description>Make a Ratkin cannon shell.</Make_RK_Ammo_CannonBall.description>
   <Make_RK_Ammo_CannonBall.jobString>Making Ratkin cannon shell.</Make_RK_Ammo_CannonBall.jobString>
@@ -24,8 +21,8 @@
   <RK_Recipe_Hardtack.label>make hardtack</RK_Recipe_Hardtack.label>
   <RK_Recipe_Hardtack.description>Make hardtack from plant-based ingredients. This long-lasting preserved food lasts for a while without refrigeration. Great for travel.</RK_Recipe_Hardtack.description>
   <RK_Recipe_Hardtack.jobString>Making hardtack.</RK_Recipe_Hardtack.jobString>
-  <RK_Recipe_HardtackBulk.label>make hardtack x8</RK_Recipe_HardtackBulk.label>
-  <RK_Recipe_HardtackBulk.description>Make eight hardtack at once from plant-based ingredients. This long-lasting preserved food lasts for a while without refrigeration. Great for travel.</RK_Recipe_HardtackBulk.description>
+  <RK_Recipe_HardtackBulk.label>make hardtack x4</RK_Recipe_HardtackBulk.label>
+  <RK_Recipe_HardtackBulk.description>Make a large batch of hardtack from plant-based ingredients. This long-lasting preserved food lasts for a while without refrigeration. Great for travel.</RK_Recipe_HardtackBulk.description>
   <RK_Recipe_HardtackBulk.jobString>Making hardtack in bulk.</RK_Recipe_HardtackBulk.jobString>
 
   <!-- Clothing -->
@@ -149,11 +146,6 @@
   <Make_RK_SistersVeil.description>Make Veil.</Make_RK_SistersVeil.description>
   <Make_RK_SistersVeil.jobString>Making Veil.</Make_RK_SistersVeil.jobString>
 
-  <Make_RK_EarCostume.label>make ratkin ear costume</Make_RK_EarCostume.label>
-  <Make_RK_EarCostume.description>Make ratkin ear costume.</Make_RK_EarCostume.description>
-  <Make_RK_EarCostume.jobString>Making ratkin ear costume.</Make_RK_EarCostume.jobString>
-
-
   <!-- Recipe Users: RK_ElectricTailoringBench, RK_HandTailoringBench, RK_FueledSmithy, RK_ElectricSmithy -->
 
   <Make_RK_Plate.label>make ratkin plate armor</Make_RK_Plate.label>
@@ -171,10 +163,6 @@
   <Make_RK_PlateHelmC.label>make Ratkin plate Helm C</Make_RK_PlateHelmC.label>
   <Make_RK_PlateHelmC.description>Make Ratkin plate Helm C.</Make_RK_PlateHelmC.description>
   <Make_RK_PlateHelmC.jobString>Making Ratkin plate Helm C.</Make_RK_PlateHelmC.jobString>
-
-  <Make_RK_PlateHelm.label>make Ratkin plate helm</Make_RK_PlateHelm.label>
-  <Make_RK_PlateHelm.description>Make Ratkin plate helm.</Make_RK_PlateHelm.description>
-  <Make_RK_PlateHelm.jobString>Making Ratkin plate helm.</Make_RK_PlateHelm.jobString>
 
   <Make_RK_WoodenShield.label>make ratkin wooden Shield</Make_RK_WoodenShield.label>
   <Make_RK_WoodenShield.description>Make ratkin wooden Shield.</Make_RK_WoodenShield.description>
