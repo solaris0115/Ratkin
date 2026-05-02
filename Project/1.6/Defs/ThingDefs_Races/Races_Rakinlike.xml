@@ -324,12 +324,6 @@
 				</whiteXenotypeList>
 				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
 			</raceRestriction>
-			<thoughtSettings>
-				<cannotReceiveThoughts>
-					<li>EnvironmentDark</li>
-					<li>NeedOutdoors</li>
-				</cannotReceiveThoughts>
-			</thoughtSettings>
 		</alienRace>
 		<statBases>
 			<!-- 기본 -->
