@@ -36,3 +36,8 @@ Project/1.5/Languages/
 
 # IDE 설정 파일들 (필요시 추가)
 .idea/
+
+!RimworldData/
+!RimworldSource/
+!RimworldData/**
+!RimworldSource/**
