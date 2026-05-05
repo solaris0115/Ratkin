@@ -735,14 +735,14 @@
 		</equippedStatOffsets>
 		<apparel>
 			<bodyPartGroups>
-				<li>UpperHead</li>
+				<li>Eyes</li>
 			</bodyPartGroups>
 			<defaultOutfitTags>
 				<li>Worker</li>
 			</defaultOutfitTags>
 			<wornGraphicPath>Apparel/RK_ResearchGlasses</wornGraphicPath>
 			<layers>
-				<li>Overhead</li>
+				<li>EyeCover</li>
 			</layers>
 			<tags>
 				<li>RK_Doctor</li>
