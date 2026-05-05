@@ -204,7 +204,9 @@
 			<li>RK_Apparel</li>
 		</thingCategories>
 		<tradeTags>
+			<li>RK_Apparel</li>
 			<li>RK_Apparel_Rare</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<smeltable>true</smeltable>
 		<apparel>
