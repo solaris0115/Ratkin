@@ -31,7 +31,7 @@
 			<li>Visitor_Outlander_Standard</li>
 		</visitorTraderKinds>
 		<baseTraderKinds>
-			<li>Base_Outlander_Standard</li>
+			<li>RK_TraderKind_Standard</li>
 		</baseTraderKinds>
 		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
 		<disallowedMemes>
