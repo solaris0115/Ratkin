@@ -80,7 +80,6 @@
 				</conditions>
 				<offsets>
 					<south>
-						<layerOffset>-0.276</layerOffset>
 						<offset>(-0.03,-0.35)</offset>
 						<bodyTypes>
 							<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.01,-0.07)</Baby>
@@ -92,7 +91,6 @@
 						</portraitBodyTypes>
 					</south>
 					<north>
-						<layerOffset>-0.276</layerOffset>
 						<offset>(0.03,-0.23)</offset>
 						<bodyTypes>
 							<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.07,-0.19)</Baby>
@@ -104,7 +102,6 @@
 						</portraitBodyTypes>
 					</north>
 					<east>
-						<layerOffset>-0.276</layerOffset>
 						<offset>(0.2,-0.25)</offset>
 						<bodyTypes>
 							<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.1)</Baby>
@@ -149,7 +146,6 @@
 				</conditions>
 				<offsets>
 					<south>
-						<layerOffset>-0.276</layerOffset>
 						<offset>(0.02,-0.35)</offset>
 						<bodyTypes>
 							<Baby MayRequire="Ludeon.RimWorld.Biotech">(0.02,-0.07)</Baby>
@@ -161,7 +157,6 @@
 						</portraitBodyTypes>
 					</south>
 					<north>
-						<layerOffset>-0.276</layerOffset>
 						<offset>(0.0,-0.23)</offset>
 						<bodyTypes>
 							<Baby MayRequire="Ludeon.RimWorld.Biotech">(0.04,-0.19)</Baby>
@@ -173,7 +168,6 @@
 						</portraitBodyTypes>
 					</north>
 					<east>
-						<layerOffset>-0.276</layerOffset>
 						<offset>(0.2,-0.25)</offset>
 						<bodyTypes>
 							<Baby MayRequire="Ludeon.RimWorld.Biotech">(-0.1,-0.1)</Baby>
