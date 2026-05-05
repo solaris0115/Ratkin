@@ -25,13 +25,4 @@
 		<label>tail</label>
 		<listOrder>45</listOrder>
 	</BodyPartGroupDef>
-
-	<!-- 머리 전체 커버용 그룹 (FullHead 대체) -->
-	<BodyPartGroupDef>
-		<defName>RK_BodyGroup_FullHead</defName>
-		<label>full head</label>
-		<listOrder>198</listOrder>
-	</BodyPartGroupDef>
-
 </Defs>
-

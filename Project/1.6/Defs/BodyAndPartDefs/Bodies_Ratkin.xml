@@ -119,7 +119,6 @@
 								<li>UpperHead</li>
 								<li>FullHead</li>
 								<li>HeadAttackTool</li>
-								<li>RK_BodyGroup_FullHead</li>
 							</groups>
 							<parts>
 								<li>
@@ -130,7 +129,6 @@
 										<li>UpperHead</li>
 										<li>Eyes</li>
 										<li>FullHead</li>
-										<li>RK_BodyGroup_FullHead</li>
 									</groups>
 									<parts>
 										<li>
@@ -140,7 +138,6 @@
 												<li>UpperHead</li>
 												<li>Eyes</li>
 												<li>FullHead</li>
-												<li>RK_BodyGroup_FullHead</li>
 											</groups>
 										</li>
 									</parts>
@@ -152,7 +149,6 @@
 									<groups>
 										<li>FullHead</li>
 										<li>Eyes</li>
-										<li>RK_BodyGroup_FullHead</li>
 									</groups>
 									<woundAnchorTag>LeftEye</woundAnchorTag>
 									<flipGraphic>true</flipGraphic>
@@ -168,7 +164,6 @@
 									<groups>
 										<li>FullHead</li>
 										<li>Eyes</li>
-										<li>RK_BodyGroup_FullHead</li>
 									</groups>
 									<woundAnchorTag>RightEye</woundAnchorTag>
 									<visibleHediffRots>
@@ -185,7 +180,6 @@
 										<li>UpperHead</li>
 										<li>FullHead</li>
 										<li>RK_LeftEar</li>
-										<li>RK_BodyGroup_FullHead</li>
 									</groups>
 								</li>
 								<li>
@@ -196,16 +190,14 @@
 										<li>UpperHead</li>
 										<li>FullHead</li>
 										<li>RK_RightEar</li>
-										<li>RK_BodyGroup_FullHead</li>
 									</groups>
 								</li>
 								<li>
-								<def>Nose</def>
-								<coverage>0.10</coverage>
-								<groups>
-									<li>FullHead</li>
-									<li>RK_BodyGroup_FullHead</li>
-								</groups>
+									<def>Nose</def>
+									<coverage>0.10</coverage>
+									<groups>
+										<li>FullHead</li>
+									</groups>
 								</li>
 								<li>
 									<def>Jaw</def>
@@ -214,7 +206,6 @@
 										<li>Teeth</li>
 										<li>FullHead</li>
 										<li>Mouth</li>
-										<li>RK_BodyGroup_FullHead</li>
 									</groups>
 									<parts>
 										<li>
@@ -223,7 +214,6 @@
 											<depth>Inside</depth>
 											<groups>
 												<li>FullHead</li>
-												<li>RK_BodyGroup_FullHead</li>
 											</groups>
 										</li>
 									</parts>
