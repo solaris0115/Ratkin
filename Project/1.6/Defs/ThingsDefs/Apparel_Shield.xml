@@ -3,6 +3,9 @@
 	<!-- 1. 완전 공통 (완전 부모) -->
 	<ThingDef ParentName="RK_ApparelAttr_ShieldBase" Name="RK_ApparelAttr_ShieldDeflect_Abstract" Abstract="True">
 		<thingClass>NewRatkin.ApparelShieldTowerSecond</thingClass>
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
+		</tradeTags>
 	</ThingDef>
 
 	<!-- 2. 정적 데이터 부모 — 소방패 (밸런스·재료 제외) -->

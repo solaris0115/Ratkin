@@ -435,6 +435,7 @@
 			<li>RK_TradeTag_UltraTech</li>
 			<li>RK_TradeTag_4TierWeapon</li>
 			<li>RK_TradeTag_HighTech</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<thingCategories>
 			<li>RK_ThingCategory_Melee</li>

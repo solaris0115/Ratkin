@@ -15,6 +15,9 @@
 		<thingCategories>
 			<li>RK_ThingCategory_Melee</li>
 		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_All</li>
+		</tradeTags>
 		<recipeMaker>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>

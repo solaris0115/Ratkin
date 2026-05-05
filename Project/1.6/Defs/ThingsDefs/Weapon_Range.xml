@@ -4,6 +4,9 @@
 		<thingCategories>
 			<li>RK_ThingCategory_Range</li>
 		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_All</li>
+		</tradeTags>
 		<recipeMaker>
 			<recipeUsers Inherit="false">
 				<li>RK_FueledSmithy</li>
@@ -218,6 +221,9 @@
 		<thingCategories>
 			<li>RK_ThingCategory_Range</li>
 		</thingCategories>
+		<tradeTags>
+			<li>RK_TradeTag_All</li>
+		</tradeTags>
 	</ThingDef>
 	<ThingDef ParentName="RK_NeolithicRangeWeapon" Name="RK_WeaponAttr_Arbalest">
 		<defName>RK_Weapon_Arbalest</defName>
@@ -711,6 +717,7 @@
 		</weaponTags>
 		<tradeTags Inherit="false">
 			<li>RK_TradeTag_4TierWeapon</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<tools>
 			<li>
@@ -846,6 +853,7 @@
 		</weaponTags>
 		<tradeTags Inherit="false">
 			<li>RK_TradeTag_4TierWeapon</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<tools>
 			<li>
@@ -974,6 +982,7 @@
 		</weaponTags>
 		<tradeTags Inherit="false">
 			<li>RK_TradeTag_4TierWeapon</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<tools>
 			<li>

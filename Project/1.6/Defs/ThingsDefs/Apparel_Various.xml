@@ -79,6 +79,7 @@
 		</comps>
 		<tradeTags>
 			<li>RK_Apparel</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<apparel>
 			<useWornGraphicMask>true</useWornGraphicMask>
@@ -1129,6 +1130,9 @@
 	<ThingDef ParentName="RK_ApparelMakeableBase">
 		<defName>RK_OrderUniform</defName>
 		<label>ratkin order uniform</label>
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
+		</tradeTags>
 		<thingCategories>
 			<li>RK_ApparelArmor</li>
 		</thingCategories>
@@ -1202,6 +1206,9 @@
 	<ThingDef ParentName="RK_HatMakeableBase">
 		<defName>RK_BulletProofHelmet</defName>
 		<label>Ratkin military helmet</label>
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
+		</tradeTags>
 		<thingCategories>
 			<li>RK_ArmorHeadgear</li>
 		</thingCategories>
@@ -1706,9 +1713,10 @@
 				<li>RoyalCombatGear</li>
 			</tags>
 		</apparel>
-		<tradeability>Sellable</tradeability>
-		<tradeTags Inherit="false">
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
 		</tradeTags>
+		<tradeability>Sellable</tradeability>
 	</ThingDef>
 
 	<!-- 가스마스크 A/B (별도 아이템 — 제작 시 외형 선택) -->
@@ -1783,9 +1791,10 @@
 				<li>RoyalCombatGear</li>
 			</tags>
 		</apparel>
-		<tradeability>Sellable</tradeability>
-		<tradeTags Inherit="false">
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
 		</tradeTags>
+		<tradeability>Sellable</tradeability>
 	</ThingDef>
 
 	<ThingDef ParentName="RK_HatMakeableBase">
@@ -1861,6 +1870,9 @@
 		</apparel>
 		<tradeability>Sellable</tradeability>
 		<tradeTags Inherit="false">
+			<li>RK_Apparel</li>
+			<li>RK_TradeTag_All</li>
+			<li>RK_TradeTag_Armor</li>
 		</tradeTags>
 	</ThingDef>
 

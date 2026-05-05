@@ -119,6 +119,7 @@
 			<li>RK_Apparel</li>
 		</thingCategories>
 		<tradeTags inherit="false">
+			<li>RK_Apparel</li>
 		</tradeTags>
 		<smeltable>true</smeltable>
 		<apparel>
@@ -301,6 +302,8 @@
 		</equippedStatOffsets>
 		<tradeTags>
 			<li>HiTechArmor</li>
+			<li>RK_TradeTag_ArmorHighTech</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<thingCategories>
 			<li>RK_ApparelArmor</li>
@@ -379,6 +382,8 @@
 		<tradeTags>
 			<li>HiTechArmor</li>
 			<li>Armor</li>
+			<li>RK_TradeTag_ArmorHighTech</li>
+			<li>RK_TradeTag_All</li>
 		</tradeTags>
 		<generateCommonality>2</generateCommonality>
 		<statBases>
