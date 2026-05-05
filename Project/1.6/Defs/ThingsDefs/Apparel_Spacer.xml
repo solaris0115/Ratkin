@@ -56,7 +56,7 @@
 			<tags>
 				<li>RK_4Tier</li>
 				<li>RK_ApparelTag_SpaceWear</li>
-				<!-- <li>RK_ApparelTag_HideEar</li> -->
+				<li>RK_ApparelTag_HideEar</li>
 				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 			<defaultOutfitTags>
@@ -549,7 +549,7 @@
 			<useWornGraphicMask>true</useWornGraphicMask>
 			<tags>
 				<li>PrestigeCombatGear</li>
-				<!-- <li>RK_ApparelTag_HideEar</li> -->
+				<li>RK_ApparelTag_HideEar</li>
 				<li>RK_ApparelTag_HighTech</li>
 			</tags>
 		</apparel>
