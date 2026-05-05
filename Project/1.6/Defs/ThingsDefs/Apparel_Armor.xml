@@ -123,8 +123,7 @@
 		<apparel>
 			<!-- FullHead 대체: FullHead 수준 방어+UpperHead(헤드기어/교단). FullHead 쓰면 머리 일부가 렌더 스킵(랫킨 귀 사라짐)됨. -->
 			<bodyPartGroups>
-				<li>UpperHead</li>
-				<li>RK_BodyGroup_FullHead</li>
+				<li>FullHead</li>
 			</bodyPartGroups>
 			<layers>
 				<li>Overhead</li>
