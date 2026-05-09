@@ -498,7 +498,6 @@
 		<defName>RK_Weapon_ProtoFlameChainSword</defName>
 		<label>flame chain sword</label>
 		<description>체인소드는 체인을 사용하여 공격하는 무기입니다. 반갈죽</description>
-		<meleeHitSound>RK_Sound_ChainSaw</meleeHitSound>
 		<graphicData>
 			<texPath>Weapon/RK_Texture_WeaponFlameProtoTypeChainSword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
