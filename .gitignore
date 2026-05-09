@@ -5,9 +5,6 @@
 RimworldData/
 RimworldSource/
 AlienRace/
-00_ContentMap/
-31_UniquePawn/
-99_ReleaseNote/
 
 # C# 프로젝트 빌드 출력 폴더
 obj/
