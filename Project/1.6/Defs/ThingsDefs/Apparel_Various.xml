@@ -173,60 +173,7 @@
 		</recipeMaker>
 	</ThingDef>
 
-	<ThingDef ParentName="RK_ApparelMakeableBase" MayRequire="Ludeon.RimWorld.Biotech">
-		<defName>RK_ApronSkirtChildren</defName>
-		<label>kid skirt</label>
-		<description>어린이용 일상복입니다.</description>
-		<graphicData>
-			<texPath>Apparel/RK_ApronSkirt</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<statBases>
-			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToMake>1200</WorkToMake>
-			<Mass>0.2</Mass>
-			<StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
-			<StuffEffectMultiplierInsulation_Cold>0.20</StuffEffectMultiplierInsulation_Cold>
-			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
-			<EquipDelay>1.5</EquipDelay>
-		</statBases>
-		<costStuffCount>50</costStuffCount>
-		<stuffCategories>
-			<li>Fabric</li>
-			<li>Leathery</li>
-		</stuffCategories>
-		<apparel>
-			<bodyPartGroups>
-				<li>Torso</li>
-				<li>Shoulders</li>
-				<li>Arms</li>
-				<li>Legs</li>
-			</bodyPartGroups>
-			<defaultOutfitTags>
-				<li>Child</li>
-			</defaultOutfitTags>
-			<wornGraphicPath>Apparel/RK_ApronSkirt</wornGraphicPath>
-			<layers>
-				<li>OnSkin</li>
-			</layers>
-			<tags>
-				<li>RK_Worker</li>
-				<li>RK_Servant</li>
-				<li>RK_Maid</li>
-				<li>RK_1Tier</li>
-				<li>RK_Thief</li>
-				<li>RK_Apparel_CommonClothes</li>
-			</tags>
-			<drawData>
-				<childScale>0.7</childScale>
-			</drawData>
-			<developmentalStageFilter>Child</developmentalStageFilter>
-		</apparel>
-		<recipeMaker>
-			<researchPrerequisite>RK_Research_Tailoring</researchPrerequisite>
-			<displayPriority>47205</displayPriority>
-		</recipeMaker>
-	</ThingDef>
+	<!-- RK_ApronSkirtChildren → Apparel_Child.xml -->
 
 	<!-- 더위저항 +12 -->
 	<!-- 여름드레스 더위저항 +7 -->
@@ -312,6 +259,10 @@
 				<li>RoyalTier2</li>
 				<li>RK_Apparel_CommonClothes</li>
 			</tags>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+			<drawData>
+				<childScale>0.7</childScale>
+			</drawData>
 		</apparel>
 		<colorGenerator Class="ColorGenerator_Options">
 			<options>
@@ -372,6 +323,10 @@
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+			<drawData>
+				<childScale>0.7</childScale>
+			</drawData>
 		</apparel>
 		<colorGenerator Class="ColorGenerator_Options">
 			<options>
@@ -513,6 +468,10 @@
 			<layers>
 				<li>Overhead</li>
 			</layers>
+			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+			<drawData>
+				<childScale>0.7</childScale>
+			</drawData>
 		</apparel>
 		<colorGenerator Class="ColorGenerator_Options">
 			<options>

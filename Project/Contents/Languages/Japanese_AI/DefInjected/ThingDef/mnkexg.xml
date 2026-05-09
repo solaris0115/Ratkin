@@ -141,6 +141,12 @@
   <RK_GaurdenUniform.description>庭を守る者たちが着る正装です。農耕が重要なラットキン社会では庭を守ることは大切な役目であり、最も有能な者だけが庭師になれます。</RK_GaurdenUniform.description>
   <RK_WinterRobe.label>ラットキン冬用礼服</RK_WinterRobe.label>
   <RK_WinterRobe.description>冬用の礼服です。極地で活動するときに着ます。</RK_WinterRobe.description>
+  <RK_Apparel_ChildrenWinterRobe.label>ラットキン子供用冬礼服</RK_Apparel_ChildrenWinterRobe.label>
+  <RK_Apparel_ChildrenWinterRobe.description>子供向けに仕立てた冬の礼服です。大人用冬礼服と同じ用途です。</RK_Apparel_ChildrenWinterRobe.description>
+  <RK_Apparel_ChildrenSummerDress.label>ラットキン子供用夏ドレス</RK_Apparel_ChildrenSummerDress.label>
+  <RK_Apparel_ChildrenSummerDress.description>子供向けの夏用ドレスです。通気性がよく暑い日に適しています。</RK_Apparel_ChildrenSummerDress.description>
+  <RK_Apparel_ChildrenCardigan.label>ラットキン子供用カーディガン</RK_Apparel_ChildrenCardigan.label>
+  <RK_Apparel_ChildrenCardigan.description>子供向けのカーディガンです。上着として寒さを和らげます。</RK_Apparel_ChildrenCardigan.description>
   <RK_OrderUniform.label>ラットキン制服</RK_OrderUniform.label>
   <RK_OrderUniform.description>よく仕立てられた戦闘服です。ラットキン式の戦闘に有利なよう設計された衣類です。着用者にわずかな高揚感を与え、屈強な戦闘員にしてくれます。</RK_OrderUniform.description>
   <RK_BulletProofHelmet.label>ラットキン防弾ヘルメット</RK_BulletProofHelmet.label>
