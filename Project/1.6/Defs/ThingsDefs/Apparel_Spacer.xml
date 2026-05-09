@@ -11,7 +11,7 @@
 		<graphicData>
 			<texPath>Apparel/Vacsuit/RK_Apparel_VacsuitHelmet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>15000</WorkToMake>
@@ -94,7 +94,7 @@
 		<graphicData>
 			<texPath>Apparel/Vacsuit/RK_Apparel_Vacsuit</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<ignoreThingDrawColor>true</ignoreThingDrawColor>
+			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<statBases>
 			<WorkToMake>48000</WorkToMake>

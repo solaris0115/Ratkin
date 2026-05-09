@@ -14,7 +14,8 @@
 		<graphicData>
 			<texPath>Apparel/RK_Plate</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<!-- <shaderType>CutoutComplex</shaderType> -->
+			<shaderType>CutoutComplex</shaderType>
+			<ignoreThingDrawColor>false</ignoreThingDrawColor>
 		</graphicData>
 		<recipeMaker>
 			<unfinishedThingDef>UnfinishedArmor</unfinishedThingDef>
@@ -70,6 +71,7 @@
 				<li>Soldier</li>
 			</defaultOutfitTags>
 			<wornGraphicPath>Apparel/RK_Plate</wornGraphicPath>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
 				<li>Middle</li>
 			</layers>
@@ -97,6 +99,8 @@
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>0.8</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<ignoreThingDrawColor>false</ignoreThingDrawColor>
 		</graphicData>
 		<costList>
 			<Steel>25</Steel>
@@ -124,6 +128,7 @@
 			<bodyPartGroups>
 				<li>FullHead</li>
 			</bodyPartGroups>
+			<useWornGraphicMask>true</useWornGraphicMask>
 			<layers>
 				<li>Overhead</li>
 			</layers>
