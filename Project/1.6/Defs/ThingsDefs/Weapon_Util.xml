@@ -90,9 +90,6 @@
 					<li>TwoHand</li>
 				</gripTypes>
 			</li>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
@@ -160,9 +157,6 @@
 					<li>OneHand</li>
 				</gripTypes>
 			</li>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
@@ -229,9 +223,6 @@
 					<li>TwoHand</li>
 				</gripTypes>
 			</li>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
 	</ThingDef>
@@ -297,9 +288,6 @@
 				<gripTypes>
 					<li>TwoHand</li>
 				</gripTypes>
-			</li>
-			<li>
-				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
@@ -377,9 +365,6 @@
 				<gripTypes>
 					<li>TwoHand</li>
 				</gripTypes>
-			</li>
-			<li>
-				<compClass>CompQuality</compClass>
 			</li>
 		</comps>
 		<tradeability>Sellable</tradeability>
