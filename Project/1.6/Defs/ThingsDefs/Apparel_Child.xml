@@ -76,7 +76,7 @@
 		<statBases>
 			<WorkToMake>20000</WorkToMake>
 			<MaxHitPoints>100</MaxHitPoints>
-			<Mass>8</Mass>
+			<Mass>4.8</Mass>
 			<Flammability>0.4</Flammability>
 			<ArmorRating_Sharp>0.4</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
