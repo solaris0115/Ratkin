@@ -30,10 +30,6 @@
   <RK_Hediff_BionicTail.description>An installed bionic ratkin tail. It features an AI that monitors the users movement and moves the tail in response, allowing it to replicate the user's missing tail almost perfectly. A lattice-dust healing system allows it to recover from damage. It is better than a biological tail in almost every way.</RK_Hediff_BionicTail.description>
   <RK_Hediff_BionicTail.labelNoun>a bionic Ratkin tail</RK_Hediff_BionicTail.labelNoun>
 
-  <RK_Hediff_ArchotechTail.label>archotech Ratkin tail</RK_Hediff_ArchotechTail.label>
-  <RK_Hediff_ArchotechTail.description>An installed archotech ratkin tail. It senses posture and micro-movements to keep the bearer perfectly balanced, feels like living flesh, and is harder to damage than plasteel. If harmed, it repairs itself over time. Its inner workings are a mystery.</RK_Hediff_ArchotechTail.description>
-  <RK_Hediff_ArchotechTail.labelNoun>an archotech Ratkin tail</RK_Hediff_ArchotechTail.labelNoun>
-
   <RK_Hediff_FakeTail.label>prosthetic Ratkin tail</RK_Hediff_FakeTail.label>
   <RK_Hediff_FakeTail.description>A prosthetic ratkin tail. It is less of a tail and more of a counterweight meant to imitate the corrective properties of a biological tail.</RK_Hediff_FakeTail.description>
   <RK_Hediff_FakeTail.labelNoun>a prosthetic Ratkin tail</RK_Hediff_FakeTail.labelNoun>

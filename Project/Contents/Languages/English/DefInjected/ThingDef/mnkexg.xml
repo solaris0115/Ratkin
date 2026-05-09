@@ -58,7 +58,7 @@
 <!-- Ratkin -->
 
   <Ratkin.label>ratkin</Ratkin.label>
-  <Ratkin.description>A human with rodent-like genes. Although the origins are unknown, it is known to be a monarchy-based society with a strong emphasis on agriculture. There are more females than males, and it can be difficult to distinguish the gender of ratkin when viewed from the outside.</Ratkin.description>
+  <Ratkin.description>A human with rodent-like genes. Although their origins are unknown, it is known to be a monarchy-based society with a strong emphasis on agriculture. There are more females than males, and it can be difficult to distinguish the gender of ratkin when viewed from the outside.</Ratkin.description>
   <Ratkin.tools.0.label>teeth</Ratkin.tools.0.label>
   <Ratkin.tools.1.label>left fist</Ratkin.tools.1.label>
   <Ratkin.tools.2.label>right fist</Ratkin.tools.2.label>
@@ -118,12 +118,12 @@
   <RK_RoyalCrown.label>Ratkin royal crown</RK_RoyalCrown.label>
   <RK_RoyalCrown.description>A grand crown with an elaborate design embroiled onto it. Worn by upper-ranking nobles.</RK_RoyalCrown.description>
 
-  <RK_WoodenShield.label>ratkin wooden Shield</RK_WoodenShield.label>
+  <RK_WoodenShield.label>ratkin wooden shield</RK_WoodenShield.label>
   <RK_WoodenShield.description>A round shield made out of wood. Can deflect attacks from the front. 
 
 Deflection chance is based on wearer's melee skill and material.</RK_WoodenShield.description>
 
-  <RK_HeavyShield.label>ratkin heavy Shield</RK_HeavyShield.label>
+  <RK_HeavyShield.label>ratkin heavy shield</RK_HeavyShield.label>
   <RK_HeavyShield.description>A metal shield. Allows the wearer to deflect attacks from the front.  
 
 Deflection chance is based on wearer's melee skill and material.</RK_HeavyShield.description>
@@ -199,7 +199,7 @@ Provides the ability to bolster the morale of nearby allies depending on the soc
   <RK_WorkerWear.description>Clothes tailored to aid working ratkin complete their jobs quicker, recommended for ratkin who often find themselves doing a lot of work.</RK_WorkerWear.description>
 
   <RK_Coif.label>Ratkin coif</RK_Coif.label>
-  <RK_Coif.description>It is a hat to use when working in the kitchen. It can catch hair from falling into food during meal prep.</RK_Coif.description>
+  <RK_Coif.description>A hat for use when working in the kitchen. It can catch hair from falling into food during meal prep.</RK_Coif.description>
 
   <RK_ResearchGown.label>Ratkin research gown</RK_ResearchGown.label>
   <RK_ResearchGown.description>A gown made to be worn by researching ratkin. It makes catching stains easier and gives off an intelligent look.</RK_ResearchGown.description>
@@ -219,7 +219,7 @@ Provides the ability to bolster the morale of nearby allies depending on the soc
   <RK_ChefHat.label>Ratkin chef hat</RK_ChefHat.label>
   <RK_ChefHat.description>Chef hat. Prevents hair from entering the food during meal prep.</RK_ChefHat.description>
   <RK_GaurdenUniform.label>Ratkin Guardener uniform</RK_GaurdenUniform.label>
-  <RK_GaurdenUniform.description>A Guardener's uniform is an important piece of attire worn by the Guardeners protecting the gardens revered in Ratkin Society. Only the best Ratkin are selected to become Guardeners.</RK_GaurdenUniform.description>
+  <RK_GaurdenUniform.description>A Guardener's uniform is an important piece of attire worn by the guardeners who protect the gardens revered in Ratkin Society. Only the best Ratkin are selected to become Guardeners.</RK_GaurdenUniform.description>
   <RK_WinterRobe.label>Ratkin winter robe</RK_WinterRobe.label>
   <RK_WinterRobe.description>A winter robe worn when working in the cold.</RK_WinterRobe.description>
 
@@ -236,14 +236,14 @@ Provides the ability to bolster the morale of nearby allies depending on the soc
   <RK_HairCorsage.description>A flower-shaped corsage. The beauty of the flower empowers every word.</RK_HairCorsage.description>
   <RK_RibbonHairBand.label>Ratkin ribbon hair band</RK_RibbonHairBand.label>
   <RK_RibbonHairBand.description>A hairband with a cute little ribbon wrapped onto it. The cuteness of the ribbon makes it easier to negotiate for one more candy while trading.</RK_RibbonHairBand.description>
-  <RK_SistersDerss.label>Ratkin nun dress</RK_SistersDerss.label>
-  <RK_SistersDerss.description>A simple dress worn by the nuns of the ratkin. It features a slight side slit for ease of movement. The nuns also care for the sick.</RK_SistersDerss.description>
+  <RK_SistersDerss.label>Ratkin Sister dress</RK_SistersDerss.label>
+  <RK_SistersDerss.description>A simple dress worn by the sisters of the ratkin. It features a side slit for ease of movement. The sisters also care for the sick.</RK_SistersDerss.description>
   <RK_SistersVeil.label>Ratkin veil</RK_SistersVeil.label>
-  <RK_SistersVeil.description>A veil worn over the head by the nuns of the ratkin. It keeps their hair neat and helps instill confidence in the wounded when the nun is performing medical work.</RK_SistersVeil.description>
+  <RK_SistersVeil.description>A veil worn over the head by the sisters of the ratkin. It keeps their hair neat and helps instill confidence in the wounded when the sisters are performing medical work.</RK_SistersVeil.description>
   <RK_BattleSuit.label>ratkin combat suit</RK_BattleSuit.label>
   <RK_BattleSuit.description>It's a combat suit designed for raiding purposes. Protects the wearer from hot temperatures and because of its construction, it is resistant to catching fire. The look of the uniform is however intimidating if kept on during social interactions.</RK_BattleSuit.description>
   <RK_HeadBand.label>Ratkin head band</RK_HeadBand.label>
-  <RK_HeadBand.description>It's a red headband that's worn around the head. It is said that if you encounter ratkin with headbands on their head - be careful - They're likely fanatical ratkin who know no fear.</RK_HeadBand.description>
+  <RK_HeadBand.description>A piece of red cloth worn around the head. It is said that if you encounter ratkin with headbands on their head - be careful - They're likely fanatical ratkin who know no fear.</RK_HeadBand.description>
   <RK_PlateHelmA.label>Ratkin plate helm A</RK_PlateHelmA.label>
   <RK_PlateHelmA.description>It's a simple plate helm.</RK_PlateHelmA.description>
   <RK_PlateHelmB.label>Ratkin plate helm B</RK_PlateHelmB.label>
@@ -270,7 +270,7 @@ A sober ratkin would throw it...</RK_MagicWand.description>
 A short cooldown is required after using Wyvern Fire to allow the gunlance time to cool.</RK_Weapon_Gunlance.description>
   <RK_Weapon_Gunlance.tools.0.label>point</RK_Weapon_Gunlance.tools.0.label>
   <RK_Weapon_Gunlance.tools.1.label>edge</RK_Weapon_Gunlance.tools.1.label>
-  <RK_Weapon_Gunlance.comps.0.chargeNoun>Wyvern Fire charge</RK_Weapon_Gunlance.comps.0.chargeNoun>
+  <RK_Weapon_Gunlance.comps.2.chargeNoun>Wyvern Fire charge</RK_Weapon_Gunlance.comps.2.chargeNoun>
   <RK_Ammo_WyvernFire.label>Wyvern Fire shell</RK_Ammo_WyvernFire.label>
   <RK_Ammo_WyvernFire.description>Ammunition required for firing a gunlance's Wyvern Fire. The shell uses a two-stage structure, preheating with primary fuel before spraying secondary powder to create a large explosion.
 
@@ -311,7 +311,7 @@ The size of the weapon makes it impossible for humans to use it.</RK_Mace.descri
   <RK_Mace.tools.1.label>handle</RK_Mace.tools.1.label>
 
   <RK_LightLance.label>ratkin wooden lance</RK_LightLance.label>
-  <RK_LightLance.description>A lightweight wooden lance tipped with iron at the end to increase its destructive power. while lightweight, its size still makes it hard to use in melee combat. Allows the ability to charge at enemies in close range.
+  <RK_LightLance.description>A lightweight wooden lance tipped with iron at the end to increase its destructive power. While lightweight, its size still makes it hard to use in melee combat. Allows the ability to charge at enemies in close range.
 
 The size of the weapon makes it impossible for humans to use it.</RK_LightLance.description>
   <RK_LightLance.tools.0.label>point</RK_LightLance.tools.0.label>
