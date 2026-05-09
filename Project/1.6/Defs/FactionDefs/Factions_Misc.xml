@@ -304,6 +304,16 @@
 					<RatkinDefender>10</RatkinDefender>
 				</guards>
 			</li>
+			<!-- Odyssey 조난 등 Settlement 그룹 스폰용 — Trader만 있을 때 맵 생성 NRE 방지 -->
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<RatkinMerchant>5</RatkinMerchant>
+					<RatkinMercenaryLight>10</RatkinMercenaryLight>
+					<RatkinSoldier>10</RatkinSoldier>
+					<RatkinDefender>8</RatkinDefender>
+				</options>
+			</li>
 		</pawnGroupMakers>
 		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
 		<allowedCultures>
