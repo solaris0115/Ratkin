@@ -7,7 +7,7 @@ namespace NewRatkin
 {
 	public class HediffComp_GiveHediffsInRange : HediffComp
 	{
-		private const int BuffApplyIntervalTicks = 10;
+		private const int BuffApplyIntervalTicks = 15;
 
 		private const int DisappearTicksAfterRefresh = 15;
 
