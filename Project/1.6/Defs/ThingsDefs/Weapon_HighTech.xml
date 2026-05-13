@@ -638,7 +638,7 @@
 						<clipPath>Weapon/RK_Sound_ChainSaw</clipPath>
 					</li>
 				</grains>
-				<volumeRange>35~45</volumeRange>
+				<volumeRange>18~23</volumeRange>
 				<pitchRange>
 					<min>0.9</min>
 					<max>1.1</max>
