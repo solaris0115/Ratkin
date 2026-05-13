@@ -555,7 +555,8 @@ namespace NewRatkin
         }
 
         /// <summary>
-        /// 폰 클릭으로 대상 지정 후, 이후 클릭마다 해당 폰을 즉시 해당 칸 좌표로 이동(연출 없음).
+        /// 폰 클릭으로 대상 지정 후, 이후 클릭마다 해당 폰의 그리드 좌표만 변경한다.
+        /// Notify_Teleported는 호출하지 않는다(텔레포트 처리·연출 경로 미탑승).
         /// </summary>
         [DebugAction("Ratkin", "Teleport pawn (click pawn, then cells)",
             allowedGameStates = AllowedGameStates.PlayingOnMap,
@@ -591,8 +592,6 @@ namespace NewRatkin
                 {
                     FloodFillerFog.FloodUnfog(selected.Position, selected.Map);
                 }
-
-                selected.Notify_Teleported(true, true);
             }, (Action)null);
 
             DebugTool pickTool = new DebugTool("Teleport: click pawn...", delegate()
