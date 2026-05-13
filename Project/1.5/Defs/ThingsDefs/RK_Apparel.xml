@@ -258,6 +258,7 @@
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 		</apparel>
 		<colorGenerator Class="ColorGenerator_Options">
 			<options>
@@ -390,6 +391,7 @@
 			<layers>
 				<li>Overhead</li>
 			</layers>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 		</apparel>
 		<colorGenerator Class="ColorGenerator_Options">
 			<options>
@@ -602,6 +604,7 @@
 			<layers>
 				<li>Overhead</li>
 			</layers>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 			<tags>
 				<li>RK_Servant</li>
 				<li>RK_2Tier</li>

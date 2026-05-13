@@ -323,6 +323,7 @@
 			<layers>
 				<li>OuterClothing</li>
 			</layers>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 			<drawData>
 				<childScale>0.7</childScale>
@@ -468,6 +469,7 @@
 			<layers>
 				<li>Overhead</li>
 			</layers>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 			<developmentalStageFilter>Child, Adult</developmentalStageFilter>
 			<drawData>
 				<childScale>0.7</childScale>
@@ -590,6 +592,7 @@
 			<layers>
 				<li>Overhead</li>
 			</layers>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
 			<tags>
 				<li>RK_Servant</li>
 				<li>RK_2Tier</li>
