@@ -181,18 +181,19 @@ namespace NewRatkin
 			// 짐꾼 동물: 바닐라와 동일하게 물품 수에 따라 ceil(wares/8), 최소 1
 			List<Pawn> packAnimals = CreatePackAnimals(faction, map.Tile, wares.Count);
 			DistributeWaresToCarriers(wares, packAnimals, leader);
-			PawnInventoryGenerator.GiveRandomFood(leader);
 			List<Pawn> allPawns = new List<Pawn> { leader };
 			allPawns.AddRange(guards);
 			allPawns.AddRange(salePawns);
 			allPawns.AddRange(packAnimals);
 
 			foreach (Pawn p in allPawns)
+				GiveCaravanTravelRations(p);
+
+			foreach (Pawn p in allPawns)
 			{
 				IntVec3 loc = CellFinder.RandomClosewalkCellNear(parms.spawnCenter, map, 5, null);
 				GenSpawn.Spawn(p, loc, map, WipeMode.Vanish);
-				if (p.needs?.food != null)
-					p.needs.food.CurLevel = p.needs.food.MaxLevel;
+				SatisfyAllNeedsAtSpawn(p);
 			}
 
 			IntVec3 chillSpot;
@@ -221,6 +222,40 @@ namespace NewRatkin
 			SendStandardLetter(label, text, LetterDefOf.PositiveEvent, parms, leader, Array.Empty<NamedArgument>());
 
 			return true;
+		}
+
+		/// <summary>맵 등장 직후 식욕·수면·재미 등 <see cref="Need"/> 전부 맥스.</summary>
+		private static void SatisfyAllNeedsAtSpawn(Pawn p)
+		{
+			if (p?.needs?.AllNeeds == null)
+				return;
+			List<Need> list = p.needs.AllNeeds;
+			for (int i = 0; i < list.Count; i++)
+			{
+				Need need = list[i];
+				if (need == null)
+					continue;
+				float max = need.MaxLevel;
+				if (max > 0f)
+					need.CurLevel = max;
+			}
+		}
+
+		/// <summary>
+		/// 인벤 기준 여행 식량. RKBasePawnKind 계열은 invNutrition+건빵으로 GiveRandomFood가 채움.
+		/// 상인 재고 폰 등 invNutrition 없는 인간형은 pemmican 소량 폴백.
+		/// </summary>
+		private static void GiveCaravanTravelRations(Pawn p)
+		{
+			if (p?.inventory == null)
+				return;
+			PawnInventoryGenerator.GiveRandomFood(p);
+			if (!p.RaceProps.Humanlike || p.kindDef.invNutrition > 0.001f)
+				return;
+			ThingDef def = DefDatabase<ThingDef>.GetNamedSilentFail("RK_Food_Hardtack") ?? ThingDefOf.Pemmican;
+			Thing food = ThingMaker.MakeThing(def);
+			food.stackCount = Rand.RangeInclusive(2, 5);
+			p.inventory.TryAddItemNotForSale(food);
 		}
 
 		private static Pawn CreateLeader(Faction faction, int tile, TraderKindDef traderKind)
