@@ -6,7 +6,7 @@ namespace NewRatkin
 {
     /// <summary>
     /// Prototype Pulse Rifle 발사 모드 토글 Comp 속성
-    /// 3점사/단발 모드별 VerbProperties, 탄환, stat offset, 아이콘 경로 정의
+    /// 연사/단발별 탄환·사거리·버스트·조준·stat offset (Verb override로 적용, verbProps 교체 없음)
     /// </summary>
     public class CompProperties_PulseRifleFireMode : CompProperties
     {

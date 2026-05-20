@@ -791,7 +791,16 @@
 			<ComponentIndustrial>7</ComponentIndustrial>
 			<ComponentSpacer>1</ComponentSpacer>
 		</costList>
-		<comps>
+		<comps Inherit="False">
+			<li Class="CompProperties_Forbiddable"/>
+			<li>
+				<compClass>NewRatkin.CompEquippable_PulseRifle</compClass>
+			</li>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Biocodable"/>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
 			<li Class="NewRatkin.CompProperties_WeaponGripType">
 				<gripTypes>
 					<li>TwoHand</li>
@@ -823,7 +832,7 @@
 			<li>
 				<verbClass>NewRatkin.Verb_PulseRifleShoot</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
-				<!-- 정보 카드는 ThingDef.verbs만 참조함. 기본 연사 모드와 동일하게 두고 Comp가 장착 후 덮어씀 -->
+				<!-- 정보 카드·기본 표시는 연사 모드(Def verbs). 실제 사격 수치는 Comp + Verb_PulseRifleShoot override -->
 				<defaultProjectile>Bullet_RK_PrototypePulseRifleLight</defaultProjectile>
 				<warmupTime>1</warmupTime>
 				<burstShotCount>4</burstShotCount>
