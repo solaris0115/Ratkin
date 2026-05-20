@@ -241,20 +241,35 @@ namespace NewRatkin
 			}
 		}
 
+		/// <summary>invNutrition 미설정 시 RKBasePawnKind와 동일한 기본 여행 영양분.</summary>
+		private const float WanderingCaravanDefaultInvNutrition = 2f;
+
+		/// <summary>유랑단 인간형 최소 건빵(또는 invFoodDef) 스택.</summary>
+		private const int WanderingCaravanMinFoodStacks = 3;
+
 		/// <summary>
-		/// 인벤 기준 여행 식량. RKBasePawnKind 계열은 invNutrition+건빵으로 GiveRandomFood가 채움.
-		/// 상인 재고 폰 등 invNutrition 없는 인간형은 pemmican 소량 폴백.
+		/// 유랑단 인간형 전원 인벤에 여행 식량 강제. kindDef.invFoodDef·invNutrition 우선, 없으면 건빵·기본 영양분.
+		/// 짐꾼 등 비인간은 제외.
 		/// </summary>
 		private static void GiveCaravanTravelRations(Pawn p)
 		{
-			if (p?.inventory == null)
+			if (p?.inventory == null || !p.RaceProps.Humanlike)
 				return;
-			PawnInventoryGenerator.GiveRandomFood(p);
-			if (!p.RaceProps.Humanlike || p.kindDef.invNutrition > 0.001f)
+
+			ThingDef foodDef = p.kindDef.invFoodDef
+				?? DefDatabase<ThingDef>.GetNamedSilentFail("RK_Food_Hardtack")
+				?? ThingDefOf.Pemmican;
+			float nutritionTarget = p.kindDef.invNutrition > 0.001f
+				? p.kindDef.invNutrition
+				: WanderingCaravanDefaultInvNutrition;
+			float nutritionPerItem = foodDef.GetStatValueAbstract(StatDefOf.Nutrition, null);
+			if (nutritionPerItem <= 0.001f)
 				return;
-			ThingDef def = DefDatabase<ThingDef>.GetNamedSilentFail("RK_Food_Hardtack") ?? ThingDefOf.Pemmican;
-			Thing food = ThingMaker.MakeThing(def);
-			food.stackCount = Rand.RangeInclusive(2, 5);
+
+			int stackCount = Mathf.Max(WanderingCaravanMinFoodStacks,
+				GenMath.RoundRandom(nutritionTarget / nutritionPerItem));
+			Thing food = ThingMaker.MakeThing(foodDef, null);
+			food.stackCount = stackCount;
 			p.inventory.TryAddItemNotForSale(food);
 		}
 
