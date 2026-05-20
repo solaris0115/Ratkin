@@ -1,3 +1,5 @@
+// [DISABLED] Report/147_RatHolicGun_Legacy_StatPart_Disabled_Memo.md — RangedCooldownFactor 전환으로 미사용
+#if false
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -187,4 +189,4 @@ namespace NewRatkin
         }
     }
 }
-
+#endif

@@ -1210,35 +1210,35 @@
 				<minSeverity>0.2</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statFactors>
-					<RK_Stat_RangeCoolDownMultiplier>0.5</RK_Stat_RangeCoolDownMultiplier>
+					<RangedCooldownFactor>0.5</RangedCooldownFactor>
 				</statFactors>
 			</li>
 			<li>
 				<minSeverity>0.4</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statFactors>
-					<RK_Stat_RangeCoolDownMultiplier>0.4</RK_Stat_RangeCoolDownMultiplier>
+					<RangedCooldownFactor>0.4</RangedCooldownFactor>
 				</statFactors>
 			</li>
 			<li>
 				<minSeverity>0.6</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statFactors>
-					<RK_Stat_RangeCoolDownMultiplier>0.3</RK_Stat_RangeCoolDownMultiplier>
+					<RangedCooldownFactor>0.3</RangedCooldownFactor>
 				</statFactors>
 			</li>
 			<li>
 				<minSeverity>0.8</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statFactors>
-					<RK_Stat_RangeCoolDownMultiplier>0.2</RK_Stat_RangeCoolDownMultiplier>
+					<RangedCooldownFactor>0.2</RangedCooldownFactor>
 				</statFactors>
 			</li>
 			<li>
 				<minSeverity>1.0</minSeverity>
 				<becomeVisible>false</becomeVisible>
 				<statFactors>
-					<RK_Stat_RangeCoolDownMultiplier>0.1</RK_Stat_RangeCoolDownMultiplier>
+					<RangedCooldownFactor>0.1</RangedCooldownFactor>
 				</statFactors>
 			</li>
 		</stages>

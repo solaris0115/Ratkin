@@ -160,8 +160,9 @@ namespace NewRatkin
     [DefOf]
     public static class RatkinStatDefOf
     {
-        public static StatDef RK_Stat_RangeCoolDown;
-        public static StatDef RK_Stat_RangeCoolDownMultiplier;
+        // [DISABLED] Report/147 — RK_Stat_* legacy, RangedCooldownFactor 전환
+        // public static StatDef RK_Stat_RangeCoolDown;
+        // public static StatDef RK_Stat_RangeCoolDownMultiplier;
         public static StatDef RK_Stat_ShieldBlockChance;
         public static StatDef RK_Stat_DeflectAngle;
         public static StatDef RK_Stat_ShieldStuffBase;

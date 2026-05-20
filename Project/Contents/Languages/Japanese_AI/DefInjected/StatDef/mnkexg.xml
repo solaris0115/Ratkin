@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <!-- [DISABLED] Report/147 RK_Stat_RangeCoolDown legacy
   <RK_Stat_RangeCoolDown.label>遠距離再使用待機時間の短縮</RK_Stat_RangeCoolDown.label>
   <RK_Stat_RangeCoolDown.description>遠距離武器の再使用待機時間を短縮します。このステータスはラットホリックガンの加熱効果に使用されます。</RK_Stat_RangeCoolDown.description>
   <RK_Stat_RangeCoolDown.formatString>{0}秒</RK_Stat_RangeCoolDown.formatString>
   <RK_Stat_RangeCoolDownMultiplier.label>遠距離再使用待機時間倍率</RK_Stat_RangeCoolDownMultiplier.label>
   <RK_Stat_RangeCoolDownMultiplier.description>遠距離武器の再使用待機時間に倍率を適用します。このステータスはラットホリックガンの加熱効果でステータス係数とともに使用されます。</RK_Stat_RangeCoolDownMultiplier.description>
   <RK_Stat_RangeCoolDownMultiplier.formatString>{0}×</RK_Stat_RangeCoolDownMultiplier.formatString>
+  -->
   <RK_Stat_ShieldBlockChance.label>盾の防御率</RK_Stat_ShieldBlockChance.label>
   <RK_Stat_ShieldBlockChance.description>盾で防御を試みる確率です。\n\n盾による防御に成功すると、盾が貫通されたかどうかを判定します。\n\n近接スキル、操作、視界の影響を受けます。</RK_Stat_ShieldBlockChance.description>
   <RK_Stat_DeflectAngle.label>盾の防御角度</RK_Stat_DeflectAngle.label>

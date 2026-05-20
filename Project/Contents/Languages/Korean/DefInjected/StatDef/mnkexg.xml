@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <!-- [DISABLED] Report/147 RK_Stat_RangeCoolDown legacy
   <RK_Stat_RangeCoolDown.label>원거리 재사용 대기시간 감소</RK_Stat_RangeCoolDown.label>
   <RK_Stat_RangeCoolDown.description>원거리 무기의 재사용 대기시간을 줄입니다. 이 스탯은 랫홀릭 건의 가열 효과에 사용됩니다.</RK_Stat_RangeCoolDown.description>
   <RK_Stat_RangeCoolDown.formatString>{0}초</RK_Stat_RangeCoolDown.formatString>
   <RK_Stat_RangeCoolDownMultiplier.label>원거리 재사용 대기시간 배수</RK_Stat_RangeCoolDownMultiplier.label>
   <RK_Stat_RangeCoolDownMultiplier.description>원거리 무기의 재사용 대기시간에 배율을 적용합니다. 이 스탯은 랫홀릭 건의 가열 효과에서 스탯 계수와 함께 사용됩니다.</RK_Stat_RangeCoolDownMultiplier.description>
   <RK_Stat_RangeCoolDownMultiplier.formatString>{0}×</RK_Stat_RangeCoolDownMultiplier.formatString>
+  -->
   <RK_Stat_ShieldBlockChance.label>방패 방어율</RK_Stat_ShieldBlockChance.label>
   <RK_Stat_ShieldBlockChance.description>방패로 방어를 시도할 확률입니다.\n\n방패 방어에 성공하면, 방패가 관통 당했는지 결정합니다.\n\n근접 스킬, 조작, 시야의 영향을 받습니다.</RK_Stat_ShieldBlockChance.description>
   <RK_Stat_DeflectAngle.label>방패 방어 각도</RK_Stat_DeflectAngle.label>
