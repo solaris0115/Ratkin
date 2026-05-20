@@ -38,12 +38,12 @@ namespace NewRatkin
             get
             {
                 Comp_PulseRifleFireMode comp = FireModeComp;
-                if (comp != null)
-                {
-                    return comp.CurrentWarmupTime;
-                }
-
-                return base.WarmupTime;
+                float baseWarmup = comp != null ? comp.CurrentWarmupTime : verbProps.warmupTime;
+                ThingWithComps equipmentSource = EquipmentSource;
+                float multiplier = equipmentSource != null
+                    ? equipmentSource.GetStatValue(StatDefOf.RangedWeapon_WarmupMultiplier, true, -1)
+                    : 1f;
+                return baseWarmup * multiplier;
             }
         }
 
