@@ -1,33 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- [DISABLED] Report/147_RatHolicGun_Legacy_StatPart_Disabled_Memo.md
-     RK_Stat_RangeCoolDown / RK_Stat_RangeCoolDownMultiplier — RangedCooldownFactor 전환으로 미사용
+<!-- [DISABLED] RK_Stat_RangeCoolDown* — Report/147_RatHolicGun_Legacy_StatPart_Disabled_Memo.md -->
 <Defs>
-  <StatDef>
-    <defName>RK_Stat_RangeCoolDown</defName>
-    <label>ranged cooldown reduction</label>
-    <description>Reduces the cooldown time of ranged weapons. This stat is used by RatHolic Gun spooling effect.</description>
-    <category>PawnCombat</category>
-    <defaultBaseValue>0</defaultBaseValue>
-    <minValue>-999</minValue>
-    <toStringStyle>FloatTwo</toStringStyle>
-    <formatString>{0} s</formatString>
-    <showIfUndefined>false</showIfUndefined>
-    <alwaysHide>true</alwaysHide>
-    <displayPriorityInCategory>1206</displayPriorityInCategory>
-  </StatDef>
-
-  <StatDef>
-    <defName>RK_Stat_RangeCoolDownMultiplier</defName>
-    <label>ranged cooldown multiplier</label>
-    <description>Multiplies the cooldown time of ranged weapons. This stat is used by RatHolic Gun spooling effect with statFactors.</description>
-    <category>PawnCombat</category>
-    <defaultBaseValue>1</defaultBaseValue>
-    <minValue>0.01</minValue>
-    <toStringStyle>FloatTwo</toStringStyle>
-    <formatString>{0}×</formatString>
-    <showIfUndefined>false</showIfUndefined>
-    <alwaysHide>true</alwaysHide>
-    <displayPriorityInCategory>1207</displayPriorityInCategory>
-  </StatDef>
 </Defs>
--->
