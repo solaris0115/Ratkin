@@ -37,8 +37,9 @@ Thumbs.db
 *.rar
 *.7z
 
-# IDE 설정 파일들 (Cursor 제외)
-.vscode/
+# IDE 설정 파일들 (워크스페이스 빌드 태스크는 공유)
+.vscode/*
+!.vscode/tasks.json
 .idea/
 *.swp
 *.swo

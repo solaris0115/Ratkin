@@ -1,0 +1,55 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "NewRatkin: Debug Rebuild",
+      "type": "process",
+      "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
+      "args": [
+        "NewRatkin.csproj",
+        "/t:Rebuild",
+        "/p:Configuration=Debug",
+        "/restore:false"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/Project/1.6/Source"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "focus": false,
+        "clear": false,
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "NewRatkin: Release Rebuild (no dev features)",
+      "type": "process",
+      "command": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
+      "args": [
+        "NewRatkin.csproj",
+        "/t:Rebuild",
+        "/p:Configuration=Release",
+        "/p:RatkinDevFeatures=false",
+        "/restore:false"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/Project/1.6/Source"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "focus": false,
+        "clear": false,
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
