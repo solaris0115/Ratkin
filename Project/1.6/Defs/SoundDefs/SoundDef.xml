@@ -32,10 +32,10 @@
 					</li>
 				</grains>
 				<!-- 기본 50 대비 30% 감소 (파동소총·동일 클립 총기 공통) -->
-				<volumeRange>35~35</volumeRange>
+				<volumeRange>25~25</volumeRange>
 				<pitchRange>
-					<min>0.9152174</min>
-					<max>1.042391</max>
+					<min>0.65</min>
+					<max>0.85</max>
 				</pitchRange>
 			</li>
 		</subSounds>
@@ -53,10 +53,10 @@
 					</li>
 				</grains>
 				<!-- PrototypePulse 클립과 동일 스케일(기본 50의 70%) -->
-				<volumeRange>35~35</volumeRange>
+				<volumeRange>25~25</volumeRange>
 				<pitchRange>
-					<min>0.6</min>
-					<max>0.7</max>
+					<min>0.55</min>
+					<max>0.65</max>
 				</pitchRange>
 			</li>
 		</subSounds>
@@ -75,10 +75,10 @@
 					</li>
 				</grains>
 				<!-- PrototypePulse 클립과 동일 스케일(기본 50의 70%) -->
-				<volumeRange>35~35</volumeRange>
+				<volumeRange>25~25</volumeRange>
 				<pitchRange>
-					<min>0.74</min>
-					<max>0.84</max>
+					<min>0.75</min>
+					<max>0.95</max>
 				</pitchRange>
 			</li>
 		</subSounds>
