@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	유니크 폰 BackstoryDef 템플릿
+	{Name} 부분을 실제 이름으로 교체하여 사용
+-->
+<Defs>
+
+	<!-- ==================== -->
+	<!--    유년기 (Childhood)   -->
+	<!-- ==================== -->
+	<AlienRace.AlienBackstoryDef ParentName="RK_Attr_UniqueBackstoryBase">
+		<defName>RK_Unique_{Name}_Childhood</defName>
+		<title>{english title}</title>
+		<titleShort>{english short title}</titleShort>
+		<slot>Childhood</slot>
+		<description>[PAWN_nameDef]은 {서사}</description>
+
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+
+		<skillGains>
+			<Melee>3</Melee>
+			<!-- <Shooting>0</Shooting> -->
+			<!-- <Mining>2</Mining> -->
+		</skillGains>
+
+		<workDisables>
+			<!-- <li>Social</li> -->
+		</workDisables>
+
+		<forcedTraitsChance>
+			<!-- <li>
+				<defName>Undergrounder</defName>
+				<chance>100</chance>
+			</li> -->
+		</forcedTraitsChance>
+
+		<disallowedTraitsChance>
+			<!-- <li>
+				<defName Degree="-1">Beauty</defName>
+				<chance>100</chance>
+			</li> -->
+		</disallowedTraitsChance>
+
+		<spawnCategories>
+			<li>RatkinStory</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+	<!-- ==================== -->
+	<!--    성년기 (Adulthood)   -->
+	<!-- ==================== -->
+	<AlienRace.AlienBackstoryDef ParentName="RK_Attr_UniqueBackstoryBase">
+		<defName>RK_Unique_{Name}_Adulthood</defName>
+		<title>{english title}</title>
+		<titleShort>{english short title}</titleShort>
+		<slot>Adulthood</slot>
+		<description>[PAWN_nameDef]은 {서사}</description>
+		<linkedBackstory>RK_Unique_{Name}_Childhood</linkedBackstory>
+
+		<bodyTypeMale>Thin</bodyTypeMale>
+		<bodyTypeFemale>Thin</bodyTypeFemale>
+
+		<skillGains>
+			<Melee>6</Melee>
+			<!-- <Shooting>3</Shooting> -->
+			<!-- <Medicine>2</Medicine> -->
+		</skillGains>
+
+		<workDisables>
+			<!-- <li>Intellectual</li> -->
+		</workDisables>
+
+		<forcedTraitsChance>
+			<!-- <li>
+				<defName>Tough</defName>
+				<chance>100</chance>
+			</li> -->
+		</forcedTraitsChance>
+
+		<disallowedTraitsChance>
+			<!-- <li>
+				<defName>Pyromaniac</defName>
+				<chance>100</chance>
+			</li> -->
+		</disallowedTraitsChance>
+
+		<spawnCategories>
+			<li>RatkinStory</li>
+			<li>RatkinSoldier</li>
+		</spawnCategories>
+	</AlienRace.AlienBackstoryDef>
+
+</Defs>

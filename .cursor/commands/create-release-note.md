@@ -4,7 +4,7 @@ description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 
 # /create-release-note
 
-사용자가 `/create-release-note`를 실행하면, 에이전트가 `99_ReleaseNote/*_DAILY.md`를 **전부 읽고 요약**하여 릴리즈 노트 초안을 작성한다.
+사용자가 `/create-release-note`를 실행하면, 에이전트가 `80_ReleaseNote/*_DAILY.md`를 **전부 읽고 요약**하여 릴리즈 노트 초안을 작성한다.
 
 ## 핵심 원칙
 
@@ -14,7 +14,7 @@ description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 
 ## 에이전트 실행 순서
 
-1. `99_ReleaseNote` 폴더의 모든 `*_DAILY.md` 파일을 읽는다.
+1. `80_ReleaseNote` 폴더의 모든 `*_DAILY.md` 파일을 읽는다.
 2. Daily 내용을 분석하여 다음 카테고리로 분류한다:
    - **버그 수정** — 고쳐진 문제
    - **변경** — 밸런스 조정, 동작 변경 등
@@ -23,7 +23,7 @@ description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 3. 각 항목은 **한 줄 요약**(사용자 관점)으로 쓴다.
    - 좋은 예: `소드오프 산탄총이 벽에 맞았을 때 벽 뒤로 피해가 전달되던 문제 수정`
    - 나쁜 예: `[AI] 소드오프/근접부채꼴 투사체가 벽 적중 시 부채꼴 폭발을 하지 않도록 수정`
-4. 결과를 `99_ReleaseNote/YY.MM.DD_RELEASE_NOTES_DRAFT.md`에 저장한다.
+4. 결과를 `80_ReleaseNote/YY.MM.DD_RELEASE_NOTES_DRAFT.md`에 저장한다.
    - `YY.MM.DD`는 커맨드 실행일 기준(사용자가 날짜를 지정하면 해당 날짜 사용).
 5. 저장 후 경로를 알린다.
 
@@ -46,5 +46,5 @@ description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 
 ## 참고
 
-- `tools/release_notes.py`의 `create-release` 서브커맨드는 사용하지 않는다(구형).
+- `90_Tools/release_notes.py`의 `create-release` 서브커맨드는 사용하지 않는다(구형).
 - Daily 파일이 하나도 없으면 작성할 내용이 없다고 알린다.

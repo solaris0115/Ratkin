@@ -7,7 +7,7 @@
 ## 참조 규칙
 
 - [05-git-workflow.mdc](../rules/05-git-workflow.mdc) — Safety, PowerShell, `!커밋` 메시지 형식
-- [tools/release_notes.py](../../tools/release_notes.py) — 커밋 후 Daily 노트 추가
+- [90_Tools/release_notes.py](../../90_Tools/release_notes.py) — 커밋 후 Daily 노트 추가
 
 ## 에이전트 실행 체크리스트
 
@@ -20,10 +20,10 @@
 
 ```powershell
 Set-Location "<저장소 루트>"
-python tools/release_notes.py append-daily
+python 90_Tools/release_notes.py append-daily
 ```
 
-- 파일은 `99_ReleaseNote/YY.MM.DD_DAILY.md` 형식이며, **커밋일**(git 커미터 날짜, `YY.MM.DD`) 기준으로 같은 날 커밋이 누적된다.
+- 파일은 `80_ReleaseNote/YY.MM.DD_DAILY.md` 형식이며, **커밋일**(git 커미터 날짜, `YY.MM.DD`) 기준으로 같은 날 커밋이 누적된다.
 - `append-daily` 실패 시(git 없음 등) stderr를 보고 사용자에게만 알린다(커밋은 이미 완료된 상태이므로 되돌리지 않는다).
 5. Daily·스크립트가 새로 생기면 필요 시 `git add` 후 **별도 커밋**으로 묶을지 사용자에게 묻거나, 다음 세션 `!커밋`에 포함할지 안내한다.
 6. **push 하지 않음** (사용자가 따로 요청할 때만)

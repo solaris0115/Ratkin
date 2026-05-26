@@ -6,7 +6,7 @@ description: 1.6 정식 배포 — Release 빌드·ZIP 패키징·GitHub Release
 
 사용자가 `/release`를 실행했다. **로컬 빌드만이 아니라 배포까지** 한다.
 
-1. **빌드**: 프리릴리스와 동일 — MSBuild **`/t:Rebuild`**, `Configuration=Release`, `RatkinDevFeatures=false` → `Assemblies/NewRatkin.dll` (`tools/release.py`와 동일 인자)
+1. **빌드**: 프리릴리스와 동일 — MSBuild **`/t:Rebuild`**, `Configuration=Release`, `RatkinDevFeatures=false` → `Assemblies/NewRatkin.dll` (`90_Tools/release.py`와 동일 인자)
 2. **패키징**: `Build/TestBuild/Ratkin_TestBuild_YYMMDD_버전.zip` 생성 (`Project/1.5` 제외)
 3. **배포**: 정식 릴리스 [1.6](https://github.com/solaris0115/NewRatkin/releases/tag/1.6)에 ZIP을 **`gh release upload`로 교체 업로드**한다.
 
@@ -19,7 +19,7 @@ description: 1.6 정식 배포 — Release 빌드·ZIP 패키징·GitHub Release
 1. 워크스페이스 **저장소 루트**에서 아래 **한 줄**만 실행한다 (PowerShell에서 `&&` 금지 — `;` 사용). 이 스크립트가 빌드·ZIP·**GitHub 배포**를 모두 수행한다.
 
 ```powershell
-python tools/release.py
+python 90_Tools/release.py
 ```
 
 2. 실패 시 stderr·exit code를 보고 원인만 짧게 전달한다. 성공 시 업로드된 ZIP 경로를 한 줄로 알린다.

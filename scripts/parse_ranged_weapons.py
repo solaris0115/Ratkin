@@ -326,7 +326,7 @@ def acc_weighted_avg(acc_t: float, acc_s: float, acc_m: float, acc_l: float,
                      weapon_range: float) -> float:
     """사격 가능 거리 [0, R] 전체에서 acc(d)를 적분한 가중 평균 명중률.
     선형 보간이므로 각 구간은 사다리꼴 공식으로 계산.
-    Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md 참조.
+    30_Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md 참조.
     """
     if weapon_range <= 0:
         return 0.0
@@ -768,7 +768,7 @@ fields: defName, burstShotCount, burstSec, cooldown, range, damage, AP, DPS, DPS
                 "`acc̄ = (1/R) * ∫₀ᴿ acc(d) dd` — [0, range] 구간에서 선형 보간 명중률을 적분 (사다리꼴 공식)",
                 "고정 구간: Touch=3, Short=12, Medium=25, Long=40 타일 (ShootTuning.cs)",
                 "AP: armorPenetrationBase 미지정 시 `damage * 0.015` (ProjectileProperties.GetArmorPenetration)",
-                "상세: Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md", "",
+                "상세: 30_Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md", "",
                 "## 림월드 (Core + DLC)", ""]
 
     dlc_order = ["Core", "Royalty", "Ideology", "Biotech", "Anomaly", "Odyssey"]
@@ -825,7 +825,7 @@ def write_report(result):
         "- **ticksBetweenBurstShots**: 미지정 시 15 (VerbProperties.cs 기본값)",
         "- **burstShotCount**: 미지정 시 1",
         "- **AP**: armorPenetrationBase 미지정 시 damage × 0.015 (ProjectileProperties.GetArmorPenetration)",
-        "- 상세: Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md",
+                "- 상세: 30_Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md",
         "",
         "## 림월드 원거리 무기 요약",
         "",

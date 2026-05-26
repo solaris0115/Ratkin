@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	유니크 폰 커스텀 TraitDef 템플릿
+	바닐라 트레잇만 쓸 경우 이 파일은 불필요 — 삭제 가능
+-->
+<Defs>
+
+	<TraitDef>
+		<defName>RK_Trait_{Name}</defName>
+		<commonality>0</commonality> <!-- 0 = 랜덤 생성 불가, 유니크 전용 -->
+
+		<degreeDatas>
+			<li>
+				<label>{한글 트레잇명}</label>
+				<description>{PAWN_nameDef}(은)는 {설명}</description>
+				<degree>0</degree>
+				<statOffsets>
+					<!-- <MoveSpeed>0.2</MoveSpeed> -->
+				</statOffsets>
+				<statFactors>
+					<!-- <MeleeHitChance>1.1</MeleeHitChance> -->
+				</statFactors>
+			</li>
+		</degreeDatas>
+
+		<!-- 작업 제한 -->
+		<!-- <disabledWorkTags>
+			<li>Firefighting</li>
+		</disabledWorkTags> -->
+
+		<!-- 강제 특성 (이 트레잇 보유 시 다른 특성 금지) -->
+		<!-- <conflictingTraits>
+			<li>Pyromaniac</li>
+		</conflictingTraits> -->
+
+		<!-- 랜덤 정신상태 (트레잇 전용) -->
+		<!-- <randomMentalState>FireStartingSpree</randomMentalState>
+		<randomMentalStateMtbDaysMoodCurve>
+			<points>
+				<li>(0, 50)</li>
+			</points>
+		</randomMentalStateMtbDaysMoodCurve> -->
+
+		<!-- 허용 붕괴 화이트리스트 -->
+		<!-- <theOnlyAllowedMentalBreaks>
+			<li>FireStartingSpree</li>
+		</theOnlyAllowedMentalBreaks> -->
+
+	</TraitDef>
+
+</Defs>

@@ -28,7 +28,7 @@ fields: defName, burstShotCount, burstSec, cooldown, range, damage, AP, DPS, DPS
 `acc̄ = (1/R) * ∫₀ᴿ acc(d) dd` — [0, range] 구간에서 선형 보간 명중률을 적분 (사다리꼴 공식)
 고정 구간: Touch=3, Short=12, Medium=25, Long=40 타일 (ShootTuning.cs)
 AP: armorPenetrationBase 미지정 시 `damage * 0.015` (ProjectileProperties.GetArmorPenetration)
-상세: Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md
+상세: 30_Report/125_DPS_AVG_Weighted_Accuracy_Formula_Report.md
 
 ## 림월드 (Core + DLC)
 

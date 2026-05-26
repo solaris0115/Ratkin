@@ -10,7 +10,7 @@ description: 프리릴리스 배포 — MSBuild Rebuild·ZIP·GitHub Pre-release
 
 | 커맨드 | 빌드·ZIP | GitHub |
 |--------|----------|--------|
-| **`/release`** | 동일 계열 TestBuild ZIP | 정식 [1.6](https://github.com/solaris0115/NewRatkin/releases/tag/1.6) 에셋 교체 (`python tools/release.py`) |
+| **`/release`** | 동일 계열 TestBuild ZIP | 정식 [1.6](https://github.com/solaris0115/NewRatkin/releases/tag/1.6) 에셋 교체 (`python 90_Tools/release.py`) |
 | **`/prerelease`** | 아래 PowerShell | **Pre-release** `Dev1.6` 재생성 (`gh` 삭제 후 create) |
 
 **로컬 컴파일만**은 **`/build-release`** / **`/build-dev`** — MSBuild **`/t:Rebuild`**(강제 전체 빌드), 속성만 다름.

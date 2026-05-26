@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	유니크 폰 PawnKindDef 템플릿
+	{Name} 부분을 실제 이름으로 교체하여 사용
+-->
+<Defs>
+
+	<PawnKindDef ParentName="RKBasePawnKind">
+		<defName>RK_Unique_{Name}</defName>
+		<label>{Name}, the {Title}</label>
+
+		<!-- === 백스토리 고정 === -->
+		<fixedChildBackstories>
+			<li>RK_Unique_{Name}_Childhood</li>
+		</fixedChildBackstories>
+		<fixedAdultBackstories>
+			<li>RK_Unique_{Name}_Adulthood</li>
+		</fixedAdultBackstories>
+
+		<!-- === 기본 === -->
+		<fixedGender>Female</fixedGender>
+		<!-- <minGenerationAge>20</minGenerationAge> -->
+		<!-- <maxGenerationAge>45</maxGenerationAge> -->
+		<combatPower>80</combatPower>
+		<isFighter>true</isFighter>
+		<canBeSapper>false</canBeSapper>
+		<maxPerGroup>1</maxPerGroup>
+
+		<!-- === 무기 === -->
+		<weaponMoney>
+			<min>400</min>
+			<max>800</max>
+		</weaponMoney>
+		<weaponTags>
+			<li>RK_MeleeWeapon</li>
+		</weaponTags>
+		<!-- <biocodeWeaponChance>1.0</biocodeWeaponChance> -->
+
+		<!-- === 의복 === -->
+		<apparelRequired>
+			<!-- <li>RK_ApronSkirt</li> -->
+		</apparelRequired>
+		<apparelMoney>
+			<min>500</min>
+			<max>800</max>
+		</apparelMoney>
+		<apparelTags>
+			<li>RK_Soldier</li>
+		</apparelTags>
+		<!-- <apparelColor>(130,130,130)</apparelColor> -->
+		<!-- <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance> -->
+		<!-- <itemQuality>Excellent</itemQuality> -->
+		<!-- <gearHealthRange>0.7~1.0</gearHealthRange> -->
+
+		<!-- === 외모 === -->
+		<!-- <forcedHair>SomeHairDef</forcedHair> -->
+		<!-- <forcedHairColor>(180,180,180)</forcedHairColor> -->
+		<!-- <skinColorOverride>(220,210,200)</skinColorOverride> -->
+
+		<!-- === 신체·임플란트 === -->
+		<!-- <techHediffsRequired>
+			<li>BionicArm</li>
+		</techHediffsRequired> -->
+		<!-- <startingHediffs>
+			<li>
+				<def>Scar</def>
+				<part>LeftArm</part>
+			</li>
+		</startingHediffs> -->
+
+		<!-- === 능력 === -->
+		<!-- <abilities>
+			<li>RK_Ability_Leap</li>
+		</abilities> -->
+
+		<!-- === 소지품 === -->
+		<!-- <inventoryOptions>
+			<skipChance>0.0</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>MedicineIndustrial</thingDef>
+					<countRange>2</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions> -->
+
+		<!-- === 포로 저항 === -->
+		<!-- <initialResistanceRange>10~17</initialResistanceRange> -->
+		<!-- <initialWillRange>2~4</initialWillRange> -->
+
+		<!-- === 백스토리 필터 === -->
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RatkinStory</li>
+					<li>RatkinSoldier</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+	</PawnKindDef>
+
+</Defs>
