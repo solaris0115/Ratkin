@@ -152,7 +152,7 @@ namespace NewRatkin
 
         private bool IsAborted()
         {
-            if (organizer.DestroyedOrNull() || organizer.Drafted || organizer.Downed || organizer.Dead)
+            if (organizer.DestroyedOrNull() || !organizer.Spawned || organizer.Drafted || organizer.Downed || organizer.Dead || organizer.InMentalState)
             {
                 return true;
             }
