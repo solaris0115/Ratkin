@@ -1,0 +1,4 @@
+interface:
+  display_name: "Def Data Cache"
+  short_description: "Use cached RimWorld and Ratkin Def data."
+  default_prompt: "Analyze or update Ratkin Def data using the repository cache workflow."
