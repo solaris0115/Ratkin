@@ -56,13 +56,13 @@ namespace NewRatkin
                 return;
             }
 
-            if (pawn == null || pawn.apparel == null || pawn.equipment == null)
+            if (pawn == null)
             {
                 return;
             }
 
             // 장비(방패·배너 등) 착용 시: 착용 중인 무기와 호환성 검사
-            if (thing is Apparel apparelToEquip)
+            if (thing is Apparel apparelToEquip && pawn.apparel != null && pawn.equipment != null)
             {
                 CompGripTypeFilter filterComp = apparelToEquip.GetComp<CompGripTypeFilter>();
                 if (filterComp != null)
@@ -96,7 +96,7 @@ namespace NewRatkin
             }
 
             // 무기 착용 시: 착용 중인 장비(방패·배너 등)와 호환성 검사
-            if (thing.def.IsWeapon)
+            if (thing.def.IsWeapon && pawn.apparel != null)
             {
                 ThingDef weaponDef = thing.def;
                 List<Apparel> wornApparel = pawn.apparel.WornApparel;
@@ -130,6 +130,12 @@ namespace NewRatkin
                         }
                     }
                 }
+            }
+
+            if (GeneEquipRestrictionRegistry.BlocksPawn(thing.def, pawn, out string geneReason))
+            {
+                __result = false;
+                cantReason = geneReason;
             }
         }
     }
