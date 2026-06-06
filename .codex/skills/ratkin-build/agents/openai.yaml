@@ -1,4 +1,0 @@
-interface:
-  display_name: "Ratkin Build"
-  short_description: "Build, package, and release Ratkin."
-  default_prompt: "Build or package the Ratkin project using the repository release rules."
