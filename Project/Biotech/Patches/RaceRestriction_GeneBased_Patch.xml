@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<!-- Biotech: raceRestriction 장비 목록 제거 → GeneEquipRestriction(C#)으로 RK_Gene_SmallBody 필요 -->
+	<!-- Biotech: raceRestriction 장비 목록 제거 → BodyTypeEquipRestriction(C#)으로 Thin 체형 필요 -->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
 			<li>Biotech</li>
@@ -18,100 +18,100 @@
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_ApparelBase"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_MeleeWeapon"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_NeolithicRangeWeapon"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_IndustrialRangeWeapon"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_BaseArtilleryWeapon"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_ApparelAttr_CataphractArmorBase"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_ApparelAttr_CataphractHelmetBase"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[defName="RK_MagicWand"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[defName="RK_Apparel_VacsuitHelmet"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[defName="RK_Apparel_Vacsuit"]</xpath>
 					<value>
-						<li Class="NewRatkin.GeneEquipRestriction">
-							<requiredGenes>
-								<li>RK_Gene_SmallBody</li>
-							</requiredGenes>
+						<li Class="NewRatkin.BodyTypeEquipRestriction">
+							<allowedBodyTypes>
+								<li>Thin</li>
+							</allowedBodyTypes>
 						</li>
 					</value>
 				</li>

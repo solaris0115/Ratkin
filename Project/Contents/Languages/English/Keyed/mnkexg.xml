@@ -137,6 +137,6 @@
   <RK_PulseRifleFireMode_DescToSingle>Switch to sniper mode. Currently fires four lighter bolts in quick succession at shorter effective range, suited to close and mid-range fights.</RK_PulseRifleFireMode_DescToSingle>
   <RK_PulseRifleFireMode_DescToBurst>Switch to rapid fire mode. Currently fires two heavy energy bolts while offering longer range and better accuracy for medium and long range combat.</RK_PulseRifleFireMode_DescToBurst>
 
-  <RK_GeneEquipRequirementFailed>Requires the small body gene.</RK_GeneEquipRequirementFailed>
+  <RK_BodyTypeEquipRequirementFailed>Requires a thin body type.</RK_BodyTypeEquipRequirementFailed>
 
 </LanguageData>

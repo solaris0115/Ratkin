@@ -8,27 +8,28 @@ using Verse.AI;
 namespace NewRatkin
 {
     /// <summary>
-    /// ThingDef에 붙이면 <c>requiredGenes</c>를 모두 활성 보유한 폰만 착용·장착 가능 (Biotech + XML 패치로 race restriction 해제 시 사용).
+    /// ThingDef에 붙이면 <c>allowedBodyTypes</c> 중 하나인 체형의 폰만 착용·장착 가능 (Biotech + XML 패치로 race restriction 해제 시 사용).
     /// </summary>
-    public class GeneEquipRestriction : DefModExtension
+    public class BodyTypeEquipRestriction : DefModExtension
     {
-        public List<GeneDef> requiredGenes;
+        public List<BodyTypeDef> allowedBodyTypes;
 
-        public bool Configured => !requiredGenes.NullOrEmpty();
+        public bool Configured => !allowedBodyTypes.NullOrEmpty();
     }
 
     /// <summary>
     /// 로드 시 한 번 구축하는 조회용 캐시 (런타임에 GetModExtension 반복 호출 방지).
     /// </summary>
     [StaticConstructorOnStartup]
-    public static class GeneEquipRestrictionRegistry
+    public static class BodyTypeEquipRestrictionRegistry
     {
-        private static readonly Dictionary<ThingDef, List<GeneDef>> requiredGenesByThingDef = new Dictionary<ThingDef, List<GeneDef>>();
+        private static readonly Dictionary<ThingDef, List<BodyTypeDef>> allowedBodyTypesByThingDef =
+            new Dictionary<ThingDef, List<BodyTypeDef>>();
 
         private static readonly Dictionary<ApparelProperties, ThingDef> thingDefByApparelProps =
             new Dictionary<ApparelProperties, ThingDef>();
 
-        static GeneEquipRestrictionRegistry()
+        static BodyTypeEquipRestrictionRegistry()
         {
             Rebuild();
             ApplyHarmonyPatches();
@@ -36,7 +37,7 @@ namespace NewRatkin
 
         public static void Rebuild()
         {
-            requiredGenesByThingDef.Clear();
+            allowedBodyTypesByThingDef.Clear();
             thingDefByApparelProps.Clear();
 
             foreach (ThingDef def in DefDatabase<ThingDef>.AllDefsListForReading)
@@ -46,32 +47,32 @@ namespace NewRatkin
                     thingDefByApparelProps[def.apparel] = def;
                 }
 
-                GeneEquipRestriction ext = def.GetModExtension<GeneEquipRestriction>();
+                BodyTypeEquipRestriction ext = def.GetModExtension<BodyTypeEquipRestriction>();
                 if (ext == null || !ext.Configured)
                 {
                     continue;
                 }
 
-                List<GeneDef> list = new List<GeneDef>();
-                for (int i = 0; i < ext.requiredGenes.Count; i++)
+                List<BodyTypeDef> list = new List<BodyTypeDef>();
+                for (int i = 0; i < ext.allowedBodyTypes.Count; i++)
                 {
-                    GeneDef g = ext.requiredGenes[i];
-                    if (g != null)
+                    BodyTypeDef bt = ext.allowedBodyTypes[i];
+                    if (bt != null)
                     {
-                        list.Add(g);
+                        list.Add(bt);
                     }
                 }
 
                 if (list.Count > 0)
                 {
-                    requiredGenesByThingDef[def] = list;
+                    allowedBodyTypesByThingDef[def] = list;
                 }
             }
         }
 
-        public static bool TryGetRequiredGenes(ThingDef def, out List<GeneDef> genes)
+        public static bool TryGetAllowedBodyTypes(ThingDef def, out List<BodyTypeDef> bodyTypes)
         {
-            return requiredGenesByThingDef.TryGetValue(def, out genes);
+            return allowedBodyTypesByThingDef.TryGetValue(def, out bodyTypes);
         }
 
         public static bool TryGetThingDefForApparelProps(ApparelProperties props, out ThingDef def)
@@ -79,48 +80,49 @@ namespace NewRatkin
             return thingDefByApparelProps.TryGetValue(props, out def);
         }
 
-        public static bool PawnMeetsAllRequiredGenes(Pawn pawn, List<GeneDef> required)
+        public static bool PawnMeetsBodyTypeRequirement(Pawn pawn, List<BodyTypeDef> allowed)
         {
-            if (pawn?.genes == null || required.NullOrEmpty())
+            if (pawn?.story?.bodyType == null || allowed.NullOrEmpty())
             {
                 return false;
             }
 
-            for (int i = 0; i < required.Count; i++)
+            BodyTypeDef pawnBodyType = pawn.story.bodyType;
+            for (int i = 0; i < allowed.Count; i++)
             {
-                if (!pawn.genes.HasActiveGene(required[i]))
+                if (allowed[i] == pawnBodyType)
                 {
-                    return false;
+                    return true;
                 }
             }
 
-            return true;
+            return false;
         }
 
         public static bool BlocksPawn(ThingDef def, Pawn pawn, out string cantReason)
         {
             cantReason = null;
-            if (!TryGetRequiredGenes(def, out List<GeneDef> req))
+            if (!TryGetAllowedBodyTypes(def, out List<BodyTypeDef> allowed))
             {
                 return false;
             }
 
-            if (PawnMeetsAllRequiredGenes(pawn, req))
+            if (PawnMeetsBodyTypeRequirement(pawn, allowed))
             {
                 return false;
             }
 
-            cantReason = "RK_GeneEquipRequirementFailed".Translate();
+            cantReason = "RK_BodyTypeEquipRequirementFailed".Translate();
             return true;
         }
 
         private static void ApplyHarmonyPatches()
         {
-            Harmony harmony = new Harmony("com.NewRatkin.genEquip");
+            Harmony harmony = new Harmony("com.NewRatkin.bodyTypeEquip");
 
             harmony.Patch(
                 AccessTools.Method(typeof(JobGiver_OptimizeApparel), nameof(JobGiver_OptimizeApparel.ApparelScoreGain)),
-                postfix: new HarmonyMethod(typeof(GeneEquipRestrictionRegistry), nameof(ApparelScoreGain_Postfix)));
+                postfix: new HarmonyMethod(typeof(BodyTypeEquipRestrictionRegistry), nameof(ApparelScoreGain_Postfix)));
 
             MethodInfo pawnCanWear = AccessTools.Method(
                 typeof(ApparelProperties),
@@ -130,7 +132,7 @@ namespace NewRatkin
             {
                 harmony.Patch(
                     pawnCanWear,
-                    postfix: new HarmonyMethod(typeof(GeneEquipRestrictionRegistry), nameof(PawnCanWear_Postfix)));
+                    postfix: new HarmonyMethod(typeof(BodyTypeEquipRestrictionRegistry), nameof(PawnCanWear_Postfix)));
             }
         }
 
@@ -141,12 +143,12 @@ namespace NewRatkin
                 return;
             }
 
-            if (!TryGetRequiredGenes(ap.def, out List<GeneDef> req))
+            if (!TryGetAllowedBodyTypes(ap.def, out List<BodyTypeDef> allowed))
             {
                 return;
             }
 
-            if (!PawnMeetsAllRequiredGenes(pawn, req))
+            if (!PawnMeetsBodyTypeRequirement(pawn, allowed))
             {
                 __result = -1001f;
             }
@@ -159,7 +161,7 @@ namespace NewRatkin
                 return;
             }
 
-            if (TryGetRequiredGenes(apparelDef, out List<GeneDef> req) && !PawnMeetsAllRequiredGenes(pawn, req))
+            if (TryGetAllowedBodyTypes(apparelDef, out List<BodyTypeDef> allowed) && !PawnMeetsBodyTypeRequirement(pawn, allowed))
             {
                 __result = false;
             }

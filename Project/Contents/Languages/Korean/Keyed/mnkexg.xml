@@ -114,5 +114,5 @@
   <RK_PulseRifleFireMode_LabelSingle>저격 모드</RK_PulseRifleFireMode_LabelSingle>
   <RK_PulseRifleFireMode_DescToSingle>저격 모드로 전환합니다. 고밀도 쐐기탄을 2발 발사합니다. 중·원거리 교전에 유리합니다.</RK_PulseRifleFireMode_DescToSingle>
   <RK_PulseRifleFireMode_DescToBurst>속사 모드로 전환합니다. 쐐기탄 4발 빠르게 발사합니다. 근·중거리 교전에 유리합니다.</RK_PulseRifleFireMode_DescToBurst>
-  <RK_GeneEquipRequirementFailed>작은 체구 유전자가 필요합니다.</RK_GeneEquipRequirementFailed>
+  <RK_BodyTypeEquipRequirementFailed>마른 체형이 필요합니다.</RK_BodyTypeEquipRequirementFailed>
 </LanguageData>

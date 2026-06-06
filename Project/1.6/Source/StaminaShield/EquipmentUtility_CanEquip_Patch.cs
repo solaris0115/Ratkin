@@ -132,10 +132,10 @@ namespace NewRatkin
                 }
             }
 
-            if (GeneEquipRestrictionRegistry.BlocksPawn(thing.def, pawn, out string geneReason))
+            if (BodyTypeEquipRestrictionRegistry.BlocksPawn(thing.def, pawn, out string bodyTypeReason))
             {
                 __result = false;
-                cantReason = geneReason;
+                cantReason = bodyTypeReason;
             }
         }
     }
