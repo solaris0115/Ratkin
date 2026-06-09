@@ -304,4 +304,95 @@
 			<MeleeHitChance>-0.2</MeleeHitChance>
 		</equippedStatOffsets>
 	</ThingDef>
+
+	<!-- 에너지 방패 — RK_TowerShield 복사본 (수치·재료는 이후 별도 조정) -->
+	<ThingDef ParentName="RK_ApparelAttr_ShieldBase">
+		<defName>RK_EnergyShield</defName>
+		<thingClass>NewRatkin.ApparelShieldTowerSecond</thingClass>
+		<label>ratkin Energy Shield</label>
+		<description>에너지 코팅이 적용된 대형 방패.</description>
+		<tradeTags>
+			<li>RK_TradeTag_Armor</li>
+		</tradeTags>
+		<graphicData>
+			<texPath>Apparel/Util/RK_Texture_EnergyShield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(0.9, 0.9)</drawSize>
+		</graphicData>
+		<costList>
+			<Steel>80</Steel>
+			<Plasteel>120</Plasteel>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<stuffCategories Inherit="False" />
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>5</Mass>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>1</EquipDelay>
+			<RK_Stat_Shield_Sharp>0.95</RK_Stat_Shield_Sharp>
+			<RK_Stat_Shield_Blunt>0.85</RK_Stat_Shield_Blunt>
+			<RK_Stat_Shield_Heat>0.75</RK_Stat_Shield_Heat>
+			<RK_Stat_DeflectAngle>180</RK_Stat_DeflectAngle>
+		</statBases>
+		<equippedStatOffsets>
+			<RK_Stat_ShieldBlockChance>6</RK_Stat_ShieldBlockChance>
+		</equippedStatOffsets>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<displayPriority>47355</displayPriority>
+		</recipeMaker>
+		<comps>
+			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
+			<li Class="NewRatkin.CompProperties_ExtraDrawer">
+				<drawSize>(0.9, 0.9)</drawSize>
+				<draftedDrawData>
+					<graphicPath>Apparel/Util/RK_Texture_EnergyShield</graphicPath>
+					<offsetNorth>(-0.25, -0.2, 0.01)</offsetNorth>
+					<offsetSouth>(0.25, 0.2, -0.1)</offsetSouth>
+					<offsetEast>(0.3, -0.2, -0.1)</offsetEast>
+					<offsetWest>(-0.3, 0.2, -0.1)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>0</angleEast>
+					<angleWest>0</angleWest>
+				</draftedDrawData>
+				<backDrawData>
+					<graphicPath>Apparel/Util/RK_Texture_EnergyShield</graphicPath>
+					<offsetNorth>(0, 0.2, -0.1)</offsetNorth>
+					<offsetSouth>(0, -0.2, 0.01)</offsetSouth>
+					<offsetEast>(-0.15, 0.05, 0.03)</offsetEast>
+					<offsetWest>(0.15, -2.0, 0.03)</offsetWest>
+					<angleNorth>0</angleNorth>
+					<angleSouth>0</angleSouth>
+					<angleEast>15</angleEast>
+					<angleWest>-15</angleWest>
+				</backDrawData>
+			</li>
+			<li Class="NewRatkin.CompProperties_GripTypeFilter">
+				<allowedGripTypes>
+					<li>OneHand</li>
+				</allowedGripTypes>
+				<blockReasonKey>RK_GripIncompatible</blockReasonKey>
+			</li>
+			<li Class="NewRatkin.CompProperties_ShieldFaceDirection">
+				<cooldownTicks>300</cooldownTicks>
+			</li>
+		</comps>
+		<apparel>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<tags>
+				<li>RK_HeavyArmor</li>
+				<li>RK_ApparelTag_Shield</li>
+			</tags>
+		</apparel>
+	</ThingDef>
 </Defs>
