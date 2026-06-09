@@ -113,6 +113,7 @@ namespace NewRatkin
     public static class RatkinAbilityDefOf
     {
         public static AbilityDef RK_PrayerService;
+        public static AbilityDef RK_Ability_EnergyShieldBoost;
     }
 
     [DefOf]
@@ -155,6 +156,7 @@ namespace NewRatkin
     public static class RatkinHediffDefOf
     {
         public static HediffDef RK_Hediff_RatHolicGunSpooling;
+        public static HediffDef RK_Hediff_EnergyShieldBoost;
     }
 
     [DefOf]

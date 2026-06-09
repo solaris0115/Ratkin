@@ -22,7 +22,7 @@ namespace NewRatkin
     {
         public CompProperties_ShieldDeflect Props => (CompProperties_ShieldDeflect)props;
 
-        private bool _processingDamage = false;
+        protected bool _processingDamage = false;
 
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {

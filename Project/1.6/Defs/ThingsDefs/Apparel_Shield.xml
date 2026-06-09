@@ -310,7 +310,7 @@
 		<defName>RK_EnergyShield</defName>
 		<thingClass>NewRatkin.ApparelShieldTowerSecond</thingClass>
 		<label>ratkin Energy Shield</label>
-		<description>에너지 코팅이 적용된 대형 방패.</description>
+		<description>Energy-coated tower shield. While drafted, frontal attacks within the deflect arc are absorbed by an energy field that ignores armor penetration. Psycasters can boost the field with psyfocus.</description>
 		<tradeTags>
 			<li>RK_TradeTag_Armor</li>
 		</tradeTags>
@@ -349,7 +349,14 @@
 			<displayPriority>47355</displayPriority>
 		</recipeMaker>
 		<comps>
-			<li Class="NewRatkin.CompProperties_ShieldDeflect" />
+			<li Class="NewRatkin.CompProperties_ShieldDeflectEnergy">
+				<energyBase>60</energyBase>
+				<boostPct>0.5</boostPct>
+				<energyRechargePerTick>2</energyRechargePerTick>
+				<rechargeTickInterval>60</rechargeTickInterval>
+				<rechargeDelayAfterHitTicks>300</rechargeDelayAfterHitTicks>
+				<guaranteedBlockAttempt>true</guaranteedBlockAttempt>
+			</li>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">
 				<drawSize>(0.9, 0.9)</drawSize>
 				<draftedDrawData>
@@ -393,6 +400,9 @@
 				<li>RK_HeavyArmor</li>
 				<li>RK_ApparelTag_Shield</li>
 			</tags>
+			<abilities>
+				<li>RK_Ability_EnergyShieldBoost</li>
+			</abilities>
 		</apparel>
 	</ThingDef>
 </Defs>

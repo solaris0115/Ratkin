@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- EnergyShield: RK_Ability_EnergyShieldBoost, RK_Hediff_EnergyShieldBoost -->
+<Defs>
+	<AbilityDef>
+		<defName>RK_Ability_EnergyShieldBoost</defName>
+		<label>energy shield boost</label>
+		<description>Channel psyfocus into the energy shield coating, increasing its capacity and instantly recharging part of the field. Requires a psylink.</description>
+		<iconPath>Apparel/Util/RK_Texture_EnergyShield</iconPath>
+		<cooldownTicksRange>12500~12500</cooldownTicksRange>
+		<targetRequired>false</targetRequired>
+		<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+		<hostile>false</hostile>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>-1</range>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="NewRatkin.CompProperties_EnergyShieldBoost">
+				<boostHediffDef>RK_Hediff_EnergyShieldBoost</boostHediffDef>
+				<boostDurationTicks>3600</boostDurationTicks>
+				<psyfocusCost>0.35</psyfocusCost>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<HediffDef>
+		<defName>RK_Hediff_EnergyShieldBoost</defName>
+		<label>energy shield boost</label>
+		<description>Energy shield capacity is increased.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>3600~3600</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+	</HediffDef>
+</Defs>

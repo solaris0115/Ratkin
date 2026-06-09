@@ -10,6 +10,8 @@
 
   <!-- Shields Functionality -->
 
+  <RK_EnergyShieldBoost_NoShield>Must be wearing an energy shield.</RK_EnergyShieldBoost_NoShield>
+  <RK_EnergyShieldBoost_NoPsylink>Requires a psylink.</RK_EnergyShieldBoost_NoPsylink>
   <ShieldBlock>Deflect!</ShieldBlock>
   <ShieldBlockChance>Deflect Chance:</ShieldBlockChance>
   <BlockChance_Heat>Block Chance(Heat)</BlockChance_Heat>

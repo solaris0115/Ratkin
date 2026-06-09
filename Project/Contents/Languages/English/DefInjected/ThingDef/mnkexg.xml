@@ -134,9 +134,7 @@ Deflection chance is based on wearer's melee skill and material.</RK_HeavyShield
 Deflection chance is based on wearer's melee skill and material.</RK_TowerShield.description>
 
   <RK_EnergyShield.label>ratkin energy shield</RK_EnergyShield.label>
-  <RK_EnergyShield.description>A large shield with an energy coating. Provides the same defensive performance as a tower shield. Allows the wearer to deflect multiple attacks from the front.
-
-Deflection chance is based on wearer's melee skill.</RK_EnergyShield.description>
+  <RK_EnergyShield.description>A large shield with an energy coating. While drafted, frontal attacks within the deflect arc are absorbed by an energy field that ignores armor penetration. When energy is depleted, physical shield deflection applies. Psycasters can boost the field with psyfocus.</RK_EnergyShield.description>
 
   <RK_Apparel_VacsuitHelmet.label>Ratkin vacsuit helmet</RK_Apparel_VacsuitHelmet.label>
   <RK_Apparel_VacsuitHelmet.description>A helmet that efficiently recycles the user's oxygen, allowing them to breathe in the vacuum of space for hours at a time. The process isn't perfectly efficient, so the user must periodically return to a pressurized environment.

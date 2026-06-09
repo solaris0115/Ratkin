@@ -41,4 +41,6 @@
   <RK_Hediff_RatHolicGunSpooling.description>총열 회전이 축적되어 점점 발사 속도가 빨라집니다.</RK_Hediff_RatHolicGunSpooling.description>
   <RK_Hediff_RatHolicGunSpoolingAim.label>표적 고정</RK_Hediff_RatHolicGunSpoolingAim.label>
   <RK_Hediff_RatHolicGunSpoolingAim.description>총열 회전 관성으로 표적 재정렬 시간이 단축됩니다.</RK_Hediff_RatHolicGunSpoolingAim.description>
+  <RK_Hediff_EnergyShieldBoost.label>에너지 부스트</RK_Hediff_EnergyShieldBoost.label>
+  <RK_Hediff_EnergyShieldBoost.description>방패 에너지 최대치가 증가했습니다.</RK_Hediff_EnergyShieldBoost.description>
 </LanguageData>

@@ -54,4 +54,7 @@
   <RK_Hediff_RatHolicGunSpoolingAim.label>target lock</RK_Hediff_RatHolicGunSpoolingAim.label>
   <RK_Hediff_RatHolicGunSpoolingAim.description>Barrel inertia shortens the time needed to realign with the target.</RK_Hediff_RatHolicGunSpoolingAim.description>
 
+  <RK_Hediff_EnergyShieldBoost.label>energy boost</RK_Hediff_EnergyShieldBoost.label>
+  <RK_Hediff_EnergyShieldBoost.description>Energy shield capacity is increased.</RK_Hediff_EnergyShieldBoost.description>
+
 </LanguageData>

@@ -4,6 +4,8 @@
   <EMPExplodeDesc>EMP폭발로 인해 전자 설비가 망가졌습니다.</EMPExplodeDesc>
   <MessageCommandoAssaulting>특수 부대가 정착지를 공격하기 시작합니다.</MessageCommandoAssaulting>
   <RatHoleGone>쥐구멍이 사라졌습니다.</RatHoleGone>
+  <RK_EnergyShieldBoost_NoShield>에너지 방패를 착용해야 합니다.</RK_EnergyShieldBoost_NoShield>
+  <RK_EnergyShieldBoost_NoPsylink>사이링크가 필요합니다.</RK_EnergyShieldBoost_NoPsylink>
   <ShieldBlock>튕겨냄!</ShieldBlock>
   <ShieldBlockChance>튕김 확률:</ShieldBlockChance>
   <BlockChance_Heat>방어 확률(열기)</BlockChance_Heat>
