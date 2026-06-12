@@ -17,6 +17,12 @@ namespace NewRatkin
         /// <summary>에너지 흡수 시 블록 시도 게이트(ShieldBlockChance)를 스킵.</summary>
         public bool guaranteedBlockAttempt = true;
 
+        /// <summary>바닐라 CompProperties_Shield — 고갈 후 재가동 대기 틱(3200 ≈ 53초).</summary>
+        public int startingTicksToReset = 3200;
+
+        /// <summary>바닐라 CompProperties_Shield — 재가동 직후 초기 에너지(표시 20).</summary>
+        public float energyOnReset = 0.2f;
+
         public CompProperties_ShieldDeflectEnergy()
         {
             compClass = typeof(CompShieldDeflectEnergy);
@@ -34,7 +40,12 @@ namespace NewRatkin
 
         private float energy;
 
+        private int ticksToReset = -1;
+
         public float Energy => energy;
+
+        public ShieldState ShieldState =>
+            ticksToReset <= 0 ? ShieldState.Active : ShieldState.Resetting;
 
         private Pawn PawnOwner => (parent as Apparel)?.Wearer;
 
@@ -107,6 +118,7 @@ namespace NewRatkin
             {
                 energy += fillDisplayAmount / 100f;
                 ClampEnergy(pawn);
+                ticksToReset = -1;
             }
         }
 
@@ -127,6 +139,7 @@ namespace NewRatkin
         {
             base.PostExposeData();
             Scribe_Values.Look(ref energy, "energy", 0f);
+            Scribe_Values.Look(ref ticksToReset, "ticksToReset", -1);
         }
 
         public override void CompTick()
@@ -140,6 +153,15 @@ namespace NewRatkin
             }
 
             ClampEnergy(pawn);
+
+            if (ShieldState == ShieldState.Resetting)
+            {
+                ticksToReset--;
+                if (ticksToReset <= 0)
+                    Reset(pawn);
+                return;
+            }
+
             energy += EnergyGainPerTick;
             float max = EffectiveMax(pawn);
             if (energy > max)
@@ -158,16 +180,22 @@ namespace NewRatkin
             if (shield == null) return;
 
             if (pawn.Dead || pawn.Downed) return;
+            if (dinfo.Def == DamageDefOf.EMP)
+            {
+                energy = 0f;
+                Break(pawn);
+                return;
+            }
             if (!pawn.Drafted) return;
             if (!ApparelShieldTowerSecond.PawnCanDeflectWithShield(pawn)) return;
             if (dinfo.Def == null) return;
-            if (dinfo.Def.ignoreShields || dinfo.Def == DamageDefOf.EMP) return;
+            if (dinfo.Def.ignoreShields) return;
 
             if (!ApparelShieldTowerSecond.IsAngleWithinDeflectRange(shield, pawn, dinfo)) return;
 
             ClampEnergy(pawn);
 
-            if (energy > 0f)
+            if (energy > 0f && ShieldState == ShieldState.Active)
             {
                 if (!Props.guaranteedBlockAttempt)
                 {
@@ -176,15 +204,50 @@ namespace NewRatkin
                 }
 
                 energy -= dinfo.Amount * Props.energyLossPerDamage;
-                if (energy < 0f) energy = 0f;
-                ClampEnergy(pawn);
+                if (energy < 0f)
+                    Break(pawn);
+                else
+                    PlayEnergyAbsorbFeedback(pawn, dinfo);
 
                 absorbed = true;
-                PlayEnergyAbsorbFeedback(pawn, dinfo);
                 return;
             }
 
             base.PostPreApplyDamage(ref dinfo, out absorbed);
+        }
+
+        /// <summary>바닐라 CompShield.Break — 고갈 시 재가동 대기 시작.</summary>
+        private void Break(Pawn pawn)
+        {
+            if (parent.Spawned && pawn.Spawned)
+            {
+                float scale = Mathf.Lerp(1.2f, 1.55f, Mathf.Max(0f, energy));
+                EffecterDefOf.Shield_Break.SpawnAttached(parent, parent.MapHeld, scale);
+                FleckMaker.Static(pawn.TrueCenter(), pawn.Map, FleckDefOf.ExplosionFlash, 12f);
+                for (int i = 0; i < 6; i++)
+                {
+                    FleckMaker.ThrowDustPuff(
+                        pawn.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle(Rand.Range(0, 360)) * Rand.Range(0.3f, 0.6f),
+                        pawn.Map, Rand.Range(0.8f, 1.2f));
+                }
+            }
+
+            energy = 0f;
+            ticksToReset = Props.startingTicksToReset;
+        }
+
+        /// <summary>바닐라 CompShield.Reset — 대기 종료 후 소량 충전 재개.</summary>
+        private void Reset(Pawn pawn)
+        {
+            if (pawn.Spawned)
+            {
+                SoundDefOf.EnergyShield_Reset.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
+                FleckMaker.ThrowLightningGlow(pawn.TrueCenter(), pawn.Map, 3f);
+            }
+
+            ticksToReset = -1;
+            energy = Props.energyOnReset;
+            ClampEnergy(pawn);
         }
 
         /// <summary>바닐라 CompShield.AbsorbedDamage — 텍스트 없음, 쉴드벨트 흡수음·이펙트.</summary>
