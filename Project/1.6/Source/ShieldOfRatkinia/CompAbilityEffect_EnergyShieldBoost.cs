@@ -9,7 +9,8 @@ namespace NewRatkin
 
         public int boostDurationTicks = 3600;
 
-        public float psyfocusCost = 0.35f;
+        /// <summary>즉시 충전(표시 단위) = 신경열 한계 × 이 배율 × 방패 품질 계수.</summary>
+        public float boostFillNeuralHeatMult = 2f;
 
         public CompProperties_EnergyShieldBoost()
         {
@@ -21,11 +22,15 @@ namespace NewRatkin
     {
         private new CompProperties_EnergyShieldBoost Props => (CompProperties_EnergyShieldBoost)props;
 
+        private float PsyfocusCost => parent.def.PsyfocusCost;
+
+        private float EntropyGain => parent.def.EntropyGain;
+
         public override bool CanCast
         {
             get
             {
-                if (!HasRequiredPsyfocus(out _))
+                if (!HasRequiredPsycastResources(out _))
                     return false;
                 return CompShieldDeflectEnergy.GetWornEnergyShield(parent.pawn) != null;
             }
@@ -38,7 +43,7 @@ namespace NewRatkin
                 reason = "RK_EnergyShieldBoost_NoShield".Translate();
                 return true;
             }
-            if (!HasRequiredPsyfocus(out reason))
+            if (!HasRequiredPsycastResources(out reason))
                 return true;
             return base.GizmoDisabled(out reason);
         }
@@ -52,11 +57,18 @@ namespace NewRatkin
             CompShieldDeflectEnergy shieldComp = CompShieldDeflectEnergy.GetWornEnergyShield(pawn);
             if (shieldComp == null) return;
 
-            pawn.psychicEntropy.OffsetPsyfocusDirectly(-Props.psyfocusCost);
-            shieldComp.ApplyEnergyBoost(pawn, Props.boostHediffDef, Props.boostDurationTicks);
+            if (EntropyGain > 0f)
+                pawn.psychicEntropy.TryAddEntropy(EntropyGain, null, true, false);
+
+            if (PsyfocusCost > 0f)
+                pawn.psychicEntropy.OffsetPsyfocusDirectly(-PsyfocusCost);
+
+            float qualityFactor = CompShieldDeflectEnergy.GetShieldEnergyQualityFactor(shieldComp.parent);
+            float fillDisplay = pawn.psychicEntropy.MaxEntropy * Props.boostFillNeuralHeatMult * qualityFactor;
+            shieldComp.ApplyEnergyBoost(pawn, Props.boostHediffDef, Props.boostDurationTicks, fillDisplay);
         }
 
-        private bool HasRequiredPsyfocus(out string reason)
+        private bool HasRequiredPsycastResources(out string reason)
         {
             reason = null;
             Pawn pawn = parent.pawn;
@@ -68,9 +80,15 @@ namespace NewRatkin
                 return false;
             }
 
-            if (pawn.psychicEntropy.CurrentPsyfocus + 0.0005f < Props.psyfocusCost)
+            if (PsyfocusCost > 0f && pawn.psychicEntropy.CurrentPsyfocus + 0.0005f < PsyfocusCost)
             {
                 reason = "AbilityPsycastNoPsyfocus".Translate();
+                return false;
+            }
+
+            if (EntropyGain > 0f && pawn.psychicEntropy.WouldOverflowEntropy(EntropyGain))
+            {
+                reason = "CommandPsycastWouldExceedEntropy".Translate();
                 return false;
             }
 

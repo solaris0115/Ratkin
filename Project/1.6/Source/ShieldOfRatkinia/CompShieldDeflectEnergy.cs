@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using RimWorld;
@@ -6,20 +7,11 @@ namespace NewRatkin
 {
     public class CompProperties_ShieldDeflectEnergy : CompProperties_ShieldDeflect
     {
-        /// <summary>기본 에너지 풀 최대치(부스트 없을 때).</summary>
-        public float energyBase = 60f;
-
-        /// <summary>부스트 시 최대치 배율 가산(0.5 = +50%).</summary>
+        /// <summary>부스트 시 최대치 배율 가산(0.5 = +50%). 어빌리티 전용.</summary>
         public float boostPct = 0.5f;
 
-        /// <summary>충전 간격(틱)마다 회복량.</summary>
-        public float energyRechargePerTick = 2f;
-
-        /// <summary>충전 간격(틱).</summary>
-        public int rechargeTickInterval = 60;
-
-        /// <summary>피격 후 충전 정지 시간(틱).</summary>
-        public int rechargeDelayAfterHitTicks = 300;
+        /// <summary>바닐라 CompShield와 동일 — 피해량당 에너지 손실 계수.</summary>
+        public float energyLossPerDamage = 0.033f;
 
         /// <summary>에너지 흡수 시 블록 시도 게이트(ShieldBlockChance)를 스킵.</summary>
         public bool guaranteedBlockAttempt = true;
@@ -32,7 +24,8 @@ namespace NewRatkin
 
     /// <summary>
     /// 에너지 코팅 흡수 + 기존 방패 아머 판정(에너지 고갈 시).
-    /// 부스트 Hediff 활성 시 effectiveMax = energyBase × (1 + boostPct).
+    /// 에너지 풀·충전·표시는 바닐라 CompShield(쉴드벨트)와 동일 스탯/틱 로직.
+    /// 부스트 Hediff 활성 시 effectiveMax = EnergyShieldEnergyMax × (1 + boostPct).
     /// </summary>
     public class CompShieldDeflectEnergy : CompShieldDeflect
     {
@@ -40,9 +33,17 @@ namespace NewRatkin
 
         private float energy;
 
-        private int ticksUntilRechargeAllowed;
-
         public float Energy => energy;
+
+        private Pawn PawnOwner => (parent as Apparel)?.Wearer;
+
+        /// <summary>바닐라 EnergyMax — EnergyShieldEnergyMax 스탯.</summary>
+        public float EnergyMax =>
+            parent.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true, -1);
+
+        /// <summary>바닐라 EnergyGainPerTick — EnergyShieldRechargeRate / 60.</summary>
+        private float EnergyGainPerTick =>
+            parent.GetStatValue(StatDefOf.EnergyShieldRechargeRate, true, -1) / 60f;
 
         public static CompShieldDeflectEnergy GetWornEnergyShield(Pawn pawn)
         {
@@ -56,10 +57,19 @@ namespace NewRatkin
             return null;
         }
 
+        /// <summary>EnergyShieldEnergyMax 스탯의 품질 배율(쉴드벨트 StatPart_Quality와 동일).</summary>
+        public static float GetShieldEnergyQualityFactor(Thing apparel)
+        {
+            if (apparel?.def == null) return 1f;
+            float abstractVal = apparel.def.GetStatValueAbstract(StatDefOf.EnergyShieldEnergyMax);
+            if (abstractVal <= 0f) return 1f;
+            return apparel.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true, -1) / abstractVal;
+        }
+
         public float EffectiveMax(Pawn pawn)
         {
             float mult = IsBoostActive(pawn) ? 1f + Props.boostPct : 1f;
-            return Props.energyBase * mult;
+            return EnergyMax * mult;
         }
 
         public bool IsBoostActive(Pawn pawn)
@@ -74,40 +84,54 @@ namespace NewRatkin
             energy = Mathf.Clamp(energy, 0f, EffectiveMax(pawn));
         }
 
-        /// <summary>부스트 어빌리티: 에너지·최대치 증폭 + Hediff 부여.</summary>
-        public void ApplyEnergyBoost(Pawn pawn, HediffDef boostHediffDef, int durationTicks)
+        /// <summary>부스트 어빌리티: 최대치 증폭(Hediff) 후 fillDisplayAmount(표시 단위)만큼 충전.</summary>
+        public void ApplyEnergyBoost(Pawn pawn, HediffDef boostHediffDef, int durationTicks, float fillDisplayAmount)
         {
             if (pawn == null) return;
 
-            float boostAmount = Props.energyBase * Props.boostPct;
-            energy += boostAmount;
-            ClampEnergy(pawn);
+            if (boostHediffDef != null)
+            {
+                Hediff existing = pawn.health.hediffSet.GetFirstHediffOfDef(boostHediffDef);
+                if (existing != null)
+                    pawn.health.RemoveHediff(existing);
 
-            if (boostHediffDef == null) return;
+                Hediff hediff = HediffMaker.MakeHediff(boostHediffDef, pawn);
+                HediffComp_Disappears disappears = hediff.TryGetComp<HediffComp_Disappears>();
+                if (disappears != null)
+                    disappears.SetDuration(durationTicks);
+                pawn.health.AddHediff(hediff);
+            }
 
-            Hediff existing = pawn.health.hediffSet.GetFirstHediffOfDef(boostHediffDef);
-            if (existing != null)
-                pawn.health.RemoveHediff(existing);
+            if (fillDisplayAmount > 0f)
+            {
+                energy += fillDisplayAmount / 100f;
+                ClampEnergy(pawn);
+            }
+        }
 
-            Hediff hediff = HediffMaker.MakeHediff(boostHediffDef, pawn);
-            HediffComp_Disappears disappears = hediff.TryGetComp<HediffComp_Disappears>();
-            if (disappears != null)
-                disappears.SetDuration(durationTicks);
-            pawn.health.AddHediff(hediff);
-            ClampEnergy(pawn);
+        public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
+        {
+            foreach (Gizmo gizmo in base.CompGetWornGizmosExtra())
+                yield return gizmo;
+
+            Pawn pawn = PawnOwner;
+            if (pawn == null) yield break;
+            if (pawn.Faction != Faction.OfPlayer) yield break;
+            if (Find.Selector.SingleSelectedThing != pawn) yield break;
+
+            yield return new Gizmo_EnergyShieldDeflectStatus { shield = this };
         }
 
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_Values.Look(ref energy, "energy", 0f);
-            Scribe_Values.Look(ref ticksUntilRechargeAllowed, "ticksUntilRechargeAllowed", 0);
         }
 
         public override void CompTick()
         {
             base.CompTick();
-            Pawn pawn = (parent as Apparel)?.Wearer;
+            Pawn pawn = PawnOwner;
             if (pawn == null)
             {
                 energy = 0f;
@@ -115,16 +139,10 @@ namespace NewRatkin
             }
 
             ClampEnergy(pawn);
-
-            if (ticksUntilRechargeAllowed > 0)
-                ticksUntilRechargeAllowed--;
-
-            if (ticksUntilRechargeAllowed > 0) return;
-            if (!parent.IsHashIntervalTick(Props.rechargeTickInterval)) return;
-
+            energy += EnergyGainPerTick;
             float max = EffectiveMax(pawn);
-            if (energy < max)
-                energy = Mathf.Min(energy + Props.energyRechargePerTick, max);
+            if (energy > max)
+                energy = max;
         }
 
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
@@ -132,7 +150,7 @@ namespace NewRatkin
             absorbed = false;
             if (_processingDamage) return;
 
-            Pawn pawn = (parent as Apparel)?.Wearer;
+            Pawn pawn = PawnOwner;
             if (pawn == null) return;
 
             var shield = parent as ApparelShieldTowerSecond;
@@ -156,9 +174,8 @@ namespace NewRatkin
                     if (Rand.Value >= blockChance) return;
                 }
 
-                energy -= dinfo.Amount;
+                energy -= dinfo.Amount * Props.energyLossPerDamage;
                 if (energy < 0f) energy = 0f;
-                ticksUntilRechargeAllowed = Props.rechargeDelayAfterHitTicks;
                 ClampEnergy(pawn);
 
                 absorbed = true;
@@ -171,3 +188,4 @@ namespace NewRatkin
         }
     }
 }
+

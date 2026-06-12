@@ -10,6 +10,7 @@
 
   <!-- Shields Functionality -->
 
+  <RK_EnergyShield_GizmoTip>Energy coating capacity. Absorbs frontal damage within the deflect arc, ignoring armor penetration. When depleted, physical shield deflection applies.</RK_EnergyShield_GizmoTip>
   <RK_EnergyShieldBoost_NoShield>Must be wearing an energy shield.</RK_EnergyShieldBoost_NoShield>
   <RK_EnergyShieldBoost_NoPsylink>Requires a psylink.</RK_EnergyShieldBoost_NoPsylink>
   <ShieldBlock>Deflect!</ShieldBlock>

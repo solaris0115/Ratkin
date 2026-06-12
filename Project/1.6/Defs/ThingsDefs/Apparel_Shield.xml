@@ -337,6 +337,8 @@
 			<RK_Stat_Shield_Blunt>0.85</RK_Stat_Shield_Blunt>
 			<RK_Stat_Shield_Heat>0.75</RK_Stat_Shield_Heat>
 			<RK_Stat_DeflectAngle>180</RK_Stat_DeflectAngle>
+			<EnergyShieldEnergyMax>1.1</EnergyShieldEnergyMax>
+			<EnergyShieldRechargeRate>0.13</EnergyShieldRechargeRate>
 		</statBases>
 		<equippedStatOffsets>
 			<RK_Stat_ShieldBlockChance>6</RK_Stat_ShieldBlockChance>
@@ -352,11 +354,8 @@
 		</recipeMaker>
 		<comps>
 			<li Class="NewRatkin.CompProperties_ShieldDeflectEnergy">
-				<energyBase>60</energyBase>
 				<boostPct>0.5</boostPct>
-				<energyRechargePerTick>2</energyRechargePerTick>
-				<rechargeTickInterval>60</rechargeTickInterval>
-				<rechargeDelayAfterHitTicks>300</rechargeDelayAfterHitTicks>
+				<energyLossPerDamage>0.033</energyLossPerDamage>
 				<guaranteedBlockAttempt>true</guaranteedBlockAttempt>
 			</li>
 			<li Class="NewRatkin.CompProperties_ExtraDrawer">

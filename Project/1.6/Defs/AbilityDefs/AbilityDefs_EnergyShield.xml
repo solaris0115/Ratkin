@@ -4,7 +4,7 @@
 	<AbilityDef>
 		<defName>RK_Ability_EnergyShieldBoost</defName>
 		<label>energy shield boost</label>
-		<description>Channel psyfocus into the energy shield coating, increasing its capacity and instantly recharging part of the field. Requires a psylink.</description>
+		<description>Channel psyfocus into the energy shield coating. Increases energy capacity by 50% (scaled by shield quality) and instantly recharges energy equal to twice your neural heat limit (scaled by shield quality). Requires a psylink.</description>
 		<iconPath>Apparel/Util/RK_Texture_EnergyShield</iconPath>
 		<cooldownTicksRange>12500~12500</cooldownTicksRange>
 		<targetRequired>false</targetRequired>
@@ -13,7 +13,8 @@
 		<hostile>false</hostile>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<statBases>
-			<Ability_PsyfocusCost>0.35</Ability_PsyfocusCost>
+			<Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
 		</statBases>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
@@ -27,7 +28,7 @@
 			<li Class="NewRatkin.CompProperties_EnergyShieldBoost">
 				<boostHediffDef>RK_Hediff_EnergyShieldBoost</boostHediffDef>
 				<boostDurationTicks>3600</boostDurationTicks>
-				<psyfocusCost>0.35</psyfocusCost>
+				<boostFillNeuralHeatMult>2</boostFillNeuralHeatMult>
 			</li>
 		</comps>
 	</AbilityDef>

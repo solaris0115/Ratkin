@@ -16,5 +16,5 @@
 	<RK_WyvernFire_Ability.description>Unleash a powerful cone-shaped explosion in front of the wielder which sets anything that survived it on fire. Consumes one shell.</RK_WyvernFire_Ability.description>
 
   <RK_Ability_EnergyShieldBoost.label>energy boost</RK_Ability_EnergyShieldBoost.label>
-  <RK_Ability_EnergyShieldBoost.description>Channel psyfocus into the energy shield coating. Increases energy capacity by 50% and instantly recharges part of the field. Requires a psylink.</RK_Ability_EnergyShieldBoost.description>
+  <RK_Ability_EnergyShieldBoost.description>Channel psyfocus into the energy shield coating. Increases energy capacity by 50% (scaled by shield quality) and instantly recharges energy equal to twice your neural heat limit (scaled by shield quality). Requires a psylink.</RK_Ability_EnergyShieldBoost.description>
 </LanguageData>

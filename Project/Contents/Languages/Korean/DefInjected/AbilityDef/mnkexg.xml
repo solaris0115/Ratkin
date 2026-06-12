@@ -9,5 +9,5 @@
   <RK_WyvernFire_Ability.label>용격포</RK_WyvernFire_Ability.label>
   <RK_WyvernFire_Ability.description>전방에 강력한 포격을 가합니다. 탄환을 한발 소모합니다.</RK_WyvernFire_Ability.description>
   <RK_Ability_EnergyShieldBoost.label>에너지 부스트</RK_Ability_EnergyShieldBoost.label>
-  <RK_Ability_EnergyShieldBoost.description>초집중을 방패 에너지 코팅에 주입합니다. 에너지 최대치가 50% 증가하고 즉시 일부 충전됩니다. 사이링크가 필요합니다.</RK_Ability_EnergyShieldBoost.description>
+  <RK_Ability_EnergyShieldBoost.description>초집중을 방패 에너지 코팅에 주입합니다. 방패 품질에 따라 에너지 최대치가 50% 증가하고, 신경열 한계의 2배만큼 즉시 충전됩니다. 사이링크가 필요합니다.</RK_Ability_EnergyShieldBoost.description>
 </LanguageData>
