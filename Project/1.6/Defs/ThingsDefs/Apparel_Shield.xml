@@ -372,7 +372,7 @@
 					<angleWest>0</angleWest>
 				</draftedDrawData>
 				<backDrawData>
-					<graphicPath>Apparel/Util/RK_Texture_EnergyShield</graphicPath>
+					<graphicPath>Apparel/Util/RK_Texture_EnergyShieldUnarm</graphicPath>
 					<offsetNorth>(0, 0.2, -0.1)</offsetNorth>
 					<offsetSouth>(0, -0.2, 0.01)</offsetSouth>
 					<offsetEast>(-0.15, 0.05, 0.03)</offsetEast>
