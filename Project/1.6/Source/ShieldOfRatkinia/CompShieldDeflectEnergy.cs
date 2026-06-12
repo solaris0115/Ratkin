@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 using RimWorld;
 
 namespace NewRatkin
@@ -179,13 +180,25 @@ namespace NewRatkin
                 ClampEnergy(pawn);
 
                 absorbed = true;
-                MoteMaker.ThrowText(pawn.DrawPos, pawn.Map, "ShieldBlock".Translate(), 1.9f);
-                EffecterDefOf.Deflect_Metal.Spawn().Trigger(pawn, dinfo.Instigator ?? pawn);
+                PlayEnergyAbsorbFeedback(pawn, dinfo);
                 return;
             }
 
             base.PostPreApplyDamage(ref dinfo, out absorbed);
         }
+
+        /// <summary>바닐라 CompShield.AbsorbedDamage — 텍스트 없음, 쉴드벨트 흡수음·이펙트.</summary>
+        private static void PlayEnergyAbsorbFeedback(Pawn pawn, DamageInfo dinfo)
+        {
+            SoundDefOf.EnergyShield_AbsorbDamage.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));
+            Vector3 impactVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
+            Vector3 loc = pawn.TrueCenter() + impactVect.RotatedBy(180f) * 0.5f;
+            float flashSize = Mathf.Min(10f, 2f + dinfo.Amount / 10f);
+            FleckMaker.Static(loc, pawn.Map, FleckDefOf.ExplosionFlash, flashSize);
+            int puffCount = (int)flashSize;
+            for (int i = 0; i < puffCount; i++)
+                FleckMaker.ThrowDustPuff(loc, pawn.Map, Rand.Range(0.8f, 1.2f));
+        }
     }
 }
-
+
