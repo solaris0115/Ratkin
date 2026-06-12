@@ -170,8 +170,36 @@ namespace NewRatkin
             LoadGraphic();
         }
 
+        public override void Notify_ColorChanged()
+        {
+            base.Notify_ColorChanged();
+            extraGraphicDrafted = null;
+            extraGraphicBack = null;
+            LoadGraphic();
+        }
+
+        /// <summary>ApparelGraphicRecordGetter와 동일 우선순위로 착용 드로우 셰이더 결정.</summary>
+        private static Shader ResolveDrawShader(Apparel apparel)
+        {
+            if (apparel == null)
+                return ShaderDatabase.Cutout;
+
+            ThingStyleDef styleDef = apparel.StyleDef;
+            if (styleDef?.graphicData?.shaderType != null)
+                return styleDef.graphicData.shaderType.Shader;
+
+            if (apparel.def.graphicData?.shaderType != null)
+                return apparel.def.graphicData.shaderType.Shader;
+
+            if ((styleDef == null && apparel.def.apparel.useWornGraphicMask) ||
+                (styleDef != null && styleDef.UseWornGraphicMask))
+                return ShaderDatabase.CutoutComplex;
+
+            return ShaderDatabase.Cutout;
+        }
+
         /// <summary>
-        /// Graphic 로딩 (비동기 처리)
+        /// Graphic 로딩 (비동기 처리). 색상은 DrawExtra에서 MPB로 매 프레임 적용.
         /// </summary>
         private void LoadGraphic()
         {
@@ -181,61 +209,27 @@ namespace NewRatkin
             {
                 if (parent == null) return;
 
-                // drawSize 가져오기 (Props 또는 parent.def.graphicData에서)
                 Vector2 drawSize = Props.drawSize;
                 if (drawSize == Vector2.zero && parent.def.graphicData != null)
-                {
                     drawSize = parent.def.graphicData.drawSize;
-                }
                 if (drawSize == Vector2.zero)
-                {
                     drawSize = new Vector2(1f, 1f);
-                }
 
-                // Shader 선택: 부모 Apparel의 useWornGraphicMask 설정 확인
-                // RimWorld의 ApparelGraphicRecordGetter 로직과 동일
-                Shader shader = ShaderDatabase.Cutout;
-                Apparel apparel = Apparel;
-                if (apparel != null)
-                {
-                    ThingStyleDef styleDef = apparel.StyleDef;
-                    if (styleDef != null && styleDef.graphicData != null && styleDef.graphicData.shaderType != null)
-                    {
-                        shader = styleDef.graphicData.shaderType.Shader;
-                    }
-                    else if ((styleDef == null && apparel.def.apparel.useWornGraphicMask) || 
-                             (styleDef != null && styleDef.UseWornGraphicMask))
-                    {
-                        shader = ShaderDatabase.CutoutComplex;
-                    }
-                }
+                Shader shader = ResolveDrawShader(Apparel);
 
-                // ThingWithComps.DrawColor가 stuff 색상 / CompColorable(Active) / graphicData.color 순서로 처리
-                Color drawColor = parent.DrawColor;
-
-                // 소집 시 그래픽 로딩
                 string graphicPathDrafted = Props.draftedDrawData?.graphicPath;
                 if (graphicPathDrafted.NullOrEmpty())
-                {
                     graphicPathDrafted = "Apparel/Util/RK_TextureApparel_BannerArm";
-                }
-                extraGraphicDrafted = GraphicDatabase.Get<Graphic_Multi>(
-                    graphicPathDrafted,
-                    shader,
-                    drawSize,
-                    drawColor);
 
-                // 비소집 시 그래픽 로딩
                 string graphicPathBack = Props.backDrawData?.graphicPath;
                 if (graphicPathBack.NullOrEmpty())
-                {
                     graphicPathBack = "Apparel/Util/RK_TextureApparel_BannerUnarm";
-                }
+
+                extraGraphicDrafted = GraphicDatabase.Get<Graphic_Multi>(
+                    graphicPathDrafted, shader, drawSize, Color.white);
+
                 extraGraphicBack = GraphicDatabase.Get<Graphic_Multi>(
-                    graphicPathBack,
-                    shader,
-                    drawSize,
-                    drawColor);
+                    graphicPathBack, shader, drawSize, Color.white);
             });
         }
 
@@ -335,10 +329,9 @@ namespace NewRatkin
         /// <param name="angle">회전 각도</param>
         private void DrawExtra(Material mat, Vector3 drawLoc, float angle)
         {
-            Color drawColor = parent.DrawColor;
-
             MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
-            matPropertyBlock.SetColor(ShaderPropertyIDs.Color, drawColor);
+            matPropertyBlock.SetColor(ShaderPropertyIDs.Color, parent.DrawColor);
+            matPropertyBlock.SetColor(ShaderPropertyIDs.ColorTwo, parent.DrawColorTwo);
 
             Vector2 size = Props.drawSize;
             Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, Quaternion.AngleAxis(angle, Vector3.up), new Vector3(size.x, 1f, size.y));
