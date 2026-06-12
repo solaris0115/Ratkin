@@ -13,8 +13,8 @@
 		<hostile>false</hostile>
 		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
 		<statBases>
-			<Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
-			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.20</Ability_PsyfocusCost>
+			<Ability_EntropyGain>45</Ability_EntropyGain>
 		</statBases>
 		<verbProperties>
 			<verbClass>Verb_CastAbility</verbClass>
