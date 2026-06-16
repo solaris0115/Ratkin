@@ -21,7 +21,7 @@
 
 1. **(프리릴리스)** Release C# 빌드 + `RatkinDevFeatures=false` → `Project/1.6/Assemblies/NewRatkin.dll`에 직접 출력(`OutputPath`; `bin/Release` 복사 금지)
 2. **압축**: Project/ 폴더를 ZIP으로 패키징
-3. **1.5 제외**: Project/1.5/ 압축에서 제외
+3. **1.5 제외**: `Project/1.5/`는 미지원 레거시 — 압축·신규 작업 모두 제외
 4. **웹 배포**: GitHub Release 업로드 (기본: solaris0115/NewRatkin)
 
 ## 저장소 구분

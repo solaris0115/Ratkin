@@ -7,6 +7,10 @@ description: Ratkin 프로젝트 빌드, 패키징, 배포 규칙. MSBuild로 C#
 
 ## 핵심 규칙
 
+### RimWorld 버전
+- **1.6만 지원**: Def·C#·리소스는 `Project/1.6/`에만 추가·수정
+- **`Project/1.5/` 금지**: 미지원. 파일 생성·수정하지 않음 (패키징에서도 제외)
+
 ### PowerShell 문법 (필수)
 - **`&&` 사용 금지**: Windows PowerShell 5.x에서 오류 발생
 - **명령 연결 시 `;` 사용**: `cd ... ; & "MSBuild..."` 형태
@@ -42,7 +46,7 @@ cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Communit
 **파일명**: `Ratkin_TestBuild_YYMMDD_버전.zip`  
 **출력 경로**: `Build/TestBuild/`
 
-**패키징 대상**: `Project/` 전체, **제외**: `Project/1.5/`
+**패키징 대상**: `Project/` 전체, **제외**: `Project/1.5/` (미지원 레거시)
 
 ```powershell
 # 디렉터리 생성

@@ -4,6 +4,8 @@ description: C# build and project management
 ---
 # C# Build
 
+**지원 버전**: RimWorld 1.6만. `Project/1.5/` 소스·csproj **생성·수정 금지**.
+
 **csproj**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
 
 ```powershell

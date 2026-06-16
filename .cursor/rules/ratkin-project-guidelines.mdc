@@ -15,8 +15,13 @@ description: Ratkin 프로젝트 통합 개발 가이드라인
 3. **[Git 워크플로우](mdc:.cursor/rules/05-git-workflow.mdc)**: Git 안전성 및 커밋 규칙
 4. **[파일 보존](mdc:.cursor/rules/04-file-preservation.mdc)**: 파일 삭제 및 보존 규칙
 5. **[C# 관리](mdc:.cursor/rules/02-csharp-manage-rule.mdc)**: C# 빌드 및 프로젝트 관리 규칙
-6. **[Def 구조 가이드](mdc:.cursor/rules/03-def-structure-guide.mdc)**: Def 파일 구조 및 프로젝트 정보
+6. **[Def 구조 가이드](mdc:.cursor/rules/03-rimworld-file-structure-guide.mdc)**: Def 파일 구조 및 프로젝트 정보 (1.6만 작업)
 7. **[버그 리포트 규칙](mdc:.cursor/rules/08-bug-report-rule.mdc)**: 버그 기록 및 리포트 작성
+
+## RimWorld 버전
+
+- **지원**: RimWorld **1.6** (`Project/1.6/`만 작업)
+- **미지원**: RimWorld **1.5** — `Project/1.5/`에 파일을 **만들거나 수정하지 않음** (레거시·패키징 제외 대상)
 
 ## 목적
 

@@ -6,6 +6,7 @@ description: Ratkin 프로젝트 간단 빌드 규칙 (폴더/PowerShell 중심)
 # Ratkin 간단 빌드 규칙
 
 ## 빌드 폴더
+- **지원 버전**: RimWorld 1.6만. `Project/1.5/` 작업 금지.
 - 소스: `Project/1.6/Source`
 - 출력 DLL: `Project/1.6/Assemblies/NewRatkin.dll`
 
