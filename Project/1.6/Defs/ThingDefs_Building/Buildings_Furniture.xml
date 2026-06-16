@@ -44,7 +44,12 @@
     </placeWorkers>
   </ThingDef>
 
-  <!-- 벽걸이 벽화. 제작 불가, 스폰·이벤트 전용. Graphic_Random variant는 thingIDNumber로 결정 -->
+  <ThingDef ParentName="MinifiedThing">
+    <defName>RK_MinifiedThing_Paint</defName>
+    <thingClass>NewRatkin.MinifiedThing_PictureUnique</thingClass>
+  </ThingDef>
+
+  <!-- 벽걸이 벽화. 제작 불가, 스폰·이벤트 전용. Graphic_Random variant는 생성 시 overrideGraphicIndex로 고정 -->
   <ThingDef ParentName="BuildingBase">
     <defName>RK_Thing_Paint</defName>
     <thingClass>Building_Art</thingClass>
@@ -55,17 +60,17 @@
       <texPath>Things/Building/Art/RK_Thing_Paint</texPath>
       <graphicClass>Graphic_Random</graphicClass>
       <drawRotated>false</drawRotated>
-      <drawOffsetNorth>(0,0,0.5)</drawOffsetNorth>
+      <drawOffsetNorth>(0,0,0.8)</drawOffsetNorth>
       <drawOffsetSouth>(0,0,-0.5)</drawOffsetSouth>
-      <drawOffsetWest>(-0.5,0,0)</drawOffsetWest>
-      <drawOffsetEast>(0.5,0,0)</drawOffsetEast>
+      <drawOffsetWest>(-0.46,0,0.2)</drawOffsetWest>
+      <drawOffsetEast>(0.46,0,0.2)</drawOffsetEast>
       <damageData>
         <enabled>false</enabled>
       </damageData>
     </graphicData>
     <uiIconPath>Things/Building/Art/RK_Texture_PictureUnique</uiIconPath>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <minifiedDef>MinifiedThing</minifiedDef>
+    <minifiedDef>RK_MinifiedThing_Paint</minifiedDef>
     <thingCategories>
       <li>BuildingsArt</li>
     </thingCategories>
@@ -80,8 +85,6 @@
     <passability>Standable</passability>
     <terrainAffordanceNeeded IsNull="True" />
     <pathCost>0</pathCost>
-    <overrideMinifiedRot>North</overrideMinifiedRot>
-    <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <building>
       <isEdifice>false</isEdifice>
@@ -95,6 +98,9 @@
         <compClass>CompQuality</compClass>
       </li>
       <li Class="CompProperties_Styleable" />
+      <li Class="NewRatkin.CompProperties_RandomGraphicIndex">
+        <variantCount>2</variantCount>
+      </li>
       <li Class="CompProperties_Art">
         <nameMaker>NamerArtSculpture</nameMaker>
         <descriptionMaker>ArtDescription_Sculpture</descriptionMaker>
