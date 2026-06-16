@@ -55,7 +55,7 @@
       <texPath>Things/Building/Art/RK_Thing_Paint</texPath>
       <graphicClass>Graphic_Random</graphicClass>
       <drawRotated>false</drawRotated>
-      <drawOffsetNorth>(0,0,0.8)</drawOffsetNorth>
+      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
       <drawOffsetSouth>(0,0,-0.5)</drawOffsetSouth>
       <drawOffsetWest>(-0.46,0,0.2)</drawOffsetWest>
       <drawOffsetEast>(0.46,0,0.2)</drawOffsetEast>
