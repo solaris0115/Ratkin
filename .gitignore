@@ -16,7 +16,6 @@ bin/
 *.cache
 *.pdb
 *.exe
-*.dll
 
 # 임시 파일들
 *.tmp
