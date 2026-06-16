@@ -6,8 +6,10 @@
 	     ======================================== -->
 
 	<!-- 가벼운 체형 - Thin bodyType 고정 -->
-	<GeneDef>
+	<GeneDef Class="NewRatkin.GeneDrawScaleDef">
 		<defName>RK_Gene_SmallBody</defName>
+		<geneClass>NewRatkin.Gene_DrawScale</geneClass>
+		<drawScale>0.5</drawScale>
 		<label>small body</label>
 		<labelShortAdj>small-bodied</labelShortAdj>
 		<description>Small, compact body that dodges better but hits weaker and carries less.</description>
