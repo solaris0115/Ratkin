@@ -54,15 +54,16 @@
     <graphicData>
       <texPath>Things/Building/Art/RK_Thing_Paint</texPath>
       <graphicClass>Graphic_Random</graphicClass>
-      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
-      <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
-      <drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
-      <drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+      <drawRotated>false</drawRotated>
+      <drawOffsetNorth>(0,0,0.5)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,-0.5)</drawOffsetSouth>
+      <drawOffsetWest>(-0.5,0,0)</drawOffsetWest>
+      <drawOffsetEast>(0.5,0,0)</drawOffsetEast>
       <damageData>
         <enabled>false</enabled>
       </damageData>
     </graphicData>
-    <uiIconPath>Things/Building/Art/RK_Thing_Paint/PictureUnique</uiIconPath>
+    <uiIconPath>Things/Building/Art/RK_Texture_PictureUnique</uiIconPath>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
