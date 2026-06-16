@@ -44,11 +44,6 @@
     </placeWorkers>
   </ThingDef>
 
-  <ThingDef ParentName="MinifiedThing">
-    <defName>RK_MinifiedThing_Paint</defName>
-    <thingClass>NewRatkin.MinifiedThing_PictureUnique</thingClass>
-  </ThingDef>
-
   <!-- 벽걸이 벽화. 제작 불가, 스폰·이벤트 전용. Graphic_Random variant는 생성 시 overrideGraphicIndex로 고정 -->
   <ThingDef ParentName="BuildingBase">
     <defName>RK_Thing_Paint</defName>
@@ -70,7 +65,7 @@
     </graphicData>
     <uiIconPath>Things/Building/Art/RK_Texture_PictureUnique</uiIconPath>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
-    <minifiedDef>RK_MinifiedThing_Paint</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
       <li>BuildingsArt</li>
     </thingCategories>
@@ -85,6 +80,8 @@
     <passability>Standable</passability>
     <terrainAffordanceNeeded IsNull="True" />
     <pathCost>0</pathCost>
+    <overrideMinifiedRot>North</overrideMinifiedRot>
+    <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
     <noRightClickDraftAttack>true</noRightClickDraftAttack>
     <building>
       <isEdifice>false</isEdifice>
