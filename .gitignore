@@ -1,6 +1,9 @@
 # Ratkin 프로젝트 .gitignore
 # 필요한 파일들만 무시하는 방식
 
+# 유니크 폰 기획/메모 (로컬 작업용)
+20_UniquePawn/
+
 # 림월드 참조 데이터/소스 (로컬 심볼릭 링크 또는 폴더)
 RimworldData/
 RimworldSource/
