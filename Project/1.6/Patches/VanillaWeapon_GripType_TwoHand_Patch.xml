@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- TwoHand grip for vanilla equippable weapons missing CompWeaponGripType -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Ludeon.RimWorld.Anomaly</li></mods>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName='Gun_HellcatRifle' or defName='Gun_Incinerator']/comps</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='Gun_HellcatRifle' or defName='Gun_Incinerator']/comps</xpath>
+				<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='Gun_HellcatRifle' or defName='Gun_Incinerator']</xpath>
+				<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+			</nomatch>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Ludeon.RimWorld.Biotech</li></mods>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName='Flamebow' or defName='Gun_BeamGraser' or defName='Gun_HellsphereCannon' or defName='Gun_MiniFlameblaster' or defName='Gun_MiniShotgun' or defName='Gun_NeedleLauncher' or defName='Gun_Slugthrower' or defName='Gun_Spiner' or defName='Gun_ToxbombLauncher' or defName='Gun_ToxicNeedle' or defName='Weapon_GrenadeTox']/comps</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='Flamebow' or defName='Gun_BeamGraser' or defName='Gun_HellsphereCannon' or defName='Gun_MiniFlameblaster' or defName='Gun_MiniShotgun' or defName='Gun_NeedleLauncher' or defName='Gun_Slugthrower' or defName='Gun_Spiner' or defName='Gun_ToxbombLauncher' or defName='Gun_ToxicNeedle' or defName='Weapon_GrenadeTox']/comps</xpath>
+				<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='Flamebow' or defName='Gun_BeamGraser' or defName='Gun_HellsphereCannon' or defName='Gun_MiniFlameblaster' or defName='Gun_MiniShotgun' or defName='Gun_NeedleLauncher' or defName='Gun_Slugthrower' or defName='Gun_Spiner' or defName='Gun_ToxbombLauncher' or defName='Gun_ToxicNeedle' or defName='Weapon_GrenadeTox']</xpath>
+				<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+			</nomatch>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName='Bow_Great' or defName='Bow_Recurve' or defName='Bow_Short' or defName='Gun_AssaultRifle' or defName='Gun_BoltActionRifle' or defName='Gun_ChainShotgun' or defName='Gun_ChargeBlasterHeavy' or defName='Gun_ChargeLance' or defName='Gun_ChargeRifle' or defName='Gun_DoomsdayRocket' or defName='Gun_EmpLauncher' or defName='Gun_HeavySMG']/comps</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='Bow_Great' or defName='Bow_Recurve' or defName='Bow_Short' or defName='Gun_AssaultRifle' or defName='Gun_BoltActionRifle' or defName='Gun_ChainShotgun' or defName='Gun_ChargeBlasterHeavy' or defName='Gun_ChargeLance' or defName='Gun_ChargeRifle' or defName='Gun_DoomsdayRocket' or defName='Gun_EmpLauncher' or defName='Gun_HeavySMG']/comps</xpath>
+			<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='Bow_Great' or defName='Bow_Recurve' or defName='Bow_Short' or defName='Gun_AssaultRifle' or defName='Gun_BoltActionRifle' or defName='Gun_ChainShotgun' or defName='Gun_ChargeBlasterHeavy' or defName='Gun_ChargeLance' or defName='Gun_ChargeRifle' or defName='Gun_DoomsdayRocket' or defName='Gun_EmpLauncher' or defName='Gun_HeavySMG']</xpath>
+			<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName='Gun_IncendiaryLauncher' or defName='Gun_InfernoCannon' or defName='Gun_LMG' or defName='Gun_Minigun' or defName='Gun_Needle' or defName='Gun_PumpShotgun' or defName='Gun_RocketswarmLauncher' or defName='Gun_SmokeLauncher' or defName='Gun_SniperRifle' or defName='Gun_ThumpCannon' or defName='Gun_TripleRocket' or defName='Weapon_GrenadeEMP']/comps</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='Gun_IncendiaryLauncher' or defName='Gun_InfernoCannon' or defName='Gun_LMG' or defName='Gun_Minigun' or defName='Gun_Needle' or defName='Gun_PumpShotgun' or defName='Gun_RocketswarmLauncher' or defName='Gun_SmokeLauncher' or defName='Gun_SniperRifle' or defName='Gun_ThumpCannon' or defName='Gun_TripleRocket' or defName='Weapon_GrenadeEMP']/comps</xpath>
+			<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='Gun_IncendiaryLauncher' or defName='Gun_InfernoCannon' or defName='Gun_LMG' or defName='Gun_Minigun' or defName='Gun_Needle' or defName='Gun_PumpShotgun' or defName='Gun_RocketswarmLauncher' or defName='Gun_SmokeLauncher' or defName='Gun_SniperRifle' or defName='Gun_ThumpCannon' or defName='Gun_TripleRocket' or defName='Weapon_GrenadeEMP']</xpath>
+			<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName='Weapon_GrenadeFrag' or defName='Weapon_GrenadeMolotov']/comps</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='Weapon_GrenadeFrag' or defName='Weapon_GrenadeMolotov']/comps</xpath>
+			<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName='Weapon_GrenadeFrag' or defName='Weapon_GrenadeMolotov']</xpath>
+			<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Ludeon.RimWorld.Odyssey</li></mods>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName='Gun_BeamRepeater' or defName='Gun_Scattergun']/comps</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='Gun_BeamRepeater' or defName='Gun_Scattergun']/comps</xpath>
+				<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='Gun_BeamRepeater' or defName='Gun_Scattergun']</xpath>
+				<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+			</nomatch>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Ludeon.RimWorld.Royalty</li></mods>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName='MeleeWeapon_PsyfocusStaff' or defName='MeleeWeapon_Warhammer' or defName='MeleeWeapon_ZeusHammerBladelink' or defName='MeleeWeapon_Zeushammer']/comps</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='MeleeWeapon_PsyfocusStaff' or defName='MeleeWeapon_Warhammer' or defName='MeleeWeapon_ZeusHammerBladelink' or defName='MeleeWeapon_Zeushammer']/comps</xpath>
+				<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='MeleeWeapon_PsyfocusStaff' or defName='MeleeWeapon_Warhammer' or defName='MeleeWeapon_ZeusHammerBladelink' or defName='MeleeWeapon_Zeushammer']</xpath>
+				<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>TwoHand</li></gripTypes></li></comps></value>
+			</nomatch>
+		</match>
+	</Operation>
+
+	<!-- NerveSpiker: OneHand -->
+	<Operation Class="PatchOperationFindMod">
+		<mods><li>Ludeon.RimWorld.Anomaly</li></mods>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName='NerveSpiker']/comps</xpath>
+			<match Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='NerveSpiker']/comps</xpath>
+				<value><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>OneHand</li></gripTypes></li></value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName='NerveSpiker']</xpath>
+				<value><comps><li Class="NewRatkin.CompProperties_WeaponGripType"><gripTypes><li>OneHand</li></gripTypes></li></comps></value>
+			</nomatch>
+		</match>
+	</Operation>
+
+</Patch>

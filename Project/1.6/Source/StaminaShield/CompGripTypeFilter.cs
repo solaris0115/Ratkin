@@ -8,6 +8,7 @@ namespace NewRatkin
     /// <summary>
     /// 장비(방패·배너 등)가 허용하는 무기 파지 유형을 정의하고, 비호환 무기 장착을 차단한다.
     /// <see cref="allowedGripTypes"/>가 설정되면 Enum 판정, 비어 있으면 레거시 <see cref="allowedWeaponTags"/> 폴백.
+    /// 무기에 <see cref="CompWeaponGripType"/>이 없으면 방패와 동시 착용 불가.
     /// </summary>
     public class CompProperties_GripTypeFilter : CompProperties
     {
@@ -129,8 +130,8 @@ namespace NewRatkin
             List<RK_WeaponGripType> weaponGrips = CompWeaponGripType.GripTypesFor(weaponDef);
             if (weaponGrips == null || weaponGrips.Count == 0)
             {
-                reason = "allowed_no_grip_comp";
-                return true;
+                reason = "weapon_missing_grip_comp";
+                return false;
             }
 
             if (CompWeaponGripType.IsGripCompatible(weaponGrips, Props.allowedGripTypes))
