@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 벽걸이 벽화. 제작 불가, 스폰·이벤트 전용. Graphic_Random variant는 생성 시 overrideGraphicIndex로 고정 -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>RK_Thing_Paint</defName>
+    <thingClass>Building_Art</thingClass>
+    <label>wall painting</label>
+    <description>A wall-mounted painting. Each piece bears a unique image.</description>
+    <rotatable>true</rotatable>
+    <graphicData>
+      <texPath>Things/Building/Art/RK_Thing_Paint</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawRotated>false</drawRotated>
+      <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+      <drawOffsetSouth>(0,0,-0.5)</drawOffsetSouth>
+      <drawOffsetWest>(-0.46,0,0.2)</drawOffsetWest>
+      <drawOffsetEast>(0.46,0,0.2)</drawOffsetEast>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Building/Art/RK_Texture_PictureUnique</uiIconPath>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>35</MaxHitPoints>
+      <Mass>2</Mass>
+      <Beauty>40</Beauty>
+      <Flammability>1.0</Flammability>
+      <SellPriceFactor>1.10</SellPriceFactor>
+    </statBases>
+    <passability>Standable</passability>
+    <terrainAffordanceNeeded IsNull="True" />
+    <pathCost>0</pathCost>
+    <overrideMinifiedRot>North</overrideMinifiedRot>
+    <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
+    <noRightClickDraftAttack>true</noRightClickDraftAttack>
+    <building>
+      <isEdifice>false</isEdifice>
+      <isAttachment>true</isAttachment>
+    </building>
+    <placeWorkers>
+      <li>Placeworker_AttachedToWall</li>
+    </placeWorkers>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Styleable" />
+      <li Class="NewRatkin.CompProperties_RandomGraphicIndex">
+        <variantCount>2</variantCount>
+      </li>
+      <li Class="NewRatkin.CompProperties_RKUniqueArt">
+        <nameMaker>RK_NamerArt_PictureUnique</nameMaker>
+        <descriptionMaker>RK_ArtDescription_PictureUnique</descriptionMaker>
+        <canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+        <engravedDaysBefore>60</engravedDaysBefore>
+        <uniquePawnNames>
+          <li>Gloomytale</li>
+        </uniquePawnNames>
+      </li>
+    </comps>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <tradeTags>
+      <li>Art</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>

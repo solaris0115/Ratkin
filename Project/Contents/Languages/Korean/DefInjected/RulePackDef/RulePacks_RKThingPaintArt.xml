@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RK_NamerArt_PictureUnique.rulePack.rulesStrings>
+    <li>r_art_name(priority=10)-&gt;랫킨의 기원</li>
+  </RK_NamerArt_PictureUnique.rulePack.rulesStrings>
+
+  <RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
+    <li>r_art_description(priority=10)-&gt;이 조각상은 랫킨의 기원을 표현하고 있습니다. 대담하고 사실적으로 묘사된 이것은 군중을 놀라게 하기에 충분했습니다. 현재도 이것이 랫킨을 묘사한 것이 맞는지 논란 중에 있습니다. [RK_DATE]에 [RK_UNIQUEPAWN]이 왕족에게 의뢰받은 내용을 표현하고 있습니다.</li>
+  </RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
+
+</LanguageData>

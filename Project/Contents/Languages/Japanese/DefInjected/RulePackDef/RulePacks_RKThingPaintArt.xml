@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RK_NamerArt_PictureUnique.rulePack.rulesStrings>
+    <li>r_art_name(priority=10)-&gt;ラットキンの起源</li>
+  </RK_NamerArt_PictureUnique.rulePack.rulesStrings>
+
+  <RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
+    <li>r_art_description(priority=10)-&gt;この彫像はラットキンの起源を表現しています。大胆かつ写実的な描写は、群衆を驚かせるには十分でした。今なお、これが本当にラットキンを描いたものなのか議論されています。[RK_DATE]に、[RK_UNIQUEPAWN]は王族から依頼された内容を表現しています。</li>
+  </RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
+
+</LanguageData>

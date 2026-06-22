@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RK_NamerArt_PictureUnique.rulePack.rulesStrings>
+    <li>r_art_name(priority=10)-&gt;Origin of the Ratkin</li>
+  </RK_NamerArt_PictureUnique.rulePack.rulesStrings>
+
+  <RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
+    <li>r_art_description(priority=10)-&gt;This statue expresses the origin of the Ratkin. Its bold, realistic depiction was enough to astonish a crowd. Even now, whether it truly depicts the Ratkin remains controversial. On [RK_DATE], [RK_UNIQUEPAWN] represented the contents of a royal commission.</li>
+  </RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
+
+</LanguageData>
