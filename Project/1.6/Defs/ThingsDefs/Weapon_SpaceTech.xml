@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>	
+	<ThingDef ParentName="RK_WeaponAttr_UltratechBase" Name="RK_WeaponAttr_WarHammer">
+		<defName>RK_Weapon_WarHammer</defName>
+		<label>ratkin warhammer</label>
+		<description>내장된 EMP 축전기가 달린 전투망치입니다. 타격 시 물리 피해와 함께 EMP 폭발이 동반되어 전자기기를 마비시킵니다.</description>
+		<soundInteract>Interact_ZeusHammer</soundInteract>
+		<meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<relicChance>3</relicChance>
+		<smeltable>false</smeltable>
+		<weaponClasses>
+			<li>MeleeBlunt</li>
+		</weaponClasses>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponMelee/ZeusHammer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<costList>
+			<ComponentSpacer>6</ComponentSpacer>
+			<Plasteel>50</Plasteel>
+			<Steel>150</Steel>
+			<Uranium>50</Uranium>
+		</costList>
+		<tools>
+			<li>
+				<label>handle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>head</label>
+				<labelUsedInLogging>false</labelUsedInLogging>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>31</power>
+				<cooldownTime>3</cooldownTime>
+				<extraMeleeDamages>
+					<li>
+						<def>EMP</def>
+						<amount>9</amount>
+					</li>
+				</extraMeleeDamages>
+			</li>
+		</tools>
+		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>TwoHand</li>
+				</gripTypes>
+			</li>
+		</comps>
+		<recipeMaker>
+			<displayPriority>78555</displayPriority>
+		</recipeMaker>
+	</ThingDef>
+</Defs>

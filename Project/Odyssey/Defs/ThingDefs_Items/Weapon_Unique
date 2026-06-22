@@ -151,6 +151,46 @@
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
 
+	<!-- 워해머 -->
+	<ThingDef ParentName="RK_WeaponAttr_WarHammer">
+		<defName>RK_Weapon_WarHammer_Unique</defName>
+		<label>unique ratkin warhammer</label>
+		<description>A unique ratkin warhammer with enhanced EMP capabilities.</description>
+
+		<comps Inherit="False">
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Styleable"/>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerArtWeaponMelee</nameMaker>
+				<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+				<minQualityForArtistic>Excellent</minQualityForArtistic>
+			</li>
+			<li Class="CompProperties_UniqueWeapon">
+				<weaponCategories>
+					<li>Melee</li>
+					<li>TwoHanded</li>
+					<li>Blunt</li>
+				</weaponCategories>
+				<namerLabels>
+					<li>warhammer</li>
+					<li>hammer</li>
+					<li>weapon</li>
+				</namerLabels>
+			</li>
+		</comps>
+
+		<generateAllowChance>0</generateAllowChance>
+		<possessionCount>0</possessionCount>
+		<tradeability>Sellable</tradeability>
+		<thingSetMakerTags Inherit="False">
+			<li>UniqueWeapon</li>
+		</thingSetMakerTags>
+		<recipeMaker Inherit="False" IsNull="True" />
+	</ThingDef>
+
 	<!-- 유니크 무기 - Weapon_Melee.xml -->
 	
 	<!-- 철퇴 -->
