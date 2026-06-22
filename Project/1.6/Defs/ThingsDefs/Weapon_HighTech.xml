@@ -536,10 +536,12 @@
 			</li>
 		</comps>
 	</ThingDef>
+
 	<ToolCapacityDef>
 		<defName>RK_ToolCapacity_ChainSword</defName>
 		<label>saw</label>
 	</ToolCapacityDef>
+
 	<ManeuverDef>
 		<defName>RK_Maneuver_ChainSword</defName>
 		<requiredCapacity>RK_ToolCapacity_ChainSword</requiredCapacity>
@@ -553,6 +555,7 @@
 		<combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
 		<combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
 	</ManeuverDef>
+
 	<DamageDef>
 		<defName>RK_Damage_Torn</defName>
 		<label>torn</label>
@@ -576,6 +579,7 @@
 		</cutExtraTargetsCurve>
 		<cutCleaveBonus>1.2</cutCleaveBonus>
 	</DamageDef>
+
 	<DamageDef>
 		<defName>RK_Damage_BurnTorn</defName>
 		<label>torn</label>
@@ -599,6 +603,7 @@
 		</cutExtraTargetsCurve>
 		<cutCleaveBonus>1.2</cutCleaveBonus>
 	</DamageDef>
+
 	<HediffDef ParentName="InjuryBase">
 		<defName>RK_Hediff_Torn</defName>
 		<label>torn</label>
@@ -626,6 +631,7 @@
 			<destroyedOutLabel>Torn out</destroyedOutLabel>
 		</injuryProps>
 	</HediffDef>
+
 	<SoundDef>
 		<defName>RK_Sound_ChainSaw</defName>
 		<eventNames />
@@ -646,6 +652,7 @@
 			</li>
 		</subSounds>
 	</SoundDef>
+
 	<ImpactSoundTypeDef>
 		<defName>RK_Impact_ChainSaw</defName>
 		<soundDef>RK_Sound_ChainSaw</soundDef>
