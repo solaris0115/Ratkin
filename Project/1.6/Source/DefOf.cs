@@ -138,6 +138,7 @@ namespace NewRatkin
     public static class RatkinTraitDefOf
     {
         public static TraitDef Faith;
+        public static TraitDef RK_Trait_HawkEye;
     }
 
     [DefOf]
@@ -157,6 +158,7 @@ namespace NewRatkin
     {
         public static HediffDef RK_Hediff_RatHolicGunSpooling;
         public static HediffDef RK_Hediff_EnergyShieldBoost;
+        public static HediffDef RK_Hediff_HawkEyeRange;
     }
 
     [DefOf]

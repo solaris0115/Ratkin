@@ -20,4 +20,15 @@
 			<li>Wimp</li>
 		</conflictingTraits>
 	</TraitDef>
+
+	<TraitDef>
+		<defName>RK_Trait_HawkEye</defName>
+		<commonality>0.01</commonality>
+		<degreeDatas>
+			<li>
+				<label>매의 눈</label>
+				<description>다른사람보다 시력이 좋습니다. 아주 작은 점처럼 보이는 개미의 다리 움직임도 볼 수 있습니다.</description>
+			</li>
+		</degreeDatas>
+	</TraitDef>
 </Defs>

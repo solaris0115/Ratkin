@@ -6,4 +6,22 @@
 			<li Class="NewRatkin.JobGiver_RunningWheelPrisoner"/>
 		</value>
 	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName='RangedWeapon_RangeMultiplier']/parts</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName='RangedWeapon_RangeMultiplier']/parts</xpath>
+			<value>
+				<li Class="NewRatkin.StatPart_HawkEyeRangeMultiplier" />
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName='RangedWeapon_RangeMultiplier']</xpath>
+			<value>
+				<parts>
+					<li Class="NewRatkin.StatPart_HawkEyeRangeMultiplier" />
+				</parts>
+			</value>
+		</nomatch>
+	</Operation>
 </Patch>
