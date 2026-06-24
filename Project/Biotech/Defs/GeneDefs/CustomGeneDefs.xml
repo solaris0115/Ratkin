@@ -6,8 +6,10 @@
 	     ======================================== -->
 
 	<!-- 가벼운 체형 - Thin bodyType 고정 -->
-	<GeneDef>
+	<GeneDef Class="NewRatkin.GeneDrawScaleDef">
 		<defName>RK_Gene_SmallBody</defName>
+		<geneClass>NewRatkin.Gene_DrawScale</geneClass>
+		<drawScale>0.8</drawScale>
 		<label>small body</label>
 		<labelShortAdj>small-bodied</labelShortAdj>
 		<description>Small, compact body that dodges better but hits weaker and carries less.</description>
@@ -22,6 +24,13 @@
 		<statOffsets>
 			<CarryingCapacity>-15</CarryingCapacity>
 		</statOffsets>
+		<renderNodeProperties>
+			<li>
+				<debugLabel>Draw scale controller</debugLabel>
+				<workerClass>NewRatkin.PawnRenderNodeWorker_DrawScale</workerClass>
+				<useGraphic>false</useGraphic>
+			</li>
+		</renderNodeProperties>
 		<biostatMet>1</biostatMet>
 		<biostatCpx>0</biostatCpx>
 	</GeneDef>
