@@ -181,8 +181,8 @@ namespace NewRatkin
 
 		private static bool DrawEquipmentAiming_Prefix(Thing eq, Vector3 drawLoc, float aimAngle)
 		{
-			EquipmentDrawContext context = CurrentEquipmentDrawContext;
-			if (eq == null || Mathf.Approximately(context.Scale, 1f))
+			EquipmentDrawContext context;
+			if (eq == null || !TryGetEquipmentDrawContext(eq, out context) || Mathf.Approximately(context.Scale, 1f))
 			{
 				return true;
 			}
@@ -191,16 +191,24 @@ namespace NewRatkin
 			return false;
 		}
 
-		private static EquipmentDrawContext CurrentEquipmentDrawContext
+		private static bool TryGetEquipmentDrawContext(Thing eq, out EquipmentDrawContext context)
 		{
-			get
+			Pawn_EquipmentTracker equipmentTracker = eq.ParentHolder as Pawn_EquipmentTracker;
+			Pawn pawn = equipmentTracker != null ? equipmentTracker.pawn : null;
+			if (pawn != null && pawn.equipment != null && pawn.equipment.Primary == eq)
 			{
-				if (equipmentDrawContexts == null || equipmentDrawContexts.Count == 0)
-				{
-					return EquipmentDrawContext.Default;
-				}
-				return equipmentDrawContexts[equipmentDrawContexts.Count - 1];
+				context = new EquipmentDrawContext(Gene_DrawScale.DrawScaleForPawn(pawn), pawn.DrawPos);
+				return true;
 			}
+
+			if (equipmentDrawContexts != null && equipmentDrawContexts.Count != 0)
+			{
+				context = equipmentDrawContexts[equipmentDrawContexts.Count - 1];
+				return true;
+			}
+
+			context = EquipmentDrawContext.Default;
+			return false;
 		}
 
 		private static void DrawEquipmentAimingScaled(Thing eq, Vector3 drawLoc, float aimAngle, float drawScale)
