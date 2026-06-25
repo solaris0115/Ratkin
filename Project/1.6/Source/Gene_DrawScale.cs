@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -35,17 +37,17 @@ namespace NewRatkin
 			base.PostAdd();
 			if (Active)
 			{
-				ApplyScaleToPawn(pawn, DrawScale, rebuildTree: true, dirtyCaches: true);
+				DirtyPawnDrawCaches(pawn, rebuildTree: true);
 			}
 		}
 
 		public override void PostRemove()
 		{
 			base.PostRemove();
-			ApplyScaleToPawn(pawn, DrawScaleForPawn(pawn, this), rebuildTree: true, dirtyCaches: true);
+			DirtyPawnDrawCaches(pawn, rebuildTree: true);
 		}
 
-		private static float DrawScaleForPawn(Pawn pawn, Gene ignoredGene)
+		internal static float DrawScaleForPawn(Pawn pawn, Gene ignoredGene = null)
 		{
 			if (pawn == null || pawn.genes == null)
 			{
@@ -53,25 +55,31 @@ namespace NewRatkin
 			}
 			foreach (Gene gene in pawn.genes.GenesListForReading)
 			{
-				Gene_DrawScale drawScaleGene = gene as Gene_DrawScale;
-				if (drawScaleGene != null && gene != ignoredGene && gene.Active)
+				if (gene == ignoredGene || !gene.Active)
 				{
-					return drawScaleGene.DrawScale;
+					continue;
+				}
+				GeneDrawScaleDef drawScaleDef = gene.def as GeneDrawScaleDef;
+				if (drawScaleDef != null)
+				{
+					return Mathf.Max(MinDrawScale, drawScaleDef.drawScale);
 				}
 			}
 			return 1f;
 		}
 
-		internal static void ApplyScaleToRenderTree(PawnRenderTree renderTree, float scale)
+		internal static Vector3 ScaleDrawLocFromRoot(Vector3 drawLoc, Vector3 rootLoc, float scale)
 		{
-			PawnRenderNode rootNode = renderTree != null ? renderTree.rootNode : null;
-			if (rootNode != null && !Mathf.Approximately(rootNode.debugScale, scale))
+			if (Mathf.Approximately(scale, 1f))
 			{
-				rootNode.debugScale = scale;
+				return drawLoc;
 			}
+			drawLoc.x = rootLoc.x + (drawLoc.x - rootLoc.x) * scale;
+			drawLoc.z = rootLoc.z + (drawLoc.z - rootLoc.z) * scale;
+			return drawLoc;
 		}
 
-		private static void ApplyScaleToPawn(Pawn pawn, float scale, bool rebuildTree, bool dirtyCaches)
+		private static void DirtyPawnDrawCaches(Pawn pawn, bool rebuildTree)
 		{
 			if (pawn == null || pawn.Drawer == null || pawn.Drawer.renderer == null)
 			{
@@ -80,27 +88,10 @@ namespace NewRatkin
 
 			PawnRenderer renderer = pawn.Drawer.renderer;
 			PawnRenderTree renderTree = renderer.renderTree;
-			if (renderTree == null)
-			{
-				return;
-			}
-
-			if (rebuildTree)
+			if (rebuildTree && renderTree != null)
 			{
 				renderTree.SetDirty();
 			}
-			renderer.EnsureGraphicsInitialized();
-
-			float scaleBefore = renderTree.rootNode != null ? renderTree.rootNode.debugScale : 1f;
-			ApplyScaleToRenderTree(renderTree, scale);
-			if (dirtyCaches && (rebuildTree || !Mathf.Approximately(scaleBefore, scale)))
-			{
-				DirtyVisualCaches(pawn);
-			}
-		}
-
-		private static void DirtyVisualCaches(Pawn pawn)
-		{
 			SilhouetteUtility.NotifyGraphicDirty(pawn);
 			PortraitsCache.SetDirty(pawn);
 			GlobalTextureAtlasManager.TryMarkPawnFrameSetDirty(pawn);
@@ -116,12 +107,152 @@ namespace NewRatkin
 
 		public override bool CanDrawNow(PawnRenderNode node, PawnDrawParms parms)
 		{
-			Gene_DrawScale drawScaleGene = node.gene as Gene_DrawScale;
-			if (drawScaleGene != null && drawScaleGene.Active)
-			{
-				Gene_DrawScale.ApplyScaleToRenderTree(node.tree, drawScaleGene.DrawScale);
-			}
 			return false;
+		}
+	}
+
+	[StaticConstructorOnStartup]
+	internal static class GeneDrawScaleRenderPatches
+	{
+		private const string HarmonyId = "com.NewRatkin.rimworld.mod.genedrawscale";
+
+		[System.ThreadStatic]
+		private static List<EquipmentDrawContext> equipmentDrawContexts;
+
+		static GeneDrawScaleRenderPatches()
+		{
+			Harmony harmony = new Harmony(HarmonyId);
+			harmony.Patch(
+				AccessTools.Method(typeof(PawnRenderNode), nameof(PawnRenderNode.GetTransform)),
+				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(PawnRenderNode_GetTransform_Postfix)));
+			harmony.Patch(
+				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAndApparelExtras)),
+				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Prefix)),
+				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Postfix)));
+			harmony.Patch(
+				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAiming)),
+				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAiming_Prefix)));
+		}
+
+		private static void PawnRenderNode_GetTransform_Postfix(PawnRenderNode __instance, PawnDrawParms parms, ref Vector3 scale)
+		{
+			if (!ShouldScaleRenderNode(__instance, parms))
+			{
+				return;
+			}
+
+			float drawScale = Gene_DrawScale.DrawScaleForPawn(parms.pawn);
+			if (Mathf.Approximately(drawScale, 1f))
+			{
+				return;
+			}
+
+			scale.x *= drawScale;
+			scale.z *= drawScale;
+		}
+
+		private static bool ShouldScaleRenderNode(PawnRenderNode node, PawnDrawParms parms)
+		{
+			if (parms.Portrait || node == null || node.tree == null || node.Props == null || !node.Props.useGraphic)
+			{
+				return false;
+			}
+
+			return node.parent == node.tree.rootNode;
+		}
+
+		private static void DrawEquipmentAndApparelExtras_Prefix(Pawn pawn)
+		{
+			if (equipmentDrawContexts == null)
+			{
+				equipmentDrawContexts = new List<EquipmentDrawContext>();
+			}
+			equipmentDrawContexts.Add(new EquipmentDrawContext(Gene_DrawScale.DrawScaleForPawn(pawn), pawn != null ? pawn.DrawPos : Vector3.zero));
+		}
+
+		private static void DrawEquipmentAndApparelExtras_Postfix()
+		{
+			if (equipmentDrawContexts == null || equipmentDrawContexts.Count == 0)
+			{
+				return;
+			}
+			equipmentDrawContexts.RemoveAt(equipmentDrawContexts.Count - 1);
+		}
+
+		private static bool DrawEquipmentAiming_Prefix(Thing eq, Vector3 drawLoc, float aimAngle)
+		{
+			EquipmentDrawContext context = CurrentEquipmentDrawContext;
+			if (eq == null || Mathf.Approximately(context.Scale, 1f))
+			{
+				return true;
+			}
+
+			DrawEquipmentAimingScaled(eq, Gene_DrawScale.ScaleDrawLocFromRoot(drawLoc, context.RootLoc, context.Scale), aimAngle, context.Scale);
+			return false;
+		}
+
+		private static EquipmentDrawContext CurrentEquipmentDrawContext
+		{
+			get
+			{
+				if (equipmentDrawContexts == null || equipmentDrawContexts.Count == 0)
+				{
+					return EquipmentDrawContext.Default;
+				}
+				return equipmentDrawContexts[equipmentDrawContexts.Count - 1];
+			}
+		}
+
+		private static void DrawEquipmentAimingScaled(Thing eq, Vector3 drawLoc, float aimAngle, float drawScale)
+		{
+			float num = aimAngle - 90f;
+			Mesh mesh;
+			if (aimAngle > 20f && aimAngle < 160f)
+			{
+				mesh = MeshPool.plane10;
+				num += eq.def.equippedAngleOffset;
+			}
+			else if (aimAngle > 200f && aimAngle < 340f)
+			{
+				mesh = MeshPool.plane10Flip;
+				num -= 180f;
+				num -= eq.def.equippedAngleOffset;
+			}
+			else
+			{
+				mesh = MeshPool.plane10;
+				num += eq.def.equippedAngleOffset;
+			}
+			num %= 360f;
+			CompEquippable compEquippable = eq.TryGetComp<CompEquippable>();
+			if (compEquippable != null)
+			{
+				Vector3 recoilOffset;
+				float recoilAngle;
+				EquipmentUtility.Recoil(eq.def, EquipmentUtility.GetRecoilVerb(compEquippable.AllVerbs), out recoilOffset, out recoilAngle, aimAngle);
+				drawLoc += recoilOffset;
+				num += recoilAngle;
+			}
+			Graphic_StackCount graphicStackCount = eq.Graphic as Graphic_StackCount;
+			Material material = graphicStackCount != null ? graphicStackCount.SubGraphicForStackCount(1, eq.def).MatSingleFor(eq) : eq.Graphic.MatSingleFor(eq);
+			Vector3 s = new Vector3(eq.Graphic.drawSize.x * drawScale, 0f, eq.Graphic.drawSize.y * drawScale);
+			Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), s);
+			Graphics.DrawMesh(mesh, matrix, material, 0);
+		}
+
+		private struct EquipmentDrawContext
+		{
+			internal static readonly EquipmentDrawContext Default = new EquipmentDrawContext(1f, Vector3.zero);
+
+			internal readonly float Scale;
+
+			internal readonly Vector3 RootLoc;
+
+			internal EquipmentDrawContext(float scale, Vector3 rootLoc)
+			{
+				Scale = scale;
+				RootLoc = rootLoc;
+			}
 		}
 	}
 }

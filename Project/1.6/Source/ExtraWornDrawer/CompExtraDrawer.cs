@@ -333,7 +333,10 @@ namespace NewRatkin
             matPropertyBlock.SetColor(ShaderPropertyIDs.Color, parent.DrawColor);
             matPropertyBlock.SetColor(ShaderPropertyIDs.ColorTwo, parent.DrawColorTwo);
 
+            float drawScale = Gene_DrawScale.DrawScaleForPawn(Wearer);
+            drawLoc = Gene_DrawScale.ScaleDrawLocFromRoot(drawLoc, Wearer.DrawPos, drawScale);
             Vector2 size = Props.drawSize;
+            size *= drawScale;
             Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, Quaternion.AngleAxis(angle, Vector3.up), new Vector3(size.x, 1f, size.y));
             Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0, null, 0, matPropertyBlock);
         }
@@ -421,8 +424,9 @@ namespace NewRatkin
             }
 
             // 아이콘 그리기
-            Vector3 iconLoc = rootLoc + offset;
-            float iconSize = iconData.iconSize;
+            float drawScale = Gene_DrawScale.DrawScaleForPawn(pawn);
+            Vector3 iconLoc = Gene_DrawScale.ScaleDrawLocFromRoot(rootLoc + offset, rootLoc, drawScale);
+            float iconSize = iconData.iconSize * drawScale;
             
             MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
             matPropertyBlock.SetColor(ShaderPropertyIDs.Color, ideoColor);
@@ -456,4 +460,3 @@ namespace NewRatkin
         }
     }
 }
-
