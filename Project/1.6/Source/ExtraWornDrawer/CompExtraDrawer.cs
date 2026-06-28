@@ -333,7 +333,7 @@ namespace NewRatkin
             matPropertyBlock.SetColor(ShaderPropertyIDs.Color, parent.DrawColor);
             matPropertyBlock.SetColor(ShaderPropertyIDs.ColorTwo, parent.DrawColorTwo);
 
-            float drawScale = Gene_DrawScale.DrawScaleForPawn(Wearer);
+            float drawScale = GeneDrawScaleCache.Get(Wearer);
             drawLoc = Gene_DrawScale.ScaleDrawLocFromRoot(drawLoc, Wearer.DrawPos, drawScale);
             Vector2 size = Props.drawSize;
             size *= drawScale;
@@ -424,7 +424,7 @@ namespace NewRatkin
             }
 
             // 아이콘 그리기
-            float drawScale = Gene_DrawScale.DrawScaleForPawn(pawn);
+            float drawScale = GeneDrawScaleCache.Get(pawn);
             Vector3 iconLoc = Gene_DrawScale.ScaleDrawLocFromRoot(rootLoc + offset, rootLoc, drawScale);
             float iconSize = iconData.iconSize * drawScale;
             

@@ -35,6 +35,7 @@ namespace NewRatkin
 		public override void PostAdd()
 		{
 			base.PostAdd();
+			GeneDrawScaleCache.Recalculate(pawn);
 			if (Active)
 			{
 				DirtyPawnDrawCaches(pawn, rebuildTree: true);
@@ -44,6 +45,7 @@ namespace NewRatkin
 		public override void PostRemove()
 		{
 			base.PostRemove();
+			GeneDrawScaleCache.Recalculate(pawn);
 			DirtyPawnDrawCaches(pawn, rebuildTree: true);
 		}
 
@@ -79,7 +81,7 @@ namespace NewRatkin
 			return drawLoc;
 		}
 
-		private static void DirtyPawnDrawCaches(Pawn pawn, bool rebuildTree)
+		internal static void DirtyPawnDrawCaches(Pawn pawn, bool rebuildTree)
 		{
 			if (pawn == null || pawn.Drawer == null || pawn.Drawer.renderer == null)
 			{
@@ -98,6 +100,51 @@ namespace NewRatkin
 		}
 	}
 
+	internal static class GeneDrawScaleCache
+	{
+		private static readonly Dictionary<Pawn, float> drawScaleByPawn = new Dictionary<Pawn, float>();
+
+		internal static float Get(Pawn pawn)
+		{
+			if (pawn == null)
+			{
+				return 1f;
+			}
+			float drawScale;
+			if (drawScaleByPawn.TryGetValue(pawn, out drawScale))
+			{
+				return drawScale;
+			}
+			Recalculate(pawn, out drawScale);
+			return drawScale;
+		}
+
+		internal static float Recalculate(Pawn pawn)
+		{
+			float drawScale;
+			Recalculate(pawn, out drawScale);
+			return drawScale;
+		}
+
+		internal static bool Recalculate(Pawn pawn, out float drawScale)
+		{
+			if (pawn == null)
+			{
+				drawScale = 1f;
+				return false;
+			}
+			float oldDrawScale;
+			bool hadCachedValue = drawScaleByPawn.TryGetValue(pawn, out oldDrawScale);
+			drawScale = Gene_DrawScale.DrawScaleForPawn(pawn);
+			drawScaleByPawn[pawn] = drawScale;
+			if (!hadCachedValue)
+			{
+				return !Mathf.Approximately(drawScale, 1f);
+			}
+			return !Mathf.Approximately(oldDrawScale, drawScale);
+		}
+	}
+
 	public class PawnRenderNodeWorker_DrawScale : PawnRenderNodeWorker
 	{
 		public override bool ShouldListOnGraph(PawnRenderNode node, PawnDrawParms parms)
@@ -107,10 +154,9 @@ namespace NewRatkin
 
 		public override bool CanDrawNow(PawnRenderNode node, PawnDrawParms parms)
 		{
-			GeneDrawScaleDef drawScaleDef = node != null && node.gene != null ? node.gene.def as GeneDrawScaleDef : null;
-			if (drawScaleDef != null && node.gene.Active)
+			if (node != null && node.gene != null && node.gene.def is GeneDrawScaleDef && node.gene.Active)
 			{
-				ApplyScaleToRootVisualNodes(node.tree, Mathf.Max(0.01f, drawScaleDef.drawScale));
+				ApplyScaleToRootVisualNodes(node.tree, GeneDrawScaleCache.Get(parms.pawn));
 			}
 			return false;
 		}
@@ -146,6 +192,9 @@ namespace NewRatkin
 		{
 			Harmony harmony = new Harmony(HarmonyId);
 			harmony.Patch(
+				AccessTools.Method(typeof(Pawn_GeneTracker), "Notify_GenesChanged"),
+				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(PawnGeneTracker_NotifyGenesChanged_Postfix)));
+			harmony.Patch(
 				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAndApparelExtras)),
 				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Prefix)),
 				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Postfix)));
@@ -154,13 +203,23 @@ namespace NewRatkin
 				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAiming_Prefix)));
 		}
 
+		private static void PawnGeneTracker_NotifyGenesChanged_Postfix(Pawn_GeneTracker __instance)
+		{
+			Pawn pawn = __instance != null ? __instance.pawn : null;
+			float drawScale;
+			if (GeneDrawScaleCache.Recalculate(pawn, out drawScale))
+			{
+				Gene_DrawScale.DirtyPawnDrawCaches(pawn, rebuildTree: true);
+			}
+		}
+
 		private static void DrawEquipmentAndApparelExtras_Prefix(Pawn pawn)
 		{
 			if (equipmentDrawContexts == null)
 			{
 				equipmentDrawContexts = new List<EquipmentDrawContext>();
 			}
-			equipmentDrawContexts.Add(new EquipmentDrawContext(Gene_DrawScale.DrawScaleForPawn(pawn), pawn != null ? pawn.DrawPos : Vector3.zero));
+			equipmentDrawContexts.Add(new EquipmentDrawContext(GeneDrawScaleCache.Get(pawn), pawn != null ? pawn.DrawPos : Vector3.zero));
 		}
 
 		private static void DrawEquipmentAndApparelExtras_Postfix()
@@ -190,7 +249,7 @@ namespace NewRatkin
 			Pawn pawn = equipmentTracker != null ? equipmentTracker.pawn : null;
 			if (pawn != null && pawn.equipment != null && pawn.equipment.Primary == eq)
 			{
-				context = new EquipmentDrawContext(Gene_DrawScale.DrawScaleForPawn(pawn), pawn.DrawPos);
+				context = new EquipmentDrawContext(GeneDrawScaleCache.Get(pawn), pawn.DrawPos);
 				return true;
 			}
 
