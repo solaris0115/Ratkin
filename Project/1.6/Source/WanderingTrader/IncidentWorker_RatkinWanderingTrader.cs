@@ -21,12 +21,22 @@ namespace NewRatkin
 
 		private IncidentDefExtension_WanderingCaravan Ext => def.GetModExtension<IncidentDefExtension_WanderingCaravan>();
 
+		private static bool ArrivalTemperatureAllowed(Map map, FactionDef factionDef)
+		{
+			if (map == null || factionDef == null)
+				return false;
+			return factionDef.allowedArrivalTemperatureRange.Includes(map.mapTemperature.OutdoorTemp)
+				&& factionDef.allowedArrivalTemperatureRange.Includes(map.mapTemperature.SeasonalTemp);
+		}
+
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
 			if (!base.CanFireNowSub(parms))
 				return false;
 			Map map = (Map)parms.target;
 			if (map == null) return false;
+			if (!parms.forced && !ArrivalTemperatureAllowed(map, RatkinFactionDefOf.RK_Faction_Caravan))
+				return false;
 			foreach (GameCondition cond in map.GameConditionManager.ActiveConditions)
 			{
 				if (cond.def.preventNeutralVisitors)
@@ -82,6 +92,8 @@ namespace NewRatkin
 				Messages.Message("RK_WanderingCaravan_AlreadySpawned".Translate(), MessageTypeDefOf.NeutralEvent, false);
 				return false;
 			}
+			if (!parms.forced && !ArrivalTemperatureAllowed(map, RatkinFactionDefOf.RK_Faction_Caravan))
+				return false;
 			// 패널티 만료 후 첫 방문: 공격 플래그 리셋 + 팩션 관계 중립 복구 (로스터는 NotifyCaravanAttacked에서 이미 클리어됨)
 			GameComponent_WanderingCaravan comp = Current.Game.GetComponent<GameComponent_WanderingCaravan>();
 			if (comp != null && comp.WasAttackedByPlayer)

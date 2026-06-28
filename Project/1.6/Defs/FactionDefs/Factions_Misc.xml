@@ -259,6 +259,7 @@
 		<requiredCountAtGameStart>0</requiredCountAtGameStart>
 		<mustStartOneEnemy>false</mustStartOneEnemy>
 		<techLevel>Industrial</techLevel>
+		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
 		<!-- Alien Race: GetRaceOfFaction에서 basicMemberKind 사용. Trader pawnGroupMaker는 options가 없어 First() 예외 발생 방지 -->
 		<basicMemberKind>RatkinMerchant</basicMemberKind>
 		<!-- hidden=true → HasGoodwill=false → 우호도 변동 없음 (퀘스트/거래 등 영향 없음). 적대 전환은 factionHostileOnHarmByPlayer로 처리 -->
