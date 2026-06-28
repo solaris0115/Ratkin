@@ -107,7 +107,30 @@ namespace NewRatkin
 
 		public override bool CanDrawNow(PawnRenderNode node, PawnDrawParms parms)
 		{
+			GeneDrawScaleDef drawScaleDef = node != null && node.gene != null ? node.gene.def as GeneDrawScaleDef : null;
+			if (drawScaleDef != null && node.gene.Active)
+			{
+				ApplyScaleToRootVisualNodes(node.tree, Mathf.Max(0.01f, drawScaleDef.drawScale));
+			}
 			return false;
+		}
+
+		private static void ApplyScaleToRootVisualNodes(PawnRenderTree tree, float drawScale)
+		{
+			PawnRenderNode rootNode = tree != null ? tree.rootNode : null;
+			if (rootNode == null || rootNode.children == null)
+			{
+				return;
+			}
+
+			for (int i = 0; i < rootNode.children.Length; i++)
+			{
+				PawnRenderNode child = rootNode.children[i];
+				if (child != null && child.Props != null && child.Props.useGraphic && !Mathf.Approximately(child.debugScale, drawScale))
+				{
+					child.debugScale = drawScale;
+				}
+			}
 		}
 	}
 
@@ -123,42 +146,12 @@ namespace NewRatkin
 		{
 			Harmony harmony = new Harmony(HarmonyId);
 			harmony.Patch(
-				AccessTools.Method(typeof(PawnRenderNode), nameof(PawnRenderNode.GetTransform)),
-				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(PawnRenderNode_GetTransform_Postfix)));
-			harmony.Patch(
 				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAndApparelExtras)),
 				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Prefix)),
 				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Postfix)));
 			harmony.Patch(
 				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAiming)),
 				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAiming_Prefix)));
-		}
-
-		private static void PawnRenderNode_GetTransform_Postfix(PawnRenderNode __instance, PawnDrawParms parms, ref Vector3 scale)
-		{
-			if (!ShouldScaleRenderNode(__instance, parms))
-			{
-				return;
-			}
-
-			float drawScale = Gene_DrawScale.DrawScaleForPawn(parms.pawn);
-			if (Mathf.Approximately(drawScale, 1f))
-			{
-				return;
-			}
-
-			scale.x *= drawScale;
-			scale.z *= drawScale;
-		}
-
-		private static bool ShouldScaleRenderNode(PawnRenderNode node, PawnDrawParms parms)
-		{
-			if (parms.Portrait || node == null || node.tree == null || node.Props == null || !node.Props.useGraphic)
-			{
-				return false;
-			}
-
-			return node.parent == node.tree.rootNode;
 		}
 
 		private static void DrawEquipmentAndApparelExtras_Prefix(Pawn pawn)
