@@ -185,19 +185,12 @@ namespace NewRatkin
 	{
 		private const string HarmonyId = "com.NewRatkin.rimworld.mod.genedrawscale";
 
-		[System.ThreadStatic]
-		private static List<EquipmentDrawContext> equipmentDrawContexts;
-
 		static GeneDrawScaleRenderPatches()
 		{
 			Harmony harmony = new Harmony(HarmonyId);
 			harmony.Patch(
 				AccessTools.Method(typeof(Pawn_GeneTracker), "Notify_GenesChanged"),
 				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(PawnGeneTracker_NotifyGenesChanged_Postfix)));
-			harmony.Patch(
-				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAndApparelExtras)),
-				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Prefix)),
-				postfix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAndApparelExtras_Postfix)));
 			harmony.Patch(
 				AccessTools.Method(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAiming)),
 				prefix: new HarmonyMethod(typeof(GeneDrawScaleRenderPatches), nameof(DrawEquipmentAiming_Prefix)));
@@ -213,54 +206,29 @@ namespace NewRatkin
 			}
 		}
 
-		private static void DrawEquipmentAndApparelExtras_Prefix(Pawn pawn)
-		{
-			if (equipmentDrawContexts == null)
-			{
-				equipmentDrawContexts = new List<EquipmentDrawContext>();
-			}
-			equipmentDrawContexts.Add(new EquipmentDrawContext(GeneDrawScaleCache.Get(pawn), pawn != null ? pawn.DrawPos : Vector3.zero));
-		}
-
-		private static void DrawEquipmentAndApparelExtras_Postfix()
-		{
-			if (equipmentDrawContexts == null || equipmentDrawContexts.Count == 0)
-			{
-				return;
-			}
-			equipmentDrawContexts.RemoveAt(equipmentDrawContexts.Count - 1);
-		}
-
 		private static bool DrawEquipmentAiming_Prefix(Thing eq, Vector3 drawLoc, float aimAngle)
 		{
-			EquipmentDrawContext context;
-			if (eq == null || !TryGetEquipmentDrawContext(eq, out context) || Mathf.Approximately(context.Scale, 1f))
+			Pawn pawn = PawnForEquippedThing(eq);
+			if (pawn == null)
 			{
 				return true;
 			}
 
-			DrawEquipmentAimingScaled(eq, Gene_DrawScale.ScaleDrawLocFromRoot(drawLoc, context.RootLoc, context.Scale), aimAngle, context.Scale);
+			float drawScale = GeneDrawScaleCache.Get(pawn);
+			if (Mathf.Approximately(drawScale, 1f))
+			{
+				return true;
+			}
+
+			DrawEquipmentAimingScaled(eq, Gene_DrawScale.ScaleDrawLocFromRoot(drawLoc, pawn.DrawPos, drawScale), aimAngle, drawScale);
 			return false;
 		}
 
-		private static bool TryGetEquipmentDrawContext(Thing eq, out EquipmentDrawContext context)
+		private static Pawn PawnForEquippedThing(Thing eq)
 		{
-			Pawn_EquipmentTracker equipmentTracker = eq.ParentHolder as Pawn_EquipmentTracker;
+			Pawn_EquipmentTracker equipmentTracker = eq != null ? eq.ParentHolder as Pawn_EquipmentTracker : null;
 			Pawn pawn = equipmentTracker != null ? equipmentTracker.pawn : null;
-			if (pawn != null && pawn.equipment != null && pawn.equipment.Primary == eq)
-			{
-				context = new EquipmentDrawContext(GeneDrawScaleCache.Get(pawn), pawn.DrawPos);
-				return true;
-			}
-
-			if (equipmentDrawContexts != null && equipmentDrawContexts.Count != 0)
-			{
-				context = equipmentDrawContexts[equipmentDrawContexts.Count - 1];
-				return true;
-			}
-
-			context = EquipmentDrawContext.Default;
-			return false;
+			return pawn != null && pawn.equipment != null && pawn.equipment.Primary == eq ? pawn : null;
 		}
 
 		private static void DrawEquipmentAimingScaled(Thing eq, Vector3 drawLoc, float aimAngle, float drawScale)
@@ -298,21 +266,6 @@ namespace NewRatkin
 			Vector3 s = new Vector3(eq.Graphic.drawSize.x * drawScale, 0f, eq.Graphic.drawSize.y * drawScale);
 			Matrix4x4 matrix = Matrix4x4.TRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), s);
 			Graphics.DrawMesh(mesh, matrix, material, 0);
-		}
-
-		private struct EquipmentDrawContext
-		{
-			internal static readonly EquipmentDrawContext Default = new EquipmentDrawContext(1f, Vector3.zero);
-
-			internal readonly float Scale;
-
-			internal readonly Vector3 RootLoc;
-
-			internal EquipmentDrawContext(float scale, Vector3 rootLoc)
-			{
-				Scale = scale;
-				RootLoc = rootLoc;
-			}
 		}
 	}
 }
