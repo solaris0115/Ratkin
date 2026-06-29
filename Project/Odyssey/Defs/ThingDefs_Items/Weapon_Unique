@@ -168,25 +168,15 @@
 				<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
 				<minQualityForArtistic>Excellent</minQualityForArtistic>
 			</li>
-			<li Class="CompProperties_UniqueWeapon">
-				<weaponCategories>
-					<li>Melee</li>
-					<li>TwoHanded</li>
-					<li>Blunt</li>
-				</weaponCategories>
-				<namerLabels>
-					<li>warhammer</li>
-					<li>hammer</li>
-					<li>weapon</li>
-				</namerLabels>
-			</li>
 		</comps>
 
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
-		<tradeability>Sellable</tradeability>
+		<!-- Dummy data only: spawnable by def, excluded from traders and unique weapon reward pools. -->
+		<tradeability>None</tradeability>
+		<tradeTags Inherit="False">
+		</tradeTags>
 		<thingSetMakerTags Inherit="False">
-			<li>UniqueWeapon</li>
 		</thingSetMakerTags>
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>

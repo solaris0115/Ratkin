@@ -54,7 +54,19 @@
 				</gripTypes>
 			</li>
 		</comps>
-		<recipeMaker>
+		<recipeMaker Inherit="false">
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<recipeUsers>
+				<li>FabricationBench</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+			<researchPrerequisite>RK_Research_AngryRatProject</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
 			<displayPriority>78555</displayPriority>
 		</recipeMaker>
 	</ThingDef>
