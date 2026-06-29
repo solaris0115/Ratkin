@@ -23,7 +23,8 @@
 
 	<TraitDef>
 		<defName>RK_Trait_HawkEye</defName>
-		<commonality>0.01</commonality>
+		<commonality>0</commonality>
+		<allowOnHostileSpawn>false</allowOnHostileSpawn>
 		<degreeDatas>
 			<li>
 				<label>매의 눈</label>
