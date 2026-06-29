@@ -4,7 +4,7 @@ description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 
 # /create-release-note
 
-사용자가 `/create-release-note`를 실행하면, 에이전트가 `80_ReleaseNote/*_DAILY.md`를 **전부 읽고 요약**하여 릴리즈 노트 초안을 작성한다.
+사용자가 `/create-release-note`를 실행하면, 에이전트가 `80_ReleaseNote`의 최신 이전 릴리즈 노트 이후 `*_DAILY.md`를 읽고 요약하여 릴리즈 노트 초안을 작성한다.
 
 ## 핵심 원칙
 
@@ -14,7 +14,10 @@ description: Daily 노트를 읽고 사용자향 릴리즈 노트 초안 작성
 
 ## 에이전트 실행 순서
 
-1. `80_ReleaseNote` 폴더의 모든 `*_DAILY.md` 파일을 읽는다.
+1. `80_ReleaseNote` 폴더에서 출력 대상일보다 이전 날짜의 최신 `*_RELEASE_NOTES_DRAFT.md` 또는 `*_RELEASE_NOTES.md`를 찾는다.
+   - 이전 릴리즈 노트가 있으면 그 날짜보다 뒤의 `*_DAILY.md`만 읽는다.
+   - 이전 릴리즈 노트가 없으면 모든 `*_DAILY.md`를 읽는다.
+   - 날짜를 사용자가 지정한 경우에도 같은 기준으로 출력 대상일보다 이전 릴리즈 노트만 기준점으로 삼는다.
 2. Daily 내용을 분석하여 다음 카테고리로 분류한다:
    - **버그 수정** — 고쳐진 문제
    - **변경** — 밸런스 조정, 동작 변경 등

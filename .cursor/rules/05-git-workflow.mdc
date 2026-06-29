@@ -33,7 +33,7 @@ description: Git workflow and commit rules
 5. **push는 사용자가 따로 요청할 때만**
 
 ### 릴리즈 노트 (Daily 집계)
-- `/create-release-note` 또는 `python 90_Tools/release_notes.py create-release` — 모든 `*_DAILY.md`를 읽어 실행일 기준 초안 `*_RELEASE_NOTES_DRAFT.md` 생성. [.cursor/commands/create-release-note.md](mdc:.cursor/commands/create-release-note.md)
+- `/create-release-note` — 최신 이전 릴리즈 노트 이후의 `*_DAILY.md`를 읽어 실행일 기준 초안 `*_RELEASE_NOTES_DRAFT.md` 생성. [.cursor/commands/create-release-note.md](mdc:.cursor/commands/create-release-note.md)
 
 ## Safety
 - Forbidden: `git reset --hard`, `git clean -fd`, `git rebase -i --hard`, `git branch -D`
