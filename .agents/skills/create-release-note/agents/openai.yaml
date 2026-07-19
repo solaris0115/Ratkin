@@ -1,0 +1,7 @@
+interface:
+  display_name: "Create Release Note"
+  short_description: "Daily 노트 기반 릴리즈 노트 초안 생성 도구"
+  default_prompt: "Use $create-release-note to create a user-facing Ratkin release note draft from Daily notes."
+
+policy:
+  allow_implicit_invocation: true
