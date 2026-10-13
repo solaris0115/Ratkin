@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+<!-- [보류] 매의 눈 효과: 부여 대상·등장 경로가 미완료라 임시 제외. 특성·패치·전용 코드와 함께 복구.
+
 	<HediffDef>
 		<defName>RK_Hediff_HawkEyeRange</defName>
 		<label>매의 눈</label>
@@ -18,4 +20,6 @@
 			</li>
 		</comps>
 	</HediffDef>
+
+-->
 </Defs>

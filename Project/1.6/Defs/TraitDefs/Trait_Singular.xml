@@ -21,6 +21,7 @@
 		</conflictingTraits>
 	</TraitDef>
 
+	<!-- [보류] 매의 눈 특성: 부여 대상·등장 경로가 미완료라 임시 제외. 효과·패치·전용 코드와 함께 복구.
 	<TraitDef>
 		<defName>RK_Trait_HawkEye</defName>
 		<commonality>0</commonality>
@@ -32,4 +33,5 @@
 			</li>
 		</degreeDatas>
 	</TraitDef>
+-->
 </Defs>

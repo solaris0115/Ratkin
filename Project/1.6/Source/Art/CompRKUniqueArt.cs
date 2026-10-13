@@ -1,3 +1,5 @@
+// [보류] 벽화: 인물·등장 이벤트 연결 미완료로 전용 미술품 설명 코드를 임시 비활성화. 벽화 정의와 함께 복구.
+#if false
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -256,3 +258,4 @@ namespace NewRatkin
         }
     }
 }
+#endif

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+<!-- [보류] 벽화 번역: 대상 정의가 보류되어 임시 제외. 벽화 복구 시 함께 활성화.
+
 
   <RK_Thing_Paint.label>벽걸이 그림</RK_Thing_Paint.label>
   <RK_Thing_Paint.description>벽에 걸 수 있는 그림입니다. 각 작품마다 고유한 이미지가 담겨 있습니다.</RK_Thing_Paint.description>
 
+
+-->
 </LanguageData>

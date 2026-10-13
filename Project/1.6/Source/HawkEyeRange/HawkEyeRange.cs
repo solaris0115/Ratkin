@@ -1,3 +1,5 @@
+// [보류] 매의 눈: 부여 대상·등장 경로 미완료로 전용 효과와 자동 등록을 임시 비활성화. 특성·효과 정의·사거리 패치·DefOf와 함께 복구.
+#if false
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
@@ -419,3 +421,4 @@ namespace NewRatkin
         }
     }
 }
+#endif

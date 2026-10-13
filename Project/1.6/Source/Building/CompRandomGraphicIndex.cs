@@ -1,3 +1,5 @@
+// [보류] 벽화: 등장 경로 미완료로 전용 그림 선택 코드를 임시 비활성화. 벽화 정의와 함께 복구.
+#if false
 using Verse;
 
 namespace NewRatkin
@@ -48,3 +50,4 @@ namespace NewRatkin
         }
     }
 }
+#endif

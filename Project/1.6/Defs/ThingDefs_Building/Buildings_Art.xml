@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <!-- 벽걸이 벽화. 제작 불가, 스폰·이벤트 전용. Graphic_Random variant는 생성 시 overrideGraphicIndex로 고정 -->
+  <!-- [보류] 벽화: 유니크 인물 및 등장 이벤트 연결이 미완료라 임시 제외. 입수 경로 완성 후 복구.
   <ThingDef ParentName="BuildingBase">
     <defName>RK_Thing_Paint</defName>
     <thingClass>Building_Art</thingClass>
@@ -71,4 +72,6 @@
       <li>Art</li>
     </tradeTags>
   </ThingDef>
+
+-->
 </Defs>

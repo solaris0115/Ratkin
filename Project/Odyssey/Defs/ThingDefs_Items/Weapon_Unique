@@ -152,6 +152,7 @@
 	</ThingDef>
 
 	<!-- 워해머 -->
+	<!-- [보류] 유니크 워해머: 더미 상태로 고유 효과·입수 경로가 미완료라 임시 제외. 일반 워해머와 함께 복구.
 	<ThingDef ParentName="RK_WeaponAttr_WarHammer">
 		<defName>RK_Weapon_WarHammer_Unique</defName>
 		<label>unique ratkin warhammer</label>
@@ -172,7 +173,9 @@
 
 		<generateAllowChance>0</generateAllowChance>
 		<possessionCount>0</possessionCount>
-		<!-- Dummy data only: spawnable by def, excluded from traders and unique weapon reward pools. -->
+		-->
+<!-- Dummy data only: spawnable by def, excluded from traders and unique weapon reward pools. -->
+<!--
 		<tradeability>None</tradeability>
 		<tradeTags Inherit="False">
 		</tradeTags>
@@ -180,6 +183,7 @@
 		</thingSetMakerTags>
 		<recipeMaker Inherit="False" IsNull="True" />
 	</ThingDef>
+-->
 
 	<!-- 유니크 무기 - Weapon_Melee.xml -->
 	

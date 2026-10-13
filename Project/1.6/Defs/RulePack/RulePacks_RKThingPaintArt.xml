@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+<!-- [보류] 벽화 제목·설명: 벽화와 함께 임시 제외. 벽화 복구 시 함께 활성화.
+
 
   <RulePackDef>
     <defName>RK_NamerArt_PictureUnique</defName>
@@ -19,4 +21,6 @@
     </rulePack>
   </RulePackDef>
 
+
+-->
 </Defs>

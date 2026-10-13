@@ -138,7 +138,8 @@ namespace NewRatkin
     public static class RatkinTraitDefOf
     {
         public static TraitDef Faith;
-        public static TraitDef RK_Trait_HawkEye;
+        // [보류] 매의 눈 정의가 비활성화되어 참조도 보류. 정의 복구 시 함께 활성화.
+        // public static TraitDef RK_Trait_HawkEye;
     }
 
     [DefOf]
@@ -158,7 +159,8 @@ namespace NewRatkin
     {
         public static HediffDef RK_Hediff_RatHolicGunSpooling;
         public static HediffDef RK_Hediff_EnergyShieldBoost;
-        public static HediffDef RK_Hediff_HawkEyeRange;
+        // [보류] 매의 눈 정의가 비활성화되어 참조도 보류. 정의 복구 시 함께 활성화.
+        // public static HediffDef RK_Hediff_HawkEyeRange;
     }
 
     [DefOf]

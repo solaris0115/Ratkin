@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+<!-- [보류] 벽화 번역: 대상 정의가 보류되어 임시 제외. 벽화 복구 시 함께 활성화.
+
 
   <RK_NamerArt_PictureUnique.rulePack.rulesStrings>
     <li>r_art_name(priority=10)-&gt;Origin of the Ratkin</li>
@@ -9,4 +11,6 @@
     <li>r_art_description(priority=10)-&gt;This statue expresses the origin of the Ratkin. Its bold, realistic depiction was enough to astonish a crowd. Even now, whether it truly depicts the Ratkin remains controversial. On [RK_DATE], [RK_UNIQUEPAWN] represented the contents of a royal commission.</li>
   </RK_ArtDescription_PictureUnique.rulePack.rulesStrings>
 
+
+-->
 </LanguageData>

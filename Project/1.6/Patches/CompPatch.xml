@@ -7,6 +7,7 @@
 		</value>
 	</Operation>
 
+	<!-- [보류] 매의 눈 사거리 패치: 특성·효과 비활성화에 맞춰 임시 제외. 매의 눈 복구 시 함께 활성화.
 	<Operation Class="PatchOperationConditional">
 		<xpath>Defs/StatDef[defName='RangedWeapon_RangeMultiplier']/parts</xpath>
 		<match Class="PatchOperationAdd">
@@ -24,4 +25,5 @@
 			</value>
 		</nomatch>
 	</Operation>
+-->
 </Patch>

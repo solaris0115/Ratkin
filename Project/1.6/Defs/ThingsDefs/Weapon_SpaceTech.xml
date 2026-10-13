@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<Defs>	
+<Defs>
+<!-- [보류] 워해머: 미완료 콘텐츠로 임시 제외. 고유 외형·번역·밸런스 확정 후 복구.
+
 	<ThingDef ParentName="RK_WeaponAttr_UltratechBase" Name="RK_WeaponAttr_WarHammer">
 		<defName>RK_Weapon_WarHammer</defName>
 		<label>ratkin warhammer</label>
@@ -70,4 +72,6 @@
 			<displayPriority>78555</displayPriority>
 		</recipeMaker>
 	</ThingDef>
+
+-->
 </Defs>
