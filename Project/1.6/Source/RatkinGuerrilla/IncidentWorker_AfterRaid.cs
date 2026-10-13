@@ -14,12 +14,15 @@ namespace NewRatkin
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            if (!base.TryExecuteWorker(parms) && !parms.faction.HostileTo(Faction.OfPlayer))
+            // 1.7은 도착 방식 해결 실패도 false로 반환한다. 실패한 습격을 성공으로 기록하지 않는다.
+            if (!base.TryExecuteWorker(parms))
             {
                 return false;
             }
-            Find.TickManager.slower.SignalForceNormalSpeedShort();
+            if (!parms.silent)
+                Find.TickManager.slower.SignalForceNormalSpeedShort();
             Find.StoryWatcher.statsRecord.numRaidsEnemy++;
+            parms.target.StoryState.lastRaidFaction = parms.faction;
             return true;
         }
 
@@ -56,7 +59,7 @@ namespace NewRatkin
             Map map = (Map)parms.target;
             if (!(from d in DefDatabase<RaidStrategyDef>.AllDefs
                   where d.Worker.CanUseWith(parms, groupKind) && (parms.raidArrivalMode != null || (d.arriveModes != null && d.arriveModes.Any((PawnsArrivalModeDef x) => x.Worker.CanUseWith(parms))))
-                  select d).TryRandomElementByWeight((RaidStrategyDef d) => d.Worker.SelectionWeight(map, parms.points), out parms.raidStrategy))
+                  select d).TryRandomElementByWeight((RaidStrategyDef d) => d.Worker.SelectionWeightForFaction(map, parms.faction, parms.points), out parms.raidStrategy))
             {
                 RatkinLimitedLog.Error(RatkinLogKeys.AfterRaid_NoRaidStrategy, string.Concat(new object[]
                 {

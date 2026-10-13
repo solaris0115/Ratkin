@@ -246,7 +246,7 @@ namespace NewRatkin
                 pawn = null;
                 return false;
             }
-            pawn = PawnGenerator.GeneratePawn(kindDef, Faction);
+            pawn = PawnGenerator.GeneratePawn(kindDef, Faction, Map.Tile);
             spawnedPawns.Add(pawn);
             GenSpawn.Spawn(pawn, CellFinder.RandomClosewalkCellNear(Position, Map, 2, null), Map, WipeMode.Vanish);
             Lord lord = Lord;

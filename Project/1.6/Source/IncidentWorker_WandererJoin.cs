@@ -33,7 +33,7 @@ namespace NewRatkin
 			return this.CanSpawnJoiner(map);
 		}
 
-		public virtual Pawn GeneratePawn(PawnKindDef pawnKind, bool? mustBeCapableOfViolenceOverride = null)
+		public virtual Pawn GeneratePawn(PawnKindDef pawnKind, bool? mustBeCapableOfViolenceOverride = null, Map map = null)
 		{
 			Gender? gender = null;
 			if (this.def.pawnFixedGender != Gender.None)
@@ -60,7 +60,14 @@ namespace NewRatkin
 			Ideo fixedIdeo = ideo;
 			// 최소 나이 20세 설정
 			FloatRange? biologicalAgeRange = new FloatRange(20f, float.MaxValue);
-			return PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, ofPlayer, context, null, true, false, false, true, pawnMustBeCapableOfViolence, 20f, false, true, false, true, true, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, fixedGender, null, null, null, fixedIdeo, false, false, false, false, null, null, null, null, null, 0f, DevelopmentalStage.Adult, null, null, biologicalAgeRange, false, false, false, -1, 0, false));
+			return PawnGenerator.GeneratePawn(new PawnGenerationRequest(
+				pawnKind, ofPlayer, context, map?.Tile,
+				forceGenerateNewPawn: true,
+				mustBeCapableOfViolence: pawnMustBeCapableOfViolence,
+				colonistRelationChanceFactor: RelationWithColonistWeight,
+				fixedGender: fixedGender,
+				fixedIdeo: fixedIdeo,
+				biologicalAgeRange: biologicalAgeRange));
 		}
 
 		public virtual bool CanSpawnJoiner(Map map)
@@ -103,7 +110,7 @@ namespace NewRatkin
 					}
 					for (int i = 0; i < pawnKindCount.count; i++)
 					{
-						Pawn pawn = this.GeneratePawn(pawnKindCount.pawnKind, pawnKindCount.mustBeCapableOfViolence);
+						Pawn pawn = this.GeneratePawn(pawnKindCount.pawnKind, pawnKindCount.mustBeCapableOfViolence, map);
 						if (pawn == null)
 						{
 							RatkinLimitedLog.Warning(RatkinLogKeys.WandererJoin_GenerateFailedKinds, $"Failed to generate pawn of kind {pawnKindCount.pawnKind?.defName ?? "null"} after multiple attempts. Skipping.");
@@ -121,7 +128,7 @@ namespace NewRatkin
 			// 기존 단일 pawnKind 지원 (하위 호환성)
 			else if (this.def.pawnKind != null)
 			{
-				Pawn pawn = this.GeneratePawn(this.def.pawnKind);
+				Pawn pawn = this.GeneratePawn(this.def.pawnKind, map: map);
 				if (pawn == null)
 				{
 					RatkinLimitedLog.Warning(RatkinLogKeys.WandererJoin_GenerateFailedSingle, $"Failed to generate pawn of kind {this.def.pawnKind.defName} after multiple attempts.");

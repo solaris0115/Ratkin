@@ -71,7 +71,13 @@ namespace NewRatkin
 			for (int i = 0; i < randomInRange; i++)
 			{
 				DevelopmentalStage developmentalStages = (i >= randomInRange - num) ? DevelopmentalStage.Child : DevelopmentalStage.Adult;
+#if RIMWORLD_1_7
+				// 1.7의 생성 API에 도착 맵을 전달하여 위치별 생성 조건을 유지한다.
+				Pawn pawn = quest.GeneratePawn_NewTemp(kindDef, faction, map.Tile,
+					forceGenerateNewPawn: true, developmentalStages: developmentalStages);
+#else
 				Pawn pawn = quest.GeneratePawn(kindDef, faction, true, null, 0f, true, null, 0f, 0f, false, true, developmentalStages, false);
+#endif
 				pawn.ideo.SetIdeo(precept_Relic.ideo);
 				list2.Add(pawn);
 			}

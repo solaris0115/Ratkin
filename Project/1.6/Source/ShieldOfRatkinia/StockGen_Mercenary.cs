@@ -29,11 +29,10 @@ namespace NewRatkin
                 }
                 var mercenaryPawnKindDef = RatkinPawnKindDefOf.RatkinMercenary;
 
-                PawnGenerationRequest request = new PawnGenerationRequest();
-                request.KindDef = mercenaryPawnKindDef;
-                request.Faction = mercenaryFaction;
-                request.Tile = forTile;
-                request.ForceAddFreeWarmLayerIfNeeded = !this.trader.orbital;
+                // 빈 구조체는 성장 단계·나이 특성 등 생성 기본값까지 0으로 만든다.
+                PawnGenerationRequest request = new PawnGenerationRequest(
+                    mercenaryPawnKindDef, mercenaryFaction, tile: forTile,
+                    forceAddFreeWarmLayerIfNeeded: !this.trader.orbital);
 
                 yield return PawnGenerator.GeneratePawn(request);
             }

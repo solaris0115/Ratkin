@@ -285,7 +285,7 @@ namespace NewRatkin
 			p.inventory.TryAddItemNotForSale(food);
 		}
 
-		private static Pawn CreateLeader(Faction faction, int tile, TraderKindDef traderKind)
+		private static Pawn CreateLeader(Faction faction, PlanetTile tile, TraderKindDef traderKind)
 		{
 			Pawn leader = PawnGenerator.GeneratePawn(new PawnGenerationRequest(
 				RatkinPawnKindDefOf.RK_PawnKind_CaravanLeader, faction, PawnGenerationContext.NonPlayer, tile,
@@ -306,7 +306,7 @@ namespace NewRatkin
 		/// 바닐라 TraderCaravanArrival과 동일: TraderCaravanUtility.GenerateGuardPoints() 기반,
 		/// 팩션 Trader PawnGroupMaker의 guards로 포인트 기반 생성.
 		/// </summary>
-		private static List<Pawn> CreateGuardsWithPoints(Faction faction, int tile, Pawn leader)
+		private static List<Pawn> CreateGuardsWithPoints(Faction faction, PlanetTile tile, Pawn leader)
 		{
 			var guards = new List<Pawn>();
 			var groupMaker = faction?.def?.pawnGroupMakers?.FirstOrDefault(g => g.kindDef == PawnGroupKindDefOf.Trader);
@@ -354,7 +354,7 @@ namespace NewRatkin
 			return guards;
 		}
 
-		private static List<Pawn> CreateSettlers(Faction faction, int tile, int count)
+		private static List<Pawn> CreateSettlers(Faction faction, PlanetTile tile, int count)
 		{
 			var list = new List<Pawn>();
 			for (int i = 0; i < count; i++)
@@ -375,7 +375,7 @@ namespace NewRatkin
 		/// <summary>
 		/// 바닐라 PawnGroupKindWorker_Trader.GenerateCarriers와 동일: ceil(waresCount/8), 최소 1.
 		/// </summary>
-		private static List<Pawn> CreatePackAnimals(Faction faction, int tile, int waresCount)
+		private static List<Pawn> CreatePackAnimals(Faction faction, PlanetTile tile, int waresCount)
 		{
 			var list = new List<Pawn>();
 			int count = Mathf.Max(1, Mathf.CeilToInt((float)waresCount / 8f));
@@ -428,7 +428,7 @@ namespace NewRatkin
 			}
 		}
 
-		private static void CleanupAndRefillGuards(List<Pawn> guards, Faction faction, int tile)
+		private static void CleanupAndRefillGuards(List<Pawn> guards, Faction faction, PlanetTile tile)
 		{
 			guards.RemoveAll(p => p == null || p.DestroyedOrNull() || p.Dead);
 			int need = MinGuardCountOnRefill - guards.Count;

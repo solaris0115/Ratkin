@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>NewRatkin</AssemblyName>
+    <RootNamespace>NewRatkin</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <OutputPath>../Assemblies/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>none</DebugType>
+    <DefineConstants>$(DefineConstants);RIMWORLD_1_7</DefineConstants>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">C:/Program Files (x86)/Steam/steamapps/common/RimWorld</RimWorldDir>
+    <HarmonyAssemblyPath Condition="'$(HarmonyAssemblyPath)' == ''">C:/Program Files (x86)/Steam/steamapps/workshop/content/294100/2009463077/1.7/Assemblies/0Harmony.dll</HarmonyAssemblyPath>
+    <RatkinDevFeatures Condition="'$(RatkinDevFeatures)' == '' And '$(Configuration)' == 'Debug'">true</RatkinDevFeatures>
+    <RatkinDevFeatures Condition="'$(RatkinDevFeatures)' == ''">false</RatkinDevFeatures>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(RatkinDevFeatures)' == 'true'">
+    <DefineConstants>$(DefineConstants);RATKIN_DEV_FEATURES</DefineConstants>
+  </PropertyGroup>
+  <!-- 1.6 소스는 공유한다. 1.7 API 분기는 RIMWORLD_1_7로 격리하고 출력은 1.7에만 둔다. -->
+  <ItemGroup>
+    <Compile Include="../../1.6/Source/**/*.cs"
+             Exclude="../../1.6/Source/bin/**/*.cs;../../1.6/Source/obj/**/*.cs;../../1.6/Source/AutoTests/AutoTests.cs;../../1.6/Source/Patch_InfoCard_OpenHotkey.cs;../../1.6/Source/Patch_InfoCard_HotSwap.cs"
+             Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(RatkinDevFeatures)' == 'true'">
+    <Compile Include="../../1.6/Source/AutoTests/AutoTests.cs" Link="AutoTests/AutoTests.cs" />
+    <Compile Include="../../1.6/Source/Patch_InfoCard_OpenHotkey.cs" Link="Patch_InfoCard_OpenHotkey.cs" />
+    <Compile Include="../../1.6/Source/Patch_InfoCard_HotSwap.cs" Link="Patch_InfoCard_HotSwap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp" HintPath="$(RimWorldDir)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="UnityStubs" HintPath="$(RimWorldDir)/UnityStubs.dll" Private="false" />
+    <Reference Include="Waylith" HintPath="$(RimWorldDir)/Waylith.dll" Private="false" />
+    <Reference Include="Waylith.UnityCompat" HintPath="$(RimWorldDir)/Waylith.UnityCompat.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(HarmonyAssemblyPath)" Private="false" />
+  </ItemGroup>
+</Project>

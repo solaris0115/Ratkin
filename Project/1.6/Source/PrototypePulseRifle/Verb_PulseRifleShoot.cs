@@ -105,9 +105,26 @@ namespace NewRatkin
             CasterPawn.skills.Learn(SkillDefOf.Shooting, xpBase * GetAdjustedFullCycleTimeForXp(), false, false);
         }
 
-        /// <summary>
-        /// Verb.TryCastNextBurstShot는 virtual이 아니므로 PulseRifleBurstPatch Prefix에서 호출.
-        /// </summary>
+#if RIMWORLD_1_7
+        internal int ModeTicksBetweenBurstShots
+        {
+            get
+            {
+                Comp_PulseRifleFireMode comp = FireModeComp;
+                float ticks = comp != null ? comp.CurrentTicksBetweenBurstShots : verbProps.ticksBetweenBurstShots;
+                CompUniqueWeapon uniqueWeapon = EquipmentSource?.GetComp<CompUniqueWeapon>();
+                if (uniqueWeapon != null)
+                {
+                    foreach (WeaponTraitDef trait in uniqueWeapon.TraitsListForReading)
+                    {
+                        ticks /= trait.burstShotSpeedMultiplier;
+                    }
+                }
+                return UnityEngine.Mathf.Max(1, UnityEngine.Mathf.RoundToInt(ticks));
+            }
+        }
+#else
+        /// <summary>1.6에서 사용하는 자체 버스트 처리. 1.7은 게임 원본을 사용한다.</summary>
         public void PulseTryCastNextBurstShot()
         {
             LocalTargetInfo localTargetInfo = currentTarget;
@@ -219,6 +236,7 @@ namespace NewRatkin
 
             return TicksBetweenBurstShots;
         }
+#endif
 
         private float GetAdjustedFullCycleTimeForXp()
         {
@@ -228,7 +246,10 @@ namespace NewRatkin
                 return verbProps.AdjustedFullCycleTime(this, CasterPawn);
             }
 
-            int ticksBetween = comp.CurrentTicksBetweenBurstShots;
+            int ticksBetween = TicksBetweenBurstShots;
+#if !RIMWORLD_1_7
+            ticksBetween = comp.CurrentTicksBetweenBurstShots;
+#endif
             return WarmupTime
                 + verbProps.AdjustedCooldown(this, CasterPawn)
                 + ((ShotsPerBurst - 1) * ticksBetween).TicksToSeconds();

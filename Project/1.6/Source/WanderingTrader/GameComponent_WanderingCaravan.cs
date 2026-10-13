@@ -245,13 +245,13 @@ namespace NewRatkin
 		}
 
 		/// <summary>현재 연도가 마지막 방문 이후 새해인지</summary>
-		public bool IsNewYearFor(int tile)
+		public bool IsNewYearFor(PlanetTile tile)
 		{
 			return lastVisitYear >= 0 && GenLocalDate.Year(tile) > lastVisitYear;
 		}
 
 		/// <summary>마지막 방문 연도 갱신</summary>
-		public void UpdateLastVisitYear(int tile)
+		public void UpdateLastVisitYear(PlanetTile tile)
 		{
 			lastVisitYear = GenLocalDate.Year(tile);
 		}

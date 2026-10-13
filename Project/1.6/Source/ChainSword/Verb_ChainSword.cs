@@ -36,7 +36,8 @@ namespace NewRatkin
 				// 첫 번째 데미지가 적용된 모든 부위에 두 번째 데미지 적용
 				if (!firstResult.parts.NullOrEmpty())
 				{
-					foreach (BodyPartRecord part in firstResult.parts)
+					// result와 firstResult는 같은 객체다. 병합 중 원본 목록이 늘어나므로 복사본을 순회한다.
+					foreach (BodyPartRecord part in new List<BodyPartRecord>(firstResult.parts))
 					{
 						DamageWorker.DamageResult secondResult = this.ApplySecondDamage(target, part);
 						// 결과 병합
@@ -170,8 +171,7 @@ namespace NewRatkin
 			}
 
 			// 두 번째 데미지 적용
-			DamageWorker damageWorker = props.damageType2.Worker;
-			return damageWorker.Apply(secondDamageInfo, targetPawn);
+			return targetPawn.TakeDamage(secondDamageInfo);
 		}
 	}
 }
