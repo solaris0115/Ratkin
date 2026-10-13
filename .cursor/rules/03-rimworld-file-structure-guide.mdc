@@ -28,7 +28,8 @@ alwaysApply: true
 
 - **작업 Defs (1.6)**: [Project/1.6/Defs/](mdc:Project/1.6/Defs/)
 - **레거시 (참고만, 수정 금지)**: [Project/1.5/](mdc:Project/1.5/) — 패키징에서도 제외
-- **원본 Defs**: [RimworldData/](mdc:RimworldData/) - 림월드 오리지널 + DLC Defs
+- **현재 원본 Defs (1.7)**: [RimworldData/1.7/](mdc:RimworldData/1.7/) - 설치된 림월드 오리지널 + DLC 데이터
+- **기존 데이터 보관 (1.6)**: [RimworldData/1.6/](mdc:RimworldData/1.6/) - 교체 전 XML·참조 자료 원문 보존
   - Core/: 기본 게임 Defs
   - Royalty/: 로열티 DLC Defs
   - Ideology/: 이데올로기 DLC Defs
@@ -36,11 +37,16 @@ alwaysApply: true
   - Anomaly/: 어노말리 DLC Defs
   - Odyssey/: 오디세이 DLC Defs
   
-- **소스코드**: [RimworldSource/](mdc:RimworldSource/) - 림월드 오리지널 소스코드
+- **현재 소스코드 (1.7)**: [RimworldSource/1.7/](mdc:RimworldSource/1.7/) - 설치본 전체 디컴파일 소스
+- **기존 소스 보관 (1.6)**: [RimworldSource/1.6/](mdc:RimworldSource/1.6/) - 교체 전 디컴파일 소스·프로젝트·중간 파일 보존
   - Verse/: 게임 엔진 코어 소스코드
   - RimWorld/: 게임 로직 소스코드  
   - LudeonTK/: 개발 도구 소스코드
   - 유틸리티 클래스들: LayoutWorker, MechanitorUtility 등
+  - `_Engine/`: 1.7 실행부·엔진·Unity 호환층을 어셈블리별로 분리한 소스
+  - `_Decompile/`: 디컴파일 입력 버전·해시·실행 로그
+  - 신규 조사에서는 버전 경로를 명시한다. 기존 루트의 참조 경로는 1.7 자료에 연결한다.
+  - 참조 자료 버전 변경은 모드 프로젝트의 1.7 이식·재빌드 완료를 의미하지 않는다.
   
 - **AlienRace 모드 소스코드**: [AlienRace/](mdc:AlienRace/) - Humanoid Alien Races 모드 소스코드
   - 종족 시스템 확장 관련 핵심 클래스들
