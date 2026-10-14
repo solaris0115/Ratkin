@@ -32,6 +32,17 @@
 ## 한계
 
 - 이 결과는 C# 정적 호환성 검토이며 전체 모드의 1.7 구동 성공 판정이 아니다.
-- `About.xml` 지원 버전과 `LoadFolders.xml`은 아직 1.7을 선언하지 않는다. 이 작업은 C# 범위여서 수정하지 않았다.
+- 최초 검토 시 `About.xml` 지원 버전과 `LoadFolders.xml`은 1.7을 선언하지 않았다. 이후 활성화 준비에서 About 표기를 추가했으며, 아래 실행 오류 수정에서 1.7 로드 설정을 추가했다.
 - 설치된 HAR에는 1.7 전용 폴더가 없다. HAR의 1.7 런타임 및 리플렉션 확장 호환성은 확인하지 못했다.
 - 실제 로딩, 세이브, 전투·퀘스트·렌더링 동작은 사용자 요청대로 테스트하지 않았다.
+
+## 2026-10-14 실행 오류 2개 수정
+
+- 상황: 사용자가 1.7에서 모드를 활성화한 뒤 실행 오류 2개 수정을 요청했다. 현재 로그는 `Logs/Player.log`에 있으며 루트의 이전 로그는 1.6 실행 기록이었다.
+- 오류 메시지:
+  - `Failed to find Verse.HediffDef named RK_Hediff_HawkEyeRange. There are 340 defs of this type loaded.`
+  - `Failed to find RimWorld.TraitDef named RK_Trait_HawkEye. There are 53 defs of this type loaded.`
+- 원인: 소스·XML의 호크아이 비활성화는 이미 반영됐지만 1.7 DLL이 미빌드여서 로더가 1.6의 이전 DLL을 읽었다. 이전 DLL에는 비활성 정의를 찾는 DefOf 필드가 남아 있었다.
+- 수정: 주석과 메모를 유지하고 1.7 Release DLL을 재빌드했다. 1.7 로드 목록은 기존 1.6 콘텐츠 다음에 1.7 폴더를 두어 동일 상대 경로의 새 DLL이 기존 DLL을 대체하게 했다.
+- 확인: 빌드 오류 0개, 유니크 무기의 IntRange null 비교 경고 1개. 로더의 상대 경로 중복 제거 규칙상 새 DLL이 선택되며, 선택된 DLL의 메타데이터에 HawkEye 클래스·필드가 없고 관련 XML에도 활성 참조가 없음을 확인했다.
+- 실행 중인 게임은 재시작해야 반영된다. 게임 재실행·게임 내 테스트는 수행하지 않았다.

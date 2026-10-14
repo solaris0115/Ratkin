@@ -4,6 +4,8 @@ description: RimWorld log file path
 ---
 # RimWorld Log
 
-Path: `C:\Users\HunJaeJeung\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Player.log`
+- **1.7 현재 로그**: `C:\Users\HunJaeJeung\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Logs\Player.log`
+- **1.6 이전 로그**: `C:\Users\HunJaeJeung\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Player.log`
+- 실행 버전과 로그 수정 시각을 대조한다. 1.7에서 루트의 이전 Player.log를 현재 실행 로그로 판단하지 않는다.
 
 Read this file when user asks for log analysis, error checking, or debugging.
