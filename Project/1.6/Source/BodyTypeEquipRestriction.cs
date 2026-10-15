@@ -112,6 +112,16 @@ namespace NewRatkin
                 return false;
             }
 
+            // 어린이는 성인 체형 유전자와 무관하게 Child 체형을 사용한다.
+            // Thin용 의류 중 원래 어린이 착용이 가능한 것만 허용하며, 무기 제한은 유지한다.
+            // Pawn 오버로드는 아래 Harmony 패치를 다시 호출하므로 성별·성장 단계 오버로드를 사용한다.
+            if (def.IsApparel && pawn?.story?.bodyType == BodyTypeDefOf.Child &&
+                pawn.DevelopmentalStage.Child() && allowed.Contains(BodyTypeDefOf.Thin) &&
+                def.apparel.PawnCanWear(pawn.gender, pawn.DevelopmentalStage))
+            {
+                return false;
+            }
+
             cantReason = "RK_BodyTypeEquipRequirementFailed".Translate();
             return true;
         }
@@ -143,12 +153,7 @@ namespace NewRatkin
                 return;
             }
 
-            if (!TryGetAllowedBodyTypes(ap.def, out List<BodyTypeDef> allowed))
-            {
-                return;
-            }
-
-            if (!PawnMeetsBodyTypeRequirement(pawn, allowed))
+            if (BlocksPawn(ap.def, pawn, out _))
             {
                 __result = -1001f;
             }
@@ -161,7 +166,7 @@ namespace NewRatkin
                 return;
             }
 
-            if (TryGetAllowedBodyTypes(apparelDef, out List<BodyTypeDef> allowed) && !PawnMeetsBodyTypeRequirement(pawn, allowed))
+            if (BlocksPawn(apparelDef, pawn, out _))
             {
                 __result = false;
             }
