@@ -1,0 +1,59 @@
+{
+  "title": "NewRatkinPlus 창작마당 댓글 이슈 조사",
+  "workshop_id": "1578693166",
+  "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1578693166",
+  "source_endpoint": "https://steamcommunity.com/comment/PublishedFile_Public/render/76561198006135120/1578693166/",
+  "collected_at_kst": "2026-10-15T18:24:14.276243+09:00",
+  "period_start_inclusive": "2026-06-01T00:00:00+09:00",
+  "period_end_exclusive": "2026-10-01T00:00:00+09:00",
+  "timezone": "Asia/Seoul (UTC+09:00)",
+  "observed_total_comments": [
+    4912,
+    4912
+  ],
+  "retrieved_comment_count": 200,
+  "in_range_comment_count": 86,
+  "month_counts": {
+    "2026-06": 41,
+    "2026-07": 24,
+    "2026-08": 9,
+    "2026-09": 12
+  },
+  "classification_counts": {
+    "제외": 35,
+    "이슈 제보": 38,
+    "관련 답글": 11,
+    "정보 부족 보류": 2
+  },
+  "issue_group_count": 20,
+  "pages": [
+    {
+      "start": 0,
+      "count": 100,
+      "newest_timestamp": 1792051508,
+      "oldest_timestamp": 1780485084,
+      "total_count": 4912
+    },
+    {
+      "start": 100,
+      "count": 100,
+      "newest_timestamp": 1780462316,
+      "oldest_timestamp": 1777367541,
+      "total_count": 4912
+    }
+  ],
+  "overlap_check": {
+    "start": 90,
+    "count": 30,
+    "matched": true
+  },
+  "completeness_ko": "공개된 본문 댓글만 수집. 기간 전후를 포함한 연속 200개와 경계 중복 30개를 대조했다. 삭제·비공개 댓글, 토론 게시판과 외부 링크 내부 자료는 제외.",
+  "translation_method": "에이전트가 한국어로 의미 번역. 같은 댓글 안 다국어 반복과 인사말은 축약했으며 원문을 보존.",
+  "issue_policy": "구체적인 실패·표시 이상·번역 누락을 후보로 포함. 단순 취향·기능 요청·일반 문의는 제외. 증상 없는 오류 언급은 보류. 재현·원인·수정 완료는 독립 확인하지 않음.",
+  "dedup_policy": "같은 증상 단위로 묶고 동일 작성자의 반복과 보충을 구분. 새 게임 실패와 Rotti는 같은 원인을 확정하지 않는 하위 사례 묶음. 다른 부위의 외형 이상·정확한 증상 없는 충돌은 분리.",
+  "snapshot_sha256": {
+    "page_0.json": "32c8994d29147a98d0621e564683b7b0e894a42ac5eba7ab9cad78c35a31faec",
+    "page_100.json": "0e005feab0de16a1fcd94541039db90890c46861ef9c892578d4bcda0ce10777",
+    "overlap_90.json": "00bd8befa47ebfb203822b256ac1b2b48f1a0608f26d76d83b6bcb4d9697b449"
+  }
+}
