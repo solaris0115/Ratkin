@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<!-- Biotech: raceRestriction 장비 목록 제거 → BodyTypeEquipRestriction(C#)으로 Thin 체형 필요 -->
+	<!-- 공용 Biotech: 무기의 종족 제한을 Thin 체형 제한으로 대체. 의상 변경은 1.7/Biotech에서만 적용. -->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
 			<li>Biotech</li>
@@ -8,23 +8,10 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationRemove">
-					<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/raceRestriction/apparelList/li</xpath>
-				</li>
-				<li Class="PatchOperationRemove">
 					<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/raceRestriction/weaponList/li</xpath>
 				</li>
 
-				<!-- 의상·무기 추상 베이스 + RK_ApparelBase 미상속 Def -->
-				<li Class="PatchOperationAddModExtension">
-					<xpath>/Defs/ThingDef[@Name="RK_ApparelBase"]</xpath>
-					<value>
-						<li Class="NewRatkin.BodyTypeEquipRestriction">
-							<allowedBodyTypes>
-								<li>Thin</li>
-							</allowedBodyTypes>
-						</li>
-					</value>
-				</li>
+				<!-- 무기 추상 베이스와 개별 무기 -->
 				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[@Name="RK_MeleeWeapon"]</xpath>
 					<value>
@@ -66,47 +53,7 @@
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
-					<xpath>/Defs/ThingDef[@Name="RK_ApparelAttr_CataphractArmorBase"]</xpath>
-					<value>
-						<li Class="NewRatkin.BodyTypeEquipRestriction">
-							<allowedBodyTypes>
-								<li>Thin</li>
-							</allowedBodyTypes>
-						</li>
-					</value>
-				</li>
-				<li Class="PatchOperationAddModExtension">
-					<xpath>/Defs/ThingDef[@Name="RK_ApparelAttr_CataphractHelmetBase"]</xpath>
-					<value>
-						<li Class="NewRatkin.BodyTypeEquipRestriction">
-							<allowedBodyTypes>
-								<li>Thin</li>
-							</allowedBodyTypes>
-						</li>
-					</value>
-				</li>
-				<li Class="PatchOperationAddModExtension">
 					<xpath>/Defs/ThingDef[defName="RK_MagicWand"]</xpath>
-					<value>
-						<li Class="NewRatkin.BodyTypeEquipRestriction">
-							<allowedBodyTypes>
-								<li>Thin</li>
-							</allowedBodyTypes>
-						</li>
-					</value>
-				</li>
-				<li Class="PatchOperationAddModExtension">
-					<xpath>/Defs/ThingDef[defName="RK_Apparel_VacsuitHelmet"]</xpath>
-					<value>
-						<li Class="NewRatkin.BodyTypeEquipRestriction">
-							<allowedBodyTypes>
-								<li>Thin</li>
-							</allowedBodyTypes>
-						</li>
-					</value>
-				</li>
-				<li Class="PatchOperationAddModExtension">
-					<xpath>/Defs/ThingDef[defName="RK_Apparel_Vacsuit"]</xpath>
 					<value>
 						<li Class="NewRatkin.BodyTypeEquipRestriction">
 							<allowedBodyTypes>

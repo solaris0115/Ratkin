@@ -32,7 +32,10 @@ namespace NewRatkin
         static BodyTypeEquipRestrictionRegistry()
         {
             Rebuild();
+#if RIMWORLD_1_7
+            // 의상 체형 제한은 1.7 전용. 1.6은 마지막 배포 당시 HAR 의상 제한을 유지한다.
             ApplyHarmonyPatches();
+#endif
         }
 
         public static void Rebuild()
@@ -102,6 +105,13 @@ namespace NewRatkin
         public static bool BlocksPawn(ThingDef def, Pawn pawn, out string cantReason)
         {
             cantReason = null;
+#if !RIMWORLD_1_7
+            // 1.6에는 의상 체형 제한을 적용하지 않는다. 무기 조건은 별도로 유지한다.
+            if (def.IsApparel)
+            {
+                return false;
+            }
+#endif
             if (!TryGetAllowedBodyTypes(def, out List<BodyTypeDef> allowed))
             {
                 return false;
@@ -126,6 +136,7 @@ namespace NewRatkin
             return true;
         }
 
+#if RIMWORLD_1_7
         private static void ApplyHarmonyPatches()
         {
             Harmony harmony = new Harmony("com.NewRatkin.bodyTypeEquip");
@@ -171,5 +182,6 @@ namespace NewRatkin
                 __result = false;
             }
         }
+#endif
     }
 }

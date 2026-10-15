@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!-- 1.7 + Biotech 전용: 의상 종족 제한을 Thin 체형 제한으로 대체한다.
+	     1.6에서는 이 폴더를 로드하지 않아 마지막 배포 당시의 의상 종족 제한을 유지한다. -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/raceRestriction/apparelList/li</xpath>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/ThingDef[@Name="RK_ApparelBase"]</xpath>
+				<value>
+					<li Class="NewRatkin.BodyTypeEquipRestriction">
+						<allowedBodyTypes>
+							<li>Thin</li>
+						</allowedBodyTypes>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/ThingDef[@Name="RK_ApparelAttr_CataphractArmorBase"]</xpath>
+				<value>
+					<li Class="NewRatkin.BodyTypeEquipRestriction">
+						<allowedBodyTypes>
+							<li>Thin</li>
+						</allowedBodyTypes>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/ThingDef[@Name="RK_ApparelAttr_CataphractHelmetBase"]</xpath>
+				<value>
+					<li Class="NewRatkin.BodyTypeEquipRestriction">
+						<allowedBodyTypes>
+							<li>Thin</li>
+						</allowedBodyTypes>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/ThingDef[defName="RK_Apparel_VacsuitHelmet"]</xpath>
+				<value>
+					<li Class="NewRatkin.BodyTypeEquipRestriction">
+						<allowedBodyTypes>
+							<li>Thin</li>
+						</allowedBodyTypes>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>/Defs/ThingDef[defName="RK_Apparel_Vacsuit"]</xpath>
+				<value>
+					<li Class="NewRatkin.BodyTypeEquipRestriction">
+						<allowedBodyTypes>
+							<li>Thin</li>
+						</allowedBodyTypes>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>
