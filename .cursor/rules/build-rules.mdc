@@ -13,15 +13,17 @@ description: Ratkin 프로젝트 간단 빌드 규칙 (폴더/PowerShell 중심)
 - 설치 위치·정적 검토 방법: [02-csharp-manage-rule.mdc](02-csharp-manage-rule.mdc).
 - 전체 모드의 1.7 지원/로드 설정 준비 여부는 별도로 확인한다.
 
-## 1.6 기존 빌드 폴더
-- **기존 빌드 버전**: RimWorld 1.6. `Project/1.5/` 작업 금지.
-- 소스: `Project/1.6/Source`
-- 출력 DLL: `Project/1.6/Assemblies/NewRatkin.dll`
+## 1.6 고정 배포본
+- RimWorld 1.6은 `Project/1.6/Released/`의 2026-05-20 배포 기준(`8669dcc70`) 파일만 로드한다.
+- 실제 DLL: `Project/1.6/Released/1.6/Assemblies/NewRatkin.dll`.
+- 보관본 소스: `Project/1.6/Released/1.6/Source`. 새 기능이나 현재 개발 DLL을 이 보관본에 넣지 않는다.
+- `Project/1.6/Source`는 1.7에서 공유하는 개발 소스다. 이후 작업은 1.7에서만 반영한다.
+- `Project/1.5/` 작업 금지.
 
 ## PowerShell로 빌드
 ```powershell
-# 프로젝트 소스 폴더로 이동 후 빌드 (한 줄)
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Debug
+# 현재 개발 대상인 1.7 빌드
+dotnet build Project/1.7/Source/NewRatkin.csproj --no-incremental -c Release
 ```
 
 ## 중요: PowerShell 문법 (Windows PowerShell 5.x)
@@ -32,6 +34,6 @@ cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Communit
 
 ## 메모
 - PowerShell 권장. (Windows CMD 사용 시 경로 따옴표 처리 주의)
-- 위 예시는 **`/t:Rebuild`**(Clean 후 빌드)로 증분 건너뜀 없이 매번 컴파일한다.
+- 위 예시는 `--no-incremental`로 전체 컴파일한다.
 - 빌드 성공 메시지: `Build succeeded.`
-- 빌드 산출물은 자동으로 `Assemblies/` 폴더에 복사됨.
+- 빌드 산출물은 `Project/1.7/Assemblies/`에 생성한다. 1.6 고정본 재생성 설정은 보관본 README 참조.

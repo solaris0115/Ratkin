@@ -19,15 +19,12 @@ description: C# build and project management
 
 ## 1.6 기존 프로젝트
 
-**csproj**: [NewRatkin.csproj](mdc:Project/1.6/Source/NewRatkin.csproj)
-
-```powershell
-cd Project/1.6/Source; & "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NewRatkin.csproj /t:Rebuild /p:Configuration=Debug
-```
-
-- `/t:Rebuild`: 증분 건너뜀 없이 매번 전체 빌드.
-- Output: `Project/1.6/Assemblies/NewRatkin.dll`
-- Intermediate: `Project/1.6/Source/obj/Debug/`
+- 1.6 실행본은 `Project/1.6/Released/` 아래의 2026-05-20 배포 기준(`8669dcc70`) 보관본으로 고정한다.
+- 실제 실행 DLL: `Project/1.6/Released/1.6/Assemblies/NewRatkin.dll`.
+- DLL을 재생성해야 할 때는 보관본의 `1.6/Source/NewRatkin.csproj`만 사용한다. 현재 개발 소스의 DLL을 보관본에 복사하지 않는다.
+- 보관본의 XML·패치·DLC·번역·텍스처·사운드도 함께 고정한다. 이후 변경은 1.7 개발본에만 반영한다.
+- `Project/1.6/Source/`는 1.7 프로젝트가 링크하는 개발 소스이며, 그 옆의 개발 DLL은 현재 1.6 실행 경로가 아니다.
+- 보관본의 출처와 재생성 참조 설정은 `Project/1.6/Released/README.md`에 기록한다.
 
 ## File Management
 - New `.cs` → add `<Compile Include="Folder\File.cs" />` to csproj `<ItemGroup>`
